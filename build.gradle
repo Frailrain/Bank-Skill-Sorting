@@ -14,20 +14,23 @@ repositories {
 }
 
 def runeLiteVersion = 'latest.release'
-def pluginMainClass = 'com.example.ExamplePluginTest'
+def pluginMainClass = 'com.skillbank.SkillBankPluginTest'
 
 dependencies {
-	compileOnly group: 'net.runelite', name:'client', version: runeLiteVersion
+	compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
 
 	compileOnly 'org.projectlombok:lombok:1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
 	testImplementation 'junit:junit:4.12'
-	testImplementation group: 'net.runelite', name:'client', version: runeLiteVersion
-	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
+	testImplementation group: 'net.runelite', name: 'client', version: runeLiteVersion
+	testImplementation group: 'net.runelite', name: 'jshell', version: runeLiteVersion
+
+	testCompileOnly 'org.projectlombok:lombok:1.18.30'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
 
-group = 'com.example'
+group = 'com.skillbank'
 version = '1.0-SNAPSHOT'
 
 tasks.withType(JavaCompile).configureEach {
@@ -35,12 +38,35 @@ tasks.withType(JavaCompile).configureEach {
 	options.release.set(11)
 }
 
+// Original 'run' task from the RuneLite example-plugin template. Kept for backwards
+// compatibility — both 'run' and 'runClient' launch the same entry point, which calls
+// ExternalPluginManager.loadBuiltin(...) before RuneLite.main(...). Invoking
+// net.runelite.client.RuneLite directly would start the client without the plugin
+// registered, so we go through SkillBankPluginTest.
 tasks.register('run', JavaExec) {
+	group = 'runelite'
+	description = 'Launch a RuneLite client with this plugin loaded (template-style).'
 	classpath = sourceSets.test.runtimeClasspath
 	mainClass = pluginMainClass
 
-	jvmArgs "-ea"
-	args "--developer-mode", "--debug"
+	jvmArgs '-ea'
+	args '--developer-mode', '--debug'
+}
+
+tasks.register('runClient', JavaExec) {
+	group = 'runelite'
+	description = 'Launch a RuneLite client with this plugin loaded.'
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = pluginMainClass
+
+	doFirst {
+		jvmArgs '-ea',
+			'-Xmx512m',
+			'-Xss2m',
+			'-XX:CompileThreshold=1500'
+	}
+
+	args '--developer-mode', '--debug'
 }
 
 tasks.register('shadowJar', Jar) {
