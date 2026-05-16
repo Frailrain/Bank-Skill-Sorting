@@ -10,11 +10,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
 import javax.inject.Inject;
 import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+import net.runelite.api.GameState;
+import net.runelite.api.events.GameStateChanged;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -67,6 +70,7 @@ public class SkillBankPlugin extends Plugin
 
 	private SkillBankPanel panel;
 	private NavigationButton navButton;
+	private boolean seedAttempted;
 
 	@Provides
 	SkillBankConfig provideConfig(ConfigManager configManager)
@@ -77,6 +81,7 @@ public class SkillBankPlugin extends Plugin
 	@Override
 	protected void startUp() throws Exception
 	{
+		seedAttempted = false;
 		panel = new SkillBankPanel(this);
 
 		BufferedImage icon;
@@ -98,13 +103,6 @@ public class SkillBankPlugin extends Plugin
 		clientToolbar.addNavigation(navButton);
 
 		cleanupLegacyTaggedItemsKeys();
-
-		if (config.seedOnStartup())
-		{
-			SeedResult result = seedMissing();
-			announce(result);
-			SwingUtilities.invokeLater(() -> panel.setStatus(result.summary()));
-		}
 	}
 
 	@Override
@@ -131,12 +129,14 @@ public class SkillBankPlugin extends Plugin
 			case "reseedMissing":
 				if (config.reseedMissing())
 				{
-					SeedResult result = seedMissing();
-					announce(result);
-					if (panel != null)
+					seedMissing(result ->
 					{
-						SwingUtilities.invokeLater(() -> panel.setStatus(result.summary()));
-					}
+						announce(result);
+						if (panel != null)
+						{
+							SwingUtilities.invokeLater(() -> panel.setStatus(result.summary()));
+						}
+					});
 					configManager.setConfiguration(SkillBankConfig.GROUP, "reseedMissing", false);
 				}
 				break;
@@ -153,14 +153,15 @@ public class SkillBankPlugin extends Plugin
 					}
 					else
 					{
-						int cleared = resetAll();
-						postChat("Skill Bank: removed " + cleared + " skill tag(s). Reseed via 'Reseed missing tags'.");
-						if (panel != null)
+						resetAll(cleared ->
 						{
-							final int c = cleared;
-							SwingUtilities.invokeLater(() -> panel.setStatus("Removed " + c + " skill tag(s)."));
-						}
-						configManager.setConfiguration(SkillBankConfig.GROUP, "resetConfirm", false);
+							postChat("Skill Bank: removed " + cleared + " skill tag(s). Reseed via 'Reseed missing tags'.");
+							if (panel != null)
+							{
+								SwingUtilities.invokeLater(() -> panel.setStatus("Removed " + cleared + " skill tag(s)."));
+							}
+							configManager.setConfiguration(SkillBankConfig.GROUP, "resetConfirm", false);
+						});
 					}
 					configManager.setConfiguration(SkillBankConfig.GROUP, "resetAll", false);
 				}
@@ -171,13 +172,57 @@ public class SkillBankPlugin extends Plugin
 	}
 
 	/**
+	 * Defer seed-on-startup until the OSRS item cache is populated. Running it
+	 * from {@link #startUp()} called {@link TagManager#addTag} before the cache
+	 * was ready and threw {@link NullPointerException} from inside Bank Tags'
+	 * canonicalization. The first state transition into LOGIN_SCREEN or
+	 * LOGGED_IN is the earliest safe trigger; we latch so it fires once.
+	 */
+	@Subscribe
+	public void onGameStateChanged(GameStateChanged event)
+	{
+		if (seedAttempted)
+		{
+			return;
+		}
+		GameState state = event.getGameState();
+		if (state != GameState.LOGIN_SCREEN && state != GameState.LOGGED_IN)
+		{
+			return;
+		}
+		seedAttempted = true;
+		if (!config.seedOnStartup())
+		{
+			return;
+		}
+		seedMissing(result ->
+		{
+			announce(result);
+			if (panel != null)
+			{
+				SwingUtilities.invokeLater(() -> panel.setStatus(result.summary()));
+			}
+		});
+	}
+
+	/**
+	 * Schedule a seed pass on the client thread, then deliver the result to the
+	 * given callback (also invoked on the client thread). The underlying work
+	 * calls {@link TagManager} methods which require the client thread.
+	 */
+	void seedMissing(Consumer<SeedResult> callback)
+	{
+		clientThread.invokeLater(() -> callback.accept(doSeedMissing()));
+	}
+
+	/**
 	 * Seed every enabled skill tab. For each item ID in each enabled tag bucket,
 	 * adds our tag via {@link TagManager#addTag(int, String, boolean)} (idempotent
 	 * — Bank Tags appends to the existing CSV without duplicating). Also writes
 	 * the tab icon and registers the tag name in {@code banktags.tagtabs} so the
-	 * tab appears in the bank UI strip.
+	 * tab appears in the bank UI strip. Must run on the client thread.
 	 */
-	SeedResult seedMissing()
+	private SeedResult doSeedMissing()
 	{
 		Map<String, List<Integer>> tags = SkillBankData.tags();
 		int itemsTagged = 0;
@@ -233,18 +278,28 @@ public class SkillBankPlugin extends Plugin
 			configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY, String.join(",", tabsCsvUpdated));
 		}
 
-		clientThread.invokeLater(tabInterface::reloadActiveTab);
+		tabInterface.reloadActiveTab();
 
 		return new SeedResult(itemsTagged, itemsAlready, tagsSeeded, tagsDisabled);
+	}
+
+	/**
+	 * Schedule a reset pass on the client thread, then deliver the cleared count
+	 * to the given callback (also invoked on the client thread). The underlying
+	 * work calls {@link TagManager} methods which require the client thread.
+	 */
+	void resetAll(Consumer<Integer> callback)
+	{
+		clientThread.invokeLater(() -> callback.accept(doResetAll()));
 	}
 
 	/**
 	 * Remove every skill tag this plugin knows about from every item, leaving any
 	 * co-tags from other sources intact. Also unsets our tab icons and removes
 	 * our tag names from {@code banktags.tagtabs}. Returns the number of skill
-	 * tag names whose tabs were cleared.
+	 * tag names whose tabs were cleared. Must run on the client thread.
 	 */
-	int resetAll()
+	private int doResetAll()
 	{
 		Set<String> skillTags = SkillBankData.tags().keySet();
 		int cleared = 0;
@@ -279,13 +334,29 @@ public class SkillBankPlugin extends Plugin
 			}
 		}
 
-		clientThread.invokeLater(tabInterface::reloadActiveTab);
+		tabInterface.reloadActiveTab();
 
 		return cleared;
 	}
 
-	/** Describe current on-disk state for the panel. */
-	Map<String, Boolean> currentTagPresence()
+	/**
+	 * Schedule a tag-presence read on the client thread, then deliver the result
+	 * to the given callback (also invoked on the client thread). Used by the
+	 * panel to populate its indicator list without blocking the EDT.
+	 */
+	void requestTagPresence(Consumer<Map<String, Boolean>> callback)
+	{
+		clientThread.invokeLater(() -> callback.accept(currentTagPresence()));
+	}
+
+	/** All tag names this plugin manages, in canonical declaration order. */
+	Set<String> knownTagNames()
+	{
+		return SkillBankData.tags().keySet();
+	}
+
+	/** Describe current on-disk state for the panel. Must run on the client thread. */
+	private Map<String, Boolean> currentTagPresence()
 	{
 		Map<String, Boolean> out = new LinkedHashMap<>();
 		for (String tagName : SkillBankData.tags().keySet())

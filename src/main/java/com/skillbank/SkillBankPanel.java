@@ -98,7 +98,8 @@ class SkillBankPanel extends PluginPanel
 		footer.setBackground(ColorScheme.DARK_GRAY_COLOR);
 		add(footer, BorderLayout.SOUTH);
 
-		refreshTagList();
+		renderEmptyTagList();
+		scheduleRefreshTagList();
 	}
 
 	void setStatus(String text)
@@ -107,22 +108,51 @@ class SkillBankPanel extends PluginPanel
 		{
 			statusLabel.setText(text);
 			confirmResetBox.setSelected(plugin.isResetConfirmed());
-			refreshTagList();
 		});
+		scheduleRefreshTagList();
 	}
 
-	private void refreshTagList()
+	/**
+	 * Paint a synchronous placeholder list using just the known tag names, so the
+	 * panel has all rows immediately even before the client-thread presence
+	 * check completes.
+	 */
+	private void renderEmptyTagList()
 	{
 		tagListPanel.removeAll();
-		Map<String, Boolean> presence = plugin.currentTagPresence();
-		for (Map.Entry<String, Boolean> e : presence.entrySet())
+		for (String tagName : plugin.knownTagNames())
 		{
-			JLabel row = new JLabel((e.getValue() ? "\u2713 " : "\u00B7 ") + e.getKey());
-			row.setForeground(e.getValue() ? new Color(120, 200, 120) : Color.LIGHT_GRAY);
+			JLabel row = new JLabel("\u00B7 " + tagName);
+			row.setForeground(Color.LIGHT_GRAY);
 			tagListPanel.add(row);
 		}
 		tagListPanel.revalidate();
 		tagListPanel.repaint();
+	}
+
+	/**
+	 * Ask the plugin to read tag presence on the client thread, then update the
+	 * panel on the EDT once results are back.
+	 */
+	private void scheduleRefreshTagList()
+	{
+		plugin.requestTagPresence(this::applyTagPresence);
+	}
+
+	private void applyTagPresence(Map<String, Boolean> presence)
+	{
+		SwingUtilities.invokeLater(() ->
+		{
+			tagListPanel.removeAll();
+			for (Map.Entry<String, Boolean> e : presence.entrySet())
+			{
+				JLabel row = new JLabel((e.getValue() ? "\u2713 " : "\u00B7 ") + e.getKey());
+				row.setForeground(e.getValue() ? new Color(120, 200, 120) : Color.LIGHT_GRAY);
+				tagListPanel.add(row);
+			}
+			tagListPanel.revalidate();
+			tagListPanel.repaint();
+		});
 	}
 
 	private static JPanel createSpacer(int height)
