@@ -3,11 +3,13 @@ package com.skillbank;
 import com.google.inject.Provides;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.BooleanSupplier;
-import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +20,11 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
+import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.plugins.banktags.BankTagsPlugin;
+import net.runelite.client.plugins.banktags.TagManager;
+import net.runelite.client.plugins.banktags.tabs.TabInterface;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.util.ImageUtil;
@@ -29,10 +35,14 @@ import net.runelite.client.util.ImageUtil;
 	description = "Seeds Bank Tags tag groups with predefined skill-based item lists",
 	tags = {"bank", "tags", "skilling", "organization"}
 )
+@PluginDependency(BankTagsPlugin.class)
 public class SkillBankPlugin extends Plugin
 {
 	static final String BANKTAGS_GROUP = "banktags";
-	static final String TAGGED_ITEMS_PREFIX = "taggedItems_";
+	static final String ITEM_PREFIX = "item_";
+	static final String ICON_PREFIX = "icon_";
+	static final String TAG_TABS_KEY = "tagtabs";
+	static final String LEGACY_TAGGED_ITEMS_PREFIX = "taggedItems_";
 
 	@Inject
 	private Client client;
@@ -48,6 +58,12 @@ public class SkillBankPlugin extends Plugin
 
 	@Inject
 	private SkillBankConfig config;
+
+	@Inject
+	private TagManager tagManager;
+
+	@Inject
+	private TabInterface tabInterface;
 
 	private SkillBankPanel panel;
 	private NavigationButton navButton;
@@ -81,9 +97,10 @@ public class SkillBankPlugin extends Plugin
 			.build();
 		clientToolbar.addNavigation(navButton);
 
+		cleanupLegacyTaggedItemsKeys();
+
 		if (config.seedOnStartup())
 		{
-			// Run on the client thread so chat messages can be posted once logged in.
 			SeedResult result = seedMissing();
 			announce(result);
 			SwingUtilities.invokeLater(() -> panel.setStatus(result.summary()));
@@ -137,11 +154,11 @@ public class SkillBankPlugin extends Plugin
 					else
 					{
 						int cleared = resetAll();
-						postChat("Skill Bank: cleared " + cleared + " tag(s). Reseed via 'Reseed missing tags'.");
+						postChat("Skill Bank: removed " + cleared + " skill tag(s). Reseed via 'Reseed missing tags'.");
 						if (panel != null)
 						{
 							final int c = cleared;
-							SwingUtilities.invokeLater(() -> panel.setStatus("Cleared " + c + " tag(s)."));
+							SwingUtilities.invokeLater(() -> panel.setStatus("Removed " + c + " skill tag(s)."));
 						}
 						configManager.setConfiguration(SkillBankConfig.GROUP, "resetConfirm", false);
 					}
@@ -153,55 +170,117 @@ public class SkillBankPlugin extends Plugin
 		}
 	}
 
-	/** Seed every enabled tag that does not yet exist. */
+	/**
+	 * Seed every enabled skill tab. For each item ID in each enabled tag bucket,
+	 * adds our tag via {@link TagManager#addTag(int, String, boolean)} (idempotent
+	 * — Bank Tags appends to the existing CSV without duplicating). Also writes
+	 * the tab icon and registers the tag name in {@code banktags.tagtabs} so the
+	 * tab appears in the bank UI strip.
+	 */
 	SeedResult seedMissing()
 	{
 		Map<String, List<Integer>> tags = SkillBankData.tags();
-		List<String> seeded = new ArrayList<>();
-		List<String> skippedExisting = new ArrayList<>();
-		List<String> skippedDisabled = new ArrayList<>();
+		int itemsTagged = 0;
+		int itemsAlready = 0;
+		List<String> tagsSeeded = new ArrayList<>();
+		List<String> tagsDisabled = new ArrayList<>();
+
+		Set<String> tabsCsv = readTagTabs();
+		Set<String> tabsCsvUpdated = new LinkedHashSet<>(tabsCsv);
 
 		for (Map.Entry<String, List<Integer>> entry : tags.entrySet())
 		{
 			String tagName = entry.getKey();
 			if (!isTabEnabled(tagName))
 			{
-				skippedDisabled.add(tagName);
+				tagsDisabled.add(tagName);
 				continue;
 			}
 
-			String key = TAGGED_ITEMS_PREFIX + tagName;
-			String existing = configManager.getConfiguration(BANKTAGS_GROUP, key);
-			if (existing != null && !existing.isEmpty())
+			Set<Integer> alreadyTagged = new HashSet<>(tagManager.getItemsForTag(tagName));
+			int newForThisTag = 0;
+			for (Integer itemId : entry.getValue())
 			{
-				skippedExisting.add(tagName);
-				continue;
+				if (alreadyTagged.contains(itemId))
+				{
+					itemsAlready++;
+					continue;
+				}
+				tagManager.addTag(itemId, tagName, false);
+				itemsTagged++;
+				newForThisTag++;
+			}
+			if (newForThisTag > 0)
+			{
+				tagsSeeded.add(tagName);
 			}
 
-			String value = entry.getValue().stream()
-				.distinct()
-				.map(String::valueOf)
-				.collect(Collectors.joining(","));
-			configManager.setConfiguration(BANKTAGS_GROUP, key, value);
-			seeded.add(tagName);
+			String iconKey = ICON_PREFIX + tagName;
+			if (configManager.getConfiguration(BANKTAGS_GROUP, iconKey) == null)
+			{
+				int iconId = SkillBankData.iconFor(tagName);
+				if (iconId > 0)
+				{
+					configManager.setConfiguration(BANKTAGS_GROUP, iconKey, String.valueOf(iconId));
+				}
+			}
+
+			tabsCsvUpdated.add(tagName);
 		}
 
-		return new SeedResult(seeded, skippedExisting, skippedDisabled);
+		if (!tabsCsvUpdated.equals(tabsCsv))
+		{
+			configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY, String.join(",", tabsCsvUpdated));
+		}
+
+		clientThread.invokeLater(tabInterface::reloadActiveTab);
+
+		return new SeedResult(itemsTagged, itemsAlready, tagsSeeded, tagsDisabled);
 	}
 
-	/** Delete every skill tag this plugin knows about. Returns how many were cleared. */
+	/**
+	 * Remove every skill tag this plugin knows about from every item, leaving any
+	 * co-tags from other sources intact. Also unsets our tab icons and removes
+	 * our tag names from {@code banktags.tagtabs}. Returns the number of skill
+	 * tag names whose tabs were cleared.
+	 */
 	int resetAll()
 	{
+		Set<String> skillTags = SkillBankData.tags().keySet();
 		int cleared = 0;
-		for (String tagName : SkillBankData.tags().keySet())
+		for (String tagName : skillTags)
 		{
-			String key = TAGGED_ITEMS_PREFIX + tagName;
-			if (configManager.getConfiguration(BANKTAGS_GROUP, key) != null)
+			if (!tagManager.getItemsForTag(tagName).isEmpty())
 			{
-				configManager.unsetConfiguration(BANKTAGS_GROUP, key);
+				tagManager.removeTag(tagName);
 				cleared++;
 			}
+			configManager.unsetConfiguration(BANKTAGS_GROUP, ICON_PREFIX + tagName);
 		}
+
+		Set<String> tabsCsv = readTagTabs();
+		Set<String> tabsCsvKept = new LinkedHashSet<>();
+		for (String t : tabsCsv)
+		{
+			if (!skillTags.contains(t.toLowerCase()))
+			{
+				tabsCsvKept.add(t);
+			}
+		}
+		if (tabsCsvKept.size() != tabsCsv.size())
+		{
+			if (tabsCsvKept.isEmpty())
+			{
+				configManager.unsetConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY);
+			}
+			else
+			{
+				configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY, String.join(",", tabsCsvKept));
+			}
+		}
+
+		clientThread.invokeLater(tabInterface::reloadActiveTab);
+
 		return cleared;
 	}
 
@@ -211,8 +290,7 @@ public class SkillBankPlugin extends Plugin
 		Map<String, Boolean> out = new LinkedHashMap<>();
 		for (String tagName : SkillBankData.tags().keySet())
 		{
-			String value = configManager.getConfiguration(BANKTAGS_GROUP, TAGGED_ITEMS_PREFIX + tagName);
-			out.put(tagName, value != null && !value.isEmpty());
+			out.put(tagName, !tagManager.getItemsForTag(tagName).isEmpty());
 		}
 		return out;
 	}
@@ -264,13 +342,67 @@ public class SkillBankPlugin extends Plugin
 		return s != null && s.getAsBoolean();
 	}
 
+	private Set<String> readTagTabs()
+	{
+		String v = configManager.getConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY);
+		Set<String> out = new LinkedHashSet<>();
+		if (v == null || v.isEmpty())
+		{
+			return out;
+		}
+		for (String part : v.split(","))
+		{
+			String trimmed = part.trim();
+			if (!trimmed.isEmpty())
+			{
+				out.add(trimmed);
+			}
+		}
+		return out;
+	}
+
+	/**
+	 * Earlier versions of this plugin wrote {@code banktags.taggedItems_<name>}
+	 * keys that Bank Tags never read. Sweep them out on startup so users moving
+	 * from the broken format aren't left with dead config entries.
+	 */
+	private void cleanupLegacyTaggedItemsKeys()
+	{
+		List<String> keys = configManager.getConfigurationKeys(BANKTAGS_GROUP + "." + LEGACY_TAGGED_ITEMS_PREFIX);
+		if (keys == null || keys.isEmpty())
+		{
+			return;
+		}
+		Set<String> skillTags = SkillBankData.tags().keySet();
+		int removed = 0;
+		for (String fullKey : keys)
+		{
+			String[] split = fullKey.split("\\.", 2);
+			if (split.length < 2)
+			{
+				continue;
+			}
+			String shortKey = split[1];
+			String suffix = shortKey.substring(LEGACY_TAGGED_ITEMS_PREFIX.length());
+			if (skillTags.contains(suffix.toLowerCase()))
+			{
+				configManager.unsetConfiguration(BANKTAGS_GROUP, shortKey);
+				removed++;
+			}
+		}
+		if (removed > 0)
+		{
+			log.info("Cleaned up {} legacy banktags.taggedItems_* entries from a previous Skill Bank version", removed);
+		}
+	}
+
 	private void announce(SeedResult result)
 	{
 		if (!config.announceInChat())
 		{
 			return;
 		}
-		postChat("Skill Bank: " + result.summary() + " Reopen your bank to see the new tabs.");
+		postChat("Skill Bank: " + result.summary() + " Reopen your bank if tabs aren't visible yet.");
 	}
 
 	private void postChat(String message)
@@ -287,22 +419,23 @@ public class SkillBankPlugin extends Plugin
 
 	static final class SeedResult
 	{
-		final List<String> seeded;
-		final List<String> skippedExisting;
-		final List<String> skippedDisabled;
+		final int itemsTagged;
+		final int itemsAlready;
+		final List<String> tagsSeeded;
+		final List<String> tagsDisabled;
 
-		SeedResult(List<String> seeded, List<String> skippedExisting, List<String> skippedDisabled)
+		SeedResult(int itemsTagged, int itemsAlready, List<String> tagsSeeded, List<String> tagsDisabled)
 		{
-			this.seeded = seeded;
-			this.skippedExisting = skippedExisting;
-			this.skippedDisabled = skippedDisabled;
+			this.itemsTagged = itemsTagged;
+			this.itemsAlready = itemsAlready;
+			this.tagsSeeded = tagsSeeded;
+			this.tagsDisabled = tagsDisabled;
 		}
 
 		String summary()
 		{
-			return "seeded " + seeded.size()
-				+ ", kept " + skippedExisting.size()
-				+ ", disabled " + skippedDisabled.size() + ".";
+			return "tagged " + itemsTagged + " new item(s) across " + tagsSeeded.size() + " tab(s); "
+				+ itemsAlready + " already tagged; " + tagsDisabled.size() + " disabled.";
 		}
 	}
 }

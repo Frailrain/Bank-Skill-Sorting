@@ -57,6 +57,33 @@ public final class SkillBankData
 	public static final String TAG_SAILING = "sailing";
 
 	private static final Map<String, List<Integer>> TAGS;
+	private static final Map<String, Integer> TAG_ICONS;
+
+	static
+	{
+		Map<String, Integer> i = new LinkedHashMap<>();
+		i.put(TAG_MELEE, 1333);              // rune scimitar
+		i.put(TAG_RANGE, 861);               // magic shortbow
+		i.put(TAG_MAGE, 1387);               // staff of fire
+		i.put(TAG_PRAYER, 1718);             // holy symbol
+		i.put(TAG_COOKING, 1949);            // chef's hat
+		i.put(TAG_WC_FLETCHING, 1513);       // magic logs
+		i.put(TAG_FISHING, 307);             // fishing rod
+		i.put(TAG_FIREMAKING, 590);          // tinderbox
+		i.put(TAG_CRAFTING, 1733);           // needle
+		i.put(TAG_MINING_SMITHING, 1275);    // rune pickaxe
+		i.put(TAG_HERBLORE, 2428);           // attack potion (4)
+		i.put(TAG_AGILITY_THIEVING, 11850);  // graceful hood
+		i.put(TAG_SLAYER, 4155);             // enchanted gem
+		i.put(TAG_FARMING, 5341);            // rake
+		i.put(TAG_RUNECRAFT, 7936);          // pure essence
+		i.put(TAG_HUNTER, 9977);             // grey chinchompa
+		i.put(TAG_CONSTRUCTION, 2347);       // hammer
+		i.put(TAG_MISC, 2572);               // ring of wealth
+		i.put(TAG_QUESTS, 9813);             // quest point cape
+		i.put(TAG_SAILING, 31288);           // sailing cape
+		TAG_ICONS = Collections.unmodifiableMap(i);
+	}
 
 	static
 	{
@@ -1260,5 +1287,12 @@ public final class SkillBankData
 	public static List<Integer> itemsFor(String tag)
 	{
 		return TAGS.getOrDefault(tag, Collections.emptyList());
+	}
+
+	/** Returns the item ID to use as this tag's tab icon, or 0 if none mapped. */
+	public static int iconFor(String tag)
+	{
+		Integer id = TAG_ICONS.get(tag);
+		return id != null ? id : 0;
 	}
 }
