@@ -99,7 +99,7 @@ class SkillBankPanel extends PluginPanel
 		add(footer, BorderLayout.SOUTH);
 
 		renderEmptyTagList();
-		scheduleRefreshTagList();
+		refresh();
 	}
 
 	void setStatus(String text)
@@ -109,7 +109,7 @@ class SkillBankPanel extends PluginPanel
 			statusLabel.setText(text);
 			confirmResetBox.setSelected(plugin.isResetConfirmed());
 		});
-		scheduleRefreshTagList();
+		refresh();
 	}
 
 	/**
@@ -132,9 +132,11 @@ class SkillBankPanel extends PluginPanel
 
 	/**
 	 * Ask the plugin to read tag presence on the client thread, then update the
-	 * panel on the EDT once results are back.
+	 * panel on the EDT once results are back. Called by the panel on construction
+	 * and after status updates, and by the plugin on every transition into
+	 * GameState.LOGGED_IN so the panel populates once the item cache is ready.
 	 */
-	private void scheduleRefreshTagList()
+	void refresh()
 	{
 		plugin.requestTagPresence(this::applyTagPresence);
 	}

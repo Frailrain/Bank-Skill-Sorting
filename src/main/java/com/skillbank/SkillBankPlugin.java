@@ -129,14 +129,24 @@ public class SkillBankPlugin extends Plugin
 			case "reseedMissing":
 				if (config.reseedMissing())
 				{
-					seedMissing(result ->
+					if (client.getGameState() != GameState.LOGGED_IN)
 					{
-						announce(result);
 						if (panel != null)
 						{
-							SwingUtilities.invokeLater(() -> panel.setStatus(result.summary()));
+							SwingUtilities.invokeLater(() -> panel.setStatus("Seeding requires being logged in."));
 						}
-					});
+					}
+					else
+					{
+						seedMissing(result ->
+						{
+							announce(result);
+							if (panel != null)
+							{
+								SwingUtilities.invokeLater(() -> panel.setStatus(result.summary()));
+							}
+						});
+					}
 					configManager.setConfiguration(SkillBankConfig.GROUP, "reseedMissing", false);
 				}
 				break;
@@ -149,6 +159,13 @@ public class SkillBankPlugin extends Plugin
 						if (panel != null)
 						{
 							SwingUtilities.invokeLater(() -> panel.setStatus("Reset blocked: confirm first."));
+						}
+					}
+					else if (client.getGameState() != GameState.LOGGED_IN)
+					{
+						if (panel != null)
+						{
+							SwingUtilities.invokeLater(() -> panel.setStatus("Reset requires being logged in."));
 						}
 					}
 					else
@@ -172,29 +189,30 @@ public class SkillBankPlugin extends Plugin
 	}
 
 	/**
-	 * Defer seed-on-startup until the OSRS item cache is populated. Running it
-	 * from {@link #startUp()} called {@link TagManager#addTag} before the cache
-	 * was ready and threw {@link NullPointerException} from inside Bank Tags'
-	 * canonicalization. The first state transition into LOGIN_SCREEN or
-	 * LOGGED_IN is the earliest safe trigger; we latch so it fires once.
+	 * Defer all game-thread work until the player is fully logged in: the OSRS
+	 * item cache isn't guaranteed populated before that point, and calling
+	 * {@link TagManager} or {@link client#getItemDefinition} earlier throws
+	 * {@link NullPointerException} from inside Bank Tags' canonicalization.
+	 * On every transition into LOGGED_IN we refresh the panel's presence
+	 * indicators; the seed-on-startup trigger fires at most once per session,
+	 * gated on the config toggle.
 	 */
 	@Subscribe
 	public void onGameStateChanged(GameStateChanged event)
 	{
-		if (seedAttempted)
+		if (event.getGameState() != GameState.LOGGED_IN)
 		{
 			return;
 		}
-		GameState state = event.getGameState();
-		if (state != GameState.LOGIN_SCREEN && state != GameState.LOGGED_IN)
+		if (panel != null)
+		{
+			panel.refresh();
+		}
+		if (seedAttempted || !config.seedOnStartup())
 		{
 			return;
 		}
 		seedAttempted = true;
-		if (!config.seedOnStartup())
-		{
-			return;
-		}
 		seedMissing(result ->
 		{
 			announce(result);
@@ -341,12 +359,22 @@ public class SkillBankPlugin extends Plugin
 
 	/**
 	 * Schedule a tag-presence read on the client thread, then deliver the result
-	 * to the given callback (also invoked on the client thread). Used by the
-	 * panel to populate its indicator list without blocking the EDT.
+	 * to the given callback (also invoked on the client thread). Silently
+	 * no-ops when the client isn't yet at LOGGED_IN, since
+	 * {@link TagManager#getItemsForTag} ultimately requires the OSRS item
+	 * cache. The panel re-requests on the next LOGGED_IN transition via
+	 * {@link SkillBankPanel#refresh()}.
 	 */
 	void requestTagPresence(Consumer<Map<String, Boolean>> callback)
 	{
-		clientThread.invokeLater(() -> callback.accept(currentTagPresence()));
+		clientThread.invokeLater(() ->
+		{
+			if (client.getGameState() != GameState.LOGGED_IN)
+			{
+				return;
+			}
+			callback.accept(currentTagPresence());
+		});
 	}
 
 	/** All tag names this plugin manages, in canonical declaration order. */
