@@ -1,0 +1,1979 @@
+Cross-validation: items in current SkillBankData.java but NOT in wiki-classified output.
+Use this to decide whether each item is genuinely deprecated (drop), needs a classifier fix,
+or should be added to force_include / variant_allowlist before flipping --additive=false.
+
+
+=== melee (287 items not in wiki output) ===
+       2  Steel cannonball
+      88  Boots of lightness
+     115  (not in wiki canonical set)
+     117  (not in wiki canonical set)
+     119  (not in wiki canonical set)
+     121  (not in wiki canonical set)
+     123  (not in wiki canonical set)
+     125  (not in wiki canonical set)
+     133  (not in wiki canonical set)
+     135  (not in wiki canonical set)
+     137  (not in wiki canonical set)
+     145  (not in wiki canonical set)
+     147  (not in wiki canonical set)
+     149  (not in wiki canonical set)
+     157  (not in wiki canonical set)
+     159  (not in wiki canonical set)
+     161  (not in wiki canonical set)
+     163  (not in wiki canonical set)
+     165  (not in wiki canonical set)
+     167  (not in wiki canonical set)
+     189  (not in wiki canonical set)
+     191  (not in wiki canonical set)
+     193  (not in wiki canonical set)
+    1231  (not in wiki canonical set)
+    1361  Black axe
+    1363  Iron battleaxe
+    1365  Steel battleaxe
+    1367  Black battleaxe
+    1369  Mithril battleaxe
+    1371  Adamant battleaxe
+    1375  Bronze battleaxe
+    1377  Dragon battleaxe
+    1704  (not in wiki canonical set)
+    1706  (not in wiki canonical set)
+    1708  (not in wiki canonical set)
+    1710  (not in wiki canonical set)
+    1725  Amulet of strength
+    1727  Amulet of magic
+    2572  (not in wiki canonical set)
+    3024  Super restore(4)
+    3026  (not in wiki canonical set)
+    3028  (not in wiki canonical set)
+    3030  (not in wiki canonical set)
+    4716  Dharok's helm
+    4718  Dharok's greataxe
+    4720  Dharok's platebody
+    4722  Dharok's platelegs
+    4724  Guthan's helm
+    4728  Guthan's platebody
+    4730  Guthan's chainskirt
+    4745  Torag's helm
+    4749  Torag's platebody
+    4751  Torag's platelegs
+    5013  (not in wiki canonical set)
+    5680  (not in wiki canonical set)
+    5698  (not in wiki canonical set)
+    6215  (not in wiki canonical set)
+    6217  (not in wiki canonical set)
+    6219  (not in wiki canonical set)
+    6221  (not in wiki canonical set)
+    6223  (not in wiki canonical set)
+    6225  (not in wiki canonical set)
+    6227  (not in wiki canonical set)
+    6229  (not in wiki canonical set)
+    6231  (not in wiki canonical set)
+    6233  (not in wiki canonical set)
+    6522  Toktz-xil-ul
+    6524  Toktz-ket-xil
+    6526  Toktz-mej-tal
+    6687  (not in wiki canonical set)
+    6689  (not in wiki canonical set)
+    6691  (not in wiki canonical set)
+    6739  Dragon axe
+    8901  (not in wiki canonical set)
+    8903  (not in wiki canonical set)
+    8905  (not in wiki canonical set)
+    8907  (not in wiki canonical set)
+    8909  (not in wiki canonical set)
+    8911  (not in wiki canonical set)
+    8913  (not in wiki canonical set)
+    8915  (not in wiki canonical set)
+    8917  (not in wiki canonical set)
+    8919  (not in wiki canonical set)
+    9741  (not in wiki canonical set)
+    9743  (not in wiki canonical set)
+    9745  (not in wiki canonical set)
+    9748  (not in wiki canonical set)
+    9751  (not in wiki canonical set)
+    9754  (not in wiki canonical set)
+    9769  (not in wiki canonical set)
+   10053  Wood camo top
+   10055  Wood camo legs
+   10057  Jungle camo top
+   10059  Jungle camo legs
+   10061  Desert camo top
+   10063  Desert camo legs
+   10065  Polar camo top
+   10067  Polar camo legs
+   10356  (not in wiki canonical set)
+   10358  (not in wiki canonical set)
+   10360  (not in wiki canonical set)
+   10446  Saradomin cloak
+   10450  Zamorak cloak
+   10553  Penance gloves
+   11090  Phoenix necklace
+   11120  (not in wiki canonical set)
+   11122  (not in wiki canonical set)
+   11124  (not in wiki canonical set)
+   11126  (not in wiki canonical set)
+   11128  Berserker necklace
+   11284  (not in wiki canonical set)
+   11446  (not in wiki canonical set)
+   11667  (not in wiki canonical set)
+   11668  (not in wiki canonical set)
+   11669  (not in wiki canonical set)
+   11670  (not in wiki canonical set)
+   11671  (not in wiki canonical set)
+   11672  (not in wiki canonical set)
+   11673  (not in wiki canonical set)
+   11774  (not in wiki canonical set)
+   11775  (not in wiki canonical set)
+   11776  (not in wiki canonical set)
+   11777  (not in wiki canonical set)
+   11778  (not in wiki canonical set)
+   11779  (not in wiki canonical set)
+   11780  (not in wiki canonical set)
+   11781  (not in wiki canonical set)
+   11782  (not in wiki canonical set)
+   11783  (not in wiki canonical set)
+   11798  Godsword blade
+   11799  (not in wiki canonical set)
+   11800  Godsword shards 2 & 3
+   11810  Armadyl hilt
+   11814  Saradomin hilt
+   11816  Zamorak hilt
+   11818  Godsword shard 1
+   11820  Godsword shard 2
+   11832  Bandos chestplate
+   11834  Bandos tassets
+   11964  (not in wiki canonical set)
+   11966  (not in wiki canonical set)
+   11972  (not in wiki canonical set)
+   11974  (not in wiki canonical set)
+   11976  (not in wiki canonical set)
+   11978  (not in wiki canonical set)
+   12697  (not in wiki canonical set)
+   12699  (not in wiki canonical set)
+   12701  (not in wiki canonical set)
+   12808  (not in wiki canonical set)
+   12853  (not in wiki canonical set)
+   12902  (not in wiki canonical set)
+   13080  New crystal halberd full (i)
+   13081  (not in wiki canonical set)
+   13082  (not in wiki canonical set)
+   13083  (not in wiki canonical set)
+   13084  (not in wiki canonical set)
+   13085  (not in wiki canonical set)
+   13086  (not in wiki canonical set)
+   13087  (not in wiki canonical set)
+   13088  (not in wiki canonical set)
+   13089  (not in wiki canonical set)
+   13090  (not in wiki canonical set)
+   13091  New crystal halberd full
+   13092  (not in wiki canonical set)
+   13093  (not in wiki canonical set)
+   13094  (not in wiki canonical set)
+   13095  (not in wiki canonical set)
+   13096  (not in wiki canonical set)
+   13097  (not in wiki canonical set)
+   13098  (not in wiki canonical set)
+   13099  (not in wiki canonical set)
+   13100  (not in wiki canonical set)
+   13101  (not in wiki canonical set)
+   13241  Infernal axe
+   13280  Max cape
+   13317  (not in wiki canonical set)
+   13318  (not in wiki canonical set)
+   19553  Amulet of torture
+   19711  (not in wiki canonical set)
+   20011  3rd age axe
+   20655  (not in wiki canonical set)
+   20657  (not in wiki canonical set)
+   20724  Imbued heart
+   21033  (not in wiki canonical set)
+   22002  Dragonfire ward
+   22003  (not in wiki canonical set)
+   22109  Ava's assembler
+   22486  (not in wiki canonical set)
+   22545  (not in wiki canonical set)
+   22616  Vesta's chainbody
+   22638  Morrigan's coif
+   22956  (not in wiki canonical set)
+   22975  Brimstone ring
+   23673  Crystal axe
+   23688  (not in wiki canonical set)
+   23691  (not in wiki canonical set)
+   23694  (not in wiki canonical set)
+   23700  (not in wiki canonical set)
+   23703  (not in wiki canonical set)
+   23706  (not in wiki canonical set)
+   23712  (not in wiki canonical set)
+   23715  (not in wiki canonical set)
+   23718  (not in wiki canonical set)
+   23724  (not in wiki canonical set)
+   23727  (not in wiki canonical set)
+   23730  (not in wiki canonical set)
+   23764  (not in wiki canonical set)
+   23989  (not in wiki canonical set)
+   24133  (not in wiki canonical set)
+   24134  (not in wiki canonical set)
+   24136  (not in wiki canonical set)
+   24137  (not in wiki canonical set)
+   24138  (not in wiki canonical set)
+   24139  (not in wiki canonical set)
+   24140  (not in wiki canonical set)
+   24141  (not in wiki canonical set)
+   24142  (not in wiki canonical set)
+   24143  (not in wiki canonical set)
+   24157  (not in wiki canonical set)
+   24158  (not in wiki canonical set)
+   24160  (not in wiki canonical set)
+   24161  (not in wiki canonical set)
+   24169  (not in wiki canonical set)
+   24170  (not in wiki canonical set)
+   24171  (not in wiki canonical set)
+   24172  (not in wiki canonical set)
+   24173  (not in wiki canonical set)
+   24174  (not in wiki canonical set)
+   24175  (not in wiki canonical set)
+   24176  (not in wiki canonical set)
+   24177  (not in wiki canonical set)
+   24178  (not in wiki canonical set)
+   24179  (not in wiki canonical set)
+   24180  (not in wiki canonical set)
+   24182  (not in wiki canonical set)
+   24183  (not in wiki canonical set)
+   24184  (not in wiki canonical set)
+   24185  (not in wiki canonical set)
+   24186  (not in wiki canonical set)
+   24194  (not in wiki canonical set)
+   24197  (not in wiki canonical set)
+   24200  (not in wiki canonical set)
+   24203  (not in wiki canonical set)
+   24206  (not in wiki canonical set)
+   24223  (not in wiki canonical set)
+   24224  (not in wiki canonical set)
+   24533  (not in wiki canonical set)
+   24589  Blighted manta ray
+   25173  (not in wiki canonical set)
+   25176  (not in wiki canonical set)
+   25177  (not in wiki canonical set)
+   25643  (not in wiki canonical set)
+   25738  (not in wiki canonical set)
+   25741  (not in wiki canonical set)
+   25975  Lightbearer
+   26376  (not in wiki canonical set)
+   26384  Torva platebody
+   26386  Torva platelegs
+   26674  (not in wiki canonical set)
+   26722  (not in wiki canonical set)
+   26724  (not in wiki canonical set)
+   26725  (not in wiki canonical set)
+   26726  (not in wiki canonical set)
+   26728  (not in wiki canonical set)
+   26729  (not in wiki canonical set)
+   26730  (not in wiki canonical set)
+   26732  (not in wiki canonical set)
+   26734  (not in wiki canonical set)
+   26736  (not in wiki canonical set)
+   26752  (not in wiki canonical set)
+   26754  (not in wiki canonical set)
+   26756  (not in wiki canonical set)
+   26758  (not in wiki canonical set)
+   26760  (not in wiki canonical set)
+   27275  Tumeken's shadow
+   27551  (not in wiki canonical set)
+   27553  (not in wiki canonical set)
+   27657  (not in wiki canonical set)
+   28199  Iron felling axe
+   28545  (not in wiki canonical set)
+   28626  Fox whistle
+   30305  (not in wiki canonical set)
+   32312  Giant krill
+   32328  Yellowfin
+   32336  Halibut
+   32344  Bluefin
+   32352  Marlin
+
+=== range (193 items not in wiki output) ===
+       2  Steel cannonball
+       6  Cannon base
+       8  Cannon stand
+      10  Cannon barrels
+      12  Cannon furnace
+     169  (not in wiki canonical set)
+     171  (not in wiki canonical set)
+     173  (not in wiki canonical set)
+     314  Feather
+     385  Shark
+     391  Manta ray
+     397  Sea turtle
+     942  (not in wiki canonical set)
+    1063  Leather vambraces
+    1065  Green d'hide vambraces
+    1095  Leather chaps
+    1097  Studded chaps
+    1099  Green d'hide chaps
+    1129  Leather body
+    1169  Coif
+    1704  (not in wiki canonical set)
+    1706  (not in wiki canonical set)
+    1708  (not in wiki canonical set)
+    1710  (not in wiki canonical set)
+    1745  Green dragon leather
+    1747  Black dragonhide
+    1749  Red dragonhide
+    2487  Blue d'hide vambraces
+    2489  Red d'hide vambraces
+    2491  Black d'hide vambraces
+    2495  Red d'hide chaps
+    2533  (not in wiki canonical set)
+    2535  (not in wiki canonical set)
+    2537  (not in wiki canonical set)
+    2539  (not in wiki canonical set)
+    2541  (not in wiki canonical set)
+    2572  (not in wiki canonical set)
+    3144  Cooked karambwan
+    4214  (not in wiki canonical set)
+    4215  (not in wiki canonical set)
+    4216  (not in wiki canonical set)
+    4217  (not in wiki canonical set)
+    4218  (not in wiki canonical set)
+    4219  (not in wiki canonical set)
+    4220  (not in wiki canonical set)
+    4221  (not in wiki canonical set)
+    4222  (not in wiki canonical set)
+    4223  (not in wiki canonical set)
+    4225  (not in wiki canonical set)
+    4226  (not in wiki canonical set)
+    4227  (not in wiki canonical set)
+    4228  (not in wiki canonical set)
+    4229  (not in wiki canonical set)
+    4230  (not in wiki canonical set)
+    4231  (not in wiki canonical set)
+    4232  (not in wiki canonical set)
+    4233  (not in wiki canonical set)
+    4234  (not in wiki canonical set)
+    4732  Karil's coif
+    4736  Karil's leathertop
+    4738  Karil's leatherskirt
+    7372  Green d'hide body (t)
+    7376  Blue d'hide body (t)
+    7378  Green d'hide chaps (g)
+    7380  Green d'hide chaps (t)
+    7382  Blue d'hide chaps (g)
+    7384  Blue d'hide chaps (t)
+    7946  Monkfish
+    9757  (not in wiki canonical set)
+    9977  (not in wiki canonical set)
+   10033  Chinchompa
+   10069  Spotted cape
+   10071  Spottier cape
+   10356  (not in wiki canonical set)
+   10358  (not in wiki canonical set)
+   10360  (not in wiki canonical set)
+   10362  (not in wiki canonical set)
+   10364  Strength amulet (t)
+   10366  Amulet of magic (t)
+   10446  Saradomin cloak
+   10450  Zamorak cloak
+   10498  Ava's attractor
+   10499  Ava's accumulator
+   11120  (not in wiki canonical set)
+   11122  (not in wiki canonical set)
+   11124  (not in wiki canonical set)
+   11126  (not in wiki canonical set)
+   11222  (not in wiki canonical set)
+   11667  (not in wiki canonical set)
+   11668  (not in wiki canonical set)
+   11669  (not in wiki canonical set)
+   11670  (not in wiki canonical set)
+   11671  (not in wiki canonical set)
+   11672  (not in wiki canonical set)
+   11673  (not in wiki canonical set)
+   11749  (not in wiki canonical set)
+   11750  (not in wiki canonical set)
+   11751  (not in wiki canonical set)
+   11752  (not in wiki canonical set)
+   11753  (not in wiki canonical set)
+   11754  (not in wiki canonical set)
+   11755  (not in wiki canonical set)
+   11756  (not in wiki canonical set)
+   11757  (not in wiki canonical set)
+   11758  (not in wiki canonical set)
+   11760  (not in wiki canonical set)
+   11761  (not in wiki canonical set)
+   11762  (not in wiki canonical set)
+   11763  (not in wiki canonical set)
+   11764  (not in wiki canonical set)
+   11765  (not in wiki canonical set)
+   11766  (not in wiki canonical set)
+   11767  (not in wiki canonical set)
+   11768  (not in wiki canonical set)
+   11769  (not in wiki canonical set)
+   11770  Seers ring (i)
+   11826  Armadyl helmet
+   11828  Armadyl chestplate
+   11830  Armadyl chainskirt
+   11864  Slayer helmet
+   11865  Slayer helmet (i)
+   11959  Black chinchompa
+   11964  (not in wiki canonical set)
+   11966  (not in wiki canonical set)
+   11972  (not in wiki canonical set)
+   11974  (not in wiki canonical set)
+   11976  (not in wiki canonical set)
+   11978  (not in wiki canonical set)
+   12853  (not in wiki canonical set)
+   12924  (not in wiki canonical set)
+   13279  Overseer's book
+   13280  Max cape
+   13319  (not in wiki canonical set)
+   13441  Anglerfish
+   19639  Black slayer helmet
+   19643  Green slayer helmet
+   20655  (not in wiki canonical set)
+   20657  (not in wiki canonical set)
+   21264  Purple slayer helmet
+   21330  (not in wiki canonical set)
+   21557  (not in wiki canonical set)
+   21888  Turquoise slayer helmet
+   22246  Anguish ornament kit
+   22247  (not in wiki canonical set)
+   22248  (not in wiki canonical set)
+   22249  Necklace of anguish (or)
+   22550  (not in wiki canonical set)
+   23736  (not in wiki canonical set)
+   23739  (not in wiki canonical set)
+   23742  (not in wiki canonical set)
+   23985  (not in wiki canonical set)
+   24133  (not in wiki canonical set)
+   24134  (not in wiki canonical set)
+   24135  (not in wiki canonical set)
+   24177  (not in wiki canonical set)
+   24178  (not in wiki canonical set)
+   24179  (not in wiki canonical set)
+   24180  (not in wiki canonical set)
+   24182  (not in wiki canonical set)
+   24183  (not in wiki canonical set)
+   24184  (not in wiki canonical set)
+   24185  (not in wiki canonical set)
+   24222  (not in wiki canonical set)
+   24223  (not in wiki canonical set)
+   24224  (not in wiki canonical set)
+   24370  Twisted slayer helmet
+   24444  Twisted slayer helmet (i)
+   25487  (not in wiki canonical set)
+   25587  (not in wiki canonical set)
+   25862  (not in wiki canonical set)
+   25900  Tztok slayer helmet (i)
+   26378  (not in wiki canonical set)
+   26380  (not in wiki canonical set)
+   26724  (not in wiki canonical set)
+   26725  (not in wiki canonical set)
+   26726  (not in wiki canonical set)
+   26728  (not in wiki canonical set)
+   26729  (not in wiki canonical set)
+   26730  (not in wiki canonical set)
+   26744  (not in wiki canonical set)
+   26746  (not in wiki canonical set)
+   26748  (not in wiki canonical set)
+   26756  (not in wiki canonical set)
+   26760  (not in wiki canonical set)
+   27365  (not in wiki canonical set)
+   27376  (not in wiki canonical set)
+   27544  Ghommal's lucky penny
+   27612  (not in wiki canonical set)
+   27652  (not in wiki canonical set)
+   27843  Corrupted vesta's plateskirt (bh)
+   28906  (not in wiki canonical set)
+   28919  (not in wiki canonical set)
+   28957  (not in wiki canonical set)
+
+=== mage (186 items not in wiki output) ===
+     385  Shark
+     391  Manta ray
+     397  Sea turtle
+     567  Unpowered orb
+     569  Fire orb
+     571  Water orb
+     573  Air orb
+     575  Earth orb
+    1704  (not in wiki canonical set)
+    1706  (not in wiki canonical set)
+    1708  (not in wiki canonical set)
+    1710  (not in wiki canonical set)
+    2572  (not in wiki canonical set)
+    3042  (not in wiki canonical set)
+    3044  (not in wiki canonical set)
+    3046  (not in wiki canonical set)
+    3144  Cooked karambwan
+    6099  (not in wiki canonical set)
+    6215  (not in wiki canonical set)
+    6217  (not in wiki canonical set)
+    6219  (not in wiki canonical set)
+    6221  (not in wiki canonical set)
+    6223  (not in wiki canonical set)
+    6225  (not in wiki canonical set)
+    6227  (not in wiki canonical set)
+    6229  (not in wiki canonical set)
+    6231  (not in wiki canonical set)
+    6233  (not in wiki canonical set)
+    7640  (not in wiki canonical set)
+    7641  (not in wiki canonical set)
+    7642  (not in wiki canonical set)
+    7643  (not in wiki canonical set)
+    7644  (not in wiki canonical set)
+    7645  (not in wiki canonical set)
+    7646  (not in wiki canonical set)
+    7647  (not in wiki canonical set)
+    7648  (not in wiki canonical set)
+    7946  Monkfish
+    8842  Void knight gloves
+    9763  (not in wiki canonical set)
+   10356  (not in wiki canonical set)
+   10358  (not in wiki canonical set)
+   10360  (not in wiki canonical set)
+   10446  Saradomin cloak
+   10450  Zamorak cloak
+   11090  Phoenix necklace
+   11120  (not in wiki canonical set)
+   11122  (not in wiki canonical set)
+   11124  (not in wiki canonical set)
+   11126  (not in wiki canonical set)
+   11667  (not in wiki canonical set)
+   11668  (not in wiki canonical set)
+   11669  (not in wiki canonical set)
+   11670  (not in wiki canonical set)
+   11671  (not in wiki canonical set)
+   11672  (not in wiki canonical set)
+   11673  (not in wiki canonical set)
+   11727  (not in wiki canonical set)
+   11728  (not in wiki canonical set)
+   11729  (not in wiki canonical set)
+   11791  Staff of the dead
+   11864  Slayer helmet
+   11964  (not in wiki canonical set)
+   11966  (not in wiki canonical set)
+   11972  (not in wiki canonical set)
+   11974  (not in wiki canonical set)
+   11976  (not in wiki canonical set)
+   11978  (not in wiki canonical set)
+   12791  Rune pouch
+   12853  (not in wiki canonical set)
+   12899  Trident of the swamp
+   12900  (not in wiki canonical set)
+   12902  (not in wiki canonical set)
+   12904  Toxic staff of the dead
+   13102  (not in wiki canonical set)
+   13280  Max cape
+   13392  (not in wiki canonical set)
+   13441  Anglerfish
+   19639  Black slayer helmet
+   19643  Green slayer helmet
+   20655  (not in wiki canonical set)
+   20657  (not in wiki canonical set)
+   20716  (not in wiki canonical set)
+   20724  Imbued heart
+   21256  (not in wiki canonical set)
+   21264  Purple slayer helmet
+   21888  Turquoise slayer helmet
+   22288  Trident of the seas (e)
+   22323  Sanguinesti staff
+   22370  (not in wiki canonical set)
+   22452  (not in wiki canonical set)
+   22455  (not in wiki canonical set)
+   22458  (not in wiki canonical set)
+   23727  (not in wiki canonical set)
+   23730  (not in wiki canonical set)
+   23748  (not in wiki canonical set)
+   23751  (not in wiki canonical set)
+   23754  (not in wiki canonical set)
+   23916  (not in wiki canonical set)
+   23959  Enhanced crystal teleport seed
+   24133  (not in wiki canonical set)
+   24134  (not in wiki canonical set)
+   24135  (not in wiki canonical set)
+   24172  (not in wiki canonical set)
+   24177  (not in wiki canonical set)
+   24178  (not in wiki canonical set)
+   24179  (not in wiki canonical set)
+   24180  (not in wiki canonical set)
+   24181  (not in wiki canonical set)
+   24183  (not in wiki canonical set)
+   24184  (not in wiki canonical set)
+   24185  (not in wiki canonical set)
+   24222  (not in wiki canonical set)
+   24223  (not in wiki canonical set)
+   24224  (not in wiki canonical set)
+   24232  (not in wiki canonical set)
+   24233  (not in wiki canonical set)
+   24234  (not in wiki canonical set)
+   24248  (not in wiki canonical set)
+   24249  (not in wiki canonical set)
+   24250  (not in wiki canonical set)
+   24370  Twisted slayer helmet
+   24511  Harmonised orb
+   24626  (not in wiki canonical set)
+   24629  (not in wiki canonical set)
+   24632  (not in wiki canonical set)
+   25000  (not in wiki canonical set)
+   25002  (not in wiki canonical set)
+   25006  (not in wiki canonical set)
+   25009  (not in wiki canonical set)
+   25011  (not in wiki canonical set)
+   25024  (not in wiki canonical set)
+   25026  (not in wiki canonical set)
+   25030  (not in wiki canonical set)
+   25033  (not in wiki canonical set)
+   25035  (not in wiki canonical set)
+   25385  (not in wiki canonical set)
+   25387  (not in wiki canonical set)
+   25391  (not in wiki canonical set)
+   25486  (not in wiki canonical set)
+   25489  (not in wiki canonical set)
+   25490  (not in wiki canonical set)
+   25491  (not in wiki canonical set)
+   25492  (not in wiki canonical set)
+   25576  (not in wiki canonical set)
+   25731  Holy sanguinesti staff
+   25987  (not in wiki canonical set)
+   26342  (not in wiki canonical set)
+   26344  (not in wiki canonical set)
+   26346  (not in wiki canonical set)
+   26724  (not in wiki canonical set)
+   26725  (not in wiki canonical set)
+   26726  (not in wiki canonical set)
+   26728  (not in wiki canonical set)
+   26729  (not in wiki canonical set)
+   26730  (not in wiki canonical set)
+   26732  (not in wiki canonical set)
+   26734  (not in wiki canonical set)
+   26736  (not in wiki canonical set)
+   26738  (not in wiki canonical set)
+   26740  (not in wiki canonical set)
+   26742  (not in wiki canonical set)
+   26750  (not in wiki canonical set)
+   26752  (not in wiki canonical set)
+   26754  (not in wiki canonical set)
+   26756  (not in wiki canonical set)
+   26758  (not in wiki canonical set)
+   26760  (not in wiki canonical set)
+   26945  (not in wiki canonical set)
+   27275  Tumeken's shadow
+   27281  Divine rune pouch
+   27365  (not in wiki canonical set)
+   27376  (not in wiki canonical set)
+   27626  (not in wiki canonical set)
+   27632  (not in wiki canonical set)
+   27635  (not in wiki canonical set)
+   27638  (not in wiki canonical set)
+   27676  (not in wiki canonical set)
+   27785  (not in wiki canonical set)
+   28327  (not in wiki canonical set)
+   28473  (not in wiki canonical set)
+   28474  (not in wiki canonical set)
+   28475  (not in wiki canonical set)
+   28476  (not in wiki canonical set)
+   29892  (not in wiki canonical set)
+   30066  (not in wiki canonical set)
+
+=== prayer (77 items not in wiki output) ===
+     139  (not in wiki canonical set)
+     141  (not in wiki canonical set)
+     143  (not in wiki canonical set)
+     542  Monk's robe
+     544  Monk's robe top
+    1704  (not in wiki canonical set)
+    1716  Unblessed symbol
+    1720  Unstrung emblem
+    1722  Unpowered symbol
+    3026  (not in wiki canonical set)
+    3028  (not in wiki canonical set)
+    3030  (not in wiki canonical set)
+    3839  Damaged book
+    3843  Damaged book
+    3844  Book of balance
+    3845  Journal
+    3846  Diary
+    3847  Manual
+    4850  Ogre coffin key
+    4852  Zogre bonemeal
+    6687  (not in wiki canonical set)
+    6689  (not in wiki canonical set)
+    6691  (not in wiki canonical set)
+    9668  Initiate harness m
+    9760  (not in wiki canonical set)
+   10927  (not in wiki canonical set)
+   10929  (not in wiki canonical set)
+   10931  (not in wiki canonical set)
+   11495  (not in wiki canonical set)
+   12601  Ring of the gods
+   13447  (not in wiki canonical set)
+   13450  (not in wiki canonical set)
+   13453  (not in wiki canonical set)
+   13456  (not in wiki canonical set)
+   13459  (not in wiki canonical set)
+   13462  (not in wiki canonical set)
+   13465  (not in wiki canonical set)
+   13468  (not in wiki canonical set)
+   13471  (not in wiki canonical set)
+   13474  (not in wiki canonical set)
+   13477  (not in wiki canonical set)
+   13480  (not in wiki canonical set)
+   13483  (not in wiki canonical set)
+   13486  (not in wiki canonical set)
+   13489  (not in wiki canonical set)
+   13492  (not in wiki canonical set)
+   13495  (not in wiki canonical set)
+   13498  (not in wiki canonical set)
+   13501  (not in wiki canonical set)
+   13504  (not in wiki canonical set)
+   13507  (not in wiki canonical set)
+   13510  (not in wiki canonical set)
+   18337  (not in wiki canonical set)
+   19621  Fenkenstrain's castle teleport
+   19622  (not in wiki canonical set)
+   19710  Ring of suffering (i)
+   20264  (not in wiki canonical set)
+   20266  Black unicorn mask
+   20268  (not in wiki canonical set)
+   21047  Torn prayer scroll
+   21643  Granite boots
+   22111  Dragonbone necklace
+   22374  Mossy key
+   22378  (not in wiki canonical set)
+   22405  Vial of blood
+   22446  Vial of blood
+   22774  Old notes
+   24187  Trouver parchment
+   24601  (not in wiki canonical set)
+   24603  (not in wiki canonical set)
+   24605  (not in wiki canonical set)
+   25130  (not in wiki canonical set)
+   25768  (not in wiki canonical set)
+   25770  (not in wiki canonical set)
+   25774  (not in wiki canonical set)
+   26996  (not in wiki canonical set)
+   28323  Siren's staff
+
+=== cooking (119 items not in wiki output) ===
+     227  Vial of water
+     229  Vial
+     323  Burnt fish
+     343  Burnt fish
+     357  Burnt fish
+     367  Burnt fish
+     375  Burnt swordfish
+     381  Burnt lobster
+     387  Burnt shark
+     393  Burnt manta ray
+     590  Tinderbox
+    1895  (not in wiki canonical set)
+    1899  (not in wiki canonical set)
+    1901  (not in wiki canonical set)
+    1903  Burnt cake
+    1915  Grog
+    1919  Beer glass
+    1921  Bowl of water
+    1925  Bucket
+    1929  Bucket of water
+    1931  Pot
+    1937  Jug of water
+    1951  Redberries
+    1953  Pastry dough
+    1971  Kebab
+    1973  Chocolate bar
+    1975  Chocolate dust
+    1977  Chocolatey milk
+    1979  (not in wiki canonical set)
+    1985  Cheese
+    1987  Grapes
+    1989  Half full wine jug
+    1991  Jug of bad wine
+    1993  Jug of wine
+    2001  Uncooked stew
+    2009  Uncooked curry
+    2110  Orange chunks
+    2112  Orange slices
+    2140  Cooked chicken
+    2142  Cooked meat
+    2150  Swamp toad
+    2152  Toad's legs
+    2154  Equa toad's legs
+    2156  Spicy toad's legs
+    2158  Seasoned legs
+    2160  Spicy worm
+    2162  King worm
+    2164  Batta tin
+    2166  Gnomebowl mould
+    2168  (not in wiki canonical set)
+    2170  (not in wiki canonical set)
+    2172  (not in wiki canonical set)
+    2174  (not in wiki canonical set)
+    2176  (not in wiki canonical set)
+    2178  Raw gnomebowl
+    2180  (not in wiki canonical set)
+    2182  (not in wiki canonical set)
+    2184  (not in wiki canonical set)
+    2287  Uncooked pizza
+    2321  Uncooked berry pie
+    2878  Cooked chompy
+    2880  Ruined chompy
+    2881  (not in wiki canonical set)
+    2883  Ogre bow
+    2884  Chompy bird obj
+    2885  Whoopsie
+    3151  (not in wiki canonical set)
+    3228  Cooked rabbit
+    3326  (not in wiki canonical set)
+    3328  (not in wiki canonical set)
+    4293  Cooked meat
+    4297  (not in wiki canonical set)
+    4299  (not in wiki canonical set)
+    5980  Calquat fruit
+    5982  Watermelon
+    6701  Baked potato
+    6703  Potato with butter
+    6705  Potato with cheese
+    6707  Camulet
+    6709  (not in wiki canonical set)
+    6711  Blindweed
+    6713  Wrench
+    7050  (not in wiki canonical set)
+    7052  (not in wiki canonical set)
+    7054  Chilli potato
+    7056  Egg potato
+    7058  Mushroom potato
+    7060  Tuna potato
+    7062  Chilli con carne
+    7064  Egg and tomato
+    7168  Raw mud pie
+    7170  Mud pie
+    7172  Part garden pie
+    7174  Part garden pie
+    7176  Raw garden pie
+    7190  (not in wiki canonical set)
+    7210  (not in wiki canonical set)
+    7220  (not in wiki canonical set)
+    7947  (not in wiki canonical set)
+    9802  (not in wiki canonical set)
+    9986  Raw beast meat
+    9990  Burnt beast meat
+    9992  Skewered beast
+   11140  Karamja gloves 3
+   22777  Certificate
+   24843  (not in wiki canonical set)
+   24845  (not in wiki canonical set)
+   24847  (not in wiki canonical set)
+   24849  (not in wiki canonical set)
+   32309  Raw giant krill
+   32312  Giant krill
+   32325  Raw yellowfin
+   32328  Yellowfin
+   32333  Raw halibut
+   32336  Halibut
+   32341  Raw bluefin
+   32344  Bluefin
+   32349  Raw marlin
+   32352  Marlin
+
+=== wc_fletching (88 items not in wiki output) ===
+     314  Feather
+    1779  Flax
+    3094  (not in wiki canonical set)
+    4214  (not in wiki canonical set)
+    4215  (not in wiki canonical set)
+    4216  (not in wiki canonical set)
+    4217  (not in wiki canonical set)
+    4218  (not in wiki canonical set)
+    4219  (not in wiki canonical set)
+    4220  (not in wiki canonical set)
+    4221  (not in wiki canonical set)
+    4222  (not in wiki canonical set)
+    4223  (not in wiki canonical set)
+    5071  (not in wiki canonical set)
+    5072  (not in wiki canonical set)
+    5073  Bird nest
+    5074  Bird nest
+    5075  Bird nest
+    9174  Bronze crossbow
+    9380  Adamant bolts(unf)
+    9422  Blurite limbs
+    9455  (not in wiki canonical set)
+    9774  Herblore cape
+    9775  (not in wiki canonical set)
+    9783  Fletching cape
+    9784  (not in wiki canonical set)
+   11749  (not in wiki canonical set)
+   11750  (not in wiki canonical set)
+   11751  (not in wiki canonical set)
+   11752  (not in wiki canonical set)
+   11753  (not in wiki canonical set)
+   11754  (not in wiki canonical set)
+   11755  (not in wiki canonical set)
+   11756  (not in wiki canonical set)
+   11757  (not in wiki canonical set)
+   11758  (not in wiki canonical set)
+   13242  (not in wiki canonical set)
+   13322  Beaver
+   19570  Bronze javelin tips
+   19572  Iron javelin tips
+   19574  Steel javelin tips
+   19576  Mithril javelin tips
+   19578  Adamant javelin tips
+   19580  Rune javelin tips
+   19581  (not in wiki canonical set)
+   19582  Dragon javelin tips
+   21352  Amethyst javelin tips
+   21964  (not in wiki canonical set)
+   22550  (not in wiki canonical set)
+   22552  (not in wiki canonical set)
+   23185  Ring of 3rd age
+   23675  (not in wiki canonical set)
+   23985  (not in wiki canonical set)
+   25484  (not in wiki canonical set)
+   25862  (not in wiki canonical set)
+   27612  (not in wiki canonical set)
+   27652  (not in wiki canonical set)
+   27657  (not in wiki canonical set)
+   27662  (not in wiki canonical set)
+   28164  (not in wiki canonical set)
+   28166  Clothes pouch blueprint
+   28168  (not in wiki canonical set)
+   28170  (not in wiki canonical set)
+   28172  (not in wiki canonical set)
+   28174  (not in wiki canonical set)
+   28186  (not in wiki canonical set)
+   28188  (not in wiki canonical set)
+   28190  (not in wiki canonical set)
+   28192  Strange pollen
+   28194  (not in wiki canonical set)
+   28198  (not in wiki canonical set)
+   28200  (not in wiki canonical set)
+   28204  (not in wiki canonical set)
+   28206  (not in wiki canonical set)
+   28210  (not in wiki canonical set)
+   28212  (not in wiki canonical set)
+   28216  (not in wiki canonical set)
+   28218  (not in wiki canonical set)
+   28222  (not in wiki canonical set)
+   28223  (not in wiki canonical set)
+   28279  Bellator vestige
+   28280  (not in wiki canonical set)
+   28281  Magus vestige
+   28282  (not in wiki canonical set)
+   28283  Venator vestige
+   28284  (not in wiki canonical set)
+   28285  Ultor vestige
+   28420  Dragonstone key
+
+=== fishing (25 items not in wiki output) ===
+     952  Spade
+    3159  (not in wiki canonical set)
+    6205  (not in wiki canonical set)
+    9799  (not in wiki canonical set)
+   13321  Rock golem
+   21819  (not in wiki canonical set)
+   22842  Pearl barbarian rod
+   23526  (not in wiki canonical set)
+   23528  Sarachnis cudgel
+   23534  (not in wiki canonical set)
+   23537  (not in wiki canonical set)
+   23539  (not in wiki canonical set)
+   23612  (not in wiki canonical set)
+   23677  Dragon pickaxe (or)
+   25576  (not in wiki canonical set)
+   25600  (not in wiki canonical set)
+   25602  Tiny tempor
+   25604  Gregg's eastdoor
+   25611  (not in wiki canonical set)
+   25617  (not in wiki canonical set)
+   32309  Raw giant krill
+   32325  Raw yellowfin
+   32333  Raw halibut
+   32341  Raw bluefin
+   32349  Raw marlin
+
+=== firemaking (28 items not in wiki output) ===
+      33  (not in wiki canonical set)
+      36  Candle
+    1831  (not in wiki canonical set)
+    1833  Desert shirt
+    1835  Desert robe
+    3432  (not in wiki canonical set)
+    3433  (not in wiki canonical set)
+    3434  (not in wiki canonical set)
+    3435  (not in wiki canonical set)
+    4524  (not in wiki canonical set)
+    4525  Empty oil lamp
+    4530  (not in wiki canonical set)
+    4539  (not in wiki canonical set)
+    4544  Bullseye lantern (unf)
+    5013  (not in wiki canonical set)
+    6215  (not in wiki canonical set)
+    6217  (not in wiki canonical set)
+    8766  Steel kiteshield
+    9064  (not in wiki canonical set)
+    9805  (not in wiki canonical set)
+   19671  (not in wiki canonical set)
+   20697  Rejuvenation potion (unf)
+   20699  Rejuvenation potion (4)
+   20701  (not in wiki canonical set)
+   20703  Supply crate
+   24361  Scroll box (beginner)
+   24363  Scroll box (medium)
+   25742  Holy ornament kit
+
+=== crafting (70 items not in wiki output) ===
+     567  Unpowered orb
+     569  Fire orb
+     571  Water orb
+     573  Air orb
+     575  Earth orb
+     960  Plank
+    1391  Battlestaff
+    1469  Broken glass
+    1592  Ring mould
+    1594  Unholy mould
+    1595  Amulet mould
+    1597  Necklace mould
+    1675  Sapphire amulet (u)
+    1677  Emerald amulet (u)
+    1679  Ruby amulet (u)
+    1681  Diamond amulet (u)
+    1683  Dragonstone amulet (u)
+    1714  Unstrung symbol
+    1716  Unblessed symbol
+    1718  Holy symbol
+    1722  Unpowered symbol
+    1724  Unholy symbol
+    1745  Green dragon leather
+    1783  Bucket of sand
+    1793  Woad leaf
+    1795  (not in wiki canonical set)
+    1797  (not in wiki canonical set)
+    1799  (not in wiki canonical set)
+    2349  Bronze bar
+    2351  Iron bar
+    2353  Steel bar
+    2355  Silver bar
+    2357  Gold bar
+    2359  Mithril bar
+    2361  Adamantite bar
+    2363  Runite bar
+    2505  Blue dragon leather
+    2507  Red dragon leather
+    2509  Black dragon leather
+    5350  Empty plant pot
+    5418  Empty sack
+    5523  Tiara mould
+    5525  Tiara
+    7801  Snake hide
+    8778  Oak plank
+    8780  Teak plank
+    8782  Mahogany plank
+    8790  Bolt of cloth
+    8794  Saw
+    9625  Crystal saw
+    9781  (not in wiki canonical set)
+   11065  Bracelet mould
+   11068  (not in wiki canonical set)
+   11980  Ring of wealth (5)
+   19501  Zenyte amulet (u)
+   20354  (not in wiki canonical set)
+   20356  (not in wiki canonical set)
+   20358  Clue geode (easy)
+   20360  Clue geode (medium)
+   20362  Clue geode (hard)
+   20364  Clue geode (elite)
+   20384  (not in wiki canonical set)
+   20386  (not in wiki canonical set)
+   20388  (not in wiki canonical set)
+   20390  Shark
+   20392  (not in wiki canonical set)
+   21039  (not in wiki canonical set)
+   21041  (not in wiki canonical set)
+   21043  Kodai insignia
+   21046  Ancient tablet
+
+=== mining_smithing (51 items not in wiki output) ===
+       2  Steel cannonball
+     764  (not in wiki canonical set)
+     766  (not in wiki canonical set)
+    1913  Dwarven stout
+    2568  Ring of forging
+    3211  Limestone
+    5751  Axeman's folly
+    6981  (not in wiki canonical set)
+    9375  Bronze bolts (unf)
+    9377  Iron bolts (unf)
+    9378  Steel bolts (unf)
+    9379  Mithril bolts (unf)
+    9380  Adamant bolts(unf)
+    9381  Runite bolts (unf)
+    9382  Silver bolts (unf)
+    9793  (not in wiki canonical set)
+    9796  (not in wiki canonical set)
+   10386  Saradomin d'hide body
+   10387  (not in wiki canonical set)
+   10388  Saradomin chaps
+   10389  (not in wiki canonical set)
+   10390  Saradomin coif
+   11941  Looting bag
+   11942  Ecumenical key
+   12011  Pay-dirt
+   12012  Golden nugget
+   12019  Coal bag
+   12797  Dragon pickaxe
+   13244  (not in wiki canonical set)
+   21343  Mining gloves
+   21345  Superior mining gloves
+   21390  (not in wiki canonical set)
+   21539  Heat-proof vessel
+   23682  (not in wiki canonical set)
+   24475  Twisted relic hunter (t3) armour set
+   24481  (not in wiki canonical set)
+   24489  (not in wiki canonical set)
+   25376  Dragon pickaxe (or)
+   25627  (not in wiki canonical set)
+   27010  Preform
+   27012  Double ammo mould
+   27014  Kovac's grog
+   27016  (not in wiki canonical set)
+   27018  (not in wiki canonical set)
+   27020  (not in wiki canonical set)
+   27021  Colossal blade
+   27023  Smiths tunic
+   27024  (not in wiki canonical set)
+   27026  (not in wiki canonical set)
+   27028  (not in wiki canonical set)
+   27030  (not in wiki canonical set)
+
+=== herblore (209 items not in wiki output) ===
+     115  (not in wiki canonical set)
+     117  (not in wiki canonical set)
+     119  (not in wiki canonical set)
+     121  (not in wiki canonical set)
+     123  (not in wiki canonical set)
+     125  (not in wiki canonical set)
+     127  (not in wiki canonical set)
+     129  (not in wiki canonical set)
+     131  (not in wiki canonical set)
+     133  (not in wiki canonical set)
+     135  (not in wiki canonical set)
+     137  (not in wiki canonical set)
+     139  (not in wiki canonical set)
+     141  (not in wiki canonical set)
+     143  (not in wiki canonical set)
+     145  (not in wiki canonical set)
+     147  (not in wiki canonical set)
+     149  (not in wiki canonical set)
+     151  (not in wiki canonical set)
+     153  (not in wiki canonical set)
+     155  (not in wiki canonical set)
+     157  (not in wiki canonical set)
+     159  (not in wiki canonical set)
+     161  (not in wiki canonical set)
+     163  (not in wiki canonical set)
+     165  (not in wiki canonical set)
+     167  (not in wiki canonical set)
+     169  (not in wiki canonical set)
+     171  (not in wiki canonical set)
+     173  (not in wiki canonical set)
+     175  (not in wiki canonical set)
+     177  (not in wiki canonical set)
+     179  (not in wiki canonical set)
+     181  (not in wiki canonical set)
+     183  (not in wiki canonical set)
+     185  (not in wiki canonical set)
+     187  Weapon poison
+     189  (not in wiki canonical set)
+     191  (not in wiki canonical set)
+     193  (not in wiki canonical set)
+     235  Unicorn horn dust
+     237  Unicorn horn
+     243  Blue dragon scale
+     249  Guam leaf
+     257  Ranarr weed
+     259  Irit leaf
+    2430  Restore potion(4)
+    2454  (not in wiki canonical set)
+    2456  (not in wiki canonical set)
+    2458  (not in wiki canonical set)
+    3010  (not in wiki canonical set)
+    3012  (not in wiki canonical set)
+    3014  (not in wiki canonical set)
+    3018  (not in wiki canonical set)
+    3020  (not in wiki canonical set)
+    3022  (not in wiki canonical set)
+    3026  (not in wiki canonical set)
+    3028  (not in wiki canonical set)
+    3030  (not in wiki canonical set)
+    3034  (not in wiki canonical set)
+    3036  (not in wiki canonical set)
+    3038  (not in wiki canonical set)
+    3042  (not in wiki canonical set)
+    3044  (not in wiki canonical set)
+    3046  (not in wiki canonical set)
+    3391  Splitbark gauntlets
+    4419  (not in wiki canonical set)
+    4421  (not in wiki canonical set)
+    4423  (not in wiki canonical set)
+    5937  Weapon poison(+)
+    5939  Weapon poison++ (unf)
+    5940  Weapon poison(++)
+    5945  (not in wiki canonical set)
+    5947  (not in wiki canonical set)
+    5949  (not in wiki canonical set)
+    5954  (not in wiki canonical set)
+    5956  (not in wiki canonical set)
+    5958  (not in wiki canonical set)
+    6036  Plant cure
+    6472  (not in wiki canonical set)
+    6474  (not in wiki canonical set)
+    6476  (not in wiki canonical set)
+    6687  (not in wiki canonical set)
+    6689  (not in wiki canonical set)
+    6691  (not in wiki canonical set)
+    9735  Desert goat horn
+    9739  Combat potion(4)
+    9741  (not in wiki canonical set)
+    9743  (not in wiki canonical set)
+    9745  (not in wiki canonical set)
+    9775  (not in wiki canonical set)
+   10000  (not in wiki canonical set)
+   10002  (not in wiki canonical set)
+   10004  (not in wiki canonical set)
+   10927  (not in wiki canonical set)
+   10929  (not in wiki canonical set)
+   10931  (not in wiki canonical set)
+   11435  (not in wiki canonical set)
+   11483  (not in wiki canonical set)
+   11495  (not in wiki canonical set)
+   11503  (not in wiki canonical set)
+   11507  (not in wiki canonical set)
+   11727  (not in wiki canonical set)
+   11728  (not in wiki canonical set)
+   11729  (not in wiki canonical set)
+   11953  (not in wiki canonical set)
+   11955  (not in wiki canonical set)
+   11957  (not in wiki canonical set)
+   11962  (not in wiki canonical set)
+   12623  Ancient page 3
+   12627  (not in wiki canonical set)
+   12629  (not in wiki canonical set)
+   12631  (not in wiki canonical set)
+   12697  (not in wiki canonical set)
+   12699  (not in wiki canonical set)
+   12701  (not in wiki canonical set)
+   12907  (not in wiki canonical set)
+   12909  (not in wiki canonical set)
+   12911  (not in wiki canonical set)
+   12915  (not in wiki canonical set)
+   12917  (not in wiki canonical set)
+   12919  (not in wiki canonical set)
+   12934  Zulrah's scales
+   19558  Nieve
+   19730  Bloodhound
+   21981  (not in wiki canonical set)
+   21984  (not in wiki canonical set)
+   21987  (not in wiki canonical set)
+   21997  (not in wiki canonical set)
+   22212  (not in wiki canonical set)
+   22215  (not in wiki canonical set)
+   22218  (not in wiki canonical set)
+   22224  (not in wiki canonical set)
+   22446  Vial of blood
+   22452  (not in wiki canonical set)
+   22455  (not in wiki canonical set)
+   22458  (not in wiki canonical set)
+   22464  (not in wiki canonical set)
+   22467  (not in wiki canonical set)
+   22470  (not in wiki canonical set)
+   22997  (not in wiki canonical set)
+   23673  Crystal axe
+   23676  (not in wiki canonical set)
+   23679  (not in wiki canonical set)
+   23682  (not in wiki canonical set)
+   23688  (not in wiki canonical set)
+   23691  (not in wiki canonical set)
+   23694  (not in wiki canonical set)
+   23700  (not in wiki canonical set)
+   23703  (not in wiki canonical set)
+   23706  (not in wiki canonical set)
+   23712  (not in wiki canonical set)
+   23715  (not in wiki canonical set)
+   23718  (not in wiki canonical set)
+   23724  (not in wiki canonical set)
+   23727  (not in wiki canonical set)
+   23730  (not in wiki canonical set)
+   23736  (not in wiki canonical set)
+   23739  (not in wiki canonical set)
+   23742  (not in wiki canonical set)
+   23743  (not in wiki canonical set)
+   23746  (not in wiki canonical set)
+   23748  (not in wiki canonical set)
+   23749  (not in wiki canonical set)
+   23751  (not in wiki canonical set)
+   23752  (not in wiki canonical set)
+   23754  (not in wiki canonical set)
+   23755  (not in wiki canonical set)
+   23758  (not in wiki canonical set)
+   23761  (not in wiki canonical set)
+   23764  (not in wiki canonical set)
+   23767  (not in wiki canonical set)
+   23770  Clue scroll (elite)
+   23773  Scrawled notes
+   23776  Red crystal
+   24478  (not in wiki canonical set)
+   24601  (not in wiki canonical set)
+   24603  (not in wiki canonical set)
+   24605  (not in wiki canonical set)
+   24626  (not in wiki canonical set)
+   24629  (not in wiki canonical set)
+   24632  (not in wiki canonical set)
+   24638  (not in wiki canonical set)
+   24641  (not in wiki canonical set)
+   24644  (not in wiki canonical set)
+   25387  (not in wiki canonical set)
+   25389  Swampbark body
+   25391  (not in wiki canonical set)
+   25477  (not in wiki canonical set)
+   25754  (not in wiki canonical set)
+   25755  (not in wiki canonical set)
+   25756  (not in wiki canonical set)
+   25758  (not in wiki canonical set)
+   25759  (not in wiki canonical set)
+   25760  (not in wiki canonical set)
+   25762  (not in wiki canonical set)
+   25763  (not in wiki canonical set)
+   25764  (not in wiki canonical set)
+   26342  (not in wiki canonical set)
+   26344  (not in wiki canonical set)
+   26346  (not in wiki canonical set)
+   27003  (not in wiki canonical set)
+   27390  Adventurer's trousers (t1)
+   27632  (not in wiki canonical set)
+   27635  (not in wiki canonical set)
+   27638  (not in wiki canonical set)
+   29827  (not in wiki canonical set)
+   29830  (not in wiki canonical set)
+   29833  (not in wiki canonical set)
+
+=== agility_thieving (82 items not in wiki output) ===
+    2572  (not in wiki canonical set)
+    3016  Super energy(4)
+    3018  (not in wiki canonical set)
+    3020  (not in wiki canonical set)
+    3022  (not in wiki canonical set)
+    3672  (not in wiki canonical set)
+    6404  Menaphite red robe
+    6406  Menaphite red kilt
+    8872  Bone dagger
+    8880  Dorgeshuun crossbow
+    9044  (not in wiki canonical set)
+    9046  (not in wiki canonical set)
+    9048  (not in wiki canonical set)
+    9772  (not in wiki canonical set)
+    9778  (not in wiki canonical set)
+   12623  Ancient page 3
+   12625  Stamina potion(4)
+   12627  (not in wiki canonical set)
+   12629  (not in wiki canonical set)
+   12631  (not in wiki canonical set)
+   21387  Master scroll book (empty)
+   22257  Maple shield
+   24375  (not in wiki canonical set)
+   24377  (not in wiki canonical set)
+   24379  (not in wiki canonical set)
+   24381  (not in wiki canonical set)
+   24383  (not in wiki canonical set)
+   24385  (not in wiki canonical set)
+   24709  Hallowed crystal shard
+   24711  Hallowed mark
+   24713  (not in wiki canonical set)
+   24719  Hallowed token
+   24731  Hallowed ring
+   24733  Dark acorn
+   24735  Ring of endurance (uncharged)
+   24737  (not in wiki canonical set)
+   24739  (not in wiki canonical set)
+   24741  (not in wiki canonical set)
+   25069  Graceful hood
+   25071  (not in wiki canonical set)
+   25073  (not in wiki canonical set)
+   25075  Graceful top
+   25077  (not in wiki canonical set)
+   25079  (not in wiki canonical set)
+   25081  Graceful gloves
+   25083  (not in wiki canonical set)
+   25085  (not in wiki canonical set)
+   25087  Trailblazer teleport scroll
+   25089  (not in wiki canonical set)
+   25091  (not in wiki canonical set)
+   25093  Trailblazer globe
+   25095  (not in wiki canonical set)
+   25097  (not in wiki canonical set)
+   25099  Trailblazer graceful ornament kit
+   25101  (not in wiki canonical set)
+   25103  (not in wiki canonical set)
+   25105  (not in wiki canonical set)
+   25107  (not in wiki canonical set)
+   25109  (not in wiki canonical set)
+   25111  (not in wiki canonical set)
+   25113  (not in wiki canonical set)
+   25115  (not in wiki canonical set)
+   25117  League tomato
+   25119  (not in wiki canonical set)
+   25121  (not in wiki canonical set)
+   25123  (not in wiki canonical set)
+   25125  (not in wiki canonical set)
+   25127  (not in wiki canonical set)
+   25448  Black locks
+   27019  Ore pack
+   27021  Colossal blade
+   27023  Smiths tunic
+   27025  Smiths trousers
+   27027  Smiths boots
+   27029  Smiths gloves
+   27433  (not in wiki canonical set)
+   27435  (not in wiki canonical set)
+   27437  (not in wiki canonical set)
+   27439  (not in wiki canonical set)
+   27441  (not in wiki canonical set)
+   27443  (not in wiki canonical set)
+   29485  (not in wiki canonical set)
+
+=== slayer (101 items not in wiki output) ===
+       2  Steel cannonball
+     985  Tooth half of key
+     987  Loop half of key
+     989  Crystal key
+    4081  Salve amulet
+    4151  Abyssal whip
+    4161  Bag of salt
+    6106  Ghostly boots
+    6171  Flattened hide
+    6570  Fire cape
+    6660  (not in wiki canonical set)
+    6663  Forlorn boot
+    8901  (not in wiki canonical set)
+    8903  (not in wiki canonical set)
+    8905  (not in wiki canonical set)
+    8907  (not in wiki canonical set)
+    8909  (not in wiki canonical set)
+    8911  (not in wiki canonical set)
+    8913  (not in wiki canonical set)
+    8915  (not in wiki canonical set)
+    8917  (not in wiki canonical set)
+    8919  (not in wiki canonical set)
+    9787  (not in wiki canonical set)
+   10588  Salve amulet (e)
+   10884  Fuse
+   11135  (not in wiki canonical set)
+   11732  (not in wiki canonical set)
+   11736  (not in wiki canonical set)
+   11774  (not in wiki canonical set)
+   11775  (not in wiki canonical set)
+   11776  (not in wiki canonical set)
+   11777  (not in wiki canonical set)
+   11778  (not in wiki canonical set)
+   11779  (not in wiki canonical set)
+   11780  (not in wiki canonical set)
+   11781  (not in wiki canonical set)
+   11782  (not in wiki canonical set)
+   11783  (not in wiki canonical set)
+   11867  (not in wiki canonical set)
+   11868  (not in wiki canonical set)
+   11869  (not in wiki canonical set)
+   11870  (not in wiki canonical set)
+   11871  (not in wiki canonical set)
+   11872  (not in wiki canonical set)
+   11873  (not in wiki canonical set)
+   11874  Broad arrowheads
+   12004  Kraken tentacle
+   12436  Amulet of fury (or)
+   12899  Trident of the swamp
+   12922  Tanzanite fang
+   12924  (not in wiki canonical set)
+   12926  Toxic blowpipe
+   12927  Serpentine visage
+   18337  (not in wiki canonical set)
+   19550  Ring of suffering
+   19710  Ring of suffering (i)
+   19712  Clue nest (easy)
+   21015  Dinh's bulwark
+   21047  Torn prayer scroll
+   21256  (not in wiki canonical set)
+   21271  (not in wiki canonical set)
+   21272  (not in wiki canonical set)
+   21273  Skotos
+   21285  Infernal max cape
+   21295  Infernal cape
+   22006  Skeletal visage
+   22104  (not in wiki canonical set)
+   22345  (not in wiki canonical set)
+   22461  Bastion potion(4)
+   23490  Larran's key
+   23491  (not in wiki canonical set)
+   24187  Trouver parchment
+   24495  Jar of dreams
+   24498  (not in wiki canonical set)
+   24502  (not in wiki canonical set)
+   24551  Blade of saeldor (c)
+   24553  (not in wiki canonical set)
+   25177  (not in wiki canonical set)
+   25179  (not in wiki canonical set)
+   25181  (not in wiki canonical set)
+   25183  (not in wiki canonical set)
+   25185  (not in wiki canonical set)
+   25187  (not in wiki canonical set)
+   25189  (not in wiki canonical set)
+   25191  (not in wiki canonical set)
+   25731  Holy sanguinesti staff
+   25902  (not in wiki canonical set)
+   25908  (not in wiki canonical set)
+   25914  (not in wiki canonical set)
+   26674  (not in wiki canonical set)
+   26675  (not in wiki canonical set)
+   26676  (not in wiki canonical set)
+   26677  (not in wiki canonical set)
+   26678  (not in wiki canonical set)
+   26679  (not in wiki canonical set)
+   26680  (not in wiki canonical set)
+   26681  (not in wiki canonical set)
+   26682  (not in wiki canonical set)
+   26683  (not in wiki canonical set)
+   26684  (not in wiki canonical set)
+   28626  Fox whistle
+
+=== farming (61 items not in wiki output) ===
+    1942  Potato
+    1957  Onion
+    1963  Banana
+    1965  Cabbage
+    1982  Tomato
+    1985  Cheese
+    5096  Marigold seed
+    5282  Mushroom spore
+    5312  Acorn
+    5333  (not in wiki canonical set)
+    5334  (not in wiki canonical set)
+    5335  (not in wiki canonical set)
+    5336  (not in wiki canonical set)
+    5337  (not in wiki canonical set)
+    5338  (not in wiki canonical set)
+    5339  (not in wiki canonical set)
+    5340  (not in wiki canonical set)
+    5376  Basket
+    5377  (not in wiki canonical set)
+    5418  Empty sack
+    5504  Strawberry
+    5955  (not in wiki canonical set)
+    5972  Papaya fruit
+    5978  Coconut shell
+    5982  Watermelon
+    5984  Watermelon slice
+    5986  Sweetcorn
+    6040  Amulet of nature
+    6055  Weeds
+    6472  (not in wiki canonical set)
+    6474  (not in wiki canonical set)
+    6476  (not in wiki canonical set)
+    9811  (not in wiki canonical set)
+   11850  Graceful hood
+   11852  Graceful cape
+   11854  Graceful top
+   11856  Graceful legs
+   11858  Graceful gloves
+   11860  Graceful boots
+   12623  Ancient page 3
+   12625  Stamina potion(4)
+   12627  (not in wiki canonical set)
+   12629  (not in wiki canonical set)
+   12631  (not in wiki canonical set)
+   13138  Kandarin headgear 2
+   13226  Herb sack
+   13647  (not in wiki canonical set)
+   13648  Clue bottle (easy)
+   13649  Clue bottle (medium)
+   13650  Clue bottle (hard)
+   14589  (not in wiki canonical set)
+   22116  Superior dragon bonemeal
+   22118  Wrath talisman
+   22123  (not in wiki canonical set)
+   22586  (not in wiki canonical set)
+   22997  (not in wiki canonical set)
+   24840  Vyre noble dress bottom
+   24842  A taste of hope
+   24856  (not in wiki canonical set)
+   24858  (not in wiki canonical set)
+   24860  Wizard path starter kit
+
+=== runecraft (40 items not in wiki output) ===
+    1755  Chisel
+    5517  (not in wiki canonical set)
+    5518  (not in wiki canonical set)
+    5519  Scrying orb
+    5520  Abyssal book
+    5521  Binding necklace
+    5528  (not in wiki canonical set)
+    9084  Lunar staff
+    9766  (not in wiki canonical set)
+   11095  Abyssal bracelet(5)
+   11097  (not in wiki canonical set)
+   11099  (not in wiki canonical set)
+   11101  (not in wiki canonical set)
+   11103  (not in wiki canonical set)
+   19627  Cemetery teleport
+   21538  Runite ore fragment
+   22332  (not in wiki canonical set)
+   22340  (not in wiki canonical set)
+   22708  (not in wiki canonical set)
+   24493  Clue scroll (hard)
+   24543  Conch shell
+   26858  (not in wiki canonical set)
+   26860  (not in wiki canonical set)
+   26862  (not in wiki canonical set)
+   26864  (not in wiki canonical set)
+   26866  (not in wiki canonical set)
+   26868  (not in wiki canonical set)
+   26870  (not in wiki canonical set)
+   26872  (not in wiki canonical set)
+   26874  (not in wiki canonical set)
+   27610  Venator bow
+   27612  (not in wiki canonical set)
+   27614  Venator shard
+   27616  Ancient essence
+   27618  (not in wiki canonical set)
+   27620  (not in wiki canonical set)
+   27622  Frozen cache
+   27624  Ancient sceptre
+   27626  (not in wiki canonical set)
+   27628  (not in wiki canonical set)
+
+=== hunter (61 items not in wiki output) ===
+    5070  Bird nest
+    5071  (not in wiki canonical set)
+    5072  (not in wiki canonical set)
+    5073  Bird nest
+    5074  Bird nest
+    5075  Bird nest
+    9813  Quest point cape
+    9814  Quest point hood
+    9949  (not in wiki canonical set)
+    9977  (not in wiki canonical set)
+    9988  Roast beast meat
+   10012  Butterfly jar
+   10020  Ruby harvest
+   10023  Falconer's glove
+   10024  (not in wiki canonical set)
+   10033  Chinchompa
+   10042  (not in wiki canonical set)
+   10053  Wood camo top
+   10054  (not in wiki canonical set)
+   10055  Wood camo legs
+   10056  (not in wiki canonical set)
+   10066  (not in wiki canonical set)
+   10068  (not in wiki canonical set)
+   10073  (not in wiki canonical set)
+   10087  Stripy feather
+   10088  Red feather
+   10089  Blue feather
+   10090  Yellow feather
+   10091  Orange feather
+   10092  Ferret
+   10093  Tatty larupia fur
+   10107  Long kebbit spike
+   10109  Kebbit teeth
+   10111  Kebbit teeth dust
+   10113  Kebbit claws
+   10115  Dark kebbit fur
+   10117  Polar kebbit fur
+   10119  Feldip weasel fur
+   10121  Common kebbit fur
+   10123  Desert devil fur
+   10125  Spotted kebbit fur
+   10127  Dashing kebbit fur
+   10150  Noose wand
+   11258  Jar generator
+   11959  Black chinchompa
+   13323  (not in wiki canonical set)
+   13325  (not in wiki canonical set)
+   13326  (not in wiki canonical set)
+   13327  Rotten onion
+   21306  (not in wiki canonical set)
+   21337  (not in wiki canonical set)
+   21338  Amethyst bolt tips
+   21339  (not in wiki canonical set)
+   21344  (not in wiki canonical set)
+   22446  Vial of blood
+   23783  Green crystal
+   25821  (not in wiki canonical set)
+   28247  (not in wiki canonical set)
+   28249  (not in wiki canonical set)
+   28251  (not in wiki canonical set)
+   28253  (not in wiki canonical set)
+
+=== construction (38 items not in wiki output) ===
+    1601  Diamond
+    1603  Ruby
+    1605  Emerald
+    1607  Sapphire
+    1615  Dragonstone
+    1775  Molten glass
+    2349  Bronze bar
+    2351  Iron bar
+    2355  Silver bar
+    2357  Gold bar
+    2359  Mithril bar
+    2361  Adamantite bar
+    2363  Runite bar
+    4626  (not in wiki canonical set)
+    4627  Bandit's brew
+    4826  (not in wiki canonical set)
+    4828  (not in wiki canonical set)
+    7396  Blue wizard hat (t)
+    7730  Cup of tea
+    8120  (not in wiki canonical set)
+    8784  Gold leaf
+    8788  Magic stone
+    8791  (not in wiki canonical set)
+    8792  Clockwork
+    9789  Construct. cape
+    9790  (not in wiki canonical set)
+   11815  (not in wiki canonical set)
+   21388  (not in wiki canonical set)
+   23321  Rune scimitar ornament kit (guthix)
+   23322  (not in wiki canonical set)
+   25614  (not in wiki canonical set)
+   29155  Burnt kebbit
+   29156  (not in wiki canonical set)
+   29157  Burnt large beast
+   29158  (not in wiki canonical set)
+   29159  Burnt antelope
+   29160  (not in wiki canonical set)
+   29161  Burnt fox meat
+
+=== misc (107 items not in wiki output) ===
+     563  Law rune
+     565  Blood rune
+     566  Soul rune
+     764  (not in wiki canonical set)
+     766  (not in wiki canonical set)
+     772  Dramen staff
+    1704  (not in wiki canonical set)
+    1706  (not in wiki canonical set)
+    1708  (not in wiki canonical set)
+    1710  (not in wiki canonical set)
+    1923  Bowl
+    1925  Bucket
+    1935  Jug
+    1937  Jug of water
+    2572  (not in wiki canonical set)
+    3855  (not in wiki canonical set)
+    3857  (not in wiki canonical set)
+    3859  (not in wiki canonical set)
+    3861  (not in wiki canonical set)
+    3863  (not in wiki canonical set)
+    3865  (not in wiki canonical set)
+    3867  (not in wiki canonical set)
+    4447  Antique lamp
+    4670  Blood diamond
+    8013  Teleport to house
+    9084  Lunar staff
+    9469  Grand seed pod
+   11105  (not in wiki canonical set)
+   11107  (not in wiki canonical set)
+   11109  (not in wiki canonical set)
+   11111  (not in wiki canonical set)
+   11120  (not in wiki canonical set)
+   11122  (not in wiki canonical set)
+   11124  (not in wiki canonical set)
+   11126  (not in wiki canonical set)
+   11190  (not in wiki canonical set)
+   11191  (not in wiki canonical set)
+   11192  (not in wiki canonical set)
+   11193  (not in wiki canonical set)
+   11238  Baby impling jar
+   11240  Young impling jar
+   11242  Gourmet impling jar
+   11244  Earth impling jar
+   11246  Essence impling jar
+   11248  Eclectic impling jar
+   11250  Nature impling jar
+   11252  Magpie impling jar
+   11254  Ninja impling jar
+   11256  Dragon impling jar
+   11258  Jar generator
+   11866  Slayer ring (8)
+   11867  (not in wiki canonical set)
+   11868  (not in wiki canonical set)
+   11869  (not in wiki canonical set)
+   11870  (not in wiki canonical set)
+   11871  (not in wiki canonical set)
+   11872  (not in wiki canonical set)
+   11873  (not in wiki canonical set)
+   11874  Broad arrowheads
+   11970  (not in wiki canonical set)
+   11974  (not in wiki canonical set)
+   11978  (not in wiki canonical set)
+   11982  (not in wiki canonical set)
+   11984  (not in wiki canonical set)
+   11986  (not in wiki canonical set)
+   11988  (not in wiki canonical set)
+   12019  Coal bag
+   12785  (not in wiki canonical set)
+   19043  (not in wiki canonical set)
+   19564  Royal seed pod
+   20372  Saradomin godsword (or)
+   20374  Zamorak godsword (or)
+   20376  Steel trimmed set (lg)
+   20378  (not in wiki canonical set)
+   20380  (not in wiki canonical set)
+   20786  Ring of wealth (i5)
+   21149  (not in wiki canonical set)
+   21151  (not in wiki canonical set)
+   21153  (not in wiki canonical set)
+   21155  (not in wiki canonical set)
+   21168  (not in wiki canonical set)
+   21169  (not in wiki canonical set)
+   21170  (not in wiki canonical set)
+   21171  (not in wiki canonical set)
+   21172  (not in wiki canonical set)
+   21173  (not in wiki canonical set)
+   21174  (not in wiki canonical set)
+   21175  (not in wiki canonical set)
+   21383  (not in wiki canonical set)
+   21385  (not in wiki canonical set)
+   21395  (not in wiki canonical set)
+   21396  Clan wars cape
+   21397  (not in wiki canonical set)
+   21398  (not in wiki canonical set)
+   21880  Wrath rune
+   22461  Bastion potion(4)
+   23491  (not in wiki canonical set)
+   23783  Green crystal
+   24478  (not in wiki canonical set)
+   24480  (not in wiki canonical set)
+   24481  (not in wiki canonical set)
+   25541  (not in wiki canonical set)
+   25580  Tackle box
+   25627  (not in wiki canonical set)
+   25742  Holy ornament kit
+   25821  (not in wiki canonical set)
+   29463  (not in wiki canonical set)
+
+=== quests (110 items not in wiki output) ===
+     552  Ghostspeak amulet
+     762  (not in wiki canonical set)
+     770  (not in wiki canonical set)
+    1052  Cape of legends
+    1053  Green halloween mask
+    1686  (not in wiki canonical set)
+    1854  Shantay pass
+    2572  (not in wiki canonical set)
+    3981  (not in wiki canonical set)
+    3983  (not in wiki canonical set)
+    4024  Ninja monkey greegree
+    4025  Ninja monkey greegree
+    4026  Gorilla greegree
+    4027  Bearded gorilla greegree
+    4028  Ancient gorilla greegree
+    4029  Zombie monkey greegree
+    4202  Ring of charos
+    4539  (not in wiki canonical set)
+    4540  Oil lantern frame
+    4541  (not in wiki canonical set)
+    4856  (not in wiki canonical set)
+    4858  (not in wiki canonical set)
+    4860  (not in wiki canonical set)
+    4862  (not in wiki canonical set)
+    5087  (not in wiki canonical set)
+    5093  (not in wiki canonical set)
+    5525  Tiara
+    5573  (not in wiki canonical set)
+    6450  (not in wiki canonical set)
+    6570  Fire cape
+    6583  Ring of stone
+    6704  (not in wiki canonical set)
+    6737  Berserker ring
+    9105  (not in wiki canonical set)
+    9106  Astral tiara
+    9107  (not in wiki canonical set)
+    9108  (not in wiki canonical set)
+    9110  (not in wiki canonical set)
+    9112  (not in wiki canonical set)
+    9114  (not in wiki canonical set)
+    9117  (not in wiki canonical set)
+   10510  (not in wiki canonical set)
+   11142  (not in wiki canonical set)
+   11667  (not in wiki canonical set)
+   11668  (not in wiki canonical set)
+   11669  (not in wiki canonical set)
+   11670  (not in wiki canonical set)
+   11671  (not in wiki canonical set)
+   11672  (not in wiki canonical set)
+   11673  (not in wiki canonical set)
+   12018  Salve amulet(ei)
+   12019  Coal bag
+   12020  Gem bag
+   12021  Clue scroll (medium)
+   12655  Pet kraken
+   13069  (not in wiki canonical set)
+   13072  Elite void top
+   13073  Elite void robe
+   13178  Callisto cub
+   13222  (not in wiki canonical set)
+   13342  (not in wiki canonical set)
+   13343  Black santa hat
+   13560  Shayzien supply helm (5)
+   13561  Shayzien supply greaves (5)
+   13562  Shayzien supply platebody (5)
+   13563  Shayzien supply crate
+   19477  (not in wiki canonical set)
+   19478  Light ballista
+   19479  (not in wiki canonical set)
+   19820  Clue scroll (easy)
+   19825  Clue scroll (easy)
+   19830  Clue scroll (easy)
+   20465  (not in wiki canonical set)
+   20469  (not in wiki canonical set)
+   20473  (not in wiki canonical set)
+   20475  (not in wiki canonical set)
+   20477  (not in wiki canonical set)
+   20479  (not in wiki canonical set)
+   20481  (not in wiki canonical set)
+   20655  (not in wiki canonical set)
+   21285  Infernal max cape
+   21295  Infernal cape
+   22151  Adamant kiteshield
+   22152  (not in wiki canonical set)
+   22153  Adamant kiteshield
+   22154  (not in wiki canonical set)
+   22246  Anguish ornament kit
+   22247  (not in wiki canonical set)
+   22248  (not in wiki canonical set)
+   22249  Necklace of anguish (or)
+   22399  (not in wiki canonical set)
+   22803  (not in wiki canonical set)
+   24177  (not in wiki canonical set)
+   24179  (not in wiki canonical set)
+   24181  (not in wiki canonical set)
+   24182  (not in wiki canonical set)
+   24183  (not in wiki canonical set)
+   24184  (not in wiki canonical set)
+   24185  (not in wiki canonical set)
+   24443  Gingerbread gnome
+   24670  Twisted ancestral colour kit
+   24671  (not in wiki canonical set)
+   24672  Haemalchemy volume 2
+   25527  Stardust
+   27000  (not in wiki canonical set)
+   27001  (not in wiki canonical set)
+   27002  (not in wiki canonical set)
+   27005  (not in wiki canonical set)
+   27006  (not in wiki canonical set)
+   27007  (not in wiki canonical set)
+
+=== sailing (2 items not in wiki output) ===
+   31290  (not in wiki canonical set)
+   31807  Crowbar

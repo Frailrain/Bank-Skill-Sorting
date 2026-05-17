@@ -1,17 +1,16 @@
 # skillbank-data scraper
 
-One-shot Python tool that proposes an expanded `SkillBankData.java` driven by item metadata from `osrsbox-db`. Never touches live plugin source — produces `out/SkillBankData.java.proposed` plus a diff report for human review.
+One-shot Python tool that proposes an expanded `SkillBankData.java` driven by **live OSRS Wiki Bucket API queries** as the primary item registry, with **osrsboxed-db as supplementary metadata** for fields the wiki doesn't expose (e.g. `equipable_weapon`, `weapon_type`, `quest_item`). Produces `out/SkillBankData.java.proposed` plus diff reports. Use `--promote` to overwrite the live source file.
 
 ## How it works
 
-1. Downloads `items-complete.json` from the maintained `osrsreboxed-db` fork (~1 MB). Caches it under `cache/`.
-2. Loads tab classification rules from `mapping.py`. Each tab declares:
-   - A classifier predicate matching osrsbox item records.
-   - A subcategory mapping for ordering.
-   - A variant allowlist for non-canonical IDs we want surfaced.
-3. Classifies every item, groups by tab/subcategory, sorts by tier, breaks ties by item ID.
-4. Parses the existing `src/main/java/com/skillbank/SkillBankData.java` to extract current per-tag IDs.
-5. Emits `out/SkillBankData.java.proposed` plus `out/diff.txt` and `out/report.txt`.
+1. Fetches the OSRS Wiki `infobox_item` bucket (canonical items only via `default_version=true`) and `infobox_bonuses` bucket. Paginated by `.offset()/.limit(5000)`, cached to `cache/wiki/` with 24h TTL.
+2. Joins items + bonuses in Python by `page_name_sub` (Bucket has no working join syntax).
+3. Downloads `items-complete.json` from the maintained `osrsreboxed-db` fork as a supplementary metadata source.
+4. Merges the two: wiki wins for identity, osrsbox fills in fields wiki lacks. Records cross-source discrepancies to `cache/discrepancies.json`.
+5. Loads tab classification rules from `mapping.py` and applies them to the merged items.
+6. Parses the existing `src/main/java/com/skillbank/SkillBankData.java` for current per-tag IDs.
+7. Emits `out/SkillBankData.java.proposed`, `out/diff.txt`, `out/report.txt`, and a top-level `diff-current-vs-wiki.txt` cross-validation report.
 
 ## Run it
 
@@ -22,10 +21,15 @@ python3 scraper.py
 
 No pip dependencies. Standard library only.
 
-Optional flags:
-- `--no-fetch` — skip osrsbox download, reuse cache.
-- `--tab <name>` — restrict output to a single tab (handy for iterating on one classifier).
+Flags:
+- `--no-fetch` — skip osrsbox download, reuse the local osrsbox cache.
+- `--refresh-wiki` — invalidate all wiki cache files and re-fetch.
+- `--no-cache` — bypass wiki cache entirely this run.
+- `--probe-schema` — interrogate which fields actually exist in `infobox_item` / `infobox_bonuses`; writes `cache/wiki/schema.json` and exits.
+- `--tab <name>` — restrict output to one tab (iterate quickly on one classifier).
 - `--out <dir>` — change output dir (default `./out`).
+- `--strict` — non-additive: items in current data the classifier missed are dropped (regresses tabs). Off by default until the cross-validation diff is clean.
+- `--promote` — also overwrite `src/main/java/com/skillbank/SkillBankData.java`.
 
 ## Output
 

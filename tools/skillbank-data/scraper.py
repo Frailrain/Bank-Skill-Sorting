@@ -21,14 +21,16 @@ from typing import Callable
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
 CACHE_DIR = SCRIPT_DIR / "cache"
+WIKI_CACHE_DIR = CACHE_DIR / "wiki"
 OUT_DIR = SCRIPT_DIR / "out"
 DATA_JAVA = REPO_ROOT / "src/main/java/com/skillbank/SkillBankData.java"
+DIFF_REPORT_FILE = SCRIPT_DIR / "diff-current-vs-wiki.txt"
 
 OSRSBOX_URL = (
     "https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/"
     "docs/items-complete.json"
 )
-USER_AGENT = "SkillBankTabs/0.1 (https://github.com/Frailrain/Bank-Skill-Sorting)"
+USER_AGENT = "SkillBankTabs/1.0 (https://github.com/Frailrain/Bank-Skill-Sorting)"
 
 
 # ── osrsbox client ──────────────────────────────────────────────────────────
@@ -45,6 +47,161 @@ def fetch_osrsbox(force: bool = False) -> dict:
         raw = resp.read()
     cache.write_bytes(raw)
     return json.loads(raw)
+
+
+# ── Wiki/osrsbox merge ─────────────────────────────────────────────────────
+
+# Map wiki infobox_bonuses field names → osrsbox equipment.* field names.
+_WIKI_BONUS_TO_OSRSBOX = {
+    "stab_attack_bonus":    "attack_stab",
+    "slash_attack_bonus":   "attack_slash",
+    "crush_attack_bonus":   "attack_crush",
+    "magic_attack_bonus":   "attack_magic",
+    "range_attack_bonus":   "attack_ranged",
+    "stab_defence_bonus":   "defence_stab",
+    "slash_defence_bonus":  "defence_slash",
+    "crush_defence_bonus":  "defence_crush",
+    "magic_defence_bonus":  "defence_magic",
+    "range_defence_bonus":  "defence_ranged",
+    "strength_bonus":       "melee_strength",
+    "ranged_strength_bonus": "ranged_strength",
+    "magic_damage_bonus":   "magic_damage",
+    "prayer_bonus":         "prayer",
+}
+
+
+def _first(v):
+    """Wiki rows return values as lists; unwrap the first element."""
+    if isinstance(v, list):
+        return v[0] if v else None
+    return v
+
+
+def _int_or_zero(v):
+    try:
+        return int(_first(v))
+    except (TypeError, ValueError):
+        return 0
+
+
+def _truthy(v):
+    """Wiki returns booleans inconsistently — '' / 'true' / True / etc."""
+    v = _first(v)
+    if v is True or v is False:
+        return v
+    if isinstance(v, str):
+        return v.lower() in ("true", "yes", "1") or (v == "")  # tradeable=true often "" on items
+    return bool(v)
+
+
+def merge_wiki_osrsbox(
+    wiki_items: list[dict],
+    wiki_bonuses: list[dict],
+    osrsbox: dict,
+) -> tuple[dict, list[int], list[int], list[dict]]:
+    """Produce {str(id): osrsbox-shaped item} merging wiki (primary) + osrsbox.
+
+    Returns:
+        merged      — dict keyed by str(item_id)
+        wiki_only   — IDs present in wiki but absent from osrsbox cache
+        osrsbox_only — IDs in osrsbox but absent from wiki (likely deprecated)
+        discrepancies — name/slot mismatches between sources
+    """
+    bonuses_by_pns: dict[str, dict] = {}
+    for b in wiki_bonuses:
+        pns = _first(b.get("page_name_sub"))
+        if pns:
+            bonuses_by_pns.setdefault(pns, b)
+
+    merged: dict[str, dict] = {}
+    wiki_only: list[int] = []
+    discrepancies: list[dict] = []
+    seen_ids: set[int] = set()
+
+    for it in wiki_items:
+        raw_id = _first(it.get("item_id"))
+        if raw_id in (None, ""):
+            continue
+        try:
+            iid = int(raw_id)
+        except (TypeError, ValueError):
+            continue
+        if iid in seen_ids:
+            continue
+        seen_ids.add(iid)
+
+        name = _first(it.get("item_name")) or ""
+        pns = _first(it.get("page_name_sub")) or ""
+        members = _truthy(it.get("is_members_only"))
+
+        bonuses = bonuses_by_pns.get(pns, {})
+        equipment: dict = {}
+        weapon: dict = {}
+        if bonuses:
+            slot = _first(bonuses.get("equipment_slot"))
+            if slot:
+                equipment["slot"] = slot
+            for wkey, okey in _WIKI_BONUS_TO_OSRSBOX.items():
+                v = _first(bonuses.get(wkey))
+                if v not in (None, ""):
+                    try:
+                        equipment[okey] = int(v)
+                    except (TypeError, ValueError):
+                        pass
+            wa = _first(bonuses.get("weapon_attack_speed"))
+            if wa not in (None, ""):
+                try:
+                    weapon["attack_speed"] = int(wa)
+                except (TypeError, ValueError):
+                    pass
+            cs = _first(bonuses.get("combat_style"))
+            if cs:
+                # combat_style is a rough proxy; osrsbox weapon_type wins below if present.
+                weapon["weapon_type"] = cs
+
+        osb = osrsbox.get(str(iid)) or {}
+        if osb:
+            if osb.get("name") and osb["name"] != name:
+                discrepancies.append({
+                    "id": iid, "wiki_name": name, "osrsbox_name": osb["name"],
+                })
+            equipable = osb.get("equipable", bool(equipment))
+            equipable_weapon = osb.get("equipable_weapon", False)
+            osb_weapon = osb.get("weapon") or {}
+            if osb_weapon.get("weapon_type"):
+                weapon["weapon_type"] = osb_weapon["weapon_type"]
+            quest_item = osb.get("quest_item", False)
+            noted = osb.get("noted", False)
+            placeholder = osb.get("placeholder", False)
+            duplicate = osb.get("duplicate", False)
+        else:
+            wiki_only.append(iid)
+            equipable = bool(equipment)
+            equipable_weapon = equipable and equipment.get("slot") in ("weapon", "2h")
+            quest_item = False
+            noted = placeholder = duplicate = False
+
+        merged[str(iid)] = {
+            "id": iid,
+            "name": name,
+            "members": members,
+            "tradeable": _truthy(it.get("tradeable")),
+            "weight": _first(it.get("weight")),
+            "release_date": _first(it.get("release_date")),
+            "examine": _first(it.get("examine")),
+            "equipable": equipable,
+            "equipable_weapon": equipable_weapon,
+            "noted": noted,
+            "placeholder": placeholder,
+            "duplicate": duplicate,
+            "quest_item": quest_item,
+            "equipment": equipment,
+            "weapon": weapon,
+            "_source": "wiki+osrsbox" if osb else "wiki-only",
+        }
+
+    osrsbox_only = [int(k) for k in osrsbox if k not in merged]
+    return merged, wiki_only, osrsbox_only, discrepancies
 
 
 # ── Wiki Bucket supplement (rate-limited, cached) ───────────────────────────
@@ -436,17 +593,49 @@ def build_report(
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--no-fetch", action="store_true", help="reuse osrsbox cache")
+    p.add_argument("--no-fetch", action="store_true",
+                   help="reuse osrsbox cache (also implies wiki cache use)")
+    p.add_argument("--refresh-wiki", action="store_true",
+                   help="invalidate wiki cache and re-fetch all pages")
+    p.add_argument("--no-cache", action="store_true",
+                   help="bypass wiki cache entirely for this run")
+    p.add_argument("--probe-schema", action="store_true",
+                   help="probe wiki bucket schemas and write cache/wiki/schema.json, then exit")
     p.add_argument("--tab", action="append", help="restrict to one or more tab names")
-    p.add_argument("--out", default=str(OUT_DIR), help="output directory for proposed/diff/report")
+    p.add_argument("--out", default=str(OUT_DIR),
+                   help="output directory for proposed/diff/report")
     p.add_argument("--strict", action="store_true",
-                   help="non-additive: drop items from current data that the new classifier misses (regresses tabs).")
+                   help="non-additive: drop items from current data that the new classifier misses.")
     p.add_argument("--promote", action="store_true",
                    help="also overwrite src/main/java/com/skillbank/SkillBankData.java with the result.")
     args = p.parse_args()
 
+    import wiki  # type: ignore
+
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
+    WIKI_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+    if args.probe_schema:
+        print("Probing infobox_item schema...", file=sys.stderr)
+        item_schema = wiki.probe_schema(WIKI_CACHE_DIR, wiki.ITEM_FIELDS + [
+            "equipable", "stackable", "release", "slot"
+        ], "infobox_item")
+        print("Probing infobox_bonuses schema...", file=sys.stderr)
+        bonus_schema = wiki.probe_schema(WIKI_CACHE_DIR, wiki.BONUSES_FIELDS + [
+            "item_id", "slot"
+        ], "infobox_bonuses")
+        schema_out = WIKI_CACHE_DIR / "schema.json"
+        schema_out.write_text(json.dumps({
+            "infobox_item": item_schema,
+            "infobox_bonuses": bonus_schema,
+        }, indent=2))
+        print(f"Wrote {schema_out}")
+        for bkt, sch in [("infobox_item", item_schema), ("infobox_bonuses", bonus_schema)]:
+            print(f"\n{bkt}:")
+            for f, status in sch.items():
+                print(f"  {f}: {status}")
+        return
 
     # Late import so the script can be run without mapping.py being valid yet.
     sys.path.insert(0, str(SCRIPT_DIR))
@@ -460,9 +649,41 @@ def main():
             print(f"No matching tabs: {args.tab}", file=sys.stderr)
             sys.exit(2)
 
+    use_cache = not args.no_cache
+    refresh = args.refresh_wiki
+
+    print(f"Fetching wiki canonical items (use_cache={use_cache}, refresh={refresh})...", file=sys.stderr)
+    wiki_items = wiki.fetch_canonical_items(
+        WIKI_CACHE_DIR, use_cache=use_cache, refresh=refresh,
+    )
+    print(f"Fetching wiki equipment bonuses...", file=sys.stderr)
+    wiki_bonuses = wiki.fetch_all_bonuses(
+        WIKI_CACHE_DIR, use_cache=use_cache, refresh=refresh,
+    )
+
     print(f"Loading osrsbox dump (force_refetch={not args.no_fetch})...", file=sys.stderr)
-    items = fetch_osrsbox(force=not args.no_fetch)
-    print(f"  {len(items)} items in dump", file=sys.stderr)
+    osrsbox = fetch_osrsbox(force=not args.no_fetch)
+    print(f"  osrsbox: {len(osrsbox)} items", file=sys.stderr)
+
+    print("Merging wiki + osrsbox...", file=sys.stderr)
+    items, wiki_only, osrsbox_only, discrepancies = merge_wiki_osrsbox(
+        wiki_items, wiki_bonuses, osrsbox,
+    )
+    print(
+        f"  merged: {len(items)} canonical items "
+        f"(wiki_only={len(wiki_only)}, osrsbox_only={len(osrsbox_only)}, "
+        f"discrepancies={len(discrepancies)})",
+        file=sys.stderr,
+    )
+    (CACHE_DIR / "discrepancies.json").write_text(json.dumps({
+        "wiki_only_ids": wiki_only[:200],
+        "wiki_only_total": len(wiki_only),
+        "osrsbox_only_ids": osrsbox_only[:200],
+        "osrsbox_only_total": len(osrsbox_only),
+        "name_discrepancies": discrepancies[:200],
+        "discrepancies_total": len(discrepancies),
+    }, indent=2))
+
     items_by_id: dict[int, dict] = {int(k): v for k, v in items.items()}
 
     print("Classifying...", file=sys.stderr)
@@ -496,6 +717,26 @@ def main():
     print(f"Wrote {out_dir}/SkillBankData.java.proposed")
     print(f"Wrote {out_dir}/report.txt   ({sum(len(c) for c in current.values())} cur ids total)")
     print(f"Wrote {out_dir}/diff.txt     (per-tab adds/drops + first/last 20 sample)")
+
+    # Cross-validation diff: items in current SkillBankData that the wiki+classifier
+    # output doesn't pick up. Committed once for human review per the Phase 1.5 brief.
+    cross_lines = ["Cross-validation: items in current SkillBankData.java but NOT in wiki-classified output.",
+                   "Use this to decide whether each item is genuinely deprecated (drop), needs a classifier fix,",
+                   "or should be added to force_include / variant_allowlist before flipping --additive=false.",
+                   "", ""]
+    for tab in tabs:
+        cur_ids = set(current.get(tab.name, []))
+        prop_ids = {r[1] for sec_items in classified[tab.name] for r in sec_items}
+        only_in_current = sorted(cur_ids - prop_ids)
+        if not only_in_current:
+            continue
+        cross_lines.append(f"=== {tab.name} ({len(only_in_current)} items not in wiki output) ===")
+        for iid in only_in_current:
+            nm = items_by_id.get(iid, {}).get("name") or "(not in wiki canonical set)"
+            cross_lines.append(f"  {iid:>6}  {nm}")
+        cross_lines.append("")
+    DIFF_REPORT_FILE.write_text("\n".join(cross_lines))
+    print(f"Wrote {DIFF_REPORT_FILE} (cross-validation report for --additive flip decision)")
 
     if args.promote:
         DATA_JAVA.write_text(proposed)

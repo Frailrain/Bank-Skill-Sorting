@@ -1167,49 +1167,56 @@ QUESTS = TabSpec(
 )
 
 # === SAILING ===
-# Sailing launched Nov 2025; the osrsbox/osrsreboxed dump was last updated Oct
-# 2024 so Sailing items are absent from the cache entirely. We can't classify
-# them by metadata — we inject the known IDs via `extra_items` (which bypasses
-# the items dict). IDs sourced from wiki + in-game lookups.
+# Sailing launched 19 November 2025. With live wiki scraping (Phase 1.5),
+# Sailing items now come straight from the wiki — no hardcoded ID injection
+# needed. Classifier matches by release_date being post-Sailing-launch AND
+# the item belonging to Sailing-themed name patterns (avoids sweeping in
+# unrelated 2025/2026 releases like cosmetic capes).
 
-_SAILING_NAV_TOOLS = [
-    (31803, "Spyglass", "Navigation tools"),
-    (31807, "Crowbar (Sailing)", "Navigation tools"),
-    (31985, "Captain's log", "Navigation tools"),
-    (31964, "Repair kit", "Navigation tools"),
-]
-_SAILING_RAW_FISH = [
-    (32309, "Raw giant krill", "Raw sailing fish"),
-    (32325, "Raw yellowfin", "Raw sailing fish"),
-    (32333, "Raw halibut", "Raw sailing fish"),
-    (32341, "Raw bluefin", "Raw sailing fish"),
-    (32349, "Raw marlin", "Raw sailing fish"),
-]
-_SAILING_COOKED_FISH = [
-    (32312, "Cooked giant krill", "Cooked sailing fish"),
-    (32328, "Cooked yellowfin", "Cooked sailing fish"),
-    (32336, "Cooked halibut", "Cooked sailing fish"),
-    (32344, "Cooked bluefin", "Cooked sailing fish"),
-    (32352, "Cooked marlin", "Cooked sailing fish"),
-]
-_SAILING_CAPE = [
-    (31288, "Sailing cape", "Cape & pet"),
-    (31290, "Sailing cape(t)", "Cape & pet"),
-]
+def _is_sailing_release(it):
+    rd = (it.get("release_date") or "")
+    if not rd:
+        return False
+    # Wiki returns dates like "19 November 2025" or "2025-11-19".
+    is_post = any(year in rd for year in ("2025", "2026"))
+    if not is_post:
+        return False
+    n = (it.get("name") or "").lower()
+    return any(t in n for t in (
+        "sail", "krill", "yellowfin", "halibut", "bluefin", "marlin",
+        "spyglass", "captain's log", "repair kit", "trawl", "salvag",
+    ))
+
+
+def _is_sailing_fish(raw_or_cooked):
+    fishes = {"giant krill", "yellowfin", "halibut", "bluefin", "marlin"}
+    def pred(it):
+        n = (it.get("name") or "").lower()
+        if raw_or_cooked == "raw" and not n.startswith("raw "):
+            return False
+        if raw_or_cooked == "cooked" and (n.startswith("raw ") or "uncooked" in n):
+            return False
+        if "2025" not in (it.get("release_date") or "") and "2026" not in (it.get("release_date") or ""):
+            return False
+        return any(f in n for f in fishes)
+    return pred
 
 
 SAILING = TabSpec(
     name="sailing", const_name="TAG_SAILING",
     sections=[
-        Section("Navigation tools", _never),
-        Section("Raw sailing fish", _never),
-        Section("Cooked sailing fish", _never),
-        Section("Cape & pet", _never),
+        Section("Navigation tools", lambda it: _is_sailing_release(it) and any(
+            t in (it.get("name") or "").lower()
+            for t in ("spyglass", "captain's log", "repair kit", "crowbar", "trawl", "salvag")
+        )),
+        Section("Raw sailing fish", _is_sailing_fish("raw")),
+        Section("Cooked sailing fish", _is_sailing_fish("cooked")),
+        Section("Cape & pet", lambda it: _is_sailing_release(it) and (
+            "sailing cape" in (it.get("name") or "").lower()
+            or "sailing hood" in (it.get("name") or "").lower()
+        )),
     ],
-    extra_items=(
-        _SAILING_NAV_TOOLS + _SAILING_RAW_FISH
-        + _SAILING_COOKED_FISH + _SAILING_CAPE
-    ),
+    # extra_items intentionally empty — wiki provides these IDs directly now.
 )
 
 
