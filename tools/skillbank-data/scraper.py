@@ -263,13 +263,24 @@ def _sort_safe(v):
 
 # ── Java rendering ──────────────────────────────────────────────────────────
 
-def render_block(tab: TabSpec, sections: list[list[tuple[float, int, str]]]) -> str:
-    """Render the inner content of one m.put block (no leading indent)."""
-    total = sum(len(s) for s in sections)
+def render_block(
+    tab: TabSpec,
+    sections: list[list[tuple[object, int, str]]],
+    legacy_ids: list[int] | None = None,
+) -> str:
+    """Render the inner content of one m.put block (no leading indent).
+
+    `legacy_ids` (if provided and non-empty) become a trailing 'Legacy carry-over'
+    section so we never silently drop items the hand-curated data had.
+    """
+    legacy_ids = legacy_ids or []
+    total = sum(len(s) for s in sections) + len(legacy_ids)
     summary_parts = [
         f"{tab.sections[i].label} ({len(sections[i])})"
         for i in range(len(sections)) if sections[i]
     ]
+    if legacy_ids:
+        summary_parts.append(f"Legacy ({len(legacy_ids)})")
     lines: list[str] = []
     lines.append(f"// {tab.name.upper()} — {total} items")
     if summary_parts:
@@ -279,29 +290,60 @@ def render_block(tab: TabSpec, sections: list[list[tuple[float, int, str]]]) -> 
     lines.append(f"m.put({tab.const_name}, Arrays.asList(")
 
     nonempty = [(i, sections[i]) for i in range(len(sections)) if sections[i]]
-    if not nonempty:
+    has_any = bool(nonempty) or bool(legacy_ids)
+    if not has_any:
         lines.append("\t// (no items matched — see classifiers in mapping.py)")
+
+    # Total section count for trailing-comma logic.
+    total_sections = len(nonempty) + (1 if legacy_ids else 0)
+
     for outer_idx, (i, items) in enumerate(nonempty):
         if outer_idx > 0:
             lines.append("")
         lines.append(f"\t// === {tab.sections[i].label} ===")
-        is_last_section = outer_idx == len(nonempty) - 1
+        is_last_section = outer_idx == total_sections - 1
         for inner_idx in range(0, len(items), 8):
             chunk = items[inner_idx:inner_idx + 8]
             ids = ", ".join(str(r[1]) for r in chunk)
-            last_chunk_of_last_section = (
-                is_last_section and inner_idx + len(chunk) >= len(items)
-            )
-            comma = "" if last_chunk_of_last_section else ","
+            last_chunk = inner_idx + len(chunk) >= len(items)
+            comma = "" if (is_last_section and last_chunk) else ","
             lines.append(f"\t{ids}{comma}")
+
+    if legacy_ids:
+        if nonempty:
+            lines.append("")
+        lines.append("\t// === Legacy carry-over (hand-curated items the new classifier missed) ===")
+        for inner_idx in range(0, len(legacy_ids), 8):
+            chunk = legacy_ids[inner_idx:inner_idx + 8]
+            ids = ", ".join(str(i) for i in chunk)
+            last_chunk = inner_idx + len(chunk) >= len(legacy_ids)
+            comma = "" if last_chunk else ","
+            lines.append(f"\t{ids}{comma}")
+
     lines.append("));")
     return "\n".join(lines)
 
 
-def render_proposed(java_src: str, tabs: list[TabSpec], classified: dict) -> str:
+def render_proposed(
+    java_src: str,
+    tabs: list[TabSpec],
+    classified: dict,
+    current: dict[str, list[int]] | None = None,
+    additive: bool = True,
+) -> str:
+    """Substitute m.put blocks. If `additive` and `current` provided, append a
+    Legacy section per tab for items in the current data that the new classifier
+    didn't pick up — never silently regresses a tab."""
     out = java_src
+    current = current or {}
     for tab in tabs:
-        block = render_block(tab, classified[tab.name])
+        proposed_ids = {
+            r[1] for sec_items in classified[tab.name] for r in sec_items
+        }
+        legacy_ids: list[int] = []
+        if additive and tab.name in current:
+            legacy_ids = sorted(set(current[tab.name]) - proposed_ids)
+        block = render_block(tab, classified[tab.name], legacy_ids=legacy_ids)
         pattern = re.compile(
             rf'([ \t]*)m\.put\({re.escape(tab.const_name)},\s*Arrays\.asList\(.*?\)\s*\);',
             re.DOTALL,
@@ -396,7 +438,11 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--no-fetch", action="store_true", help="reuse osrsbox cache")
     p.add_argument("--tab", action="append", help="restrict to one or more tab names")
-    p.add_argument("--out", default=str(OUT_DIR), help="output directory")
+    p.add_argument("--out", default=str(OUT_DIR), help="output directory for proposed/diff/report")
+    p.add_argument("--strict", action="store_true",
+                   help="non-additive: drop items from current data that the new classifier misses (regresses tabs).")
+    p.add_argument("--promote", action="store_true",
+                   help="also overwrite src/main/java/com/skillbank/SkillBankData.java with the result.")
     args = p.parse_args()
 
     out_dir = Path(args.out)
@@ -436,8 +482,8 @@ def main():
                 file=sys.stderr,
             )
 
-    print("Rendering proposed file + diff...", file=sys.stderr)
-    proposed = render_proposed(java_src, tabs, classified)
+    print(f"Rendering proposed file + diff (additive={not args.strict})...", file=sys.stderr)
+    proposed = render_proposed(java_src, tabs, classified, current=current, additive=not args.strict)
     (out_dir / "SkillBankData.java.proposed").write_text(proposed)
 
     summary, diff = build_report(current, classified, tabs, items_by_id)
@@ -450,6 +496,10 @@ def main():
     print(f"Wrote {out_dir}/SkillBankData.java.proposed")
     print(f"Wrote {out_dir}/report.txt   ({sum(len(c) for c in current.values())} cur ids total)")
     print(f"Wrote {out_dir}/diff.txt     (per-tab adds/drops + first/last 20 sample)")
+
+    if args.promote:
+        DATA_JAVA.write_text(proposed)
+        print(f"\nPROMOTED → {DATA_JAVA}")
 
 
 if __name__ == "__main__":
