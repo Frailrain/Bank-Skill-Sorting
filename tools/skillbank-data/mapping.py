@@ -1103,6 +1103,11 @@ COOKING = TabSpec(
                 "Roast bird meat", "Skewered bird meat",
                 "Roast beast meat", "Skewered beast",
                 "Spicy tomato", "Spicy minced meat",
+                # session 37 — Temple Trekking food (Roving Elves area)
+                "Green gloop soup", "Frogspawn gumbo", "Frogburger",
+                "Coated frogs' legs", "Bat shish", "Fingers",
+                "Grubs à la mode", "Roast frog", "Mushrooms",
+                "Fillets", "Loach", "Eel sushi",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1196,6 +1201,9 @@ WC_FLETCHING = TabSpec(
             "Woodcutting cape", "Woodcutting cape(t)", "Woodcutting hood",
             "Fletching cape", "Fletching cape(t)", "Fletching hood",
             "Beaver", "Imcando hammer",
+        })),
+        Section("Lumberjack outfit", _name_in({
+            "Lumberjack boots", "Lumberjack top", "Lumberjack legs", "Lumberjack hat",
         })),
     ],
 )
@@ -1421,6 +1429,11 @@ HERBLORE = TabSpec(
             # session 31 — Hazeel Cult magic essence (Magic potion ingredient chain)
             "Magic essence (unf)",
             "Magic essence(4)", "Magic essence(3)", "Magic essence(2)", "Magic essence(1)",
+            # session 37 — Sanfew serum step intermediate (Dream Mentor)
+            "Mixture - step 1(4)", "Mixture - step 1(3)",
+            "Mixture - step 1(2)", "Mixture - step 1(1)",
+            "Mixture - step 2(4)", "Mixture - step 2(3)",
+            "Mixture - step 2(2)", "Mixture - step 2(1)",
         })),
         Section("Spirits of Elid secondaries", _name_in({
             "Ground guam", "Ground seaweed",
@@ -1519,6 +1532,7 @@ SLAYER = TabSpec(
         Section("Slayer master items", _name_in({
             "Enchanted gem", "Eternal gem", "Slayer ring", "Slayer ring (eternal)",
             "Slayer's enchantment", "Mysterious emblem", "Abyssal book",
+            "Slayer bell",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -1817,6 +1831,11 @@ MISC = TabSpec(
             "Games necklace(2)", "Games necklace(1)",
             "Combat bracelet", "Combat bracelet(1)", "Combat bracelet(2)",
             "Combat bracelet(3)", "Combat bracelet(4)", "Combat bracelet(5)",
+            # session 37 — Castle wars bracelet, Inoculation bracelet, Abyssal bracelet
+            "Castle wars bracelet(1)", "Castle wars bracelet(2)", "Castle wars bracelet(3)",
+            "Inoculation bracelet",
+            "Abyssal bracelet(1)", "Abyssal bracelet(2)", "Abyssal bracelet(3)",
+            "Abyssal bracelet(5)",
             "Skills necklace", "Skills necklace(1)", "Skills necklace(2)",
             "Skills necklace(3)", "Skills necklace(4)", "Skills necklace(5)",
             "Digsite pendant (1)", "Digsite pendant (2)", "Digsite pendant (3)",
@@ -1916,6 +1935,10 @@ MISC = TabSpec(
                 "Jack lantern mask",
                 "Skeleton boots", "Skeleton gloves", "Skeleton leggings",
                 "Skeleton shirt", "Skeleton mask",
+                # session 37 — Easter 2007 chicken outfit + chocolate kebbit
+                "Chicken feet", "Chicken wings", "Chicken head", "Chicken legs",
+                "Magic egg",
+                "Rabbit mould", "Chocolate chunks", "Chocolate kebbit",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),

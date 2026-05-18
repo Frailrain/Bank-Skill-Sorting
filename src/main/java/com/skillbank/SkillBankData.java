@@ -1103,12 +1103,12 @@ public final class SkillBankData
 
 	private static void addCooking(Map<String, List<Integer>> m)
 	{
-		// COOKING — 647 items
+		// COOKING — 659 items
 		//   Cooking tools (18), Raw fish (25), Cooked fish (23), Pies (10), Pizzas
 		//   (4), Stews & curries (3), Cakes (2), Breads (4), Gnome food /
 		//   cocktails (91), Beverages (58), Burnt food (65), Containers
 		//   (water/milk/etc) (18), Raw meat & ingredients (119), Misc cooked food
-		//   (78), Pies (extended) (19), Harvest produce (cross-tag with farming)
+		//   (90), Pies (extended) (19), Harvest produce (cross-tag with farming)
 		//   (55), Cooking pet & misc (4), Legacy (51)
 		m.put(TAG_COOKING, Arrays.asList(
 			// === Cooking tools ===
@@ -1209,8 +1209,10 @@ public final class SkillBankData
 			7224, 7230, 7473, 7476, 7521, 7527, 7528, 7530,
 			7544, 7545, 7546, 7568, 7572, 7573, 7574, 7575,
 			7579, 7580, 9475, 9980, 9984, 9988, 9992, 9994,
-			9996, 24785, 29077, 29128, 29131, 29134, 29137, 29140,
-			29143, 29146, 29149, 29152, 29217, 33109,
+			9996, 10960, 10961, 10962, 10963, 10964, 10965, 10966,
+			10967, 10968, 10969, 10970, 10971, 24785, 29077, 29128,
+			29131, 29134, 29137, 29140, 29143, 29146, 29149, 29152,
+			29217, 33109,
 
 			// === Pies (extended) ===
 			2315, 2317, 2319, 2321, 7164, 7170, 7172, 7182,
@@ -1242,14 +1244,14 @@ public final class SkillBankData
 
 	private static void addWcFletching(Map<String, List<Integer>> m)
 	{
-		// WC_FLETCHING — 435 items
+		// WC_FLETCHING — 439 items
 		//   Axes (28), Logs (42), Bowstrings (3), Unstrung bows (41), Bows &
 		//   shortbows (strung) (51), Crossbow parts (17), Bolt tips (12), Bolts
 		//   (unfinished) (9), Bolts (finished) (39), Arrow shafts (3), Arrowtips
 		//   (11), Arrows (27), Darts (20), Javelins (cross-tag with range) (9),
 		//   Bird nests (1), Feathers (cross-tag with fishing) (6), Flax &
 		//   secondary fletching materials (2), Tools (2), Forestry items (post-
-		//   Sept 2023) (11), Capes & pet (6), Legacy (95)
+		//   Sept 2023) (11), Capes & pet (6), Lumberjack outfit (4), Legacy (95)
 		m.put(TAG_WC_FLETCHING, Arrays.asList(
 			// === Axes ===
 			1351, 28196, 1349, 28199, 1353, 28202, 1361, 28205,
@@ -1345,6 +1347,9 @@ public final class SkillBankData
 
 			// === Capes & pet ===
 			9783, 9785, 9807, 9809, 13322, 25644,
+
+			// === Lumberjack outfit ===
+			10933, 10939, 10940, 10941,
 
 			// === Legacy carry-over (hand-curated items the new classifier missed) ===
 			671, 687, 1363, 1365, 1367, 1369, 1371, 1373,
@@ -1625,9 +1630,9 @@ public final class SkillBankData
 
 	private static void addHerblore(Map<String, List<Integer>> m)
 	{
-		// HERBLORE — 377 items
+		// HERBLORE — 385 items
 		//   Tools (4), Grimy herbs (14), Clean herbs (14), Unfinished potion
-		//   variants (extended) (9), Spirits of Elid secondaries (2), Vials &
+		//   variants (extended) (17), Spirits of Elid secondaries (2), Vials &
 		//   secondaries (32), Unfinished potions (22), Attack potions (8),
 		//   Strength potions (8), Defence potions (8), Super
 		//   attack/strength/defence (12), Super combat (8), Ranging & magic (20),
@@ -1647,7 +1652,8 @@ public final class SkillBankData
 
 			// === Unfinished potion variants (extended) ===
 			5936, 5939, 5942, 5951, 9019, 9021, 9022, 9023,
-			9024,
+			9024, 10909, 10911, 10913, 10915, 10917, 10919, 10921,
+			10923,
 
 			// === Spirits of Elid secondaries ===
 			6681, 6683,
@@ -1785,14 +1791,14 @@ public final class SkillBankData
 
 	private static void addSlayer(Map<String, List<Integer>> m)
 	{
-		// SLAYER — 198 items
-		//   Slayer master items (5), Slayer rings (7), Slayer helmets (27), Black
+		// SLAYER — 199 items
+		//   Slayer master items (6), Slayer rings (7), Slayer helmets (27), Black
 		//   masks (18), Task-specific gear (27), Cannon (6), Cape & pet (4),
 		//   Champion's Challenge scrolls (11), Mounted heads (POH trophies) (14),
 		//   Legacy (79)
 		m.put(TAG_SLAYER, Arrays.asList(
 			// === Slayer master items ===
-			4155, 5520, 21257, 21268, 21270,
+			4155, 5520, 10952, 21257, 21268, 21270,
 
 			// === Slayer rings ===
 			11866, 11867, 11868, 11869, 11871, 11872, 11873,
@@ -2117,17 +2123,18 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 437 items
-		//   Teleport jewellery (52), Teleport tabs (68), Boss & quest jewellery
+		// MISC — 453 items
+		//   Teleport jewellery (60), Teleport tabs (68), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (8), Clue
 		//   tools (25), Keys (12), Storage bags (6), Utility / banked supplies
 		//   (2), Combat trophies (PvM rewards) (3), Holiday rares & cosmetics
-		//   (68), Team capes (Castle Wars) (50), Currency (9), Legacy (72)
+		//   (76), Team capes (Castle Wars) (50), Currency (9), Legacy (72)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
 			2556, 2558, 2562, 2564, 2566, 2570, 2572, 3853,
-			3855, 3857, 3859, 3863, 3865, 3867, 11107, 11109,
+			3855, 3857, 3859, 3863, 3865, 3867, 11079, 11081,
+			11083, 11088, 11095, 11099, 11101, 11103, 11107, 11109,
 			11111, 11113, 11118, 11120, 11122, 11124, 11126, 11190,
 			11191, 11192, 11194, 11970, 11974, 11978, 11980, 11984,
 			11986, 11988, 12785, 13393, 21146, 21151, 21153, 21155,
@@ -2188,7 +2195,8 @@ public final class SkillBankData
 			6846, 6852, 6853, 6856, 6857, 6858, 6859, 6860,
 			6861, 6862, 6863, 6864, 6865, 6866, 6867, 7592,
 			7593, 7594, 7595, 7596, 7927, 9920, 9921, 9922,
-			9923, 9924, 9925, 10476,
+			9923, 9924, 9925, 10476, 11019, 11020, 11021, 11022,
+			11023, 11024, 11025, 11026,
 
 			// === Team capes (Castle Wars) ===
 			4315, 4317, 4319, 4321, 4323, 4325, 4327, 4329,

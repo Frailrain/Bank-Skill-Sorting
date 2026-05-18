@@ -1197,3 +1197,41 @@ Added Spring/Summer/Autumn/Winter sq'irkjuice (Sorceress's Garden potion, grants
 Added Fire cape, Infernal cape, Champion's cape — iconic combat trophy capes that primarily represent achievement (also worn for stats; canonical Fire cape 6570 already cross-tags into melee/range/mage Capes).
 
 **Affects**: 3 items.
+
+## Session 37 (audit IDs 10875–11200)
+
+### WC_FLETCHING — new "Lumberjack outfit" section
+
+Added Lumberjack boots/top/legs/hat — Random event woodcutting XP outfit.
+
+**Affects**: 4 items.
+
+### COOKING "Misc cooked food" — Temple Trekking food
+
+Added Green gloop soup, Frogspawn gumbo, Frogburger, Coated frogs' legs, Bat shish, Fingers, Grubs à la mode, Roast frog, Mushrooms, Fillets, Loach, Eel sushi.
+
+**Affects**: 12 items.
+
+### MISC Holiday rares — Easter 2007 chicken outfit + chocolate kebbit
+
+Added Chicken feet/wings/head/legs, Magic egg, Rabbit mould, Chocolate chunks, Chocolate kebbit.
+
+**Affects**: 8 items.
+
+### MISC Teleport jewellery — Castle wars / Inoculation / Abyssal bracelet
+
+Added Castle wars bracelet (1-3), Inoculation bracelet, Abyssal bracelet (1/2/3/5).
+
+**Affects**: 8 items.
+
+### HERBLORE "Unfinished potion variants" — Sanfew serum Mixture step intermediates
+
+Added Mixture - step 1 (1-4), Mixture - step 2 (1-4) — Dream Mentor Sanfew serum production chain intermediates.
+
+**Affects**: 8 items.
+
+### SLAYER "Slayer master items" — `Slayer bell`
+
+Slayer task tracking utility.
+
+**Affects**: 1 item.

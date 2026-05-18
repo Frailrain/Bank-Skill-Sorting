@@ -3313,6 +3313,109 @@ See `audit/classifier-changes.md` "Session 35".
 
 See `audit/classifier-changes.md` "Session 36".
 
+---
+
+## Session 37: IDs 10875–11200
+
+### Slug Menace quest material
+
+- `10875-10905 Valve wheel, Metal bar, Plain/Green/Red/Black/Gold/Rune satchel, Fuse, Keg × 2, Prayer book × 2, Wooden cat, Cranial clamp, Brain tongs, Bell jar, Wolf whistle, Shipping order, Crate part, Skull staple` (~20 items) — EX/LOG (Slug Menace quest material).
+- `10887 Barrelchest anchor` — OK (`melee`).
+
+### Sanfew serum (Dream Mentor herblore chain)
+
+- `10909-10923 Mixture - step 1 (4-1), Mixture - step 2 (4-1)` (8 items) — **ADD herblore** (Sanfew serum intermediate dose variants).
+- `10925-10931 Sanfew serum (4-1)` — OK (`melee;prayer;herblore`).
+
+### Lumberjack outfit (Random event / Wintertodt-era cosmetic)
+
+- `10933 Lumberjack boots`, `10939 Lumberjack top`, `10940 Lumberjack legs`, `10941 Lumberjack hat` (4 items) — **ADD wc_fletching** (Lumberjack outfit, woodcutting XP boost set).
+
+### Random events + misc
+
+- `10934 Reward token`, `10937 Nail beast nails`, `10946-10949 Pushup/Run/Situp/Starjump` — EX.
+- `10950 Skull staples` — LOG.
+- `10952 Slayer bell` — **ADD slayer** (Slayer-task tracking utility).
+
+### Frog-leather + Temple Trekking food (Roving Elves)
+
+- `10954-10958 Frog-leather body/chaps/boots` — OK (3 items, `range[+melee]`).
+- `10960-10970 Green gloop soup, Frogspawn gumbo, Frogburger, Coated frogs' legs, Bat shish, Fingers, Grubs à la mode, Roast frog, Mushrooms, Fillets, Loach` (11 items) — **ADD cooking** (Temple Trekking food).
+- `10971 Eel sushi` — **ADD cooking**.
+
+### Dorgesh-Kaan / Power station
+
+- `10972-10995 Dorgesh-kaan sphere, Spanner, Long/Curved bone (prayer ✓), Swamp weed, Light orb, Empty light orb, Cave goblin wire, Cog, Fuse, Meter, Capacitor, Lever, Powerbox, Perfect shell/snail shell` — EX/LOG.
+- `10976-10977 Long bone, Curved bone` — OK (`prayer`).
+
+### What Lies Below
+
+- `10999-11013 Goblin book, Dagon'hai history, Sin'keth's diary, Empty/Used/Full folder, Rat's paper, Surok's letter dups, Zaff's instructions, Wand × 2` — EX.
+- `11014 Beacon ring` — OK (`mage;misc`).
+
+### Easter 2007 chicken outfit + chocolate kebbit
+
+- `11019-11023 Chicken feet/wings/head/legs, Magic egg` (5 items) — **ADD misc Holiday rares** (Easter 2007 chicken event cosmetic).
+- `11024-11026 Rabbit mould, Chocolate chunks, Chocolate kebbit` (3 items) — **ADD misc Holiday rares**.
+- `11027 Easter egg` — OK (`misc`).
+
+### Olaf's Quest
+
+- `11031-11037 Damp planks, Crude/Cruder carving, Sven's last map, Windswept logs ✓, Parchment, Brine sabre ✓` — partial.
+
+### Misthalin Mystery / King's Ransom quest material
+
+- `11039-11058 Key, Rotten barrel × 2, Rope, Armour shard, Artefact, Axe head, Helmet/Shield/Sword fragment, Mace` — EX (King's Ransom + Defender of Varrock material).
+
+### Goblin Village + Ancient mace
+
+- `11060 Goblin village sphere` — EX.
+- `11061 Ancient mace` — OK (`melee`).
+
+### Jewellery — bracelets
+
+- `11065 Bracelet mould`, `11067-11103 various crafted bracelets` — most ✓ crafting.
+- `11079-11083 Castle wars bracelet (3-1)` (3 items) — **ADD misc Teleport jewellery** (Combat bracelet variant).
+- `11088 Inoculation bracelet` — **ADD misc Teleport jewellery**.
+- `11095-11103 Abyssal bracelet (5/3/2/1)` (4 items) — **ADD misc Teleport jewellery** (Castle Wars + Wilderness teleport bracelet).
+- `11118-11126 Combat bracelet (4-0)` — OK (5 items, `melee;range;mage;misc`).
+- `11128 Berserker necklace` — OK (`melee`).
+- `11130 Onyx bracelet` — OK (`crafting`).
+- `11133 Regen bracelet` — OK (`melee;range;mage`).
+- `11136-11140 Karamja gloves 1/2/3` — OK (`melee;range;mage;quests`).
+- `11107-11115 Skills necklace, Dragonstone bracelet` etc. — OK.
+
+### While Guthix Sleeps + dream chain
+
+- `11151-11159 Dream vial, Dream potion, Ground astral rune, Astral rune shards, Dreamy lamp, Cyrisus's chest, Hunter kit` — EX.
+
+### Defender of Varrock + Phoenix gang
+
+- `11164-11173 Restored shield, Phoenix crossbow × 2 dups, Newspaper × 2, Half certificate` — LOG/EX.
+
+### Varrock Museum / Digsite
+
+- `11175-11184 Uncleaned find, Arrowheads, Jewellery, Pottery, Old/Ancient coin, Ancient/Old symbol, Old chipped vase, Museum map` (10 items) — LOG (Varrock Museum archaeology kits, single-use cleanup items).
+- `11189 Antique lamp` — EX.
+- `11190-11194 Digsite pendant (1-5)` — OK (4 items, `misc`).
+- `11195-11199 Clean necklace, Griffin feather, Miazrqa's pendant, Music sheet, Rupert's helmet` — EX.
+- `11200 Dwarven helmet` — OK (`melee`).
+
+---
+
+## Session 37 totals
+
+- Items reviewed: ~200
+- OK (correct as-is): 50
+- EX (correctly excluded): 60 (Slug Menace, What Lies Below, King's Ransom, Defender of Varrock, While Guthix Sleeps)
+- ADD (missing tab, fixed): 36 (4 Lumberjack outfit, 12 Temple Trekking food, 1 Eel sushi, 1 Slayer bell, 8 Mixture step herblore, 5 Easter chicken, 3 Easter chocolate, 3 Castle wars bracelet, 1 Inoculation, 4 Abyssal bracelet)
+- REM: 0
+- LOG: 50+ (Varrock Museum dig kits, Phoenix dups, Slug Menace satchels, random event)
+
+## Classifier changes made in session 37
+
+See `audit/classifier-changes.md` "Session 37".
+
 ## Resume marker
 
-**Next session: start from ID 10875.**
+**Next session: start from ID 11201.**
