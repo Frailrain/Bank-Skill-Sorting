@@ -345,3 +345,39 @@ Same as above.
 **Affects**: 7 partyhats + Santa hat + Bunny ears + 3 halloween mask colours now classify into misc.
 
 ### QUESTS Quest cosmetic gear — added Cape of legends.
+
+---
+
+## Session 6 (audit IDs 1301–1600)
+
+### `_is_wc_axe` — exclude battleaxes/greataxes
+
+**Before**: `weapon_type == 'axe'` was sufficient for WC_FLETCHING Axes section.
+
+**After**: also requires name doesn't contain `battleaxe / greataxe / great axe`. Same disambiguation we already applied to MELEE Weapons (session 1).
+
+**Affects**: 8 battleaxe items (Iron/Steel/Black/Mithril/Adamant/Rune/Bronze/Dragon) removed from wc_fletching; they remain in melee.
+
+### MELEE Gloves — `Klank's gauntlets` force_exclude
+
+**Before**: Klank's gauntlets (Underground Pass quest gloves) matched `_slot_pred("hands")`.
+
+**After**: + force_exclude.
+
+**Affects**: 1 item.
+
+### CRAFTING Crafting tools — jewellery moulds
+
+**Before**: Chisel/Needle/Glassblowing pipe/Hammer/Spinning wheel/Lyres.
+
+**After**: + Ring mould, Amulet mould, Necklace mould, Unholy mould, Tiara mould, Bracelet mould.
+
+**Affects**: 4-6 items now in crafting.
+
+### MISC Currency — `Archery ticket`
+
+**Before**: 6 currency names.
+
+**After**: + Archery ticket (Ranging Guild reward currency).
+
+**Affects**: 1 item.

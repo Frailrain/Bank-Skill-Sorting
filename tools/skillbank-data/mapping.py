@@ -614,7 +614,7 @@ MELEE = TabSpec(
         Section("Gloves", _slot_pred("hands"),
                 force_exclude=_SKILLING_GAUNTLETS
                 + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
-                + ["Leather vambraces"]),
+                + ["Leather vambraces", "Klank's gauntlets"]),
         Section("Shields", _slot_pred("shield")),
         Section("Capes", _slot_pred("cape"),
                 force_exclude=_QUEST_COSMETIC_CAPES),
@@ -817,10 +817,16 @@ COOKING = TabSpec(
 
 # === WC + FLETCHING ===
 def _is_wc_axe(it):
-    """Woodcutting axe — weapon_type 'axe' (excluding battleaxes which are 'battleaxe')."""
+    """Woodcutting axe — weapon_type='axe' but exclude battleaxes/greataxes
+    which osrsbox lumps under the same weapon_type."""
     if _wtype(it) != "axe" or _is_noise(it):
         return False
-    return _slot(it) in ("weapon", "2h")
+    if _slot(it) not in ("weapon", "2h"):
+        return False
+    n = (it.get("name") or "").lower()
+    if any(k in n for k in ("battleaxe", "greataxe", "great axe")):
+        return False
+    return True
 
 
 WC_FLETCHING = TabSpec(
@@ -948,6 +954,8 @@ CRAFTING = TabSpec(
         Section("Crafting tools", _name_in({
             "Chisel", "Needle", "Glassblowing pipe", "Hammer",
             "Spinning wheel", "Lyre", "Enchanted lyre",
+            "Ring mould", "Amulet mould", "Necklace mould",
+            "Unholy mould", "Tiara mould", "Bracelet mould",
         })),
         Section("Thread & dyes", _name_in({
             "Thread", "Wool", "Ball of wool",
@@ -1385,7 +1393,7 @@ MISC = TabSpec(
         Section("Holiday rares & cosmetics", _name_in(set(_HOLIDAY_RARES))),
         Section("Currency", _name_in({
             "Coins", "Platinum token", "Blood money", "Tokkul",
-            "Marks of grace", "Brimhaven voucher",
+            "Marks of grace", "Brimhaven voucher", "Archery ticket",
         })),
     ],
 )

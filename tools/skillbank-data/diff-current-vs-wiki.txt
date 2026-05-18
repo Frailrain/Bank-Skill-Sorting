@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (201 items not in wiki output) ===
+=== melee (202 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -36,6 +36,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     1133  Studded body
     1231  (not in wiki canonical set)
     1361  Black axe
+    1495  Klank's gauntlets
     1727  Amulet of magic
     2493  Blue d'hide chaps
     2495  Red d'hide chaps
@@ -626,9 +627,17 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== wc_fletching (83 items not in wiki output) ===
+=== wc_fletching (95 items not in wiki output) ===
      671  Animal skull
      687  Broken arrow
+    1363  Iron battleaxe
+    1365  Steel battleaxe
+    1367  Black battleaxe
+    1369  Mithril battleaxe
+    1371  Adamant battleaxe
+    1373  Rune battleaxe
+    1375  Bronze battleaxe
+    1377  Dragon battleaxe
     3094  (not in wiki canonical set)
     4214  (not in wiki canonical set)
     4215  (not in wiki canonical set)
@@ -641,12 +650,15 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4222  (not in wiki canonical set)
     4223  (not in wiki canonical set)
     4428  Animate rock scroll
+    4718  Dharok's greataxe
     5071  (not in wiki canonical set)
     5072  (not in wiki canonical set)
     5073  Bird nest
     5074  Bird nest
     5075  Bird nest
+    6589  White battleaxe
     6904  Animals' bones
+    7807  Anger battleaxe
     9174  Bronze crossbow
     9380  Adamant bolts(unf)
     9422  Blurite limbs
@@ -672,6 +684,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    19580  Rune javelin tips
    19581  (not in wiki canonical set)
    19582  Dragon javelin tips
+   20727  Leaf-bladed battleaxe
    21352  Amethyst javelin tips
    21964  (not in wiki canonical set)
    22550  (not in wiki canonical set)
@@ -769,7 +782,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    24363  Scroll box (medium)
    25742  Holy ornament kit
 
-=== crafting (65 items not in wiki output) ===
+=== crafting (59 items not in wiki output) ===
      567  Unpowered orb
      569  Fire orb
      571  Water orb
@@ -778,10 +791,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
      960  Plank
     1391  Battlestaff
     1469  Broken glass
-    1592  Ring mould
-    1594  Unholy mould
-    1595  Amulet mould
-    1597  Necklace mould
     1675  Sapphire amulet (u)
     1677  Emerald amulet (u)
     1679  Ruby amulet (u)
@@ -807,7 +816,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2363  Runite bar
     5350  Empty plant pot
     5418  Empty sack
-    5523  Tiara mould
     5525  Tiara
     7801  Snake hide
     8778  Oak plank
@@ -816,7 +824,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     8794  Saw
     9625  Crystal saw
     9781  (not in wiki canonical set)
-   11065  Bracelet mould
    11068  (not in wiki canonical set)
    11980  Ring of wealth (5)
    19501  Zenyte amulet (u)

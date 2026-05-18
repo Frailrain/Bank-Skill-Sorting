@@ -8,8 +8,9 @@
 - **Reviewed in session 3**: IDs 501–750 (177 items)
 - **Reviewed in session 4**: IDs 751–1000 (119 items)
 - **Reviewed in session 5**: IDs 1001–1300 (134 items)
-- **Reviewed cumulative**: 720 (6.1%)
-- **Resume from**: ID 1301
+- **Reviewed in session 6**: IDs 1301–1600 (179 items)
+- **Reviewed cumulative**: 899 (7.6%)
+- **Resume from**: ID 1601
 
 ## Decision codes
 
@@ -644,6 +645,113 @@ All correctly classified `melee;mining_smithing`:
 
 See `audit/classifier-changes.md` "Session 5".
 
+---
+
+## Session 6: IDs 1301–1600
+
+### Combat weapons (continued melee tier coverage)
+
+- `1301-1305 Adamant/Rune/Dragon longsword` — OK (`melee`).
+- `1307-1319 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune 2h sword` — OK (7 items).
+- `1321-1333 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune scimitar` — OK (7 items).
+- `1335-1347 Iron/Bronze/Steel/Black/Mithril/Adamant/Rune warhammer` — OK (7 items).
+
+### Woodcutting axes
+
+- `1349-1359 Iron/Bronze/Steel/Mithril/Adamant/Rune axe` — OK (`wc_fletching`). 6 items, weapon_type='axe' correctly handled by my session 1 fix (excluded from melee since no "battleaxe" in name).
+- `1361 Black axe` — OK (`wc_fletching`). Same.
+
+### Battleaxes — bad wc cross-tag
+
+- `1363-1377 Iron/Steel/Black/Mithril/Adamant/Rune/Bronze/Dragon battleaxe` — **REM wc_fletching** (8 items). Battleaxes are NOT wc tools; they share weapon_type='axe' with wc axes but are combat-only. My WC_FLETCHING Axes section matches anything with weapon_type='axe'. **Fix**: exclude battleaxe names from WC_FLETCHING Axes section.
+
+### Staves (mage)
+
+- `1379-1409 Staff / Staff of air/water/earth/fire / Magic staff / Battlestaff / element battlestaves / Mystic element staves / Iban's staff` — OK (16 items). All weapon_type='staff', correctly in mage. Element battlestaves cross-tag into crafting (orbs section result).
+
+### Misc weapon variants
+
+- `1411 Farmer's fork` — OK (`farming`). Farming tool.
+- `1413 Halberd`, `1415 Warhammer`, `1417 Javelin` — EX (3 items). Disambiguation/icon-only items, no real stats.
+- `1419 Scythe` — **LOG**. Easter 2014 holiday weapon (the original Scythe, not Scythe of Vitur). Currently in melee due to weapon_type='scythe'. Probably should be in misc Holiday rares, but breaking the scythe weapon_type sort key is a risk. Defer.
+
+### Maces
+
+- `1420-1434 Iron/Bronze/Steel/Black/Mithril/Adamant/Rune/Dragon mace` — OK (`melee`). 8 items.
+
+### Rune essence + talismans
+
+- `1436 Rune essence` — OK (`mage;runecraft`).
+- `1438-1462` (14 talismans: Air/Earth/Fire/Water/Body/Mind/Blood/Chaos/Cosmic/Death/Law/Soul/Nature) — OK. All in runecraft.
+
+### Misc items
+
+- `1464 Archery ticket` — **ADD misc**. Ranging Guild reward currency. Currently unclassified. Add to Currency section.
+- `1465 Weapon poison` — LOG (duplicate of 187 — canonical-filter dedupe; 187 is in herblore).
+
+### Underground Pass + Witch's House + Dragon Slayer quest items
+
+- `1466-1510` (~40 quest items): Sea slug, Damp sticks, Dry sticks, Broken glass, beads (Red/Yellow/Black/White), Rock, Orb of light ×3, Oily cloth, Piece of railing, Unicorn horn (Witch's Potion variant), Paladin's badge ×3, Witch's cat, Doll of iban, Old journal, History of iban, Iban's dove, Amulet of othanian/doomion/holthion, Iban's shadow, Dwarf brew, Iban's ashes (in prayer ✓), Warrant, Hangover cure, Ardougne teleport scroll, Gas mask, A small key, A scruffy note, Book, Picture, etc.) — EX (all quest consumables).
+- `1478 Amulet of accuracy` — OK (`melee;mage;misc`). Cheap accuracy amulet, kept in multiple tabs.
+- `1495 Klank's gauntlets` — **REM melee**. Underground Pass quest gloves. **Fix**: force_exclude on melee Gloves.
+- `1502 Iban's ashes` — OK (`prayer`).
+
+### Logs (wc + firemaking dual-tag)
+
+- `1511-1521 Logs/Magic/Yew/Maple/Willow/Oak logs` — OK (`wc_fletching;firemaking`). 6 items.
+
+### Thieving + skilling
+
+- `1523 Lockpick` — OK (`agility_thieving`).
+
+### Karamja Volcano quest herbs
+
+- `1525-1534` (Snake weed, Grimy snake weed, Ardrigal, Grimy ardrigal, Sito foil, Volencia moss, Rogue's purse + grimy variants) — EX (10 items). Tai Bwo Wannai Trio quest items, consumed for cures.
+
+### Dragon Slayer
+
+- `1535-1538 Map part ×3 + Crandor map` — EX (4 items).
+- `1539 Steel nails` — OK (`mining_smithing;construction`).
+- `1540 Anti-dragon shield` — OK (`melee`).
+- `1542-1548 Maze key + Keys ×6` — EX (7 items).
+
+### Misc
+
+- `1549 Stake` — EX. Witch's House quest item.
+- `1550 Garlic` — OK (`cooking`).
+- `1552 Seasoned sardine` — EX. Catlike quest item.
+- `1554 Fluffs' kitten` — EX. Gertrude's Cat quest item.
+- `1555 Pet kitten` — OK (`cooking`) - it's in my cooking pet section though arguably it should be misc. Cooking is fine.
+- `1561 Pet cat`, `1567 Pet cat` — EX (2). Variant pets, canonical may differ.
+- `1573 Doogle leaves` — EX. Pet cat quest item.
+- `1575 Cat training medal` — EX. Quest reward, cosmetic.
+- `1577 Pete's candlestick` — EX. Big Chompy quest item.
+- `1579 Thieves' armband` — EX. Pirate's Treasure / Thieves' Guild item.
+- `1580 Ice gloves` — OK (`melee`). Heroes' Quest reward, functional gloves.
+- `1581-1584 Blamish snail slime / Blamish oil / Fire feather / Id papers` — EX. Tai Bwo Wannai / Heroes' / Murder Mystery items.
+- `1585 Oily fishing rod` — OK (`fishing`).
+- `1586-1591` (Miscellaneous key, Grip's keyring, Dusty key, Jail key) — EX (4 items). Quest keys.
+
+### Jewellery moulds
+
+- `1592 Ring mould`, `1594 Unholy mould`, `1595 Amulet mould`, `1597 Necklace mould` — **ADD crafting**. 4 items currently unclassified; jewellery crafting tools. **Fix**: add to crafting Tools section.
+- `1599 Holy mould` — OK (`prayer`).
+
+---
+
+## Session 6 totals
+
+- Items reviewed: 179
+- OK (correct as-is): 79
+- EX (correctly excluded): 80
+- ADD (missing tab, fixed): 5 (Archery ticket, Ring/Unholy/Amulet/Necklace mould)
+- REM (misclassified, fixed): 9 (8 battleaxes from wc_fletching, Klank's gauntlets from melee)
+- LOG (deferred): 2 (Scythe holiday weapon, Weapon poison duplicate of 187)
+
+## Classifier changes made in session 6
+
+See `audit/classifier-changes.md` "Session 6".
+
 ## Resume marker
 
-**Next session: start from ID 1301.**
+**Next session: start from ID 1601.**
