@@ -1781,3 +1781,65 @@ Added Snow globe, Sack of presents, Giant present.
 ### SLAYER Slayer master items — `Empty jug pack`
 
 **Affects**: 1 item.
+
+## Session 50 (audit IDs 21001–21300)
+
+### MELEE Helmets/Body armour/Legs — Ancestral force_exclude
+
+REM melee for Ancestral hat/robe top/robe bottom (Ancestral set is pure mage).
+
+**Affects**: 3 items.
+
+### PRAYER — new "Prayer scrolls + cosmetic" section
+
+Added Dexterous prayer scroll, Arcane prayer scroll, Torn prayer scroll, Necklace of faith.
+
+**Affects**: 4 items.
+
+### MAGE — new "CoX mage upgrades + Ancestral" section
+
+Added Kodai insignia, Ancestral robes set.
+
+**Affects**: 2 items.
+
+### MISC Teleport jewellery — Ring of returning charge variants
+
+Added Ring of returning (1-5).
+
+**Affects**: 5 items.
+
+### FARMING Tools — `Amulet of bounty`
+
+**Affects**: 1 item.
+
+### SLAYER Slayer master items — bracelets + Dark claw
+
+Added Expeditious bracelet, Bracelet of slaughter, Dark claw (Skotizo drop).
+
+**Affects**: 3 items.
+
+### CONSTRUCTION Tools — `Flamtaer bracelet`
+
+Mort'ton-area construction speed bracelet.
+
+**Affects**: 1 item.
+
+### QUESTS Max hood variants — `Infernal max hood`
+
+**Affects**: 1 item.
+
+### MISC Combat trophies — `Infernal max cape`
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Easter 2019 + 4th Birthday
+
+Added 4th birthday hat + Birthday balloons + Invitation list (3), Easter egg helm (1), 12 Easter egg flavour variants, 12 Chocolate mix variants.
+
+**Affects**: 28 items.
+
+### MELEE GE armour sets — `Obsidian armour set`
+
+Added explicit force_include via `name_in` (set name doesn't end with " set (lg)/(sk)" pattern).
+
+**Affects**: 1 item.

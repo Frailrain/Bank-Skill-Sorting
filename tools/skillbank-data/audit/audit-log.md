@@ -4525,6 +4525,103 @@ See `audit/classifier-changes.md` "Session 48".
 
 See `audit/classifier-changes.md` "Session 49".
 
+---
+
+## Session 50: IDs 21001–21300
+
+### CoX boss drops + Ancestral
+
+- `21003 Elder maul`, `21006 Kodai wand`, `21009 Dragon sword`, `21012 Dragon hunter crossbow`, `21015 Dinh's bulwark` — OK.
+- `21018-21024 Ancestral hat, robe top, robe bottom` (3 items, `melee;mage`) — **REM melee, keep mage** (Ancestral is pure mage gear).
+- `21027 Dark relic` — LOG.
+- `21028-21033 Dragon harpoon, Infernal harpoon + uncharged` — OK.
+- `21034 Dexterous prayer scroll` — **ADD prayer** (CoX learnable prayer scroll).
+- `21036 Mallignum root plank` — EX (CoX raid material).
+- `21043 Kodai insignia` — **ADD mage** (Kodai wand upgrade).
+- `21046 Ancient tablet` — **ADD mage** (Ancient teleport tablet).
+- `21047 Torn prayer scroll` — LOG.
+- `21049 Ancestral robes set` — **ADD mage** (GE convenience set).
+
+### Tale of the Righteous quest material
+
+- `21052-21059 Manor key, Ruby/Emerald/Sapphire key, Notes × 3, Killer's knife` — EX.
+- `21060 Bandos godsword` — LOG (dup).
+- `21061-21076 Graceful set Kourend dups × 6` — LOG.
+
+### Arcane prayer scroll + jewellery
+
+- `21079 Arcane prayer scroll` — **ADD prayer**.
+- `21081-21123 Opal/Jade/Topaz ring/necklace/amulet (u)/amulet/bracelet` — OK (~15 items, `crafting[;wc_fletching]`).
+
+### Ring of returning + various necklaces
+
+- `21126 Ring of pursuit`, `21140 Efaritay's aid` — LOG.
+- `21129-21138 Ring of returning (1/2/3/5)` (4 items) — **ADD misc Teleport jewellery**.
+- `21143 Dodgy necklace`, `21146-21155 Necklace of passage (1-5)` — OK.
+- `21157 Necklace of faith` — **ADD prayer** (Prayer-restoring necklace).
+- `21160 Amulet of bounty` — **ADD farming** (Farming patch yield boost).
+- `21163 Amulet of chemistry` — OK (`herblore`).
+- `21166-21175 Burning amulet (1-5)` — OK (`misc`).
+
+### Slayer bracelets
+
+- `21177 Expeditious bracelet` — **ADD slayer** (Slayer task XP speed).
+- `21180 Flamtaer bracelet` — **ADD construction** (Mort'ton speed bracelet).
+- `21183 Bracelet of slaughter` — **ADD slayer** (Slayer reward).
+
+### Fire max cape + Lava staff variants
+
+- `21186 Fire max cape` — LOG (dup).
+- `21198 Lava battlestaff`, `21200 Mystic lava staff` — LOG (dups of canonical 3053/3054).
+- `21202 Lava staff upgrade kit` — **ADD crafting** (already caught by Ornament kits section name_in).
+- `21205 Elder maul` — LOG (dup).
+
+### Birthday + Easter 2019 event
+
+- `21208 Invitation list`, `21209 Birthday balloons`, `21211 4th birthday hat` — **ADD misc Holiday rares** (3 items, RuneScape 4th birthday).
+- `21214 Easter egg helm` — **ADD misc Holiday rares**.
+- `21216-21227 12 Easter egg flavour variants` — **ADD misc Holiday rares** (12 items).
+- `21228-21239 12 Chocolate mix variants` — **ADD misc Holiday rares** (12 items).
+- `21240-21252 Wester banana/papaya/lemon/sand/spices/Beef fillet/Sea salt/Gold fragment/Fluffy feathers/Wester fish/Rock/Wester chocolate/Egg mould` — EX (Easter 2019 quest material).
+
+### Slayer rewards + Skotizo
+
+- `21253 Farmer's strawhat` — LOG (dup).
+- `21255 Slayer's staff (e)`, `21257 Slayer's enchantment` — OK.
+- `21259-21263 Enchanted scroll, Enchanted quill, Mysterious orb, Antique lamp, Copper's crimson collar` — EX/LOG.
+- `21264-21266 Purple slayer helmet + (i)` — OK.
+- `21268 Slayer ring (eternal)`, `21270 Eternal gem` — OK.
+- `21273 Skotos` — OK (`quests`).
+- `21275 Dark claw` — **ADD slayer** (Skotizo boss drop, Arclight upgrade material).
+- `21276 Skull sceptre (i)` — OK.
+
+### Infernal max + Obsidian set
+
+- `21279 Obsidian armour set` — **ADD melee** (GE convenience set; obsidian gear is melee).
+- `21282 Infernal max hood` — **ADD quests** (Max hood variant).
+- `21284 Infernal max cape` — **ADD melee;range;mage** (combat trophy max cape; canonical at 21285 already has these tags).
+- `21285 Infernal max cape` — OK (`melee;range;mage`).
+- `21291 Jal-nib-rek` — OK (`quests`).
+- `21293 Infernal eel` — OK (`fishing`).
+- `21295 Infernal cape` — OK (`melee;range;mage;misc`).
+- `21297 Infernal cape` — LOG (dup).
+- `21298 Obsidian helmet` — OK (`melee`).
+
+---
+
+## Session 50 totals
+
+- Items reviewed: ~280
+- OK (correct as-is): 70
+- EX (correctly excluded): 30 (Tale of the Righteous quest, CoX raid material, Easter 2019 quest)
+- ADD (missing tab, fixed): 60 (3 Ancestral REM melee + keep mage, 2 prayer scrolls, 3 mage CoX upgrades, 4 Ring of returning, 1 Necklace of faith, 1 Amulet of bounty, 3 slayer bracelets, 1 Flamtaer construction, 1 Lava upgrade kit, 28 Easter+Birthday holiday, 1 Dark claw, 1 Obsidian set, 1 Infernal max hood, 1 Infernal max cape)
+- REM (misclassified, fixed): 3 (Ancestral hat/robe top/robe bottom from melee)
+- LOG: 60+ (CoX dups, Graceful dups, jewellery family)
+
+## Classifier changes made in session 50
+
+See `audit/classifier-changes.md` "Session 50".
+
 ## Resume marker
 
-**Next session: start from ID 21001.**
+**Next session: start from ID 21301.**

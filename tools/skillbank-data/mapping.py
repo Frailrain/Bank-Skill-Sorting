@@ -782,7 +782,7 @@ MELEE = TabSpec(
                 force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead",
                                "Ahrim's hood", "Karil's coif", "Rogue mask",
                                "Spined helm", "Skeletal helm", "Snakeskin bandana",
-                               "Armadyl helmet"]
+                               "Armadyl helmet", "Ancestral hat"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
@@ -791,7 +791,8 @@ MELEE = TabSpec(
                 force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body",
                                "Ahrim's robetop", "Karil's leathertop", "Rogue top",
                                "Spined body", "Skeletal top",
-                               "Armadyl chestplate", "Rangers' tunic"]
+                               "Armadyl chestplate", "Rangers' tunic",
+                               "Ancestral robe top"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -803,7 +804,7 @@ MELEE = TabSpec(
                 force_exclude=["Mime legs", "Splitbark legs",
                                "Ahrim's robeskirt", "Karil's leatherskirt", "Rogue trousers",
                                "Spined chaps", "Skeletal bottoms", "Snakeskin chaps",
-                               "Armadyl chainskirt"]
+                               "Armadyl chainskirt", "Ancestral robe bottom"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -828,9 +829,12 @@ MELEE = TabSpec(
                 force_include=["Granite shield", "Draconic visage"]),
         Section("Trim/gilded armour cosmetic variants",
                 _is_trim_gilded_melee_armour),
-        Section("GE armour sets (melee)", _and(
-            _or(_name_ends(" set (lg)"), _name_ends(" set (sk)")),
-            _not(_name_contains("dragonhide")),
+        Section("GE armour sets (melee)", _or(
+            _and(
+                _or(_name_ends(" set (lg)"), _name_ends(" set (sk)")),
+                _not(_name_contains("dragonhide")),
+            ),
+            _name_in({"Obsidian armour set"}),
         ), force_exclude=["Karil's armour set", "Ahrim's armour set"]),
         Section("Spirit shield construction", _name_in({
             "Elysian sigil", "Spectral sigil", "Arcane sigil",
@@ -1013,6 +1017,9 @@ MAGE = TabSpec(
         Section("Magic level boost", _name_in({
             "Imbued heart",
         })),
+        Section("CoX mage upgrades + Ancestral", _name_in({
+            "Kodai insignia", "Ancestral robes set",
+        })),
         Section("Combat food (cross-tag)", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
     ],
     variant_allowlist=[
@@ -1046,6 +1053,10 @@ PRAYER = TabSpec(
             _name_in({"Holy blessing", "Unholy blessing", "Peaceful blessing",
                       "Honourable blessing", "War blessing", "Ancient blessing"}),
         )),
+        Section("Prayer scrolls + cosmetic", _name_in({
+            "Dexterous prayer scroll", "Arcane prayer scroll",
+            "Torn prayer scroll", "Necklace of faith",
+        })),
         Section("Robes (monk/proselyte/initiate/druid)", _or(
             _name_starts("Monk's "), _name_starts("Proselyte "),
             _name_starts("Initiate "), _name_starts("Devout "),
@@ -1755,6 +1766,9 @@ SLAYER = TabSpec(
             "Adamant arrow pack", "Rune arrow pack",
             # session 49 — Empty jug pack
             "Empty jug pack",
+            # session 50 — Slayer reward bracelets + Skotizo drop
+            "Expeditious bracelet", "Bracelet of slaughter",
+            "Dark claw",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -1816,6 +1830,7 @@ FARMING = TabSpec(
             "Rake", "Spade", "Seed dibber",
             "Gardening trowel", "Gardening boots",
             "Secateurs", "Magic secateurs", "Queen's secateurs", "Watering can",
+            "Amulet of bounty",
             "Watering can(8)", "Watering can(7)", "Watering can(6)",
             "Watering can(5)", "Watering can(4)", "Watering can(3)",
             "Watering can(2)", "Watering can(1)",
@@ -1978,6 +1993,7 @@ CONSTRUCTION = TabSpec(
     sections=[
         Section("Tools", _name_in({
             "Saw", "Crystal saw", "Hammer", "Imcando hammer",
+            "Flamtaer bracelet",
         })),
         Section("Planks", _is_plank, sort_key=_plank_sort_key),
         Section("Nails", _is_nails, sort_key=_nails_sort_key),
@@ -2085,6 +2101,10 @@ MISC = TabSpec(
             "Necklace of passage(5)", "Necklace of passage(4)",
             "Necklace of passage(3)", "Necklace of passage(2)",
             "Necklace of passage(1)",
+            # session 50 — Ring of returning charge variants
+            "Ring of returning(5)", "Ring of returning(4)",
+            "Ring of returning(3)", "Ring of returning(2)",
+            "Ring of returning(1)",
             "Burning amulet(5)", "Burning amulet(4)", "Burning amulet(3)",
             "Burning amulet(2)", "Burning amulet(1)",
             "Xeric's talisman",
@@ -2154,6 +2174,7 @@ MISC = TabSpec(
         })),
         Section("Combat trophies (PvM rewards)", _name_in({
             "Fire cape", "Infernal cape", "Champion's cape",
+            "Infernal max cape",
         })),
         Section("Holiday rares & cosmetics", _or(
             _name_in(set(_HOLIDAY_RARES) | {
@@ -2223,6 +2244,17 @@ MISC = TabSpec(
                 "Evil chicken head", "Evil chicken legs",
                 # session 49 — Christmas 2018 Snow globe set
                 "Snow globe", "Sack of presents", "Giant present",
+                # session 50 — Easter 2019 + RuneScape 4th Birthday
+                "Invitation list", "Birthday balloons", "4th birthday hat",
+                "Easter egg helm",
+                "Fruity easter egg", "Fresh easter egg", "Bitter easter egg",
+                "Earthy easter egg", "Spicy easter egg", "Meaty easter egg",
+                "Salted easter egg", "Rich easter egg", "Fluffy easter egg",
+                "Smoked easter egg", "Fishy easter egg", "Crunchy easter egg",
+                "Fruity chocolate mix", "Fresh chocolate mix", "Bitter chocolate mix",
+                "Earthy chocolate mix", "Spicy chocolate mix", "Meaty chocolate mix",
+                "Salted chocolate mix", "Rich chocolate mix", "Fluffy chocolate mix",
+                "Smoked chocolate mix", "Fishy chocolate mix", "Crunchy chocolate mix",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),
@@ -2267,7 +2299,7 @@ QUESTS = TabSpec(
         Section("Max hood variants", _name_in({
             "Max hood", "Fire max hood", "Saradomin max hood",
             "Zamorak max hood", "Guthix max hood", "Accumulator max hood",
-            "Ardougne max hood",
+            "Ardougne max hood", "Infernal max hood",
         })),
         Section("Quest unlock weapons", _name_in({
             "Dramen staff", "Lunar staff", "Ivandis flail", "Blisterwood flail",
