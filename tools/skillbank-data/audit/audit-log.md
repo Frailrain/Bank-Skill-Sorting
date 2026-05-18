@@ -3682,6 +3682,76 @@ See `audit/classifier-changes.md` "Session 39".
 
 See `audit/classifier-changes.md` "Session 40".
 
+---
+
+## Session 41: IDs 12201–12500
+
+### Ancient/Armadyl/Bandos god robes (Treasure Trails Hard)
+
+- `12201-12203 Ancient stole, Ancient mitre` — OK (`mage`).
+- `12253-12275 Armadyl/Bandos robes top/legs/stole/mitre/cloak/crozier` (12 items) — OK (`mage[+cape cross-tag]`).
+
+### Bronze/Iron/Mithril trim & gilded armour variants
+
+- `12205-12243 Bronze (g)/(t) and Iron (g)/(t) platebody/platelegs/plateskirt/full helm/kiteshield` (20 items) — **ADD melee** via pattern (cosmetic equipable=0 trim variants of standard smithed melee armour).
+- `12277-12295 Mithril (g)/(t) platebody/platelegs/kiteshield/full helm/plateskirt` (10 items) — **ADD melee** (same).
+- `12414-12418 Dragon (g) chainbody/platelegs/plateskirt/full helm/sq shield` (5 items) — **ADD melee**.
+
+### Treasure Trails cosmetic head + clothing (mostly LOG)
+
+- `12245-12251 Beanie, Red beret, Imp mask, Goblin mask` — LOG.
+- `12297 Black pickaxe` — OK (`mining_smithing`).
+- `12299-12307 White/Blue/Gold/Pink/Green headband` (5 items) — LOG.
+- `12309-12313 Pink/Purple/White boater` — LOG.
+- `12315-12349 Pink/Gold elegant shirt/legs/blouse/skirt + Crier hat + Cavalier (white/red/navy) + Briefcase + Sagacious spectacles` (~12 items) — LOG (Treasure Trails cosmetic).
+- `12327-12333 Red d'hide body/chaps (g)/(t)` — OK (4 items, `range`).
+- `12351-12399 Musketeer hat + Monocle + Big pirate hat + Katana ✓ + Leprechaun hat + Cat mask + 5 dragon masks + Canes (4) + Black d'hide (g)/(t) ✓ + Gilded scimitar ✓ + Gilded boots ✓ + Royal gown/crown + Partyhat & specs` (~28 items) — LOG/OK.
+
+### Teleport tabs
+
+- `12402-12411 Nardah/Digsite/Feldip hills/Lunar isle/Mort'ton/Pest control/Piscatoris/Tai bwo wannai/Iorwerth camp/Mos le'harmless teleport` — OK (10 items, `misc`).
+
+### Infinity sets (Treasure Trails)
+
+- `12419-12421 Light infinity hat/top/bottoms` — OK (3 items, `mage`).
+- `12422 3rd age wand`, `12424 3rd age bow`, `12426 3rd age longsword` — OK.
+- `12428-12434 Penguin mask, Afro, Top hat, Top hat & monocle` — LOG.
+- `12436 Amulet of fury (or)` — **ADD melee;range;mage** (ornament variant of canonical Amulet of fury).
+- `12437 3rd age cloak`, `12439 Royal sceptre` — OK.
+
+### Black skirt + Black wizard set (g)/(t)
+
+- `12441-12443 Musketeer tabard/pants` — LOG.
+- `12445-12455 Black skirt (g)/(t), Black wizard robe (g)/(t), Black wizard hat (g)/(t)` (6 items) — **ADD mage** (same family as Blue wizard variants in session 28).
+- `12457-12459 Dark infinity hat/top/bottoms` — OK (`mage`).
+
+### Ancient/Armadyl/Bandos plate armour (Treasure Trails set)
+
+- `12460-12488 Ancient/Armadyl/Bandos platebody/platelegs/plateskirt/full helm/kiteshield` (15 items, currently `melee;mining_smithing`) — **REM mining_smithing** (Treasure Trails set, not smithable).
+
+### Ancient/Bandos d'hide armour (Treasure Trails range set)
+
+- `12490 Ancient bracers` — **REM mage, ADD range**.
+- `12492 Ancient d'hide body` — **REM melee, OK range (cross-tag crafting retained)**.
+- `12494 Ancient chaps`, `12496 Ancient coif` — **REM melee, ADD range** (2 items).
+- `12498 Bandos bracers` — **REM mage, ADD range**.
+- `12500 Bandos d'hide body` — **REM melee, ADD range/crafting**.
+
+---
+
+## Session 41 totals
+
+- Items reviewed: ~200
+- OK (correct as-is): 50
+- EX (correctly excluded): 5
+- ADD (missing tab, fixed): 42 (35 trim/gilded melee armour, 6 Black mage cosmetic, 1 Amulet of fury (or))
+- REM (misclassified, fixed): 22 (15 plate set from mining_smithing, 7 god d'hide pieces from melee/mage)
+- LOG: 60+ (Treasure Trails fashion: headbands, boaters, elegant, cavalier, masks)
+
+## Classifier changes made in session 41
+
+See `audit/classifier-changes.md` "Session 41".
+
 ## Resume marker
 
-**Next session: start from ID 12201.**
+**Next session: start from ID 12501.**

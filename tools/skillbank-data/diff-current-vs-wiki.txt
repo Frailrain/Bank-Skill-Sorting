@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (264 items not in wiki output) ===
+=== melee (273 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -149,6 +149,15 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11826  Armadyl helmet
    11964  (not in wiki canonical set)
    11966  (not in wiki canonical set)
+   12492  Ancient d'hide body
+   12494  Ancient chaps
+   12496  Ancient coif
+   12500  Bandos d'hide body
+   12502  Bandos chaps
+   12504  Bandos coif
+   12508  Armadyl d'hide body
+   12510  Armadyl chaps
+   12512  Armadyl coif
    12808  (not in wiki canonical set)
    12853  (not in wiki canonical set)
    13080  New crystal halberd full (i)
@@ -483,7 +492,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28906  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (153 items not in wiki output) ===
+=== mage (156 items not in wiki output) ===
      616  Beads of the dead
      656  Pink hat
      658  Green hat
@@ -538,6 +547,9 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11864  Slayer helmet
    11964  (not in wiki canonical set)
    11966  (not in wiki canonical set)
+   12490  Ancient bracers
+   12498  Bandos bracers
+   12506  Armadyl bracers
    12791  Rune pouch
    12853  (not in wiki canonical set)
    12899  Trident of the swamp
@@ -960,12 +972,42 @@ or should be added to force_include / variant_allowlist before flipping --additi
    21043  Kodai insignia
    21046  Ancient tablet
 
-=== mining_smithing (50 items not in wiki output) ===
+=== mining_smithing (143 items not in wiki output) ===
        2  Steel cannonball
      764  (not in wiki canonical set)
      766  (not in wiki canonical set)
     1913  Dwarven stout
+    2583  Black platebody (t)
+    2585  Black platelegs (t)
+    2587  Black full helm (t)
+    2589  Black kiteshield (t)
+    2591  Black platebody (g)
+    2593  Black platelegs (g)
+    2595  Black full helm (g)
+    2597  Black kiteshield (g)
+    2599  Adamant platebody (t)
+    2601  Adamant platelegs (t)
+    2603  Adamant kiteshield (t)
+    2605  Adamant full helm (t)
+    2607  Adamant platebody (g)
+    2609  Adamant platelegs (g)
+    2611  Adamant kiteshield (g)
+    2613  Adamant full helm (g)
+    2615  Rune platebody (g)
+    2617  Rune platelegs (g)
+    2619  Rune full helm (g)
+    2621  Rune kiteshield (g)
+    2623  Rune platebody (t)
+    2625  Rune platelegs (t)
+    2627  Rune full helm (t)
+    2629  Rune kiteshield (t)
     3211  Limestone
+    3472  Black plateskirt (t)
+    3473  Black plateskirt (g)
+    3474  Adamant plateskirt (t)
+    3475  Adamant plateskirt (g)
+    3476  Rune plateskirt (g)
+    3477  Rune plateskirt (t)
     5751  Axeman's folly
     6981  (not in wiki canonical set)
     9375  Bronze bolts (unf)
@@ -988,11 +1030,74 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11941  Looting bag
    11942  Ecumenical key
    12019  Coal bag
+   12205  Bronze platebody (g)
+   12207  Bronze platelegs (g)
+   12209  Bronze plateskirt (g)
+   12211  Bronze full helm (g)
+   12213  Bronze kiteshield (g)
+   12215  Bronze platebody (t)
+   12217  Bronze platelegs (t)
+   12219  Bronze plateskirt (t)
+   12221  Bronze full helm (t)
+   12223  Bronze kiteshield (t)
+   12225  Iron platebody (t)
+   12227  Iron platelegs (t)
+   12229  Iron plateskirt (t)
+   12231  Iron full helm (t)
+   12233  Iron kiteshield (t)
+   12235  Iron platebody (g)
+   12237  Iron platelegs (g)
+   12239  Iron plateskirt (g)
+   12241  Iron full helm (g)
+   12243  Iron kiteshield (g)
+   12277  Mithril platebody (g)
+   12279  Mithril platelegs (g)
+   12281  Mithril kiteshield (g)
+   12283  Mithril full helm (g)
+   12285  Mithril plateskirt (g)
+   12287  Mithril platebody (t)
+   12289  Mithril platelegs (t)
+   12291  Mithril kiteshield (t)
+   12293  Mithril full helm (t)
+   12295  Mithril plateskirt (t)
+   12414  Dragon chainbody (g)
+   12415  Dragon platelegs (g)
+   12416  Dragon plateskirt (g)
+   12417  Dragon full helm (g)
+   12418  Dragon sq shield (g)
+   12460  Ancient platebody
+   12462  Ancient platelegs
+   12464  Ancient plateskirt
+   12466  Ancient full helm
+   12468  Ancient kiteshield
+   12470  Armadyl platebody
+   12472  Armadyl platelegs
+   12474  Armadyl plateskirt
+   12476  Armadyl full helm
+   12478  Armadyl kiteshield
+   12480  Bandos platebody
+   12482  Bandos platelegs
+   12484  Bandos plateskirt
+   12486  Bandos full helm
+   12488  Bandos kiteshield
    12797  Dragon pickaxe
+   20169  Steel platebody (g)
+   20172  Steel platelegs (g)
+   20175  Steel plateskirt (g)
+   20178  Steel full helm (g)
+   20181  Steel kiteshield (g)
+   20184  Steel platebody (t)
+   20187  Steel platelegs (t)
+   20190  Steel plateskirt (t)
+   20193  Steel full helm (t)
+   20196  Steel kiteshield (t)
    21343  Mining gloves
    21345  Superior mining gloves
    21390  (not in wiki canonical set)
    21539  Heat-proof vessel
+   22234  Dragon boots (g)
+   22242  Dragon platebody (g)
+   22244  Dragon kiteshield (g)
    23682  (not in wiki canonical set)
    24475  Twisted relic hunter (t3) armour set
    24481  (not in wiki canonical set)

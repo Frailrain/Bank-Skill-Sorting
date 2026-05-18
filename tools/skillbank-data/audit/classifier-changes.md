@@ -1367,3 +1367,34 @@ Added Pay-dirt, Golden nugget, Soft clay pack — Motherlode Mine raw output + r
 Slayer boss drop; converts to Abyssal tentacle when combined with Abyssal whip.
 
 **Affects**: 1 item.
+
+## Session 41 (audit IDs 12201–12500)
+
+### Extended `_GOD_DHIDE_NAMES` + new `_TREASURE_TRAIL_MELEE_NAMES`
+
+- `_GOD_DHIDE_NAMES`: added Ancient/Armadyl/Bandos d'hide body/chaps/coif/bracers (12 more items).
+- `_TREASURE_TRAIL_MELEE_NAMES`: new constant for Ancient/Armadyl/Bandos platebody/platelegs/plateskirt/full helm/kiteshield (15 items).
+
+### MELEE Smithing armour outputs (extended) — Treasure Trail set force_exclude
+
+Ancient/Armadyl/Bandos plate gear is not smithable; excluded from the smithing pattern.
+
+**Affects**: 15 items (REM mining_smithing).
+
+### MELEE — new "Trim/gilded armour cosmetic variants" section
+
+New predicate `_is_trim_gilded_melee_armour` matching `name_ends("(g)")` or `name_ends("(t)")` for items prefixed with melee metal types (Bronze/Iron/Steel/Black/Mithril/Adamant/Rune/Dragon/etc) and containing melee armour keywords. Catches all the trim/gilded smithable armour variants.
+
+**Affects**: ~35 items.
+
+### MAGE Helmets/Body/Legs — Black mage cosmetic force_include
+
+Black skirt (g)/(t), Black wizard robe (g)/(t), Black wizard hat (g)/(t) — same family as Blue wizard cosmetics from session 28.
+
+**Affects**: 6 items.
+
+### MELEE/RANGE/MAGE Amulets — `Amulet of fury (or)`
+
+Ornament variant of Amulet of fury (already cross-tags into all 3 combat tabs via Amulet of fury canonical).
+
+**Affects**: 1 item.

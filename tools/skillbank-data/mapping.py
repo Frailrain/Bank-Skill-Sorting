@@ -219,13 +219,19 @@ _DHIDE_ALL_NAMES = [
     "Studded body", "Studded chaps",
 ]
 
-# God d'hide variants (Saradomin/Guthix/Zamorak Treasure Trails set) —
-# range armour despite the lack of "d'hide" in chaps/coif/bracers names.
+# God d'hide variants (Saradomin/Guthix/Zamorak + Ancient/Armadyl/Bandos
+# Treasure Trails range sets) — range armour despite the lack of "d'hide"
+# in chaps/coif/bracers names.
 _GOD_DHIDE_NAMES = [
     "Saradomin d'hide body", "Guthix d'hide body", "Zamorak d'hide body",
     "Saradomin chaps", "Guthix chaps", "Zamorak chaps",
     "Saradomin coif", "Guthix coif", "Zamorak coif",
     "Saradomin bracers", "Guthix bracers", "Zamorak bracers",
+    # session 41 — Ancient/Armadyl/Bandos d'hide variants
+    "Ancient d'hide body", "Armadyl d'hide body", "Bandos d'hide body",
+    "Ancient chaps", "Armadyl chaps", "Bandos chaps",
+    "Ancient coif", "Armadyl coif", "Bandos coif",
+    "Ancient bracers", "Armadyl bracers", "Bandos bracers",
 ]
 
 # 3rd age range armour (clue scroll rare) — range armour with mixed defences
@@ -246,6 +252,42 @@ _3RD_AGE_MELEE_NAMES = [
 # misclassifies them due to mixed defence values.
 _ARMADYL_NAMES = ["Armadyl helmet", "Armadyl chestplate", "Armadyl chainskirt"]
 _BANDOS_NAMES = ["Bandos chestplate", "Bandos tassets"]
+
+# Ancient/Armadyl/Bandos plate armour (Treasure Trails Hard melee set;
+# not smithable but tagged by the smithing extended pattern).
+_TREASURE_TRAIL_MELEE_NAMES = [
+    "Ancient platebody", "Ancient platelegs", "Ancient plateskirt",
+    "Ancient full helm", "Ancient kiteshield",
+    "Armadyl platebody", "Armadyl platelegs", "Armadyl plateskirt",
+    "Armadyl full helm", "Armadyl kiteshield",
+    "Bandos platebody", "Bandos platelegs", "Bandos plateskirt",
+    "Bandos full helm", "Bandos kiteshield",
+]
+
+# Trim/gilded armour variants — equipable=0 cosmetics of standard smithed
+# melee armour that don't match _slot_pred. Caught by `name_ends("(g)")` or
+# `name_ends("(t)")` plus a melee-metal prefix predicate.
+_TRIM_METAL_PREFIXES = (
+    "Bronze ", "Iron ", "Steel ", "Black ", "White ", "Mithril ",
+    "Adamant ", "Rune ", "Dragon ", "Gilded ", "Gold ", "Saradomin ",
+    "Zamorak ", "Guthix ", "Armadyl ", "Bandos ", "Ancient ",
+)
+
+def _is_trim_gilded_melee_armour(it):
+    """Match (g)/(t) trim/gilded variants of smithable melee armour.
+    Excludes mage and range variants (Blue skirt, Studded body, d'hide).
+    """
+    n = (it.get("name") or "").lower()
+    if not (n.endswith("(g)") or n.endswith("(t)")):
+        return False
+    if not any(n.startswith(p.lower()) for p in _TRIM_METAL_PREFIXES):
+        return False
+    # Exclude obvious non-melee patterns (mage robes/skirts/wizard hats, d'hide)
+    melee_armor_keywords = (
+        "platebody", "platelegs", "plateskirt", "full helm", "kiteshield",
+        "chainbody", "med helm", "sq shield", "scimitar", "boots",
+    )
+    return any(k in n for k in melee_armor_keywords)
 
 # Cape of legends — quest cosmetic, not real combat gear.
 _QUEST_COSMETIC_CAPES = ["Cape of legends"]
@@ -772,11 +814,14 @@ MELEE = TabSpec(
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield"),
                 force_include=["Granite shield", "Draconic visage"]),
+        Section("Trim/gilded armour cosmetic variants",
+                _is_trim_gilded_melee_armour),
         Section("Capes", _slot_pred("cape"),
                 force_include=["Attack hood", "Strength hood", "Defence hood", "Hitpoints hood"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _slot_pred("neck"),
-                force_include=["Amulet of glory (t)", "Strength amulet (t)"],
+                force_include=["Amulet of glory (t)", "Strength amulet (t)",
+                               "Amulet of fury (or)"],
                 force_exclude=["Gnome amulet", "Beads of the dead"]),
         Section("Rings", _slot_pred("ring")),
         Section("Combat potions",
@@ -853,7 +898,7 @@ RANGE = TabSpec(
         # because the cape has defence_ranged=2 like basic colour capes.
         # Mass-exclude via a pattern force_exclude below in classify-time.
         Section("Amulets", _is_range_armour_slot("neck"),
-                force_include=["Amulet of glory (t)"],
+                force_include=["Amulet of glory (t)", "Amulet of fury (or)"],
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_range_armour_slot("ring")),
         Section("Ranging potions",
@@ -883,15 +928,18 @@ MAGE = TabSpec(
         Section("Tomes", _name_ends(" tome"),
                 force_exclude=["Shaman's tome"]),
         Section("Helmets", _is_mage_armour_slot("head"),
-                force_include=["Blue wizard hat (g)", "Blue wizard hat (t)"],
+                force_include=["Blue wizard hat (g)", "Blue wizard hat (t)",
+                               "Black wizard hat (g)", "Black wizard hat (t)"],
                 force_exclude=["Mime mask", "Rogue mask", "3rd age range coif", "Armadyl helmet"]
                 + [n for n in _MIME_OUTFIT if "hat" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body", _is_mage_armour_slot("body"),
-                force_include=["Blue wizard robe (g)", "Blue wizard robe (t)"],
+                force_include=["Blue wizard robe (g)", "Blue wizard robe (t)",
+                               "Black wizard robe (g)", "Black wizard robe (t)"],
                 force_exclude=["Karil's leathertop", "Rogue top", "3rd age range top", "Armadyl chestplate"]),
         Section("Legs", _is_mage_armour_slot("legs"),
-                force_include=["Ghostly robe", "Blue skirt (g)", "Blue skirt (t)"],
+                force_include=["Ghostly robe", "Blue skirt (g)", "Blue skirt (t)",
+                               "Black skirt (g)", "Black skirt (t)"],
                 force_exclude=["Karil's leatherskirt", "Rogue trousers", "3rd age range legs", "Armadyl chainskirt"]),
         Section("Boots", _is_mage_armour_slot("feet"),
                 force_include=["Skeletal boots"],
@@ -909,7 +957,8 @@ MAGE = TabSpec(
                 force_include=["Lunar cape", "Magic hood", "Hitpoints hood"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _is_mage_armour_slot("neck"),
-                force_include=["Amulet of magic (t)", "Amulet of glory (t)"],
+                force_include=["Amulet of magic (t)", "Amulet of glory (t)",
+                               "Amulet of fury (or)"],
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_mage_armour_slot("ring")),
         Section("Magic potions",
@@ -1437,7 +1486,7 @@ MINING_SMITHING = TabSpec(
             _name_ends(" platebody"), _name_ends(" platelegs"),
             _name_ends(" plateskirt"), _name_ends(" chainbody"),
             _name_ends(" sq shield"), _name_ends(" kiteshield"),
-        ), force_exclude=_3RD_AGE_MELEE_NAMES),
+        ), force_exclude=_3RD_AGE_MELEE_NAMES + _TREASURE_TRAIL_MELEE_NAMES),
         Section("Gem cutting/polishing inputs", _or(
             _name_starts("Uncut "),
             _name_in({"Chisel", "Crystal chisel"}),
