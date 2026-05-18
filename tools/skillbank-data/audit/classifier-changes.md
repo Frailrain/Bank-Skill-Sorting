@@ -852,6 +852,40 @@ Wanted! quest beer.
 
 Garden of Tranquillity White tree outputs.
 
+---
+
+## Session 24 (audit IDs 6701–7000)
+
+### COOKING Misc cooked food — additions
+
++ Baked potato, Potato with butter, Potato with cheese, Peach, Choc-ice.
+
+### SLAYER Task-specific gear — `Slayer gloves`
+
+Slayer reward gloves.
+
+### SLAYER — new "Champion's Challenge scrolls" section
+
+`_name_ends(" champion scroll")` catches all 11 champion scrolls.
+
+### MELEE Legs — `Granite legs` force_include + RANGE Legs force_exclude
+
+Granite is melee armour with high ranged-defence; was leaking to range.
+
+### MISC Holiday rares — major expansion
+
++ Christmas baubles (Star/Box/Diamond/Tree/Bell + boxes), Bobble hat/scarf, Jester hat/scarf, Tri-jester hat/scarf, Woolly hat/scarf, Marionette handle, Blue/Green/Red marionette + `name_ends(" marionette")` pattern.
+
+**Affects**: ~20 holiday items.
+
+### QUESTS Quest cosmetic gear — `Rat pole`
+
+Rat-Catchers quest cosmetic weapon.
+
+### `_ORES` — Sandstone/Granite variant weights
+
++ Sandstone (2/5/10/20/32 kg), Granite (2/5 kg) — Pyramid Plunder + standard mining.
+
 ## Session 16 (audit IDs 4301–4600)
 
 ### `_BASIC_COLOUR_CAPES` — added 50 Team-N capes

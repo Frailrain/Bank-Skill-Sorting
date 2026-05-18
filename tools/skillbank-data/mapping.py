@@ -238,6 +238,8 @@ _QUEST_COSMETIC_MELEE = [
     "Gnome amulet", "Beads of the dead",
     # Machetes are navigation tools (Karamja jungle), not combat weapons.
     "Machete", "Opal machete", "Jade machete", "Red topaz machete",
+    # Rat Catchers quest weapon (blunt class but cosmetic only)
+    "Rat pole",
 ]
 
 # Splitbark armour — mage hybrid set with minor melee defence but canonically
@@ -522,7 +524,10 @@ _ORES = {
     "Copper ore": 1, "Tin ore": 1, "Iron ore": 2, "Silver ore": 3,
     "Coal": 4, "Gold ore": 5, "Mithril ore": 6, "Adamantite ore": 7,
     "Runite ore": 8, "Amethyst": 9, "Volcanic ash": 1, "Soft clay": 1,
-    "Clay": 1, "Sandstone (1kg)": 1, "Granite (500g)": 1,
+    "Clay": 1, "Sandstone (1kg)": 1, "Sandstone (2kg)": 1,
+    "Sandstone (5kg)": 1, "Sandstone (10kg)": 1, "Sandstone (20kg)": 1,
+    "Sandstone (32kg)": 1,
+    "Granite (500g)": 1, "Granite (2kg)": 1, "Granite (5kg)": 1,
     "Lovakite ore": 5, "Daeyalt ore": 6,
     "Blurite ore": 2, "Elemental ore": 2,
 }
@@ -699,7 +704,7 @@ MELEE = TabSpec(
                 + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
-                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))),
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))) + ["Granite legs"],
                 force_exclude=["Mime legs", "Splitbark legs",
                                "Ahrim's robeskirt", "Karil's leatherskirt", "Rogue trousers",
                                "Spined chaps", "Skeletal bottoms", "Snakeskin chaps"]
@@ -767,7 +772,7 @@ RANGE = TabSpec(
                 force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top"]),
         Section("Legs", _is_range_armour_slot("legs"),
                 force_include=["Karil's leatherskirt", "Spined chaps", "Snakeskin chaps"],
-                force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers"]),
+                force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers", "Granite legs"]),
         Section("Boots", _is_range_armour_slot("feet"),
                 force_include=["Ranger boots", "Spined boots", "Snakeskin boots"],
                 force_exclude=["Rogue boots"]),
@@ -997,6 +1002,8 @@ COOKING = TabSpec(
                 "Onion & tomato", "Ugthanki & onion", "Ugthanki & tomato",
                 "Kebab mix", "Ugthanki kebab",
                 "Raw fishlike thing", "Fishlike thing",
+                "Baked potato", "Potato with butter", "Potato with cheese",
+                "Peach", "Choc-ice",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1399,6 +1406,7 @@ SLAYER = TabSpec(
         Section("Black masks", _name_contains("black mask")),
         Section("Task-specific gear", _name_in({
             "Rock hammer", "Rock thrownhammer", "Slayer's staff", "Bag of salt", "Ice cooler",
+            "Slayer gloves",
             "Slayer's staff (e)", "Brittle key", "Mirror shield",
             "Witchwood icon", "Earmuffs", "Spiny helmet", "Facemask",
             "Nose peg", "Fungicide spray 10", "Fungicide", "Magic secateurs",
@@ -1415,6 +1423,8 @@ SLAYER = TabSpec(
             "Slayer cape", "Slayer cape(t)", "Slayer hood",
             "Abyssal orphan", "Kalphite princess",
         })),
+        Section("Champion's Challenge scrolls",
+                _name_ends(" champion scroll")),
     ],
     variant_allowlist=[
         "Slayer helmet (i)", "Black mask (i)",
@@ -1695,8 +1705,18 @@ MISC = TabSpec(
                 "Royal frog blouse", "Royal frog skirt",
                 # Teleport crystals
                 "Teleport crystal (1)", "Teleport crystal (2)", "Teleport crystal (3)",
+                # Christmas baubles + cosmetics
+                "Star bauble", "Box bauble", "Diamond bauble",
+                "Tree bauble", "Bell bauble", "Puppet box", "Bauble box",
+                "Bobble hat", "Bobble scarf",
+                "Jester hat", "Jester scarf",
+                "Tri-jester hat", "Tri-jester scarf",
+                "Woolly hat", "Woolly scarf",
+                "Marionette handle",
+                "Blue marionette", "Green marionette", "Red marionette",
             }),
             _name_ends(" sweets"),
+            _name_ends(" marionette"),
         )),
         Section("Team capes (Castle Wars)",
                 lambda it: (it.get("name") or "").startswith("Team-") and
@@ -1752,6 +1772,7 @@ QUESTS = TabSpec(
             "Bearhead",
             "Mourner top", "Mourner trousers", "Mourner gloves",
             "Mourner boots", "Mourner cloak",
+            "Rat pole",
         })),
         Section("Void Knight set", _name_starts("Void ")),
         Section("Fighter Torso et al.", _name_in({

@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (260 items not in wiki output) ===
+=== melee (261 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -113,6 +113,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     6526  Toktz-mej-tal
     6666  Flippers
     6739  Dragon axe
+    6773  Rat pole
     8901  (not in wiki canonical set)
     8903  (not in wiki canonical set)
     8913  (not in wiki canonical set)
@@ -265,7 +266,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (210 items not in wiki output) ===
+=== range (211 items not in wiki output) ===
      616  Beads of the dead
      942  (not in wiki canonical set)
     1007  Red cape
@@ -371,6 +372,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     5555  Rogue trousers
     5556  Rogue gloves
     5557  Rogue boots
+    6809  Granite legs
     6959  Pink cape
     9757  (not in wiki canonical set)
     9977  (not in wiki canonical set)
@@ -679,7 +681,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26996  (not in wiki canonical set)
    28323  Siren's staff
 
-=== cooking (61 items not in wiki output) ===
+=== cooking (58 items not in wiki output) ===
      343  Burnt fish
      357  Burnt fish
      367  Burnt fish
@@ -708,9 +710,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4293  Cooked meat
     4297  (not in wiki canonical set)
     4299  (not in wiki canonical set)
-    6701  Baked potato
-    6703  Potato with butter
-    6705  Potato with cheese
     6707  Camulet
     6709  (not in wiki canonical set)
     6711  Blindweed

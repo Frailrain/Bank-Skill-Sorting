@@ -26,8 +26,9 @@
 - **Reviewed in session 21**: IDs 5801–6100 (116 items)
 - **Reviewed in session 22**: IDs 6101–6400 (144 items)
 - **Reviewed in session 23**: IDs 6401–6700 (129 items)
-- **Reviewed cumulative**: 3236 (27.3%)
-- **Resume from**: ID 6701
+- **Reviewed in session 24**: IDs 6701–7000 (180 items)
+- **Reviewed cumulative**: 3416 (28.8%)
+- **Resume from**: ID 7001
 
 ## Decision codes
 
@@ -2209,6 +2210,115 @@ See `audit/classifier-changes.md` "Session 22".
 
 See `audit/classifier-changes.md` "Session 23".
 
+---
+
+## Session 24: IDs 6701–7000
+
+### Baked potato family
+
+- `6701 Baked potato`, `6703 Potato with butter`, `6705 Potato with cheese` — **ADD cooking** (3 items).
+
+### Enakhra's Lament / Camel + quest items
+
+- `6707 Camulet` — EX (quest amulet).
+- `6710 Blindweed seed` — OK (`farming`).
+- `6711-6722` (Blindweed, Bucket of water dup, Wrench, Holy wrench ✓, Sluglings, Karamthulhu ×2, Fever spider body, Unsanitary swill, Slayer gloves, Rusty scimitar, Zombie head) — partial OK, partial EX.
+- `6720 Slayer gloves` — **ADD slayer**.
+
+### Seercull + DKS rings
+
+- `6724 Seercull` — OK (`range;wc_fletching`).
+- `6728 Dagannoth-king bonemeal`, `6729 Dagannoth bones` — OK (`prayer`).
+- `6731 Seers ring` — OK (`mage`).
+- `6733 Archers ring` — OK (`range`).
+- `6735 Warrior ring`, `6737 Berserker ring` — OK (`melee`).
+
+### Forestry / dwarf-axe content
+
+- `6739 Dragon axe` — OK (`wc_fletching`).
+- `6741 Broken axe`, `6743 Dragon axe head` — EX.
+
+### Devious Minds + Shadow of the Storm
+
+- `6746 Darklight` — OK (`melee`).
+- `6747-6754 Demonic sigil mould/sigil/tome (mage ✓), Black desert shirt/robe, Enchanted key` — partial.
+- `6749 Demonic tome` — OK (`mage`).
+
+### Lunar Diplomacy / Mjolnir
+
+- `6760-6764 Guthix/Saradomin/Zamorak mjolnir` — OK (3 items, `mage`).
+
+### RFD Awowogei / Rat Catchers
+
+- `6766-6772` (Cat antipoison, Book, Poisoned cheese, Music scroll, Directions, Pot of weeds, Smouldering pot) — EX.
+- `6773 Rat pole` — REM melee. RFD weapon (Rat-Catchers quest), cosmetic only. **ADD quests**.
+
+### Various quest items (Tourist Trap follow-on, Elidinis)
+
+- `6785-6791` (Statuette, Robe of elidinis ×2, Torn robe ×2, Shoes, Sole) — EX.
+- `6792 Ancestral key`, `6793 Ballad` — EX.
+
+### Choc-ice + Champion Challenge scrolls
+
+- `6794 Choc-ice` — OK (`cooking`).
+- `6796 Lamp` — EX.
+- `6798-6808 Champion scrolls ×11` (Earth warrior/Ghoul/Giant/Goblin/Hobgoblin/Imp/Jogre/Lesser demon/Skeleton/Zombie/Leon's) — **ADD slayer** (Champion's Challenge collection — slayer-flavored).
+
+### Granite legs
+
+- `6809 Granite legs` — **REM range, ADD melee**. Granite is a melee armour set; legs were misclassified into range via stat dominance.
+
+### Wyvern bones
+
+- `6810 Wyvern bonemeal`, `6812 Wyvern bones` — OK (`prayer`).
+
+### Misc + Christmas baubles
+
+- `6814 Fur`, `6817-6821` (Slender blade, Bow-sword, Large pouch dup, Relic, Orb) — EX.
+- `6822-6853 Star/Box/Diamond/Tree/Bell bauble ×5 + Puppet box + Bauble box` — **ADD misc Holiday rares** (~7 items). Christmas event.
+- `6856-6863 Bobble hat/scarf, Jester hat/scarf, Tri-jester hat/scarf, Woolly hat/scarf` (8 items) — **ADD misc Holiday rares**.
+- `6864-6882 Marionette handle + Blue/Green/Red marionette × many dups` — **ADD misc Holiday rares** (canonical) + LOG (dups).
+- `6883 Peach` — **ADD cooking**.
+
+### MTA (Mage Training Arena) items
+
+- `6885 Progress hat` — EX.
+- `6889 Mage's book` — OK (`mage`).
+- `6891-6903` (Arena book, Leather boots dup, Adamant kiteshield dup, Adamant med helm dup, Emerald dup, Rune longsword dup, Cylinder, Cube, Icosahedron, Pentamid, Orb, Dragonstone dup) — partial. The geometric shapes are MTA items. **ADD mage** for Cylinder/Cube/Icosahedron/Pentamid/Orb (when context is MTA).
+- `6904-6906 Animals' bones ×3` — canonical OK, dups LOG.
+
+### Wands + Infinity robes
+
+- `6908-6914 Beginner/Apprentice/Teacher/Master wand` — OK (4 items, `mage`).
+- `6916-6924 Infinity top/hat/boots/gloves/bottoms` — OK (5 items, `mage`).
+
+### Rat Catchers (more)
+
+- `6945-6957` (~13 items: Sandy hand, Beer soaked hand, Bert's/Sandy's rota, A magic scroll, Magical orb, Truth serum, Bottled water, Redberry juice, Pink dye ✓, Rose-tinted lens, Wizard's head) — EX.
+- `6958 Sand` — OK (`crafting`).
+- `6959 Pink cape` — EX (cosmetic).
+
+### Mahjarrat Memories + Pyramid Plunder + Senntisten
+
+- `6961-7000` (~30 items: Baguette, Triangle sandwich, Roll, Coins dup, Square sandwich, Prison key, Dragon med helm dup, Shark dup, Pyramid top, Sandstone variants ×4, Sandstone body/base, Stone head/arms/legs, Z/M/R/K sigil) — most EX.
+- `6971 Sandstone (1kg)`, `6979 Granite (500g)` — OK (`mining_smithing`).
+- `6985-6986 Sandstone (20kg)/(32kg)` — **ADD mining_smithing**.
+
+---
+
+## Session 24 totals
+
+- Items reviewed: 180
+- OK (correct as-is): 55
+- EX (correctly excluded): 90 (heavy quest content, RFD subquests, Sandstone variants, Senntisten sigils).
+- ADD (missing tab, fixed): 35 (Baked potato ×3, Slayer gloves, Champion scrolls ×11, Christmas baubles + bobble hats + marionettes ~20, MTA items, Peach, Sandstone variants)
+- REM (misclassified, fixed): 2 (Rat pole from melee, Granite legs from range)
+- LOG (deferred): 15+ (marionette colour dups, sandstone body/base dups)
+
+## Classifier changes made in session 24
+
+See `audit/classifier-changes.md` "Session 24".
+
 ## Resume marker
 
-**Next session: start from ID 6701.**
+**Next session: start from ID 7001.**
