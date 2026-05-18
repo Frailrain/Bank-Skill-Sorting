@@ -3488,6 +3488,99 @@ See `audit/classifier-changes.md` "Session 37".
 
 See `audit/classifier-changes.md` "Session 38".
 
+---
+
+## Session 39: IDs 11525–11900
+
+### Pest Control Void + quest
+
+- `11663-11673 Void mage/ranger/melee helm + Void seal (1-8)` — OK (8 items, `melee;range;mage;quests`).
+- `11677-11682 Explorer's notes, Black knight helm, Antique lamp, Address form, Scrap paper, Hair clip` — EX.
+
+### Treasure trails ammo cache + raw pheasant
+
+- `11686-11699 Various rune dups, 11700-11703 arrow dups` — LOG (clue scroll reward stacks).
+- `11704 Raw pheasant` — EX (Hunt for Surok quest).
+
+### Nightmare Zone (NZ) variants
+
+- `11705 Beach boxing gloves` — OK (`melee`).
+- `11707-11709 Cursed goblin hammer/bow/staff` — OK (Goblin Diplomacy).
+- `11710-11721 Anti-dragon shield (nz), Magic secateurs (nz), Chaos/Death/Blood/Air/Water/Earth/Fire rune (nz), Rune/Mithril/Iron pickaxe (nz)` (12 items) — LOG (NZ-instance variants of existing items, not bankable).
+
+### NZ reward potions
+
+- `11722-11725 Super ranging (4-1)` (4 items) — **ADD herblore;range** (NZ-reward super ranging potion).
+- `11726-11729 Super magic potion (4-1)` — OK (`mage;herblore`).
+- `11730-11733 Overload (4-1)` (4 items) — **ADD herblore** (NZ-only super combat potion).
+- `11734-11737 Absorption (4-1)` (4 items) — **ADD herblore** (NZ damage absorber).
+- `11738 Herb box` — **ADD herblore** (NZ bulk grimy herb reward).
+
+### POH Scroll of redirection + teleport tabs
+
+- `11740 Scroll of redirection` — **ADD construction;misc** (re-routes POH teleport tabs).
+- `11741-11747 Rimmington/Taverley/Pollnivneach/Rellekka/Brimhaven/Yanille/Trollheim teleport` — OK (7 items, `misc`).
+
+### Imbued crystal + rings + black masks
+
+- `11748 New crystal bow (i)`, `11759 New crystal shield (i)` — OK.
+- `11770-11773 Seers/Archers/Warrior/Berserker ring (i)` — OK (4 items).
+- `11776-11784 Black mask (i) charge variants` — OK (`melee;slayer`).
+
+### Godswords (Nomad's Requiem + GWD)
+
+- `11785 Armadyl crossbow` — OK (`range`).
+- `11787 Steam battlestaff`, `11789 Mystic steam staff`, `11791 Staff of the dead` — OK.
+- `11794-11800 Godsword shards 1&2, 1&3, 2&3, Godsword blade` (4 items) — **ADD melee** (godsword construction intermediates).
+- `11802-11808 Armadyl/Bandos/Saradomin/Zamorak godsword` — OK (4 items, `melee`).
+- `11810-11816 Armadyl/Bandos/Saradomin/Zamorak hilt` (4 items) — **ADD melee**.
+- `11818-11822 Godsword shard 1/2/3` (3 items) — **ADD melee**.
+
+### God Wars armour reclassification
+
+- `11824 Zamorakian spear` — OK (`melee`).
+- `11826 Armadyl helmet` — **REM melee/mage, ADD range** (Armadyl is range set).
+- `11828-11830 Armadyl chestplate, Armadyl chainskirt` — **REM mage, ADD range** (2 items).
+- `11832-11834 Bandos chestplate, Bandos tassets` — **REM range, ADD melee** (2 items, Bandos is melee set despite defence_ranged stats).
+- `11836 Bandos boots` — OK (`melee`).
+- `11838 Saradomin sword` — OK (`melee`).
+- `11840 Dragon boots` — OK (`melee`).
+- `11842 Knight's notes` — EX.
+
+### Halloween rares + Graceful
+
+- `11847 Black h'ween mask` — **ADD misc Holiday rares**.
+- `11848 Rancid turkey` — EX (Thanksgiving event quest food).
+- `11849-11860 Mark of grace, Graceful hood/cape/top/legs/gloves/boots` — OK (7 items, `agility_thieving`).
+- `11862 Black partyhat`, `11863 Rainbow partyhat` — **ADD misc Holiday rares** (2 items, Christmas event partyhats).
+
+### Slayer
+
+- `11864-11873 Slayer helmet (i), Slayer ring (1-8)` — OK.
+- `11874 Broad arrowheads` — **ADD wc_fletching** (slayer broad arrow craft material).
+- `11875-11876 Broad bolts, Unfinished broad bolts` — OK.
+- `11877-11887 Empty/Water-filled vial pack, Feather/Bait/Broad arrowhead/Unfinished broad bolt pack` (6 items) — **ADD slayer** (Slayer master bulk-purchase packs).
+
+### Zamorakian hasta + Castle Wars cosmetic
+
+- `11889 Zamorakian hasta` — OK (`melee`).
+- `11893-11900 Decorative armour × 8 dups` — LOG (Castle Wars cosmetic).
+
+---
+
+## Session 39 totals
+
+- Items reviewed: ~150
+- OK (correct as-is): 60
+- EX (correctly excluded): 12 (Nomad's Requiem dialog, Hair clip)
+- ADD (missing tab, fixed): 38 (4 Super ranging, 4 Overload, 4 Absorption, 1 Herb box, 1 Scroll of redirection, 11 godsword intermediates, 3 Armadyl range, 2 Bandos melee, 3 holiday rares, 1 Broad arrowheads, 6 slayer packs)
+- REM (misclassified, fixed): 7 (Armadyl helm/chestplate/chainskirt × 3 from melee/mage; Bandos chestplate/tassets × 2 from range)
+- LOG: 30+ (Decorative armour ×8, NZ-instance variants ×12, rune dups, partyhat dups)
+
+## Classifier changes made in session 39
+
+See `audit/classifier-changes.md` "Session 39".
+
 ## Resume marker
 
-**Next session: start from ID 11525.**
+**Next session: start from ID 11901.**

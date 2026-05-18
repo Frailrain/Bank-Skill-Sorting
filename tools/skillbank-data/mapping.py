@@ -242,6 +242,11 @@ _3RD_AGE_MELEE_NAMES = [
     "3rd age kiteshield",
 ]
 
+# GWD god armour — Armadyl is range, Bandos is melee; stat-spillover
+# misclassifies them due to mixed defence values.
+_ARMADYL_NAMES = ["Armadyl helmet", "Armadyl chestplate", "Armadyl chainskirt"]
+_BANDOS_NAMES = ["Bandos chestplate", "Bandos tassets"]
+
 # Cape of legends — quest cosmetic, not real combat gear.
 _QUEST_COSMETIC_CAPES = ["Cape of legends"]
 
@@ -712,30 +717,40 @@ MELEE = TabSpec(
                 sort_key=_melee_weapon_sort_key,
                 force_include=["Dragon pickaxe"],
                 force_exclude=_QUEST_COSMETIC_MELEE),
+        Section("Godsword construction", _name_in({
+            "Godsword shards 1 & 2", "Godsword shards 1 & 3",
+            "Godsword shards 2 & 3", "Godsword blade",
+            "Godsword shard 1", "Godsword shard 2", "Godsword shard 3",
+            "Armadyl hilt", "Bandos hilt", "Saradomin hilt", "Zamorak hilt",
+        })),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower())
                 + ["Granite helm"],
                 force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead",
                                "Ahrim's hood", "Karil's coif", "Rogue mask",
-                               "Spined helm", "Skeletal helm", "Snakeskin bandana"]
+                               "Spined helm", "Skeletal helm", "Snakeskin bandana",
+                               "Armadyl helmet"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard")))
-                + ["Granite body"],
+                + ["Granite body", "Bandos chestplate"],
                 force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body",
                                "Ahrim's robetop", "Karil's leathertop", "Rogue top",
-                               "Spined body", "Skeletal top"]
+                               "Spined body", "Skeletal top",
+                               "Armadyl chestplate"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
                 + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
-                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))) + ["Granite legs"],
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt")))
+                + ["Granite legs", "Bandos tassets"],
                 force_exclude=["Mime legs", "Splitbark legs",
                                "Ahrim's robeskirt", "Karil's leatherskirt", "Rogue trousers",
-                               "Spined chaps", "Skeletal bottoms", "Snakeskin chaps"]
+                               "Spined chaps", "Skeletal bottoms", "Snakeskin chaps",
+                               "Armadyl chainskirt"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -801,23 +816,24 @@ RANGE = TabSpec(
                 lambda it: bool(_DRAGONHIDE_RAW_RE.search(it.get("name") or ""))),
         Section("Helmets", _is_range_armour_slot("head"),
                 force_include=["Robin hood hat", "Karil's coif", "Spined helm", "Snakeskin bandana",
-                               "3rd age range coif"]
+                               "3rd age range coif", "Armadyl helmet"]
                 + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()],
                 force_exclude=["Dharok's helm", "Guthan's helm", "Torag's helm", "Rogue mask",
                                "Granite helm"]),
         Section("Body", _is_range_armour_slot("body"),
                 force_include=["Karil's leathertop", "Spined body",
                                "Studded body (g)", "Studded body (t)",
-                               "3rd age range top"]
+                               "3rd age range top", "Armadyl chestplate"]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()],
                 force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top",
-                               "Granite body"]),
+                               "Granite body", "Bandos chestplate"]),
         Section("Legs", _is_range_armour_slot("legs"),
                 force_include=["Karil's leatherskirt", "Spined chaps", "Snakeskin chaps",
                                "Studded chaps (g)", "Studded chaps (t)",
-                               "3rd age range legs"]
+                               "3rd age range legs", "Armadyl chainskirt"]
                 + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()],
-                force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers", "Granite legs"]),
+                force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers", "Granite legs",
+                               "Bandos tassets"]),
         Section("Boots", _is_range_armour_slot("feet"),
                 force_include=["Ranger boots", "Spined boots", "Snakeskin boots"],
                 force_exclude=["Rogue boots"]),
@@ -838,7 +854,7 @@ RANGE = TabSpec(
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_range_armour_slot("ring")),
         Section("Ranging potions",
-                _is_potion_family("ranging potion", "divine ranging"),
+                _is_potion_family("ranging potion", "divine ranging", "super ranging"),
                 sort_key=_potion_sort_key),
         Section("Bait / feathers (cross-tag)", _name_in({
             "Feather", "Stripy feather", "Red feather", "Blue feather",
@@ -861,15 +877,15 @@ MAGE = TabSpec(
                 force_exclude=["Shaman's tome"]),
         Section("Helmets", _is_mage_armour_slot("head"),
                 force_include=["Blue wizard hat (g)", "Blue wizard hat (t)"],
-                force_exclude=["Mime mask", "Rogue mask", "3rd age range coif"]
+                force_exclude=["Mime mask", "Rogue mask", "3rd age range coif", "Armadyl helmet"]
                 + [n for n in _MIME_OUTFIT if "hat" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body", _is_mage_armour_slot("body"),
                 force_include=["Blue wizard robe (g)", "Blue wizard robe (t)"],
-                force_exclude=["Karil's leathertop", "Rogue top", "3rd age range top"]),
+                force_exclude=["Karil's leathertop", "Rogue top", "3rd age range top", "Armadyl chestplate"]),
         Section("Legs", _is_mage_armour_slot("legs"),
                 force_include=["Ghostly robe", "Blue skirt (g)", "Blue skirt (t)"],
-                force_exclude=["Karil's leatherskirt", "Rogue trousers", "3rd age range legs"]),
+                force_exclude=["Karil's leatherskirt", "Rogue trousers", "3rd age range legs", "Armadyl chainskirt"]),
         Section("Boots", _is_mage_armour_slot("feet"),
                 force_include=["Skeletal boots"],
                 force_exclude=["Rogue boots"]),
@@ -1172,7 +1188,10 @@ WC_FLETCHING = TabSpec(
             _name_in({"Arrow shaft", "Headless arrow"}),
             _name_ends(" arrow shaft"),
         )),
-        Section("Arrowtips", _name_ends(" arrowtips")),
+        Section("Arrowtips", _or(
+            _name_ends(" arrowtips"),
+            _name_in({"Broad arrowheads"}),
+        )),
         Section("Arrows", _and(_name_ends(" arrow", " arrows"),
                                _not(_name_contains("shaft"))),
                 force_exclude=["Broken arrow"]),
@@ -1463,6 +1482,18 @@ HERBLORE = TabSpec(
         Section("Barbarian mix potions", _or(
             _name_ends("mix(1)"), _name_ends("mix(2)"),
         )),
+        Section("Nightmare Zone potions", _or(
+            _and(_name_starts("Super ranging "), _or(
+                _name_ends("(4)"), _name_ends("(3)"), _name_ends("(2)"), _name_ends("(1)"),
+            )),
+            _and(_name_starts("Overload "), _or(
+                _name_ends("(4)"), _name_ends("(3)"), _name_ends("(2)"), _name_ends("(1)"),
+            )),
+            _and(_name_starts("Absorption "), _or(
+                _name_ends("(4)"), _name_ends("(3)"), _name_ends("(2)"), _name_ends("(1)"),
+            )),
+            _name_in({"Herb box"}),
+        )),
         Section("Attack potions", _is_potion_family("attack potion"), sort_key=_potion_sort_key),
         Section("Strength potions", _is_potion_family("strength potion"), sort_key=_potion_sort_key),
         Section("Defence potions", _is_potion_family("defence potion"), sort_key=_potion_sort_key),
@@ -1539,6 +1570,10 @@ SLAYER = TabSpec(
             "Enchanted gem", "Eternal gem", "Slayer ring", "Slayer ring (eternal)",
             "Slayer's enchantment", "Mysterious emblem", "Abyssal book",
             "Slayer bell",
+            # session 39 — Slayer master bulk-purchase packs
+            "Empty vial pack", "Water-filled vial pack",
+            "Feather pack", "Bait pack",
+            "Broad arrowhead pack", "Unfinished broad bolt pack",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -1818,6 +1853,7 @@ CONSTRUCTION = TabSpec(
         Section("POH teleports", _name_in({
             "Teleport to house", "Construct. cape teleport",
             "Achievement diary cape", "Falador shield 1",
+            "Scroll of redirection",
         })),
         Section("Cape", _name_in({
             "Construction cape", "Construction cape(t)", "Construction hood",
@@ -1949,6 +1985,9 @@ MISC = TabSpec(
                 "Chicken feet", "Chicken wings", "Chicken head", "Chicken legs",
                 "Magic egg",
                 "Rabbit mould", "Chocolate chunks", "Chocolate kebbit",
+                # session 39 — Halloween + Christmas partyhats
+                "Black h'ween mask",
+                "Black partyhat", "Rainbow partyhat",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),

@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (272 items not in wiki output) ===
+=== melee (264 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -145,16 +145,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11774  (not in wiki canonical set)
    11775  (not in wiki canonical set)
    11780  (not in wiki canonical set)
-   11798  Godsword blade
    11799  (not in wiki canonical set)
-   11800  Godsword shards 2 & 3
-   11810  Armadyl hilt
-   11814  Saradomin hilt
-   11816  Zamorak hilt
-   11818  Godsword shard 1
-   11820  Godsword shard 2
-   11832  Bandos chestplate
-   11834  Bandos tassets
+   11826  Armadyl helmet
    11964  (not in wiki canonical set)
    11966  (not in wiki canonical set)
    12808  (not in wiki canonical set)
@@ -277,7 +269,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (213 items not in wiki output) ===
+=== range (212 items not in wiki output) ===
      616  Beads of the dead
      942  (not in wiki canonical set)
     1007  Red cape
@@ -425,9 +417,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11768  (not in wiki canonical set)
    11769  (not in wiki canonical set)
    11770  Seers ring (i)
-   11826  Armadyl helmet
-   11828  Armadyl chestplate
-   11830  Armadyl chainskirt
+   11832  Bandos chestplate
+   11834  Bandos tassets
    11864  Slayer helmet
    11865  Slayer helmet (i)
    11959  Black chinchompa
@@ -492,7 +483,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28906  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (150 items not in wiki output) ===
+=== mage (153 items not in wiki output) ===
      616  Beads of the dead
      656  Pink hat
      658  Green hat
@@ -541,6 +532,9 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11090  Phoenix necklace
    11670  (not in wiki canonical set)
    11791  Staff of the dead
+   11826  Armadyl helmet
+   11828  Armadyl chestplate
+   11830  Armadyl chainskirt
    11864  Slayer helmet
    11964  (not in wiki canonical set)
    11966  (not in wiki canonical set)

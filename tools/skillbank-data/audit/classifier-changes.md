@@ -1267,3 +1267,64 @@ Added Leaping trout/salmon/sturgeon (3-tick barbarian fishing catches) + Roe, Fi
 Pattern `name_ends("mix(1)")` or `name_ends("mix(2)")` catches all Barbarian Training brewable mix potions (Attack/Strength/Combat/Restore/Energy/Defence/Agility/Prayer/Superattack/Anti-poison supermix/Fishing/Super energy/Super str./Magic essence/Super restore/Super def./Antidote+/Antifire/Ranging/Magic/Hunting/Zamorak mix + (1)/(2) charge variants).
 
 **Affects**: ~40 items.
+
+## Session 39 (audit IDs 11525–11900)
+
+### New constants: `_ARMADYL_NAMES`, `_BANDOS_NAMES`
+
+- `_ARMADYL_NAMES`: Armadyl helmet/chestplate/chainskirt (range set, defence_magic spillover misclassifies them).
+- `_BANDOS_NAMES`: Bandos chestplate/tassets (melee set, defence_ranged spillover misclassifies them).
+
+### RANGE Helmets/Body/Legs — Armadyl force_include + Bandos force_exclude
+
+Armadyl pieces force_included into range; Bandos pieces force_excluded.
+
+### MELEE Helmets/Body armour/Legs — Armadyl force_exclude + Bandos force_include
+
+Symmetric to above — Bandos force_included into melee; Armadyl force_excluded.
+
+### MAGE Helmets/Body/Legs — Armadyl force_exclude
+
+Armadyl had defence_magic stats that miscategorized as mage.
+
+### MELEE — new "Godsword construction" section
+
+Added Godsword shards (1&2, 1&3, 2&3), Godsword blade, Godsword shard 1/2/3, Armadyl/Bandos/Saradomin/Zamorak hilt.
+
+**Affects**: 11 items.
+
+### HERBLORE — new "Nightmare Zone potions" section
+
+Pattern catches Super ranging (1-4), Overload (1-4), Absorption (1-4) + Herb box.
+
+**Affects**: 13 items.
+
+### RANGE "Ranging potions" — `super ranging` family
+
+Extended potion family list to include super ranging (cross-tag with herblore NZ section).
+
+**Affects**: 4 Super ranging dose variants (cross-tag).
+
+### CONSTRUCTION POH teleports — `Scroll of redirection`
+
+Re-routes POH teleport tabs to different POH locations.
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Halloween + Christmas event partyhats
+
+Added Black h'ween mask, Black partyhat, Rainbow partyhat.
+
+**Affects**: 3 items.
+
+### WC_FLETCHING Arrowtips — `Broad arrowheads`
+
+Slayer broad arrow craft material.
+
+**Affects**: 1 item.
+
+### SLAYER Slayer master items — bulk purchase packs
+
+Added Empty/Water-filled vial pack, Feather pack, Bait pack, Broad arrowhead pack, Unfinished broad bolt pack.
+
+**Affects**: 6 items.
