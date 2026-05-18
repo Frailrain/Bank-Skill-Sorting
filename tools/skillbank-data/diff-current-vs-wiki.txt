@@ -23,7 +23,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    19933  Saradomin d'hide boots
    19936  Zamorak d'hide boots
 
-=== mining_smithing (7 items not in wiki output) ===
+=== mining_smithing (9 items not in wiki output) ===
    20146  Gilded med helm
    20149  Gilded chainbody
    20152  Gilded sq shield
@@ -31,3 +31,5 @@ or should be added to force_include / variant_allowlist before flipping --additi
    20842  Corrupted platelegs
    20844  Corrupted plateskirt
    20846  Corrupted kiteshield
+   21301  Obsidian platebody
+   21304  Obsidian platelegs

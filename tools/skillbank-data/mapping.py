@@ -270,6 +270,8 @@ _TREASURE_TRAIL_MELEE_NAMES = [
     # session 49 — Corrupted armour (Last Man Standing reward)
     "Corrupted platebody", "Corrupted platelegs", "Corrupted plateskirt",
     "Corrupted kiteshield",
+    # session 51 — Obsidian plate (TzHaar drops, not smithable)
+    "Obsidian platebody", "Obsidian platelegs",
 ]
 
 # Trim/gilded armour variants — equipable=0 cosmetics of standard smithed
@@ -1057,6 +1059,10 @@ PRAYER = TabSpec(
             "Dexterous prayer scroll", "Arcane prayer scroll",
             "Torn prayer scroll", "Necklace of faith",
         })),
+        Section("Fossil Island fossils", _or(
+            _and(_name_starts("Unidentified "), _name_ends(" fossil")),
+            _and(_name_contains(" fossilised "), _not(_name_contains("roots"))),
+        )),
         Section("Robes (monk/proselyte/initiate/druid)", _or(
             _name_starts("Monk's "), _name_starts("Proselyte "),
             _name_starts("Initiate "), _name_starts("Devout "),
@@ -1239,6 +1245,8 @@ COOKING = TabSpec(
                 "Guanic bat (0)", "Prael bat (1)", "Giral bat (2)",
                 "Phluxia bat (3)", "Kryket bat (4)", "Murng bat (5)",
                 "Psykk bat (6)",
+                # session 51 — Volcanic Mine food
+                "Bowl of fish",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1346,6 +1354,9 @@ WC_FLETCHING = TabSpec(
         Section("Lumberjack outfit", _name_in({
             "Lumberjack boots", "Lumberjack top", "Lumberjack legs", "Lumberjack hat",
         })),
+        Section("Sulliuscep + exotic wood", _name_in({
+            "Sulliuscep cap",
+        })),
     ],
 )
 
@@ -1360,6 +1371,8 @@ FISHING = TabSpec(
             "Harpoon", "Barb-tail harpoon", "Dragon harpoon",
             "Crystal harpoon", "Infernal harpoon", "Trailblazer harpoon",
             "Karambwan vessel", "Karambwanji bait",
+            # session 51 — Fossil Island drift net
+            "Drift net",
         })),
         Section("Bait", _name_in({
             "Fishing bait", "Feather", "Dark fishing bait",
@@ -1376,6 +1389,8 @@ FISHING = TabSpec(
             # session 38 — Barbarian Training fishing catches + byproducts
             "Leaping trout", "Leaping salmon", "Leaping sturgeon",
             "Roe", "Fish offcuts",
+            # session 51 — Tempoross minnow precursor
+            "Minnow",
         })),
         Section("Angler outfit", _name_starts("Angler ")),
         Section("Spirit angler outfit", _name_starts("Spirit angler ")),
@@ -1539,6 +1554,8 @@ MINING_SMITHING = TabSpec(
             "Hammer", "Imcando hammer", "Chisel",
             "Coal bag", "Gem bag", "Open gem bag", "Ore pack",
             "Goldsmith gauntlets", "Ring of forging",
+            # session 51 — Mining guild gloves variants
+            "Mining gloves", "Superior mining gloves", "Expert mining gloves",
         })),
         Section("Ores", _is_ore, sort_key=_ore_sort_key),
         Section("Bars", _is_bar, sort_key=_bar_sort_key),
@@ -1556,6 +1573,10 @@ MINING_SMITHING = TabSpec(
         Section("Lovakengj mining (sulphur + dynamite)", _name_in({
             "Volcanic sulphur", "Dynamite pot", "Dynamite", "Blasted ore",
         })),
+        Section("Volcanic Mine (ore fragments)", _or(
+            _name_ends(" ore fragment"),
+            _name_in({"Heat-proof vessel"}),
+        )),
         Section("Mining outfit (Prospector)", _name_starts("Prospector ")),
         Section("Smithing outfit (Smiths')", _name_starts("Smiths' ")),
         Section("Mining/Smithing capes & pets", _name_in({
@@ -1769,6 +1790,8 @@ SLAYER = TabSpec(
             # session 50 — Slayer reward bracelets + Skotizo drop
             "Expeditious bracelet", "Bracelet of slaughter",
             "Dark claw",
+            # session 51 — Wyvern visage + Tzhaar rune pack
+            "Wyvern visage", "Tzhaar air rune pack",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -1845,6 +1868,8 @@ FARMING = TabSpec(
             "Sulphurous fertiliser", "Gricoller's fertiliser", "Saltpetre",
             # session 46 — Compost pack (Tithe Farm)
             "Compost pack",
+            # session 51 — Fossil Island Volcanic compost ingredients + Seaweed spore
+            "Calcite", "Pyrophosphite", "Seaweed spore",
         })),
         Section("Seeds", _is_seed),
         # Note: prior force_exclude for "Marigold seed" was removed in session 18
@@ -1935,6 +1960,9 @@ HUNTER = TabSpec(
             "Imp-in-a-box(2)", "Imp-in-a-box(1)",
             # session 38 — impling jar tools
             "Jar generator", "Magic butterfly net", "Impling jar",
+            # session 51 — Fossil Island bird houses
+            "Bird house", "Oak bird house",
+            "Willow bird house", "Teak bird house",
         })),
         Section("Caught butterflies", _name_in({
             "Black warlock", "Snowy knight", "Sapphire glacialis", "Ruby harvest",
@@ -2024,6 +2052,10 @@ CONSTRUCTION = TabSpec(
             _name_ends(" portrait"),
             _name_ends(" painting"),
         )),
+        Section("Fossilised plant displays", _name_in({
+            "Fossilised roots", "Fossilised stump", "Fossilised branch",
+            "Fossilised leaf", "Fossilised mushroom",
+        })),
         Section("Bagged plants & trees", _name_starts("Bagged ")),
         Section("Hedges", _name_ends(" hedge")),
         Section("Lecterns (POH study)", _or(
@@ -2175,6 +2207,7 @@ MISC = TabSpec(
         Section("Combat trophies (PvM rewards)", _name_in({
             "Fire cape", "Infernal cape", "Champion's cape",
             "Infernal max cape",
+            "Wilderness champion amulet",
         })),
         Section("Holiday rares & cosmetics", _or(
             _name_in(set(_HOLIDAY_RARES) | {
@@ -2266,6 +2299,7 @@ MISC = TabSpec(
             "Coins", "Platinum token", "Blood money", "Tokkul",
             "Marks of grace", "Brimhaven voucher", "Archery ticket",
             "Ecto-token", "Trading sticks", "Warrior guild token",
+            "Numulite",
         })),
     ],
 )

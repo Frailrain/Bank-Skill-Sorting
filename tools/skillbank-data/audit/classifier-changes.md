@@ -1843,3 +1843,77 @@ Added 4th birthday hat + Birthday balloons + Invitation list (3), Easter egg hel
 Added explicit force_include via `name_in` (set name doesn't end with " set (lg)/(sk)" pattern).
 
 **Affects**: 1 item.
+
+## Session 51 (audit IDs 21301–21700)
+
+### `_TREASURE_TRAIL_MELEE_NAMES` extended — Obsidian plate
+
+Added Obsidian platebody, Obsidian platelegs (TzHaar drops, not smithable). REM mining_smithing.
+
+**Affects**: 2 items.
+
+### MINING_SMITHING expansions
+
+- Mining tools & bags: Mining gloves, Superior mining gloves, Expert mining gloves.
+- New "Volcanic Mine (ore fragments)" section: pattern `name_ends(" ore fragment")` + Heat-proof vessel.
+
+**Affects**: 11 items.
+
+### FISHING expansions
+
+- Rods & tools: Drift net (Fossil Island underwater fishing).
+- Specialty fish: Minnow (Tempoross precursor).
+
+**Affects**: 2 items.
+
+### FARMING Compost — Volcanic compost ingredients + Seaweed spore
+
+Added Calcite, Pyrophosphite (Fossil Island Volcanic compost ingredients), Seaweed spore.
+
+**Affects**: 3 items.
+
+### HUNTER Traps — Fossil Island bird houses
+
+Added Bird house, Oak/Willow/Teak bird house.
+
+**Affects**: 4 items.
+
+### MISC Currency — `Numulite`
+
+Fossil Island currency.
+
+**Affects**: 1 item.
+
+### MISC Combat trophies — `Wilderness champion amulet`
+
+**Affects**: 1 item.
+
+### PRAYER — new "Fossil Island fossils" section
+
+Pattern catches Unidentified small/medium/large/rare fossil + body part fossils (Small/Medium/Large/Rare fossilised limbs/spine/ribs/pelvis/skull/tusk).
+
+**Affects**: ~26 items.
+
+### CONSTRUCTION — new "Fossilised plant displays" section
+
+Added Fossilised roots/stump/branch/leaf/mushroom (POH garden display).
+
+**Affects**: 5 items.
+
+### WC_FLETCHING — new "Sulliuscep + exotic wood" section
+
+Added Sulliuscep cap (Fossil Island Sulliuscep mushroom tree).
+
+**Affects**: 1 item.
+
+### COOKING Misc cooked food — `Bowl of fish`
+
+Volcanic Mine food.
+
+**Affects**: 1 item.
+
+### SLAYER Slayer master items — Wyvern visage + Tzhaar pack
+
+Added Wyvern visage (Ancient wyvern shield material), Tzhaar air rune pack.
+
+**Affects**: 2 items.

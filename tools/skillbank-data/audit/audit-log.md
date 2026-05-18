@@ -4622,6 +4622,107 @@ See `audit/classifier-changes.md` "Session 49".
 
 See `audit/classifier-changes.md` "Session 50".
 
+---
+
+## Session 51: IDs 21301–21700
+
+### Obsidian plate + Rogue's crate + Rainbow
+
+- `21301-21304 Obsidian platebody, Obsidian platelegs` (2 items, `melee;mining_smithing`) — **REM mining_smithing** (TzHaar drops, not smithable).
+- `21307 Rogue's equipment crate` — LOG (GE convenience set).
+- `21308-21314 Red/Orange/Yellow/Green/Blue/Purple rainbow strand, Rainbow scarf` — LOG (Easter cosmetic).
+
+### Amethyst + mining gloves
+
+- `21316-21338 Amethyst broad bolts/javelin/arrow/fire arrow/bolt tips` — OK (`range;wc_fletching`).
+- `21341 Unidentified minerals` — LOG (Motherlode random output).
+- `21343-21345 Mining gloves, Superior mining gloves` (2 items) — **ADD mining_smithing**.
+- `21347 Amethyst`, `21350 Amethyst arrowtips`, `21352 Amethyst javelin tips` — OK.
+
+### Misc + Wilderness + Tempoross
+
+- `21354 Hand fan` — LOG.
+- `21356 Minnow` — **ADD fishing** (Tempoross fishing).
+- `21387 Master scroll book (empty)` — LOG.
+- `21392 Expert mining gloves` — **ADD mining_smithing**.
+- `21394 Karambwanji` — LOG (dup).
+- `21396-21412 Clan wars cape × 2 dups` — LOG.
+- `21428 Wilderness cape` — OK (`range`).
+- `21433 Wilderness champion amulet` — **ADD misc**.
+- `21434 Wilderness cape` (dup) — LOG.
+- `21439 Champion's cape` — OK (`misc`).
+
+### Tithe Farm + Seaweed + Bird houses
+
+- `21469-21488 Teak/Mahogany seedling/sapling, Ultracompost, Teak/Mahogany seed` — OK (`farming`).
+- `21490 Seaweed spore` — **ADD farming** (Seaweed underwater farming).
+- `21504 Giant seaweed` — OK (`crafting`).
+- `21509 Herbi` — OK (`herblore`).
+- `21512-21521 Bird house, Oak/Willow/Teak bird house` (4 items) — **ADD hunter** (Fossil Island bird house traps).
+
+### Fossil Island quest + Volcanic mine
+
+- `21524-21527 Clue scroll dups` — LOG.
+- `21528-21529 Sawmill proposal, Sawmill agreement` — EX.
+- `21530-21531 Bone charm, Potion of sealegs` — LOG.
+- `21532-21538 Iron/Silver/Coal/Gold/Mithril/Adamantite/Runite ore fragment` (7 items) — **ADD mining_smithing** (Volcanic Mine raw fragments).
+- `21539 Heat-proof vessel` — **ADD mining_smithing** (Volcanic Mine tool).
+- `21540 Large rock` — LOG.
+- `21541 Volcanic mine teleport` — OK (`misc`).
+
+### Fossil Island compost + enriched bones
+
+- `21543-21545 Calcite, Pyrophosphite` (2 items) — **ADD farming** (Fossil Island Volcanic compost ingredient).
+- `21547-21553 Small/Medium/Large/Rare enriched bone` — OK (4 items, `prayer`).
+
+### Numulite + fossils (Fossil Island museum)
+
+- `21555 Numulite` — **ADD misc** (Fossil Island currency).
+- `21562-21568 Unidentified small/medium/large/rare fossil` (4 items) — **ADD prayer** (Fossil Island museum identification system).
+- `21570-21620 Small/Medium/Large/Rare fossilised limbs/spine/ribs/pelvis/skull/tusk` (~22 items) — **ADD prayer** (POH prayer altar fossils).
+- `21590-21598 Fossilised roots/stump/branch/leaf/mushroom` (5 items) — **ADD construction** (POH garden display fossils).
+
+### Volcanic ash + Sulliuscep + Wyvern shield
+
+- `21622 Volcanic ash` — OK (`mining_smithing`).
+- `21624 Hoop snake`, `21626 Sulliuscep cap` — partial.
+- `21626 Sulliuscep cap` — **ADD wc_fletching** (Sulliuscep mushroom tree wood).
+- `21629-21640 Archaeologist's diary, Ancient diary, Antique lamp` — EX.
+- `21633 Ancient wyvern shield` — OK (`melee;mage`).
+- `21634 Ancient wyvern shield` (dup) — LOG.
+- `21637 Wyvern visage` — **ADD slayer** (Ancient wyvern shield craft material).
+- `21643 Granite boots`, `21646 Granite longsword`, `21649 Merfolk trident` — OK (`melee`).
+
+### Drift net + Fossil Island fishing
+
+- `21652 Drift net` — **ADD fishing** (Drift Net underwater fishing).
+- `21655 Pufferfish` — LOG (Volcanic Mine fish, minor).
+- `21656 Mermaid's tear` — LOG.
+- `21662-21682 Various Fossil Island lore notes (scribbled, ancient, partial, experimental, paragraph, musty, hastily scrawled, old writing, short note)` — EX (~10 items, lore-only).
+
+### Mushroom pie + Tzhaar pack
+
+- `21684 Uncooked mushroom pie`, `21690 Mushroom pie` — OK (`cooking`).
+- `21693 Bowl of fish` — **ADD cooking** (Volcanic Mine food).
+- `21695 Runefest shield` — LOG (event reward).
+- `21697 Ash covered tome` — OK (`mage`).
+- `21698 Tzhaar air rune pack` — **ADD slayer** (Slayer master rune pack).
+
+---
+
+## Session 51 totals
+
+- Items reviewed: ~250
+- OK (correct as-is): 50
+- EX (correctly excluded): 15 (Fossil Island lore notes, quest material)
+- ADD (missing tab, fixed): ~60 (3 mining gloves, 1 Minnow, 1 Wilderness amulet, 1 Seaweed spore, 4 Bird houses, 7 ore fragments, 1 Heat-proof vessel, 2 Calcite/Pyrophosphite, 1 Numulite, 4 Unidentified fossil, 22 Fossilised body parts, 5 Fossilised plant parts, 1 Sulliuscep, 1 Wyvern visage, 1 Drift net, 1 Bowl of fish, 1 Tzhaar pack, 1 Expert mining gloves)
+- REM (misclassified, fixed): 2 (Obsidian platebody/platelegs from mining_smithing)
+- LOG: 50+ (Rainbow strands, clue dups, Karambwanji dup, Pufferfish, Hoop snake, lore notes, Sawmill proposal)
+
+## Classifier changes made in session 51
+
+See `audit/classifier-changes.md` "Session 51".
+
 ## Resume marker
 
-**Next session: start from ID 21301.**
+**Next session: start from ID 21701.**
