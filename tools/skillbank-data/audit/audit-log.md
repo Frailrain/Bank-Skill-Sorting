@@ -2656,6 +2656,89 @@ See `audit/classifier-changes.md` "Session 27".
 
 See `audit/classifier-changes.md` "Session 28".
 
+---
+
+## Session 29: IDs 8417–8716 (POH construction dump)
+
+### Bagged plants & trees (POH garden)
+
+- `8417-8429 Bagged dead/nice/oak/willow/maple/yew/magic tree` (7 items) — **ADD construction**.
+- `8431-8461 Bagged plant 1/2/3, Bagged flower/daffodils/bluebells/sunflower/marigolds/roses` (9 items) — **ADD construction**.
+
+### Hedges (POH garden)
+
+- `8437-8449 Thorny/Nice/Small box/Topiary/Fancy/Tall fancy/Tall box hedge` (7 items) — **ADD construction**.
+
+### Construction guide
+
+- `8463 Construction guide` — **ADD construction**.
+
+### Heraldic helm + kiteshield dups
+
+- `8464 Rune heraldic helm` (canonical) — OK (`melee`).
+- `8466-8494 Rune heraldic helm × 15 dups` — LOG.
+- `8682 Steel heraldic helm` (canonical) — OK (`melee`).
+- `8684-8712 Steel heraldic helm × 15 dups` — LOG.
+- `8714-8716 Rune kiteshield dups` — LOG.
+
+### Chairs, benches, beds (POH dining/bedroom)
+
+- `8496 Crude chair`, `8498 Wooden chair`, `8500 Rocking chair` — **ADD construction** (3).
+- `8502-8508 Oak/Teak/Mahogany armchair` — OK (`construction`; matched by existing pattern).
+- `8510 Bookcase` — **ADD construction**.
+- `8512-8514 Oak/Mahogany bookcase` — OK (`construction`).
+- `8528 Kitchen table` — **ADD construction**.
+- `8548 Wood dining table`, `8560 Opulent table` — **ADD construction** (2).
+- `8562 Wooden bench` — **ADD construction**.
+- `8564-8572 Oak/Carved oak/Teak/Carved teak/Mahogany bench` — OK (`construction`).
+- `8574 Gilded bench` — **ADD construction**.
+- `8576 Wooden bed` — **ADD construction**.
+- `8578-8584 Oak/Large oak/Teak/Large teak bed` — OK (`construction`).
+- `8586 Four-poster bed`, `8588 Gilded four-poster` — **ADD construction** (2).
+
+### Lecterns (POH study)
+
+- `8534-8546 Oak/Eagle/Demon/Teak eagle/Teak demon/Mahogany eagle/Mahogany demon lectern` (7 items) — **ADD construction**.
+
+### POH bar (kitchen barrels)
+
+- `8516 Beer barrel`, `8518 Cider barrel` — **ADD construction** (2 items, POH bar barrels).
+- `8520-8526 Asgarnian ale, Greenman's ale, Dragon bitter, Chef's delight` (4 dups of canonical brews already in COOKING) — LOG.
+
+### Clocks, shaving stand, dressers, drawers, wardrobes
+
+- `8590-8594 Oak/Teak/Gilded clock` (3 items) — **ADD construction**.
+- `8596-8598 Shaving stand, Oak shaving stand` (2 items) — **ADD construction**.
+- `8600-8608 Oak/Teak/Fancy teak/Mahogany/Gilded dresser` (5 items) — **ADD construction**.
+- `8610 Shoe box` — **ADD construction**.
+- `8612-8620 Oak/Teak drawers/wardrobe, Mahogany wardrobe` — OK (`construction`).
+- `8622 Gilded wardrobe` — **ADD construction**.
+
+### Study furniture (globes, orreries, telescopes)
+
+- `8624-8628 Crystal ball, Elemental sphere, Crystal of power` (3 items) — **ADD construction**.
+- `8630-8642 Globe/Ornamental globe/Lunar globe/Celestial globe/Armillary sphere/Small orrery/Large orrery` (7 items) — **ADD construction**.
+- `8644-8648 Oak/Teak/Mahogany telescope` (3 items) — **ADD construction**.
+
+### POH banners (Castle Wars / heraldic)
+
+- `8650-8680 Banner × 16 dups` — LOG.
+
+---
+
+## Session 29 totals
+
+- Items reviewed: ~150
+- OK (correct as-is): 40
+- EX: 0
+- ADD (missing tab, fixed): 65 (16 bagged plants/trees, 7 hedges, 1 guide, 3 basic chairs, 1 Bookcase, 1 Kitchen table, 2 dining tables, 4 bench/bed basics, 2 four-poster, 7 lecterns, 2 barrels, 3 clocks, 2 shaving stands, 6 dresser/shoe box, 1 Gilded wardrobe, 10 study globes/orreries/telescopes, 3 crystal items)
+- REM: 0
+- LOG: 50+ (heraldic helm dups, kiteshield dups, banner dups, ale dups)
+
+## Classifier changes made in session 29
+
+See `audit/classifier-changes.md` "Session 29".
+
 ## Resume marker
 
-**Next session: start from ID 8417.**
+**Next session: start from ID 8717.**

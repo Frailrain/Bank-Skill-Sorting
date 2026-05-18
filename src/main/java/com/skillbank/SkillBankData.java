@@ -2019,11 +2019,13 @@ public final class SkillBankData
 
 	private static void addConstruction(Map<String, List<Integer>> m)
 	{
-		// CONSTRUCTION — 126 items
+		// CONSTRUCTION — 197 items
 		//   Tools (4), Planks (4), Nails (7), Construction materials (15), POH
 		//   portals & telescopes (2), Bench/altar (pattern) (37), Mahogany Homes
-		//   (7), Portraits & paintings (POH decoration) (11), POH teleports (2),
-		//   Legacy (37)
+		//   (7), Portraits & paintings (POH decoration) (11), Bagged plants &
+		//   trees (16), Hedges (7), Lecterns (POH study) (8), Globes, orreries,
+		//   telescopes (POH study) (13), Basic furniture (non-Oak/Teak/Mahogany)
+		//   (27), POH teleports (2), Legacy (37)
 		m.put(TAG_CONSTRUCTION, Arrays.asList(
 			// === Tools ===
 			9625, 2347, 8794, 25644,
@@ -2054,6 +2056,26 @@ public final class SkillBankData
 			// === Portraits & paintings (POH decoration) ===
 			4814, 4816, 7995, 7996, 7997, 7998, 7999, 8000,
 			8001, 8002, 8003,
+
+			// === Bagged plants & trees ===
+			8417, 8419, 8421, 8423, 8425, 8427, 8429, 8431,
+			8433, 8435, 8451, 8453, 8455, 8457, 8459, 8461,
+
+			// === Hedges ===
+			8437, 8439, 8441, 8443, 8445, 8447, 8449,
+
+			// === Lecterns (POH study) ===
+			8534, 8536, 8538, 8540, 8542, 8544, 8546, 22687,
+
+			// === Globes, orreries, telescopes (POH study) ===
+			8624, 8628, 8626, 8630, 8632, 8634, 8636, 8638,
+			8640, 8642, 8644, 8646, 8648,
+
+			// === Basic furniture (non-Oak/Teak/Mahogany) ===
+			8463, 8496, 8498, 8500, 8510, 8516, 8518, 8528,
+			8548, 8560, 8562, 8574, 8576, 8586, 8588, 8590,
+			8592, 8594, 8596, 8598, 8600, 8602, 8604, 8606,
+			8608, 8610, 8622,
 
 			// === POH teleports ===
 			13117, 19476,

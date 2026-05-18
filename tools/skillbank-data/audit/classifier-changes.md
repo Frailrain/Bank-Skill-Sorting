@@ -1008,3 +1008,17 @@ Cosmetic Easter event ring; Easter egg was already in _HOLIDAY_RARES.
 Added Dark essence fragments, Dark essence block — Blood/Soul rune chiselling intermediates in the Arceuus runecraft chain.
 
 **Affects**: 2 items.
+
+## Session 29 (audit IDs 8417–8716)
+
+### CONSTRUCTION — major expansion (5 new sections)
+
+POH garden + study + bar + basic furniture coverage:
+
+- **"Bagged plants & trees"**: pattern `name_starts("Bagged ")` — bagged trees (dead/nice/oak/willow/maple/yew/magic), bagged plants 1-3, bagged flowers (daffodils/bluebells/sunflower/marigolds/roses).
+- **"Hedges"**: pattern `name_ends(" hedge")` — thorny/nice/small box/topiary/fancy/tall fancy/tall box hedges.
+- **"Lecterns (POH study)"**: pattern `name_ends(" lectern")` + Mahogany eagle/demon names — Oak/Eagle/Demon/Teak eagle/Teak demon/Mahogany eagle/Mahogany demon lecterns.
+- **"Globes, orreries, telescopes (POH study)"**: named list — Crystal ball, Elemental sphere, Crystal of power, Globe variants, Armillary sphere, Small/Large orrery, Oak/Teak/Mahogany telescope.
+- **"Basic furniture (non-Oak/Teak/Mahogany)"**: named list covering Crude/Wooden/Rocking chair, Bookcase, Kitchen/Wood dining/Opulent table, Wooden/Gilded bench, Wooden/Four-poster/Gilded four-poster bed, Oak/Teak/Gilded clock, Shaving stands, Oak/Teak/Fancy teak/Mahogany/Gilded dresser, Shoe box, Gilded wardrobe, Beer/Cider barrel, Construction guide.
+
+**Affects**: ~65 items.
