@@ -795,16 +795,20 @@ PRAYER = TabSpec(
                       "Silver sickle (b)"}),
             _name_starts("Holy book"), _name_starts("Unholy book"),
             _name_starts("Book of "),
-        )),
+        ), force_exclude=["Book of haricanto"]),
         Section("Robes (monk/proselyte/initiate/druid)", _or(
             _name_starts("Monk's "), _name_starts("Proselyte "),
             _name_starts("Initiate "), _name_starts("Devout "),
             _name_starts("Druid's "),
         )),
-        Section("Bone secondaries", _name_in({
-            "Bonemeal", "Bonemeal pot", "Bucket of slime", "Vial of milk",
-            "Zogre bonemeal", "Jogre bonemeal", "Mort myre fungus",
-        })),
+        Section("Bone secondaries", _or(
+            _name_in({
+                "Bonemeal pot", "Bucket of slime", "Vial of milk",
+                "Mort myre fungus",
+            }),
+            _name_ends(" bonemeal"),  # Bonemeal, Bat bonemeal, Dragon bonemeal, etc.
+            _name_in({"Bonemeal"}),
+        )),
         Section("Shades remains", _name_ends(" remains")),
         Section("Quest-related prayer items", _name_in({
             "Ogre coffin key", "Ring of the gods", "Ring of the gods (i)",
@@ -1285,7 +1289,7 @@ SLAYER = TabSpec(
         Section("Slayer helmets", _name_contains("slayer helmet")),
         Section("Black masks", _name_contains("black mask")),
         Section("Task-specific gear", _name_in({
-            "Rock hammer", "Rock thrownhammer", "Slayer's staff",
+            "Rock hammer", "Rock thrownhammer", "Slayer's staff", "Bag of salt",
             "Slayer's staff (e)", "Brittle key", "Mirror shield",
             "Witchwood icon", "Earmuffs", "Spiny helmet", "Facemask",
             "Nose peg", "Fungicide spray 10", "Fungicide", "Magic secateurs",
@@ -1537,6 +1541,7 @@ MISC = TabSpec(
         Section("Currency", _name_in({
             "Coins", "Platinum token", "Blood money", "Tokkul",
             "Marks of grace", "Brimhaven voucher", "Archery ticket",
+            "Ecto-token",
         })),
     ],
 )

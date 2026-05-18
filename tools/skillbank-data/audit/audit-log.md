@@ -17,8 +17,9 @@
 - **Reviewed in session 12**: IDs 3101–3400 (124 items)
 - **Reviewed in session 13**: IDs 3401–3700 (177 items)
 - **Reviewed in session 14**: IDs 3701–4000 (125 items)
-- **Reviewed cumulative**: 2113 (17.8%)
-- **Resume from**: ID 4001
+- **Reviewed in session 15**: IDs 4001–4300 (169 items)
+- **Reviewed cumulative**: 2282 (19.2%)
+- **Resume from**: ID 4301
 
 ## Decision codes
 
@@ -1475,6 +1476,105 @@ See `audit/classifier-changes.md` "Session 13".
 
 See `audit/classifier-changes.md` "Session 14".
 
+---
+
+## Session 15: IDs 4001–4300
+
+### Monkey Madness (Tree Gnome Stronghold)
+
+- `4001-4034` (~30 items: Hardy gout tuber, Spare controls, Gnome royal seal, Narnode's orders, Monkey dentures, Enchanted bar, Eye of gnome ×2, Monkey magic, Monkey nuts, Monkey bar, Banana stew, Monkey wrench, M'amulet mould, M'speak amulet ×2, Monkey talisman, greegrees ×7, Monkey, Monkey skull) — EX. Quest consumables / monkey-transformation items.
+
+### Castle Wars
+
+- `4035 10th squad sigil`, `4037-4039 Banners (Saradomin/Zamorak)` — EX (3 items).
+- `4041 Saradomin cloak`, `4042 Zamorak cloak` — OK (`mage`).
+- `4043-4055 Rock, Explosive potion, Climbing rope, Bandages, Toolkit, Barricade, Castlewars manual` — EX (7 items).
+- `4067 Castle wars ticket` — EX. Could add to misc but minigame token; LOG.
+- `4068-4072 Decorative sword/armour/helm/shield` — OK (5 items, `melee`). Castle wars decorative armour.
+
+### Haunted Mine (Salve amulet)
+
+- `4073-4082 Damp tinderbox, Glowing fungus, Crystal-mine key, Zealot's key, Yo-yo, Salve amulet, Salve shard` — partial OK / EX.
+- `4081 Salve amulet` — OK (`melee`). Anti-undead damage bonus.
+
+### Trollweiss / Mountain Daughter
+
+- `4083-4086 Sled, Wax, Trollweiss` — EX. Quest items.
+
+### Dragon platelegs + Mystic robes
+
+- `4087 Dragon platelegs` — OK (`melee;mining_smithing`).
+- `4089-4117 Mystic hat/robe top/robe bottom/gloves/boots × Light/Standard/Dark` — OK (15 items, all `mage`). Three colour variants × 5 pieces.
+
+### Metal boots family
+
+- `4119-4131 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune boots` — OK (7 items, `melee`).
+
+### Abyssal whip / Slayer task gear
+
+- `4151 Abyssal whip` — OK (`melee`).
+- `4153 Granite maul` — OK (`melee;slayer`).
+- `4155 Enchanted gem` — OK (`slayer`).
+- `4156 Mirror shield` — OK (`melee;slayer`).
+- `4158 Leaf-bladed spear` — OK (`melee`).
+- `4160 Broad arrows` — OK (`range;wc_fletching`).
+- `4161 Bag of salt` — **ADD slayer**. Used to defeat Rockslugs. Currently unclassified.
+- `4162 Rock hammer`, `4164 Facemask`, `4166 Earmuffs`, `4168 Nose peg` — OK (4 items, `slayer`).
+- `4170 Slayer's staff` — OK (`mage;slayer;quests`).
+
+### Various Slayer-related dups + quest items
+
+- `4178-4209` (~30 items: Abyssal whip dup, Stick, Dragon platelegs dup, Mouth grip, Goutweed dup, Star amulet, Cavern/Tower/Shed keys, Marble amulet, Obsidian amulet, Garden cane/brush/Extended brush, Torso/Arms/Legs/Decapitated head, Pickled brain, Conductor mould, Conductor, Ring of charos, Journal/Letter, Consecration seed, Crystal weapon seed, Cadarn lineage) — mostly EX (quest items).
+- `4205 Consecration seed`, `4207 Crystal weapon seed` — OK (`farming`).
+
+### Crystal bow + crystal shield
+
+- `4212 New crystal bow` — OK (`range;wc_fletching`).
+- `4224 New crystal shield` — OK (`range`). Crystal Elf armour.
+- `4213, 4235 Bow/Shield dups` — EX (canonical dups).
+- `4236 Signed oak bow` — OK (`range;wc_fletching`). Roving Elves reward.
+
+### Ghosts Ahoy
+
+- `4237-4253` (~14 items: Nettle-water, Puddle of slime, Nettle tea ×2, Nettles, Cup of tea ×3 dups, Porcelain cup, Mystical robes, Book of haricanto, Translation manual, Ectophial, Model ship) — EX (most).
+- `4248 Book of haricanto` — currently in prayer (via _name_starts("Book of ")). It's not a prayer item — Ghosts Ahoy guide book. **REM prayer**. **Fix**: force_exclude "Book of haricanto" from PRAYER Holy symbols.
+- `4251 Ectophial` — OK (`quests`).
+
+### Bonemeal family
+
+- `4255-4271 Bonemeal / Bat / Big / Burnt / Burnt jogre / Baby dragon / Dragon / Wolf / Small ninja / Medium ninja / Gorilla / Bearded gorilla / Monkey / Small zombie monkey / Large zombie monkey / Skeleton / Jogre bonemeal` (17 items) — **ADD prayer** for the 15 currently unclassified ones. **Fix**: change prayer Bone secondaries to use pattern `_name_ends(" bonemeal")` to catch all variants automatically.
+- `4258 Burnt bonemeal`, `4259 Burnt jogre bonemeal` — OK (`cooking`) plus need prayer cross-tag added via the pattern fix above.
+- `4286 Bucket of slime` — OK (`prayer`).
+
+### Misc quest items
+
+- `4272-4277` (Bone key, Chest key, Map scraps ×3, Treasure map) — EX.
+- `4278 Ecto-token` — **ADD misc**. Ghosts Ahoy currency. Currently unclassified.
+- `4283 Petition form`, `4284 Bedsheet` — EX.
+
+### Raw/cooked food dupes
+
+- `4287-4293 Raw beef / Raw chicken / Cooked chicken / Cooked meat dups` — LOG (canonical dups).
+
+### Ham (Lowlands of Ardougne) gear
+
+- `4298 Ham shirt`, `4300 Ham robe` — OK (`melee`). Hand in the Sand cosmetic gear.
+
+---
+
+## Session 15 totals
+
+- Items reviewed: 169
+- OK (correct as-is): 60
+- EX (correctly excluded): 75
+- ADD (missing tab, fixed): 17 (Bag of salt slayer, 15 bonemeal variants prayer, Ecto-token misc)
+- REM (misclassified, fixed): 1 (Book of haricanto from prayer)
+- LOG (deferred): 7 (Castle wars ticket, raw/cooked food dups, Trollweiss weapon)
+
+## Classifier changes made in session 15
+
+See `audit/classifier-changes.md` "Session 15".
+
 ## Resume marker
 
-**Next session: start from ID 4001.**
+**Next session: start from ID 4301.**

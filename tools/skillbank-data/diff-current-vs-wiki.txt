@@ -524,7 +524,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    29892  (not in wiki canonical set)
    30066  (not in wiki canonical set)
 
-=== prayer (52 items not in wiki output) ===
+=== prayer (53 items not in wiki output) ===
     1704  Amulet of glory
     2408  Diary
     2967  Journal
@@ -532,6 +532,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     3845  Journal
     3846  Diary
     3847  Manual
+    4248  Book of haricanto
     9760  (not in wiki canonical set)
    13447  (not in wiki canonical set)
    13450  (not in wiki canonical set)
@@ -1026,13 +1027,12 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27443  (not in wiki canonical set)
    29485  (not in wiki canonical set)
 
-=== slayer (80 items not in wiki output) ===
+=== slayer (79 items not in wiki output) ===
      985  Tooth half of key
      987  Loop half of key
      989  Crystal key
     4081  Salve amulet
     4151  Abyssal whip
-    4161  Bag of salt
     6106  Ghostly boots
     6171  Flattened hide
     6570  Fire cape

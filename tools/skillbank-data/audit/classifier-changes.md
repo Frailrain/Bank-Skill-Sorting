@@ -612,3 +612,27 @@ Generic quest book name; not a prayer item. Fremennik manual etc. were wrongly t
 Matches `Saradomin/Zamorak/Guthix/Armadyl/Bandos/Ancient page` startswith AND ` 1/2/3/4` endswith.
 
 **Affects**: 12 god-page items (3 main gods × 4 pages each, plus Armadyl/Bandos/Ancient gods covered for future-proofing).
+
+---
+
+## Session 15 (audit IDs 4001–4300)
+
+### PRAYER Bone secondaries — pattern-based
+
+**Before**: `_name_in({"Bonemeal", "Bonemeal pot", "Bucket of slime", "Vial of milk", "Zogre bonemeal", "Jogre bonemeal", "Mort myre fungus"})`.
+
+**After**: `_or(name_ends(" bonemeal"), _name_in({"Bonemeal", "Bonemeal pot", "Bucket of slime", "Vial of milk", "Mort myre fungus"}))`.
+
+**Affects**: 15+ bonemeal variants (Bat / Big / Burnt / Burnt jogre / Baby dragon / Dragon / Wolf / Small ninja / Medium ninja / Gorilla / Bearded gorilla / Monkey / Small zombie monkey / Large zombie monkey / Skeleton / Jogre / Zogre) now in prayer.
+
+### PRAYER Holy symbols — `Book of haricanto` force_exclude
+
+Ghosts Ahoy guide book matched the broad `name_starts("Book of ")` pattern; not a prayer item.
+
+### SLAYER Task-specific gear — `Bag of salt`
+
+Used to finish off Rockslugs.
+
+### MISC Currency — `Ecto-token`
+
+Ghosts Ahoy currency.
