@@ -926,3 +926,41 @@ Added Hosidius potato variants (Chilli/Egg/Mushroom/Tuna potato), the RFD/gnome 
 Cabin Fever pirate beverage; pirate quest reward, drinkable.
 
 **Affects**: 1 item.
+
+## Session 26 (audit IDs 7301–7600)
+
+### COOKING "Misc cooked food" — RFD/Awowogei/Pirate Pete recipe ingredients
+
+Added Brulee × 4 (RFD Evil Dave dessert), Ground giant crab meat + Ground cod (Pirate Pete fishcake intermediates), Enchanted egg/milk/flour (Sir Amik Cake of guidance), Red banana/Tchiki monkey nuts/Sliced red banana/Tchiki nut paste/Stuffed snake/Snake over-cooked (Awowogei recipe chain).
+
+**Affects**: ~13 items.
+
+### COOKING "Raw meat & ingredients" — Spicy stew flavouring
+
+New pattern matching `(Red|Orange|Brown|Yellow) spice` ending in `(1)`, `(2)`, `(3)`, `(4)` — the four-charge dosed flavouring vials used to alter Spicy stew effects.
+
+**Affects**: 16 items.
+
+### RANGE Body/Legs — trim/gilded Studded armour force_include
+
+Studded body (g/t) and Studded chaps (g/t) are equipable=0 in the data (Treasure Trails cosmetic variants) but visually identical to and worn alongside standard range armour.
+
+**Affects**: 4 items.
+
+### MAGE Helmets/Body/Legs — Blue wizard hat/robe + skirt (g/t) force_include
+
+Blue wizard hat (g/t), Blue wizard robe (g/t), Blue skirt (g/t) — trim/gilded variants of basic mage gear. Equipable=0 in data but mage cosmetic.
+
+**Affects**: 6 items.
+
+### FARMING Tools — `Queen's secateurs`
+
+Mole quest reward, max-harvest farming tool.
+
+**Affects**: 1 item.
+
+### MISC Holiday rares & cosmetics — Halloween zombie outfit
+
+Added Zombie shirt/trousers/mask/gloves/boots (Halloween 2009 event cosmetic outfit).
+
+**Affects**: 5 items.

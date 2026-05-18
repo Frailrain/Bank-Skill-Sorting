@@ -2384,6 +2384,115 @@ See `audit/classifier-changes.md` "Session 24".
 
 See `audit/classifier-changes.md` "Session 25".
 
+---
+
+## Session 26: IDs 7301–7600
+
+### Clue scroll medium dups + Boater hats
+
+- `7301-7317 Clue scroll (medium) × ~10 dups` — LOG.
+- `7319-7327 Red/Orange/Green/Blue/Black boater` (5 items) — LOG (Treasure Trails cosmetic; head slot but equipable=0; not in misc fashion section).
+
+### Firelighters + Heraldic shields
+
+- `7329-7331 Red/Green/Blue firelighter` — OK (3 items, `firemaking`).
+- `7332-7360 Black/Adamant/Rune shield (h1-h5)` (15 items) — OK (`melee`).
+
+### Trim/gilded cosmetic armour (Treasure Trails)
+
+- `7362-7368 Studded body/chaps (g/t)` — **ADD range** (4 items). Equipable=0 in data, but visual variants of the standard studded body/chaps range armour.
+- `7370-7384 Green/Blue d'hide body/chaps (g/t)` — OK (`range` via d'hide regex).
+- `7386-7388 Blue skirt (g/t)` — **ADD mage** (2 items).
+- `7390-7396 Blue wizard robe/hat (g/t)` — **ADD mage** (4 items).
+- `7398-7400 Enchanted robe/top/hat` — OK (3 items, `mage`).
+
+### Mole / Falador subquest
+
+- `7404-7406 Red/Green/Blue logs` — OK (3 items, `wc_fletching;firemaking`).
+- `7408 Draynor skull` — EX.
+- `7409 Magic secateurs` — OK (`melee;slayer;farming`).
+- `7410 Queen's secateurs` — **ADD farming**. Max-harvest farming tool.
+- `7411-7418 Symptoms list, Bird nest, Paddle, Mole claw, Mole skin` — EX.
+
+### Mort'ton (Shade of) — Fungicide
+
+- `7421 Fungicide spray 10` — OK (`slayer`).
+- `7423-7430 Fungicide spray (1-8) variants` — LOG (charge-dose dups).
+- `7432 Fungicide` — OK (`slayer`).
+
+### Joke weapons (Mort'ton)
+
+- `7433-7451 Wooden spoon, Egg whisk, Spork, Spatula, Frying pan, Skewer, Rolling pin, Kitchen knife, Meat tenderiser, Cleaver` — OK (10 items, `melee`).
+
+### Standard gloves (RFD)
+
+- `7453-7462 Hardleather/Bronze/Iron/Steel/Black/Mithril/Adamant/Rune/Dragon/Barrows gloves` — OK (10 items, `melee;range;mage`).
+
+### RFD Evil Dave / Pyrefiend cooking
+
+- `7463-7472 Cornflour, Book on chickens, Vanilla pod, Pot of cornflour, Cornflour mixture, Milky mixture, Cinnamon` — EX.
+- `7473-7476 Brulee × 3 + Brulee supreme` — **ADD cooking** (4 items, RFD dessert recipe).
+- `7477 Evil chicken's egg`, `7478 Dragon token` — EX.
+- `7479 Spicy stew` — OK (`cooking`).
+- `7480-7495 Red/Orange/Brown/Yellow spice (1-4)` — **ADD cooking** (16 items, Spicy stew flavouring).
+- `7496-7498 Empty spice shaker, Dirty blast, Antique lamp` — EX.
+
+### Forgettable Tale + Fremennik isles
+
+- `7508-7515 Asgoldian ale, Dwarven rock cake, Slop of compromise, Soggy bread, Spicy maggots, Dyed orange, Breadcrumbs` — EX (Forgettable Tale quest, mostly non-edible cosmetic).
+
+### Sea Slug / RFD Pirate Pete (crab + fishcake)
+
+- `7516-7519 Kelp, Ground kelp, Giant crab meat, Crab meat` — EX (raw materials, intermediate items).
+- `7520 Burnt giant crab meat`, `7521 Cooked giant crab meat` — OK (2 items, `cooking`).
+- `7527 Ground giant crab meat`, `7528 Ground cod` — **ADD cooking** (2 items, fishcake ingredients).
+- `7529 Raw fishcake`, `7530 Cooked fishcake`, `7531 Burnt fishcake` — OK (3 items, `cooking`).
+- `7532 Mudskipper hide` — OK (`crafting`).
+- `7533-7536 Rock, Fishbowl helmet, Diving apparatus, Fresh crab claw` — EX (Pirate Pete cosmetic).
+- `7537 Crab claw` — OK (`melee`).
+- `7538-7541 Fresh crab shell, Broken crab claw, Broken crab shell` — EX.
+- `7539 Crab helmet` — OK (`melee`).
+
+### RFD Sir Amik Varze (Cake of guidance)
+
+- `7542 Cake of guidance` — EX (quest item, single-use).
+- `7543 Raw guide cake` — OK (`cooking`).
+- `7544-7546 Enchanted egg, Enchanted milk, Enchanted flour` — **ADD cooking** (3 items, cake of guidance ingredients).
+
+### RFD Awowogei (monkey subquest)
+
+- `7564 Balloon toad` — EX (quest tool).
+- `7566 Raw jubbly`, `7568 Cooked jubbly`, `7570 Burnt jubbly` — OK (3 items, `cooking`).
+- `7572 Red banana`, `7573 Tchiki monkey nuts`, `7574 Sliced red banana`, `7575 Tchiki nut paste` — **ADD cooking** (4 items, Awowogei recipe ingredients).
+- `7576 Snake corpse` — EX (raw material).
+- `7577 Raw stuffed snake` — OK (`cooking`).
+- `7578 Odd stuffed snake` — EX (wrong-recipe version).
+- `7579 Stuffed snake`, `7580 Snake over-cooked` — **ADD cooking** (2 items, Awowogei final dish).
+
+### Hell-kitten + Mort'ton coffins
+
+- `7583 Hell-kitten` — EX (quest pet, not in standard cooking pets).
+- `7587-7591 Coffin variants` — EX (Shades of Mort'ton).
+
+### Halloween 2009 zombie outfit
+
+- `7592-7596 Zombie shirt, trousers, mask, gloves, boots` — **ADD misc Holiday rares** (5 items, Halloween event cosmetic).
+
+---
+
+## Session 26 totals
+
+- Items reviewed: ~150
+- OK (correct as-is): 56
+- EX (correctly excluded): 50 (Mole quest, Mort'ton joke quest, RFD intermediate ingredients)
+- ADD (missing tab, fixed): 40 (Studded/Blue trim variants ×6, Queen's secateurs, Brulee ×4, Spice variants ×16, Crab meat ground ×2, Enchanted ×3, Awowogei recipe ×6, Zombie outfit ×5)
+- REM (misclassified, fixed): 0
+- LOG (deferred): 20+ (clue scroll medium dups, boater hat cosmetics, fungicide spray charge variants)
+
+## Classifier changes made in session 26
+
+See `audit/classifier-changes.md` "Session 26".
+
 ## Resume marker
 
-**Next session: start from ID 7301.**
+**Next session: start from ID 7601.**
