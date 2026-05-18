@@ -2573,6 +2573,89 @@ See `audit/classifier-changes.md` "Session 26".
 
 See `audit/classifier-changes.md` "Session 27".
 
+---
+
+## Session 28: IDs 7901–8200 (effective range 7902–8022; ID gap 8023–8416)
+
+### Quest/random event bones + wings
+
+- `7902 Desert lizard bone`, `7914 Jackal bone` — OK (2 items, `prayer`).
+- `7905 Cave goblin skull`, `7908 Big frog leg`, `7911 Vulture wing` — EX (quest items, non-buryable).
+
+### Slayer cosmetic helmets
+
+- `7917 Ram skull helm` — OK (`melee`).
+- `7918 Bonesack` — OK (`melee;range;mage` cape). Hard clue cosmetic.
+
+### Random event + Easter event
+
+- `7919 Bottle of wine`, `7921 Empty wine bottle` — EX.
+- `7922 Al kharid flyer` — EX.
+- `7927 Easter ring`, `7928 Easter egg` — **ADD misc Holiday rares** (2 items).
+
+### Field rations + runecraft fragments
+
+- `7934 Field ration` — EX.
+- `7936 Pure essence` — OK (`mage;runecraft`).
+- `7938 Dark essence fragments` — **ADD runecraft** (Blood/Dark altar intermediate).
+- `7939 Tortoise shell`, `7941 Iron sheet` — EX.
+
+### Monkfish chain (Swan Song)
+
+- `7942 Fresh monkfish` — LOG (intermediate non-canonical).
+- `7944 Raw monkfish` — OK (`cooking;fishing`).
+- `7946 Monkfish` — OK (`melee;range;mage;cooking`).
+- `7948 Burnt monkfish` — OK (`cooking`).
+- `7950 Bone seeds`, `7951 Herman's book` — EX.
+- `7954 Burnt shrimp` — OK (`cooking`).
+
+### Eadgar's Ruse / Tower of Life misc
+
+- `7956-7974 Casket, White apron, Mining prop, Heavy/Empty box, Burnt diary, Letter, Engine, Scroll, Pulley beam, Long/Longer pulley beam, Lift manual, Beam, Servant bell` — EX.
+
+### Slayer monster heads (mounted trophies for POH)
+
+- `7975-7981 Crawling hand, Cockatrice head, Basilisk head, Kurask head, Abyssal head, Kbd heads, Kq head` — **ADD slayer** (7 items).
+- `7982-7988 Stuffed crawling hand, Stuffed cockatrice head, Stuffed basilisk head, Stuffed kurask head, Stuffed abyssal head, Stuffed kbd heads, Stuffed kq head` — **ADD slayer** (7 items, POH-mountable variants).
+
+### Fishing trophies (POH mounted big fish)
+
+- `7989-7994 Big bass, Stuffed big bass, Big swordfish, Stuffed big swordfish, Big shark, Stuffed big shark` — **ADD fishing** (6 items).
+
+### POH portraits and paintings
+
+- `7995-7998 Arthur portrait, Elena portrait, Keldagrim portrait, Misc. portrait` — **ADD construction** (4 items, hangable in POH).
+- `7999-8003 Desert/Isafdar/Karamja/Lumbridge/Morytania painting` — **ADD construction** (5 items).
+
+### Clue scroll maps
+
+- `8004-8006 Small/Medium/Large map` — LOG (clue scroll material; not equipment).
+
+### Teleport tabs (POH spellbook)
+
+- `8007-8012 Varrock/Lumbridge/Falador/Camelot/Ardougne/Watchtower teleport` — OK (6 items, `misc/Teleport tabs`).
+- `8013 Teleport to house` — OK (`construction;misc`).
+
+### Magic spell tablets
+
+- `8014-8021 Bones to bananas, Bones to peaches, Enchant sapphire or opal, Enchant emerald or jade, Enchant ruby or topaz, Enchant diamond, Enchant dragonstone, Enchant onyx` — **ADD mage** (8 items, spell tablets crafted at POH lectern).
+- `8022 Telekinetic grab` — **ADD mage** (1 item, spell tablet).
+
+---
+
+## Session 28 totals
+
+- Items reviewed: ~50 (range had ID gap 8023–8416)
+- OK (correct as-is): 17
+- EX (correctly excluded): 20 (random event, quest material)
+- ADD (missing tab, fixed): 41 (2 Easter, 1 runecraft fragment, 14 slayer heads, 6 fishing trophies, 9 POH portraits/paintings, 9 magic tablets)
+- REM: 0
+- LOG: ~5 (clue maps, intermediate non-canonical)
+
+## Classifier changes made in session 28
+
+See `audit/classifier-changes.md` "Session 28".
+
 ## Resume marker
 
-**Next session: start from ID 7901.**
+**Next session: start from ID 8417.**

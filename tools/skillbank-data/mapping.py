@@ -847,6 +847,16 @@ MAGE = TabSpec(
             "Saradomin cloak", "Zamorak cloak", "Guthix cloak",
             "Saradomin cape", "Zamorak cape", "Guthix cape",
         })),
+        Section("Spell tablets (POH lectern)", _or(
+            _name_in({
+                "Bones to bananas", "Bones to peaches",
+                "Enchant sapphire or opal", "Enchant emerald or jade",
+                "Enchant ruby or topaz", "Enchant diamond",
+                "Enchant dragonstone", "Enchant onyx",
+                "Telekinetic grab",
+            }),
+            # Teleport tablets are already in misc; restrict here to spell tablets only
+        )),
         Section("Combat food (cross-tag)", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
     ],
     variant_allowlist=[
@@ -1156,6 +1166,11 @@ FISHING = TabSpec(
         Section("Fishing potions (cross-tag)",
                 _is_potion_family("fishing potion"),
                 sort_key=_potion_sort_key),
+        Section("Trophy fish (POH mountable)", _name_in({
+            "Big bass", "Stuffed big bass",
+            "Big swordfish", "Stuffed big swordfish",
+            "Big shark", "Stuffed big shark",
+        })),
         Section("Cape & pet", _name_in({"Fishing cape", "Fishing cape(t)", "Fishing hood", "Heron"})),
     ],
 )
@@ -1452,6 +1467,14 @@ SLAYER = TabSpec(
         })),
         Section("Champion's Challenge scrolls",
                 _name_ends(" champion scroll")),
+        Section("Mounted heads (POH trophies)", _name_in({
+            # session 28 — slayer monster trophy heads + stuffed variants
+            "Crawling hand", "Cockatrice head", "Basilisk head",
+            "Kurask head", "Abyssal head", "Kbd heads", "Kq head",
+            "Stuffed crawling hand", "Stuffed cockatrice head",
+            "Stuffed basilisk head", "Stuffed kurask head",
+            "Stuffed abyssal head", "Stuffed kbd heads", "Stuffed kq head",
+        })),
     ],
     variant_allowlist=[
         "Slayer helmet (i)", "Black mask (i)",
@@ -1538,6 +1561,9 @@ RUNECRAFT = TabSpec(
         })),
         Section("RC accessories", _name_in({
             "Binding necklace",
+        })),
+        Section("Essence intermediates", _name_in({
+            "Dark essence fragments", "Dark essence block",
         })),
         Section("Essence", _name_in(_ESSENCE)),
         Section("Basic runes", _name_in(_BASIC_RUNES)),
@@ -1628,6 +1654,10 @@ CONSTRUCTION = TabSpec(
             "Carpenter's trousers", "Carpenter's boots",
             "Plank sack", "Amy's saw", "Hosidius blueprints",
         })),
+        Section("Portraits & paintings (POH decoration)", _or(
+            _name_ends(" portrait"),
+            _name_ends(" painting"),
+        )),
         Section("POH teleports", _name_in({
             "Teleport to house", "Construct. cape teleport",
             "Achievement diary cape", "Falador shield 1",
@@ -1744,6 +1774,8 @@ MISC = TabSpec(
                 # Halloween 2009 zombie outfit
                 "Zombie shirt", "Zombie trousers", "Zombie mask",
                 "Zombie gloves", "Zombie boots",
+                # session 28 — Easter ring + Easter egg (cosmetic event item)
+                "Easter ring",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),

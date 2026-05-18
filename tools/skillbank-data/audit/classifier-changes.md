@@ -972,3 +972,39 @@ Added Zombie shirt/trousers/mask/gloves/boots (Halloween 2009 event cosmetic out
 Added Kettle, Full kettle, Hot kettle, Teapot, Teapot with leaves, Empty cup, Porcelain cup, Tea leaves — tea-making chain tools/ingredients used in Penguin Hide and Seek + miscellaneous cooking content.
 
 **Affects**: 8 items.
+
+## Session 28 (audit IDs 7901–8200; effective range to 8022)
+
+### SLAYER — new "Mounted heads (POH trophies)" section
+
+Added 14 items: Crawling hand, Cockatrice head, Basilisk head, Kurask head, Abyssal head, Kbd heads, Kq head + Stuffed variants. Slayer monster trophy heads mountable in POH.
+
+### FISHING — new "Trophy fish (POH mountable)" section
+
+Added Big bass/swordfish/shark + Stuffed variants. Random fishing drops mountable in POH.
+
+**Affects**: 6 items.
+
+### CONSTRUCTION — new "Portraits & paintings (POH decoration)" section
+
+Pattern `name_ends(" portrait")` or `name_ends(" painting")` catches Arthur/Elena/Keldagrim/Misc. portrait and Desert/Isafdar/Karamja/Lumbridge/Morytania painting (POH decoration).
+
+**Affects**: 9+ items.
+
+### MAGE — new "Spell tablets (POH lectern)" section
+
+Added Bones to bananas/peaches, Enchant sapphire-or-opal/emerald-or-jade/ruby-or-topaz/diamond/dragonstone/onyx, Telekinetic grab. Magic spell tablets crafted at POH lectern.
+
+**Affects**: 9 items.
+
+### MISC Holiday rares — `Easter ring`
+
+Cosmetic Easter event ring; Easter egg was already in _HOLIDAY_RARES.
+
+**Affects**: 1 item.
+
+### RUNECRAFT — new "Essence intermediates" section
+
+Added Dark essence fragments, Dark essence block — Blood/Soul rune chiselling intermediates in the Arceuus runecraft chain.
+
+**Affects**: 2 items.

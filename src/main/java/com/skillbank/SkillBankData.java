@@ -847,12 +847,12 @@ public final class SkillBankData
 
 	private static void addMage(Map<String, List<Integer>> m)
 	{
-		// MAGE — 815 items
+		// MAGE — 824 items
 		//   Basic runes (16), Combo runes (6), Essence (4), Staves (115), Tomes
 		//   (11), Helmets (86), Body (61), Legs (59), Boots (35), Gloves (61),
 		//   Shields (28), Capes (77), Amulets (41), Rings (12), Magic potions
-		//   (28), Orbs (cross-tag with crafting) (7), God cloaks (2), Combat food
-		//   (cross-tag) (23), Legacy (143)
+		//   (28), Orbs (cross-tag with crafting) (7), God cloaks (2), Spell
+		//   tablets (POH lectern) (9), Combat food (cross-tag) (23), Legacy (143)
 		m.put(TAG_MAGE, Arrays.asList(
 			// === Basic runes ===
 			554, 555, 556, 557, 558, 559, 560, 561,
@@ -976,6 +976,10 @@ public final class SkillBankData
 
 			// === God cloaks ===
 			4041, 4042,
+
+			// === Spell tablets (POH lectern) ===
+			8014, 8015, 8016, 8017, 8018, 8019, 8020, 8021,
+			8022,
 
 			// === Combat food (cross-tag) ===
 			319, 315, 325, 347, 3381, 355, 333, 339,
@@ -1358,10 +1362,11 @@ public final class SkillBankData
 
 	private static void addFishing(Map<String, List<Integer>> m)
 	{
-		// FISHING — 103 items
+		// FISHING — 109 items
 		//   Rods & tools (15), Bait (8), Raw fish (25), Specialty fish (5), Angler
 		//   outfit (4), Spirit angler outfit (4), Tempoross rewards (5), Fishing
-		//   potions (cross-tag) (8), Cape & pet (3), Legacy (26)
+		//   potions (cross-tag) (8), Trophy fish (POH mountable) (6), Cape & pet
+		//   (3), Legacy (26)
 		m.put(TAG_FISHING, Arrays.asList(
 			// === Rods & tools ===
 			21028, 23762, 21031, 301, 303, 305, 307, 309,
@@ -1390,6 +1395,9 @@ public final class SkillBankData
 
 			// === Fishing potions (cross-tag) ===
 			2438, 151, 153, 155, 31602, 31605, 31608, 31611,
+
+			// === Trophy fish (POH mountable) ===
+			7989, 7990, 7991, 7992, 7993, 7994,
 
 			// === Cape & pet ===
 			9798, 9800, 13320,
@@ -1770,10 +1778,11 @@ public final class SkillBankData
 
 	private static void addSlayer(Map<String, List<Integer>> m)
 	{
-		// SLAYER — 184 items
+		// SLAYER — 198 items
 		//   Slayer master items (5), Slayer rings (7), Slayer helmets (27), Black
 		//   masks (18), Task-specific gear (27), Cannon (6), Cape & pet (4),
-		//   Champion's Challenge scrolls (11), Legacy (79)
+		//   Champion's Challenge scrolls (11), Mounted heads (POH trophies) (14),
+		//   Legacy (79)
 		m.put(TAG_SLAYER, Arrays.asList(
 			// === Slayer master items ===
 			4155, 5520, 21257, 21268, 21270,
@@ -1807,6 +1816,10 @@ public final class SkillBankData
 			// === Champion's Challenge scrolls ===
 			6798, 6799, 6800, 6801, 6802, 6803, 6804, 6805,
 			6806, 6807, 6808,
+
+			// === Mounted heads (POH trophies) ===
+			7975, 7976, 7977, 7978, 7979, 7980, 7981, 7982,
+			7983, 7984, 7985, 7986, 7987, 7988,
 
 			// === Legacy carry-over (hand-curated items the new classifier missed) ===
 			985, 987, 989, 4081, 4151, 6106, 6171, 6570,
@@ -1894,10 +1907,10 @@ public final class SkillBankData
 
 	private static void addRunecraft(Map<String, List<Integer>> m)
 	{
-		// RUNECRAFT — 124 items
+		// RUNECRAFT — 126 items
 		//   Talismans (24), Tiaras (20), Essence pouches (7), RC accessories (1),
-		//   Essence (4), Basic runes (16), Combo runes (6), Raiments of the eye
-		//   (4), Cape & pet (3), Legacy (39)
+		//   Essence intermediates (2), Essence (4), Basic runes (16), Combo runes
+		//   (6), Raiments of the eye (4), Cape & pet (3), Legacy (39)
 		m.put(TAG_RUNECRAFT, Arrays.asList(
 			// === Talismans ===
 			681, 1438, 1440, 1442, 1444, 1446, 1448, 1450,
@@ -1914,6 +1927,9 @@ public final class SkillBankData
 
 			// === RC accessories ===
 			5521,
+
+			// === Essence intermediates ===
+			7938, 13446,
 
 			// === Essence ===
 			1436, 7936, 24704, 26390,
@@ -2003,10 +2019,11 @@ public final class SkillBankData
 
 	private static void addConstruction(Map<String, List<Integer>> m)
 	{
-		// CONSTRUCTION — 115 items
+		// CONSTRUCTION — 126 items
 		//   Tools (4), Planks (4), Nails (7), Construction materials (15), POH
 		//   portals & telescopes (2), Bench/altar (pattern) (37), Mahogany Homes
-		//   (7), POH teleports (2), Legacy (37)
+		//   (7), Portraits & paintings (POH decoration) (11), POH teleports (2),
+		//   Legacy (37)
 		m.put(TAG_CONSTRUCTION, Arrays.asList(
 			// === Tools ===
 			9625, 2347, 8794, 25644,
@@ -2034,6 +2051,10 @@ public final class SkillBankData
 			// === Mahogany Homes ===
 			24872, 24874, 24876, 24878, 24880, 24882, 24885,
 
+			// === Portraits & paintings (POH decoration) ===
+			4814, 4816, 7995, 7996, 7997, 7998, 7999, 8000,
+			8001, 8002, 8003,
+
 			// === POH teleports ===
 			13117, 19476,
 
@@ -2048,11 +2069,11 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 426 items
+		// MISC — 427 items
 		//   Teleport jewellery (52), Teleport tabs (68), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (8), Clue
 		//   tools (25), Keys (12), Storage bags (6), Utility / banked supplies
-		//   (2), Holiday rares & cosmetics (61), Team capes (Castle Wars) (50),
+		//   (2), Holiday rares & cosmetics (62), Team capes (Castle Wars) (50),
 		//   Currency (8), Legacy (72)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
@@ -2115,7 +2136,7 @@ public final class SkillBankData
 			6185, 6186, 6187, 6188, 6822, 6828, 6834, 6840,
 			6846, 6852, 6853, 6856, 6857, 6858, 6859, 6860,
 			6861, 6862, 6863, 6864, 6865, 6866, 6867, 7592,
-			7593, 7594, 7595, 7596, 10476,
+			7593, 7594, 7595, 7596, 7927, 10476,
 
 			// === Team capes (Castle Wars) ===
 			4315, 4317, 4319, 4321, 4323, 4325, 4327, 4329,
