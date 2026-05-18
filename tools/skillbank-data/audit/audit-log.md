@@ -7,8 +7,9 @@
 - **Reviewed in session 2**: IDs 251–500 (145 items)
 - **Reviewed in session 3**: IDs 501–750 (177 items)
 - **Reviewed in session 4**: IDs 751–1000 (119 items)
-- **Reviewed cumulative**: 586 (4.9%)
-- **Resume from**: ID 1001
+- **Reviewed in session 5**: IDs 1001–1300 (134 items)
+- **Reviewed cumulative**: 720 (6.1%)
+- **Resume from**: ID 1301
 
 ## Decision codes
 
@@ -558,6 +559,91 @@ The manifest jumps — many IDs are not canonical wiki entries (skipped).
 
 See `audit/classifier-changes.md` "Session 4".
 
+---
+
+## Session 5: IDs 1001–1300
+
+### Cosmetic / starter clothing
+
+- `1005 White apron` — EX. Cook's Assistant starter; cosmetic only.
+- `1009 Brass necklace` — **ADD crafting** (F2P jewellery crafting output) and **ADD misc** (cheap teleport-jewellery progenitor). Currently unclassified.
+- `1011 Blue skirt`, `1013 Pink skirt`, `1015 Black skirt` — EX (3 items). F2P cosmetic legs.
+- `1025 Right eye patch` — EX. Pirate's Treasure cosmetic.
+- `1037 Bunny ears` — **ADD misc** (Holiday rares section).
+
+### Basic colour capes (cosmetic)
+
+- `1007 Red cape`, `1019 Black cape`, `1021 Blue cape`, `1023 Yellow cape`, `1027 Green cape`, `1029 Purple cape`, `1031 Orange cape` — **REM range** (7 items). Cosmetic capes with defence_ranged=2, defence_stab=1 by stat-sniff which is why they land in range. Tiny defensive bonuses; no real combat use. **Fix**: force_exclude the basic-color cape names from RANGE Capes.
+
+### Wizard / monk
+
+- `1017 Wizard hat` — OK (`mage`).
+- `1033 Zamorak monk bottom`, `1035 Zamorak monk top` — OK (`mage`).
+
+### Holiday rares
+
+- `1038 Red partyhat`, `1040 Yellow partyhat`, `1042 Blue partyhat`, `1044 Green partyhat`, `1046 Purple partyhat`, `1048 White partyhat`, `1050 Santa hat` — **ADD misc**. 7 partyhat/santa items currently unclassified; should join Holiday rares section.
+- `1053 Green halloween mask`, `1055 Blue halloween mask`, `1057 Red halloween mask` — **ADD misc**. 3 halloween masks. Currently unclassified. Add to Holiday rares (need name variants beyond plain "Halloween mask").
+
+### Cape of legends
+
+- `1052 Cape of legends` — **REM melee/range/mage** (all 3), **ADD quests**. Legends' Quest cape with all-style defence bonuses but tagged as quest cosmetic — players bank it for completionism, not combat.
+
+### Leather / d'hide
+
+- `1059 Leather gloves`, `1061 Leather boots`, `1063 Leather vambraces` — OK (`melee`). Basic leather armour.
+- `1065 Green d'hide vambraces` — **REM melee, mage**. Currently in `melee;range;mage;crafting`. Should only be range + crafting (range armour with ranged_strength). **Fix**: force_exclude all d'hide names from MELEE Gloves and MAGE Gloves.
+- `1095 Leather chaps`, `1097 Studded chaps` — OK (`melee`).
+- `1099 Green d'hide chaps` — **REM melee**. Currently `melee;range;crafting`. Should be range+crafting only.
+- `1131 Hardleather body` — OK (`melee;crafting`). Hardleather is melee gear.
+- `1133 Studded body` — **REM melee**. Studded is range gear. Currently `melee;range`. Remove melee.
+- `1135 Green d'hide body` — OK (`range;crafting`). Already excluded from melee.
+
+### Bronze→Rune armour pieces (mining_smithing + melee)
+
+All correctly classified `melee;mining_smithing`:
+
+- `1067-1093 Iron/Steel/Mithril/Adamant/Bronze/Black/Rune platelegs and plateskirts` — OK (~14 items).
+- `1101-1127 Iron/Bronze/Steel/Mithril/Adamant/Black/Rune chainbody and platebody` — OK (~14 items).
+- `1129 Leather body` — OK (`melee`).
+- `1137-1165 Iron/Bronze/Steel/Mithril/Adamant/Rune/Dragon/Black med helm and full helm` — OK (~14 items).
+- `1167 Leather cowl`, `1169 Coif` — OK (`melee`). Note: Coif is canonically a range item too — `1169 Coif` currently only in `melee`. **ADD range** (cross-tag). But the classifier puts it in melee head because it has defence_slash etc. The range armour predicate would only catch it if ranged_strength > 0 or ranged_defence dominant. Coif likely has only minimal magic_defence. **LOG** for now — needs a range head force_include.
+- `1171 Wooden shield` — OK (`melee`).
+- `1173-1201 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune/Dragon sq shield + Bronze/Iron/Steel/Black/Mithril/Adamant/Rune kiteshield` — OK (~15 items).
+
+### Daggers (melee)
+
+- `1203-1217 Iron/Bronze/Steel/Mithril/Adamant/Rune/Dragon/Black dagger` — OK (8 items).
+- `1235 Poisoned dagger(p)` — EX. Noise-filter (poison variant). Correct.
+
+### Spears (2h melee)
+
+- `1237-1249 Bronze/Iron/Steel/Mithril/Adamant/Rune/Dragon spear` — OK (7 items).
+
+### Pickaxes
+
+- `1265-1275 Bronze/Iron/Steel/Adamant/Mithril/Rune pickaxe` — OK (`mining_smithing`). 6 items.
+
+### Swords / Longswords
+
+- `1277-1289 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune sword` — OK (7 items, all `melee`).
+- `1291-1299 Bronze/Iron/Steel/Black/Mithril longsword` — OK (5 items shown so far in batch; remainder in next batch).
+
+---
+
+## Session 5 totals
+
+- Items reviewed: 134
+- OK (correct as-is): 95
+- EX (correctly excluded): 5
+- ADD (missing tab, fixed): 19 (Bunny ears, 7 partyhats, 3 halloween masks, Brass necklace ×2 tabs, Cape of legends to quests, 4 d'hide REMs)
+- REM (misclassified, fixed): 14 (7 colour capes from range, Cape of legends from 3 tabs, Green d'hide vambraces from melee+mage, Green d'hide chaps from melee, Studded body from melee)
+- LOG (deferred): 1 (Coif range cross-tag)
+
+## Classifier changes made in session 5
+
+See `audit/classifier-changes.md` "Session 5".
+
 ## Resume marker
 
-**Next session: start from ID 1001.**
+**Next session: start from ID 1301.**

@@ -300,3 +300,48 @@ Also updated `_herb_sort_key` to handle case insensitivity (Grimy items lower-ca
 **After**: Utility section (Rope, Chronicle) + Holiday section (Christmas cracker, Highwayman mask, Easter egg, Halloween mask, Pumpkin, Disk of returning).
 
 **Affects**: 8 items potentially picked up (depends on which exist in wiki canonical set).
+
+---
+
+## Session 5 (audit IDs 1001–1300)
+
+### New module-level constants
+
+- `_BASIC_COLOUR_CAPES` — Red/Black/Blue/Yellow/Green/Purple/Orange/Pink/White cape.
+- `_DHIDE_ALL_NAMES` — 14 d'hide piece names + Leather vambraces + Studded body/chaps.
+- `_QUEST_COSMETIC_CAPES` — ["Cape of legends"].
+- `_HOLIDAY_RARES` — 17 holiday items including partyhat colours, halloween mask variants, santa hat, bunny ears.
+
+### MELEE Capes — `Cape of legends` force_exclude
+
+Quest cosmetic, not real combat gear.
+
+### MELEE Body/Legs/Gloves — d'hide piece excludes
+
+**Before**: d'hide vambraces/chaps/body could land in melee Gloves/Legs/Body via stat-sniff (they have minimal melee defence).
+
+**After**: explicit `_DHIDE_ALL_NAMES` filtered into the right slot's force_exclude.
+
+**Affects**: 12+ d'hide pieces no longer in melee. They stay in range (correct).
+
+### RANGE Capes — basic colour capes + Cape of legends excluded
+
+**Before**: `_is_range_armour_slot("cape")` predicate captured Red/Black/Blue capes (defence_ranged=2 vs others=1).
+
+**After**: + `force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES`.
+
+**Affects**: 9+ cosmetic capes removed from range.
+
+### MAGE Capes — Cape of legends excluded
+
+Same as above.
+
+### MISC Holiday section — expanded
+
+**Before**: 6 names.
+
+**After**: 17 (full `_HOLIDAY_RARES`).
+
+**Affects**: 7 partyhats + Santa hat + Bunny ears + 3 halloween mask colours now classify into misc.
+
+### QUESTS Quest cosmetic gear — added Cape of legends.

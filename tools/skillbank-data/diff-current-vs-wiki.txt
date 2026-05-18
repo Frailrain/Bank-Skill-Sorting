@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (192 items not in wiki output) ===
+=== melee (201 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -28,9 +28,18 @@ or should be added to force_include / variant_allowlist before flipping --additi
      746  Dark dagger
      747  Glowing dagger
      975  Machete
+    1052  Cape of legends
+    1063  Leather vambraces
+    1065  Green d'hide vambraces
+    1097  Studded chaps
+    1099  Green d'hide chaps
+    1133  Studded body
     1231  (not in wiki canonical set)
     1361  Black axe
     1727  Amulet of magic
+    2493  Blue d'hide chaps
+    2495  Red d'hide chaps
+    2497  Black d'hide chaps
     2572  Ring of wealth
     5013  (not in wiki canonical set)
     5680  (not in wiki canonical set)
@@ -197,9 +206,17 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (140 items not in wiki output) ===
+=== range (149 items not in wiki output) ===
      616  Beads of the dead
      942  (not in wiki canonical set)
+    1007  Red cape
+    1019  Black cape
+    1021  Blue cape
+    1023  Yellow cape
+    1027  Green cape
+    1029  Purple cape
+    1031  Orange cape
+    1052  Cape of legends
     1063  Leather vambraces
     1095  Leather chaps
     1097  Studded chaps
@@ -234,6 +251,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4732  Karil's coif
     4736  Karil's leathertop
     4738  Karil's leatherskirt
+    6959  Pink cape
     9757  (not in wiki canonical set)
     9977  (not in wiki canonical set)
    10033  Chinchompa
@@ -339,7 +357,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28906  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (126 items not in wiki output) ===
+=== mage (131 items not in wiki output) ===
      616  Beads of the dead
      656  Pink hat
      658  Green hat
@@ -347,6 +365,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
      662  Cream hat
      664  Turquoise hat
      729  Shaman's tome
+    1052  Cape of legends
+    1065  Green d'hide vambraces
+    2487  Blue d'hide vambraces
+    2489  Red d'hide vambraces
+    2491  Black d'hide vambraces
     2572  Ring of wealth
     6099  (not in wiki canonical set)
     6215  (not in wiki canonical set)
@@ -1343,11 +1366,10 @@ or should be added to force_include / variant_allowlist before flipping --additi
    25821  (not in wiki canonical set)
    29463  (not in wiki canonical set)
 
-=== quests (104 items not in wiki output) ===
+=== quests (103 items not in wiki output) ===
      552  Ghostspeak amulet
      762  (not in wiki canonical set)
      770  (not in wiki canonical set)
-    1052  Cape of legends
     1053  Green halloween mask
     1686  (not in wiki canonical set)
     1854  Shantay pass

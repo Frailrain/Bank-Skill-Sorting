@@ -188,6 +188,37 @@ _MIME_COLOURS = ("Pink", "Green", "Blue", "Cream", "Turquoise")
 _MIME_PIECES = ("boots", "robe top", "robe bottoms", "hat")
 _MIME_OUTFIT = [f"{c} {p}" for c in _MIME_COLOURS for p in _MIME_PIECES]
 
+# Basic colour capes (cosmetic) — have tiny ranged defence (rd=2 vs md=1)
+# which makes the range classifier capture them, but they're not real range gear.
+_BASIC_COLOUR_CAPES = [
+    "Red cape", "Black cape", "Blue cape", "Yellow cape",
+    "Green cape", "Purple cape", "Orange cape",
+    "Pink cape", "White cape",
+]
+
+# D'hide armour names that should NEVER land in melee or mage even though
+# basic stat checks might let them through (defensive numbers can spill).
+_DHIDE_ALL_NAMES = [
+    "Green d'hide vambraces", "Blue d'hide vambraces", "Red d'hide vambraces",
+    "Black d'hide vambraces",
+    "Green d'hide chaps", "Blue d'hide chaps", "Red d'hide chaps", "Black d'hide chaps",
+    "Green d'hide body", "Blue d'hide body", "Red d'hide body", "Black d'hide body",
+    "Leather vambraces",  # Leather vambraces are basic range gloves
+    "Studded body", "Studded chaps",
+]
+
+# Cape of legends — quest cosmetic, not real combat gear.
+_QUEST_COSMETIC_CAPES = ["Cape of legends"]
+
+# Holiday rares + halloween mask variants.
+_HOLIDAY_RARES = [
+    "Christmas cracker", "Highwayman mask", "Easter egg", "Bunny ears",
+    "Halloween mask", "Green halloween mask", "Blue halloween mask",
+    "Red halloween mask", "Pumpkin", "Disk of returning",
+    "Red partyhat", "Yellow partyhat", "Blue partyhat", "Green partyhat",
+    "Purple partyhat", "White partyhat", "Santa hat",
+]
+
 # Quest cosmetic equipment with combat stats that should NOT land in melee.
 _QUEST_COSMETIC_MELEE = [
     "Cattleprod", "Khazard helmet", "Khazard armour", "Khazard cell keys",
@@ -571,17 +602,22 @@ MELEE = TabSpec(
                 force_exclude=["Khazard helmet"]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
-                force_exclude=["Khazard armour"]
+                force_exclude=["Khazard armour", "Studded body"]
+                + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))),
-                force_exclude=[n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]),
+                force_exclude=[n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
+                + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
                 force_exclude=[n for n in _MIME_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
-                force_exclude=_SKILLING_GAUNTLETS),
+                force_exclude=_SKILLING_GAUNTLETS
+                + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
+                + ["Leather vambraces"]),
         Section("Shields", _slot_pred("shield")),
-        Section("Capes", _slot_pred("cape")),
+        Section("Capes", _slot_pred("cape"),
+                force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _slot_pred("neck"),
                 force_exclude=["Gnome amulet", "Beads of the dead"]),
         Section("Rings", _slot_pred("ring")),
@@ -626,7 +662,8 @@ RANGE = TabSpec(
         Section("Boots", _is_range_armour_slot("feet")),
         Section("Gloves", _is_range_armour_slot("hands")),
         Section("Shields", _is_range_armour_slot("shield")),
-        Section("Capes", _is_range_armour_slot("cape")),
+        Section("Capes", _is_range_armour_slot("cape"),
+                force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES),
         Section("Amulets", _is_range_armour_slot("neck"),
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_range_armour_slot("ring")),
@@ -658,9 +695,12 @@ MAGE = TabSpec(
         Section("Legs", _is_mage_armour_slot("legs")),
         Section("Boots", _is_mage_armour_slot("feet")),
         Section("Gloves", _is_mage_armour_slot("hands"),
-                force_include=["Chaos gauntlets"]),
+                force_include=["Chaos gauntlets"],
+                force_exclude=[n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
+                + ["Leather vambraces"]),
         Section("Shields", _is_mage_armour_slot("shield")),
-        Section("Capes", _is_mage_armour_slot("cape")),
+        Section("Capes", _is_mage_armour_slot("cape"),
+                force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _is_mage_armour_slot("neck"),
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_mage_armour_slot("ring")),
@@ -1342,10 +1382,7 @@ MISC = TabSpec(
         Section("Utility / banked supplies", _name_in({
             "Rope", "Chronicle",
         })),
-        Section("Holiday rares & cosmetics", _name_in({
-            "Christmas cracker", "Highwayman mask", "Easter egg",
-            "Halloween mask", "Pumpkin", "Disk of returning",
-        })),
+        Section("Holiday rares & cosmetics", _name_in(set(_HOLIDAY_RARES))),
         Section("Currency", _name_in({
             "Coins", "Platinum token", "Blood money", "Tokkul",
             "Marks of grace", "Brimhaven voucher",
@@ -1391,6 +1428,7 @@ QUESTS = TabSpec(
             "Gnome amulet", "Beads of the dead",
             "Dark dagger", "Glowing dagger",
             "Shade robe", "Shade robe top",
+            "Cape of legends",
         })),
         Section("Void Knight set", _name_starts("Void ")),
         Section("Fighter Torso et al.", _name_in({
