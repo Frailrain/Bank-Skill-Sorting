@@ -4251,6 +4251,93 @@ See `audit/classifier-changes.md` "Session 45".
 
 See `audit/classifier-changes.md` "Session 46".
 
+---
+
+## Session 47: IDs 19851–20200
+
+### Clue scroll dups
+
+- `19852-19910 Clue scroll (hard) × ~30 dups` — LOG.
+
+### Mounted heads + Nunchaku
+
+- `19912-19915 Zombie head, Cyclops head` — LOG (POH mounted trophy).
+- `19918 Nunchaku` — OK (`melee`).
+
+### God d'hide boots (Treasure Trails Hard)
+
+- `19921-19936 Ancient/Bandos/Guthix/Armadyl/Saradomin/Zamorak d'hide boots` (6 items, currently `melee;range;mage`) — **REM melee/mage, keep range** (range armour set; defence stat spillover misclassifies into all 3 combat tabs).
+
+### Heavy casket + Kourend faction scarves
+
+- `19941 Heavy casket` — OK (`melee`).
+- `19943-19955 Arceuus/Hosidius/Lovakengj/Piscarilius/Shayzien scarf` (5 items) — LOG (Kourend faction cosmetic scarves).
+
+### Christmas 2017 Tuxedo event
+
+- `19958-19985 Dark/Light tuxedo jacket/cuffs/trousers/shoes/bow tie` (10 items) — **ADD misc Holiday rares**.
+
+### Blacksmith + Ranger + Holy wraps
+
+- `19988 Blacksmith's helm` — OK (`melee`).
+- `19991 Bucket helm` — LOG (cosmetic head).
+- `19994 Ranger gloves` — OK.
+- `19997 Holy wraps` — **ADD prayer** (cosmetic prayer wrap).
+
+### Dragon scimitar (or) + ornament kits
+
+- `20000 Dragon scimitar (or)` — **ADD melee** (ornament variant).
+- `20002 Dragon scimitar ornament kit` — OK (`crafting`).
+- `20005 Ring of nature`, `20017 Ring of coins` — LOG.
+- `20008 Fancy tiara`, `20011 3rd age axe`, `20014 3rd age pickaxe` — OK.
+
+### Demon masks + Samurai outfit
+
+- `20020-20032 Lesser/Greater/Black/Old/Jungle demon mask` (5 items) — LOG (Treasure Trails cosmetic head).
+- `20035-20047 Samurai kasa/shirt/gloves/greaves/boots` — OK (5 items, `melee[+range+mage]`).
+- `20050 Obsidian cape (r)` — OK.
+- `20053-20056 Half moon spectacles, Ale of the gods` — LOG.
+- `20059 Bucket helm (g)` — LOG.
+
+### Ornament kits (more)
+
+- `20062-20077 Torture/Occult/Armadyl/Bandos/Saradomin/Zamorak godsword ornament kit` — OK (6 items, `crafting` via pattern).
+
+### Halloween 2017 Mummy + Ankou
+
+- `20080-20092 Mummy's head/body/hands/legs/feet` (5 items) — **ADD misc Holiday rares**.
+- `20095-20107 Ankou mask/top/gloves/leggings/socks` (5 items) — **ADD misc Holiday rares**.
+- `20110 Bowl wig` — LOG (cosmetic).
+
+### Kourend hoods + Robe of darkness
+
+- `20113-20125 Arceuus/Hosidius/Lovakengj/Piscarilius/Shayzien hood` (5 items) — LOG (Kourend faction cosmetic hood).
+- `20128-20140 Hood/Robe top/Gloves/Robe bottom/Boots of darkness` — OK (5 items, `mage`).
+- `20143 Dragon defender ornament kit` — OK.
+
+### Gilded weapons + Steel (g)/(t) variants
+
+- `20146-20152 Gilded med helm/chainbody/sq shield` (3 items, currently `melee;mining_smithing`) — **REM mining_smithing** (cosmetic clue trail variants, not smithable).
+- `20155-20161 Gilded 2h sword, Gilded spear, Gilded hasta` — OK.
+- `20164 Large spade`, `20166 Wooden shield (g)` — LOG.
+- `20169-20196 Steel platebody/platelegs/plateskirt/full helm/kiteshield (g)/(t)` — OK (10 items, `melee` via trim/gilded pattern).
+- `20199 Monk's robe top (g)` — OK (`prayer`).
+
+---
+
+## Session 47 totals
+
+- Items reviewed: ~150
+- OK (correct as-is): 40
+- EX (correctly excluded): 0
+- ADD (missing tab, fixed): 22 (10 tuxedo, 1 Holy wraps, 1 Dragon scimitar (or), 5 Mummy, 5 Ankou)
+- REM (misclassified, fixed): 18 (12 god d'hide boots REM melee+mage, 3 Gilded helm/chain/shield REM mining_smithing)
+- LOG: 60+ (massive clue hard dups ~30, faction scarves/hoods, demon masks, cosmetic items)
+
+## Classifier changes made in session 47
+
+See `audit/classifier-changes.md` "Session 47".
+
 ## Resume marker
 
-**Next session: start from ID 19851.**
+**Next session: start from ID 20201.**

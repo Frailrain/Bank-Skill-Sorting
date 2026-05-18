@@ -232,6 +232,9 @@ _GOD_DHIDE_NAMES = [
     "Ancient chaps", "Armadyl chaps", "Bandos chaps",
     "Ancient coif", "Armadyl coif", "Bandos coif",
     "Ancient bracers", "Armadyl bracers", "Bandos bracers",
+    # session 47 — God d'hide boots (Treasure Trails)
+    "Ancient d'hide boots", "Armadyl d'hide boots", "Bandos d'hide boots",
+    "Saradomin d'hide boots", "Guthix d'hide boots", "Zamorak d'hide boots",
 ]
 
 # 3rd age range armour (clue scroll rare) — range armour with mixed defences
@@ -262,6 +265,8 @@ _TREASURE_TRAIL_MELEE_NAMES = [
     "Armadyl full helm", "Armadyl kiteshield",
     "Bandos platebody", "Bandos platelegs", "Bandos plateskirt",
     "Bandos full helm", "Bandos kiteshield",
+    # session 47 — Gilded clue trail unique-shape items
+    "Gilded med helm", "Gilded chainbody", "Gilded sq shield",
 ]
 
 # Trim/gilded armour variants — equipable=0 cosmetics of standard smithed
@@ -757,7 +762,7 @@ MELEE = TabSpec(
         })),
         Section("Weapons", _is_melee_weapon,
                 sort_key=_melee_weapon_sort_key,
-                force_include=["Dragon pickaxe"],
+                force_include=["Dragon pickaxe", "Dragon scimitar (or)"],
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Godsword construction", _name_in({
             "Godsword shards 1 & 2", "Godsword shards 1 & 3",
@@ -802,6 +807,7 @@ MELEE = TabSpec(
         Section("Boots", _slot_pred("feet"),
                 force_exclude=["Ranger boots", "Mime boots", "Splitbark boots", "Rogue boots", "Mourner boots",
                                "Spined boots", "Skeletal boots", "Snakeskin boots", "Flippers"]
+                + [n for n in _GOD_DHIDE_NAMES if "boots" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "boots" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
@@ -897,7 +903,8 @@ RANGE = TabSpec(
                 force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers", "Granite legs",
                                "Bandos tassets"]),
         Section("Boots", _is_range_armour_slot("feet"),
-                force_include=["Ranger boots", "Spined boots", "Snakeskin boots"],
+                force_include=["Ranger boots", "Spined boots", "Snakeskin boots"]
+                + [n for n in _GOD_DHIDE_NAMES if "boots" in n.lower()],
                 force_exclude=["Rogue boots"]),
         Section("Gloves", _is_range_armour_slot("hands"),
                 force_include=["Spined gloves", "Snakeskin vambraces",
@@ -958,7 +965,8 @@ MAGE = TabSpec(
                 force_exclude=["Karil's leatherskirt", "Rogue trousers", "3rd age range legs", "Armadyl chainskirt"]),
         Section("Boots", _is_mage_armour_slot("feet"),
                 force_include=["Skeletal boots"],
-                force_exclude=["Rogue boots"]),
+                force_exclude=["Rogue boots"]
+                + [n for n in _GOD_DHIDE_NAMES if "boots" in n.lower()]),
         Section("Gloves", _is_mage_armour_slot("hands"),
                 force_include=["Chaos gauntlets", "Skeletal gloves"],
                 force_exclude=[n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
@@ -1029,7 +1037,7 @@ PRAYER = TabSpec(
             _name_starts("Monk's "), _name_starts("Proselyte "),
             _name_starts("Initiate "), _name_starts("Devout "),
             _name_starts("Druid's "),
-            _name_in({"Holy sandals", "Druidic wreath"}),
+            _name_in({"Holy sandals", "Druidic wreath", "Holy wraps"}),
         )),
         Section("Bone secondaries", _or(
             _name_in({
@@ -2152,6 +2160,15 @@ MISC = TabSpec(
                 "Anti-present", "Present",
                 # session 45 — Bunny set Easter event
                 "Bunny top", "Bunny legs", "Bunny paws",
+                # session 47 — Christmas 2017 Tuxedo, Halloween 2017 Mummy + Ankou
+                "Dark tuxedo jacket", "Dark tuxedo cuffs", "Dark trousers",
+                "Dark tuxedo shoes", "Dark bow tie",
+                "Light tuxedo jacket", "Light tuxedo cuffs", "Light trousers",
+                "Light tuxedo shoes", "Light bow tie",
+                "Mummy's head", "Mummy's body", "Mummy's hands",
+                "Mummy's legs", "Mummy's feet",
+                "Ankou mask", "Ankou top", "Ankou gloves",
+                "Ankou's leggings", "Ankou socks",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),

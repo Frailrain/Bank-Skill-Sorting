@@ -1639,3 +1639,35 @@ Ornament variant of Occult necklace.
 Trim variant of Dragon defender (Bounty Hunter reward).
 
 **Affects**: 1 item.
+
+## Session 47 (audit IDs 19851–20200)
+
+### `_GOD_DHIDE_NAMES` extended — God d'hide boots
+
+Added Ancient/Armadyl/Bandos/Saradomin/Guthix/Zamorak d'hide boots. MELEE/MAGE Boots now force_exclude them; RANGE Boots force_include them.
+
+**Affects**: 6 items (REM melee+mage cross-tag, range only).
+
+### `_TREASURE_TRAIL_MELEE_NAMES` extended — Gilded variants
+
+Added Gilded med helm, Gilded chainbody, Gilded sq shield (clue trail cosmetic unique-shape items that match smithing extended pattern). REM mining_smithing.
+
+**Affects**: 3 items.
+
+### PRAYER Robes — `Holy wraps`
+
+Cosmetic prayer wrap.
+
+**Affects**: 1 item.
+
+### MELEE Weapons — `Dragon scimitar (or)` force_include
+
+Ornament variant of Dragon scimitar.
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Christmas 2017 Tuxedo + Halloween 2017 Mummy/Ankou
+
+Added Dark/Light tuxedo jacket/cuffs/trousers/shoes/bow tie (10), Mummy's head/body/hands/legs/feet (5), Ankou mask/top/gloves/leggings/socks (5).
+
+**Affects**: 20 items.

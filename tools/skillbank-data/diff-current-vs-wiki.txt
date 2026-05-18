@@ -3,5 +3,24 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (1 items not in wiki output) ===
+=== melee (7 items not in wiki output) ===
    12596  Rangers' tunic
+   19921  Ancient d'hide boots
+   19924  Bandos d'hide boots
+   19927  Guthix d'hide boots
+   19930  Armadyl d'hide boots
+   19933  Saradomin d'hide boots
+   19936  Zamorak d'hide boots
+
+=== mage (6 items not in wiki output) ===
+   19921  Ancient d'hide boots
+   19924  Bandos d'hide boots
+   19927  Guthix d'hide boots
+   19930  Armadyl d'hide boots
+   19933  Saradomin d'hide boots
+   19936  Zamorak d'hide boots
+
+=== mining_smithing (3 items not in wiki output) ===
+   20146  Gilded med helm
+   20149  Gilded chainbody
+   20152  Gilded sq shield
