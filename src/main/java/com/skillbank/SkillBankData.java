@@ -833,11 +833,11 @@ public final class SkillBankData
 
 	private static void addMage(Map<String, List<Integer>> m)
 	{
-		// MAGE — 687 items
+		// MAGE — 688 items
 		//   Basic runes (16), Combo runes (6), Essence (4), Staves (119), Ward
 		//   shards (construction intermediates) (3), Tomes (11), Helmets (87),
 		//   Body (61), Legs (60), Boots (35), Gloves (52), Shields (28), Capes
-		//   (80), Amulets (44), Rings (12), Magic potions (28), Orbs (cross-tag
+		//   (80), Amulets (45), Rings (12), Magic potions (28), Orbs (cross-tag
 		//   with crafting) (7), God cloaks (2), Spell tablets (POH lectern) (9),
 		//   Combat food (cross-tag) (23)
 		m.put(TAG_MAGE, Arrays.asList(
@@ -947,8 +947,8 @@ public final class SkillBankData
 			1724, 1727, 1729, 1731, 6585, 8923, 9102, 10344,
 			10354, 10362, 10366, 10470, 10472, 10474, 11666, 11667,
 			11668, 11669, 11671, 11672, 11673, 11976, 11978, 12002,
-			12201, 12269, 12436, 12851, 13393, 19707, 22111, 22557,
-			22986, 24780, 29893, 30376,
+			12201, 12269, 12436, 12851, 13393, 19707, 19720, 22111,
+			22557, 22986, 24780, 29893, 30376,
 
 			// === Rings ===
 			6731, 9104, 11014, 11770, 12601, 13202, 19550, 19710,
@@ -1063,12 +1063,12 @@ public final class SkillBankData
 
 	private static void addCooking(Map<String, List<Integer>> m)
 	{
-		// COOKING — 611 items
+		// COOKING — 612 items
 		//   Cooking tools (18), Raw fish (25), Cooked fish (23), Pies (10), Pizzas
 		//   (4), Stews & curries (3), Cakes (2), Breads (4), Gnome food /
 		//   cocktails (91), Beverages (58), Burnt food (65), Containers
 		//   (water/milk/etc) (18), Raw meat & ingredients (119), Misc cooked food
-		//   (93), Pies (extended) (19), Harvest produce (cross-tag with farming)
+		//   (94), Pies (extended) (19), Harvest produce (cross-tag with farming)
 		//   (55), Cooking pet & misc (4)
 		m.put(TAG_COOKING, Arrays.asList(
 			// === Cooking tools ===
@@ -1171,8 +1171,8 @@ public final class SkillBankData
 			7579, 7580, 9475, 9980, 9984, 9988, 9992, 9994,
 			9996, 10960, 10961, 10962, 10963, 10964, 10965, 10966,
 			10967, 10968, 10969, 10970, 10971, 13426, 13427, 13428,
-			24785, 29077, 29128, 29131, 29134, 29137, 29140, 29143,
-			29146, 29149, 29152, 29217, 33109,
+			19653, 24785, 29077, 29128, 29131, 29134, 29137, 29140,
+			29143, 29146, 29149, 29152, 29217, 33109,
 
 			// === Pies (extended) ===
 			2315, 2317, 2319, 2321, 7164, 7170, 7172, 7182,
@@ -1195,14 +1195,15 @@ public final class SkillBankData
 
 	private static void addWcFletching(Map<String, List<Integer>> m)
 	{
-		// WC_FLETCHING — 347 items
+		// WC_FLETCHING — 352 items
 		//   Axes (28), Logs (42), Bowstrings (3), Unstrung bows (41), Bows &
-		//   shortbows (strung) (51), Crossbow parts (17), Bolt tips (12), Bolts
-		//   (unfinished) (9), Bolts (finished) (39), Arrow shafts (3), Arrowtips
-		//   (12), Arrows (27), Darts (20), Javelins (cross-tag with range) (9),
-		//   Bird nests (3), Feathers (cross-tag with fishing) (6), Flax &
-		//   secondary fletching materials (2), Tools (2), Forestry items (post-
-		//   Sept 2023) (11), Capes & pet (6), Lumberjack outfit (4)
+		//   shortbows (strung) (51), Crossbow parts (17), Ballista construction
+		//   (MM2) (5), Bolt tips (12), Bolts (unfinished) (9), Bolts (finished)
+		//   (39), Arrow shafts (3), Arrowtips (12), Arrows (27), Darts (20),
+		//   Javelins (cross-tag with range) (9), Bird nests (3), Feathers (cross-
+		//   tag with fishing) (6), Flax & secondary fletching materials (2), Tools
+		//   (2), Forestry items (post-Sept 2023) (11), Capes & pet (6), Lumberjack
+		//   outfit (4)
 		m.put(TAG_WC_FLETCHING, Arrays.asList(
 			// === Axes ===
 			1351, 28196, 1349, 28199, 1353, 28202, 1361, 28205,
@@ -1242,6 +1243,9 @@ public final class SkillBankData
 			9420, 9423, 9425, 9427, 9429, 9431, 21918, 9422,
 			9433, 9434, 9440, 9442, 9444, 9446, 9448, 9450,
 			9452,
+
+			// === Ballista construction (MM2) ===
+			19595, 19598, 19601, 19604, 19607,
 
 			// === Bolt tips ===
 			45, 46, 47, 9187, 9188, 9189, 9190, 9191,
@@ -1389,10 +1393,10 @@ public final class SkillBankData
 
 	private static void addCrafting(Map<String, List<Integer>> m)
 	{
-		// CRAFTING — 252 items
+		// CRAFTING — 253 items
 		//   Crafting tools (17), Thread & dyes (10), Leather (raw → tanned) (11),
 		//   D'hide (27), Glass (11), Misc crafting materials (12), Ornament kits
-		//   (52), Pottery (10), Uncut gems (10), Cut gems (12), Jewellery (silver)
+		//   (52), Pottery (10), Uncut gems (10), Cut gems (13), Jewellery (silver)
 		//   (1), Jewellery (gold) (5), Jewellery (gem-set) (43), Battlestaves
 		//   (10), Crafting cape & pet (2), Wool/dyes/cloth (extended) (2),
 		//   Leathers (extended) (14), Pottery & wood crafting outputs (3)
@@ -1443,7 +1447,7 @@ public final class SkillBankData
 
 			// === Cut gems ===
 			411, 413, 1601, 1603, 1605, 1607, 1609, 1611,
-			1613, 1615, 6573, 19493,
+			1613, 1615, 6573, 19493, 19529,
 
 			// === Jewellery (silver) ===
 			1796,
@@ -1710,8 +1714,8 @@ public final class SkillBankData
 
 	private static void addSlayer(Map<String, List<Integer>> m)
 	{
-		// SLAYER — 159 items
-		//   Slayer master items (43), Slayer rings (7), Slayer helmets (27), Black
+		// SLAYER — 163 items
+		//   Slayer master items (47), Slayer rings (7), Slayer helmets (27), Black
 		//   masks (18), Task-specific gear (28), Cannon (6), Cape & pet (4),
 		//   Champion's Challenge scrolls (11), Mounted heads (POH trophies) (15)
 		m.put(TAG_SLAYER, Arrays.asList(
@@ -1721,7 +1725,7 @@ public final class SkillBankData
 			11885, 11887, 12740, 12742, 12744, 12769, 12771, 12857,
 			12859, 12922, 12927, 12932, 12934, 13193, 13200, 13201,
 			13250, 13252, 13254, 13273, 13274, 13275, 13276, 13391,
-			21257, 21268, 21270,
+			19679, 19681, 19683, 19685, 21257, 21268, 21270,
 
 			// === Slayer rings ===
 			11866, 11867, 11868, 11869, 11871, 11872, 11873,
@@ -1761,8 +1765,8 @@ public final class SkillBankData
 
 	private static void addFarming(Map<String, List<Integer>> m)
 	{
-		// FARMING — 291 items
-		//   Tools (19), Compost (12), Seeds (158), Harvest produce (51), Farm
+		// FARMING — 292 items
+		//   Tools (19), Compost (13), Seeds (158), Harvest produce (51), Farm
 		//   outputs / materials (42), Farmer outfit (6), Cape & pet (3)
 		m.put(TAG_FARMING, Arrays.asList(
 			// === Tools ===
@@ -1772,7 +1776,7 @@ public final class SkillBankData
 
 			// === Compost ===
 			6032, 6034, 6036, 6470, 6472, 6474, 6476, 13419,
-			13420, 13421, 21483, 22994,
+			13420, 13421, 19704, 21483, 22994,
 
 			// === Seeds ===
 			4486, 6453, 6464, 22887, 4207, 6103, 9626, 23655,
@@ -2006,9 +2010,9 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 426 items
+		// MISC — 431 items
 		//   Teleport jewellery (63), Teleport tabs (68), Boss & quest jewellery
-		//   (10), Cosmetic outfits / random events (52), Clue scrolls (13), Clue
+		//   (10), Cosmetic outfits / random events (52), Clue scrolls (18), Clue
 		//   tools (25), Keys (13), Storage bags (6), Utility / banked supplies
 		//   (2), Imbue scrolls (2), Combat trophies (PvM rewards) (3), Holiday
 		//   rares & cosmetics (110), Team capes (Castle Wars) (50), Currency (9)
@@ -2049,7 +2053,8 @@ public final class SkillBankData
 
 			// === Clue scrolls ===
 			713, 2677, 2722, 2801, 12073, 13648, 13649, 13650,
-			13651, 19835, 23129, 23182, 27427,
+			13651, 19712, 19714, 19716, 19718, 19835, 23127, 23129,
+			23182, 27427,
 
 			// === Clue tools ===
 			3450, 3451, 3452, 3453, 3454, 3455, 3456, 3457,
@@ -2106,14 +2111,14 @@ public final class SkillBankData
 
 	private static void addQuests(Map<String, List<Integer>> m)
 	{
-		// QUESTS — 137 items
+		// QUESTS — 138 items
 		//   Quest & achievement capes (8), Diary - Kandarin (4), Diary - Karamja
 		//   (4), Diary - Ardougne (4), Diary - Falador (4), Diary - Fremennik (4),
 		//   Diary - Wilderness (4), Diary - Morytania (4), Diary - Desert (4),
 		//   Diary - Varrock (4), Diary - Western (4), Diary - Lumbridge (4), Diary
 		//   consumables (4), Max hood variants (5), Quest unlock weapons (11),
 		//   Quest cosmetic gear (20), Void Knight set (21), Fighter Torso et al.
-		//   (6), Defenders (9), Boss pets (9)
+		//   (6), Defenders (10), Boss pets (9)
 		m.put(TAG_QUESTS, Arrays.asList(
 			// === Quest & achievement capes ===
 			9813, 9814, 13070, 13221, 13223, 13280, 13281, 19476,
@@ -2176,7 +2181,7 @@ public final class SkillBankData
 
 			// === Defenders ===
 			8844, 8845, 8846, 8847, 8848, 8849, 8850, 12954,
-			22322,
+			19722, 22322,
 
 			// === Boss pets ===
 			13225, 19730, 20851, 21273, 21291, 21992, 22473, 23760,

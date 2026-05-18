@@ -973,7 +973,7 @@ MAGE = TabSpec(
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _is_mage_armour_slot("neck"),
                 force_include=["Amulet of magic (t)", "Amulet of glory (t)",
-                               "Amulet of fury (or)"],
+                               "Amulet of fury (or)", "Occult necklace (or)"],
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_mage_armour_slot("ring")),
         Section("Magic potions",
@@ -1198,6 +1198,8 @@ COOKING = TabSpec(
                 "Fillets", "Loach", "Eel sushi",
                 # session 45 — Hosidius gnome cooking fruits
                 "Golovanova fruit", "Bologano fruit", "Logavano fruit",
+                # session 46 — Botanical pie filling
+                "Golovanova fruit top",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1247,6 +1249,10 @@ WC_FLETCHING = TabSpec(
             "Bronze limbs", "Blurite limbs", "Iron limbs", "Steel limbs", "Mithril limbs",
             "Adamantite limbs", "Runite limbs", "Dragon limbs",
             "Bolt pouch", "Bolt mould",
+        })),
+        Section("Ballista construction (MM2)", _name_in({
+            "Incomplete light ballista", "Incomplete heavy ballista",
+            "Ballista spring", "Unstrung light ballista", "Unstrung heavy ballista",
         })),
         Section("Bolt tips", _or(
             _name_ends(" bolt tips"),
@@ -1441,6 +1447,8 @@ CRAFTING = TabSpec(
             "Diamond", "Dragonstone", "Onyx", "Zenyte",
             # bowstringing / jewellery secondaries
             "Oyster pearl", "Oyster pearls", "Pearl",
+            # session 46 — Zenyte shard (Demonic Gorillas drop, fuses to Zenyte)
+            "Zenyte shard",
         })),
         Section("Jewellery (silver)", _and(
             _name_starts("Silver "),
@@ -1691,6 +1699,9 @@ SLAYER = TabSpec(
             "Eternal crystal", "Pegasian crystal", "Primordial crystal",
             "Unsired", "Bludgeon spine", "Bludgeon claw", "Bludgeon axon",
             "Lizardman fang",
+            # session 46 — Skotizo Dark totem fragments
+            "Dark totem base", "Dark totem middle", "Dark totem top",
+            "Dark totem",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -1764,6 +1775,8 @@ FARMING = TabSpec(
             "Bottomless compost bucket", "Plant cure",
             # session 45 — Hosidius fertiliser
             "Sulphurous fertiliser", "Gricoller's fertiliser", "Saltpetre",
+            # session 46 — Compost pack (Tithe Farm)
+            "Compost pack",
         })),
         Section("Seeds", _is_seed),
         # Note: prior force_exclude for "Marigold seed" was removed in session 18
@@ -2045,7 +2058,7 @@ MISC = TabSpec(
         )),
         Section("Clue scrolls",
                 _or(_name_starts("Clue scroll"), _name_starts("Master clue"),
-                    _name_starts("Clue bottle"))),
+                    _name_starts("Clue bottle"), _name_starts("Clue nest"))),
         Section("Clue tools", _or(
             _name_in({
                 "Sextant", "Watch", "Chart", "Mimic kill count",
@@ -2209,7 +2222,10 @@ QUESTS = TabSpec(
             "Fighter torso", "Fighter hat", "Runner hat", "Healer hat",
             "Penance gloves", "Penance skirt", "Penance shield",
         })),
-        Section("Defenders", _name_ends(" defender")),
+        Section("Defenders", _or(
+            _name_ends(" defender"),
+            _name_in({"Dragon defender (t)"}),
+        )),
         Section("Boss pets", _name_in({
             "Tzrek-jad", "Olmlet", "Skotos", "Vorki", "Lil' creator",
             "Bloodhound", "Smolcano", "Lil' zik", "Jal-nib-rek",

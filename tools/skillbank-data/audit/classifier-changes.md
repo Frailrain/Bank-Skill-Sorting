@@ -1589,3 +1589,53 @@ Pattern extended to catch `Clue bottle (easy/medium/hard/elite)` (Wilderness clu
 Added Bunny top, Bunny legs, Bunny paws.
 
 **Affects**: 3 items.
+
+## Session 46 (audit IDs 13701–19850, large ID gap 13682–19472)
+
+### WC_FLETCHING — new "Ballista construction (MM2)" section
+
+Added Incomplete light/heavy ballista, Ballista spring, Unstrung light/heavy ballista.
+
+**Affects**: 5 items.
+
+### CRAFTING Cut gems — `Zenyte shard`
+
+Demonic Gorillas drop, fuses to form Zenyte.
+
+**Affects**: 1 item.
+
+### COOKING Misc cooked food — `Golovanova fruit top`
+
+Botanical pie filling.
+
+**Affects**: 1 item.
+
+### SLAYER Slayer master items — Skotizo Dark totem
+
+Added Dark totem base/middle/top + Dark totem (Catacombs of Kourend boss key components).
+
+**Affects**: 4 items.
+
+### FARMING Compost — `Compost pack`
+
+Tithe Farm reward bulk compost.
+
+**Affects**: 1 item.
+
+### MISC Clue scrolls — Clue nest variants
+
+Pattern extended to catch `Clue nest (easy/medium/hard/elite)`.
+
+**Affects**: 4 items.
+
+### MAGE Amulets — `Occult necklace (or)`
+
+Ornament variant of Occult necklace.
+
+**Affects**: 1 item.
+
+### QUESTS Defenders — `Dragon defender (t)`
+
+Trim variant of Dragon defender (Bounty Hunter reward).
+
+**Affects**: 1 item.

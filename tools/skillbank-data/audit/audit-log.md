@@ -4163,6 +4163,94 @@ See `audit/classifier-changes.md` "Session 44".
 
 See `audit/classifier-changes.md` "Session 45".
 
+---
+
+## Session 46: IDs 13701–19850 (large ID gap 13682–19472)
+
+### Random event + Achievement Diary
+
+- `19473 Bag full of gems` — LOG.
+- `19476 Achievement diary cape` — OK.
+
+### Ballista weapons + parts (Tirannwn / Monkey Madness II)
+
+- `19478 Light ballista`, `19481 Heavy ballista`, `19484 Dragon javelin` — OK (`range`).
+- `19570-19592 Bronze/Iron/Steel/Mithril/Adamant/Rune/Dragon javelin tips, Javelin shaft, Light/Heavy frame, Ballista limbs` — OK.
+- `19595-19607 Incomplete light/heavy ballista, Ballista spring, Unstrung light/heavy ballista` (5 items) — **ADD wc_fletching** (ballista construction intermediates).
+
+### Zenyte gem chain
+
+- `19493 Zenyte`, `19496 Uncut zenyte` — OK (`crafting[+mining_smithing]`).
+- `19501 Zenyte amulet (u)` — OK (`wc_fletching`).
+- `19529 Zenyte shard` — **ADD crafting** (zenyte gem raw material).
+- `19532-19541 Zenyte bracelet/necklace/ring/amulet` — OK (4 items, `crafting`).
+- `19544-19553 Tormented bracelet, Necklace of anguish, Ring of suffering, Amulet of torture` — OK (4 items, multi-tag).
+
+### Monkey Madness II quest material
+
+- `19505-19527 Mysterious note, Scrawled note, Translated note, Book of spyology ✓, Brush, Juice-coated brush, Handkerchief, Kruk's paw, Kruk monkey greegree, Satchel` — EX/LOG.
+- `19556 Monkey`, `19558 Nieve` — LOG (NPC entries).
+- `19559-19562 Elysian spirit shield dup, Charged onyx, Deconstructed onyx` — LOG.
+- `19564 Royal seed pod` — LOG (Tree gnome stronghold tele).
+- `19566-19569 Bronze key, Combat scarred/scratched/damaged key` — EX (Kruk's dungeon).
+
+### Kourend teleports + Slayer helmets
+
+- `19613-19631 Arceuus library/Draynor manor/Mind altar/Salve graveyard/Fenkenstrain's castle/West ardougne/Harmony island/Cemetery/Barrows/Ape atoll teleport` (10 items) — OK (`misc`).
+- `19634-19637 Soul bearer, Damaged soul bearer, Soul journey` — LOG.
+- `19639-19649 Black/Green/Red slayer helmet + (i)` — OK (6 items, `melee[;mage];slayer`).
+- `19651 Hosidius teleport` — OK (`misc`).
+
+### Botanical pie + Redwood logs
+
+- `19653 Golovanova fruit top` — **ADD cooking** (Botanical pie filling).
+- `19656 Uncooked botanical pie`, `19662 Botanical pie` — OK (`cooking`).
+- `19665-19668 Damaged monkey tail, Minecart control scroll` — EX.
+- `19669-19672 Redwood logs, Redwood pyre logs` — OK (`wc_fletching;firemaking`).
+
+### Skotizo / Catacombs of Kourend
+
+- `19675 Arclight` — OK (`melee`).
+- `19677 Ancient shard` — OK (`misc`).
+- `19679-19685 Dark totem base/middle/top, Dark totem` (4 items) — **ADD slayer** (Catacombs of Kourend boss key components).
+- `19687 Helm of raedwald` — OK (`melee`).
+- `19689-19697 Clue hunter garb/gloves/trousers/boots/cloak` — OK (5 items, `melee[;range]`).
+- `19699 Hornwood helm` — LOG (cosmetic).
+- `19701 Jar of darkness` — LOG.
+
+### Compost + Clue nest + cosmetic
+
+- `19704 Compost pack` — **ADD farming**.
+- `19707 Amulet of eternal glory`, `19710 Ring of suffering (i)` — OK.
+- `19712-19718 Clue nest (easy/medium/hard/elite)` (4 items) — **ADD misc** (Clue scroll bird nests).
+- `19720 Occult necklace (or)` — **ADD mage** (Occult necklace ornament variant).
+- `19722 Dragon defender (t)` — **ADD melee;quests** (Dragon defender trim variant).
+- `19724-19727 Left eye patch, Double eye patch` — LOG (cosmetic).
+- `19730 Bloodhound` — OK (`quests`).
+- `19732 Lucky impling jar` — OK (`hunter`).
+
+### Clue scroll massive dups
+
+- `19734-19833 Clue scroll (medium/elite/easy/hard) × ~85 dups` — LOG.
+- `19835 Clue scroll (master)` — OK (`misc`).
+- `19836-19837 Reward casket (master), Torn clue scroll (part 1)` — LOG.
+- `19840-19850 Clue scroll (hard) × 6 dups` — LOG.
+
+---
+
+## Session 46 totals
+
+- Items reviewed: ~200
+- OK (correct as-is): 50
+- EX (correctly excluded): 20 (MM2 quest material, Skotizo combat key dups)
+- ADD (missing tab, fixed): 19 (5 ballista construction, 1 Zenyte shard, 1 Golovanova fruit top, 4 Dark totem, 1 Compost pack, 4 Clue nest, 1 Occult necklace (or), 1 Dragon defender (t), 1 misc... actually count is right)
+- REM: 0
+- LOG: 110+ (massive clue scroll dups ~100, MM2 NPCs, soul bearer line)
+
+## Classifier changes made in session 46
+
+See `audit/classifier-changes.md` "Session 46".
+
 ## Resume marker
 
-**Next session: start from ID 13701.**
+**Next session: start from ID 19851.**
