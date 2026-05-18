@@ -738,6 +738,36 @@ Abyss teleport / strange object related; slayer-flavoured.
 
 Currently with `Binding necklace`. Useful for combination rune crafting.
 
+---
+
+## Session 21 (audit IDs 5801–6100)
+
+### COOKING Beverages — expanded brew pattern
+
+Beer-family startswith now includes Mind bomb / Axeman's folly / Chef's delight / Slayer's respite / Cider / Wizard's mind bomb. Endswith pattern now matches (4) OR (m4). Captures ~14 charge/mature variants.
+
+Allowlist also added: Coconut milk, Apple mush.
+
+### HERBLORE — new "Unfinished potion variants (extended)" section
+
+Catches Weapon poison+ (unf), Weapon poison++ (unf), Antidote+ (unf), Antidote++ (unf).
+
+### FARMING — new "Farm outputs / materials" section
+
+Comprehensive allowlist of ~25 names: hops varieties, mushroom/barley/marigolds/nasturtiums/rosemary, tree-grown fruits (curry leaf, papaya, coconut, calquat, watermelon), tree leaves/roots drops, weeds, hay sack, scarecrow, amulet of nature/pre-nature amulet, Jute fibre, Willow branch.
+
+### COOKING "Harvest produce (cross-tag with farming)" — extended
+
+Now also matches tree-fruits + barley/mushroom for cooking cross-tag.
+
+### MELEE Boots/Gloves — `Mourner boots`/`Mourner gloves` force_exclude
+
+Mourning's End II disguise gear, not real combat gear.
+
+### QUESTS Quest cosmetic gear — Mourner set
+
++ Mourner top / trousers / gloves / boots / cloak.
+
 ## Session 16 (audit IDs 4301–4600)
 
 ### `_BASIC_COLOUR_CAPES` — added 50 Team-N capes

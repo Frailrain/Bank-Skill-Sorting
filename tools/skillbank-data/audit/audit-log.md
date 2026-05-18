@@ -23,8 +23,9 @@
 - **Reviewed in session 18**: IDs 4901–5200 (53 items)
 - **Reviewed in session 19**: IDs 5201–5500 (133 items)
 - **Reviewed in session 20**: IDs 5501–5800 (93 items)
-- **Reviewed cumulative**: 2847 (24.0%)
-- **Resume from**: ID 5801
+- **Reviewed in session 21**: IDs 5801–6100 (116 items)
+- **Reviewed cumulative**: 2963 (25.0%)
+- **Resume from**: ID 6101
 
 ## Decision codes
 
@@ -1914,6 +1915,81 @@ See `audit/classifier-changes.md` "Session 19".
 
 See `audit/classifier-changes.md` "Session 20".
 
+---
+
+## Session 21: IDs 5801–6100
+
+### Beer / brew (4) and (m4) variants
+
+- `5801 Mind bomb(4)`, `5825 Axeman's folly(4)`, `5833 Chef's delight(4)`, `5841 Slayer's respite(4)`, `5849 Cider(4)` — **ADD cooking** (5 items). Beer charge variants not matched by my prior (4) pattern (only beer-startswith subset was covered).
+- `5809 Dragon bitter(4)`, `5817 Moonlight mead(4)` — OK (`cooking`).
+- `5857-5929 (m4) variants` (~9 items: Dwarven stout/Asgarnian ale/Greenmans ale/Mind bomb/Dragon bitter/Moonlight mead/Axeman's folly/Chef's delight/Slayer's respite/Cider) — **ADD cooking**. Mature 4-charge variants. **Fix**: expand pattern to also match `(m4)` suffix.
+
+### Farming materials
+
+- `5931 Jute fibre`, `5933 Willow branch` — **ADD farming** (2 items).
+- `5935 Coconut milk` — **ADD cooking** (gnome cocktail ingredient).
+
+### Weapon poison family
+
+- `5936 Weapon poison+ (unf)`, `5939 Weapon poison++ (unf)` — **ADD herblore** (2 items).
+- `5937 Weapon poison(+)`, `5940 Weapon poison(++)` — OK (`herblore`).
+
+### Antidote+ / Antidote++ family
+
+- `5942 Antidote+ (unf)`, `5951 Antidote++ (unf)` — **ADD herblore** (2 items).
+- `5943-5949 Antidote+(4..1)`, `5952-5958 Antidote++(4..1)` — OK (8 items, herblore).
+
+### Tomatoes harvest sacks
+
+- `5960-5968 Tomatoes(1..3, 5)` — OK (4 items, `cooking;farming`).
+
+### Harvest fruits / brew secondaries
+
+- `5970 Curry leaf`, `5972 Papaya fruit`, `5974 Coconut`, `5976 Half coconut`, `5978 Coconut shell`, `5980 Calquat fruit`, `5982 Watermelon`, `5984 Watermelon slice` — **ADD cooking + farming** (~8 items). Tree-grown produce.
+- `5986 Sweetcorn`, `5988 Cooked sweetcorn`, `5990 Burnt sweetcorn` — OK (3 items, `cooking`).
+- `5992 Apple mush` — **ADD cooking** (brewing ingredient).
+- `5994-6002 Hammerstone/Asgarnian/Yanillian/Krandorian/Wildblood hops` — **ADD farming** (5 items, hop seed outputs).
+- `6004 Mushroom`, `6006 Barley`, `6008 Barley malt` — **ADD farming + cooking** (3 items).
+- `6010 Marigolds`, `6012 Nasturtiums`, `6014 Rosemary` — **ADD farming** (3 items, flower outputs).
+
+### Herblore secondaries
+
+- `6016 Cactus spine`, `6018 Poison ivy berries` — OK (2 items, `herblore`).
+
+### Tree drops + farming materials
+
+- `6020-6030 Leaves/Oak/Willow/Yew/Maple/Magic leaves` — **ADD farming** (6 items, tree leaves drops).
+- `6032 Compost`, `6034 Supercompost`, `6036 Plant cure` — OK (`farming`).
+- `6038 Magic string` — OK (`wc_fletching`).
+- `6040 Amulet of nature`, `6041 Pre-nature amulet` — **ADD farming** (2 items, farming patch notification).
+- `6043-6053 Tree roots (Oak/Willow/Maple/Yew/Magic/Spirit)` — **ADD farming** (6 items, tree root drops).
+- `6055 Weeds`, `6057 Hay sack`, `6059 Scarecrow` — **ADD farming** (3 items).
+
+### Mourner set (Mourning's End II disguise)
+
+- `6064-6070 Bloody mourner top, Mourner top/trousers/gloves/boots/cloak + Ripped mourner trousers` — **REM melee** for gloves/boots. **ADD quests cosmetic** (or EX). Mourning's End disguise.
+- `6068 Mourner gloves`, `6069 Mourner boots` — currently in melee, REM.
+
+### Remaining Mourning's End / Cabin Fever quest items
+
+- `6071-6100` (~30 items: Mourner letter, Tegid's soap, Prifddinas' history, Eastern discovery, Eastern settlement, The great divide, Broken device, Fixed device, Tarnished/Worn key, Red/Blue/Yellow/Green dye bellows ×8, Blue/Red/Yellow/Green toad ×8, Rotten apples, Apple barrel, Naphtha apple mix, Toxic naphtha, Sieve, Toxic powder, Teleport crystal (3)) — EX.
+
+---
+
+## Session 21 totals
+
+- Items reviewed: 116
+- OK (correct as-is): 25
+- EX (correctly excluded): 35
+- ADD (missing tab, fixed): 54 (Beer (4)/(m4) variants ~14, fruits/farming materials ~30, herblore unfinished, tree drops, etc.)
+- REM (misclassified, fixed): 2 (Mourner gloves/boots from melee)
+- LOG (deferred): 0
+
+## Classifier changes made in session 21
+
+See `audit/classifier-changes.md` "Session 21".
+
 ## Resume marker
 
-**Next session: start from ID 5801.**
+**Next session: start from ID 6101.**

@@ -689,13 +689,13 @@ MELEE = TabSpec(
                 + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
-                force_exclude=["Ranger boots", "Mime boots", "Splitbark boots", "Rogue boots"]
+                force_exclude=["Ranger boots", "Mime boots", "Splitbark boots", "Rogue boots", "Mourner boots"]
                 + [n for n in _MIME_OUTFIT if "boots" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
                 force_exclude=_SKILLING_GAUNTLETS
                 + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
-                + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves"]
+                + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves", "Mourner gloves"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield"),
                 force_include=["Granite shield"]),
@@ -922,14 +922,18 @@ COOKING = TabSpec(
                 "Mature wmb", "Greenman's ale", "Dragon bitter",
                 "Moonlight mead", "Axeman's folly", "Chef's delight",
                 "Slayer's respite", "Ale yeast", "Calquat keg",
-                "Strawberry",
+                "Strawberry", "Coconut milk", "Apple mush",
             }),
-            # Matured beer variants (m) and (4) charge variants
+            # Matured beer variants (m) and (4)/(m4) charge variants
             _name_ends("(m)"),
+            # Beer-family endswith (4) or (m4) — broad pattern catching all brews.
             _and(_or(_name_starts("Asgarnian ale"), _name_starts("Dwarven stout"),
                      _name_starts("Greenman"), _name_starts("Dragon bitter"),
-                     _name_starts("Moonlight mead")),
-                 _name_ends("(4)")),
+                     _name_starts("Moonlight mead"), _name_starts("Mind bomb"),
+                     _name_starts("Axeman's folly"), _name_starts("Chef's delight"),
+                     _name_starts("Slayer's respite"), _name_starts("Cider"),
+                     _name_starts("Wizard's mind bomb")),
+                 _or(_name_ends("(4)"), _name_ends("(m4)"))),
         )),
         Section("Burnt food", _name_starts("Burnt ")),
         Section("Containers (water/milk/etc)", _name_in({
@@ -970,7 +974,14 @@ COOKING = TabSpec(
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
-        Section("Harvest produce (cross-tag with farming)", _is_harvest_produce),
+        Section("Harvest produce (cross-tag with farming)", _or(
+            _is_harvest_produce,
+            _name_in({
+                "Curry leaf", "Papaya fruit", "Coconut", "Half coconut",
+                "Coconut shell", "Calquat fruit", "Watermelon",
+                "Watermelon slice", "Mushroom", "Barley", "Barley malt",
+            }),
+        )),
         Section("Cooking pet & misc", _name_in({"Rocky", "Heron", "Beaver", "Pet hellpuppy", "Pet kitten"})),
     ],
 )
@@ -1257,6 +1268,10 @@ HERBLORE = TabSpec(
         })),
         Section("Grimy herbs", _is_grimy_herb, sort_key=_herb_sort_key),
         Section("Clean herbs", _is_clean_herb, sort_key=_herb_sort_key),
+        Section("Unfinished potion variants (extended)", _name_in({
+            "Weapon poison+ (unf)", "Weapon poison++ (unf)",
+            "Antidote+ (unf)", "Antidote++ (unf)",
+        })),
         Section("Vials & secondaries", _name_in({
             "Vial", "Vial of water", "Vial of blood", "Empty vial",
             "Eye of newt", "Limpwurt root", "Red spiders' eggs",
@@ -1410,6 +1425,28 @@ FARMING = TabSpec(
         Section("Harvest produce", _or(
             _is_harvest_produce,
             _name_in({"Basket", "Empty sack", "Filled plant pot"}),
+        )),
+        Section("Farm outputs / materials", _or(
+            _name_in({
+                "Jute fibre", "Willow branch",
+                # Hops
+                "Hammerstone hops", "Asgarnian hops", "Yanillian hops",
+                "Krandorian hops", "Wildblood hops",
+                # Crop outputs
+                "Mushroom", "Barley", "Barley malt",
+                "Marigolds", "Nasturtiums", "Rosemary",
+                # Tree-grown fruit / palm fruits
+                "Curry leaf", "Papaya fruit", "Coconut", "Half coconut",
+                "Coconut shell", "Calquat fruit", "Watermelon", "Watermelon slice",
+                # Tree drops
+                "Leaves", "Oak leaves", "Willow leaves", "Yew leaves",
+                "Maple leaves", "Magic leaves",
+                "Oak roots", "Willow roots", "Maple roots", "Yew roots",
+                "Magic roots", "Spirit roots",
+                # Misc farming
+                "Weeds", "Hay sack", "Scarecrow",
+                "Amulet of nature", "Pre-nature amulet",
+            }),
         )),
         Section("Saplings", _is_sapling),
         Section("Farmer outfit", _name_starts("Farmer's ")),
@@ -1671,6 +1708,8 @@ QUESTS = TabSpec(
             "Cape of legends",
             "Carnillean armour",
             "Bearhead",
+            "Mourner top", "Mourner trousers", "Mourner gloves",
+            "Mourner boots", "Mourner cloak",
         })),
         Section("Void Knight set", _name_starts("Void ")),
         Section("Fighter Torso et al.", _name_in({

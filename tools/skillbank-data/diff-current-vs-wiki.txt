@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (240 items not in wiki output) ===
+=== melee (242 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -83,6 +83,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
     5557  Rogue boots
     5680  (not in wiki canonical set)
     5698  (not in wiki canonical set)
+    6068  Mourner gloves
+    6069  Mourner boots
     6215  (not in wiki canonical set)
     6217  (not in wiki canonical set)
     6227  (not in wiki canonical set)
@@ -659,7 +661,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26996  (not in wiki canonical set)
    28323  Siren's staff
 
-=== cooking (63 items not in wiki output) ===
+=== cooking (61 items not in wiki output) ===
      343  Burnt fish
      357  Burnt fish
      367  Burnt fish
@@ -688,8 +690,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4293  Cooked meat
     4297  (not in wiki canonical set)
     4299  (not in wiki canonical set)
-    5980  Calquat fruit
-    5982  Watermelon
     6701  Baked potato
     6703  Potato with butter
     6705  Potato with cheese
@@ -989,9 +989,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27028  (not in wiki canonical set)
    27030  (not in wiki canonical set)
 
-=== herblore (38 items not in wiki output) ===
+=== herblore (37 items not in wiki output) ===
     3391  Splitbark gauntlets
-    5939  Weapon poison++ (unf)
     6036  Plant cure
     9735  Desert goat horn
     9739  Combat potion(4)
@@ -1186,7 +1185,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26684  (not in wiki canonical set)
    28626  Fox whistle
 
-=== farming (47 items not in wiki output) ===
+=== farming (41 items not in wiki output) ===
      676  Trowel
     1942  Potato
     1957  Onion
@@ -1198,13 +1197,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     5377  (not in wiki canonical set)
     5504  Strawberry
     5955  (not in wiki canonical set)
-    5972  Papaya fruit
-    5978  Coconut shell
-    5982  Watermelon
-    5984  Watermelon slice
     5986  Sweetcorn
-    6040  Amulet of nature
-    6055  Weeds
     9811  (not in wiki canonical set)
    11850  Graceful hood
    11852  Graceful cape
