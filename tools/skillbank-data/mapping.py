@@ -1811,7 +1811,7 @@ MISC = TabSpec(
         Section("Currency", _name_in({
             "Coins", "Platinum token", "Blood money", "Tokkul",
             "Marks of grace", "Brimhaven voucher", "Archery ticket",
-            "Ecto-token", "Trading sticks",
+            "Ecto-token", "Trading sticks", "Warrior guild token",
         })),
     ],
 )

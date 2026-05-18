@@ -1022,3 +1022,11 @@ POH garden + study + bar + basic furniture coverage:
 - **"Basic furniture (non-Oak/Teak/Mahogany)"**: named list covering Crude/Wooden/Rocking chair, Bookcase, Kitchen/Wood dining/Opulent table, Wooden/Gilded bench, Wooden/Four-poster/Gilded four-poster bed, Oak/Teak/Gilded clock, Shaving stands, Oak/Teak/Fancy teak/Mahogany/Gilded dresser, Shoe box, Gilded wardrobe, Beer/Cider barrel, Construction guide.
 
 **Affects**: ~65 items.
+
+## Session 30 (audit IDs 8717–9000)
+
+### MISC Currency — `Warrior guild token`
+
+Minigame entry currency for Warriors' Guild.
+
+**Affects**: 1 item.

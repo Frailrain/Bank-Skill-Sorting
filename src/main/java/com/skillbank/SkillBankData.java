@@ -2091,12 +2091,12 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 427 items
+		// MISC — 428 items
 		//   Teleport jewellery (52), Teleport tabs (68), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (8), Clue
 		//   tools (25), Keys (12), Storage bags (6), Utility / banked supplies
 		//   (2), Holiday rares & cosmetics (62), Team capes (Castle Wars) (50),
-		//   Currency (8), Legacy (72)
+		//   Currency (9), Legacy (72)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
@@ -2170,7 +2170,8 @@ public final class SkillBankData
 			4411, 4413,
 
 			// === Currency ===
-			617, 1464, 4278, 6306, 6529, 13204, 13307, 29482,
+			617, 1464, 4278, 6306, 6529, 8851, 13204, 13307,
+			29482,
 
 			// === Legacy carry-over (hand-curated items the new classifier missed) ===
 			563, 565, 566, 764, 766, 772, 1923, 1925,

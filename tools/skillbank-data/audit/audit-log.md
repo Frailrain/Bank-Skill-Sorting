@@ -2739,6 +2739,76 @@ See `audit/classifier-changes.md` "Session 28".
 
 See `audit/classifier-changes.md` "Session 29".
 
+---
+
+## Session 30: IDs 8717–9000
+
+### Kiteshield dups continue
+
+- `8718-8744 Rune kiteshield × 14 dups` — LOG.
+- `8746-8776 Steel kiteshield × 16 dups` — LOG.
+
+### Construction materials (canonical already classified)
+
+- `8778-8782 Oak/Teak/Mahogany plank` — OK (`construction`).
+- `8784 Gold leaf`, `8788 Magic stone` — LOG (dups of canonical 4692/4703 already in construction).
+- `8786 Marble block`, `8790 Bolt of cloth`, `8792 Clockwork`, `8794 Saw` — OK.
+- `8837 Timber beam` — EX (Cabin Fever quest item, not actual construction material).
+
+### Pest Control + Warriors Guild
+
+- `8839-8842 Void knight top/robe/mace/gloves` — OK (`melee;range;mage;quests`).
+- `8844-8850 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune defender` — OK (7 items, `melee;quests`).
+- `8851 Warrior guild token` — **ADD misc Currency** (Warriors' Guild minigame entry token).
+- `8856 Defensive shield` — OK (`melee`).
+- `8857-8864 Shot/18lb shot/22lb shot/One-Five barrels` — EX (Dwarf Cannon quest).
+
+### Dorgeshuun (Death to the Dorgeshuun + Lost Tribe)
+
+- `8865 Ground ashes` — OK (`prayer`).
+- `8866-8869 Steel/Bronze/Silver/Iron key` — LOG (quest keys, dups).
+- `8870-8871 Zanik, Crate with zanik` — EX (NPC follower mechanic).
+- `8872 Bone dagger` — OK (`melee`).
+- `8880 Dorgeshuun crossbow` — OK (`range`).
+- `8882 Bone bolts` — OK (`range;wc_fletching`).
+- `8887 Zanik`, `8890 Coins` — EX.
+
+### Slayer Black mask charge variants + Cabin Fever (Trouble Brewing)
+
+- `8905-8921 Black mask (1-8 charges) variants` — OK (`melee;slayer`).
+- `8923 Witchwood icon` — OK (`mage;slayer`).
+- `8924-8928 Bandana eyepatch (white/red/blue/brown), Hat eyepatch` (5 items) — LOG (Cabin Fever cosmetic).
+- `8929 Crabclaw hook` — OK (`melee`).
+
+### Rocking the Boat + Cabin Fever quest material
+
+- `8930-8946 Pipe section, Lumber patch, Scrapey tree logs (OK), Blue/Red flowers, Rum × 2, Monkey/Blue/Red monkey` — mostly EX (quest material).
+- `8934 Scrapey tree logs` — OK (`wc_fletching;firemaking`).
+
+### Trouble Brewing minigame cosmetics
+
+- `8949-8950 Pirate bandana, Pirate hat` — LOG (TB cosmetic).
+- `8951 Pieces of eight` — LOG (TB minigame currency; minigame-specific).
+- `8952-8965 Naval shirts × 7 colours + Tricorn hats × 7 colours` (14 items) — LOG (TB cosmetic).
+- `8966-8971 Cutthroat flag, Gilded smile flag, Bronze fist flag, Lucky shot flag, Treasure flag, Phasmatys flag` (6 items) — LOG (TB cosmetic).
+- `8972-8974 Bowl of red water, Bowl of blue water` — EX (TB quest material).
+- `8976-8997 Bitternut, Scrapey bark, Bridge section, Sweetgrubs, Bucket dup, Torch dup, The stuff, Brewin' guide × 2, Navy slacks × 7 colours` — EX/LOG (TB material + cosmetic).
+
+---
+
+## Session 30 totals
+
+- Items reviewed: ~120
+- OK (correct as-is): 32
+- EX (correctly excluded): 15 (Cabin Fever quest material, Dwarf Cannon ammo)
+- ADD (missing tab, fixed): 1 (Warrior guild token → misc Currency)
+- REM: 0
+- LOG: 70+ (Rune/Steel kiteshield × 30 dups, Trouble Brewing cosmetic × ~30, Black mask charge variants OK)
+
+## Classifier changes made in session 30
+
+See `audit/classifier-changes.md` "Session 30".
+
 ## Resume marker
 
-**Next session: start from ID 8717.**
+**Next session: start from ID 9001.**
