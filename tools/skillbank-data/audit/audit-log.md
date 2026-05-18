@@ -5532,6 +5532,86 @@ See `audit/classifier-changes.md` "Session 59".
 
 See `audit/classifier-changes.md` "Session 60".
 
+---
+
+## Session 61: IDs 24751–25100
+
+### Graceful dups + Sins of the Father quest material
+
+- `24752-24758 Graceful legs/gloves/boots dups` — LOG (Kourend region recolour).
+- `24761 Strange hallowed tome` — OK (`mage`).
+- `24763-24773 Mysterious page × 4, Clue scroll (elite)` — LOG/EX.
+- `24774 Blood pint` — LOG (Sins of the Father quest material).
+- `24777 Blood shard` — **ADD slayer** (Vyre noble drop, Amulet of blood fury creation).
+- `24780 Amulet of blood fury` — OK.
+- `24782-24785 Raw/Cooked mystery meat` — OK (`cooking`).
+- `24788-24794 Pat of not garlic butter, Long rope, Severed leg` — EX.
+
+### Vyre noble cosmetic outfits (Sins of the Father)
+
+- `24794-24840 Vyre noble blazer/coat tails/vest/pants/corset/skirt/dress top/dress bottom × 3 colours (white/red/black)` (~24 items) — LOG (Vyre noble cosmetic, Sins of the Father).
+- `24842 A taste of hope` — EX (book).
+- `24844 Ring of endurance (uncharged)` — LOG (dup of canonical).
+
+### Mythical max + Combat paths + Monkey greegrees
+
+- `24855 Mythical max cape` — OK.
+- `24857 Mythical max hood` — **ADD quests**.
+- `24859-24861 Warrior/Wizard/Ranger path starter kit` — LOG (DMM starter).
+- `24862-24867 Karamjan/Zombie/Maniacal/Skeleton monkey, Kruk jr, Princely monkey` — LOG (quest pets/greegrees).
+
+### Mahogany Homes
+
+- `24872-24885 Carpenter's helmet/shirt/trousers/boots, Amy's saw, Plank sack, Supply crate, Hosidius blueprints` — OK (`construction` group).
+
+### Sote / Waxwood
+
+- `24938-24946 Waxwood log/plank, Marlo's crate, Bp obj, Reinforced goggles, Sourhog foot, Hallowed sack` — LOG/EX.
+
+### Teleport tabs (post-MM2)
+
+- `24949-24963 Moonclan/Ourania/Waterbirth/Barbarian/Khazard/Fishing guild/Catherby/Ice plateau teleport` — OK (8 items, `misc`).
+
+### Halloween 2020 candy event
+
+- `24975-24993 Headless head, Magical pumpkin, candy × 9 colours, Rick's box, Rick's head, Witch's brew, Spider snack, Incantation` — most LOG/EX (Halloween 2020 quest); selected for Holiday rares:
+  - `24977 Magical pumpkin`, `24980-24988 Brown/Blue/White/Purple/Red/Green/Black/Orange candy (8)` — **ADD misc Holiday rares** (9 items).
+  - `24989 Rick's box`, `24990 Rick's head` (2 items) — **ADD misc Holiday rares**.
+  - `24975, 24991-24993 Headless head, Witch's brew, Spider snack, Incantation` — LOG.
+
+### Trailblazer League cosmetic
+
+- `25001-25037 Trailblazer hood/top/trousers/boots (t1/t2/t3) + Trailblazer cane` (13 items) — LOG.
+- `25042-25056 Trailblazer dragon/rune/adamant/mithril/steel/iron/bronze trophy + Trailblazer banner` (8 items) — LOG.
+
+### Infernal tool ornament variants
+
+- `25059 Infernal harpoon (or)` — **ADD melee;fishing** (Infernal harpoon ornament).
+- `25063 Infernal pickaxe (or)` — **ADD mining_smithing** (Infernal pickaxe ornament).
+- `25066 Infernal axe (or)` — **ADD wc_fletching** (Infernal axe ornament).
+
+### Graceful dups + Trailblazer rewards
+
+- `25069-25084 Graceful set dups × 6` — LOG.
+- `25087 Trailblazer teleport scroll` — LOG.
+- `25090 Trailblazer tool ornament kit`, `25099 Trailblazer graceful ornament kit` — OK (`crafting`).
+- `25093 Trailblazer globe`, `25096 Trailblazer rug` — LOG.
+
+---
+
+## Session 61 totals
+
+- Items reviewed: ~300
+- OK (correct as-is): 25
+- EX (correctly excluded): 30 (Sins quest material, Halloween 2020 dialog)
+- ADD (missing tab, fixed): 15 (1 Blood shard, 1 Mythical max hood, 11 Halloween 2020 candy/pumpkin/Rick's, 3 Infernal tool ornaments)
+- REM: 0
+- LOG: 100+ (Vyre noble outfit ×24, Trailblazer League cosmetic ×21, monkey greegrees, combat path starters, Sote Waxwood)
+
+## Classifier changes made in session 61
+
+See `audit/classifier-changes.md` "Session 61".
+
 ## Resume marker
 
-**Next session: start from ID 24751.**
+**Next session: start from ID 25101.**

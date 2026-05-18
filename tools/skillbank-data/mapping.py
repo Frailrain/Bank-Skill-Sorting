@@ -1391,6 +1391,9 @@ WC_FLETCHING = TabSpec(
     name="wc_fletching", const_name="TAG_WC_FLETCHING",
     sections=[
         Section("Axes", _is_wc_axe),
+        Section("Axe ornament variants", _name_in({
+            "Infernal axe (or)", "3rd age axe", "Dragon axe (or)",
+        })),
         Section("Logs", _is_log, sort_key=_log_sort_key),
         Section("Bowstrings", _name_in({"Bow string", "Crossbow string", "Magic string"})),
         Section("Unstrung bows", _or(
@@ -1488,6 +1491,8 @@ FISHING = TabSpec(
             "Cormorant's glove", "Pearl barbarian rod",
             # session 56 — Oily pearl variant
             "Oily pearl fishing rod",
+            # session 61 — Infernal harpoon ornament
+            "Infernal harpoon (or)",
         })),
         Section("Aerial fishing catches + byproducts", _name_in({
             "Bluegill", "Common tench", "Mottled eel", "Greater siren",
@@ -1719,6 +1724,8 @@ MINING_SMITHING = TabSpec(
             "Crystal pickaxe", "Crystal pickaxe (inactive)", "Crystal pickaxe full",
             "Dragon pickaxe (or)", "Dragon pickaxe (upgraded)",
             "3rd age pickaxe", "Infernal pickaxe", "Infernal pickaxe (uncharged)",
+            # session 61 — Infernal pickaxe ornament
+            "Infernal pickaxe (or)",
         })),
         Section("Smithing armour outputs (extended)", _or(
             _name_ends(" full helm"), _name_ends(" med helm"),
@@ -1959,6 +1966,8 @@ SLAYER = TabSpec(
             # session 59 — V's shield construction + Basilisk jaw
             "V sigil", "V sigil (e)", "Molten glass (i)", "Lunar glass",
             "Polishing rock", "Basilisk jaw",
+            # session 61 — Vyre noble drop (Amulet of blood fury creation)
+            "Blood shard",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -2476,6 +2485,12 @@ MISC = TabSpec(
                 "Iced gingerbread shield",
                 "Festive cinnamon stick", "Festive ginger powder",
                 "Festive egg", "Festive pot", "Festive flour",
+                # session 61 — Halloween 2020 candy event
+                "Magical pumpkin",
+                "Brown candy", "Blue candy", "White candy", "Purple candy",
+                "Red candy", "Green candy", "Black candy", "Orange candy",
+                "Pink candy",
+                "Rick's box", "Rick's head",
                 # session 52 — Christmas 2018 Wise Old Man event
                 "Snow imp costume head", "Snow imp costume body",
                 "Snow imp costume legs", "Snow imp costume tail",
@@ -2550,6 +2565,8 @@ QUESTS = TabSpec(
             # session 52 — Imbued + Assembler max hoods
             "Imbued saradomin max hood", "Imbued zamorak max hood",
             "Imbued guthix max hood", "Assembler max hood",
+            # session 61 — Mythical max hood
+            "Mythical max hood",
         })),
         Section("Quest unlock weapons", _name_in({
             "Dramen staff", "Lunar staff", "Ivandis flail", "Blisterwood flail",

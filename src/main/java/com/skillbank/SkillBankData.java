@@ -1247,21 +1247,25 @@ public final class SkillBankData
 
 	private static void addWcFletching(Map<String, List<Integer>> m)
 	{
-		// WC_FLETCHING — 354 items
-		//   Axes (28), Logs (42), Bowstrings (3), Unstrung bows (41), Bows &
-		//   shortbows (strung) (51), Crossbow parts (18), Ballista construction
-		//   (MM2) (5), Bolt tips (12), Bolts (unfinished) (9), Bolts (finished)
-		//   (39), Arrow shafts (3), Arrowtips (12), Arrows (27), Darts (20),
-		//   Javelins (cross-tag with range) (9), Bird nests (3), Feathers (cross-
-		//   tag with fishing) (6), Flax & secondary fletching materials (2), Tools
-		//   (2), Forestry items (post-Sept 2023) (11), Capes & pet (6), Lumberjack
-		//   outfit (4), Sulliuscep + exotic wood (1)
+		// WC_FLETCHING — 356 items
+		//   Axes (28), Axe ornament variants (2), Logs (42), Bowstrings (3),
+		//   Unstrung bows (41), Bows & shortbows (strung) (51), Crossbow parts
+		//   (18), Ballista construction (MM2) (5), Bolt tips (12), Bolts
+		//   (unfinished) (9), Bolts (finished) (39), Arrow shafts (3), Arrowtips
+		//   (12), Arrows (27), Darts (20), Javelins (cross-tag with range) (9),
+		//   Bird nests (3), Feathers (cross-tag with fishing) (6), Flax &
+		//   secondary fletching materials (2), Tools (2), Forestry items (post-
+		//   Sept 2023) (11), Capes & pet (6), Lumberjack outfit (4), Sulliuscep +
+		//   exotic wood (1)
 		m.put(TAG_WC_FLETCHING, Arrays.asList(
 			// === Axes ===
 			1351, 28196, 1349, 28199, 1353, 28202, 1361, 28205,
 			1355, 28208, 1357, 28211, 1359, 28214, 6739, 28217,
 			23673, 28220, 13241, 13242, 10491, 20011, 23279, 23821,
 			25110, 28226, 28810, 33335,
+
+			// === Axe ornament variants ===
+			25378, 25066,
 
 			// === Logs ===
 			1511, 2862, 3438, 1521, 3440, 1519, 3442, 1517,
@@ -1365,16 +1369,16 @@ public final class SkillBankData
 
 	private static void addFishing(Map<String, List<Integer>> m)
 	{
-		// FISHING — 103 items
-		//   Rods & tools (19), Aerial fishing catches + byproducts (7), Bait (11),
+		// FISHING — 104 items
+		//   Rods & tools (20), Aerial fishing catches + byproducts (7), Bait (11),
 		//   Raw fish (25), Specialty fish (11), Angler outfit (4), Spirit angler
 		//   outfit (4), Tempoross rewards (5), Fishing potions (cross-tag) (8),
 		//   Trophy fish (POH mountable) (6), Cape & pet (3)
 		m.put(TAG_FISHING, Arrays.asList(
 			// === Rods & tools ===
-			21028, 23762, 21031, 301, 303, 305, 307, 309,
-			311, 1585, 3157, 10129, 11323, 21652, 22816, 22842,
-			22844, 22846, 23122,
+			21028, 23762, 21031, 25059, 301, 303, 305, 307,
+			309, 311, 1585, 3157, 10129, 11323, 21652, 22816,
+			22842, 22844, 22846, 23122,
 
 			// === Aerial fishing catches + byproducts ===
 			22818, 22820, 22826, 22829, 22832, 22835, 22840,
@@ -1543,13 +1547,13 @@ public final class SkillBankData
 
 	private static void addMiningSmithing(Map<String, List<Integer>> m)
 	{
-		// MINING_SMITHING — 256 items
+		// MINING_SMITHING — 257 items
 		//   Pickaxes (18), Mining tools & bags (9), Ores (21), Bars (10), Smithing
 		//   outputs (8), Lunar Diplomacy ores/bars (2), Daeyalt (Sins of the
 		//   Father) (1), Motherlode Mine (3), Lovakengj mining (sulphur +
 		//   dynamite) (4), Volcanic Mine (ore fragments) (7), Zalcano (tephra +
 		//   shards) (4), Mining outfit (Prospector) (4), Mining/Smithing capes &
-		//   pets (5), Crystal-tool/Tier-fallback pickaxes (1), Smithing armour
+		//   pets (5), Crystal-tool/Tier-fallback pickaxes (2), Smithing armour
 		//   outputs (extended) (129), Gem cutting/polishing inputs (10), Legacy
 		//   (20)
 		m.put(TAG_MINING_SMITHING, Arrays.asList(
@@ -1599,7 +1603,7 @@ public final class SkillBankData
 			9792, 9794, 9795, 9797, 13321,
 
 			// === Crystal-tool/Tier-fallback pickaxes ===
-			23677,
+			23677, 25063,
 
 			// === Smithing armour outputs (extended) ===
 			1075, 1087, 1103, 1117, 1139, 1155, 1173, 1189,
@@ -1815,8 +1819,8 @@ public final class SkillBankData
 
 	private static void addSlayer(Map<String, List<Integer>> m)
 	{
-		// SLAYER — 216 items
-		//   Slayer master items (100), Slayer rings (7), Slayer helmets (27),
+		// SLAYER — 217 items
+		//   Slayer master items (101), Slayer rings (7), Slayer helmets (27),
 		//   Black masks (18), Task-specific gear (28), Cannon (6), Cape & pet (4),
 		//   Champion's Challenge scrolls (11), Mounted heads (POH trophies) (15)
 		m.put(TAG_SLAYER, Arrays.asList(
@@ -1833,7 +1837,7 @@ public final class SkillBankData
 			22006, 22302, 22305, 22372, 22386, 22388, 22390, 22392,
 			22394, 22396, 22660, 22671, 22673, 22957, 22960, 22966,
 			22969, 22971, 22973, 22988, 23077, 23079, 24258, 24259,
-			24260, 24261, 24262, 24268,
+			24260, 24261, 24262, 24268, 24777,
 
 			// === Slayer rings ===
 			11866, 11867, 11868, 11869, 11871, 11872, 11873,
@@ -2130,12 +2134,12 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 568 items
+		// MISC — 580 items
 		//   Teleport jewellery (69), Teleport tabs (74), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (35), Clue
 		//   tools (25), Keys (13), Storage bags (6), Utility / banked supplies
 		//   (2), Imbue scrolls (3), Combat trophies (PvM rewards) (5), Holiday
-		//   rares & cosmetics (212), Team capes (Castle Wars) (50), Currency (12)
+		//   rares & cosmetics (224), Team capes (Castle Wars) (50), Currency (12)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
@@ -2203,33 +2207,34 @@ public final class SkillBankData
 			21285, 21295, 6570, 21433, 21439,
 
 			// === Holiday rares & cosmetics ===
-			11847, 11862, 13343, 1048, 4560, 6100, 6101, 6102,
-			23946, 24030, 24031, 24032, 24033, 962, 979, 981,
-			1037, 1038, 1040, 1042, 1044, 1046, 1050, 1053,
-			1055, 1057, 1959, 1961, 4558, 4559, 4562, 4563,
-			4564, 4565, 4566, 6180, 6181, 6182, 6183, 6184,
-			6185, 6186, 6187, 6188, 6542, 6822, 6828, 6834,
-			6840, 6846, 6852, 6853, 6856, 6857, 6858, 6859,
-			6860, 6861, 6862, 6863, 6864, 6865, 6866, 6867,
-			7592, 7593, 7594, 7595, 7596, 7927, 9920, 9921,
-			9922, 9923, 9924, 9925, 10476, 11019, 11020, 11021,
-			11022, 11023, 11024, 11025, 11026, 11863, 12861, 12887,
-			12888, 12889, 12890, 12891, 12892, 12893, 12894, 12895,
-			12896, 12897, 13173, 13175, 13182, 13183, 13184, 13185,
-			13283, 13284, 13285, 13286, 13287, 13288, 13344, 13345,
-			13663, 13664, 13665, 19958, 19961, 19964, 19967, 19970,
-			19973, 19976, 19979, 19982, 19985, 20080, 20083, 20086,
-			20089, 20092, 20095, 20098, 20101, 20104, 20107, 20433,
-			20436, 20439, 20442, 20832, 20834, 20836, 21208, 21209,
-			21211, 21214, 21216, 21217, 21218, 21219, 21220, 21221,
-			21222, 21223, 21224, 21225, 21226, 21227, 21228, 21229,
-			21230, 21231, 21232, 21233, 21234, 21235, 21236, 21237,
-			21238, 21239, 21847, 21849, 21851, 21853, 21855, 21857,
-			21859, 21866, 21867, 21868, 22351, 22353, 22355, 22358,
-			22361, 22689, 22692, 22695, 22698, 22701, 24305, 24307,
-			24309, 24311, 24313, 24315, 24317, 24319, 24321, 24323,
-			24325, 24327, 24428, 24430, 24431, 24432, 24433, 24434,
-			24435, 24436, 24437, 24438,
+			11847, 11862, 13343, 24986, 1048, 4560, 24982, 6100,
+			6101, 6102, 23946, 24030, 24031, 24032, 24033, 962,
+			979, 981, 1037, 1038, 1040, 1042, 1044, 1046,
+			1050, 1053, 1055, 1057, 1959, 1961, 4558, 4559,
+			4562, 4563, 4564, 4565, 4566, 6180, 6181, 6182,
+			6183, 6184, 6185, 6186, 6187, 6188, 6542, 6822,
+			6828, 6834, 6840, 6846, 6852, 6853, 6856, 6857,
+			6858, 6859, 6860, 6861, 6862, 6863, 6864, 6865,
+			6866, 6867, 7592, 7593, 7594, 7595, 7596, 7927,
+			9920, 9921, 9922, 9923, 9924, 9925, 10476, 11019,
+			11020, 11021, 11022, 11023, 11024, 11025, 11026, 11863,
+			12861, 12887, 12888, 12889, 12890, 12891, 12892, 12893,
+			12894, 12895, 12896, 12897, 13173, 13175, 13182, 13183,
+			13184, 13185, 13283, 13284, 13285, 13286, 13287, 13288,
+			13344, 13345, 13663, 13664, 13665, 19958, 19961, 19964,
+			19967, 19970, 19973, 19976, 19979, 19982, 19985, 20080,
+			20083, 20086, 20089, 20092, 20095, 20098, 20101, 20104,
+			20107, 20433, 20436, 20439, 20442, 20832, 20834, 20836,
+			21208, 21209, 21211, 21214, 21216, 21217, 21218, 21219,
+			21220, 21221, 21222, 21223, 21224, 21225, 21226, 21227,
+			21228, 21229, 21230, 21231, 21232, 21233, 21234, 21235,
+			21236, 21237, 21238, 21239, 21847, 21849, 21851, 21853,
+			21855, 21857, 21859, 21866, 21867, 21868, 22351, 22353,
+			22355, 22358, 22361, 22689, 22692, 22695, 22698, 22701,
+			24305, 24307, 24309, 24311, 24313, 24315, 24317, 24319,
+			24321, 24323, 24325, 24327, 24428, 24430, 24431, 24432,
+			24433, 24434, 24435, 24436, 24437, 24438, 24977, 24980,
+			24981, 24983, 24984, 24985, 24987, 24988, 24989, 24990,
 
 			// === Team capes (Castle Wars) ===
 			4315, 4317, 4319, 4321, 4323, 4325, 4327, 4329,
@@ -2248,12 +2253,12 @@ public final class SkillBankData
 
 	private static void addQuests(Map<String, List<Integer>> m)
 	{
-		// QUESTS — 145 items
+		// QUESTS — 146 items
 		//   Quest & achievement capes (8), Diary - Kandarin (4), Diary - Karamja
 		//   (4), Diary - Ardougne (4), Diary - Falador (4), Diary - Fremennik (4),
 		//   Diary - Wilderness (4), Diary - Morytania (4), Diary - Desert (4),
 		//   Diary - Varrock (4), Diary - Western (4), Diary - Lumbridge (4), Diary
-		//   consumables (4), Max hood variants (11), Quest unlock weapons (11),
+		//   consumables (4), Max hood variants (12), Quest unlock weapons (11),
 		//   Quest cosmetic gear (20), Void Knight set (21), Fighter Torso et al.
 		//   (6), Defenders (11), Boss pets (9)
 		m.put(TAG_QUESTS, Arrays.asList(
@@ -2298,7 +2303,7 @@ public final class SkillBankData
 
 			// === Max hood variants ===
 			21282, 13330, 13332, 13334, 13336, 13338, 20764, 21778,
-			21782, 21786, 21900,
+			21782, 21786, 21900, 24857,
 
 			// === Quest unlock weapons ===
 			35, 772, 2402, 2952, 4170, 4251, 9084, 10581,

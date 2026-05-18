@@ -2304,3 +2304,35 @@ Added Inquisitor's armour set explicit force_include.
 Already caught by ` ornament kit` pattern? Actually "colour kit" - need explicit add.
 
 **Affects**: 1 item.
+
+## Session 61 (audit IDs 24751–25100)
+
+### SLAYER Slayer master items — `Blood shard`
+
+Vyre noble drop, Amulet of blood fury creation material.
+
+**Affects**: 1 item.
+
+### QUESTS Max hood variants — `Mythical max hood`
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Halloween 2020 candy event
+
+Added Magical pumpkin, 9 colour candy variants, Rick's box, Rick's head.
+
+**Affects**: 11 items.
+
+### WC_FLETCHING — new "Axe ornament variants" section
+
+Pattern catches Infernal axe (or) + 3rd age axe + Dragon axe (or).
+
+**Affects**: 3 items.
+
+### MINING_SMITHING Crystal-tool/Tier-fallback pickaxes — `Infernal pickaxe (or)`
+
+**Affects**: 1 item.
+
+### FISHING Rods & tools — `Infernal harpoon (or)`
+
+**Affects**: 1 item.
