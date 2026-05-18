@@ -1104,12 +1104,12 @@ public final class SkillBankData
 
 	private static void addCooking(Map<String, List<Integer>> m)
 	{
-		// COOKING — 637 items
+		// COOKING — 638 items
 		//   Cooking tools (18), Raw fish (25), Cooked fish (23), Pies (10), Pizzas
 		//   (4), Stews & curries (3), Cakes (2), Breads (4), Gnome food /
 		//   cocktails (91), Beverages (54), Burnt food (65), Containers
 		//   (water/milk/etc) (18), Raw meat & ingredients (119), Misc cooked food
-		//   (71), Pies (extended) (19), Harvest produce (cross-tag with farming)
+		//   (72), Pies (extended) (19), Harvest produce (cross-tag with farming)
 		//   (55), Cooking pet & misc (4), Legacy (52)
 		m.put(TAG_COOKING, Arrays.asList(
 			// === Cooking tools ===
@@ -1208,8 +1208,8 @@ public final class SkillBankData
 			7074, 7076, 7078, 7080, 7082, 7084, 7086, 7223,
 			7224, 7230, 7473, 7476, 7521, 7527, 7528, 7530,
 			7544, 7545, 7546, 7568, 7572, 7573, 7574, 7575,
-			7579, 7580, 24785, 29077, 29128, 29131, 29134, 29137,
-			29140, 29143, 29146, 29149, 29152, 29217, 33109,
+			7579, 7580, 9475, 24785, 29077, 29128, 29131, 29134,
+			29137, 29140, 29143, 29146, 29149, 29152, 29217, 33109,
 
 			// === Pies (extended) ===
 			2315, 2317, 2319, 2321, 7164, 7170, 7172, 7182,
@@ -1241,14 +1241,14 @@ public final class SkillBankData
 
 	private static void addWcFletching(Map<String, List<Integer>> m)
 	{
-		// WC_FLETCHING — 433 items
+		// WC_FLETCHING — 435 items
 		//   Axes (28), Logs (42), Bowstrings (3), Unstrung bows (41), Bows &
-		//   shortbows (strung) (51), Crossbow parts (14), Bolt tips (12), Bolts
-		//   (unfinished) (8), Bolts (finished) (39), Arrow shafts (3), Arrowtips
+		//   shortbows (strung) (51), Crossbow parts (17), Bolt tips (12), Bolts
+		//   (unfinished) (9), Bolts (finished) (39), Arrow shafts (3), Arrowtips
 		//   (11), Arrows (27), Darts (20), Javelins (cross-tag with range) (9),
 		//   Bird nests (1), Feathers (cross-tag with fishing) (6), Flax &
 		//   secondary fletching materials (2), Tools (2), Forestry items (post-
-		//   Sept 2023) (11), Capes & pet (6), Legacy (97)
+		//   Sept 2023) (11), Capes & pet (6), Legacy (95)
 		m.put(TAG_WC_FLETCHING, Arrays.asList(
 			// === Axes ===
 			1351, 28196, 1349, 28199, 1353, 28202, 1361, 28205,
@@ -1285,15 +1285,17 @@ public final class SkillBankData
 			30434, 30436, 33245,
 
 			// === Crossbow parts ===
-			9420, 9423, 9425, 9427, 9429, 9431, 21918, 9440,
-			9442, 9444, 9446, 9448, 9450, 9452,
+			9420, 9423, 9425, 9427, 9429, 9431, 21918, 9422,
+			9433, 9434, 9440, 9442, 9444, 9446, 9448, 9450,
+			9452,
 
 			// === Bolt tips ===
 			45, 46, 47, 9187, 9188, 9189, 9190, 9191,
 			9192, 9193, 9194, 21338,
 
 			// === Bolts (unfinished) ===
-			9375, 9377, 9378, 9379, 9381, 21930, 9376, 9382,
+			9375, 9377, 9378, 9379, 9380, 9381, 21930, 9376,
+			9382,
 
 			// === Bolts (finished) ===
 			877, 9140, 9141, 9142, 9143, 9144, 21905, 21955,
@@ -1348,15 +1350,14 @@ public final class SkillBankData
 			1375, 1377, 1849, 1853, 3094, 4214, 4215, 4216,
 			4217, 4218, 4219, 4220, 4221, 4222, 4223, 4428,
 			4718, 5071, 5072, 5073, 5074, 5075, 6589, 6904,
-			7807, 9174, 9380, 9422, 9455, 9774, 9775, 9784,
-			11749, 11750, 11751, 11752, 11753, 11754, 11755, 11756,
-			11757, 11758, 19570, 19572, 19574, 19576, 19578, 19580,
-			19581, 19582, 20727, 21352, 21964, 22550, 23185, 23675,
-			23985, 25484, 25862, 28134, 28164, 28166, 28168, 28170,
-			28172, 28174, 28186, 28188, 28190, 28192, 28194, 28198,
-			28200, 28204, 28206, 28210, 28212, 28216, 28218, 28222,
-			28223, 28279, 28280, 28281, 28282, 28283, 28284, 28285,
-			28420
+			7807, 9174, 9455, 9774, 9775, 9784, 11749, 11750,
+			11751, 11752, 11753, 11754, 11755, 11756, 11757, 11758,
+			19570, 19572, 19574, 19576, 19578, 19580, 19581, 19582,
+			20727, 21352, 21964, 22550, 23185, 23675, 23985, 25484,
+			25862, 28134, 28164, 28166, 28168, 28170, 28172, 28174,
+			28186, 28188, 28190, 28192, 28194, 28198, 28200, 28204,
+			28206, 28210, 28212, 28216, 28218, 28222, 28223, 28279,
+			28280, 28281, 28282, 28283, 28284, 28285, 28420
 		));
 	}
 

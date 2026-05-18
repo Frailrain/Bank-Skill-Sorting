@@ -1056,3 +1056,23 @@ Added Magic essence (unf), Magic essence (1-4) — Hazeel Cult Magic potion inte
 Moved Lunar cape from range to mage (Lunar set is mage-themed; cape has defence_ranged=2 spillover that miscategorized it).
 
 **Affects**: 1 item.
+
+## Session 32 (audit IDs 9301–9600)
+
+### WC_FLETCHING Crossbow parts — Blurite limbs, Bolt pouch, Bolt mould
+
+Added 3 items to crossbow parts named list. Blurite limbs was missing from the canonical limbs list; Bolt pouch and Bolt mould are crossbow construction tools.
+
+**Affects**: 3 items.
+
+### WC_FLETCHING "Bolts (unfinished)" — spacing variant pattern
+
+Pattern now matches both `bolts (unf)` (canonical, space) and `bolts(unf)` (no-space variant — Adamant bolts(unf) item 9380 uses this form).
+
+**Affects**: 1+ items.
+
+### COOKING "Misc cooked food" — `Mint cake`
+
+Gnome Restaurant food.
+
+**Affects**: 1 item.

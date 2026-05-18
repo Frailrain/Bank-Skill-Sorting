@@ -736,7 +736,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== wc_fletching (97 items not in wiki output) ===
+=== wc_fletching (95 items not in wiki output) ===
      671  Animal skull
      687  Broken arrow
     1363  Iron battleaxe
@@ -771,8 +771,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     6904  Animals' bones
     7807  Anger battleaxe
     9174  Bronze crossbow
-    9380  Adamant bolts(unf)
-    9422  Blurite limbs
     9455  (not in wiki canonical set)
     9774  Herblore cape
     9775  (not in wiki canonical set)

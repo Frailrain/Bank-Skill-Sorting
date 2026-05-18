@@ -2884,6 +2884,62 @@ See `audit/classifier-changes.md` "Session 30".
 
 See `audit/classifier-changes.md` "Session 31".
 
+---
+
+## Session 32: IDs 9301–9600
+
+### Gem bolts (Defender of Varrock fletching chain)
+
+- `9335-9342 Jade/Topaz/Sapphire/Emerald/Ruby/Diamond/Dragonstone/Onyx bolts` — OK (8 items, `range;wc_fletching`).
+
+### Unfinished bolts (canonical fletching chain)
+
+- `9375-9379, 9381-9382 Bronze/Blurite/Iron/Steel/Mithril/Runite/Silver bolts (unf)` — OK (7 items, `wc_fletching`).
+- `9380 Adamant bolts(unf)` — **ADD wc_fletching**. Spacing-variant `bolts(unf)` (no space before `(unf)`) wasn't matched by existing `name_ends(" bolts (unf)")` pattern.
+
+### Death Plateau grapples
+
+- `9415-9419 Grapple, Mith grapple tip, Mith grapple × 2` — LOG (Death Plateau / agility shortcut tool).
+
+### Crossbow limbs + crossbow parts
+
+- `9420-9431 Bronze/Iron/Steel/Mithril/Adamantite/Runite limbs` — OK (6 items, `wc_fletching`).
+- `9422 Blurite limbs` — **ADD wc_fletching** (missing from limbs list).
+- `9433 Bolt pouch`, `9434 Bolt mould` — **ADD wc_fletching** (2 items, crossbow construction tools).
+- `9436-9438 Sinew, Crossbow string` — OK (`wc_fletching`).
+- `9440-9452 Wooden/Oak/Willow/Teak/Maple/Mahogany/Yew stock` — OK (7 items).
+- `9454-9465 Unfinished crossbow variants` — OK (7 items).
+- `9467 Blurite bar` — OK (`mining_smithing`).
+
+### Gnome Restaurant + Aluft Aloft
+
+- `9468 Sawdust`, `9469 Grand seed pod`, `9470-9472 Gnome scarf/Gnome goggles`, `9474 Reward token`, `9477 Aluft aloft box` — LOG/EX.
+- `9475 Mint cake` — **ADD cooking** (Gnome Restaurant food).
+- `9478-9486 Half made batta, Unfinished batta × many dups` — LOG (gnome cooking intermediate dups).
+- `9558-9564 Half made bowl, Unfinished bowl dups` — LOG.
+- `9566-9576 Mixed blizzard/sgg/blast/punch/special/saturday/dragon × dups` (11 items) — LOG (gnome cocktail intermediate).
+- `9577-9584 Half made crunchy, Unfinished crunchy dups` — LOG.
+
+### Quest / Tower of Life misc
+
+- `9589-9596 Dossier × 2, Broken cauldron, Magic glue, Weird gloop, Ground mud runes, Hazelmere's book, A eyeglo null` — EX (Hazeel Cult / Watchtower / Tower of Life quest material).
+- `9597-9600 Red circle/triangle/square/pentagon` — EX (Tower of Life lock pattern).
+
+---
+
+## Session 32 totals
+
+- Items reviewed: ~80
+- OK (correct as-is): 40
+- EX (correctly excluded): 12 (gnome quest cosmetic, Tower of Life puzzle, Hazeel Cult material)
+- ADD (missing tab, fixed): 5 (Adamant bolts(unf), Blurite limbs, Bolt pouch, Bolt mould, Mint cake)
+- REM: 0
+- LOG: 25+ (gnome cooking intermediate variants, Death Plateau grapples)
+
+## Classifier changes made in session 32
+
+See `audit/classifier-changes.md` "Session 32".
+
 ## Resume marker
 
-**Next session: start from ID 9301.**
+**Next session: start from ID 9601.**

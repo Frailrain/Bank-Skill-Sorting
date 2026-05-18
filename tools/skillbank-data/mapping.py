@@ -1042,6 +1042,8 @@ COOKING = TabSpec(
                 "Enchanted egg", "Enchanted milk", "Enchanted flour",
                 "Red banana", "Tchiki monkey nuts", "Sliced red banana", "Tchiki nut paste",
                 "Stuffed snake", "Snake over-cooked",
+                # session 32 — Gnome Restaurant
+                "Mint cake",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1088,14 +1090,18 @@ WC_FLETCHING = TabSpec(
         Section("Crossbow parts", _name_in({
             "Wooden stock", "Oak stock", "Willow stock", "Teak stock",
             "Maple stock", "Mahogany stock", "Yew stock",
-            "Bronze limbs", "Iron limbs", "Steel limbs", "Mithril limbs",
+            "Bronze limbs", "Blurite limbs", "Iron limbs", "Steel limbs", "Mithril limbs",
             "Adamantite limbs", "Runite limbs", "Dragon limbs",
+            "Bolt pouch", "Bolt mould",
         })),
         Section("Bolt tips", _or(
             _name_ends(" bolt tips"),
             _name_in({"Barb bolttips"}),  # historical no-space plural
         )),
-        Section("Bolts (unfinished)", _name_ends(" bolts (unf)")),
+        Section("Bolts (unfinished)", _or(
+            _name_ends(" bolts (unf)"),
+            _name_ends(" bolts(unf)"),  # historical no-space variant (Adamant bolts(unf))
+        )),
         Section("Bolts (finished)", _and(_name_ends(" bolts"),
                                           _not(_name_contains("(unf)")))),
         Section("Arrow shafts", _or(
