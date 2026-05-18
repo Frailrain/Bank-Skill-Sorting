@@ -555,7 +555,21 @@ def _herb_sort_key(it):
 
 def _is_seed(it):
     n = it.get("name", "")
-    return n.endswith(" seed") or n.endswith(" seedling") or n.endswith(" sapling")
+    if n.endswith(" seed") or n.endswith(" seedling") or n.endswith(" sapling"):
+        return True
+    # Non-suffix seeds
+    return n in {"Mushroom spore", "Acorn"}
+
+
+_HARVEST_FRUITS = ("Apples", "Oranges", "Strawberries", "Bananas", "Lemons", "Limes", "Pineapples")
+_HARVEST_VEGS = ("Potatoes", "Onions", "Cabbages", "Tomatoes", "Sweetcorn")
+_HARVEST_PRODUCE_RE = re.compile(
+    r"^(?:" + "|".join(_HARVEST_FRUITS + _HARVEST_VEGS) + r")\(\d+\)$"
+)
+
+
+def _is_harvest_produce(it):
+    return bool(_HARVEST_PRODUCE_RE.match(it.get("name", "")))
 
 
 def _is_sapling(it):
@@ -938,6 +952,7 @@ COOKING = TabSpec(
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
+        Section("Harvest produce (cross-tag with farming)", _is_harvest_produce),
         Section("Cooking pet & misc", _name_in({"Rocky", "Heron", "Beaver", "Pet hellpuppy", "Pet kitten"})),
     ],
 )
@@ -1358,6 +1373,7 @@ FARMING = TabSpec(
     sections=[
         Section("Tools", _name_in({
             "Rake", "Spade", "Seed dibber",
+            "Gardening trowel", "Gardening boots",
             "Secateurs", "Magic secateurs", "Watering can",
             "Watering can(8)", "Watering can(7)", "Watering can(6)",
             "Watering can(5)", "Watering can(4)", "Watering can(3)",
@@ -1373,6 +1389,10 @@ FARMING = TabSpec(
         Section("Seeds", _is_seed),
         # Note: prior force_exclude for "Marigold seed" was removed in session 18
         # audit — marigold IS a real farming flower seed.
+        Section("Harvest produce", _or(
+            _is_harvest_produce,
+            _name_in({"Basket", "Empty sack", "Filled plant pot"}),
+        )),
         Section("Saplings", _is_sapling),
         Section("Farmer outfit", _name_starts("Farmer's ")),
         Section("Cape & pet", _name_in({

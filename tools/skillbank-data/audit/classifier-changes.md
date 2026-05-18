@@ -686,6 +686,30 @@ The prior force_exclude was wrong; Marigold is a real farming flower seed.
 
 Falconry / nest drop used as bait.
 
+---
+
+## Session 19 (audit IDs 5201–5500)
+
+### FARMING Tools — `Gardening trowel`, `Gardening boots`
+
+Tool + outfit additions.
+
+### `_is_seed` — also matches `Mushroom spore` and `Acorn`
+
+Non-suffix farming seeds previously missed by the " seed" / " seedling" / " sapling" endswith.
+
+### New `_is_harvest_produce` helper + FARMING "Harvest produce" section
+
+Regex pattern matches `(Apples|Oranges|Strawberries|Bananas|Lemons|Limes|Pineapples|Potatoes|Onions|Cabbages|Tomatoes|Sweetcorn)(N)` for N digits — the harvest basket/sack item names.
+
+Also explicit allowlist for `Basket`, `Empty sack`, `Filled plant pot`.
+
+**Affects**: ~50 farming items now classified.
+
+### COOKING "Harvest produce (cross-tag with farming)" section
+
+Same regex pattern, cross-tagged into cooking since the produce items are also cooking ingredients.
+
 ## Session 16 (audit IDs 4301–4600)
 
 ### `_BASIC_COLOUR_CAPES` — added 50 Team-N capes

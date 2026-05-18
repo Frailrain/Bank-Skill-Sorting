@@ -21,8 +21,9 @@
 - **Reviewed in session 16**: IDs 4301–4600 (161 items)
 - **Reviewed in session 17**: IDs 4601–4900 (125 items)
 - **Reviewed in session 18**: IDs 4901–5200 (53 items)
-- **Reviewed cumulative**: 2621 (22.1%)
-- **Resume from**: ID 5201
+- **Reviewed in session 19**: IDs 5201–5500 (133 items)
+- **Reviewed cumulative**: 2754 (23.2%)
+- **Resume from**: ID 5501
 
 ## Decision codes
 
@@ -1792,6 +1793,58 @@ See `audit/classifier-changes.md` "Session 17".
 
 See `audit/classifier-changes.md` "Session 18".
 
+---
+
+## Session 19: IDs 5201–5500
+
+Heavy farming batch. Most items correctly classified; gaps are mostly harvest produce and tools.
+
+### Tree / herb / seed family (5280–5324, 5358–5500)
+
+- `5280-5324` (~45 seeds: Cactus/Belladonna, all tree seeds, all clean herb seeds, all hops seeds, all allotment seeds) — OK. Already in farming.
+- `5282 Mushroom spore` — **ADD farming**. Bittercap mushroom seed equivalent.
+- `5312 Acorn` — **ADD farming**. Oak tree seedling.
+- `5358-5363 Oak/Willow/Maple/Yew/Magic/Spirit seedling` — OK (6 items, farming).
+- `5370-5375 Tree saplings` — OK (6 items, farming).
+- `5480-5500 Fruit tree seedlings + saplings` — OK (~14 items).
+
+### Farming tools / outfit
+
+- `5325 Gardening trowel` — **ADD farming**. Currently unclassified.
+- `5327 Spade handle`, `5328 Spade head` — EX (quest items, Family Crest).
+- `5329 Secateurs`, `5331-5340 Watering can (0..8)`, `5341 Rake`, `5343 Seed dibber` — OK (~10 items, farming).
+- `5345 Gardening boots` — **ADD farming**. Cosmetic farming outfit boots.
+- `5347 Rake handle`, `5348 Rake head` — EX (quest items).
+
+### Plant pot variants
+
+- `5350 Empty plant pot` — OK (farming).
+- `5352 Unfired plant pot` — OK (crafting).
+- `5354 Filled plant pot` — **ADD farming**. Currently unclassified.
+- `5356 Plant pot` — OK (crafting;farming;misc).
+
+### Fruit / vegetable harvest produce
+
+- `5378-5416 Apples(1..5), Oranges(1..5), Strawberries(1..5), Bananas(1..5)` (~20 items) — **ADD farming + cooking** (harvest baskets). Cross-tag pattern.
+- `5418 Empty sack` — **ADD farming**.
+- `5420-5478 Potatoes(1..10), Onions(1..10), Cabbages(1..10)` (~30 items) — **ADD farming + cooking** (harvest sacks).
+- `5376 Basket` — **ADD farming** (harvest container).
+
+---
+
+## Session 19 totals
+
+- Items reviewed: 133
+- OK (correct as-is): 80
+- EX (correctly excluded): 6 (quest part items: Spade handle/head, Rake handle/head)
+- ADD (missing tab, fixed): 47 (Mushroom spore, Acorn, Gardening trowel/boots, Filled plant pot, Basket, Empty sack, ~20 fruit baskets to farming+cooking, ~30 vegetable sacks to farming+cooking)
+- REM (misclassified, fixed): 0
+- LOG (deferred): 0
+
+## Classifier changes made in session 19
+
+See `audit/classifier-changes.md` "Session 19".
+
 ## Resume marker
 
-**Next session: start from ID 5201.**
+**Next session: start from ID 5501.**
