@@ -97,10 +97,15 @@ def paginated_query(
     cache_dir: Path,
     *,
     where: dict | None = None,
+    raw_where: str | None = None,
     ttl: int = DEFAULT_TTL_SECONDS,
     use_cache: bool = True,
     refresh: bool = False,
 ) -> list[dict]:
+    """`where` is a {field: value} dict (each becomes .where(field, value) — AND).
+    `raw_where` is a literal Lua expression appended via .where(<expr>); use
+    this when you need bucket.Or, bucket.And, bucket.Not constructs that
+    can't be expressed as plain key-value pairs."""
     select = ",".join(f"'{f}'" for f in fields)
     where_clauses = ""
     for k, v in (where or {}).items():
@@ -110,6 +115,8 @@ def paginated_query(
             where_clauses += f".where('{k}',{v})"
         else:
             where_clauses += f".where('{k}','{v}')"
+    if raw_where:
+        where_clauses += f".where({raw_where})"
 
     all_rows: list[dict] = []
     offset = 0
@@ -151,9 +158,27 @@ BONUSES_FIELDS = [
 
 
 def fetch_canonical_items(cache_dir: Path, **kwargs) -> list[dict]:
+    """Fetch canonical items + dose variants (3 dose / 2 dose / 1 dose).
+
+    Wiki's `default_version=true` would pin each potion to its (4)-dose row;
+    we need the lower doses too so the herblore tab classifier can pick them
+    up. Bucket's `where()` is AND-only; multi-value OR uses `bucket.Or()`
+    with `{field, value}` table conditions (lowercase `bucket`, not the
+    `Bucket` shown in the official Lua docs — that global only exists in
+    wiki modules, not via api.php).
+    """
+    # Pre-built OR clause: default_version OR known dose variants.
+    or_clause = (
+        "bucket.Or("
+        "{'default_version',true},"
+        "{'version_anchor','3 dose'},"
+        "{'version_anchor','2 dose'},"
+        "{'version_anchor','1 dose'}"
+        ")"
+    )
     return paginated_query(
         "infobox_item", ITEM_FIELDS, cache_dir,
-        where={"default_version": True}, **kwargs,
+        raw_where=or_clause, **kwargs,
     )
 
 
