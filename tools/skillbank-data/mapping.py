@@ -767,7 +767,7 @@ MELEE = TabSpec(
         })),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower())
-                + ["Granite helm"],
+                + ["Granite helm", "Serpentine helm (uncharged)"],
                 force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead",
                                "Ahrim's hood", "Karil's coif", "Rogue mask",
                                "Spined helm", "Skeletal helm", "Snakeskin bandana",
@@ -816,6 +816,17 @@ MELEE = TabSpec(
                 force_include=["Granite shield", "Draconic visage"]),
         Section("Trim/gilded armour cosmetic variants",
                 _is_trim_gilded_melee_armour),
+        Section("GE armour sets (melee)", _and(
+            _or(_name_ends(" set (lg)"), _name_ends(" set (sk)")),
+            _not(_name_contains("dragonhide")),
+        ), force_exclude=["Karil's armour set", "Ahrim's armour set"]),
+        Section("Spirit shield construction", _name_in({
+            "Elysian sigil", "Spectral sigil", "Arcane sigil",
+            "Holy elixir",
+        })),
+        Section("Crystal halberd", _name_in({
+            "New crystal halberd full", "New crystal halberd full (i)",
+        })),
         Section("Capes", _slot_pred("cape"),
                 force_include=["Attack hood", "Strength hood", "Defence hood", "Hitpoints hood"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
@@ -921,7 +932,8 @@ MAGE = TabSpec(
         Section("Combo runes", _name_in(_COMBO_RUNES)),
         Section("Essence", _name_in(_ESSENCE)),
         Section("Staves", _is_mage_weapon_type("staff", "powered staff", "polestaff"),
-                force_include=["Trident of the seas (full)", "Uncharged trident"]),
+                force_include=["Trident of the seas (full)", "Uncharged trident",
+                               "Trident of the swamp", "Uncharged toxic trident"]),
         Section("Wands", _is_mage_weapon_type("wand")),
         Section("Ward shards (construction intermediates)", _name_in({
             "Malediction shard 1", "Malediction shard 2", "Malediction shard 3",
@@ -1613,6 +1625,8 @@ AGILITY_THIEVING = TabSpec(
             "Ardougne cloak 3", "Ardougne cloak 4",
             "Gloves of silence", "Coin pouch", "Coin pouch (cracked)",
             "Stethoscope", "Lockpick",
+            # session 43 — Rogue's revenge (NPC drink reward)
+            "Rogue's revenge",
         })),
         Section("Blackjacks", _is_blackjack),
         Section("Pyramid plunder", _name_in({
@@ -1653,6 +1667,10 @@ SLAYER = TabSpec(
             "Fire rune pack", "Mind rune pack", "Chaos rune pack",
             "Bird snare pack", "Box trap pack", "Magic imp box pack",
             "Frozen whip mix", "Volcanic whip mix",
+            # session 43 — more packs + Zulrah drops
+            "Olive oil pack", "Eye of newt pack",
+            "Tanzanite fang", "Serpentine visage", "Magic fang",
+            "Zulrah's scales",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -1842,6 +1860,9 @@ HUNTER = TabSpec(
             "Raw rabbit", "Raw rat meat",
             "Worm", "Red vine worm",
             "Bird's egg",
+        })),
+        Section("Hunter rewards", _name_in({
+            "Hunter's honour",
         })),
         Section("Impling jars", _is_impling, sort_key=_impling_sort_key),
         Section("Polar camo", _name_in({"Polar camo top", "Polar camo legs"})),
@@ -2076,6 +2097,12 @@ MISC = TabSpec(
                 # session 39 — Halloween + Christmas partyhats
                 "Black h'ween mask",
                 "Black partyhat", "Rainbow partyhat",
+                # session 43 — Santa/Antisanta event + Thanksgiving
+                "Santa mask", "Santa jacket", "Santa pantaloons",
+                "Santa gloves", "Santa boots",
+                "Antisanta mask", "Antisanta jacket", "Antisanta pantaloons",
+                "Antisanta gloves", "Antisanta boots", "Antisanta's coal box",
+                "Thanksgiving dinner",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),

@@ -3853,6 +3853,101 @@ See `audit/classifier-changes.md` "Session 41".
 
 See `audit/classifier-changes.md` "Session 42".
 
+---
+
+## Session 43: IDs 12801–13100
+
+### Ward + Ironman + Spirit shields
+
+- `12802 Ward upgrade kit`, `12804 Saradomin's tear` — LOG (single-use upgrade).
+- `12806-12807 Malediction/Odium ward dups` — LOG.
+- `12809 Saradomin's blessed sword` — OK (`melee`).
+- `12810-12815 Ironman/Ultimate ironman helm/platebody/platelegs` (6 items) — OK (`melee[;mining_smithing]`).
+- `12816 Pet dark core` — LOG.
+
+### Spirit shields + sigils
+
+- `12817-12831 Elysian/Spectral/Arcane spirit shield + Spirit shield + Blessed spirit shield` — OK (5 items).
+- `12819 Elysian sigil`, `12823 Spectral sigil`, `12827 Arcane sigil` (3 items) — **ADD melee** (Spirit shield construction materials).
+- `12833 Holy elixir` — **ADD melee** (Blessed spirit shield material).
+
+### Halloween 2015 Grim Reaper event
+
+- `12835-12848 Community pumpkin, Grim reaper's diary/hood, Grim robe, Will and testament, Servant's skull, Hourglass, Scythe sharpener, Human eye, Voice potion, Target teleport scroll, Granite clamp` (~12 items) — EX/LOG (Halloween 2015 event).
+- `12839 Human bones` — OK (`prayer`).
+- `12851 Amulet of the damned (full)` — OK (`melee;range;mage`).
+
+### Misc bulk packs + drink rewards
+
+- `12854 Flamtaer bag` — LOG (Mort'ton container).
+- `12855 Hunter's honour` — **ADD hunter** (NPC drink reward).
+- `12856 Rogue's revenge` — **ADD agility_thieving** (NPC drink reward).
+- `12857 Olive oil pack`, `12859 Eye of newt pack` (2 items) — **ADD slayer** (Slayer master bulk packs).
+
+### Thanksgiving + Dwarf cannon set
+
+- `12861 Thanksgiving dinner` — **ADD misc Holiday rares**.
+- `12863 Dwarf cannon set` — LOG (GE convenience set).
+
+### Grand Exchange armour sets
+
+- `12865-12871 Green/Blue/Red/Black dragonhide set` — OK (4 items, `range` via dragonhide pattern).
+- `12873-12883 Guthan's/Verac's/Dharok's/Torag's/Ahrim's/Karil's armour set` (6 items) — LOG (Barrows convenience sets; canonical pieces already classify).
+- `12960-13062 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune/Gilded/Saradomin/Zamorak/Guthix/Armadyl/Bandos/Ancient armour set (lg)/(sk)` (~50 items) — **ADD melee** (GE convenience sets unpack into canonical melee armour).
+
+### Zulrah + toxic equipment
+
+- `12885 Jar of sand` — LOG.
+- `12887-12891 Santa mask/jacket/pantaloons/gloves/boots` (5 items) — **ADD misc Holiday rares**.
+- `12892-12897 Antisanta mask/jacket/pantaloons/gloves/boots + coal box` (6 items) — **ADD misc Holiday rares**.
+- `12899-12900 Trident of the swamp, Uncharged toxic trident` (2 items) — **ADD mage**.
+- `12902-12904 Toxic staff (uncharged), Toxic staff of the dead` — OK (`melee`).
+- `12905-12919 Anti-venom (4-1), Anti-venom+ (4-1)` — OK (8 items, `herblore`).
+- `12921 Pet snakeling` — LOG.
+- `12922 Tanzanite fang` — **ADD slayer** (Zulrah drop, blowpipe ingredient).
+- `12926 Toxic blowpipe` — OK (`range`).
+- `12927 Serpentine visage` — **ADD slayer** (Zulrah drop, Serpentine helm base).
+- `12929 Serpentine helm (uncharged)` — **ADD melee**.
+- `12931 Serpentine helm` — OK (`melee`).
+- `12932 Magic fang` — **ADD slayer** (Zulrah drop, upgrades Trident).
+- `12934 Zulrah's scales` — **ADD slayer** (Zulrah currency/serum).
+- `12935-12936 Ohn's diary, Jar of swamp` — LOG.
+- `12938 Zul-andra teleport` — OK (`misc`).
+
+### Dragon defender + Cow-stume
+
+- `12954 Dragon defender` — OK.
+- `12955 Free to play starter pack` — LOG.
+- `12956-12959 Cow top/trousers/gloves/shoes` (4 items) — LOG (Easter Cow-stume).
+
+### Combat/Super potion sets + Achievement diary
+
+- `13064-13066 Combat potion set, Super potion set` (2 items) — LOG (GE convenience sets).
+- `13070 Achievement diary hood` — OK (`quests`).
+- `13071 Chompy chick` — LOG.
+- `13072-13073 Elite void top, Elite void robe` — OK (2 items, `melee;range;mage`).
+- `13074-13077 Pharaoh's sceptre × 4 dups` — LOG.
+
+### Crystal halberd + lyre
+
+- `13079 Enchanted lyre(5)` — **ADD fishing** (5-charge variant of lyre family).
+- `13080 New crystal halberd full (i)`, `13091 New crystal halberd full` (2 items) — **ADD melee** (post-Roving Elves crystal halberd).
+
+---
+
+## Session 43 totals
+
+- Items reviewed: ~200
+- OK (correct as-is): 55
+- EX (correctly excluded): 25 (Halloween 2015 event content)
+- ADD (missing tab, fixed): ~85 (4 spirit shield materials, 2 NPC drinks, 2 slayer packs, 12 Santa/Antisanta, 1 Thanksgiving, 2 toxic trident, 4 Zulrah drops, 1 Serpentine helm uncharged, 1 Enchanted lyre, 2 crystal halberd, ~50 GE armour sets melee)
+- REM: 0
+- LOG: 60+ (Barrows convenience sets, Halloween event, boss pets, dups, GE potion sets, Cow-stume)
+
+## Classifier changes made in session 43
+
+See `audit/classifier-changes.md` "Session 43".
+
 ## Resume marker
 
-**Next session: start from ID 12801.**
+**Next session: start from ID 13101.**

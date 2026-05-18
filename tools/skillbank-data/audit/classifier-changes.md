@@ -1442,3 +1442,57 @@ Ring of wealth scroll, Magic shortbow scroll.
 Added Nest box (empty), Nest box (seeds) to bird nests section.
 
 **Affects**: 2 items.
+
+## Session 43 (audit IDs 12801–13100)
+
+### MELEE — new "GE armour sets (melee)" section
+
+Pattern `name_ends(" set (lg)")` or `name_ends(" set (sk)")` (excluding dragonhide via _not contains, and Karil's/Ahrim's force_excluded). Catches all Grand Exchange convenience sets that auto-unpack into melee armour.
+
+**Affects**: ~50 items.
+
+### MELEE — new "Spirit shield construction" section
+
+Added Elysian sigil, Spectral sigil, Arcane sigil, Holy elixir (spirit shield production materials).
+
+**Affects**: 4 items.
+
+### MELEE — new "Crystal halberd" section
+
+Added New crystal halberd full, New crystal halberd full (i).
+
+**Affects**: 2 items.
+
+### MELEE Helmets — `Serpentine helm (uncharged)` force_include
+
+**Affects**: 1 item.
+
+### MAGE Staves — toxic trident force_include
+
+Added Trident of the swamp, Uncharged toxic trident.
+
+**Affects**: 2 items.
+
+### SLAYER Slayer master items — more packs + Zulrah drops
+
+Added Olive oil pack, Eye of newt pack, Tanzanite fang, Serpentine visage, Magic fang, Zulrah's scales.
+
+**Affects**: 6 items.
+
+### HUNTER — new "Hunter rewards" section
+
+Added Hunter's honour (NPC drink reward).
+
+**Affects**: 1 item.
+
+### AGILITY_THIEVING Thieving accessories — `Rogue's revenge`
+
+NPC drink reward.
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Santa/Antisanta + Thanksgiving
+
+Added Santa mask/jacket/pantaloons/gloves/boots, Antisanta mask/jacket/pantaloons/gloves/boots/coal box, Thanksgiving dinner.
+
+**Affects**: 12 items.
