@@ -725,6 +725,7 @@ MELEE = TabSpec(
         Section("Shields", _slot_pred("shield"),
                 force_include=["Granite shield"]),
         Section("Capes", _slot_pred("cape"),
+                force_include=["Attack hood", "Strength hood", "Defence hood", "Hitpoints hood"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _slot_pred("neck"),
                 force_exclude=["Gnome amulet", "Beads of the dead"]),
@@ -783,6 +784,7 @@ RANGE = TabSpec(
                 force_exclude=["Rogue gloves"]),
         Section("Shields", _is_range_armour_slot("shield")),
         Section("Capes", _is_range_armour_slot("cape"),
+                force_include=["Ranging hood", "Hitpoints hood"],
                 force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES + ["Lunar cape"]),
         # Team capes are caught by the section above via _is_range_armour_slot
         # because the cape has defence_ranged=2 like basic colour capes.
@@ -832,7 +834,7 @@ MAGE = TabSpec(
                 + ["Leather vambraces", "Rogue gloves"]),
         Section("Shields", _is_mage_armour_slot("shield")),
         Section("Capes", _is_mage_armour_slot("cape"),
-                force_include=["Lunar cape"],
+                force_include=["Lunar cape", "Magic hood", "Hitpoints hood"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _is_mage_armour_slot("neck"),
                 force_exclude=["Beads of the dead"]),
@@ -1699,6 +1701,14 @@ CONSTRUCTION = TabSpec(
             "Shoe box", "Gilded wardrobe",
             "Beer barrel", "Cider barrel",
             "Construction guide",
+            # session 33 — POH wardrobe/cape rack/storage extensions
+            "Gilded cape rack", "Marble cape rack", "Magic cape rack",
+            "Oak toy box", "Teak toy box", "Mahogany toy box",
+            "Gilded magic wardrobe", "Marble magic wardrobe",
+            "Oak treasure chest", "Teak treasure chest", "M. treasure chest",
+            "Oak fancy dress box", "Teak fancy dress box", "Mahogany fancy dress box",
+            # session 33 — Construct. hood
+            "Construct. hood",
         })),
         Section("POH teleports", _name_in({
             "Teleport to house", "Construct. cape teleport",

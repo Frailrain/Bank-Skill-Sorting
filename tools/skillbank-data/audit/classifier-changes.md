@@ -1076,3 +1076,22 @@ Pattern now matches both `bolts (unf)` (canonical, space) and `bolts(unf)` (no-s
 Gnome Restaurant food.
 
 **Affects**: 1 item.
+
+## Session 33 (audit IDs 9601–9900)
+
+### MELEE/RANGE/MAGE Capes — combat hood force_include
+
+Combat hoods (Attack/Strength/Defence/Ranging/Magic/Hitpoints hood) were sitting in 0 tabs because the `_slot_pred("cape")` predicate requires the underlying item to be the cape slot piece; hoods are head slot.
+
+Added force_includes:
+- MELEE Capes: Attack hood, Strength hood, Defence hood, Hitpoints hood
+- RANGE Capes: Ranging hood, Hitpoints hood
+- MAGE Capes: Magic hood, Hitpoints hood
+
+**Affects**: 6 items (Hitpoints hood triple-classifies via 3 force_includes).
+
+### CONSTRUCTION "Basic furniture" — POH furniture + Construct. hood
+
+Added Gilded/Marble/Magic cape rack, Oak/Teak/Mahogany toy box, Gilded/Marble magic wardrobe, Oak/Teak/M. treasure chest, Oak/Teak/Mahogany fancy dress box, Construct. hood.
+
+**Affects**: 15 items.

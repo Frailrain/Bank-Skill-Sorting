@@ -454,9 +454,9 @@ public final class SkillBankData
 
 	private static void addMelee(Map<String, List<Integer>> m)
 	{
-		// MELEE — 1481 items
+		// MELEE — 1485 items
 		//   Combat utility (6), Weapons (285), Helmets (224), Body armour (137),
-		//   Legs (124), Boots (68), Gloves (68), Shields (111), Capes (50),
+		//   Legs (124), Boots (68), Gloves (68), Shields (111), Capes (54),
 		//   Amulets (37), Rings (17), Combat potions (56), Restores (cross-tag)
 		//   (14), Combat food (23), Legacy (261)
 		m.put(TAG_MELEE, Arrays.asList(
@@ -608,13 +608,13 @@ public final class SkillBankData
 			24266, 25985, 27251, 27550, 27552, 31081, 33101,
 
 			// === Capes ===
-			21285, 21295, 12261, 6568, 6570, 7918, 9747, 9750,
-			9753, 9756, 9759, 9762, 9765, 9768, 9771, 9774,
-			9777, 9780, 9783, 9786, 9789, 9792, 9795, 9798,
-			9801, 9804, 9807, 9810, 9813, 9948, 10448, 12197,
-			12273, 12437, 13121, 13122, 13123, 13124, 13221, 13329,
-			19476, 20050, 20760, 22114, 23345, 23351, 24855, 31288,
-			31398, 33063,
+			21285, 21295, 12261, 6568, 6570, 7918, 9747, 9749,
+			9750, 9752, 9753, 9755, 9756, 9759, 9762, 9765,
+			9768, 9770, 9771, 9774, 9777, 9780, 9783, 9786,
+			9789, 9792, 9795, 9798, 9801, 9804, 9807, 9810,
+			9813, 9948, 10448, 12197, 12273, 12437, 13121, 13122,
+			13123, 13124, 13221, 13329, 19476, 20050, 20760, 22114,
+			23345, 23351, 24855, 31288, 31398, 33063,
 
 			// === Amulets ===
 			1478, 1704, 1706, 1708, 1710, 1712, 1718, 1724,
@@ -685,11 +685,11 @@ public final class SkillBankData
 
 	private static void addRange(Map<String, List<Integer>> m)
 	{
-		// RANGE — 821 items
+		// RANGE — 823 items
 		//   Cannon parts (cross-tag) (6), Ammunition (104), Bows (53), Crossbows
 		//   (21), Thrown (41), D'hide armour (55), Raw dragonhide (cross-tag with
 		//   crafting) (21), Helmets (29), Body (32), Legs (35), Boots (14), Gloves
-		//   (34), Shields (15), Capes (75), Amulets (27), Rings (10), Ranging
+		//   (34), Shields (15), Capes (77), Amulets (27), Rings (10), Ranging
 		//   potions (8), Bait / feathers (cross-tag) (6), Combat food (cross-tag)
 		//   (23), Legacy (212)
 		m.put(TAG_RANGE, Arrays.asList(
@@ -784,14 +784,14 @@ public final class SkillBankData
 			// === Capes ===
 			3789, 21285, 21295, 12261, 3759, 3761, 3763, 3765,
 			3777, 3779, 3781, 3783, 3785, 3787, 4304, 4514,
-			6568, 6570, 7918, 9747, 9750, 9753, 9756, 9759,
-			9762, 9765, 9768, 9771, 9774, 9777, 9780, 9783,
-			9786, 9789, 9792, 9795, 9798, 9801, 9804, 9807,
-			9810, 9813, 9948, 10448, 12197, 12273, 12437, 13221,
-			13329, 13679, 19476, 19697, 20050, 20211, 20214, 20217,
-			21428, 21898, 22109, 22114, 22838, 23099, 23345, 23351,
-			24855, 25502, 25585, 27363, 27374, 28902, 28947, 28951,
-			28955, 31288, 31398,
+			6568, 6570, 7918, 9747, 9750, 9753, 9756, 9758,
+			9759, 9762, 9765, 9768, 9770, 9771, 9774, 9777,
+			9780, 9783, 9786, 9789, 9792, 9795, 9798, 9801,
+			9804, 9807, 9810, 9813, 9948, 10448, 12197, 12273,
+			12437, 13221, 13329, 13679, 19476, 19697, 20050, 20211,
+			20214, 20217, 21428, 21898, 22109, 22114, 22838, 23099,
+			23345, 23351, 24855, 25502, 25585, 27363, 27374, 28902,
+			28947, 28951, 28955, 31288, 31398,
 
 			// === Amulets ===
 			1704, 1706, 1708, 1710, 1712, 1718, 1729, 1731,
@@ -847,10 +847,10 @@ public final class SkillBankData
 
 	private static void addMage(Map<String, List<Integer>> m)
 	{
-		// MAGE — 825 items
+		// MAGE — 827 items
 		//   Basic runes (16), Combo runes (6), Essence (4), Staves (115), Tomes
 		//   (11), Helmets (86), Body (61), Legs (59), Boots (35), Gloves (61),
-		//   Shields (28), Capes (78), Amulets (41), Rings (12), Magic potions
+		//   Shields (28), Capes (80), Amulets (41), Rings (12), Magic potions
 		//   (28), Orbs (cross-tag with crafting) (7), God cloaks (2), Spell
 		//   tablets (POH lectern) (9), Combat food (cross-tag) (23), Legacy (143)
 		m.put(TAG_MAGE, Arrays.asList(
@@ -944,14 +944,14 @@ public final class SkillBankData
 			// === Capes ===
 			21285, 21295, 12261, 2412, 2413, 2414, 6111, 6568,
 			6570, 7918, 9074, 9101, 9747, 9750, 9753, 9756,
-			9759, 9762, 9765, 9768, 9771, 9774, 9777, 9780,
-			9783, 9786, 9789, 9792, 9795, 9798, 9801, 9804,
-			9807, 9810, 9813, 9948, 10448, 10498, 10499, 12197,
-			12273, 12437, 13121, 13122, 13123, 13124, 13221, 13329,
-			13331, 13333, 13335, 13337, 19476, 20050, 20760, 21776,
-			21780, 21784, 21791, 21793, 21795, 21898, 22109, 22114,
-			23345, 23351, 23603, 23605, 23607, 24855, 27363, 27374,
-			29289, 29613, 29615, 29617, 31288, 33063,
+			9759, 9762, 9764, 9765, 9768, 9770, 9771, 9774,
+			9777, 9780, 9783, 9786, 9789, 9792, 9795, 9798,
+			9801, 9804, 9807, 9810, 9813, 9948, 10448, 10498,
+			10499, 12197, 12273, 12437, 13121, 13122, 13123, 13124,
+			13221, 13329, 13331, 13333, 13335, 13337, 19476, 20050,
+			20760, 21776, 21780, 21784, 21791, 21793, 21795, 21898,
+			22109, 22114, 23345, 23351, 23603, 23605, 23607, 24855,
+			27363, 27374, 29289, 29613, 29615, 29617, 31288, 33063,
 
 			// === Amulets ===
 			12257, 1478, 1704, 1706, 1708, 1710, 1712, 1718,
@@ -2025,13 +2025,13 @@ public final class SkillBankData
 
 	private static void addConstruction(Map<String, List<Integer>> m)
 	{
-		// CONSTRUCTION — 197 items
+		// CONSTRUCTION — 212 items
 		//   Tools (4), Planks (4), Nails (7), Construction materials (15), POH
 		//   portals & telescopes (2), Bench/altar (pattern) (37), Mahogany Homes
 		//   (7), Portraits & paintings (POH decoration) (11), Bagged plants &
 		//   trees (16), Hedges (7), Lecterns (POH study) (8), Globes, orreries,
 		//   telescopes (POH study) (13), Basic furniture (non-Oak/Teak/Mahogany)
-		//   (27), POH teleports (2), Legacy (37)
+		//   (42), POH teleports (2), Legacy (37)
 		m.put(TAG_CONSTRUCTION, Arrays.asList(
 			// === Tools ===
 			9625, 2347, 8794, 25644,
@@ -2081,7 +2081,9 @@ public final class SkillBankData
 			8463, 8496, 8498, 8500, 8510, 8516, 8518, 8528,
 			8548, 8560, 8562, 8574, 8576, 8586, 8588, 8590,
 			8592, 8594, 8596, 8598, 8600, 8602, 8604, 8606,
-			8608, 8610, 8622,
+			8608, 8610, 8622, 9791, 9846, 9847, 9848, 9849,
+			9850, 9851, 9857, 9858, 9862, 9863, 9864, 9865,
+			9866, 9867,
 
 			// === POH teleports ===
 			13117, 19476,

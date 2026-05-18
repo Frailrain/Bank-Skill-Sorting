@@ -2940,6 +2940,105 @@ See `audit/classifier-changes.md` "Session 31".
 
 See `audit/classifier-changes.md` "Session 32".
 
+---
+
+## Session 33: IDs 9601–9900
+
+### Tower of Life puzzle (continues)
+
+- `9601-9624 Orange/Yellow/Green/Blue/Indigo/Violet × circle/triangle/square/pentagon` (24 items) — EX (Tower of Life puzzle).
+
+### Underground Pass / Tirannwn
+
+- `9625 Crystal saw` — OK (`construction`).
+- `9626 Crystal saw seed` — OK (`farming`).
+- `9627 A handwritten book` — EX.
+- `9629 Tyras helm` — OK (`melee`).
+
+### Darkness of Hallowvale (Vyrewatch / citizen disguise)
+
+- `9632 Daeyalt ore` — OK (`mining_smithing`).
+- `9633 Message` — EX.
+- `9634-9638 Vyrewatch top/legs/shoes` — OK (3 items, `melee`).
+- `9640-9644 Citizen top/trousers/shoes` — OK (3 items, `melee`).
+- `9646-9649 Castle sketch × 3, Message` — EX.
+- `9650-9655 Blood tithe pouch, Large ornate key, Haemalchemy volume 1, Sealed message, Door key, Ladder top` — EX (quest material).
+- `9656-9658 Tome of experience (3/2/1)` (3 items) — LOG (post-quest XP tome).
+- `9659-9665 Bucket of water/Bucket dup, Useless key, Torch dup` — EX/LOG.
+
+### Proselyte armour (Slayer / Slug Menace)
+
+- `9666-9678 Proselyte/Initiate harness m/f, Proselyte sallet/hauberk/cuisse/tasset` — OK (7 items, `prayer` or `melee;prayer`).
+
+### Sea Slug + Slug Menace
+
+- `9680-9683 Sea slug glue, Commorb v2, Door transcription, Dead sea slug` — EX.
+- `9684-9689 Page 1-3, Fragment 1-3` — EX.
+
+### Misthalin Mystery + rune dups
+
+- `9690-9699 Blank water/air/earth/mind/fire rune + Water/Air/Earth/Mind/Fire rune dups` (10 items) — LOG (quest-only blank rune variants; canonical runes already in mage).
+
+### Stronghold of Security training items
+
+- `9702 Stick` — EX.
+- `9703-9706 Training sword, Training shield, Training bow, Training arrows` — OK (4 items).
+
+### Elemental Workshop II + intermediate bars
+
+- `9715-9726 Slashed book, Rock, Beaten book, Crane schematic, Lever schematic, Crane claw, Scroll, Key, Pipe, Large/Medium/Small cog` — EX (Elemental Workshop II / Tower of Life material).
+- `9727-9728 Primed bar, Primed mind bar` — LOG (Elemental Workshop intermediate; could ADD mining_smithing but EW-specific).
+- `9729-9733 Elemental helmet, Mind shield, Mind helmet` — OK (3 items, `mage`).
+
+### Goat horn (Olaf's Quest)
+
+- `9735 Desert goat horn` — LOG (noted variant of standard goat horn, herblore secondary in canonical 9734).
+- `9736 Goat horn dust` — OK (`herblore`).
+
+### Combat potion
+
+- `9739-9745 Combat potion (4-1)` — OK (4 items, `melee`).
+
+### Skill cape hoods (canonical Champion's cape hood line)
+
+- `9747-9814 Skill capes + hoods` — heavy review:
+  - **Combat capes (cross-tag)**: Attack/Strength/Defence/Ranging/Magic/Hitpoints cape — OK (`melee;range;mage`).
+  - **Combat hoods (currently 0 tabs)**:
+    - `9749 Attack hood` — **ADD melee**.
+    - `9752 Strength hood` — **ADD melee**.
+    - `9755 Defence hood` — **ADD melee**.
+    - `9758 Ranging hood` — **ADD range**.
+    - `9764 Magic hood` — **ADD mage**.
+    - `9770 Hitpoints hood` — **ADD melee;range;mage**.
+    - `9791 Construct. hood` — **ADD construction**.
+  - Skill capes/hoods that classify correctly: Prayer/Runecraft/Agility/Herblore/Thieving/Crafting/Fletching/Slayer/Mining/Smithing/Fishing/Cooking/Firemaking/Woodcutting/Farming/Quest point cape + hood — OK.
+
+### POH wardrobe / cape rack / armour case extensions
+
+- `9843-9845 Oak/Teak/Mahogany cape rack` — OK (`construction`).
+- `9846-9848 Gilded/Marble/Magic cape rack` — **ADD construction** (3 items).
+- `9849-9851 Oak/Teak/Mahogany toy box` — **ADD construction** (3 items).
+- `9852-9856 Oak/Carved oak/Teak/Carved teak/Mahogany magic wardrobe` — OK (`construction`).
+- `9857-9858 Gilded magic wardrobe, Marble magic wardrobe` — **ADD construction** (2 items).
+- `9859-9861 Oak/Teak/Mahogany armour case` — OK (`construction`).
+- `9862-9864 Oak/Teak/M. treasure chest` — **ADD construction** (3 items).
+- `9865-9867 Oak/Teak/Mahogany fancy dress box` — **ADD construction** (3 items).
+
+---
+
+## Session 33 totals
+
+- Items reviewed: ~200
+- OK (correct as-is): 70
+- EX (correctly excluded): 60 (Tower of Life puzzle ×24, quest dialogs, slug/sketches/cogs)
+- ADD (missing tab, fixed): 21 (7 combat hoods, 14 POH furniture extensions)
+- REM: 0
+- LOG: 25+ (blank rune dups, primed bar, tome XP, message dups)
+
+## Classifier changes made in session 33
+
+See `audit/classifier-changes.md` "Session 33".
+
 ## Resume marker
 
-**Next session: start from ID 9601.**
+**Next session: start from ID 9901.**
