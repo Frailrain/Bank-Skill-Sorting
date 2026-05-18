@@ -277,7 +277,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (211 items not in wiki output) ===
+=== range (213 items not in wiki output) ===
      616  Beads of the dead
      942  (not in wiki canonical set)
     1007  Red cape
@@ -400,6 +400,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10450  Zamorak cloak
    10498  Ava's attractor
    10499  Ava's accumulator
+   10564  Granite body
+   10589  Granite helm
    11222  (not in wiki canonical set)
    11670  (not in wiki canonical set)
    11749  (not in wiki canonical set)

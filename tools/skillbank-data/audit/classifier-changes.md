@@ -1165,3 +1165,35 @@ Bracers had defence_magic spillover putting them in mage; excluded explicitly.
 - MAGE: Amulet of magic (t), Amulet of glory (t).
 
 **Affects**: 3 items (Glory trim cross-tags).
+
+## Session 36 (audit IDs 10501–10800 + 10808–10900)
+
+### MELEE Body armour/Helmets — Granite body/Granite helm reclassification
+
+Granite body and Granite helm are melee armour but defence_ranged spillover put them in range. Force_included in MELEE Body armour/Helmets and force_excluded from RANGE.
+
+**Affects**: 2 items.
+
+### CRAFTING "Leather (raw → tanned)" — `Cured yak-hide`
+
+Tanned form of yak-hide used in Fremennik Isles armour crafting.
+
+**Affects**: 1 item.
+
+### FARMING "Harvest produce" — sq'irk fruits
+
+Added Spring/Summer/Autumn/Winter sq'irk (Sorceress's Garden fruit).
+
+**Affects**: 4 items.
+
+### COOKING Beverages — sq'irkjuice
+
+Added Spring/Summer/Autumn/Winter sq'irkjuice (Sorceress's Garden potion, grants Thieving boost).
+
+**Affects**: 4 items.
+
+### MISC — new "Combat trophies (PvM rewards)" section
+
+Added Fire cape, Infernal cape, Champion's cape — iconic combat trophy capes that primarily represent achievement (also worn for stats; canonical Fire cape 6570 already cross-tags into melee/range/mage Capes).
+
+**Affects**: 3 items.

@@ -713,14 +713,16 @@ MELEE = TabSpec(
                 force_include=["Dragon pickaxe"],
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Helmets", _slot_pred("head"),
-                force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower())
+                + ["Granite helm"],
                 force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead",
                                "Ahrim's hood", "Karil's coif", "Rogue mask",
                                "Spined helm", "Skeletal helm", "Snakeskin bandana"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
-                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard")))
+                + ["Granite body"],
                 force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body",
                                "Ahrim's robetop", "Karil's leathertop", "Rogue top",
                                "Spined body", "Skeletal top"]
@@ -801,13 +803,15 @@ RANGE = TabSpec(
                 force_include=["Robin hood hat", "Karil's coif", "Spined helm", "Snakeskin bandana",
                                "3rd age range coif"]
                 + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()],
-                force_exclude=["Dharok's helm", "Guthan's helm", "Torag's helm", "Rogue mask"]),
+                force_exclude=["Dharok's helm", "Guthan's helm", "Torag's helm", "Rogue mask",
+                               "Granite helm"]),
         Section("Body", _is_range_armour_slot("body"),
                 force_include=["Karil's leathertop", "Spined body",
                                "Studded body (g)", "Studded body (t)",
                                "3rd age range top"]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()],
-                force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top"]),
+                force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top",
+                               "Granite body"]),
         Section("Legs", _is_range_armour_slot("legs"),
                 force_include=["Karil's leatherskirt", "Spined chaps", "Snakeskin chaps",
                                "Studded chaps (g)", "Studded chaps (t)",
@@ -1021,6 +1025,9 @@ COOKING = TabSpec(
                 "Strawberry", "Coconut milk", "Apple mush",
                 "Kelda stout", "Ahab's beer",
                 "Braindeath 'rum'",
+                # session 36 — Sorceress's Garden juices
+                "Spring sq'irkjuice", "Summer sq'irkjuice",
+                "Autumn sq'irkjuice", "Winter sq'irkjuice",
             }),
             # Matured beer variants (m) and (4)/(m4) charge variants
             _name_ends("(m)"),
@@ -1280,6 +1287,7 @@ CRAFTING = TabSpec(
         Section("Leather (raw → tanned)", _name_in({
             "Cowhide", "Leather", "Hard leather",
             "Snake hide", "Snakeskin", "Yak-hide", "Yak hide",
+            "Cured yak-hide",
             "Soft leather", "Hardleather body",
             "Bear fur", "Grey wolf fur", "Silk",
         })),
@@ -1584,7 +1592,9 @@ FARMING = TabSpec(
         # audit — marigold IS a real farming flower seed.
         Section("Harvest produce", _or(
             _is_harvest_produce,
-            _name_in({"Basket", "Empty sack", "Filled plant pot"}),
+            _name_in({"Basket", "Empty sack", "Filled plant pot",
+                      # session 36 — Sorceress's Garden sq'irk fruits
+                      "Spring sq'irk", "Summer sq'irk", "Autumn sq'irk", "Winter sq'irk"}),
         )),
         Section("Farm outputs / materials", _or(
             _name_in({
@@ -1871,6 +1881,9 @@ MISC = TabSpec(
         })),
         Section("Utility / banked supplies", _name_in({
             "Rope", "Chronicle",
+        })),
+        Section("Combat trophies (PvM rewards)", _name_in({
+            "Fire cape", "Infernal cape", "Champion's cape",
         })),
         Section("Holiday rares & cosmetics", _or(
             _name_in(set(_HOLIDAY_RARES) | {

@@ -3225,6 +3225,94 @@ See `audit/classifier-changes.md` "Session 34".
 
 See `audit/classifier-changes.md` "Session 35".
 
+---
+
+## Session 36: IDs 10501–10800 + 10808–10900 (ID gap 10601–10807)
+
+### Christmas 2006 event
+
+- `10501 Snowball`, `10506 Gublinch shards`, `10507 Reindeer hat`, `10508 Wintumber tree`, `10509 Snowball` (dup) — LOG (Christmas 2006 cosmetic + reward).
+
+### Barbarian Assault (BA)
+
+- `10512-10515 Scroll, Crackers, Tofu, Worms` — EX/LOG (BA quest material / training food).
+- `10516-10560 BA attacker/healer/defender/collector horns, Various eggs (Green/Red/Blue/Yellow + Poisoned/Spiked/Omega), Poisoned tofu/worms/meat, Healing vials, Penance hat/torso/boots/gloves/skirt, BA icons, Spikes, Queen help book, No eggs` — heavy review:
+  - Most BA gear classifies (Healer hat melee;mage;quests, Fighter torso melee;quests, etc.). OK.
+  - Eggs, horns, icons, scrolls in 0 tabs are minigame-specific tools. LOG.
+
+### Granite armour (Mountain Daughter)
+
+- `10564 Granite body` — **REM range, ADD melee** (granite armour is melee gear; defence_ranged spillover misclassified it).
+- `10589 Granite helm` — **REM range, ADD melee** (same).
+
+### Inferno reward
+
+- `10566 Fire cape` — **ADD misc Combat trophies** (TzHaar Fight Caves reward; combat completion cosmetic; can be wielded but no offensive bonus).
+
+### Misc weapons + amulet + quest material
+
+- `10581 Keris` — OK (`melee;quests`).
+- `10585-10587 Parchment, Combat lamp, Tarn's diary` — EX.
+- `10588 Salve amulet (e)` — OK (`melee`).
+- `10592-10600 Penguin bongos, Cowbells, Clockwork book/suit, Mission reports, KGP id card` — EX (Cold War / Hunt for Surok quest material).
+
+### Fremennik Isles
+
+- `10808-10810 Arctic pyre logs, Arctic pine logs` — OK (`wc_fletching;firemaking`).
+- `10812-10814 Split log, Hair` — EX.
+- `10816 Raw yak meat` — OK (`cooking`).
+- `10818 Yak-hide` — OK (`crafting`).
+- `10820 Cured yak-hide` — **ADD crafting**.
+- `10822 Yak-hide armour (top)`, `10824 Yak-hide armour (legs)` (1 dup) — OK (`melee;range`).
+- `10826 Neitiznot shield` — OK (`range`).
+- `10828 Helm of neitiznot` — OK (`melee`).
+
+### Royal Trouble + Tax bags
+
+- `10829-10835 Documents, Royal decree, Empty/Light/Normal/Hefty/Bulging taxbag` (7 items) — EX (Royal Trouble quest material).
+
+### Silly jester (Recipe for Disaster)
+
+- `10836-10839 Silly jester hat/top/tights/boots` — OK (4 items, `mage`).
+- `10840 A jester stick` — LOG (jester cosmetic).
+
+### Apricot cream pie + Sorceress's Garden
+
+- `10841 Apricot cream pie` — OK (`cooking`).
+- `10842 Decapitated head` — EX.
+- `10844-10847 Spring/Summer/Autumn/Winter sq'irk` — **ADD farming** (4 items, Sorceress's Garden fruit).
+- `10848-10851 Spring/Summer/Autumn/Winter sq'irkjuice` — **ADD cooking** (4 items, Sorceress's Garden potion).
+
+### Tarn / Shadow sword
+
+- `10856-10857 Sin seer's note, Severed leg` — EX.
+- `10858 Shadow sword` — OK (`melee`).
+- `10859 Tea flask` — LOG (Sorceress's Garden / Lunar Diplomacy minigame container).
+
+### Garbage entries
+
+- `10860-10861 "null <sup..." entries` — EX (data garbage / wiki HTML scraping artifact).
+
+### The Slug Menace builder kit
+
+- `10862-10866 Hard hat, Builder's shirt/trousers/boots, Rivets` (5 items) — LOG (Slug Menace cosmetic).
+- `10870-10874 Binding fluid, Pipe, Pipe ring, Metal sheet, Coloured ball` — EX (Slug Menace quest material).
+
+---
+
+## Session 36 totals
+
+- Items reviewed: ~110
+- OK (correct as-is): 35
+- EX (correctly excluded): 30 (heavy quest content: Royal Trouble, Slug Menace, Mission reports, Christmas event garbage)
+- ADD (missing tab, fixed): 11 (Fire cape misc, Cured yak-hide crafting, 4 sq'irk farming, 4 sq'irkjuice cooking, Granite body/helm to melee = 2 net ADD-melee)
+- REM (misclassified, fixed): 2 (Granite body, Granite helm from range)
+- LOG: 35+ (BA minigame eggs/icons/spikes, Christmas dups, Builder cosmetic, Tea flask, jester stick)
+
+## Classifier changes made in session 36
+
+See `audit/classifier-changes.md` "Session 36".
+
 ## Resume marker
 
-**Next session: start from ID 10501.**
+**Next session: start from ID 10875.**
