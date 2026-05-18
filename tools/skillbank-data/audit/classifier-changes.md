@@ -2047,3 +2047,40 @@ Added Eggshell platebody/platelegs, Holy/Peaceful/Chaotic handegg (3), Clown mas
 Added Te salt, Efh salt, Urt salt.
 
 **Affects**: 3 items.
+
+## Session 55 (audit IDs 22701–23100)
+
+### FISHING — new "Aerial fishing catches + byproducts" section + Rods & tools additions
+
+- Rods & tools: Cormorant's glove, Pearl barbarian rod.
+- Aerial fishing catches section: Bluegill, Common tench, Mottled eel, Greater siren, Golden tench, Fish chunks, Molch pearl.
+
+**Affects**: 9 items.
+
+### FARMING — new "Farming Guild produce + seed packs" section
+
+Added Dragonfruit, White lily, Seed pack.
+
+**Affects**: 3 items.
+
+### CRAFTING Misc crafting materials — `Celastrus bark`
+
+Magic shortbow craft material.
+
+**Affects**: 1 item.
+
+### SLAYER Slayer master items — Karuulm dungeon drops
+
+Added Drake's claw/tooth, Hydra's claw/heart/fang/eye, Hydra tail, Alchemical hydra heads + Stuffed variant.
+
+**Affects**: 9 items.
+
+### MISC Teleport tabs — `Curator's medallion`
+
+Varrock Museum teleport.
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — `Clown shoes`
+
+**Affects**: 1 item.

@@ -5004,6 +5004,100 @@ See `audit/classifier-changes.md` "Session 53".
 
 See `audit/classifier-changes.md` "Session 54".
 
+---
+
+## Session 55: IDs 22701–23100
+
+### Christmas 2018 + Collection log + Karuulm intro
+
+- `22701 Clown shoes` — **ADD misc Holiday rares**.
+- `22710 Curator's medallion` — **ADD misc** (Varrock Museum teleport).
+- `22711 Collection log` — LOG.
+- `22713-22719 Star-face, Tree top, Tree skirt, Candy cane` — LOG (Christmas cosmetic).
+- `22731 Dragon hasta` — OK (`melee`).
+- `22744-22746 Fake dragon hasta(kp), Ikkle hydra` — LOG.
+
+### Wyrm/Drake/Hydra bones
+
+- `22754-22758 Wyrm/Drake/Hydra bonemeal` — OK (`prayer`).
+- `22760-22777 Sins of the Father / Soul Wars: Certificate × 2, Dinh's hammer, Generator crank, 8/5-gallon jug, Energy disk (level 1), Unknown fluid × 4, Old notes, Ancient letter, Dark altar` — EX/LOG.
+- `22780-22786 Wyrm/Drake/Hydra bones` — OK (`prayer`).
+- `22789-22795 Uncooked dragonfruit pie, Dragonfruit pie` — OK (`cooking`).
+- `22798-22800 Bird nest dups` — LOG.
+
+### Aerial fishing (Karuulm dungeon Molch)
+
+- `22804 Dragon knife` — OK (`range`).
+- `22812 Dragon knife` (dup) — LOG.
+- `22816 Cormorant's glove` — **ADD fishing** (Aerial fishing tool).
+- `22818 Fish chunks`, `22820 Molch pearl` (2 items) — **ADD fishing**.
+- `22826-22835 Bluegill, Common tench, Mottled eel, Greater siren` (4 items) — **ADD fishing** (Aerial fishing catches).
+- `22838 Fish sack` — OK (`range`).
+- `22840 Golden tench` — **ADD fishing**.
+- `22842 Pearl barbarian rod` — **ADD fishing**.
+- `22844 Pearl fly fishing rod`, `22846 Pearl fishing rod` — OK.
+
+### Farming Guild
+
+- `22848-22887 Celastrus/Redwood/Dragonfruit seedling/sapling + Celastrus/Redwood/Potato cactus/Hespori/Dragonfruit tree/Snape grass/Attas/Iasor/Kronos/White lily seed` (~20 items) — OK (`farming`).
+- `22929 Dragonfruit`, `22932 White lily` (2 items) — **ADD farming** (canonical Farming Guild produce).
+- `22935 Celastrus bark` — **ADD crafting** (Magic shortbow craft material).
+
+### Rada's blessings + Karuulm boots + drops
+
+- `22941-22947 Rada's blessing 1-4` — OK (`quests`).
+- `22949 Battlefront teleport` — OK (`misc`).
+- `22951 Boots of brimstone` — OK.
+- `22954 Devout boots` — OK (`prayer`).
+- `22957-22973 Drake's claw, Drake's tooth, Hydra's claw/heart/fang/eye` (6 items) — **ADD slayer** (Karuulm boss drops, crafting materials).
+- `22963 Broken dragon hasta` — LOG.
+- `22975 Brimstone ring`, `22978 Dragon hunter lance`, `22981 Ferocious gloves`, `22983 Hydra leather`, `22986 Bonecrusher necklace` — OK.
+- `22988 Hydra tail` — **ADD slayer**.
+
+### Misc Soul Wars / lore + Seed pack
+
+- `22991 Stone tablet` — LOG (Soul Wars).
+- `22993 Seed pack` — **ADD farming**.
+- `22994 Bottomless compost bucket` — OK (`farming`).
+- `22999 Bottled dragonbreath (unpowered)` — LOG.
+
+### Gielinor's flora + Sote dialog
+
+- `23007-23035 Tatty note, Gielinor's flora × 7 (flowers/bushes/hops/allotments/herbs/trees/fruit), Old notes × 6` (~14 items) — EX (lore books).
+
+### Boots of stone + Mystic dusk
+
+- `23037 Boots of stone` — OK (`melee;slayer`).
+- `23045-23046 Clue scroll dups` — LOG.
+- `23047-23059 Mystic hat/robe top/robe bottom/gloves/boots (dusk)` — OK (5 items, `mage`).
+
+### Alchemical Hydra
+
+- `23064-23072 Jar of chemicals, Treasure scroll, Mysterious orb, Ancient casket, Antique lamp` — EX/LOG.
+- `23073-23075 Hydra slayer helmet + (i)` — OK.
+- `23077 Alchemical hydra heads`, `23079 Stuffed hydra heads` (2 items) — **ADD slayer** (POH-mountable trophy).
+- `23082 Antique lamp` — EX.
+- `23083 Brimstone key` — OK (`misc`).
+
+### Ornate dress (Treasure Trails Master)
+
+- `23091-23099 Ornate gloves/boots/legs/top/cape` — OK (5 items, `melee[+range]`).
+
+---
+
+## Session 55 totals
+
+- Items reviewed: ~200
+- OK (correct as-is): 60
+- EX (correctly excluded): 25 (Sote/Soul Wars dialog, Gielinor's flora lore × 7)
+- ADD (missing tab, fixed): 25 (1 Clown shoes, 1 Curator's medallion, 9 Aerial fishing, 2 farming produce, 1 Celastrus bark, 6 Karuulm drops, 1 Hydra tail, 1 Seed pack, 2 Alchemical hydra heads, 1 Pearl barbarian rod)
+- REM: 0
+- LOG: 30+ (Christmas cosmetic, Collection log, Bird nest dups, Stone tablet, Bottled dragonbreath, Karuulm pet)
+
+## Classifier changes made in session 55
+
+See `audit/classifier-changes.md` "Session 55".
+
 ## Resume marker
 
-**Next session: start from ID 22701.**
+**Next session: start from ID 23101.**

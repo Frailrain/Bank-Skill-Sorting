@@ -1427,6 +1427,13 @@ FISHING = TabSpec(
             "Karambwan vessel", "Karambwanji bait",
             # session 51 — Fossil Island drift net
             "Drift net",
+            # session 55 — Aerial fishing (Karuulm Molch)
+            "Cormorant's glove", "Pearl barbarian rod",
+        })),
+        Section("Aerial fishing catches + byproducts", _name_in({
+            "Bluegill", "Common tench", "Mottled eel", "Greater siren",
+            "Golden tench",
+            "Fish chunks", "Molch pearl",
         })),
         Section("Bait", _name_in({
             "Fishing bait", "Feather", "Dark fishing bait",
@@ -1536,6 +1543,8 @@ CRAFTING = TabSpec(
             "Skull piece", "Ribcage piece", "Fibula piece",
             # session 44 — Xerician fabric (Xerician robes material)
             "Xerician fabric",
+            # session 55 — Celastrus bark (Magic shortbow material)
+            "Celastrus bark",
         })),
         Section("Ornament kits", _or(
             _name_ends(" ornament kit"),
@@ -1865,6 +1874,11 @@ SLAYER = TabSpec(
             "Xeric's general", "Xeric's champion",
             "Empty bucket pack",
             "Kq head (tattered)", "Stuffed kq head (tattered)",
+            # session 55 — Karuulm dungeon Hydra/Drake drops
+            "Drake's claw", "Drake's tooth",
+            "Hydra's claw", "Hydra's heart", "Hydra's fang", "Hydra's eye",
+            "Hydra tail",
+            "Alchemical hydra heads", "Stuffed hydra heads",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -1978,6 +1992,9 @@ FARMING = TabSpec(
             }),
         )),
         Section("Saplings", _is_sapling),
+        Section("Farming Guild produce + seed packs", _name_in({
+            "Dragonfruit", "White lily", "Seed pack",
+        })),
         Section("Farmer outfit", _name_starts("Farmer's ")),
         Section("Cape & pet", _name_in({
             "Farming cape", "Farming cape(t)", "Farming hood", "Tangleroot",
@@ -2231,7 +2248,9 @@ MISC = TabSpec(
             _name_in({"Ancient magicks tablet",
                       # session 54 — Weiss basalts (Tablet of Teleportation)
                       "Icy basalt", "Stony basalt", "Basalt",
-                      "Drakan's medallion"}),
+                      "Drakan's medallion",
+                      # session 55 — Curator's medallion (Varrock Museum)
+                      "Curator's medallion"}),
         )),
         Section("Boss & quest jewellery", _name_in({
             "Ring of the gods", "Ring of the gods (i)",
@@ -2369,6 +2388,8 @@ MISC = TabSpec(
                 "Eggshell platebody", "Eggshell platelegs",
                 "Holy handegg", "Peaceful handegg", "Chaotic handegg",
                 "Clown mask", "Clown bow tie", "Clown gown", "Clown trousers",
+                # session 55 — Clown shoes
+                "Clown shoes",
                 # session 50 — Easter 2019 + RuneScape 4th Birthday
                 "Invitation list", "Birthday balloons", "4th birthday hat",
                 "Easter egg helm",

@@ -1347,15 +1347,19 @@ public final class SkillBankData
 
 	private static void addFishing(Map<String, List<Integer>> m)
 	{
-		// FISHING — 93 items
-		//   Rods & tools (16), Bait (11), Raw fish (25), Specialty fish (11),
-		//   Angler outfit (4), Spirit angler outfit (4), Tempoross rewards (5),
-		//   Fishing potions (cross-tag) (8), Trophy fish (POH mountable) (6), Cape
-		//   & pet (3)
+		// FISHING — 102 items
+		//   Rods & tools (18), Aerial fishing catches + byproducts (7), Bait (11),
+		//   Raw fish (25), Specialty fish (11), Angler outfit (4), Spirit angler
+		//   outfit (4), Tempoross rewards (5), Fishing potions (cross-tag) (8),
+		//   Trophy fish (POH mountable) (6), Cape & pet (3)
 		m.put(TAG_FISHING, Arrays.asList(
 			// === Rods & tools ===
 			21028, 23762, 21031, 301, 303, 305, 307, 309,
-			311, 1585, 3157, 10129, 11323, 21652, 22844, 22846,
+			311, 1585, 3157, 10129, 11323, 21652, 22816, 22842,
+			22844, 22846,
+
+			// === Aerial fishing catches + byproducts ===
+			22818, 22820, 22826, 22829, 22832, 22835, 22840,
 
 			// === Bait ===
 			313, 314, 10087, 10088, 10089, 10090, 10091, 11940,
@@ -1430,9 +1434,9 @@ public final class SkillBankData
 
 	private static void addCrafting(Map<String, List<Integer>> m)
 	{
-		// CRAFTING — 253 items
+		// CRAFTING — 254 items
 		//   Crafting tools (17), Thread & dyes (10), Leather (raw → tanned) (11),
-		//   D'hide (27), Glass (11), Misc crafting materials (12), Ornament kits
+		//   D'hide (27), Glass (11), Misc crafting materials (13), Ornament kits
 		//   (52), Pottery (10), Uncut gems (10), Cut gems (13), Jewellery (silver)
 		//   (1), Jewellery (gold) (5), Jewellery (gem-set) (43), Battlestaves
 		//   (10), Crafting cape & pet (2), Wool/dyes/cloth (extended) (2),
@@ -1463,7 +1467,7 @@ public final class SkillBankData
 
 			// === Misc crafting materials ===
 			973, 1940, 1941, 3213, 3239, 6157, 6159, 6161,
-			6163, 6165, 6167, 13383,
+			6163, 6165, 6167, 13383, 22935,
 
 			// === Ornament kits ===
 			23227, 12532, 12534, 12536, 12538, 12800, 20002, 20143,
@@ -1778,8 +1782,8 @@ public final class SkillBankData
 
 	private static void addSlayer(Map<String, List<Integer>> m)
 	{
-		// SLAYER — 201 items
-		//   Slayer master items (85), Slayer rings (7), Slayer helmets (27), Black
+		// SLAYER — 210 items
+		//   Slayer master items (94), Slayer rings (7), Slayer helmets (27), Black
 		//   masks (18), Task-specific gear (28), Cannon (6), Cape & pet (4),
 		//   Champion's Challenge scrolls (11), Mounted heads (POH trophies) (15)
 		m.put(TAG_SLAYER, Arrays.asList(
@@ -1794,7 +1798,8 @@ public final class SkillBankData
 			19683, 19685, 20742, 21177, 21183, 21257, 21268, 21270,
 			21275, 21637, 21807, 21810, 21813, 21817, 21820, 21909,
 			22006, 22302, 22305, 22372, 22386, 22388, 22390, 22392,
-			22394, 22396, 22660, 22671, 22673,
+			22394, 22396, 22660, 22671, 22673, 22957, 22960, 22966,
+			22969, 22971, 22973, 22988, 23077, 23079,
 
 			// === Slayer rings ===
 			11866, 11867, 11868, 11869, 11871, 11872, 11873,
@@ -1834,9 +1839,10 @@ public final class SkillBankData
 
 	private static void addFarming(Map<String, List<Integer>> m)
 	{
-		// FARMING — 296 items
+		// FARMING — 299 items
 		//   Tools (20), Compost (16), Seeds (158), Harvest produce (51), Farm
-		//   outputs / materials (42), Farmer outfit (6), Cape & pet (3)
+		//   outputs / materials (42), Farming Guild produce + seed packs (3),
+		//   Farmer outfit (6), Cape & pet (3)
 		m.put(TAG_FARMING, Arrays.asList(
 			// === Tools ===
 			952, 5325, 5329, 5331, 5333, 5334, 5335, 5337,
@@ -1885,6 +1891,9 @@ public final class SkillBankData
 			6022, 6024, 6026, 6028, 6030, 6040, 6041, 6043,
 			6045, 6047, 6049, 6051, 6053, 6055, 6057, 6059,
 			6113, 6311,
+
+			// === Farming Guild produce + seed packs ===
+			22932, 22929, 22993,
 
 			// === Farmer outfit ===
 			1411, 13640, 13642, 13643, 13644, 13646,
@@ -2087,12 +2096,12 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 530 items
-		//   Teleport jewellery (68), Teleport tabs (73), Boss & quest jewellery
+		// MISC — 532 items
+		//   Teleport jewellery (68), Teleport tabs (74), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (29), Clue
 		//   tools (25), Keys (13), Storage bags (6), Utility / banked supplies
 		//   (2), Imbue scrolls (3), Combat trophies (PvM rewards) (5), Holiday
-		//   rares & cosmetics (184), Team capes (Castle Wars) (50), Currency (10)
+		//   rares & cosmetics (185), Team capes (Castle Wars) (50), Currency (10)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
@@ -2112,10 +2121,10 @@ public final class SkillBankData
 			12642, 12775, 12776, 12777, 12778, 12779, 12780, 12781,
 			12782, 12938, 13249, 19613, 19615, 19617, 19619, 19621,
 			19623, 19625, 19627, 19629, 19631, 19651, 20430, 21541,
-			21802, 22400, 22599, 22601, 22603, 22949, 23387, 23771,
-			24251, 24336, 24441, 24949, 24951, 24953, 24955, 24957,
-			24959, 24961, 24963, 28790, 28824, 29684, 29782, 30149,
-			31443,
+			21802, 22400, 22599, 22601, 22603, 22710, 22949, 23387,
+			23771, 24251, 24336, 24441, 24949, 24951, 24953, 24955,
+			24957, 24959, 24961, 24963, 28790, 28824, 29684, 29782,
+			30149, 31443,
 
 			// === Boss & quest jewellery ===
 			552, 1478, 1725, 1727, 1729, 11090, 12601, 13202,
@@ -2182,6 +2191,7 @@ public final class SkillBankData
 			21235, 21236, 21237, 21238, 21239, 21847, 21849, 21851,
 			21853, 21855, 21857, 21859, 21866, 21867, 21868, 22351,
 			22353, 22355, 22358, 22361, 22689, 22692, 22695, 22698,
+			22701,
 
 			// === Team capes (Castle Wars) ===
 			4315, 4317, 4319, 4321, 4323, 4325, 4327, 4329,
