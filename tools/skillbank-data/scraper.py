@@ -135,6 +135,10 @@ def merge_wiki_osrsbox(
         members = _truthy(it.get("is_members_only"))
 
         bonuses = bonuses_by_pns.get(pns, {})
+        if not bonuses and "#" in pns:
+            # Items canonical to "Foo#Inventory" often have bonuses at plain "Foo"
+            # (or another anchor). Fall back to the un-suffixed page name.
+            bonuses = bonuses_by_pns.get(pns.split("#", 1)[0], {})
         equipment: dict = {}
         weapon: dict = {}
         if bonuses:
@@ -481,6 +485,10 @@ def render_block(
     return "\n".join(lines)
 
 
+def _camel(s: str) -> str:
+    return "".join(part.capitalize() for part in s.split("_"))
+
+
 def render_proposed(
     java_src: str,
     tabs: list[TabSpec],
@@ -488,11 +496,27 @@ def render_proposed(
     current: dict[str, list[int]] | None = None,
     additive: bool = True,
 ) -> str:
-    """Substitute m.put blocks. If `additive` and `current` provided, append a
-    Legacy section per tab for items in the current data that the new classifier
-    didn't pick up — never silently regresses a tab."""
+    """Replace each m.put(TAG_X, Arrays.asList(...)); with addX(m); and append
+    per-tab helper methods before the closing class brace.
+
+    Splitting per tab is necessary because the JVM <clinit> bytecode limit
+    is 64 KB — with ~5700 IDs across 20 tabs the single static block
+    overflows ('code too large' compile error). Each helper method has its
+    own bytecode quota.
+    """
     out = java_src
     current = current or {}
+    helper_blocks: list[tuple[str, str]] = []
+
+    # Idempotency: if a prior run already split tabs into addXxx() helpers,
+    # strip them out before re-emitting. Otherwise re-running would replace
+    # m.put inside a helper with a recursive call to that helper.
+    existing_helper_re = re.compile(
+        r"\n\tprivate static void add\w+\(Map<String, List<Integer>> m\)\s*\n\t\{.*?\n\t\}\n",
+        re.DOTALL,
+    )
+    out = existing_helper_re.sub("", out)
+
     for tab in tabs:
         proposed_ids = {
             r[1] for sec_items in classified[tab.name] for r in sec_items
@@ -500,17 +524,18 @@ def render_proposed(
         legacy_ids: list[int] = []
         if additive and tab.name in current:
             legacy_ids = sorted(set(current[tab.name]) - proposed_ids)
-        block = render_block(tab, classified[tab.name], legacy_ids=legacy_ids)
+        block_body = render_block(tab, classified[tab.name], legacy_ids=legacy_ids)
+        method_name = "add" + _camel(tab.name)
+        helper_blocks.append((method_name, block_body))
+
         pattern = re.compile(
             rf'([ \t]*)m\.put\({re.escape(tab.const_name)},\s*Arrays\.asList\(.*?\)\s*\);',
             re.DOTALL,
         )
 
-        def replace(match, _block=block):
+        def replace(match, _name=method_name):
             indent = match.group(1)
-            return "\n".join(
-                (indent + ln) if ln.strip() else "" for ln in _block.split("\n")
-            )
+            return f"{indent}{_name}(m);"
 
         new_out, n = pattern.subn(replace, out, count=1)
         if n == 0:
@@ -521,6 +546,27 @@ def render_proposed(
             )
         else:
             out = new_out
+
+    # Build helper method bodies and inject before the final '}' of the class.
+    methods_src = []
+    for method_name, body in helper_blocks:
+        indented_body = "\n".join(
+            ("\t\t" + ln) if ln.strip() else "" for ln in body.split("\n")
+        )
+        methods_src.append(
+            f"\tprivate static void {method_name}(Map<String, List<Integer>> m)\n"
+            f"\t{{\n"
+            f"{indented_body}\n"
+            f"\t}}\n"
+        )
+    methods_block = "\n" + "\n".join(methods_src)
+
+    # Replace the LAST closing brace of the file with methods + brace.
+    if not out.rstrip().endswith("}"):
+        print("WARN: rendered Java doesn't end with '}'; helper methods not injected",
+              file=sys.stderr)
+        return out
+    out = re.sub(r"\}\s*\Z", methods_block + "}\n", out)
     return out
 
 

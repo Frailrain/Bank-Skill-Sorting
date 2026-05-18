@@ -167,15 +167,28 @@ def fetch_canonical_items(cache_dir: Path, **kwargs) -> list[dict]:
     `Bucket` shown in the official Lua docs — that global only exists in
     wiki modules, not via api.php).
     """
-    # Pre-built OR clause: default_version OR known dose variants.
-    or_clause = (
-        "bucket.Or("
-        "{'default_version',true},"
-        "{'version_anchor','3 dose'},"
-        "{'version_anchor','2 dose'},"
-        "{'version_anchor','1 dose'}"
-        ")"
-    )
+    # Pre-built OR clause: default_version OR known non-canonical variants.
+    # Non-canonical variants we deliberately want included:
+    #   - dose variants (potions: '3 dose' / '2 dose' / '1 dose')
+    #   - integer charge variants (Amulet of glory(1..6), Skills necklace etc.)
+    #   - parenthesised charge variants (Broodoo shield (5)/(6)/(7)/(8) format)
+    #   - 'Uncharged' (Amulet of glory uncharged, Bracelet of ethereum, etc.)
+    or_clauses = [
+        "{'default_version',true}",
+        # potion doses
+        "{'version_anchor','3 dose'}", "{'version_anchor','2 dose'}", "{'version_anchor','1 dose'}",
+        # integer charge variants
+        "{'version_anchor','1'}", "{'version_anchor','2'}", "{'version_anchor','3'}",
+        "{'version_anchor','5'}", "{'version_anchor','6'}", "{'version_anchor','7'}",
+        "{'version_anchor','8'}",
+        # parenthesised charges
+        "{'version_anchor','(1)'}", "{'version_anchor','(2)'}", "{'version_anchor','(3)'}",
+        "{'version_anchor','(5)'}", "{'version_anchor','(6)'}", "{'version_anchor','(7)'}",
+        "{'version_anchor','(8)'}",
+        # charge state
+        "{'version_anchor','Uncharged'}",
+    ]
+    or_clause = "bucket.Or(" + ",".join(or_clauses) + ")"
     return paginated_query(
         "infobox_item", ITEM_FIELDS, cache_dir,
         raw_where=or_clause, **kwargs,

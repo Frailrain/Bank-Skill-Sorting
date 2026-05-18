@@ -3,81 +3,29 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (248 items not in wiki output) ===
-       2  Steel cannonball
+=== melee (166 items not in wiki output) ===
       88  Boots of lightness
-     189  Zamorak brew(3)
-     191  Zamorak brew(2)
-     193  Zamorak brew(1)
     1231  (not in wiki canonical set)
     1361  Black axe
-    1363  Iron battleaxe
-    1365  Steel battleaxe
-    1367  Black battleaxe
-    1369  Mithril battleaxe
-    1371  Adamant battleaxe
-    1375  Bronze battleaxe
-    1377  Dragon battleaxe
-    1704  (not in wiki canonical set)
-    1706  (not in wiki canonical set)
-    1708  (not in wiki canonical set)
-    1710  (not in wiki canonical set)
-    1725  Amulet of strength
     1727  Amulet of magic
-    2572  (not in wiki canonical set)
-    3024  Super restore(4)
-    3026  Super restore(3)
-    3028  Super restore(2)
-    3030  Super restore(1)
-    4716  Dharok's helm
-    4718  Dharok's greataxe
-    4720  Dharok's platebody
-    4722  Dharok's platelegs
-    4724  Guthan's helm
-    4728  Guthan's platebody
-    4730  Guthan's chainskirt
-    4745  Torag's helm
-    4749  Torag's platebody
-    4751  Torag's platelegs
+    2572  Ring of wealth
     5013  (not in wiki canonical set)
     5680  (not in wiki canonical set)
     5698  (not in wiki canonical set)
     6215  (not in wiki canonical set)
     6217  (not in wiki canonical set)
-    6219  (not in wiki canonical set)
-    6221  (not in wiki canonical set)
-    6223  (not in wiki canonical set)
-    6225  (not in wiki canonical set)
     6227  (not in wiki canonical set)
-    6229  (not in wiki canonical set)
-    6231  (not in wiki canonical set)
-    6233  (not in wiki canonical set)
     6522  Toktz-xil-ul
     6524  Toktz-ket-xil
     6526  Toktz-mej-tal
     6739  Dragon axe
     8901  (not in wiki canonical set)
     8903  (not in wiki canonical set)
-    8905  (not in wiki canonical set)
-    8907  (not in wiki canonical set)
-    8909  (not in wiki canonical set)
-    8911  (not in wiki canonical set)
     8913  (not in wiki canonical set)
-    8915  (not in wiki canonical set)
-    8917  (not in wiki canonical set)
-    8919  (not in wiki canonical set)
     9748  (not in wiki canonical set)
     9751  (not in wiki canonical set)
     9754  (not in wiki canonical set)
     9769  (not in wiki canonical set)
-   10053  Wood camo top
-   10055  Wood camo legs
-   10057  Jungle camo top
-   10059  Jungle camo legs
-   10061  Desert camo top
-   10063  Desert camo legs
-   10065  Polar camo top
-   10067  Polar camo legs
    10356  (not in wiki canonical set)
    10358  (not in wiki canonical set)
    10360  (not in wiki canonical set)
@@ -85,30 +33,12 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10450  Zamorak cloak
    10553  Penance gloves
    11090  Phoenix necklace
-   11120  (not in wiki canonical set)
-   11122  (not in wiki canonical set)
-   11124  (not in wiki canonical set)
-   11126  (not in wiki canonical set)
-   11128  Berserker necklace
-   11284  (not in wiki canonical set)
+   11284  Dragonfire shield
    11446  (not in wiki canonical set)
-   11667  (not in wiki canonical set)
-   11668  (not in wiki canonical set)
-   11669  (not in wiki canonical set)
    11670  (not in wiki canonical set)
-   11671  (not in wiki canonical set)
-   11672  (not in wiki canonical set)
-   11673  (not in wiki canonical set)
    11774  (not in wiki canonical set)
    11775  (not in wiki canonical set)
-   11776  (not in wiki canonical set)
-   11777  (not in wiki canonical set)
-   11778  (not in wiki canonical set)
-   11779  (not in wiki canonical set)
    11780  (not in wiki canonical set)
-   11781  (not in wiki canonical set)
-   11782  (not in wiki canonical set)
-   11783  (not in wiki canonical set)
    11798  Godsword blade
    11799  (not in wiki canonical set)
    11800  Godsword shards 2 & 3
@@ -121,13 +51,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11834  Bandos tassets
    11964  (not in wiki canonical set)
    11966  (not in wiki canonical set)
-   11972  (not in wiki canonical set)
-   11974  (not in wiki canonical set)
-   11976  (not in wiki canonical set)
-   11978  (not in wiki canonical set)
    12808  (not in wiki canonical set)
    12853  (not in wiki canonical set)
-   12902  (not in wiki canonical set)
    13080  New crystal halberd full (i)
    13081  (not in wiki canonical set)
    13082  (not in wiki canonical set)
@@ -154,17 +79,14 @@ or should be added to force_include / variant_allowlist before flipping --additi
    13280  Max cape
    13317  (not in wiki canonical set)
    13318  (not in wiki canonical set)
-   19553  Amulet of torture
    19711  (not in wiki canonical set)
    20011  3rd age axe
    20655  (not in wiki canonical set)
    20657  (not in wiki canonical set)
    20724  Imbued heart
-   21033  (not in wiki canonical set)
    22002  Dragonfire ward
-   22003  (not in wiki canonical set)
+   22003  Dragonfire ward
    22109  Ava's assembler
-   22486  (not in wiki canonical set)
    22545  (not in wiki canonical set)
    22616  Vesta's chainbody
    22638  Morrigan's coif
@@ -217,8 +139,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    25176  (not in wiki canonical set)
    25177  (not in wiki canonical set)
    25643  (not in wiki canonical set)
-   25738  (not in wiki canonical set)
-   25741  (not in wiki canonical set)
    25975  Lightbearer
    26376  (not in wiki canonical set)
    26384  Torva platebody
@@ -242,9 +162,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27275  Tumeken's shadow
    27551  (not in wiki canonical set)
    27553  (not in wiki canonical set)
-   27657  (not in wiki canonical set)
    28199  Iron felling axe
-   28545  (not in wiki canonical set)
    28626  Fox whistle
    30305  (not in wiki canonical set)
    32312  Giant krill
@@ -253,42 +171,19 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (187 items not in wiki output) ===
-       2  Steel cannonball
-       6  Cannon base
-       8  Cannon stand
-      10  Cannon barrels
-      12  Cannon furnace
-     314  Feather
-     385  Shark
-     391  Manta ray
-     397  Sea turtle
+=== range (139 items not in wiki output) ===
      942  (not in wiki canonical set)
     1063  Leather vambraces
-    1065  Green d'hide vambraces
     1095  Leather chaps
     1097  Studded chaps
-    1099  Green d'hide chaps
     1129  Leather body
     1169  Coif
-    1704  (not in wiki canonical set)
-    1706  (not in wiki canonical set)
-    1708  (not in wiki canonical set)
-    1710  (not in wiki canonical set)
-    1745  Green dragon leather
-    1747  Black dragonhide
-    1749  Red dragonhide
-    2487  Blue d'hide vambraces
-    2489  Red d'hide vambraces
-    2491  Black d'hide vambraces
-    2495  Red d'hide chaps
     2533  (not in wiki canonical set)
     2535  (not in wiki canonical set)
     2537  (not in wiki canonical set)
     2539  (not in wiki canonical set)
     2541  (not in wiki canonical set)
-    2572  (not in wiki canonical set)
-    3144  Cooked karambwan
+    2572  Ring of wealth
     4214  (not in wiki canonical set)
     4215  (not in wiki canonical set)
     4216  (not in wiki canonical set)
@@ -312,13 +207,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4732  Karil's coif
     4736  Karil's leathertop
     4738  Karil's leatherskirt
-    7372  Green d'hide body (t)
-    7376  Blue d'hide body (t)
-    7378  Green d'hide chaps (g)
-    7380  Green d'hide chaps (t)
-    7382  Blue d'hide chaps (g)
-    7384  Blue d'hide chaps (t)
-    7946  Monkfish
     9757  (not in wiki canonical set)
     9977  (not in wiki canonical set)
    10033  Chinchompa
@@ -327,25 +215,15 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10356  (not in wiki canonical set)
    10358  (not in wiki canonical set)
    10360  (not in wiki canonical set)
-   10362  (not in wiki canonical set)
+   10362  Amulet of glory (t)
    10364  Strength amulet (t)
    10366  Amulet of magic (t)
    10446  Saradomin cloak
    10450  Zamorak cloak
    10498  Ava's attractor
    10499  Ava's accumulator
-   11120  (not in wiki canonical set)
-   11122  (not in wiki canonical set)
-   11124  (not in wiki canonical set)
-   11126  (not in wiki canonical set)
    11222  (not in wiki canonical set)
-   11667  (not in wiki canonical set)
-   11668  (not in wiki canonical set)
-   11669  (not in wiki canonical set)
    11670  (not in wiki canonical set)
-   11671  (not in wiki canonical set)
-   11672  (not in wiki canonical set)
-   11673  (not in wiki canonical set)
    11749  (not in wiki canonical set)
    11750  (not in wiki canonical set)
    11751  (not in wiki canonical set)
@@ -375,16 +253,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11959  Black chinchompa
    11964  (not in wiki canonical set)
    11966  (not in wiki canonical set)
-   11972  (not in wiki canonical set)
-   11974  (not in wiki canonical set)
-   11976  (not in wiki canonical set)
-   11978  (not in wiki canonical set)
    12853  (not in wiki canonical set)
    12924  (not in wiki canonical set)
    13279  Overseer's book
    13280  Max cape
    13319  (not in wiki canonical set)
-   13441  Anglerfish
    19639  Black slayer helmet
    19643  Green slayer helmet
    20655  (not in wiki canonical set)
@@ -435,49 +308,18 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27365  (not in wiki canonical set)
    27376  (not in wiki canonical set)
    27544  Ghommal's lucky penny
-   27612  (not in wiki canonical set)
-   27652  (not in wiki canonical set)
    27843  Corrupted vesta's plateskirt (bh)
    28906  (not in wiki canonical set)
-   28919  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (165 items not in wiki output) ===
-     385  Shark
-     391  Manta ray
-     397  Sea turtle
-     567  Unpowered orb
-     569  Fire orb
-     571  Water orb
-     573  Air orb
-     575  Earth orb
-    1704  (not in wiki canonical set)
-    1706  (not in wiki canonical set)
-    1708  (not in wiki canonical set)
-    1710  (not in wiki canonical set)
-    2572  (not in wiki canonical set)
-    3144  Cooked karambwan
+=== mage (119 items not in wiki output) ===
+    2572  Ring of wealth
     6099  (not in wiki canonical set)
     6215  (not in wiki canonical set)
     6217  (not in wiki canonical set)
-    6219  (not in wiki canonical set)
-    6221  (not in wiki canonical set)
-    6223  (not in wiki canonical set)
-    6225  (not in wiki canonical set)
     6227  (not in wiki canonical set)
-    6229  (not in wiki canonical set)
-    6231  (not in wiki canonical set)
-    6233  (not in wiki canonical set)
     7640  (not in wiki canonical set)
-    7641  (not in wiki canonical set)
-    7642  (not in wiki canonical set)
-    7643  (not in wiki canonical set)
-    7644  (not in wiki canonical set)
     7645  (not in wiki canonical set)
-    7646  (not in wiki canonical set)
-    7647  (not in wiki canonical set)
-    7648  (not in wiki canonical set)
-    7946  Monkfish
     8842  Void knight gloves
     9763  (not in wiki canonical set)
    10356  (not in wiki canonical set)
@@ -486,35 +328,20 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10446  Saradomin cloak
    10450  Zamorak cloak
    11090  Phoenix necklace
-   11120  (not in wiki canonical set)
-   11122  (not in wiki canonical set)
-   11124  (not in wiki canonical set)
-   11126  (not in wiki canonical set)
-   11667  (not in wiki canonical set)
-   11668  (not in wiki canonical set)
-   11669  (not in wiki canonical set)
    11670  (not in wiki canonical set)
-   11671  (not in wiki canonical set)
-   11672  (not in wiki canonical set)
-   11673  (not in wiki canonical set)
    11791  Staff of the dead
    11864  Slayer helmet
    11964  (not in wiki canonical set)
    11966  (not in wiki canonical set)
-   11972  (not in wiki canonical set)
-   11974  (not in wiki canonical set)
-   11976  (not in wiki canonical set)
-   11978  (not in wiki canonical set)
    12791  Rune pouch
    12853  (not in wiki canonical set)
    12899  Trident of the swamp
-   12900  (not in wiki canonical set)
-   12902  (not in wiki canonical set)
+   12900  Uncharged toxic trident
+   12902  Toxic staff (uncharged)
    12904  Toxic staff of the dead
-   13102  (not in wiki canonical set)
+   13102  Teleport crystal (5)
    13280  Max cape
    13392  (not in wiki canonical set)
-   13441  Anglerfish
    19639  Black slayer helmet
    19643  Green slayer helmet
    20655  (not in wiki canonical set)
@@ -593,14 +420,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26756  (not in wiki canonical set)
    26758  (not in wiki canonical set)
    26760  (not in wiki canonical set)
-   26945  (not in wiki canonical set)
    27275  Tumeken's shadow
    27281  Divine rune pouch
    27365  (not in wiki canonical set)
    27376  (not in wiki canonical set)
    27626  (not in wiki canonical set)
-   27676  (not in wiki canonical set)
-   27785  (not in wiki canonical set)
    28327  (not in wiki canonical set)
    28473  (not in wiki canonical set)
    28474  (not in wiki canonical set)
@@ -609,24 +433,12 @@ or should be added to force_include / variant_allowlist before flipping --additi
    29892  (not in wiki canonical set)
    30066  (not in wiki canonical set)
 
-=== prayer (61 items not in wiki output) ===
-     542  Monk's robe
-     544  Monk's robe top
-    1704  (not in wiki canonical set)
-    1716  Unblessed symbol
-    1720  Unstrung emblem
-    1722  Unpowered symbol
-    3839  Damaged book
+=== prayer (49 items not in wiki output) ===
+    1704  Amulet of glory
     3843  Damaged book
-    3844  Book of balance
     3845  Journal
     3846  Diary
-    3847  Manual
-    4850  Ogre coffin key
-    4852  Zogre bonemeal
-    9668  Initiate harness m
     9760  (not in wiki canonical set)
-   12601  Ring of the gods
    13447  (not in wiki canonical set)
    13450  (not in wiki canonical set)
    13453  (not in wiki canonical set)
@@ -672,47 +484,26 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26996  (not in wiki canonical set)
    28323  Siren's staff
 
-=== cooking (119 items not in wiki output) ===
-     227  Vial of water
-     229  Vial
-     323  Burnt fish
+=== cooking (83 items not in wiki output) ===
      343  Burnt fish
      357  Burnt fish
      367  Burnt fish
-     375  Burnt swordfish
-     381  Burnt lobster
-     387  Burnt shark
-     393  Burnt manta ray
      590  Tinderbox
     1895  (not in wiki canonical set)
     1899  (not in wiki canonical set)
     1901  (not in wiki canonical set)
-    1903  Burnt cake
-    1915  Grog
-    1919  Beer glass
-    1921  Bowl of water
-    1925  Bucket
-    1929  Bucket of water
-    1931  Pot
-    1937  Jug of water
     1951  Redberries
-    1953  Pastry dough
     1971  Kebab
-    1973  Chocolate bar
-    1975  Chocolate dust
     1977  Chocolatey milk
     1979  (not in wiki canonical set)
     1985  Cheese
     1987  Grapes
     1989  Half full wine jug
     1991  Jug of bad wine
-    1993  Jug of wine
     2001  Uncooked stew
     2009  Uncooked curry
     2110  Orange chunks
     2112  Orange slices
-    2140  Cooked chicken
-    2142  Cooked meat
     2150  Swamp toad
     2152  Toad's legs
     2154  Equa toad's legs
@@ -727,20 +518,16 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2172  (not in wiki canonical set)
     2174  (not in wiki canonical set)
     2176  (not in wiki canonical set)
-    2178  Raw gnomebowl
     2180  (not in wiki canonical set)
     2182  (not in wiki canonical set)
     2184  (not in wiki canonical set)
     2287  Uncooked pizza
-    2321  Uncooked berry pie
-    2878  Cooked chompy
     2880  Ruined chompy
     2881  (not in wiki canonical set)
     2883  Ogre bow
     2884  Chompy bird obj
     2885  Whoopsie
     3151  (not in wiki canonical set)
-    3228  Cooked rabbit
     3326  (not in wiki canonical set)
     3328  (not in wiki canonical set)
     4293  Cooked meat
@@ -763,18 +550,12 @@ or should be added to force_include / variant_allowlist before flipping --additi
     7060  Tuna potato
     7062  Chilli con carne
     7064  Egg and tomato
-    7168  Raw mud pie
-    7170  Mud pie
-    7172  Part garden pie
     7174  Part garden pie
-    7176  Raw garden pie
     7190  (not in wiki canonical set)
     7210  (not in wiki canonical set)
     7220  (not in wiki canonical set)
     7947  (not in wiki canonical set)
     9802  (not in wiki canonical set)
-    9986  Raw beast meat
-    9990  Burnt beast meat
     9992  Skewered beast
    11140  Karamja gloves 3
    22777  Certificate
@@ -782,20 +563,13 @@ or should be added to force_include / variant_allowlist before flipping --additi
    24845  (not in wiki canonical set)
    24847  (not in wiki canonical set)
    24849  (not in wiki canonical set)
-   32309  Raw giant krill
    32312  Giant krill
-   32325  Raw yellowfin
    32328  Yellowfin
-   32333  Raw halibut
    32336  Halibut
-   32341  Raw bluefin
    32344  Bluefin
-   32349  Raw marlin
    32352  Marlin
 
-=== wc_fletching (88 items not in wiki output) ===
-     314  Feather
-    1779  Flax
+=== wc_fletching (78 items not in wiki output) ===
     3094  (not in wiki canonical set)
     4214  (not in wiki canonical set)
     4215  (not in wiki canonical set)
@@ -818,7 +592,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     9455  (not in wiki canonical set)
     9774  Herblore cape
     9775  (not in wiki canonical set)
-    9783  Fletching cape
     9784  (not in wiki canonical set)
    11749  (not in wiki canonical set)
    11750  (not in wiki canonical set)
@@ -830,8 +603,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11756  (not in wiki canonical set)
    11757  (not in wiki canonical set)
    11758  (not in wiki canonical set)
-   13242  (not in wiki canonical set)
-   13322  Beaver
    19570  Bronze javelin tips
    19572  Iron javelin tips
    19574  Steel javelin tips
@@ -843,16 +614,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
    21352  Amethyst javelin tips
    21964  (not in wiki canonical set)
    22550  (not in wiki canonical set)
-   22552  (not in wiki canonical set)
    23185  Ring of 3rd age
    23675  (not in wiki canonical set)
    23985  (not in wiki canonical set)
    25484  (not in wiki canonical set)
    25862  (not in wiki canonical set)
-   27612  (not in wiki canonical set)
-   27652  (not in wiki canonical set)
-   27657  (not in wiki canonical set)
-   27662  (not in wiki canonical set)
    28164  (not in wiki canonical set)
    28166  Clothes pouch blueprint
    28168  (not in wiki canonical set)
@@ -940,7 +706,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    24363  Scroll box (medium)
    25742  Holy ornament kit
 
-=== crafting (70 items not in wiki output) ===
+=== crafting (65 items not in wiki output) ===
      567  Unpowered orb
      569  Fire orb
      571  Water orb
@@ -963,7 +729,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     1718  Holy symbol
     1722  Unpowered symbol
     1724  Unholy symbol
-    1745  Green dragon leather
     1783  Bucket of sand
     1793  Woad leaf
     1795  (not in wiki canonical set)
@@ -977,9 +742,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2359  Mithril bar
     2361  Adamantite bar
     2363  Runite bar
-    2505  Blue dragon leather
-    2507  Red dragon leather
-    2509  Black dragon leather
     5350  Empty plant pot
     5418  Empty sack
     5523  Tiara mould
@@ -988,7 +750,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     8778  Oak plank
     8780  Teak plank
     8782  Mahogany plank
-    8790  Bolt of cloth
     8794  Saw
     9625  Crystal saw
     9781  (not in wiki canonical set)
@@ -1012,7 +773,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    21043  Kodai insignia
    21046  Ancient tablet
 
-=== mining_smithing (51 items not in wiki output) ===
+=== mining_smithing (50 items not in wiki output) ===
        2  Steel cannonball
      764  (not in wiki canonical set)
      766  (not in wiki canonical set)
@@ -1041,7 +802,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    12012  Golden nugget
    12019  Coal bag
    12797  Dragon pickaxe
-   13244  (not in wiki canonical set)
    21343  Mining gloves
    21345  Superior mining gloves
    21390  (not in wiki canonical set)
@@ -1119,7 +879,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27390  Adventurer's trousers (t1)
 
 === agility_thieving (82 items not in wiki output) ===
-    2572  (not in wiki canonical set)
+    2572  Ring of wealth
     3016  Super energy(4)
     3018  Super energy(3)
     3020  Super energy(2)
@@ -1129,9 +889,9 @@ or should be added to force_include / variant_allowlist before flipping --additi
     6406  Menaphite red kilt
     8872  Bone dagger
     8880  Dorgeshuun crossbow
-    9044  (not in wiki canonical set)
-    9046  (not in wiki canonical set)
-    9048  (not in wiki canonical set)
+    9046  Pharaoh's sceptre
+    9048  Pharaoh's sceptre
+    9050  Pharaoh's sceptre
     9772  (not in wiki canonical set)
     9778  (not in wiki canonical set)
    12623  Ancient page 3
@@ -1202,7 +962,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27443  (not in wiki canonical set)
    29485  (not in wiki canonical set)
 
-=== slayer (101 items not in wiki output) ===
+=== slayer (81 items not in wiki output) ===
        2  Steel cannonball
      985  Tooth half of key
      987  Loop half of key
@@ -1217,14 +977,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     6663  Forlorn boot
     8901  (not in wiki canonical set)
     8903  (not in wiki canonical set)
-    8905  (not in wiki canonical set)
-    8907  (not in wiki canonical set)
-    8909  (not in wiki canonical set)
-    8911  (not in wiki canonical set)
     8913  (not in wiki canonical set)
-    8915  (not in wiki canonical set)
-    8917  (not in wiki canonical set)
-    8919  (not in wiki canonical set)
     9787  (not in wiki canonical set)
    10588  Salve amulet (e)
    10884  Fuse
@@ -1233,21 +986,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11736  Absorption (2)
    11774  (not in wiki canonical set)
    11775  (not in wiki canonical set)
-   11776  (not in wiki canonical set)
-   11777  (not in wiki canonical set)
-   11778  (not in wiki canonical set)
-   11779  (not in wiki canonical set)
    11780  (not in wiki canonical set)
-   11781  (not in wiki canonical set)
-   11782  (not in wiki canonical set)
-   11783  (not in wiki canonical set)
-   11867  (not in wiki canonical set)
-   11868  (not in wiki canonical set)
-   11869  (not in wiki canonical set)
    11870  (not in wiki canonical set)
-   11871  (not in wiki canonical set)
-   11872  (not in wiki canonical set)
-   11873  (not in wiki canonical set)
    11874  Broad arrowheads
    12004  Kraken tentacle
    12436  Amulet of fury (or)
@@ -1305,7 +1045,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26684  (not in wiki canonical set)
    28626  Fox whistle
 
-=== farming (58 items not in wiki output) ===
+=== farming (51 items not in wiki output) ===
     1942  Potato
     1957  Onion
     1963  Banana
@@ -1315,14 +1055,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     5096  Marigold seed
     5282  Mushroom spore
     5312  Acorn
-    5333  (not in wiki canonical set)
-    5334  (not in wiki canonical set)
-    5335  (not in wiki canonical set)
     5336  (not in wiki canonical set)
-    5337  (not in wiki canonical set)
-    5338  (not in wiki canonical set)
-    5339  (not in wiki canonical set)
-    5340  (not in wiki canonical set)
     5376  Basket
     5377  (not in wiki canonical set)
     5418  Empty sack
@@ -1377,9 +1110,9 @@ or should be added to force_include / variant_allowlist before flipping --additi
     9766  (not in wiki canonical set)
    11095  Abyssal bracelet(5)
    11097  (not in wiki canonical set)
-   11099  (not in wiki canonical set)
-   11101  (not in wiki canonical set)
-   11103  (not in wiki canonical set)
+   11099  Abyssal bracelet(3)
+   11101  Abyssal bracelet(2)
+   11103  Abyssal bracelet(1)
    19627  Cemetery teleport
    21538  Runite ore fragment
    22332  (not in wiki canonical set)
@@ -1397,7 +1130,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26872  (not in wiki canonical set)
    26874  (not in wiki canonical set)
    27610  Venator bow
-   27612  (not in wiki canonical set)
+   27612  Venator bow (uncharged)
    27614  Venator shard
    27616  Ancient essence
    27618  (not in wiki canonical set)
@@ -1470,7 +1203,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28251  (not in wiki canonical set)
    28253  (not in wiki canonical set)
 
-=== construction (38 items not in wiki output) ===
+=== construction (37 items not in wiki output) ===
     1601  Diamond
     1603  Ruby
     1605  Emerald
@@ -1494,7 +1227,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     8784  Gold leaf
     8788  Magic stone
     8791  (not in wiki canonical set)
-    8792  Clockwork
     9789  Construct. cape
     9790  (not in wiki canonical set)
    11815  (not in wiki canonical set)
@@ -1510,45 +1242,23 @@ or should be added to force_include / variant_allowlist before flipping --additi
    29160  (not in wiki canonical set)
    29161  Burnt fox meat
 
-=== misc (107 items not in wiki output) ===
+=== misc (72 items not in wiki output) ===
      563  Law rune
      565  Blood rune
      566  Soul rune
      764  (not in wiki canonical set)
      766  (not in wiki canonical set)
      772  Dramen staff
-    1704  (not in wiki canonical set)
-    1706  (not in wiki canonical set)
-    1708  (not in wiki canonical set)
-    1710  (not in wiki canonical set)
     1923  Bowl
     1925  Bucket
     1935  Jug
     1937  Jug of water
-    2572  (not in wiki canonical set)
-    3855  (not in wiki canonical set)
-    3857  (not in wiki canonical set)
-    3859  (not in wiki canonical set)
     3861  (not in wiki canonical set)
-    3863  (not in wiki canonical set)
-    3865  (not in wiki canonical set)
-    3867  (not in wiki canonical set)
     4447  Antique lamp
     4670  Blood diamond
-    8013  Teleport to house
     9084  Lunar staff
     9469  Grand seed pod
    11105  (not in wiki canonical set)
-   11107  (not in wiki canonical set)
-   11109  (not in wiki canonical set)
-   11111  (not in wiki canonical set)
-   11120  (not in wiki canonical set)
-   11122  (not in wiki canonical set)
-   11124  (not in wiki canonical set)
-   11126  (not in wiki canonical set)
-   11190  (not in wiki canonical set)
-   11191  (not in wiki canonical set)
-   11192  (not in wiki canonical set)
    11193  (not in wiki canonical set)
    11238  Baby impling jar
    11240  Young impling jar
@@ -1562,23 +1272,16 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11256  Dragon impling jar
    11258  Jar generator
    11866  Slayer ring (8)
-   11867  (not in wiki canonical set)
-   11868  (not in wiki canonical set)
-   11869  (not in wiki canonical set)
+   11867  Slayer ring (7)
+   11868  Slayer ring (6)
+   11869  Slayer ring (5)
    11870  (not in wiki canonical set)
-   11871  (not in wiki canonical set)
-   11872  (not in wiki canonical set)
-   11873  (not in wiki canonical set)
+   11871  Slayer ring (3)
+   11872  Slayer ring (2)
+   11873  Slayer ring (1)
    11874  Broad arrowheads
-   11970  (not in wiki canonical set)
-   11974  (not in wiki canonical set)
-   11978  (not in wiki canonical set)
    11982  (not in wiki canonical set)
-   11984  (not in wiki canonical set)
-   11986  (not in wiki canonical set)
-   11988  (not in wiki canonical set)
    12019  Coal bag
-   12785  (not in wiki canonical set)
    19043  (not in wiki canonical set)
    19564  Royal seed pod
    20372  Saradomin godsword (or)
@@ -1588,17 +1291,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
    20380  (not in wiki canonical set)
    20786  Ring of wealth (i5)
    21149  (not in wiki canonical set)
-   21151  (not in wiki canonical set)
-   21153  (not in wiki canonical set)
-   21155  (not in wiki canonical set)
    21168  (not in wiki canonical set)
    21169  (not in wiki canonical set)
    21170  (not in wiki canonical set)
-   21171  (not in wiki canonical set)
    21172  (not in wiki canonical set)
-   21173  (not in wiki canonical set)
    21174  (not in wiki canonical set)
-   21175  (not in wiki canonical set)
    21383  (not in wiki canonical set)
    21385  (not in wiki canonical set)
    21395  (not in wiki canonical set)
@@ -1619,7 +1316,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    25821  (not in wiki canonical set)
    29463  (not in wiki canonical set)
 
-=== quests (110 items not in wiki output) ===
+=== quests (104 items not in wiki output) ===
      552  Ghostspeak amulet
      762  (not in wiki canonical set)
      770  (not in wiki canonical set)
@@ -1627,7 +1324,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     1053  Green halloween mask
     1686  (not in wiki canonical set)
     1854  Shantay pass
-    2572  (not in wiki canonical set)
+    2572  Ring of wealth
     3981  (not in wiki canonical set)
     3983  (not in wiki canonical set)
     4024  Ninja monkey greegree
@@ -1663,13 +1360,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     9117  (not in wiki canonical set)
    10510  (not in wiki canonical set)
    11142  (not in wiki canonical set)
-   11667  (not in wiki canonical set)
-   11668  (not in wiki canonical set)
-   11669  (not in wiki canonical set)
    11670  (not in wiki canonical set)
-   11671  (not in wiki canonical set)
-   11672  (not in wiki canonical set)
-   11673  (not in wiki canonical set)
    12018  Salve amulet(ei)
    12019  Coal bag
    12020  Gem bag

@@ -165,8 +165,13 @@ def _melee_weapon_sort_key(it):
 
 
 # Weapon types we never want in melee even if stats suggest otherwise.
+# Note: 'axe' is intentionally NOT here — osrsbox's weapon_type='axe' covers
+# both woodcutting axes AND battleaxes/greataxes (e.g. Iron battleaxe). The
+# `_is_melee_weapon` predicate disambiguates by name: items with weapon_type='axe'
+# whose name contains 'battleaxe' / 'greataxe' / 'great axe' stay as melee
+# weapons; pure woodcutting axes get excluded by the name check below.
 _NOT_MELEE_WEAPON_TYPES = {
-    "pickaxe", "axe", "staff", "powered staff", "wand", "bow", "crossbow",
+    "pickaxe", "staff", "powered staff", "wand", "bow", "crossbow",
     "thrown", "chinchompa", "salamander", "blaster", "polestaff",
 }
 
@@ -182,8 +187,14 @@ def _is_melee_weapon(it):
         return False
     if _slot(it) not in ("weapon", "2h"):
         return False
-    if _wtype(it) in _NOT_MELEE_WEAPON_TYPES:
+    wt = _wtype(it)
+    if wt in _NOT_MELEE_WEAPON_TYPES:
         return False
+    if wt == "axe":
+        # osrsbox conflates wc axes and battleaxes under weapon_type='axe'.
+        n = (it.get("name") or "").lower()
+        if not any(k in n for k in ("battleaxe", "greataxe", "great axe")):
+            return False
     e = _eq(it)
     melee = _max(e.get("attack_slash", 0), e.get("attack_stab", 0), e.get("attack_crush", 0))
     other = _max(e.get("attack_ranged", 0), e.get("attack_magic", 0))
@@ -191,17 +202,27 @@ def _is_melee_weapon(it):
 
 
 def _slot_pred(slot):
-    """Generic melee armour predicate by slot."""
+    """Generic melee armour predicate by slot. Defence-leaning OR
+    melee-offensive (strength bonus / attack bonus) when defence is zero —
+    handles stat-only amulets like Amulet of strength which have
+    melee_strength but no defence."""
     def pred(it):
         if _slot(it) != slot or _is_noise(it):
             return False
         e = _eq(it)
         md = _max(e.get("defence_stab", 0), e.get("defence_slash", 0), e.get("defence_crush", 0))
-        if md <= 0:
+        if md > 0:
+            rd = e.get("defence_ranged", 0)
+            mgd = e.get("defence_magic", 0)
+            return md >= rd and md >= mgd
+        ms = e.get("melee_strength", 0)
+        ma = _max(e.get("attack_slash", 0), e.get("attack_stab", 0), e.get("attack_crush", 0))
+        if ms <= 0 and ma <= 0:
             return False
-        rd = e.get("defence_ranged", 0)
-        mgd = e.get("defence_magic", 0)
-        return md >= rd and md >= mgd
+        rs = e.get("ranged_strength", 0)
+        mdmg = e.get("magic_damage", 0)
+        max_off = max(ms, ma)
+        return max_off >= rs and max_off >= mdmg
     return pred
 
 
@@ -506,19 +527,29 @@ _SAILING_FORCE_IDS = {
 # ── Per-tab specs ──────────────────────────────────────────────────────────
 
 # === MELEE ===
+_BARROWS_MELEE_PIECES = {
+    # Dharok's / Guthan's / Torag's / Verac's (melee Barrows)
+    "Dharok's helm", "Dharok's platebody", "Dharok's platelegs", "Dharok's greataxe",
+    "Guthan's helm", "Guthan's platebody", "Guthan's chainskirt", "Guthan's warspear",
+    "Torag's helm", "Torag's platebody", "Torag's platelegs", "Torag's hammers",
+    "Verac's helm", "Verac's brassard", "Verac's plateskirt", "Verac's flail",
+}
 MELEE = TabSpec(
     name="melee", const_name="TAG_MELEE",
     sections=[
         Section("Combat utility", _name_in({
             "Cannon base", "Cannon stand", "Cannon barrels", "Cannon furnace",
-            "Cannonball", "Granite cannonball",
+            "Cannonball", "Granite cannonball", "Steel cannonball",
         })),
         Section("Weapons", _is_melee_weapon,
                 sort_key=_melee_weapon_sort_key,
                 force_include=["Dragon pickaxe"]),
-        Section("Helmets", _slot_pred("head")),
-        Section("Body armour", _slot_pred("body")),
-        Section("Legs", _slot_pred("legs")),
+        Section("Helmets", _slot_pred("head"),
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower())),
+        Section("Body armour", _slot_pred("body"),
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard")))),
+        Section("Legs", _slot_pred("legs"),
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt")))),
         Section("Boots", _slot_pred("feet")),
         Section("Gloves", _slot_pred("hands"),
                 force_exclude=_SKILLING_GAUNTLETS),
@@ -530,7 +561,10 @@ MELEE = TabSpec(
                 _is_potion_family("super combat", "super strength", "super attack",
                                   "super defence", "strength potion", "attack potion",
                                   "defence potion", "combat potion", "divine super",
-                                  "saradomin brew"),
+                                  "saradomin brew", "zamorak brew"),
+                sort_key=_potion_sort_key),
+        Section("Restores (cross-tag)",
+                _is_potion_family("super restore", "sanfew"),
                 sort_key=_potion_sort_key),
         Section("Combat food", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
     ],
@@ -541,14 +575,23 @@ MELEE = TabSpec(
 )
 
 # === RANGE ===
+_DHIDE_PIECE_RE = re.compile(r"\bd'?hide\b", re.IGNORECASE)
+_DRAGONHIDE_RAW_RE = re.compile(r"\bdragonhide\b|\bdragon leather\b", re.IGNORECASE)
 RANGE = TabSpec(
     name="range", const_name="TAG_RANGE",
     sections=[
+        Section("Cannon parts (cross-tag)", _name_in({
+            "Cannon base", "Cannon stand", "Cannon barrels", "Cannon furnace",
+            "Cannonball", "Granite cannonball", "Steel cannonball",
+        })),
         Section("Ammunition", _is_range_ammo),
         Section("Bows", _is_range_weapon_type("bow")),
         Section("Crossbows", _is_range_weapon_type("crossbow")),
         Section("Thrown", _is_range_weapon_type("thrown")),
         Section("Special weapons", _is_range_weapon_type("chinchompa", "blaster")),
+        Section("D'hide armour", lambda it: bool(_DHIDE_PIECE_RE.search(it.get("name") or ""))),
+        Section("Raw dragonhide (cross-tag with crafting)",
+                lambda it: bool(_DRAGONHIDE_RAW_RE.search(it.get("name") or ""))),
         Section("Helmets", _is_range_armour_slot("head")),
         Section("Body", _is_range_armour_slot("body")),
         Section("Legs", _is_range_armour_slot("legs")),
@@ -561,6 +604,11 @@ RANGE = TabSpec(
         Section("Ranging potions",
                 _is_potion_family("ranging potion", "divine ranging"),
                 sort_key=_potion_sort_key),
+        Section("Bait / feathers (cross-tag)", _name_in({
+            "Feather", "Stripy feather", "Red feather", "Blue feather",
+            "Yellow feather", "Orange feather", "Bone bolts",
+        })),
+        Section("Combat food (cross-tag)", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
     ],
 )
 
@@ -586,6 +634,15 @@ MAGE = TabSpec(
         Section("Magic potions",
                 _is_potion_family("magic potion", "ancient brew", "forgotten brew", "battlemage"),
                 sort_key=_potion_sort_key),
+        Section("Orbs (cross-tag with crafting)", _name_in({
+            "Unpowered orb", "Air orb", "Water orb", "Earth orb", "Fire orb",
+            "Light orb", "Empty light orb",
+        })),
+        Section("God cloaks", _name_in({
+            "Saradomin cloak", "Zamorak cloak", "Guthix cloak",
+            "Saradomin cape", "Zamorak cape", "Guthix cape",
+        })),
+        Section("Combat food (cross-tag)", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
     ],
     variant_allowlist=[
         "Imbued saradomin cape", "Imbued zamorak cape", "Imbued guthix cape",
@@ -603,7 +660,26 @@ PRAYER = TabSpec(
         Section("Super restores", _is_potion_family("super restore"), sort_key=_potion_sort_key),
         Section("Sanfew", _is_potion_family("sanfew"), sort_key=_potion_sort_key),
         Section("Saradomin brews", _is_potion_family("saradomin brew"), sort_key=_potion_sort_key),
-        Section("Holy symbols", _name_in({"Holy symbol", "Unholy symbol", "Holy book", "Unholy book"})),
+        Section("Holy symbols", _or(
+            _name_in({"Holy symbol", "Unholy symbol", "Holy book", "Unholy book",
+                      "Unstrung symbol", "Unblessed symbol", "Unstrung emblem",
+                      "Unpowered symbol", "Holy mould", "Silver sickle",
+                      "Silver sickle (b)"}),
+            _name_starts("Holy book"), _name_starts("Unholy book"),
+            _name_starts("Book of "),
+        )),
+        Section("Robes (monk/proselyte/initiate)", _or(
+            _name_starts("Monk's "), _name_starts("Proselyte "),
+            _name_starts("Initiate "), _name_starts("Devout "),
+        )),
+        Section("Bone secondaries", _name_in({
+            "Bonemeal", "Bonemeal pot", "Bucket of slime", "Vial of milk",
+            "Zogre bonemeal", "Jogre bonemeal", "Mort myre fungus",
+        })),
+        Section("Quest-related prayer items", _name_in({
+            "Ogre coffin key", "Ring of the gods", "Ring of the gods (i)",
+            "Damaged book", "Book of balance", "Journal", "Diary", "Manual",
+        })),
         Section("Prayer accessories", _name_in({
             "Holy wrench", "Bonecrusher", "Bonecrusher necklace",
             "Hand of glory", "Prayer cape", "Prayer cape(t)", "Prayer hood",
@@ -632,15 +708,35 @@ COOKING = TabSpec(
         Section("Beverages", _name_in({
             "Beer", "Asgarnian ale", "Dwarven stout", "Wizard's mind bomb",
             "Bandit's brew", "Cider", "Mature cider",
-            "Tea", "Cup of tea", "Tea (gnome)",
+            "Tea", "Cup of tea", "Tea (gnome)", "Grog", "Beer glass",
+            "Keg of beer", "Mature dwarven stout",
         })),
-        Section("Raw meat & ingredients", _name_in({
-            "Raw chicken", "Raw beef", "Raw rat meat", "Raw bear meat",
-            "Raw rabbit", "Raw bird meat", "Raw chompy", "Raw oomlie",
-            "Pot of flour", "Pot of cream", "Bucket of milk", "Egg",
-            "Onion", "Tomato", "Cabbage", "Potato", "Sweetcorn",
-            "Cooking apple", "Banana", "Pineapple", "Lemon", "Orange",
+        Section("Burnt food", _name_starts("Burnt ")),
+        Section("Containers (water/milk/etc)", _name_in({
+            "Vial", "Vial of water", "Empty vial", "Vial of blood",
+            "Bowl", "Bowl of water", "Empty bowl",
+            "Pot", "Empty pot", "Pot of flour", "Pot of cream",
+            "Jug", "Jug of water", "Jug of wine",
+            "Bucket", "Bucket of water", "Bucket of milk", "Bucket of sand",
         })),
+        Section("Raw meat & ingredients", _or(
+            _name_starts("Raw "),
+            _name_in({
+                "Pot of flour", "Pot of cream", "Bucket of milk", "Egg",
+                "Onion", "Tomato", "Cabbage", "Potato", "Sweetcorn",
+                "Cooking apple", "Banana", "Pineapple", "Lemon", "Orange",
+                "Pastry dough", "Bread dough", "Pizza base",
+                "Flour", "Cooked meat", "Cooked chicken", "Cooked rabbit",
+                "Stripy feather", "Garlic", "Lobster pot", "Salt", "Spice",
+                "Pat of butter", "Chocolate bar", "Chocolate dust",
+                "Honeycomb", "Egg shell",
+            })),
+        ),
+        Section("Misc cooked food", _name_starts("Cooked "),
+                # canonical cooked fish already matched above
+                force_exclude=list(_COOKED_FISH_HEAL.keys())),
+        Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
+        Section("Cooking pet & misc", _name_in({"Rocky", "Heron", "Beaver", "Pet hellpuppy", "Pet kitten"})),
     ],
 )
 
@@ -682,7 +778,24 @@ WC_FLETCHING = TabSpec(
         Section("Darts", _name_ends(" dart", " darts", " dart tip", " dart tips")),
         Section("Javelin parts", _name_ends(" javelin heads", " javelin shaft")),
         Section("Bird nests", _or(_name_starts("Bird nest"), _name_starts("Bird's nest"))),
+        Section("Feathers (cross-tag with fishing)", _name_in({
+            "Feather", "Stripy feather", "Red feather", "Blue feather",
+            "Yellow feather", "Orange feather",
+        })),
+        Section("Flax & secondary fletching materials", _name_in({
+            "Flax", "Bow string", "Crossbow string", "Magic string",
+            "Sinew",
+        })),
         Section("Tools", _name_in({"Knife", "Hatchet", "Crystal hatchet", "Bruma torch"})),
+        Section("Forestry items (post-Sept 2023)",
+                lambda it: "forestry" in (it.get("name") or "").lower()
+                           or "anima" in (it.get("name") or "").lower()
+                           or (it.get("name") or "").startswith("Sturdy ")),
+        Section("Capes & pet", _name_in({
+            "Woodcutting cape", "Woodcutting cape(t)", "Woodcutting hood",
+            "Fletching cape", "Fletching cape(t)", "Fletching hood",
+            "Beaver", "Imcando hammer",
+        })),
     ],
 )
 
@@ -791,6 +904,19 @@ CRAFTING = TabSpec(
         )),
         Section("Battlestaves", _and(_name_ends(" battlestaff"), _not(_name_contains("mystic")))),
         Section("Crafting cape & pet", _name_in({"Crafting cape", "Crafting cape(t)", "Crafting hood"})),
+        Section("Wool/dyes/cloth (extended)", _name_in({
+            "Wool", "Ball of wool", "Bolt of cloth",
+            "Linum tirinum", "Spun flax",
+        })),
+        Section("Leathers (extended)",
+                _or(_name_ends(" leather"), _name_ends(" hide"))),
+        Section("Pottery & wood crafting outputs", _or(
+            _name_starts("Unfired "),
+            _name_in({"Pie shell", "Vial", "Vial of water", "Empty vial"}),
+        )),
+        Section("Spinning / weaving inputs", _name_in({
+            "Spinning wheel", "Yarn",
+        })),
     ],
 )
 
@@ -817,6 +943,21 @@ MINING_SMITHING = TabSpec(
             "Smithing cape", "Smithing cape(t)", "Smithing hood",
             "Rock golem", "Pet smithing pet",
         })),
+        Section("Crystal-tool/Tier-fallback pickaxes", _name_in({
+            "Crystal pickaxe", "Crystal pickaxe (inactive)", "Crystal pickaxe full",
+            "Dragon pickaxe (or)", "Dragon pickaxe (upgraded)",
+            "3rd age pickaxe", "Infernal pickaxe", "Infernal pickaxe (uncharged)",
+        })),
+        Section("Smithing armour outputs (extended)", _or(
+            _name_ends(" full helm"), _name_ends(" med helm"),
+            _name_ends(" platebody"), _name_ends(" platelegs"),
+            _name_ends(" plateskirt"), _name_ends(" chainbody"),
+            _name_ends(" sq shield"), _name_ends(" kiteshield"),
+        )),
+        Section("Gem cutting/polishing inputs", _or(
+            _name_starts("Uncut "),
+            _name_in({"Chisel", "Crystal chisel"}),
+        )),
     ],
 )
 
@@ -873,10 +1014,11 @@ AGILITY_THIEVING = TabSpec(
         Section("Marks & tickets", _name_in({
             "Mark of grace", "Agility arena ticket", "Brimhaven voucher",
         })),
-        Section("Graceful set", _name_starts("Graceful ")),
+        Section("Graceful set",
+                _or(_name_starts("Graceful "), _name_starts("Graceful("))),
         Section("Agility shortcut tools", _name_in({
             "Mithril grapple", "Climbing boots", "Spiked climbing boots",
-            "Crystal grappling hook",
+            "Crystal grappling hook", "Boots of lightness",
         })),
         Section("Rogue equipment", _name_starts("Rogue ")),
         Section("Thieving accessories", _name_in({
@@ -1048,7 +1190,18 @@ CONSTRUCTION = TabSpec(
             "Bolt of cloth", "Limestone", "Limestone brick", "Soft clay",
             "Steel bar", "Marble block", "Magic stone", "Gold leaf",
             "Mahogany table", "Servant's moneybag",
+            "Clockwork", "Empty oak cape rack",
         })),
+        Section("POH portals & telescopes",
+                _or(_name_starts("Teleport to "),
+                    _name_in({"House teleport", "Construct. cape teleport"}))),
+        Section("Bench/altar (pattern)",
+                lambda it: any(k in (it.get("name") or "").lower() for k in (
+                    "oak", "mahogany", "teak"
+                )) and any(k in (it.get("name") or "").lower() for k in (
+                    "chair", "table", "bench", "bed", "bookcase",
+                    "fireplace", "wardrobe", "drawers", "cape rack", "armour case",
+                ))),
         Section("Mahogany Homes", _name_in({
             "Carpenter's helmet", "Carpenter's shirt",
             "Carpenter's trousers", "Carpenter's boots",
@@ -1091,7 +1244,17 @@ MISC = TabSpec(
             "Burning amulet(2)", "Burning amulet(1)",
             "Xeric's talisman",
         })),
-        Section("Teleport tabs", _and(_name_ends(" teleport"), _not(_name_contains("scroll")))),
+        Section("Teleport tabs", _or(
+            _and(_name_ends(" teleport"), _not(_name_contains("scroll"))),
+            _name_starts("Teleport to "),
+        )),
+        Section("Boss & quest jewellery", _name_in({
+            "Ring of the gods", "Ring of the gods (i)",
+            "Ring of suffering", "Ring of suffering (i)",
+            "Ring of suffering (r)", "Ring of suffering (ri)",
+            "Phoenix necklace", "Amulet of magic", "Amulet of strength",
+            "Amulet of defence", "Amulet of accuracy",
+        })),
         Section("Clue scrolls",
                 _or(_name_starts("Clue scroll"), _name_starts("Master clue"))),
         Section("Clue tools", _name_in({
