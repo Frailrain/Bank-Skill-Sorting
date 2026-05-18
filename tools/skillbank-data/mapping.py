@@ -792,6 +792,7 @@ COOKING = TabSpec(
             "Pot", "Empty pot", "Pot of flour", "Pot of cream",
             "Jug", "Jug of water", "Jug of wine",
             "Bucket", "Bucket of water", "Bucket of milk", "Bucket of sand",
+            "Waterskin(4)", "Waterskin(3)", "Waterskin(2)", "Waterskin(1)", "Waterskin(0)",
         })),
         Section("Raw meat & ingredients", _or(
             _name_starts("Raw "),
@@ -808,7 +809,14 @@ COOKING = TabSpec(
         ),
         Section("Misc cooked food", _or(
             _name_starts("Cooked "),
-            _name_in({"Edible seaweed", "Giant carp", "Raw giant carp"}),
+            _name_in({
+                "Edible seaweed", "Giant carp", "Raw giant carp",
+                "Ugthanki meat", "Uncooked cake",
+                "Pitta dough", "Pitta bread",
+                "Chopped tomato", "Chopped onion", "Chopped ugthanki",
+                "Onion & tomato", "Ugthanki & onion", "Ugthanki & tomato",
+                "Kebab mix", "Ugthanki kebab",
+            }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
         Section("Cooking pet & misc", _name_in({"Rocky", "Heron", "Beaver", "Pet hellpuppy", "Pet kitten"})),
@@ -860,7 +868,8 @@ WC_FLETCHING = TabSpec(
         Section("Arrows", _and(_name_ends(" arrow", " arrows"),
                                _not(_name_contains("shaft"))),
                 force_exclude=["Broken arrow"]),
-        Section("Darts", _name_ends(" dart", " darts", " dart tip", " dart tips")),
+        Section("Darts", _name_ends(" dart", " darts", " dart tip", " dart tips"),
+                force_exclude=["Prototype dart", "Prototype dart tip"]),
         Section("Javelin parts", _name_ends(" javelin heads", " javelin shaft")),
         Section("Javelins (cross-tag with range)", _name_ends(" javelin")),
         Section("Bird nests", _or(_name_starts("Bird nest"), _name_starts("Bird's nest"))),
@@ -953,9 +962,10 @@ CRAFTING = TabSpec(
     sections=[
         Section("Crafting tools", _name_in({
             "Chisel", "Needle", "Glassblowing pipe", "Hammer",
-            "Spinning wheel", "Lyre", "Enchanted lyre",
+            "Spinning wheel", "Lyre", "Enchanted lyre", "Shears",
             "Ring mould", "Amulet mould", "Necklace mould",
             "Unholy mould", "Tiara mould", "Bracelet mould",
+            "Bronze wire", "Bucket of sand", "Woad leaf",
         })),
         Section("Thread & dyes", _name_in({
             "Thread", "Wool", "Ball of wool",
@@ -1003,6 +1013,17 @@ CRAFTING = TabSpec(
             _name_starts("Gold "),
             _or(_name_contains("amulet"), _name_contains("necklace"),
                 _name_contains("bracelet"), _name_contains("ring")),
+        )),
+        Section("Jewellery (gem-set)", _and(
+            _or(_name_ends(" ring"), _name_ends(" necklace"),
+                _name_ends(" amulet"), _name_ends(" bracelet")),
+            _or(_name_starts("Sapphire "), _name_starts("Emerald "),
+                _name_starts("Ruby "), _name_starts("Diamond "),
+                _name_starts("Dragonstone "), _name_starts("Onyx "),
+                _name_starts("Zenyte "), _name_starts("Opal "),
+                _name_starts("Jade "), _name_starts("Topaz "),
+                _name_starts("Pearl "), _name_starts("Dragon "),
+                _name_starts("Black ")),
         )),
         Section("Battlestaves", _and(_name_ends(" battlestaff"), _not(_name_contains("mystic")))),
         Section("Crafting cape & pet", _name_in({"Crafting cape", "Crafting cape(t)", "Crafting hood"})),

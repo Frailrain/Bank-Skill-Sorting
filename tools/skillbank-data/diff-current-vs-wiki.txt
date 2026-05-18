@@ -627,7 +627,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== wc_fletching (95 items not in wiki output) ===
+=== wc_fletching (97 items not in wiki output) ===
      671  Animal skull
      687  Broken arrow
     1363  Iron battleaxe
@@ -638,6 +638,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
     1373  Rune battleaxe
     1375  Bronze battleaxe
     1377  Dragon battleaxe
+    1849  Prototype dart
+    1853  Prototype dart tip
     3094  (not in wiki canonical set)
     4214  (not in wiki canonical set)
     4215  (not in wiki canonical set)
@@ -782,7 +784,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    24363  Scroll box (medium)
    25742  Holy ornament kit
 
-=== crafting (59 items not in wiki output) ===
+=== crafting (57 items not in wiki output) ===
      567  Unpowered orb
      569  Fire orb
      571  Water orb
@@ -801,8 +803,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     1718  Holy symbol
     1722  Unpowered symbol
     1724  Unholy symbol
-    1783  Bucket of sand
-    1793  Woad leaf
     1795  (not in wiki canonical set)
     1797  (not in wiki canonical set)
     1799  (not in wiki canonical set)

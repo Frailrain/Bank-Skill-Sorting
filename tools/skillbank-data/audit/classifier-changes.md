@@ -381,3 +381,45 @@ Same as above.
 **After**: + Archery ticket (Ranging Guild reward currency).
 
 **Affects**: 1 item.
+
+---
+
+## Session 7 (audit IDs 1601–1900)
+
+### CRAFTING — new "Jewellery (gem-set)" section
+
+**Before**: only "Jewellery (silver)" and "Jewellery (gold)" matched name-startswith those metals.
+
+**After**: new section matching `(ring|necklace|amulet|bracelet) endswith` AND `Sapphire/Emerald/Ruby/Diamond/Dragonstone/Onyx/Zenyte/Opal/Jade/Topaz/Pearl/Dragon/Black startswith`.
+
+**Affects**: 12+ gem jewellery items (Sapphire ring, Emerald necklace, Ruby amulet, etc.) now classify into crafting.
+
+### CRAFTING Crafting tools — expanded materials
+
+**Before**: chisel/needle/glassblowing/spinning wheel/lyres + 6 moulds.
+
+**After**: + Shears, Bronze wire, Bucket of sand, Woad leaf.
+
+**Affects**: 4 items.
+
+### WC_FLETCHING Darts — `Prototype dart`/`Prototype dart tip` force_exclude
+
+Tourist Trap quest items wrongly tagged via dart-name pattern.
+
+### COOKING Containers — Waterskin family
+
+**Before**: vial/bowl/pot/jug/bucket only.
+
+**After**: + Waterskin(4..1) and (0).
+
+**Affects**: 5 items.
+
+### COOKING Misc cooked food — kebab + cake recipe items
+
+**Before**: name_starts("Cooked ") + edible seaweed + giant carp.
+
+**After**: also matches Ugthanki meat, Uncooked cake, Pitta dough/bread,
+Chopped tomato/onion/ugthanki, Onion&tomato / Ugthanki&onion /
+Ugthanki&tomato, Kebab mix, Ugthanki kebab.
+
+**Affects**: ~10 items.

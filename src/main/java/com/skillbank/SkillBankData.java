@@ -1081,11 +1081,11 @@ public final class SkillBankData
 
 	private static void addCooking(Map<String, List<Integer>> m)
 	{
-		// COOKING — 418 items
+		// COOKING — 433 items
 		//   Cooking tools (10), Raw fish (25), Cooked fish (23), Pies (10), Pizzas
 		//   (4), Stews & curries (3), Cakes (2), Breads (4), Gnome food (24),
-		//   Beverages (11), Burnt food (67), Containers (water/milk/etc) (14), Raw
-		//   meat & ingredients (94), Misc cooked food (21), Pies (extended) (19),
+		//   Beverages (11), Burnt food (67), Containers (water/milk/etc) (18), Raw
+		//   meat & ingredients (94), Misc cooked food (32), Pies (extended) (19),
 		//   Cooking pet & misc (4), Legacy (83)
 		m.put(TAG_COOKING, Arrays.asList(
 			// === Cooking tools ===
@@ -1140,8 +1140,9 @@ public final class SkillBankData
 			32347, 32355, 33112,
 
 			// === Containers (water/milk/etc) ===
-			227, 229, 1783, 1921, 1925, 1927, 1929, 1931,
-			1933, 1937, 1993, 2130, 9085, 22405,
+			227, 229, 1783, 1823, 1825, 1827, 1829, 1921,
+			1925, 1927, 1929, 1931, 1933, 1937, 1993, 2130,
+			9085, 22405,
 
 			// === Raw meat & ingredients ===
 			301, 338, 1859, 1940, 1942, 1944, 1946, 1953,
@@ -1158,9 +1159,10 @@ public final class SkillBankData
 			32317, 32325, 32333, 32341, 32349, 33106,
 
 			// === Misc cooked food ===
-			337, 403, 2343, 2878, 5988, 7521, 7530, 7568,
-			24785, 29077, 29128, 29131, 29134, 29137, 29140, 29143,
-			29146, 29149, 29152, 29217, 33109,
+			337, 403, 1861, 1863, 1869, 1871, 1873, 1875,
+			1877, 1879, 1881, 1883, 1889, 2343, 2878, 5988,
+			7521, 7530, 7568, 24785, 29077, 29128, 29131, 29134,
+			29137, 29140, 29143, 29146, 29149, 29152, 29217, 33109,
 
 			// === Pies (extended) ===
 			2315, 2317, 2319, 2321, 7164, 7170, 7172, 7182,
@@ -1191,10 +1193,10 @@ public final class SkillBankData
 		//   Axes (28), Logs (42), Bowstrings (3), Unstrung bows (39), Bows &
 		//   shortbows (strung) (51), Crossbow parts (14), Bolt tips (12), Bolts
 		//   (unfinished) (8), Bolts (finished) (39), Arrow shafts (2), Arrowtips
-		//   (11), Arrows (27), Darts (22), Javelins (cross-tag with range) (9),
+		//   (11), Arrows (27), Darts (20), Javelins (cross-tag with range) (9),
 		//   Bird nests (1), Feathers (cross-tag with fishing) (6), Flax &
 		//   secondary fletching materials (2), Tools (2), Forestry items (post-
-		//   Sept 2023) (11), Capes & pet (6), Legacy (95)
+		//   Sept 2023) (11), Capes & pet (6), Legacy (97)
 		m.put(TAG_WC_FLETCHING, Arrays.asList(
 			// === Axes ===
 			1351, 28196, 1349, 28199, 1353, 28202, 1361, 28205,
@@ -1262,8 +1264,8 @@ public final class SkillBankData
 
 			// === Darts ===
 			806, 819, 807, 820, 808, 821, 3093, 809,
-			822, 810, 823, 811, 824, 11230, 11232, 1849,
-			1853, 25849, 25853, 28991, 30998, 31010,
+			822, 810, 823, 811, 824, 11230, 11232, 25849,
+			25853, 28991, 30998, 31010,
 
 			// === Javelins (cross-tag with range) ===
 			825, 826, 827, 828, 829, 830, 19484, 21318,
@@ -1290,17 +1292,18 @@ public final class SkillBankData
 
 			// === Legacy carry-over (hand-curated items the new classifier missed) ===
 			671, 687, 1363, 1365, 1367, 1369, 1371, 1373,
-			1375, 1377, 3094, 4214, 4215, 4216, 4217, 4218,
-			4219, 4220, 4221, 4222, 4223, 4428, 4718, 5071,
-			5072, 5073, 5074, 5075, 6589, 6904, 7807, 9174,
-			9380, 9422, 9455, 9774, 9775, 9784, 11749, 11750,
-			11751, 11752, 11753, 11754, 11755, 11756, 11757, 11758,
-			19570, 19572, 19574, 19576, 19578, 19580, 19581, 19582,
-			20727, 21352, 21964, 22550, 23185, 23675, 23985, 25484,
-			25862, 28134, 28164, 28166, 28168, 28170, 28172, 28174,
-			28186, 28188, 28190, 28192, 28194, 28198, 28200, 28204,
-			28206, 28210, 28212, 28216, 28218, 28222, 28223, 28279,
-			28280, 28281, 28282, 28283, 28284, 28285, 28420
+			1375, 1377, 1849, 1853, 3094, 4214, 4215, 4216,
+			4217, 4218, 4219, 4220, 4221, 4222, 4223, 4428,
+			4718, 5071, 5072, 5073, 5074, 5075, 6589, 6904,
+			7807, 9174, 9380, 9422, 9455, 9774, 9775, 9784,
+			11749, 11750, 11751, 11752, 11753, 11754, 11755, 11756,
+			11757, 11758, 19570, 19572, 19574, 19576, 19578, 19580,
+			19581, 19582, 20727, 21352, 21964, 22550, 23185, 23675,
+			23985, 25484, 25862, 28134, 28164, 28166, 28168, 28170,
+			28172, 28174, 28186, 28188, 28190, 28192, 28194, 28198,
+			28200, 28204, 28206, 28210, 28212, 28216, 28218, 28222,
+			28223, 28279, 28280, 28281, 28282, 28283, 28284, 28285,
+			28420
 		));
 	}
 
@@ -1391,17 +1394,17 @@ public final class SkillBankData
 
 	private static void addCrafting(Map<String, List<Integer>> m)
 	{
-		// CRAFTING — 199 items
-		//   Crafting tools (12), Thread & dyes (10), Leather (raw → tanned) (10),
+		// CRAFTING — 244 items
+		//   Crafting tools (16), Thread & dyes (10), Leather (raw → tanned) (10),
 		//   D'hide (27), Glass (11), Misc crafting materials (1), Pottery (10),
 		//   Uncut gems (10), Cut gems (12), Jewellery (silver) (1), Jewellery
-		//   (gold) (5), Battlestaves (10), Crafting cape & pet (2),
-		//   Wool/dyes/cloth (extended) (2), Leathers (extended) (14), Pottery &
-		//   wood crafting outputs (3), Legacy (59)
+		//   (gold) (5), Jewellery (gem-set) (43), Battlestaves (10), Crafting cape
+		//   & pet (2), Wool/dyes/cloth (extended) (2), Leathers (extended) (14),
+		//   Pottery & wood crafting outputs (3), Legacy (57)
 		m.put(TAG_CRAFTING, Arrays.asList(
 			// === Crafting tools ===
-			1592, 1594, 1595, 1597, 1733, 1755, 1785, 2347,
-			3689, 3690, 5523, 11065,
+			1794, 1592, 1594, 1595, 1597, 1733, 1735, 1755,
+			1783, 1785, 1793, 2347, 3689, 3690, 5523, 11065,
 
 			// === Thread & dyes ===
 			1734, 1737, 1759, 1763, 1765, 1767, 1769, 1771,
@@ -1442,6 +1445,14 @@ public final class SkillBankData
 			// === Jewellery (gold) ===
 			1635, 1654, 1673, 1692, 11069,
 
+			// === Jewellery (gem-set) ===
+			1647, 1666, 11067, 1664, 1637, 1639, 1641, 1643,
+			1645, 1656, 1658, 1660, 1662, 1694, 1696, 1698,
+			1700, 1702, 6575, 6577, 6581, 11072, 11076, 11085,
+			11092, 11115, 11130, 19532, 19535, 19538, 19541, 21081,
+			21084, 21087, 21090, 21093, 21096, 21108, 21111, 21114,
+			21117, 21120, 21123,
+
 			// === Battlestaves ===
 			1393, 1395, 1397, 1399, 3053, 6562, 11787, 11998,
 			20730, 20736,
@@ -1462,12 +1473,12 @@ public final class SkillBankData
 			// === Legacy carry-over (hand-curated items the new classifier missed) ===
 			567, 569, 571, 573, 575, 960, 1391, 1469,
 			1675, 1677, 1679, 1681, 1683, 1714, 1716, 1718,
-			1722, 1724, 1783, 1793, 1795, 1797, 1799, 2349,
-			2351, 2353, 2355, 2357, 2359, 2361, 2363, 5350,
-			5418, 5525, 7801, 8778, 8780, 8782, 8794, 9625,
-			9781, 11068, 11980, 19501, 20354, 20356, 20358, 20360,
-			20362, 20364, 20384, 20386, 20388, 20390, 20392, 21039,
-			21041, 21043, 21046
+			1722, 1724, 1795, 1797, 1799, 2349, 2351, 2353,
+			2355, 2357, 2359, 2361, 2363, 5350, 5418, 5525,
+			7801, 8778, 8780, 8782, 8794, 9625, 9781, 11068,
+			11980, 19501, 20354, 20356, 20358, 20360, 20362, 20364,
+			20384, 20386, 20388, 20390, 20392, 21039, 21041, 21043,
+			21046
 		));
 	}
 

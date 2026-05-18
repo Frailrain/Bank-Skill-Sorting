@@ -9,8 +9,9 @@
 - **Reviewed in session 4**: IDs 751–1000 (119 items)
 - **Reviewed in session 5**: IDs 1001–1300 (134 items)
 - **Reviewed in session 6**: IDs 1301–1600 (179 items)
-- **Reviewed cumulative**: 899 (7.6%)
-- **Resume from**: ID 1601
+- **Reviewed in session 7**: IDs 1601–1900 (155 items)
+- **Reviewed cumulative**: 1054 (8.9%)
+- **Resume from**: ID 1901
 
 ## Decision codes
 
@@ -752,6 +753,98 @@ See `audit/classifier-changes.md` "Session 5".
 
 See `audit/classifier-changes.md` "Session 6".
 
+---
+
+## Session 7: IDs 1601–1900
+
+### Gems (crafting + mining_smithing cross-tag)
+
+- `1601-1615` cut gems (Diamond/Ruby/Emerald/Sapphire/Opal/Jade/Red topaz/Dragonstone) — OK (8 items, all `crafting`).
+- `1617-1631` uncut gem versions — OK (8 items, all `crafting;mining_smithing`).
+- `1633 Crushed gem` — OK (`herblore`). Antipoison++ secondary.
+
+### Gold + gem jewellery
+
+- `1635 Gold ring` — OK (`crafting`). Gold-startswith matched.
+- `1637-1647 Sapphire/Emerald/Ruby/Diamond/Dragonstone/Black ring` — **ADD crafting** (6 items). My jewellery sections only matched "Gold/Silver " prefix. Need a gem-jewellery section.
+- `1654 Gold necklace` — OK (`crafting`).
+- `1656-1666 Sapphire/Emerald/Ruby/Diamond/Dragon/Black necklace` — **ADD crafting** (6 items). Same gap.
+- `1673-1683 Gold/Sapphire/Emerald/Ruby/Diamond/Dragonstone amulet (u)` — OK (mostly in `wc_fletching` for amulet-stringing cross-tag).
+- `1692-1702 Gold/Sapphire/Emerald/Ruby/Diamond/Dragonstone amulet` — partial OK (Gold) + **ADD crafting** for the 5 gem amulets.
+
+### Glory + holy symbols
+
+- `1704-1712 Amulet of glory (uncharged + 1..4)` — OK (5 items, `melee;range;mage;misc`).
+- `1714-1724 Symbol family` (Unstrung/Unblessed/Holy/Unstrung emblem/Unpowered/Unholy) — OK (6 items). Already in prayer + combat tabs for the holy/unholy variants.
+
+### Amulet of strength/magic/defence/power
+
+- `1725 Amulet of strength` — OK (`melee;misc`).
+- `1727 Amulet of magic` — OK (`mage;misc`).
+- `1729 Amulet of defence` — OK (`melee;range;mage;misc`).
+- `1731 Amulet of power` — OK (`melee;range;mage`).
+
+### Crafting basics
+
+- `1733 Needle`, `1734 Thread`, `1737 Wool`, `1739 Cowhide`, `1741 Leather`, `1743 Hard leather` — OK (6 items, `crafting`).
+- `1735 Shears` — **ADD farming** (used to shear sheep for wool, also a farming flavour tool) — actually wool/sheep shearing is for crafting prep. Just **ADD crafting**.
+- `1745-1753 Green/Black/Red/Blue/Green dragon leather variants` — OK (5 items, `range;crafting`).
+- `1755 Chisel` — OK (`crafting;mining_smithing`).
+- `1757 Brown apron` — EX. Cook's Assistant cosmetic variant.
+- `1759 Ball of wool` — OK.
+- `1761 Soft clay` — OK (`crafting;mining_smithing;construction`).
+- `1763-1773 Red/Yellow/Blue/Orange/Green/Purple dye` — OK (6 items, `crafting`).
+- `1775 Molten glass` — OK.
+- `1777 Bow string` — OK (`wc_fletching`).
+- `1779 Flax` — OK (`wc_fletching`).
+- `1781 Soda ash` — OK (`crafting`).
+- `1783 Bucket of sand` — **ADD crafting**. Currently `cooking` only; should also cross-tag crafting (glass-making input).
+- `1785 Glassblowing pipe` — OK (`crafting`).
+- `1787 Unfired pot`, `1789 Unfired pie dish`, `1791 Unfired bowl` — OK (3 items, `crafting`).
+- `1793 Woad leaf` — **ADD crafting** (used to make blue dye). Currently unclassified.
+- `1794 Bronze wire` — **ADD crafting**. Used in some jewellery / mahogany homes recipes.
+
+### Murder Mystery items
+
+- `1796 Silver necklace` — OK (`crafting`). Silver-starts.
+- `1798-1822` (~20 items: Silver cup/bottle/book/needle/pot, Criminal's thread/dagger, Flypaper, Pungent pot, Killer's/Anna's/Bob's/Carol's/David's/Elizabeth's/Frank's/Unknown print) — EX.
+
+### Tourist Trap
+
+- `1823-1829 Waterskin(4..1)` — **ADD cooking**. Desert water containers; players bank for desert trips. Currently unclassified.
+- `1833-1837 Desert shirt/robe/boots` — EX (cosmetic heat protection, players reuse but tiny audience).
+- `1839-1843 Metal key, Cell door key, Barrel, Ana in a barrel, Wrought iron key` — EX (5 items).
+- `1844-1846 Slave shirt/robe/boots` — EX. Quest disguise.
+- `1847 Scrumpled paper`, `1848 Shantay disclaimer`, `1849 Prototype dart`, `1850 Technical plans`, `1851 Tenti pineapple`, `1852 Bedabin key`, `1853 Prototype dart tip`, `1854 Shantay pass`, `1855 Rock`, `1856 Guide book`, `1857 Totem`, `1858 Address label` — EX (~12 items).
+- `1849 Prototype dart` — **REM wc_fletching**. Quest item, not a real dart.
+- `1853 Prototype dart tip` — **REM wc_fletching**. Same.
+
+### Gertrude's Cat / Tourist Trap food
+
+- `1859 Raw ugthanki meat` — OK (`cooking`). Raw startswith.
+- `1861 Ugthanki meat` — **ADD cooking**. Cooked variant; not picked up by "Cooked " startswith.
+- `1863 Pitta dough` — **ADD cooking**. Bread variant.
+- `1865 Pitta bread` — OK (`cooking`). Bread allowlist matched.
+- `1867 Burnt pitta bread` — OK (`cooking`). Burnt startswith.
+- `1869-1885` (Chopped tomato/onion/ugthanki, mixed kebab ingredients, Ugthanki kebab ×2) — **ADD cooking**. ~10 items currently unclassified; all are kebab-recipe items.
+- `1887 Cake tin`, `1891 Cake`, `1897 Chocolate cake` — OK (`cooking`).
+- `1889 Uncooked cake` — **ADD cooking**.
+
+---
+
+## Session 7 totals
+
+- Items reviewed: 155
+- OK (correct as-is): 73
+- EX (correctly excluded): 47
+- ADD (missing tab, fixed): 33 (12 gem jewellery, Bucket of sand, Woad leaf, Bronze wire, Shears, Waterskins ×4, kebab items ×10, Uncooked cake, Ugthanki meat, Pitta dough)
+- REM (misclassified, fixed): 2 (Prototype dart, Prototype dart tip from wc_fletching)
+- LOG (deferred): 0
+
+## Classifier changes made in session 7
+
+See `audit/classifier-changes.md` "Session 7".
+
 ## Resume marker
 
-**Next session: start from ID 1601.**
+**Next session: start from ID 1901.**
