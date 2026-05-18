@@ -4825,6 +4825,79 @@ See `audit/classifier-changes.md` "Session 51".
 
 See `audit/classifier-changes.md` "Session 52".
 
+---
+
+## Session 53: IDs 22001–22300
+
+### Dragon Slayer II quest material
+
+- `22001 Clue scroll (easy)` — LOG.
+- `22002 Dragonfire ward` — OK (`range`).
+- `22003 Dragonfire ward` (dup) — LOG.
+- `22006 Skeletal visage` — **ADD slayer** (Vorkath drop, Ancient wyvern shield ingredient).
+- `22009-22016 Map piece × 7` — EX (DS2 quest).
+- `22033-22051 Aivas' diary, Varrock census records, Malumac's journal, Ablenkian's escape, Imcandoria's fall, Imafore's betrayal, Lutwidge and the moonfly, Serafina, The weeping, Old notes` (~10 items) — EX (DS2 lore).
+- `22079-22086 Inert locator orb, Locator orb, Robert/Camorra/Tristan/Aivas bust` — EX (DS2 lore/quest).
+- `22087-22095 Dragon key, Dragon key piece, Dragon key dup, Ancient key, Water container, Swamp paste dup` — EX/LOG.
+- `22096 Revitalisation potion` — LOG (dup of Wintertodt potion or DS2 single-use).
+- `22097-22103 Dragon metal shard, Dragon metal slice, Dragon metal lump` (3 items) — **ADD slayer** (Vorkath drops, Dragonfire ward ingredients).
+- `22106 Jar of decay` — LOG.
+
+### Ava's + cape + bonemeal + Wrath
+
+- `22109 Ava's assembler` — OK (`range;mage`).
+- `22111 Dragonbone necklace`, `22114 Mythical cape` — OK.
+- `22116 Superior dragon bonemeal` — OK (`prayer`).
+- `22118-22121 Wrath talisman, Wrath tiara` — OK (`runecraft`).
+- `22124 Superior dragon bones` — OK (`prayer`).
+
+### Adamant heraldic dups
+
+- `22127-22157 Adamant kiteshield × 16 dups` — LOG.
+- `22159-22189 Adamant heraldic helm × 16 (canonical at 22159 ✓ melee; rest dups)` — LOG (15 dups).
+
+### Bird houses + Extended antifire + Treasure Trails arrows
+
+- `22191 Useful rock` — LOG.
+- `22192-22204 Maple/Mahogany/Yew/Magic/Redwood bird house` (5 items) — **ADD hunter**.
+- `22207 Glistening tear`, `22208 Wrath rune` (dup) — LOG.
+- `22209-22224 Extended super antifire (4-1) + mix (2/1)` — OK (6 items, `herblore`).
+- `22227-22230 Bullet/Field/Blunt/Barbed arrow` — OK (4 items, `range;wc_fletching`).
+
+### Dragon ornament kits + necklace of anguish (or)
+
+- `22231-22246 Dragon boots/platebody/kiteshield/Anguish ornament kit` — OK (4 items, `crafting` via pattern).
+- `22234 Dragon boots (g)`, `22242 Dragon platebody (g)` — OK (`melee` via trim pattern).
+- `22249 Necklace of anguish (or)` — **ADD range** (ornament variant).
+
+### Wooden shields + leather shields
+
+- `22251-22266 Oak/Willow/Maple/Yew/Magic/Redwood shield` — OK (6 items, `melee`).
+- `22269 Hard leather shield` — OK (`range`).
+- `22272-22284 Snakeskin/Green/Blue/Red/Black d'hide shield` (5 items, currently `melee;range`) — **REM melee, keep range** (range shields with defence_ranged dominance; melee defence spillover).
+- `22287 Leather shields flyer` — LOG.
+
+### Enchanted Trident + Staff of light
+
+- `22288-22294 Trident of the seas (e), Uncharged trident (e), Trident of the swamp (e), Uncharged toxic trident (e)` (4 items) — **ADD mage** (enchanted trident variants).
+- `22296 Staff of light` — OK (`melee`).
+- `22299 Ancient medallion` — LOG (Wilderness rare).
+
+---
+
+## Session 53 totals
+
+- Items reviewed: ~250
+- OK (correct as-is): 60
+- EX (correctly excluded): 30 (DS2 quest material, busts, locator orb)
+- ADD (missing tab, fixed): 14 (1 Skeletal visage, 3 Dragon metal, 5 bird houses, 1 Necklace of anguish (or), 4 Trident (e))
+- REM (misclassified, fixed): 5 (Snakeskin/Green/Blue/Red/Black d'hide shield from melee)
+- LOG: 50+ (heraldic dups ×31, DS2 lore notes, Ancient medallion, leather flyer)
+
+## Classifier changes made in session 53
+
+See `audit/classifier-changes.md` "Session 53".
+
 ## Resume marker
 
-**Next session: start from ID 22001.**
+**Next session: start from ID 22301.**

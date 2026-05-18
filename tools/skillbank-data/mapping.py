@@ -828,7 +828,10 @@ MELEE = TabSpec(
                    "Spined gloves", "Skeletal gloves", "Snakeskin vambraces"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield"),
-                force_include=["Granite shield", "Draconic visage"]),
+                force_include=["Granite shield", "Draconic visage"],
+                force_exclude=["Snakeskin shield", "Hard leather shield",
+                               "Green d'hide shield", "Blue d'hide shield",
+                               "Red d'hide shield", "Black d'hide shield"]),
         Section("Trim/gilded armour cosmetic variants",
                 _is_trim_gilded_melee_armour),
         Section("GE armour sets (melee)", _or(
@@ -922,7 +925,10 @@ RANGE = TabSpec(
                                "3rd age vambraces"]
                 + [n for n in _GOD_DHIDE_NAMES if "bracers" in n.lower()],
                 force_exclude=["Rogue gloves"]),
-        Section("Shields", _is_range_armour_slot("shield")),
+        Section("Shields", _is_range_armour_slot("shield"),
+                force_include=["Snakeskin shield", "Hard leather shield",
+                               "Green d'hide shield", "Blue d'hide shield",
+                               "Red d'hide shield", "Black d'hide shield"]),
         Section("Capes", _is_range_armour_slot("cape"),
                 force_include=["Ranging hood", "Hitpoints hood"],
                 force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES + ["Lunar cape"]),
@@ -930,7 +936,8 @@ RANGE = TabSpec(
         # because the cape has defence_ranged=2 like basic colour capes.
         # Mass-exclude via a pattern force_exclude below in classify-time.
         Section("Amulets", _is_range_armour_slot("neck"),
-                force_include=["Amulet of glory (t)", "Amulet of fury (or)"],
+                force_include=["Amulet of glory (t)", "Amulet of fury (or)",
+                               "Necklace of anguish (or)"],
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_range_armour_slot("ring")),
         Section("Ranging potions",
@@ -953,7 +960,9 @@ MAGE = TabSpec(
         Section("Essence", _name_in(_ESSENCE)),
         Section("Staves", _is_mage_weapon_type("staff", "powered staff", "polestaff"),
                 force_include=["Trident of the seas (full)", "Uncharged trident",
-                               "Trident of the swamp", "Uncharged toxic trident"]),
+                               "Trident of the swamp", "Uncharged toxic trident",
+                               "Trident of the seas (e)", "Uncharged trident (e)",
+                               "Trident of the swamp (e)", "Uncharged toxic trident (e)"]),
         Section("Wands", _is_mage_weapon_type("wand")),
         Section("Ward shards (construction intermediates)", _name_in({
             "Malediction shard 1", "Malediction shard 2", "Malediction shard 3",
@@ -1799,6 +1808,9 @@ SLAYER = TabSpec(
             "Ancient crystal", "Ancient emblem", "Ancient totem", "Ancient statuette",
             "Bracelet of ethereum (uncharged)", "Revenant ether",
             "Vorkath's head", "Vorkath's stuffed head",
+            # session 53 — DS2 Vorkath drops (Dragonfire ward ingredients)
+            "Skeletal visage",
+            "Dragon metal shard", "Dragon metal slice", "Dragon metal lump",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -1970,6 +1982,9 @@ HUNTER = TabSpec(
             # session 51 — Fossil Island bird houses
             "Bird house", "Oak bird house",
             "Willow bird house", "Teak bird house",
+            # session 53 — bird houses (higher tier)
+            "Maple bird house", "Mahogany bird house",
+            "Yew bird house", "Magic bird house", "Redwood bird house",
         })),
         Section("Caught butterflies", _name_in({
             "Black warlock", "Snowy knight", "Sapphire glacialis", "Ruby harvest",

@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (10 items not in wiki output) ===
+=== melee (15 items not in wiki output) ===
    12596  Rangers' tunic
    19921  Ancient d'hide boots
    19924  Bandos d'hide boots
@@ -14,6 +14,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
    21018  Ancestral hat
    21021  Ancestral robe top
    21024  Ancestral robe bottom
+   22272  Snakeskin shield
+   22275  Green d'hide shield
+   22278  Blue d'hide shield
+   22281  Red d'hide shield
+   22284  Black d'hide shield
 
 === mage (6 items not in wiki output) ===
    19921  Ancient d'hide boots

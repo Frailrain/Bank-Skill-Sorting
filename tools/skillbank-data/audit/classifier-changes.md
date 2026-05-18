@@ -1949,3 +1949,35 @@ Crossbow stock made from magic logs.
 Added Snow imp costume (6 pieces: head/body/legs/tail/gloves/feet), Wise old man's santa hat, Santa suit + (wet)/(dry) (3 items).
 
 **Affects**: 10 items.
+
+## Session 53 (audit IDs 22001–22300)
+
+### SLAYER Slayer master items — DS2 Vorkath drops
+
+Added Skeletal visage, Dragon metal shard/slice/lump (Dragonfire ward ingredients).
+
+**Affects**: 4 items.
+
+### HUNTER Traps — Fossil Island higher-tier bird houses
+
+Added Maple/Mahogany/Yew/Magic/Redwood bird house.
+
+**Affects**: 5 items.
+
+### RANGE Amulets — `Necklace of anguish (or)`
+
+Ornament variant.
+
+**Affects**: 1 item.
+
+### MAGE Staves — enchanted Trident variants
+
+Added Trident of the seas (e), Uncharged trident (e), Trident of the swamp (e), Uncharged toxic trident (e).
+
+**Affects**: 4 items.
+
+### MELEE Shields / RANGE Shields — d'hide shields reclassification
+
+REM melee for Snakeskin/Hard leather/Green/Blue/Red/Black d'hide shield; ADD range force_include (these are range shields with defence_ranged dominance).
+
+**Affects**: 6 items.
