@@ -717,6 +717,7 @@ MELEE = TabSpec(
                 + [n for n in _MIME_OUTFIT if "boots" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
+                force_include=["Red spiky vambraces", "Black spiky vambraces"],
                 force_exclude=_SKILLING_GAUNTLETS
                 + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
                 + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves", "Mourner gloves",
@@ -831,7 +832,9 @@ MAGE = TabSpec(
         Section("Gloves", _is_mage_armour_slot("hands"),
                 force_include=["Chaos gauntlets", "Skeletal gloves"],
                 force_exclude=[n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
-                + ["Leather vambraces", "Rogue gloves"]),
+                + ["Leather vambraces", "Rogue gloves",
+                   # session 34 — spiky vambraces colour variants are melee, not mage
+                   "Red spiky vambraces", "Black spiky vambraces"]),
         Section("Shields", _is_mage_armour_slot("shield")),
         Section("Capes", _is_mage_armour_slot("cape"),
                 force_include=["Lunar cape", "Magic hood", "Hitpoints hood"],
@@ -1046,6 +1049,10 @@ COOKING = TabSpec(
                 "Stuffed snake", "Snake over-cooked",
                 # session 32 — Gnome Restaurant
                 "Mint cake",
+                # session 34 — Big Chompy / RFD Skrach cooked meat chain
+                "Roast bird meat", "Skewered bird meat",
+                "Roast beast meat", "Skewered beast",
+                "Spicy tomato", "Spicy minced meat",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1609,6 +1616,27 @@ HUNTER = TabSpec(
             "Box trap", "Bird snare", "Butterfly net", "Magic box",
             "Net trap", "Marasamaw plant", "Quetzal whistle",
             "Fox whistle", "Bone blowpipe",
+            # session 34 — additional traps & tools
+            "Rabbit snare", "Noose wand", "Teasing stick",
+            "Butterfly jar", "Falconer's glove",
+            "Imp-in-a-box(2)", "Imp-in-a-box(1)",
+        })),
+        Section("Caught butterflies", _name_in({
+            "Black warlock", "Snowy knight", "Sapphire glacialis", "Ruby harvest",
+        })),
+        Section("Chinchompas", _name_in({
+            "Chinchompa", "Red chinchompa", "Black chinchompa",
+        })),
+        Section("Kebbit furs (cleaned)", _name_in({
+            "Dark kebbit fur", "Polar kebbit fur", "Feldip weasel fur",
+            "Common kebbit fur", "Desert devil fur",
+            "Spotted kebbit fur", "Dashing kebbit fur",
+        })),
+        Section("Hunter furs (tatty)", _name_in({
+            "Tatty larupia fur", "Tatty graahk fur", "Tatty kyatt fur",
+        })),
+        Section("Kebbit byproducts", _name_in({
+            "Kebbit spike", "Long kebbit spike", "Kebbit teeth", "Kebbit claws",
         })),
         Section("Salamanders", _name_in({
             "Swamp lizard", "Orange salamander", "Red salamander",
@@ -1828,6 +1856,10 @@ MISC = TabSpec(
                 "Zombie gloves", "Zombie boots",
                 # session 28 — Easter ring + Easter egg (cosmetic event item)
                 "Easter ring",
+                # session 34 — Halloween skeleton outfit + Jack lantern mask
+                "Jack lantern mask",
+                "Skeleton boots", "Skeleton gloves", "Skeleton leggings",
+                "Skeleton shirt", "Skeleton mask",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),

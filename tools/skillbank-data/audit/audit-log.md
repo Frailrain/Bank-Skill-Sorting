@@ -3039,6 +3039,110 @@ See `audit/classifier-changes.md` "Session 32".
 
 See `audit/classifier-changes.md` "Session 33".
 
+---
+
+## Session 34: IDs 9901–10200
+
+### Eyes of Glouphrie / Hardy gout / various quest
+
+- `9901 Goutweedy lump`, `9903 Farming manual`, `9904 Sailing book`, `9906 Ghost buster 500` — EX.
+- `9902 Hardy gout tubers` — LOG (single-use seed; standard Gout tuber already in farming).
+- `9913-9918 White/Red/Blue/Green/Yellow/Black destabiliser` (6 items) — LOG (Halloween 2013 event item).
+- `9919 Evil root` — EX.
+
+### Halloween skeleton outfit (cosmetic)
+
+- `9920 Jack lantern mask` — **ADD misc Holiday rares**.
+- `9921-9925 Skeleton boots, gloves, leggings, shirt, mask` (5 items) — **ADD misc Holiday rares**.
+
+### Auguste's Excursion + Eagles Peak
+
+- `9932 Auguste's sapling` — OK (`farming`).
+- `9933-9947 Balloon structure, Origami balloon, Sandbag, Bomber jacket/cap, Cap and goggles, Old red disk` — EX (quest cosmetic/material).
+- `9948 Hunter cape`, `9950 Hunter hood` — OK (`hunter` group).
+- `9951 Footprint` — EX.
+
+### Hunter cooked-meat chain (Big Chompy / RFD Skrach)
+
+- `9978 Raw bird meat` — OK (`cooking;hunter`).
+- `9980 Roast bird meat` — **ADD cooking**.
+- `9982 Burnt bird meat` — OK (`cooking`).
+- `9984 Skewered bird meat` — **ADD cooking**.
+- `9986 Raw beast meat` — OK (`cooking;hunter`).
+- `9988 Roast beast meat` — **ADD cooking**.
+- `9990 Burnt beast meat` — OK (`cooking`).
+- `9992 Skewered beast` — **ADD cooking**.
+- `9994 Spicy tomato`, `9996 Spicy minced meat` — **ADD cooking** (2 items, RFD Skrach kebab ingredients).
+
+### Hunter potions
+
+- `9998-10004 Hunter potion (4-1)` — OK (4 items, `herblore`).
+
+### Hunter traps + butterflies
+
+- `10006-10010 Bird snare, Box trap, Butterfly net` — OK (3 items, `hunter`).
+- `10012 Butterfly jar` — **ADD hunter**.
+- `10014-10020 Black warlock, Snowy knight, Sapphire glacialis, Ruby harvest` (4 items) — **ADD hunter** (caught butterflies, can be released for buff).
+- `10023 Falconer's glove` — **ADD hunter**.
+- `10025 Magic box` — OK (`hunter`).
+- `10027-10028 Imp-in-a-box (2/1)` (2 items) — **ADD hunter**.
+- `10029 Teasing stick` — **ADD hunter**.
+- `10031 Rabbit snare` — **ADD hunter**.
+- `10033 Chinchompa`, `10034 Red chinchompa` — **ADD hunter** (caught chinchompas; also valid ranged weapons but missing from hunter tab).
+
+### Hunter camo + Kyatt/Larupia/Graahk
+
+- `10035-10051 Kyatt/Larupia/Graahk top/legs/hat/headdress` — OK (9 items, `melee;hunter`).
+- `10053-10067 Wood/Jungle/Desert/Polar camo top/legs` — OK (8 items, `melee[;hunter]`).
+- `10069-10071 Spotted cape, Spottier cape` — OK (`hunter`).
+
+### Spiky vambraces colour variants
+
+- `10075 Gloves of silence` — OK (`melee;agility_thieving;hunter`).
+- `10077 Spiky vambraces`, `10079 Green spiky vambraces`, `10081 Blue spiky vambraces` — OK (`melee`).
+- `10083 Red spiky vambraces` — **REM mage** (clue scroll cosmetic colour variant; should be melee only).
+- `10085 Black spiky vambraces` — **REM mage, ADD melee** (same).
+
+### Feathers + Hunter furs
+
+- `10087-10091 Stripy/Red/Blue/Yellow/Orange feather` — OK (5 items, multi-tag).
+- `10092 Ferret` — EX.
+- `10093 Tatty larupia fur`, `10097 Tatty graahk fur`, `10101 Tatty kyatt fur` (3 items) — **ADD hunter** (Tatty furs need cleaning at Fancy clothes shop).
+- `10095 Larupia fur`, `10099 Graahk fur`, `10103 Kyatt fur` — OK (`hunter`).
+- `10105 Kebbit spike`, `10107 Long kebbit spike`, `10109 Kebbit teeth`, `10113 Kebbit claws` (4 items) — **ADD hunter** (Kebbit byproducts).
+- `10111 Kebbit teeth dust` — OK (`herblore`).
+- `10115-10127 Dark kebbit/Polar kebbit/Feldip weasel/Common kebbit/Desert devil/Spotted kebbit/Dashing kebbit fur` (7 items) — **ADD hunter**.
+
+### Misc hunter / fishing / clue
+
+- `10129 Barb-tail harpoon` — OK (`melee;fishing`).
+- `10132-10134 Strung rabbit foot, Rabbit foot` — LOG (cosmetic/utility).
+- `10136-10140 Rainbow fish, Raw rainbow fish, Burnt rainbow fish` — OK (3 items, `cooking[;fishing]`).
+- `10142-10145 Guam/Marrentill/Tarromin/Harralander tar` — OK (4 items, `range;hunter`).
+- `10146-10149 Orange/Red/Black salamander, Swamp lizard` — OK (4 items, `hunter`).
+- `10150 Noose wand` — **ADD hunter**.
+- `10156 Hunters' crossbow` — OK (`range`).
+- `10158-10159 Kebbit bolts, Long kebbit bolts` — OK (`range;wc_fletching`).
+- `10167-10177 Eagle feather, Eagle cape, Fake beak, Bird book, Metal/Golden/Silver/Bronze feather` (~7 items) — EX (Eagles Peak quest material).
+- `10178 Odd bird seed` — OK (`farming`).
+- `10179 Feathered journal` — EX.
+- `10180-10200 Clue scroll (easy) × 11 dups` — LOG.
+
+---
+
+## Session 34 totals
+
+- Items reviewed: ~180
+- OK (correct as-is): 70
+- EX (correctly excluded): 18 (Eyes of Glouphrie quest material, Eagles Peak quest item)
+- ADD (missing tab, fixed): 38 (6 cooked meat chain, 4 Halloween skeleton, 1 Jack lantern, 18 hunter traps/butterflies/furs, 11 hunter kebbit byproducts, 2 spiky vambraces ADD melee)
+- REM: 2 (Red/Black spiky vambraces from mage)
+- LOG: 30+ (clue easy dups, destabilisers, tatty fur dups, gout)
+
+## Classifier changes made in session 34
+
+See `audit/classifier-changes.md` "Session 34".
+
 ## Resume marker
 
-**Next session: start from ID 9901.**
+**Next session: start from ID 10201.**

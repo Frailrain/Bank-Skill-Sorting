@@ -480,7 +480,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28906  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (143 items not in wiki output) ===
+=== mage (145 items not in wiki output) ===
      616  Beads of the dead
      656  Pink hat
      658  Green hat
@@ -514,6 +514,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
     7645  (not in wiki canonical set)
     8842  Void knight gloves
     9763  (not in wiki canonical set)
+   10083  Red spiky vambraces
+   10085  Black spiky vambraces
    10356  (not in wiki canonical set)
    10358  (not in wiki canonical set)
    10360  (not in wiki canonical set)
@@ -682,7 +684,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26996  (not in wiki canonical set)
    28323  Siren's staff
 
-=== cooking (52 items not in wiki output) ===
+=== cooking (51 items not in wiki output) ===
      343  Burnt fish
      357  Burnt fish
      367  Burnt fish
@@ -723,7 +725,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     7220  (not in wiki canonical set)
     7947  (not in wiki canonical set)
     9802  (not in wiki canonical set)
-    9992  Skewered beast
    11140  Karamja gloves 3
    22777  Certificate
    24843  (not in wiki canonical set)
@@ -1279,7 +1280,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27626  (not in wiki canonical set)
    27628  (not in wiki canonical set)
 
-=== hunter (61 items not in wiki output) ===
+=== hunter (44 items not in wiki output) ===
     5070  Bird nest
     5071  (not in wiki canonical set)
     5072  (not in wiki canonical set)
@@ -1291,11 +1292,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     9949  (not in wiki canonical set)
     9977  (not in wiki canonical set)
     9988  Roast beast meat
-   10012  Butterfly jar
-   10020  Ruby harvest
-   10023  Falconer's glove
    10024  (not in wiki canonical set)
-   10033  Chinchompa
    10042  (not in wiki canonical set)
    10053  Wood camo top
    10054  (not in wiki canonical set)
@@ -1310,21 +1307,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10090  Yellow feather
    10091  Orange feather
    10092  Ferret
-   10093  Tatty larupia fur
-   10107  Long kebbit spike
-   10109  Kebbit teeth
    10111  Kebbit teeth dust
-   10113  Kebbit claws
-   10115  Dark kebbit fur
-   10117  Polar kebbit fur
-   10119  Feldip weasel fur
-   10121  Common kebbit fur
-   10123  Desert devil fur
-   10125  Spotted kebbit fur
-   10127  Dashing kebbit fur
-   10150  Noose wand
    11258  Jar generator
-   11959  Black chinchompa
    13323  (not in wiki canonical set)
    13325  (not in wiki canonical set)
    13326  (not in wiki canonical set)

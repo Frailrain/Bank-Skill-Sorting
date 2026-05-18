@@ -1095,3 +1095,34 @@ Added force_includes:
 Added Gilded/Marble/Magic cape rack, Oak/Teak/Mahogany toy box, Gilded/Marble magic wardrobe, Oak/Teak/M. treasure chest, Oak/Teak/Mahogany fancy dress box, Construct. hood.
 
 **Affects**: 15 items.
+
+## Session 34 (audit IDs 9901–10200)
+
+### HUNTER — 5 new sections + Traps extension
+
+- **Traps** (extended): Rabbit snare, Noose wand, Teasing stick, Butterfly jar, Falconer's glove, Imp-in-a-box (1/2) (7 items).
+- **"Caught butterflies"**: Black warlock, Snowy knight, Sapphire glacialis, Ruby harvest (4 items).
+- **"Chinchompas"**: Chinchompa, Red chinchompa, Black chinchompa (3 items).
+- **"Kebbit furs (cleaned)"**: Dark/Polar kebbit fur, Feldip weasel fur, Common kebbit fur, Desert devil fur, Spotted kebbit fur, Dashing kebbit fur (7 items).
+- **"Hunter furs (tatty)"**: Tatty larupia/graahk/kyatt fur (3 items).
+- **"Kebbit byproducts"**: Kebbit spike, Long kebbit spike, Kebbit teeth, Kebbit claws (4 items).
+
+**Affects**: 28 items.
+
+### COOKING "Misc cooked food" — Big Chompy / RFD Skrach
+
+Added Roast bird meat, Skewered bird meat, Roast beast meat, Skewered beast, Spicy tomato, Spicy minced meat.
+
+**Affects**: 6 items.
+
+### MISC Holiday rares — Halloween skeleton outfit
+
+Added Jack lantern mask, Skeleton boots/gloves/leggings/shirt/mask.
+
+**Affects**: 6 items.
+
+### MELEE Gloves / MAGE Gloves — Red/Black spiky vambraces reclassification
+
+Red/Black spiky vambraces colour variants have defence_magic but no melee defence stats, so they were getting matched into MAGE Gloves. Forced into MELEE Gloves (force_include) and excluded from MAGE Gloves (force_exclude).
+
+**Affects**: 2 items.
