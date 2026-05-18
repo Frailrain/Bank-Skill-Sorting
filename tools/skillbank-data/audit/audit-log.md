@@ -3581,6 +3581,107 @@ See `audit/classifier-changes.md` "Session 38".
 
 See `audit/classifier-changes.md` "Session 39".
 
+---
+
+## Session 40: IDs 11901–12200
+
+### Castle Wars decorative dup
+
+- `11901 Decorative armour` — LOG (Castle Wars cosmetic dup).
+
+### Trident of the seas (Kraken slayer chain)
+
+- `11902 Leaf-bladed sword` — OK (`melee`).
+- `11904 Entomologist's diary` — EX.
+- `11905 Trident of the seas (full)`, `11908 Uncharged trident` — **ADD mage** (2 items, Kraken-slot mage weapon).
+
+### Misc + Random events
+
+- `11910-11916 Chocolate strawberry, Box of chocolate strawberries, Slice of birthday cake` — LOG (event food).
+- `11919 Cow mask` — LOG (cosmetic event head).
+- `11920 Dragon pickaxe` — OK (`melee;mining_smithing`).
+- `11922 Lava dragon bonemeal` — OK (`prayer`).
+- `11923 Broken pickaxe` — EX.
+
+### Ward (KQ chest rewards) + ward shards
+
+- `11924 Malediction ward` — OK (`melee;mage`).
+- `11926 Odium ward` — OK (`range`).
+- `11928-11930 Odium shard 1/2/3` (3 items) — **ADD range** (construction intermediate to Odium ward).
+- `11931-11933 Malediction shard 1/2/3` (3 items) — **ADD mage** (construction intermediate to Malediction ward).
+
+### Wilderness Dark crab + Looting
+
+- `11934-11940 Raw dark crab, Dark crab, Burnt dark crab, Dark fishing bait` — OK (`cooking[+fishing]`).
+- `11941 Looting bag` — OK (`misc`).
+- `11942 Ecumenical key` — OK (`misc`).
+- `11943 Lava dragon bones` — OK (`prayer`).
+
+### Extended antifire
+
+- `11951-11957 Extended antifire (4-1)` — OK (4 items, `herblore`).
+- `11959 Black chinchompa` — OK (`hunter`).
+- `11960-11962 Extended antifire mix (2/1)` — OK (`herblore`).
+
+### Charged jewellery higher-charge variants
+
+- `11968 Skills necklace(6)` — **ADD misc Teleport jewellery** (6-charge variant).
+- `11970 Skills necklace(5)` — OK (`misc`).
+- `11972 Combat bracelet(6)` — **ADD misc Teleport jewellery**.
+- `11974 Combat bracelet(5)` — OK (`melee;range;mage;misc`).
+- `11976 Amulet of glory(5)` — **ADD misc Teleport jewellery** (currently `melee;range;mage` only).
+- `11978 Amulet of glory(6)` — OK (`melee;range;mage;misc`).
+- `11980-11988 Ring of wealth (1-5)` — OK (`misc`).
+
+### Misc + slayer-related
+
+- `11990 Fedora` — LOG (cosmetic random event).
+- `11992 Lava scale` — **ADD herblore** (Lava dragon scale, herblore secondary).
+- `11994 Lava scale shard` — OK (`herblore`).
+- `11995 Pet chaos elemental`, `11996-11997 Holiday tool, Easter` — LOG/EX.
+
+### Mage gear + Kraken
+
+- `11998 Smoke battlestaff`, `12000 Mystic smoke staff`, `12002 Occult necklace` — OK (3 items, `mage[;crafting]`).
+- `12004 Kraken tentacle` — **ADD slayer** (slayer boss drop, converts to Abyssal tentacle).
+- `12006 Abyssal tentacle` — OK (`melee`).
+- `12007 Jar of dirt` — LOG (Cerberus boss pet jar).
+
+### Motherlode Mine
+
+- `12009-12010 Soft clay pack × 2` — **ADD mining_smithing** (Motherlode reward bulk pack).
+- `12011 Pay-dirt` — **ADD mining_smithing** (Motherlode mining raw output).
+- `12012 Golden nugget` — **ADD mining_smithing** (Motherlode currency).
+- `12013-12016 Prospector helmet/jacket/legs/boots` — OK (4 items, `mining_smithing`).
+
+### Salve amulet + bags + clue scrolls
+
+- `12017 Salve amulet(i)`, `12018 Salve amulet(ei)` — OK (`melee`).
+- `12019-12020 Coal bag, Gem bag` — LOG (dups of canonicals).
+- `12021-12071 Clue scroll (medium) × 26 dups` — LOG.
+- `12073-12159 Clue scroll (elite) (12073 canonical OK; rest ×~60 dups)` — LOG.
+- `12162-12192 Clue scroll (easy) × 27 dups` — LOG.
+
+### Ancient set (Treasure Trails Hard)
+
+- `12193 Ancient robe top`, `12195 Ancient robe legs`, `12199 Ancient crozier` — OK (3 items, `mage`).
+- `12197 Ancient cloak` — OK (`melee;range;mage` via cape slot predicate; reasonable cross-tag).
+
+---
+
+## Session 40 totals
+
+- Items reviewed: ~250
+- OK (correct as-is): 50
+- EX (correctly excluded): 8
+- ADD (missing tab, fixed): 15 (2 trident, 3 odium shards, 3 malediction shards, 3 charged jewellery higher charges, 1 Lava scale, 4 Motherlode items, 1 Kraken tentacle, but some are double-counted in tab terms)
+- REM: 0
+- LOG: 130+ (clue scroll dups massive, Decorative armour dup, random event cosmetics, Cerberus pet jar)
+
+## Classifier changes made in session 40
+
+See `audit/classifier-changes.md` "Session 40".
+
 ## Resume marker
 
-**Next session: start from ID 11901.**
+**Next session: start from ID 12201.**

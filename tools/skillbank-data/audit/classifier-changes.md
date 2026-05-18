@@ -1328,3 +1328,42 @@ Slayer broad arrow craft material.
 Added Empty/Water-filled vial pack, Feather pack, Bait pack, Broad arrowhead pack, Unfinished broad bolt pack.
 
 **Affects**: 6 items.
+
+## Session 40 (audit IDs 11901–12200)
+
+### MAGE Staves — Trident force_include
+
+Trident of the seas (full) and Uncharged trident force_included into MAGE Staves (Kraken slayer mage weapon; `_is_mage_weapon_type` doesn't pick them up by type).
+
+**Affects**: 2 items.
+
+### MAGE / RANGE — new "Ward shards (construction intermediates)" sections
+
+- MAGE: Malediction shard 1/2/3 (3 items, construction intermediates for Malediction ward).
+- RANGE: Odium shard 1/2/3 (3 items, construction intermediates for Odium ward).
+
+**Affects**: 6 items.
+
+### MISC Teleport jewellery — higher-charge variants
+
+Added Combat bracelet(6), Skills necklace(6), Amulet of glory(5/7/8).
+
+**Affects**: 4+ items.
+
+### HERBLORE "Vials & secondaries" — `Lava scale`
+
+Lava dragon scale (herblore secondary; sister item to Lava scale shard already in list).
+
+**Affects**: 1 item.
+
+### MINING_SMITHING — new "Motherlode Mine" section
+
+Added Pay-dirt, Golden nugget, Soft clay pack — Motherlode Mine raw output + reward currency.
+
+**Affects**: 3 items.
+
+### SLAYER Task-specific gear — `Kraken tentacle`
+
+Slayer boss drop; converts to Abyssal tentacle when combined with Abyssal whip.
+
+**Affects**: 1 item.

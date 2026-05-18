@@ -960,7 +960,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    21043  Kodai insignia
    21046  Ancient tablet
 
-=== mining_smithing (52 items not in wiki output) ===
+=== mining_smithing (50 items not in wiki output) ===
        2  Steel cannonball
      764  (not in wiki canonical set)
      766  (not in wiki canonical set)
@@ -987,8 +987,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10390  Saradomin coif
    11941  Looting bag
    11942  Ecumenical key
-   12011  Pay-dirt
-   12012  Golden nugget
    12019  Coal bag
    12797  Dragon pickaxe
    21343  Mining gloves
@@ -1129,7 +1127,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27443  (not in wiki canonical set)
    29485  (not in wiki canonical set)
 
-=== slayer (79 items not in wiki output) ===
+=== slayer (78 items not in wiki output) ===
      985  Tooth half of key
      987  Loop half of key
      989  Crystal key
@@ -1154,7 +1152,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    11780  (not in wiki canonical set)
    11870  (not in wiki canonical set)
    11874  Broad arrowheads
-   12004  Kraken tentacle
    12436  Amulet of fury (or)
    12899  Trident of the swamp
    12922  Tanzanite fang

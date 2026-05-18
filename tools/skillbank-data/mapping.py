@@ -806,6 +806,9 @@ RANGE = TabSpec(
             "Cannon base", "Cannon stand", "Cannon barrels", "Cannon furnace",
             "Cannonball", "Granite cannonball", "Steel cannonball",
         })),
+        Section("Ward shards (construction intermediates)", _name_in({
+            "Odium shard 1", "Odium shard 2", "Odium shard 3",
+        })),
         Section("Ammunition", _is_range_ammo),
         Section("Bows", _is_range_weapon_type("bow")),
         Section("Crossbows", _is_range_weapon_type("crossbow")),
@@ -871,8 +874,12 @@ MAGE = TabSpec(
         Section("Basic runes", _name_in(_BASIC_RUNES)),
         Section("Combo runes", _name_in(_COMBO_RUNES)),
         Section("Essence", _name_in(_ESSENCE)),
-        Section("Staves", _is_mage_weapon_type("staff", "powered staff", "polestaff")),
+        Section("Staves", _is_mage_weapon_type("staff", "powered staff", "polestaff"),
+                force_include=["Trident of the seas (full)", "Uncharged trident"]),
         Section("Wands", _is_mage_weapon_type("wand")),
+        Section("Ward shards (construction intermediates)", _name_in({
+            "Malediction shard 1", "Malediction shard 2", "Malediction shard 3",
+        })),
         Section("Tomes", _name_ends(" tome"),
                 force_exclude=["Shaman's tome"]),
         Section("Helmets", _is_mage_armour_slot("head"),
@@ -1410,6 +1417,9 @@ MINING_SMITHING = TabSpec(
         Section("Lunar Diplomacy ores/bars", _name_in({
             "Lunar ore", "Lunar bar",
         })),
+        Section("Motherlode Mine", _name_in({
+            "Pay-dirt", "Golden nugget", "Soft clay pack",
+        })),
         Section("Mining outfit (Prospector)", _name_starts("Prospector ")),
         Section("Smithing outfit (Smiths')", _name_starts("Smiths' ")),
         Section("Mining/Smithing capes & pets", _name_in({
@@ -1467,7 +1477,8 @@ HERBLORE = TabSpec(
             "White berries", "Wine of zamorak", "Kebbit teeth dust",
             "Crushed nest", "Goat horn dust", "Cactus spine",
             "Jangerberries", "Potato cactus", "Crushed gem",
-            "Lava scale shard", "Cave nightshade", "Poison ivy berries",
+            "Lava scale shard", "Lava scale",
+            "Cave nightshade", "Poison ivy berries",
             "Caviar", "Dragon scale dust",
             # audit session 1 additions
             "Unicorn horn", "Unicorn horn dust",
@@ -1588,6 +1599,8 @@ SLAYER = TabSpec(
             "Hydra leather", "Boots of stone", "Boots of brimstone",
             "Granite gloves", "Granite hammer", "Granite ring",
             "Granite ring (i)", "Granite maul",
+            # session 40 — Kraken tentacle (slayer boss drop)
+            "Kraken tentacle",
         })),
         Section("Cannon", _name_in({
             "Cannon base", "Cannon stand", "Cannon barrels", "Cannon furnace",
@@ -1877,11 +1890,15 @@ MISC = TabSpec(
             "Games necklace(2)", "Games necklace(1)",
             "Combat bracelet", "Combat bracelet(1)", "Combat bracelet(2)",
             "Combat bracelet(3)", "Combat bracelet(4)", "Combat bracelet(5)",
+            "Combat bracelet(6)",
             # session 37 — Castle wars bracelet, Inoculation bracelet, Abyssal bracelet
             "Castle wars bracelet(1)", "Castle wars bracelet(2)", "Castle wars bracelet(3)",
             "Inoculation bracelet",
             "Abyssal bracelet(1)", "Abyssal bracelet(2)", "Abyssal bracelet(3)",
             "Abyssal bracelet(5)",
+            # session 40 — higher-charge variants
+            "Skills necklace(6)",
+            "Amulet of glory(5)", "Amulet of glory(7)", "Amulet of glory(8)",
             "Skills necklace", "Skills necklace(1)", "Skills necklace(2)",
             "Skills necklace(3)", "Skills necklace(4)", "Skills necklace(5)",
             "Digsite pendant (1)", "Digsite pendant (2)", "Digsite pendant (3)",

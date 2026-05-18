@@ -688,16 +688,19 @@ public final class SkillBankData
 
 	private static void addRange(Map<String, List<Integer>> m)
 	{
-		// RANGE — 840 items
-		//   Cannon parts (cross-tag) (6), Ammunition (104), Bows (53), Crossbows
-		//   (21), Thrown (41), D'hide armour (55), Raw dragonhide (cross-tag with
-		//   crafting) (21), Helmets (33), Body (32), Legs (39), Boots (14), Gloves
-		//   (38), Shields (15), Capes (77), Amulets (28), Rings (10), Ranging
-		//   potions (12), Bait / feathers (cross-tag) (6), Combat food (cross-tag)
-		//   (23), Legacy (212)
+		// RANGE — 843 items
+		//   Cannon parts (cross-tag) (6), Ward shards (construction intermediates)
+		//   (3), Ammunition (104), Bows (53), Crossbows (21), Thrown (41), D'hide
+		//   armour (55), Raw dragonhide (cross-tag with crafting) (21), Helmets
+		//   (33), Body (32), Legs (39), Boots (14), Gloves (38), Shields (15),
+		//   Capes (77), Amulets (28), Rings (10), Ranging potions (12), Bait /
+		//   feathers (cross-tag) (6), Combat food (cross-tag) (23), Legacy (212)
 		m.put(TAG_RANGE, Arrays.asList(
 			// === Cannon parts (cross-tag) ===
 			2, 6, 8, 10, 12, 21728,
+
+			// === Ward shards (construction intermediates) ===
+			11928, 11929, 11930,
 
 			// === Ammunition ===
 			598, 825, 877, 882, 4773, 826, 884, 2532,
@@ -852,12 +855,13 @@ public final class SkillBankData
 
 	private static void addMage(Map<String, List<Integer>> m)
 	{
-		// MAGE — 829 items
-		//   Basic runes (16), Combo runes (6), Essence (4), Staves (115), Tomes
-		//   (11), Helmets (85), Body (59), Legs (58), Boots (35), Gloves (55),
-		//   Shields (28), Capes (80), Amulets (43), Rings (12), Magic potions
-		//   (28), Orbs (cross-tag with crafting) (7), God cloaks (2), Spell
-		//   tablets (POH lectern) (9), Combat food (cross-tag) (23), Legacy (153)
+		// MAGE — 834 items
+		//   Basic runes (16), Combo runes (6), Essence (4), Staves (117), Ward
+		//   shards (construction intermediates) (3), Tomes (11), Helmets (85),
+		//   Body (59), Legs (58), Boots (35), Gloves (55), Shields (28), Capes
+		//   (80), Amulets (43), Rings (12), Magic potions (28), Orbs (cross-tag
+		//   with crafting) (7), God cloaks (2), Spell tablets (POH lectern) (9),
+		//   Combat food (cross-tag) (23), Legacy (153)
 		m.put(TAG_MAGE, Arrays.asList(
 			// === Basic runes ===
 			554, 555, 556, 557, 558, 559, 560, 561,
@@ -877,14 +881,17 @@ public final class SkillBankData
 			6760, 6762, 6764, 6908, 6910, 6912, 6914, 7639,
 			7641, 7642, 7643, 7644, 7646, 7647, 7648, 8841,
 			9013, 9084, 9091, 9092, 9093, 10440, 10442, 10444,
-			11709, 11787, 11789, 11998, 12000, 12199, 12275, 12422,
-			12439, 12658, 13141, 13142, 13143, 13144, 20251, 20254,
-			20257, 20260, 20263, 20730, 20733, 20736, 20739, 21006,
-			21255, 21276, 22368, 22398, 22647, 23342, 23363, 24422,
-			24423, 24424, 24425, 24699, 26945, 27624, 27676, 27679,
-			27785, 27788, 27920, 29594, 29602, 29609, 30634, 31113,
-			31115, 33253, 33255, 33257, 33314, 33316, 33318, 33323,
-			33326, 33328, 33332,
+			11709, 11787, 11789, 11905, 11908, 11998, 12000, 12199,
+			12275, 12422, 12439, 12658, 13141, 13142, 13143, 13144,
+			20251, 20254, 20257, 20260, 20263, 20730, 20733, 20736,
+			20739, 21006, 21255, 21276, 22368, 22398, 22647, 23342,
+			23363, 24422, 24423, 24424, 24425, 24699, 26945, 27624,
+			27676, 27679, 27785, 27788, 27920, 29594, 29602, 29609,
+			30634, 31113, 31115, 33253, 33255, 33257, 33314, 33316,
+			33318, 33323, 33326, 33328, 33332,
+
+			// === Ward shards (construction intermediates) ===
+			11931, 11932, 11933,
 
 			// === Tomes ===
 			4707, 6749, 7779, 7782, 7785, 7788, 7791, 7794,
@@ -1559,12 +1566,12 @@ public final class SkillBankData
 
 	private static void addMiningSmithing(Map<String, List<Integer>> m)
 	{
-		// MINING_SMITHING — 301 items
+		// MINING_SMITHING — 302 items
 		//   Pickaxes (18), Mining tools & bags (6), Ores (21), Bars (10), Smithing
-		//   outputs (8), Lunar Diplomacy ores/bars (2), Mining outfit (Prospector)
-		//   (4), Mining/Smithing capes & pets (5), Crystal-tool/Tier-fallback
-		//   pickaxes (1), Smithing armour outputs (extended) (164), Gem
-		//   cutting/polishing inputs (10), Legacy (52)
+		//   outputs (8), Lunar Diplomacy ores/bars (2), Motherlode Mine (3),
+		//   Mining outfit (Prospector) (4), Mining/Smithing capes & pets (5),
+		//   Crystal-tool/Tier-fallback pickaxes (1), Smithing armour outputs
+		//   (extended) (164), Gem cutting/polishing inputs (10), Legacy (50)
 		m.put(TAG_MINING_SMITHING, Arrays.asList(
 			// === Pickaxes ===
 			1265, 1267, 11721, 1269, 12297, 1273, 11720, 1271,
@@ -1588,6 +1595,9 @@ public final class SkillBankData
 
 			// === Lunar Diplomacy ores/bars ===
 			9076, 9077,
+
+			// === Motherlode Mine ===
+			12009, 12011, 12012,
 
 			// === Mining outfit (Prospector) ===
 			12013, 12014, 12015, 12016,
@@ -1629,19 +1639,19 @@ public final class SkillBankData
 			2, 764, 766, 1913, 3211, 5751, 6981, 9375,
 			9377, 9378, 9379, 9380, 9381, 9382, 9793, 9796,
 			10346, 10348, 10352, 10386, 10387, 10388, 10389, 10390,
-			11941, 11942, 12011, 12012, 12019, 12797, 21343, 21345,
-			21390, 21539, 23682, 24475, 24481, 24489, 25376, 25627,
-			27010, 27012, 27014, 27016, 27018, 27020, 27021, 27023,
-			27024, 27026, 27028, 27030
+			11941, 11942, 12019, 12797, 21343, 21345, 21390, 21539,
+			23682, 24475, 24481, 24489, 25376, 25627, 27010, 27012,
+			27014, 27016, 27018, 27020, 27021, 27023, 27024, 27026,
+			27028, 27030
 		));
 	}
 
 	private static void addHerblore(Map<String, List<Integer>> m)
 	{
-		// HERBLORE — 448 items
+		// HERBLORE — 449 items
 		//   Tools (4), Grimy herbs (14), Clean herbs (14), Unfinished potion
 		//   variants (extended) (17), Spirits of Elid secondaries (2), Vials &
-		//   secondaries (32), Unfinished potions (22), Barbarian mix potions (58),
+		//   secondaries (33), Unfinished potions (22), Barbarian mix potions (58),
 		//   Nightmare Zone potions (21), Attack potions (8), Strength potions (8),
 		//   Defence potions (8), Super attack/strength/defence (12), Super combat
 		//   (8), Ranging & magic (20), Prayer & restores (24), Antifire & anti-
@@ -1671,7 +1681,8 @@ public final class SkillBankData
 			239, 241, 243, 187, 221, 223, 225, 227,
 			229, 231, 235, 237, 245, 247, 1633, 1975,
 			2398, 2970, 2972, 2974, 3138, 5937, 5940, 6016,
-			6018, 6693, 9085, 9736, 10111, 11326, 11994, 22405,
+			6018, 6693, 9085, 9736, 10111, 11326, 11992, 11994,
+			22405,
 
 			// === Unfinished potions ===
 			91, 93, 95, 97, 99, 101, 103, 105,
@@ -1814,9 +1825,9 @@ public final class SkillBankData
 	{
 		// SLAYER — 206 items
 		//   Slayer master items (12), Slayer rings (7), Slayer helmets (27), Black
-		//   masks (18), Task-specific gear (27), Cannon (6), Cape & pet (4),
+		//   masks (18), Task-specific gear (28), Cannon (6), Cape & pet (4),
 		//   Champion's Challenge scrolls (11), Mounted heads (POH trophies) (15),
-		//   Legacy (79)
+		//   Legacy (78)
 		m.put(TAG_SLAYER, Arrays.asList(
 			// === Slayer master items ===
 			4155, 5520, 10952, 11877, 11879, 11881, 11883, 11885,
@@ -1838,9 +1849,9 @@ public final class SkillBankData
 
 			// === Task-specific gear ===
 			4153, 4156, 4161, 4162, 4164, 4166, 4168, 4170,
-			4551, 6696, 7409, 7421, 7432, 8923, 13116, 13233,
-			21255, 21724, 21736, 21739, 21742, 21752, 21754, 22951,
-			22983, 22986, 23037,
+			4551, 6696, 7409, 7421, 7432, 8923, 12004, 13116,
+			13233, 21255, 21724, 21736, 21739, 21742, 21752, 21754,
+			22951, 22983, 22986, 23037,
 
 			// === Cannon ===
 			2, 6, 8, 10, 12, 21728,
@@ -1860,13 +1871,13 @@ public final class SkillBankData
 			985, 987, 989, 4081, 4151, 6106, 6171, 6570,
 			6660, 6663, 8901, 8903, 8913, 9787, 10588, 10884,
 			11135, 11732, 11736, 11774, 11775, 11780, 11870, 11874,
-			12004, 12436, 12899, 12922, 12924, 12926, 12927, 18337,
-			19550, 19710, 19712, 21015, 21047, 21256, 21271, 21272,
-			21273, 21285, 21295, 22006, 22104, 22345, 22461, 23490,
-			23491, 24187, 24495, 24498, 24502, 24551, 24553, 25177,
-			25179, 25181, 25183, 25185, 25187, 25189, 25191, 25731,
-			25902, 25908, 25914, 26674, 26675, 26676, 26677, 26678,
-			26679, 26680, 26681, 26682, 26683, 26684, 28626
+			12436, 12899, 12922, 12924, 12926, 12927, 18337, 19550,
+			19710, 19712, 21015, 21047, 21256, 21271, 21272, 21273,
+			21285, 21295, 22006, 22104, 22345, 22461, 23490, 23491,
+			24187, 24495, 24498, 24502, 24551, 24553, 25177, 25179,
+			25181, 25183, 25185, 25187, 25189, 25191, 25731, 25902,
+			25908, 25914, 26674, 26675, 26676, 26677, 26678, 26679,
+			26680, 26681, 26682, 26683, 26684, 28626
 		));
 	}
 
@@ -2145,8 +2156,8 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 456 items
-		//   Teleport jewellery (60), Teleport tabs (68), Boss & quest jewellery
+		// MISC — 459 items
+		//   Teleport jewellery (63), Teleport tabs (68), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (8), Clue
 		//   tools (25), Keys (12), Storage bags (6), Utility / banked supplies
 		//   (2), Combat trophies (PvM rewards) (3), Holiday rares & cosmetics
@@ -2158,9 +2169,9 @@ public final class SkillBankData
 			3855, 3857, 3859, 3863, 3865, 3867, 11079, 11081,
 			11083, 11088, 11095, 11099, 11101, 11103, 11107, 11109,
 			11111, 11113, 11118, 11120, 11122, 11124, 11126, 11190,
-			11191, 11192, 11194, 11970, 11974, 11978, 11980, 11984,
-			11986, 11988, 12785, 13393, 21146, 21151, 21153, 21155,
-			21166, 21171, 21173, 21175,
+			11191, 11192, 11194, 11968, 11970, 11972, 11974, 11976,
+			11978, 11980, 11984, 11986, 11988, 12785, 13393, 21146,
+			21151, 21153, 21155, 21166, 21171, 21173, 21175,
 
 			// === Teleport tabs ===
 			8007, 8008, 8009, 8010, 8011, 8012, 8013, 11741,
