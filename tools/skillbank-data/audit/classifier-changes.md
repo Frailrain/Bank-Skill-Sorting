@@ -77,3 +77,47 @@ Also updated `_herb_sort_key` to handle case insensitivity (Grimy items lower-ca
 **After**: Added section with `Khazard helmet`, `Khazard armour`, `Fishing trophy`.
 
 **Affects**: 3 items now correctly in quests.
+
+---
+
+## Session 2 (audit IDs 251–500)
+
+### MELEE "Weapons" — `Cattleprod` force_exclude
+
+**Before**: Cattleprod (ID 278) has `weapon_type='stab_sword'` so the classifier put it in melee Weapons.
+
+**After**: `force_exclude=["Cattleprod"]` on MELEE Weapons.
+
+**Affects**: ID 278 removed from melee.
+
+### QUESTS "Quest cosmetic gear" — added `Cattleprod`, `Giant carp`
+
+**Before**: 3 items (`Khazard helmet`, `Khazard armour`, `Fishing trophy`).
+
+**After**: + `Cattleprod`, + `Giant carp`.
+
+**Affects**: 2 new items in quests. Cattleprod is Sheep Herder's quest cosmetic weapon (paired with REM from melee above). Giant carp is the Fishing Contest reward kept as a trophy.
+
+### FISHING "Specialty fish" — removed `Bass`
+
+**Before**: `Bass` was in the specialty fish list alongside the eels.
+
+**After**: removed. `Bass` is the cooked variant; "Raw bass" is the actual catchable, which is already in Raw fish.
+
+**Affects**: ID 365 (Bass) no longer in fishing — correctly only in `melee;range;mage;cooking`.
+
+### COOKING "Misc cooked food" — added `Edible seaweed`, `Giant carp`, `Raw giant carp`
+
+**Before**: `_name_starts("Cooked ")` only; force-excluded canonical cooked-fish names.
+
+**After**: OR with explicit set `{"Edible seaweed", "Giant carp", "Raw giant carp"}`.
+
+**Affects**: 3 items now classify into cooking.
+
+### CRAFTING "Cut gems" — added `Oyster pearl`, `Oyster pearls`, `Pearl`
+
+**Before**: 10 gem-name allowlist.
+
+**After**: + `Oyster pearl`, `Oyster pearls`, `Pearl`.
+
+**Affects**: 3 items now in crafting. Pearls are bowstring + jewellery secondaries.

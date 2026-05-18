@@ -4,8 +4,9 @@
 
 - **Total items in manifest**: 11,875
 - **Reviewed in session 1**: IDs 0–250 (145 items)
-- **Reviewed cumulative**: 145
-- **Resume from**: ID 251
+- **Reviewed in session 2**: IDs 251–500 (145 items)
+- **Reviewed cumulative**: 290 (2.4%)
+- **Resume from**: ID 501
 
 ## Decision codes
 
@@ -145,6 +146,182 @@ All potion dose variants:
 
 See `out/classifier-changes.md`.
 
+---
+
+## Session 2: IDs 251–500
+
+### Clean herbs (verified post session-1 fix)
+
+All 10 of these now correctly land in `herblore`:
+
+- `251 Marrentill` — OK.
+- `253 Tarromin` — OK.
+- `255 Harralander` — OK.
+- `257 Ranarr weed` — OK.
+- `259 Irit leaf` — OK.
+- `261 Avantoe` — OK.
+- `263 Kwuarm` — OK.
+- `265 Cadantine` — OK.
+- `267 Dwarf weed` — OK.
+- `269 Torstol` — OK.
+
+### Pirate's Treasure / Fishing Contest follow-on (quest items)
+
+- `271 Pressure gauge` — EX. Dwarf Cannon quest item.
+- `272 Fish food` — EX. Pirate's Treasure quest item.
+- `273 Poison` — EX. Quest item.
+- `274 Poisoned fish food` — EX. Pirate's Treasure quest item.
+- `275 Key` (Pirate's) — EX. Quest item.
+- `276 Rubber tube` — EX. Demon Slayer quest item.
+- `277 Oil can` — EX. Demon Slayer quest item.
+
+### Sheep Herder + Plague City / Biohazard quest stack
+
+- `278 Cattleprod` — **REM melee**, **ADD quests**. Sheep Herder quest item; cosmetic stab-sword class but never used in combat. Already handled by force_include of "Cattleprod" in QUESTS "Quest cosmetic gear" + new MELEE force_exclude.
+- `279 Sheep feed` — EX. Sheep Herder quest item.
+- `280 Sheep bones (1)` `281 (2)` `282 (3)` `283 (4)` — EX (4 items). Sheep Herder reassembly puzzle items.
+- `284 Plague jacket` — EX. Plague City disguise.
+- `285 Plague trousers` — EX. Plague City disguise.
+- `286 Orange goblin mail` — EX. Lost Tribe quest disguise.
+- `287 Blue goblin mail` — EX. Lost Tribe quest disguise.
+- `288 Goblin mail` — EX. Generic goblin drop, not a player bank item.
+- `290 Research package` — EX. Demon Slayer / Biohazard quest item.
+- `291 Research notes` — EX. Plague City quest item.
+
+### Waterfall Quest stack
+
+- `292 Book on baxtorian` — EX. Waterfall Quest item.
+- `293 Key` (Waterfall) — EX. Quest item.
+- `294 Glarial's pebble` — EX. Waterfall Quest item.
+- `295 Glarial's amulet` — EX. Waterfall Quest item.
+- `296 Glarial's urn` — EX. Waterfall Quest item.
+- `298 Key` (another) — EX. Quest item.
+- `299 Mithril seeds` — EX. Hazeel Cult quest item (also used by Veronica throwers — bug-only, not banked).
+- `300 Rat's tail` — EX. Witch's Potion quest item.
+
+### Fishing tools (verified)
+
+- `301 Lobster pot` — OK (`cooking;fishing`).
+- `303 Small fishing net` — OK (`fishing`).
+- `305 Big fishing net` — OK (`fishing`).
+- `307 Fishing rod` — OK (`fishing`).
+- `309 Fly fishing rod` — OK (`fishing`).
+- `311 Harpoon` — OK (`fishing`).
+- `313 Fishing bait` — OK (`fishing`).
+- `314 Feather` — OK (`range;wc_fletching;fishing`).
+
+### Cooked / raw / burnt fish (IDs 315–399)
+
+Per-item verification — cooked fish cross-tag into all 3 combat tabs + cooking; raw fish into cooking+fishing.
+
+- `315 Shrimps` — OK (`melee;range;mage;cooking`).
+- `317 Raw shrimps` — OK (`cooking;fishing`).
+- `319 Anchovies` — OK (`melee;range;mage;cooking`).
+- `321 Raw anchovies` — OK (`cooking;fishing`).
+- `323 Burnt fish` — OK (`cooking`). Note: IDs 343/357/367/369 are also named "Burnt fish" but only the canonical 323 classifies — wiki canonical filter dedupes by name. Fixable via variant_allowlist for the family, but the burnt-fish-by-species distinction is purely cosmetic; players see "Burnt fish" identically regardless of source. **DEFERRED** — flagging as a class of canonical-filter false positives for a future pass. (Same applies to "Burnt swordfish" etc. — they have unique names so are correctly canonical.)
+- `325 Sardine` — OK.
+- `327 Raw sardine` — OK.
+- `329 Salmon` — OK.
+- `331 Raw salmon` — OK.
+- `333 Trout` — OK.
+- `335 Raw trout` — OK.
+- `337 Giant carp` — **ADD cooking**. Fishing Contest quest reward (cooked variant). Was unclassified. Flag: it's a quest reward; users keep one. **ADD quests** too. Force_include needed.
+- `338 Raw giant carp` — OK (`cooking`). Could also be in `fishing` (caught during Fishing Contest) but the contest is one-off. Leave as-is.
+- `339 Cod` — OK.
+- `341 Raw cod` — OK.
+- `343 Burnt fish` (dup) — LOG. See note on 323.
+- `345 Raw herring` — OK.
+- `347 Herring` — OK.
+- `349 Raw pike` — OK.
+- `351 Pike` — OK.
+- `353 Raw mackerel` — OK.
+- `355 Mackerel` — OK.
+- `357 Burnt fish` (dup) — LOG.
+- `359 Raw tuna` — OK.
+- `361 Tuna` — OK.
+- `363 Raw bass` — OK (`cooking;fishing`).
+- `365 Bass` — **REM fishing** (cooked Bass should not be in fishing specialty). Currently `melee;range;mage;cooking;fishing` — fishing is wrong since Bass is the cooked form. **Fix**: remove `"Bass"` from FISHING specialty fish list; "Raw bass" stays.
+- `367 Burnt fish` (dup) — LOG.
+- `369 Burnt fish` (dup) — LOG.
+- `371 Raw swordfish` — OK.
+- `373 Swordfish` — OK.
+- `375 Burnt swordfish` — OK (`cooking`).
+- `377 Raw lobster` — OK.
+- `379 Lobster` — OK.
+- `381 Burnt lobster` — OK.
+- `383 Raw shark` — OK.
+- `385 Shark` — OK.
+- `387 Burnt shark` — OK.
+- `389 Raw manta ray` — OK.
+- `391 Manta ray` — OK.
+- `393 Burnt manta ray` — OK.
+- `395 Raw sea turtle` — OK.
+- `397 Sea turtle` — OK.
+- `399 Burnt sea turtle` — OK.
+
+### Misc cooking / oyster / seaweed
+
+- `401 Seaweed` — OK (`crafting`). Used in glassmaking.
+- `403 Edible seaweed` — **ADD cooking**. Eaten as food (heals 4). Currently unclassified. **Fix**: add to cooking "Misc cooked food" / explicit allowlist.
+- `405 Casket` — EX. Skilling/random event drop, container, not a banked tag target.
+- `407 Oyster` — EX. Container item; players don't bank these between opens.
+- `409 Empty oyster` — EX. Same.
+- `411 Oyster pearl` — **ADD crafting**. Bowstring crafting secondary (with bowstring jewelry). **Fix**: add to crafting jewellery secondaries.
+- `413 Oyster pearls` — **ADD crafting**. Same as 411.
+
+### Mourning's End Part I quest
+
+- `415 Ethenea`, `416 Liquid honey`, `417 Sulphuric broline`, `418 Plague sample` — EX (4 items). Distillator quest puzzle items, consumed at quest end.
+- `419 Touch paper`, `420 Distillator` — EX. Quest items.
+- `421 Lathas' amulet` — EX. Quest item.
+- `422 Bird feed`, `423 Key` (MEP I), `424 Pigeon cage` — EX. Quest items.
+
+### Underground Pass / Plague City
+
+- `426 Priest gown` (body) — EX. Priest disguise, quest cosmetic.
+- `428 Priest gown` (legs) — EX. Same set.
+- `430 Medical gown` — EX. Plague City disguise.
+- `431 Karamjan rum` — EX. Pirate's Treasure quest item.
+- `432 Chest key` — EX. Pirate's Treasure quest item.
+- `433 Pirate message` — EX. Pirate's Treasure quest item.
+
+### Clay, ores
+
+- `434 Clay` — OK (`crafting;mining_smithing`).
+- `436 Copper ore`, `438 Tin ore`, `440 Iron ore`, `442 Silver ore`, `444 Gold ore`, `447 Mithril ore`, `449 Adamantite ore`, `451 Runite ore`, `453 Coal` — OK (9 items, all in `mining_smithing`).
+- `446 'perfect' gold ore` — EX. Family Crest quest item, single-use.
+
+### Pirate / Scorpion Catcher
+
+- `455 Barcrawl card` — EX. Scorpion Catcher quest item.
+- `456 Scorpion cage` — EX. Quest item.
+- `464 Strange fruit` — EX. Quest item (multiple quests).
+
+### Plague's End / "Broken pickaxe" / "Broken axe" series
+
+These IDs 466–500 are the Plague's End quest's pickaxe & axe assembly puzzle pieces (handle/head pairs + broken variants). All are quest-consumable items.
+
+- `466 Pickaxe handle` — EX. Quest part.
+- `468–478 Broken pickaxe` (×6, one per tier bronze→rune) — EX (6 items). Quest parts.
+- `480–490 Bronze/Iron/Steel/Mithril/Adamant/Rune pick head` — EX (6 items). Quest parts.
+- `492 Axe handle` — EX. Quest part.
+- `494–500 Broken axe` (×4, tier-specific shown so far) — EX (4 items). Quest parts.
+
+---
+
+## Session 2 totals
+
+- Items reviewed: 145
+- OK (correct as-is): 70
+- EX (correctly excluded): 60
+- ADD (missing tab, fixed): 8 (Cattleprod→quests, Edible seaweed, Oyster pearl + pearls, Giant carp cooking+quests, Restore-type already done in S1)
+- REM (misclassified, fixed): 2 (Cattleprod from melee, Bass from fishing-specialty)
+- LOG (deferred): 5 (Burnt fish duplicates 343/357/367/369 + general canonical-filter false-positive class)
+
+## Classifier changes made in session 2
+
+See `out/classifier-changes.md` "Session 2".
+
 ## Resume marker
 
-**Next session: start from ID 251.**
+**Next session: start from ID 501.**

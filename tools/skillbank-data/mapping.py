@@ -548,7 +548,8 @@ MELEE = TabSpec(
         })),
         Section("Weapons", _is_melee_weapon,
                 sort_key=_melee_weapon_sort_key,
-                force_include=["Dragon pickaxe"]),
+                force_include=["Dragon pickaxe"],
+                force_exclude=["Cattleprod"]),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
                 force_exclude=["Khazard helmet"]),
@@ -739,9 +740,10 @@ COOKING = TabSpec(
                 "Honeycomb", "Egg shell",
             })),
         ),
-        Section("Misc cooked food", _name_starts("Cooked "),
-                # canonical cooked fish already matched above
-                force_exclude=list(_COOKED_FISH_HEAL.keys())),
+        Section("Misc cooked food", _or(
+            _name_starts("Cooked "),
+            _name_in({"Edible seaweed", "Giant carp", "Raw giant carp"}),
+        ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
         Section("Cooking pet & misc", _name_in({"Rocky", "Heron", "Beaver", "Pet hellpuppy", "Pet kitten"})),
     ],
@@ -829,7 +831,8 @@ FISHING = TabSpec(
         Section("Raw fish", _is_raw_fish, sort_key=_raw_fish_sort_key),
         Section("Specialty fish", _name_in({
             "Sacred eel", "Infernal eel", "Cave eel", "Lava eel",
-            "Slimy eel", "Frog spawn", "Bass",
+            "Slimy eel", "Frog spawn",
+            # Bass removed — that's the cooked variant; raw bass is already in Raw fish.
         })),
         Section("Angler outfit", _name_starts("Angler ")),
         Section("Spirit angler outfit", _name_starts("Spirit angler ")),
@@ -904,6 +907,8 @@ CRAFTING = TabSpec(
         Section("Cut gems", _name_in({
             "Opal", "Jade", "Red topaz", "Sapphire", "Emerald", "Ruby",
             "Diamond", "Dragonstone", "Onyx", "Zenyte",
+            # bowstringing / jewellery secondaries
+            "Oyster pearl", "Oyster pearls", "Pearl",
         })),
         Section("Jewellery (silver)", _and(
             _name_starts("Silver "),
@@ -1334,6 +1339,8 @@ QUESTS = TabSpec(
         Section("Quest cosmetic gear", _name_in({
             "Khazard helmet", "Khazard armour",
             "Fishing trophy",
+            "Cattleprod",
+            "Giant carp",
         })),
         Section("Void Knight set", _name_starts("Void ")),
         Section("Fighter Torso et al.", _name_in({

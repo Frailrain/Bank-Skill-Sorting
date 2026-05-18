@@ -3,10 +3,11 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (168 items not in wiki output) ===
+=== melee (169 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
+     278  Cattleprod
     1231  (not in wiki canonical set)
     1361  Black axe
     1727  Amulet of magic
@@ -651,7 +652,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28285  Ultor vestige
    28420  Dragonstone key
 
-=== fishing (25 items not in wiki output) ===
+=== fishing (26 items not in wiki output) ===
+     365  Bass
      952  Spade
     3159  (not in wiki canonical set)
     6205  (not in wiki canonical set)
