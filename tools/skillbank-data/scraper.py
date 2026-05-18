@@ -635,6 +635,228 @@ def build_report(
     return "\n".join(summary_lines), "\n".join(diff_lines)
 
 
+# ── Delta mode ─────────────────────────────────────────────────────────────
+
+def compute_delta(
+    current: dict[str, list[int]],
+    classified: dict[str, list[list[tuple[float, int, str]]]],
+    tabs: list[TabSpec],
+    items_by_id: dict[int, dict],
+) -> dict:
+    """Diff the live SkillBankData.java tab assignments against the freshly
+    classified wiki data. Returns three buckets: new, removed, reclassified.
+
+    - new: items the classifier placed in 1+ tabs that aren't anywhere in
+      the live data. Includes per-tab + section-label so the report can
+      show which classifier rule matched.
+    - removed: items in the live data that the wiki+osrsbox merge no
+      longer contains at all (renamed/deleted/etc.). Never auto-removed.
+    - reclassified: items that exist in both live and proposed but with
+      different tab assignments. Flagged for manual review.
+    - unclassified: items present in the merged wiki dataset but not
+      placed in any tab by the classifier AND not in the live data.
+      Carved out separately from "new" so the report can highlight them
+      as needing manual rules.
+    """
+    # Build proposed: id -> {tab: [section_label, ...]}
+    proposed: dict[int, dict[str, list[str]]] = {}
+    for tab in tabs:
+        for i, sec_items in enumerate(classified[tab.name]):
+            for _, iid, _name in sec_items:
+                proposed.setdefault(iid, {}).setdefault(tab.name, []).append(
+                    tab.sections[i].label
+                )
+
+    # Build live: id -> {tab, ...}
+    live: dict[int, set[str]] = {}
+    for tab_name, ids in current.items():
+        for iid in ids:
+            live.setdefault(iid, set()).add(tab_name)
+
+    # All IDs the wiki+osrsbox merge actually knows about right now.
+    wiki_known_ids = set(items_by_id.keys())
+
+    new_items: list[dict] = []
+    unclassified_items: list[dict] = []
+    removed_items: list[dict] = []
+    reclassified_items: list[dict] = []
+
+    # New / unclassified: in wiki dataset, not in live.
+    for iid in sorted(wiki_known_ids - live.keys()):
+        it = items_by_id.get(iid, {})
+        # Skip non-canonical/noted/placeholder/dup — classifier ignores them too.
+        if it.get("noted") or it.get("placeholder") or it.get("duplicate"):
+            continue
+        name = it.get("name", "?")
+        if iid in proposed:
+            new_items.append({
+                "id": iid,
+                "name": name,
+                "tabs": sorted(proposed[iid].keys()),
+                "sections": dict(proposed[iid]),
+            })
+        else:
+            unclassified_items.append({
+                "id": iid,
+                "name": name,
+                "release_date": it.get("release_date") or "",
+            })
+
+    # Removed: in live, not in wiki dataset at all.
+    for iid in sorted(live.keys() - wiki_known_ids):
+        removed_items.append({
+            "id": iid,
+            "name": "(not in wiki dataset)",
+            "current_tabs": sorted(live[iid]),
+        })
+
+    # Reclassified: in both, tab set differs.
+    # Compare normalized tab sets (sorted lists of tab names).
+    for iid in sorted(live.keys() & proposed.keys()):
+        old_tabs = live[iid]
+        new_tabs = set(proposed[iid].keys())
+        if old_tabs != new_tabs:
+            reclassified_items.append({
+                "id": iid,
+                "name": items_by_id.get(iid, {}).get("name", "?"),
+                "old_tabs": sorted(old_tabs),
+                "new_tabs": sorted(new_tabs),
+                "added_to": sorted(new_tabs - old_tabs),
+                "removed_from": sorted(old_tabs - new_tabs),
+                "sections": dict(proposed[iid]),
+            })
+
+    return {
+        "new": new_items,
+        "unclassified": unclassified_items,
+        "removed": removed_items,
+        "reclassified": reclassified_items,
+    }
+
+
+def write_delta_report(
+    delta: dict,
+    out_path: Path,
+    wiki_cache_fresh: bool,
+) -> None:
+    """Render a human-readable markdown delta report."""
+    from datetime import datetime, timezone
+
+    lines: list[str] = []
+    lines.append(f"# SkillBankData delta report")
+    lines.append("")
+    lines.append(f"- **Run date:** {datetime.now(timezone.utc).isoformat(timespec='seconds')}")
+    lines.append(f"- **Wiki source:** {'live fetch (--refresh-wiki)' if wiki_cache_fresh else 'cached'}")
+    lines.append("")
+    lines.append("## Counts")
+    lines.append("")
+    lines.append(f"- New (auto-classified): **{len(delta['new'])}**")
+    lines.append(f"- Unclassified (in wiki, no classifier match): **{len(delta['unclassified'])}**")
+    lines.append(f"- Removed (in live data, no longer in wiki): **{len(delta['removed'])}**")
+    lines.append(f"- Reclassified (tab assignment changed): **{len(delta['reclassified'])}**")
+    lines.append("")
+
+    # New items — group by primary tab so the reader can scan by skill.
+    if delta["new"]:
+        lines.append("## New items (auto-classified)")
+        lines.append("")
+        by_tab: dict[str, list[dict]] = {}
+        for item in delta["new"]:
+            primary = item["tabs"][0] if item["tabs"] else "(none)"
+            by_tab.setdefault(primary, []).append(item)
+        for tab in sorted(by_tab):
+            lines.append(f"### {tab}")
+            lines.append("")
+            lines.append("| ID | Name | Tabs | Sections |")
+            lines.append("|----|------|------|----------|")
+            for item in by_tab[tab]:
+                tabs_str = ";".join(item["tabs"])
+                sec_str = " · ".join(
+                    f"{t}/{s}"
+                    for t, secs in sorted(item["sections"].items())
+                    for s in secs
+                )
+                # Escape pipes in names defensively.
+                nm = (item["name"] or "").replace("|", "\\|")
+                lines.append(f"| {item['id']} | {nm} | {tabs_str} | {sec_str} |")
+            lines.append("")
+
+    # Unclassified — flag for manual review or new rules.
+    if delta["unclassified"]:
+        lines.append("## Unclassified items (no classifier match)")
+        lines.append("")
+        lines.append("These items exist in the wiki dataset but the classifier didn't")
+        lines.append("place them in any tab. They need manual review or new rules.")
+        lines.append("")
+        lines.append("| ID | Name | Release |")
+        lines.append("|----|------|---------|")
+        for item in delta["unclassified"]:
+            nm = (item["name"] or "").replace("|", "\\|")
+            lines.append(f"| {item['id']} | {nm} | {item['release_date']} |")
+        lines.append("")
+
+    if delta["removed"]:
+        lines.append("## Removed items (no longer in wiki dataset)")
+        lines.append("")
+        lines.append("These IDs are in the live SkillBankData but the wiki+osrsbox merge")
+        lines.append("no longer knows about them (renamed/deleted/merged). They are NOT")
+        lines.append("auto-removed — review and drop manually if appropriate.")
+        lines.append("")
+        lines.append("| ID | Current tabs |")
+        lines.append("|----|--------------|")
+        for item in delta["removed"]:
+            lines.append(f"| {item['id']} | {';'.join(item['current_tabs'])} |")
+        lines.append("")
+
+    if delta["reclassified"]:
+        lines.append("## Reclassified items (tab assignment changed)")
+        lines.append("")
+        lines.append("These items exist in both live and proposed data, but the classifier")
+        lines.append("now assigns them to different tabs. Review whether the new")
+        lines.append("classification is correct — never auto-promoted.")
+        lines.append("")
+        lines.append("| ID | Name | Old tabs | New tabs | Δ |")
+        lines.append("|----|------|----------|----------|---|")
+        for item in delta["reclassified"]:
+            nm = (item["name"] or "").replace("|", "\\|")
+            delta_parts = []
+            if item["added_to"]:
+                delta_parts.append("+" + ",".join(item["added_to"]))
+            if item["removed_from"]:
+                delta_parts.append("-" + ",".join(item["removed_from"]))
+            lines.append(
+                f"| {item['id']} | {nm} | {';'.join(item['old_tabs'])} | "
+                f"{';'.join(item['new_tabs'])} | {' '.join(delta_parts)} |"
+            )
+        lines.append("")
+
+    if not any(delta[k] for k in ("new", "unclassified", "removed", "reclassified")):
+        lines.append("## No drift")
+        lines.append("")
+        lines.append("Live data matches classifier output exactly. Nothing to report.")
+        lines.append("")
+
+    out_path.write_text("\n".join(lines))
+
+
+def filter_classified_to_ids(
+    classified: dict[str, list[list[tuple[float, int, str]]]],
+    keep_ids: set[int],
+    tabs: list[TabSpec],
+) -> dict[str, list[list[tuple[float, int, str]]]]:
+    """Return a copy of `classified` keeping only items whose id is in keep_ids.
+    Used by --auto-promote to render a tailored output containing only new
+    auto-classified items, so legacy carry-over preserves everything else
+    untouched."""
+    out: dict[str, list[list[tuple[float, int, str]]]] = {
+        t.name: [[] for _ in t.sections] for t in tabs
+    }
+    for tab in tabs:
+        for i, sec_items in enumerate(classified[tab.name]):
+            out[tab.name][i] = [r for r in sec_items if r[1] in keep_ids]
+    return out
+
+
 # ── Main ────────────────────────────────────────────────────────────────────
 
 def main():
@@ -654,6 +876,11 @@ def main():
                    help="non-additive: drop items from current data that the new classifier misses.")
     p.add_argument("--promote", action="store_true",
                    help="also overwrite src/main/java/com/skillbank/SkillBankData.java with the result.")
+    p.add_argument("--delta", action="store_true",
+                   help="diff classifier output against live SkillBankData.java; write out/delta-report.md.")
+    p.add_argument("--auto-promote", action="store_true",
+                   help="with --delta, also write new auto-classified items back to SkillBankData.java. "
+                        "Unclassified, removed, and reclassified items are never auto-promoted.")
     args = p.parse_args()
 
     import wiki  # type: ignore
@@ -787,6 +1014,37 @@ def main():
     if args.promote:
         DATA_JAVA.write_text(proposed)
         print(f"\nPROMOTED → {DATA_JAVA}")
+
+    if args.delta:
+        print("Computing delta against live data...", file=sys.stderr)
+        delta = compute_delta(current, classified, tabs, items_by_id)
+        delta_path = out_dir / "delta-report.md"
+        write_delta_report(delta, delta_path, wiki_cache_fresh=args.refresh_wiki)
+        print(
+            f"\nDelta: new={len(delta['new'])} "
+            f"unclassified={len(delta['unclassified'])} "
+            f"removed={len(delta['removed'])} "
+            f"reclassified={len(delta['reclassified'])}"
+        )
+        print(f"Wrote {delta_path}")
+
+        if args.auto_promote:
+            new_ids = {item["id"] for item in delta["new"]}
+            if not new_ids:
+                print("--auto-promote: no new auto-classified items, nothing to promote.")
+            else:
+                # Filter classified to only the new auto-classified items, then
+                # render additively so legacy carry-over preserves everything
+                # else. This deliberately avoids promoting reclassifications.
+                tailored = filter_classified_to_ids(classified, new_ids, tabs)
+                promoted_src = render_proposed(
+                    java_src, tabs, tailored, current=current, additive=True,
+                )
+                DATA_JAVA.write_text(promoted_src)
+                print(
+                    f"AUTO-PROMOTED {len(new_ids)} new item(s) → {DATA_JAVA}. "
+                    f"Removed/reclassified items left untouched for manual review."
+                )
 
 
 if __name__ == "__main__":
