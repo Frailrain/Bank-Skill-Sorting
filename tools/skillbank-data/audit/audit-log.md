@@ -5098,6 +5098,104 @@ See `audit/classifier-changes.md` "Session 54".
 
 See `audit/classifier-changes.md` "Session 55".
 
+---
+
+## Session 56: IDs 23101–23400
+
+### Ornate helm + cooking dialog + Mystic sets
+
+- `23101 Ornate helm` — OK (`melee`).
+- `23103-23108 Cook's shopping list, Cook's letter, Brewer's folly, Vyvin's wine, Beer glass of water, Birthday cake` — EX.
+- `23110-23119 Mystic set (light/blue/dark/dusk)` (4 items) — **ADD mage** (GE convenience sets).
+
+### Fishing tools + Clue scrolls
+
+- `23122 Oily pearl fishing rod` — **ADD fishing**.
+- `23124 Gilded dragonhide set` — OK (`range`).
+- `23127-23129 Clue nest (beginner), Clue bottle (beginner)` — OK (`misc`).
+- `23131-23181 Clue scroll dups × ~45` — LOG.
+- `23182 Clue scroll (beginner)` — OK (`misc`).
+- `23183-23185 Strange device, Mimic, Ring of 3rd age` — LOG.
+
+### God d'hide shields (Treasure Trails Hard)
+
+- `23188-23203 Guthix/Saradomin/Zamorak/Ancient/Armadyl/Bandos d'hide shield` (6 items, currently `melee;range`) — **REM melee, keep range**.
+
+### Misc melee weapons + Rune heraldic + ornament kits
+
+- `23206 Dual sai` — OK (`melee`).
+- `23209-23221 Rune platebody (h1-h5)` — OK (5 items, `melee`).
+- `23224 Thieving bag` — LOG.
+- `23227 Rune defender ornament kit` — OK (`crafting`).
+- `23230 Rune defender (t)` — **ADD melee;quests** (Rune defender trim).
+- `23232-23235 Tzhaar-ket-om ornament kit, Tzhaar-ket-om (t)` — partial:
+  - `23232` — OK (`crafting`).
+  - `23235 Tzhaar-ket-om (t)` — **ADD melee**.
+- `23237-23240 Berserker necklace ornament kit, Berserker necklace (or)` — partial:
+  - `23237` — OK (`crafting`).
+  - `23240 Berserker necklace (or)` — **ADD melee**.
+
+### 3rd age + reward casket beginner + Fremennik kilt
+
+- `23242 3rd age plateskirt` (currently `melee;mining_smithing`) — **REM mining_smithing** (added to _3RD_AGE_MELEE_NAMES).
+- `23245 Reward casket (beginner)` — OK (`misc`).
+- `23246 Fremennik kilt` — OK (`melee`).
+- `23249 Rangers' tights` — **ADD range** (Rangers' set legs variant).
+- `23252 Giant boot`, `23255 Uri's hat` — LOG.
+
+### Gilded items (Treasure Trails)
+
+- `23258 Gilded coif` — LOG (currently `melee`; should be range cosmetic but stat-based; defer).
+- `23261-23267 Gilded d'hide vambraces/body/chaps` (3 items, currently `melee;range;crafting`) — **REM melee, keep range;crafting**.
+- `23270-23273 Adamant/Rune dragon mask` — LOG (cosmetic).
+- `23276-23282 Gilded pickaxe, Gilded axe, Gilded spade` — OK.
+
+### Cosmetic feet + Monk's robe (t) + random event
+
+- `23285-23297 Mole/Frog slippers, Bear/Demon feet, Jester cape, Shoulder parrot` — LOG (random event cosmetic).
+- `23303-23306 Monk's robe top (t), Monk's robe (t)` — OK (`prayer`).
+- `23309 Amulet of defence (t)` — **ADD melee** (Defence amulet trim).
+- `23312-23318 Sandwich lady hat/top/bottom` — LOG (random event cosmetic).
+
+### Rune scimitar ornament kit + 3rd age druidic
+
+- `23321-23327 Rune scimitar ornament kit (guthix/saradomin/zamorak)` — OK (3 items, `crafting`).
+- `23330-23334 Rune scimitar dups` — LOG.
+- `23336 3rd age druidic robe top`, `23339 3rd age druidic robe bottoms` (2 items) — **ADD mage** (3rd age druidic set).
+- `23342 3rd age druidic staff` — OK (`mage`).
+- `23345 3rd age druidic cloak` — OK (multi-tag).
+
+### Tormented + Cape of skulls + power (t) + Rain bow
+
+- `23348 Tormented ornament kit` — OK (`crafting`).
+- `23351 Cape of skulls` — OK.
+- `23354 Amulet of power (t)` — **ADD melee** (Power amulet trim).
+- `23357 Rain bow` — OK (`range;wc_fletching`).
+- `23360 Ham joint`, `23363 Staff of bob the cat ✓` — partial.
+
+### Black/Adamant plate (h) + Leather (g) + Spiked manacles
+
+- `23366-23378 Black platebody (h1-h5)` — OK (5 items, `melee`).
+- `23381 Leather body (g)`, `23384 Leather chaps (g)` (2 items) — **ADD range** (Gilded leather cosmetic, range gear).
+- `23387 Watson teleport` — OK (`misc`).
+- `23389 Spiked manacles` — OK (`melee`).
+- `23392-23398 Adamant platebody (h1-h3)` — OK (3 items, `melee`).
+
+---
+
+## Session 56 totals
+
+- Items reviewed: ~250
+- OK (correct as-is): 60
+- EX (correctly excluded): 15 (Cook dialog, Hespori, Strange device, Mimic)
+- ADD (missing tab, fixed): 16 (4 Mystic sets, 1 Oily pearl fishing rod, 1 Rangers' tights, 1 Rune defender (t), 1 Tzhaar-ket-om (t), 1 Berserker necklace (or), 2 3rd age druidic, 2 Amulet trim, 2 Leather (g))
+- REM (misclassified, fixed): 10 (6 God d'hide shields from melee, 3 Gilded d'hide pieces from melee, 1 3rd age plateskirt from mining_smithing)
+- LOG: 80+ (Massive clue dups ~45, dragon masks, random event cosmetics, Gilded coif/various)
+
+## Classifier changes made in session 56
+
+See `audit/classifier-changes.md` "Session 56".
+
 ## Resume marker
 
-**Next session: start from ID 23101.**
+**Next session: start from ID 23401.**

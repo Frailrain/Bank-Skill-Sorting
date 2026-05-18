@@ -2084,3 +2084,53 @@ Varrock Museum teleport.
 ### MISC Holiday rares — `Clown shoes`
 
 **Affects**: 1 item.
+
+## Session 56 (audit IDs 23101–23400)
+
+### `_3RD_AGE_MELEE_NAMES` — added `3rd age plateskirt`
+
+Now `3rd age plateskirt` is force_excluded from mining_smithing (was missing).
+
+### MAGE — new "Mage GE armour sets" section
+
+Added Mystic set (light/blue/dark/dusk) (4) + 3rd age druidic robe top/bottoms (2).
+
+**Affects**: 6 items.
+
+### FISHING Rods & tools — `Oily pearl fishing rod`
+
+**Affects**: 1 item.
+
+### RANGE Body/Legs/Gloves — Rangers' tights + Gilded d'hide pieces
+
+- Body: Leather body (g) force_include.
+- Legs: Rangers' tights, Leather chaps (g) force_include.
+- Gloves: Gilded d'hide vambraces force_include.
+
+### MELEE Body armour/Legs/Gloves — Gilded d'hide pieces force_exclude + Leather (g)
+
+REM melee for Gilded d'hide body/vambraces/chaps, Leather body (g), Leather chaps (g), Rangers' tights.
+
+**Affects**: 6 items (3-way cross-tab cleanup on Gilded d'hide).
+
+### MELEE Shields — d'hide shields force_exclude
+
+Already done in session 53 for base d'hide; nothing new this session for shields.
+
+### MELEE Weapons — `Tzhaar-ket-om (t)` force_include
+
+Trim variant.
+
+**Affects**: 1 item.
+
+### MELEE Amulets — Defence/Power (t) + Berserker necklace (or)
+
+Added Amulet of defence (t), Amulet of power (t), Berserker necklace (or).
+
+**Affects**: 3 items.
+
+### QUESTS Defenders — `Rune defender (t)`
+
+Trim variant.
+
+**Affects**: 1 item.

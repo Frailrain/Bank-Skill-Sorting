@@ -247,8 +247,8 @@ _3RD_AGE_RANGE_NAMES = [
 # 3rd age melee armour — melee armour but the smithing extended pattern
 # (`name_ends(" platebody")` etc.) wrongly tags them as smithable.
 _3RD_AGE_MELEE_NAMES = [
-    "3rd age platelegs", "3rd age platebody", "3rd age full helmet",
-    "3rd age kiteshield",
+    "3rd age platelegs", "3rd age plateskirt", "3rd age platebody",
+    "3rd age full helmet", "3rd age kiteshield",
 ]
 
 # GWD god armour — Armadyl is range, Bandos is melee; stat-spillover
@@ -790,7 +790,8 @@ MELEE = TabSpec(
                 sort_key=_melee_weapon_sort_key,
                 force_include=["Dragon pickaxe", "Dragon scimitar (or)",
                                "Armadyl godsword (or)", "Bandos godsword (or)",
-                               "Saradomin godsword (or)", "Zamorak godsword (or)"],
+                               "Saradomin godsword (or)", "Zamorak godsword (or)",
+                               "Tzhaar-ket-om (t)"],
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Godsword construction", _name_in({
             "Godsword shards 1 & 2", "Godsword shards 1 & 3",
@@ -822,7 +823,9 @@ MELEE = TabSpec(
                                "Spined body", "Skeletal top",
                                "Armadyl chestplate", "Rangers' tunic",
                                "Ancestral robe top",
-                               "Morrigan's leather body", "Zuriel's robe top"]
+                               "Morrigan's leather body", "Zuriel's robe top",
+                               "Leather body (g)",
+                               "Gilded d'hide body", "Gilded d'hide vambraces"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -836,7 +839,9 @@ MELEE = TabSpec(
                                "Ahrim's robeskirt", "Karil's leatherskirt", "Rogue trousers",
                                "Spined chaps", "Skeletal bottoms", "Snakeskin chaps",
                                "Armadyl chainskirt", "Ancestral robe bottom",
-                               "Morrigan's leather chaps", "Zuriel's robe bottom"]
+                               "Morrigan's leather chaps", "Zuriel's robe bottom",
+                               "Leather chaps (g)", "Rangers' tights",
+                               "Gilded d'hide chaps"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -855,13 +860,18 @@ MELEE = TabSpec(
                 + [n for n in _GOD_DHIDE_NAMES if "bracers" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
                 + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves", "Mourner gloves",
-                   "Spined gloves", "Skeletal gloves", "Snakeskin vambraces"]
+                   "Spined gloves", "Skeletal gloves", "Snakeskin vambraces",
+                   "Gilded d'hide vambraces"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield"),
                 force_include=["Granite shield", "Draconic visage"],
                 force_exclude=["Snakeskin shield", "Hard leather shield",
                                "Green d'hide shield", "Blue d'hide shield",
-                               "Red d'hide shield", "Black d'hide shield"]),
+                               "Red d'hide shield", "Black d'hide shield",
+                               # session 56 — god d'hide shields
+                               "Guthix d'hide shield", "Saradomin d'hide shield",
+                               "Zamorak d'hide shield", "Ancient d'hide shield",
+                               "Armadyl d'hide shield", "Bandos d'hide shield"]),
         Section("Trim/gilded armour cosmetic variants",
                 _is_trim_gilded_melee_armour),
         Section("GE armour sets (melee)", _or(
@@ -884,7 +894,9 @@ MELEE = TabSpec(
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _slot_pred("neck"),
                 force_include=["Amulet of glory (t)", "Strength amulet (t)",
-                               "Amulet of fury (or)", "Amulet of torture (or)"],
+                               "Amulet of fury (or)", "Amulet of torture (or)",
+                               "Amulet of defence (t)", "Amulet of power (t)",
+                               "Berserker necklace (or)"],
                 force_exclude=["Gnome amulet", "Beads of the dead"]),
         Section("Rings", _slot_pred("ring")),
         Section("Combat potions",
@@ -936,7 +948,8 @@ RANGE = TabSpec(
                 force_include=["Karil's leathertop", "Spined body",
                                "Studded body (g)", "Studded body (t)",
                                "3rd age range top", "Armadyl chestplate",
-                               "Rangers' tunic", "Morrigan's leather body"]
+                               "Rangers' tunic", "Morrigan's leather body",
+                               "Leather body (g)"]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()],
                 force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top",
                                "Granite body", "Bandos chestplate",
@@ -945,7 +958,8 @@ RANGE = TabSpec(
                 force_include=["Karil's leatherskirt", "Spined chaps", "Snakeskin chaps",
                                "Studded chaps (g)", "Studded chaps (t)",
                                "3rd age range legs", "Armadyl chainskirt",
-                               "Morrigan's leather chaps"]
+                               "Morrigan's leather chaps",
+                               "Rangers' tights", "Leather chaps (g)"]
                 + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()],
                 force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers", "Granite legs",
                                "Bandos tassets",
@@ -956,13 +970,17 @@ RANGE = TabSpec(
                 force_exclude=["Rogue boots"]),
         Section("Gloves", _is_range_armour_slot("hands"),
                 force_include=["Spined gloves", "Snakeskin vambraces",
-                               "3rd age vambraces"]
+                               "3rd age vambraces", "Gilded d'hide vambraces"]
                 + [n for n in _GOD_DHIDE_NAMES if "bracers" in n.lower()],
                 force_exclude=["Rogue gloves"]),
         Section("Shields", _is_range_armour_slot("shield"),
                 force_include=["Snakeskin shield", "Hard leather shield",
                                "Green d'hide shield", "Blue d'hide shield",
-                               "Red d'hide shield", "Black d'hide shield"]),
+                               "Red d'hide shield", "Black d'hide shield",
+                               # session 56 — god d'hide shields
+                               "Guthix d'hide shield", "Saradomin d'hide shield",
+                               "Zamorak d'hide shield", "Ancient d'hide shield",
+                               "Armadyl d'hide shield", "Bandos d'hide shield"]),
         Section("Capes", _is_range_armour_slot("cape"),
                 force_include=["Ranging hood", "Hitpoints hood"],
                 force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES + ["Lunar cape"]),
@@ -1074,6 +1092,12 @@ MAGE = TabSpec(
         })),
         Section("CoX mage upgrades + Ancestral", _name_in({
             "Kodai insignia", "Ancestral robes set",
+        })),
+        Section("Mage GE armour sets", _name_in({
+            "Mystic set (light)", "Mystic set (blue)",
+            "Mystic set (dark)", "Mystic set (dusk)",
+            # session 56 — 3rd age druidic pieces (set is mage)
+            "3rd age druidic robe top", "3rd age druidic robe bottoms",
         })),
         Section("Combat food (cross-tag)", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
     ],
@@ -1429,6 +1453,8 @@ FISHING = TabSpec(
             "Drift net",
             # session 55 — Aerial fishing (Karuulm Molch)
             "Cormorant's glove", "Pearl barbarian rod",
+            # session 56 — Oily pearl variant
+            "Oily pearl fishing rod",
         })),
         Section("Aerial fishing catches + byproducts", _name_in({
             "Bluegill", "Common tench", "Mottled eel", "Greater siren",
@@ -2478,7 +2504,7 @@ QUESTS = TabSpec(
         })),
         Section("Defenders", _or(
             _name_ends(" defender"),
-            _name_in({"Dragon defender (t)"}),
+            _name_in({"Dragon defender (t)", "Rune defender (t)"}),
         )),
         Section("Boss pets", _name_in({
             "Tzrek-jad", "Olmlet", "Skotos", "Vorki", "Lil' creator",
