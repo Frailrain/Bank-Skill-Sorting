@@ -2396,3 +2396,67 @@ Added Echo harpoon, Infernal harpoon (uncharged), Dragon harpoon (or).
 Added 20th anniversary hat/top/bottom/boots/gloves/necklace/cape.
 
 **Affects**: 7 items.
+
+## Session 63 (audit IDs 25501–26000)
+
+### MINING_SMITHING — 3 new sections
+
+- "Shooting Star miner": Celestial ring/signet (uncharged), Star fragment.
+- "Golden prospector outfit": Golden prospector helmet/jacket/legs/boots.
+- "Camdozaal mining (Barronite)": Barronite head/handle/guard + shards.
+
+**Affects**: 11 items.
+
+### FISHING Trophy fish — Tempoross harpoonfish
+
+Added Big harpoonfish, Stuffed big harpoonfish.
+
+**Affects**: 2 items.
+
+### FISHING Tempoross rewards — `Fish sack barrel`
+
+Force_excluded from RANGE Capes (cape-slot fishing storage with range defence spillover).
+
+**Affects**: 1 item.
+
+### COOKING Misc cooked food — Tempoross + Camdozaal cooked variants
+
+Added Harpoonfish, Crystallised harpoonfish, Guppy, Cavefish, Tetra, Catfish, Corrupted paddlefish, Crystal paddlefish.
+
+**Affects**: 8 items.
+
+### MAGE Staves — Holy sanguinesti staff variants
+
+Added Holy sanguinesti staff, Holy sanguinesti staff (uncharged).
+
+**Affects**: 2 items.
+
+### SLAYER Slayer master items — `Sanguine dust`
+
+ToB Sanguine scythe construction.
+
+**Affects**: 1 item.
+
+### PRAYER Prayer scrolls + cosmetic — `Ash sanctifier`
+
+Ash-burying utility for combat XP.
+
+**Affects**: 1 item.
+
+### RANGE Crossbows — `Dragon hunter crossbow (t)` force_include
+
+Trim variant.
+
+**Affects**: 1 item.
+
+### MELEE — new "Combat Achievement rewards" section
+
+Ghommal's hilt 1-6.
+
+**Affects**: 6 items.
+
+### MISC Combat trophies — `Lightbearer`
+
+Tombs of Amascut passive prayer regen ring.
+
+**Affects**: 1 item.

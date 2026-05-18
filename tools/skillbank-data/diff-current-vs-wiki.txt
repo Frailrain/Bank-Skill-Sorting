@@ -45,12 +45,13 @@ or should be added to force_include / variant_allowlist before flipping --additi
    25413  Bloodbark helm
    25416  Bloodbark legs
 
-=== range (5 items not in wiki output) ===
+=== range (6 items not in wiki output) ===
    22616  Vesta's chainbody
    22619  Vesta's plateskirt
    22625  Statius's full helm
    22628  Statius's platebody
    22631  Statius's platelegs
+   25585  Fish sack barrel
 
 === mage (9 items not in wiki output) ===
    19921  Ancient d'hide boots

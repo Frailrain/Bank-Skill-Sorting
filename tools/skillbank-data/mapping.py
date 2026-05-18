@@ -817,6 +817,10 @@ MELEE = TabSpec(
         Section("Avernic defender construction", _name_in({
             "Avernic defender hilt",
         })),
+        Section("Combat Achievement rewards", _name_in({
+            "Ghommal's hilt 1", "Ghommal's hilt 2", "Ghommal's hilt 3",
+            "Ghommal's hilt 4", "Ghommal's hilt 5", "Ghommal's hilt 6",
+        })),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower())
                 + ["Granite helm", "Serpentine helm (uncharged)",
@@ -955,7 +959,8 @@ RANGE = TabSpec(
         })),
         Section("Ammunition", _is_range_ammo),
         Section("Bows", _is_range_weapon_type("bow")),
-        Section("Crossbows", _is_range_weapon_type("crossbow")),
+        Section("Crossbows", _is_range_weapon_type("crossbow"),
+                force_include=["Dragon hunter crossbow (t)"]),
         Section("Thrown", _is_range_weapon_type("thrown")),
         Section("Special weapons", _is_range_weapon_type("chinchompa", "blaster")),
         Section("D'hide armour", lambda it: bool(_DHIDE_PIECE_RE.search(it.get("name") or ""))),
@@ -1007,7 +1012,8 @@ RANGE = TabSpec(
                                "Armadyl d'hide shield", "Bandos d'hide shield"]),
         Section("Capes", _is_range_armour_slot("cape"),
                 force_include=["Ranging hood", "Hitpoints hood"],
-                force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES + ["Lunar cape"]),
+                force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES + ["Lunar cape",
+                                                                              "Fish sack barrel"]),
         # Team capes are caught by the section above via _is_range_armour_slot
         # because the cape has defence_ranged=2 like basic colour capes.
         # Mass-exclude via a pattern force_exclude below in classify-time.
@@ -1045,7 +1051,9 @@ MAGE = TabSpec(
                                "Corrupted staff (basic)", "Corrupted staff (attuned)",
                                "Corrupted staff (perfected)",
                                "Crystal staff (basic)", "Crystal staff (attuned)",
-                               "Crystal staff (perfected)"]),
+                               "Crystal staff (perfected)",
+                               # session 63 — ToB Holy variants
+                               "Holy sanguinesti staff", "Holy sanguinesti staff (uncharged)"]),
         Section("Wands", _is_mage_weapon_type("wand")),
         Section("Ward shards (construction intermediates)", _name_in({
             "Malediction shard 1", "Malediction shard 2", "Malediction shard 3",
@@ -1188,6 +1196,7 @@ PRAYER = TabSpec(
         Section("Prayer scrolls + cosmetic", _name_in({
             "Dexterous prayer scroll", "Arcane prayer scroll",
             "Torn prayer scroll", "Necklace of faith",
+            "Ash sanctifier",
         })),
         Section("Fossil Island fossils", _or(
             _and(_name_starts("Unidentified "), _name_ends(" fossil")),
@@ -1382,6 +1391,10 @@ COOKING = TabSpec(
                 "Paddlefish",
                 # session 60 — Blighted PvP food
                 "Blighted manta ray", "Blighted anglerfish", "Blighted karambwan",
+                # session 63 — Tempoross Harpoonfish + Camdozaal cavefish + Tempoross paddlefish
+                "Harpoonfish", "Crystallised harpoonfish",
+                "Guppy", "Cavefish", "Tetra", "Catfish",
+                "Corrupted paddlefish", "Crystal paddlefish",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1549,6 +1562,7 @@ FISHING = TabSpec(
         Section("Tempoross rewards", _name_in({
             "Spirit flakes", "Soaked page", "Tackle box", "Fish barrel",
             "Tome of water (empty)", "Tome of water",
+            "Fish sack barrel",
         })),
         Section("Fishing potions (cross-tag)",
                 _is_potion_family("fishing potion"),
@@ -1557,6 +1571,8 @@ FISHING = TabSpec(
             "Big bass", "Stuffed big bass",
             "Big swordfish", "Stuffed big swordfish",
             "Big shark", "Stuffed big shark",
+            # session 63 — Tempoross trophy
+            "Big harpoonfish", "Stuffed big harpoonfish",
         })),
         Section("Cape & pet", _name_in({"Fishing cape", "Fishing cape(t)", "Fishing hood", "Heron"})),
     ],
@@ -1732,6 +1748,18 @@ MINING_SMITHING = TabSpec(
         })),
         Section("Lovakengj mining (sulphur + dynamite)", _name_in({
             "Volcanic sulphur", "Dynamite pot", "Dynamite", "Blasted ore",
+        })),
+        Section("Shooting Star miner", _name_in({
+            "Celestial ring (uncharged)", "Celestial signet (uncharged)",
+            "Star fragment",
+        })),
+        Section("Golden prospector outfit", _name_in({
+            "Golden prospector helmet", "Golden prospector jacket",
+            "Golden prospector legs", "Golden prospector boots",
+        })),
+        Section("Camdozaal mining (Barronite)", _name_in({
+            "Barronite head", "Barronite handle", "Barronite guard",
+            "Barronite shards",
         })),
         Section("Volcanic Mine (ore fragments)", _or(
             _name_ends(" ore fragment"),
@@ -1997,6 +2025,8 @@ SLAYER = TabSpec(
             "Blood shard",
             # session 62 — Soul Wars rewards + bulk pack
             "Essence pack", "Ectoplasmator",
+            # session 63 — ToB Holy/Sanguine scythe construction
+            "Sanguine dust",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -2430,6 +2460,8 @@ MISC = TabSpec(
             "Fire cape", "Infernal cape", "Champion's cape",
             "Infernal max cape",
             "Wilderness champion amulet",
+            # session 63 — Tombs of Amascut passive prayer regen ring
+            "Lightbearer",
         })),
         Section("Holiday rares & cosmetics", _or(
             _name_in(set(_HOLIDAY_RARES) | {

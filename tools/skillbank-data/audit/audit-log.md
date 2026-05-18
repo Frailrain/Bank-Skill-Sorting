@@ -5704,6 +5704,139 @@ See `audit/classifier-changes.md` "Session 61".
 
 See `audit/classifier-changes.md` "Session 62".
 
+---
+
+## Session 63: IDs 25501–26000
+
+### Banana cape + DMM dups
+
+- `25502 Banana cape` — OK (`range`).
+- `25515-25527 Dharok's platebody, Dharok's greataxe, Volatile nightmare staff, Ancestral hat, Jar of spirits/smoke, Stardust` (~6 items) — LOG (DMM tournament dups + boss pet jars).
+
+### Celestial Star miner + Golden prospector
+
+- `25539 Celestial ring (uncharged)`, `25543 Celestial signet (uncharged)`, `25547 Star fragment` (3 items) — **ADD mining_smithing** (Shooting Star miner items).
+- `25549-25555 Golden prospector helmet/jacket/legs/boots` (4 items) — **ADD mining_smithing** (Golden prospector XP outfit).
+
+### Tempoross + Big harpoonfish
+
+- `25557 Dark flippers` — OK.
+- `25559 Big harpoonfish`, `25561 Stuffed big harpoonfish` (2 items) — **ADD fishing** (POH trophy fish).
+- `25564 Raw harpoonfish` — OK (`cooking`).
+- `25565 Harpoonfish` — **ADD cooking** (cooked Harpoonfish).
+- `25566 Crystallised harpoonfish` — **ADD cooking** (Tempoross boss-only food).
+- `25567-25572 Quest notes` — EX.
+- `25574 Tome of water` — OK (`mage;fishing`).
+- `25578 Soaked page`, `25580 Tackle box`, `25582 Fish barrel` — OK.
+- `25585 Fish sack barrel` — **REM range, ADD fishing** (fishing storage barrel, range tag is wrong).
+- `25588 Spirit flakes`, `25590-25598 Spirit angler outfit + Casket` — OK (`fishing`).
+- `25602-25612 Tiny tempor (pet), Gregg's eastdoor/iou, Propeller hat, Pastel flowers, Thick dye, S.t.a.s.h blueprint, Steak sandwich` — LOG/EX.
+
+### Camdozaal (Below Ice Mountain)
+
+- `25635-25641 Barronite head/handle/guard` (3 items) — **ADD mining_smithing** (Camdozaal mining materials).
+- `25641 Barronite mace` — OK.
+- `25644 Imcando hammer` — OK.
+- `25646-25650 Simple/Elaborate/Ornate lockbox` — LOG.
+
+### Camdozaal cooking (cavefish + tetra)
+
+- `25652-25674 Raw guppy/cavefish/tetra/catfish (cooking ✓), Guppy/Cavefish/Tetra/Catfish, Ruined variants`:
+  - Raw (4) ✓ cooking.
+  - `Guppy`, `Cavefish`, `Tetra`, `Catfish` (4 cooked variants) — **ADD cooking**.
+  - Ruined variants ✓ cooking (burnt).
+- `25676 Barronite shards` — **ADD mining_smithing**.
+- `25684 Barronite deposit` — LOG.
+
+### Lithkren + While Guthix Sleeps
+
+- `25686-25706 Ancient globe/ledger/astroscope/treatise/carcanet, Mind/Body/Chaos core, Ungael/Lithkren vault notes, Dusty note` — EX (~10 items, lore).
+
+### Clan items
+
+- `25712 Clan cloak`, `25721 Clan vexillum` — LOG.
+
+### ToB Holy + Sanguine variants
+
+- `25730 Bandages`, `25731 Holy sanguinesti staff`, `25733 Holy sanguinesti staff (uncharged)` (2 items) — **ADD mage** (last 2; bandages LOG).
+- `25734 Holy ghrazi rapier`, `25736 Holy scythe of vitur`, `25738 Holy scythe of vitur (uncharged)`, `25739 Sanguine scythe of vitur`, `25741 Sanguine scythe of vitur (uncharged)` — OK (5 items, `melee`).
+- `25742-25744 Holy ornament kit, Sanguine ornament kit` — OK (`crafting`).
+- `25746 Sanguine dust` — **ADD slayer** (Sanguine scythe production).
+
+### Antipoison family
+
+- `25754-25765 Antipoison (-)(1-4), Antipoison potion (1-4), Antipoison (+)(1-4)` — OK (~12 items, `herblore`).
+
+### Ashes + Ash sanctifier
+
+- `25766-25778 Fiendish/Vile/Malicious/Abyssal/Infernal ashes` — OK (5 items, `prayer`).
+- `25781 Ash sanctifier` — **ADD prayer** (Ash-burying utility).
+
+### Sins of the Father content
+
+- `25783-25787 Clue scroll dups` — LOG.
+- `25793-25831 Various Sins of the Father quest material + Receipt, Rose, etc.` (~25 items) — EX.
+- `25818 Book of the dead` — OK (`mage;prayer`).
+- `25833 Raw boar meat` — OK (`cooking`).
+
+### Tombs of Amascut intro + misc
+
+- `25837 Slepey tablet`, `25838 Parasitic egg`, `25840 Banana hat`, `25844-25846 Orange/Blue egg sac` — LOG.
+
+### Amethyst dart
+
+- `25849 Amethyst dart`, `25853 Amethyst dart tip` — OK.
+
+### Crystal weapons + Bow of Faerdhinen
+
+- `25859 Enhanced crystal weapon seed` — OK (`farming`).
+- `25865-25867 Bow of faerdhinen, Bow of faerdhinen (c)` — OK (`range`).
+- `25870-25896 Blade of saeldor (c) dups, Bow of faerdhinen (c) dups` (~15 items) — LOG (canonical recolour dups).
+
+### Slayer helmets + Dragon hunter crossbow
+
+- `25898-25912 Tztok/Vampyric/Tzkal slayer helmet + (i)` — OK (6 items).
+- `25916 Dragon hunter crossbow (t)` — **ADD range** (Trim variant).
+- `25918 Dragon hunter crossbow (b)` — OK.
+
+### Antique lamps + Ghommal's hilt (Combat achievements)
+
+- `25920-25925 Antique lamp × 6` — LOG.
+- `25926-25936 Ghommal's hilt 1-6` (6 items) — **ADD melee** (Combat achievements unlock items).
+
+### Combat achievements
+
+- `25938-25956 Anim offhand × 5, Combat achievements` — LOG.
+
+### Tempoross extras
+
+- `25958 Corrupted paddlefish`, `25960 Crystal paddlefish` (2 items) — **ADD cooking** (Gauntlet paddlefish variants).
+- `25959, 25961 Corrupted escape crystal, Escape crystal` — LOG (instance-only).
+
+### Tombs of Amascut
+
+- `25963-25968 Crypt key, Ranis' head, Strange spider eggs, Sulphuric acid, Sticky note, Hespori bark` — LOG/EX.
+- `25975 Lightbearer` — **ADD misc Combat trophies** (special prayer regen ring).
+- `25979 Keris partisan` — OK (`melee;quests`).
+- `25981 Keris partisan of breaching` — OK (`melee`).
+- `25985 Elidinis' ward` — OK (`melee;mage`).
+- `25991-26000 Sigil of resilience/consistency/formidable fighter/rigorous ranger` (4 items) — LOG (LMS sigils, minigame-instance).
+
+---
+
+## Session 63 totals
+
+- Items reviewed: ~400
+- OK (correct as-is): 70
+- EX (correctly excluded): 50 (Sins quest material ~25, Lithkren lore, Camdozaal misc)
+- ADD (missing tab, fixed): 36 (7 Celestial+Golden prospector, 4 Big harpoonfish, 2 Holy sanguinesti staff, 1 Sanguine dust, 1 Ash sanctifier, 3 Barronite mining, 4 cooked cavefish family, 1 Barronite shards, 1 Dragon hunter crossbow (t), 6 Ghommal's hilt, 2 Tempoross paddlefish, 1 Lightbearer)
+- REM (misclassified, fixed): 1 (Fish sack barrel from range)
+- LOG: 150+ (DMM dups, Crystal weapon recolour dups ×15, Antique lamps ×6, LMS sigils, combat achievements, Sins of the Father quest material massive)
+
+## Classifier changes made in session 63
+
+See `audit/classifier-changes.md` "Session 63".
+
 ## Resume marker
 
-**Next session: start from ID 25501.**
+**Next session: start from ID 26001.**
