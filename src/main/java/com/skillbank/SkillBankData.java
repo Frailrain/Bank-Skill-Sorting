@@ -455,10 +455,10 @@ public final class SkillBankData
 	private static void addMelee(Map<String, List<Integer>> m)
 	{
 		// MELEE — 1480 items
-		//   Combat utility (6), Weapons (289), Helmets (224), Body armour (137),
-		//   Legs (123), Boots (69), Gloves (68), Shields (111), Capes (50),
+		//   Combat utility (6), Weapons (286), Helmets (224), Body armour (137),
+		//   Legs (123), Boots (68), Gloves (68), Shields (111), Capes (50),
 		//   Amulets (37), Rings (17), Combat potions (56), Restores (cross-tag)
-		//   (14), Combat food (23), Legacy (256)
+		//   (14), Combat food (23), Legacy (260)
 		m.put(TAG_MELEE, Arrays.asList(
 			// === Combat utility ===
 			2, 6, 8, 10, 12, 21728,
@@ -496,11 +496,10 @@ public final class SkillBankData
 			23206, 30957, 7435, 21003, 29589, 35, 33249, 3757,
 			7441, 29889, 4153, 7141, 19941, 20756, 12357, 10581,
 			25979, 30891, 25981, 27287, 27291, 7447, 7140, 7409,
-			11711, 6418, 7449, 21649, 19918, 6408, 26219, 6773,
-			31049, 7445, 23528, 2402, 7443, 30759, 7439, 7437,
-			24144, 22296, 11791, 29084, 30388, 6523, 6525, 33036,
-			12902, 12904, 6527, 6528, 27690, 29607, 6412, 2952,
-			7433,
+			11711, 7449, 21649, 19918, 26219, 6773, 31049, 7445,
+			23528, 2402, 7443, 30759, 7439, 7437, 24144, 22296,
+			11791, 29084, 30388, 6523, 6525, 33036, 12902, 12904,
+			6527, 6528, 27690, 29607, 2952, 7433,
 
 			// === Helmets ===
 			1139, 1155, 1137, 1153, 1141, 1157, 8682, 1151,
@@ -573,13 +572,13 @@ public final class SkillBankData
 			// === Boots ===
 			4119, 4121, 4123, 4125, 6619, 4127, 4129, 4131,
 			11840, 19930, 1061, 3105, 3107, 3791, 4310, 6145,
-			6666, 7159, 9005, 9006, 9073, 9100, 9638, 9644,
-			10552, 10958, 11836, 12391, 13129, 13130, 13131, 13132,
-			13237, 13239, 13358, 13363, 13368, 13373, 13378, 19695,
-			19921, 19924, 19927, 19933, 19936, 20047, 21643, 21733,
-			22951, 23037, 23093, 23389, 24043, 25163, 25395, 25410,
-			25557, 28672, 28945, 29286, 29806, 31088, 31091, 31092,
-			31093, 31094, 31095, 31096, 31097,
+			7159, 9005, 9006, 9073, 9100, 9638, 9644, 10552,
+			10958, 11836, 12391, 13129, 13130, 13131, 13132, 13237,
+			13239, 13358, 13363, 13368, 13373, 13378, 19695, 19921,
+			19924, 19927, 19933, 19936, 20047, 21643, 21733, 22951,
+			23037, 23093, 23389, 24043, 25163, 25395, 25410, 25557,
+			28672, 28945, 29286, 29806, 31088, 31091, 31092, 31093,
+			31094, 31095, 31096, 31097,
 
 			// === Gloves ===
 			7454, 7455, 778, 7456, 7457, 6629, 7458, 27110,
@@ -660,26 +659,27 @@ public final class SkillBankData
 			5553, 5554, 5555, 5556, 5557, 5680, 5698, 6068,
 			6069, 6131, 6133, 6135, 6137, 6139, 6141, 6143,
 			6147, 6149, 6153, 6215, 6217, 6227, 6313, 6315,
-			6317, 6324, 6326, 6328, 6330, 6522, 6524, 6526,
-			6739, 8901, 8903, 8913, 9748, 9751, 9754, 9769,
-			10356, 10358, 10360, 10446, 10450, 10553, 11090, 11284,
-			11446, 11670, 11774, 11775, 11780, 11798, 11799, 11800,
-			11810, 11814, 11816, 11818, 11820, 11832, 11834, 11964,
-			11966, 12808, 12853, 13080, 13081, 13082, 13083, 13084,
-			13085, 13086, 13087, 13088, 13089, 13090, 13091, 13092,
-			13093, 13094, 13095, 13096, 13097, 13098, 13099, 13100,
-			13101, 13241, 13280, 13317, 13318, 19711, 20011, 20655,
-			20657, 20724, 22002, 22003, 22109, 22545, 22616, 22638,
-			22956, 22975, 23673, 23764, 23989, 24133, 24134, 24136,
-			24137, 24138, 24139, 24140, 24141, 24142, 24143, 24157,
-			24158, 24160, 24161, 24169, 24170, 24171, 24172, 24173,
-			24174, 24175, 24176, 24177, 24178, 24179, 24180, 24182,
-			24183, 24184, 24185, 24186, 24194, 24197, 24200, 24203,
-			24206, 24223, 24224, 24533, 24589, 25173, 25176, 25177,
-			25643, 25975, 26376, 26384, 26386, 26674, 26722, 26724,
-			26725, 26726, 26728, 26729, 26730, 26732, 26734, 26736,
-			26752, 26754, 26756, 26758, 26760, 27275, 27551, 27553,
-			28199, 28626, 30305, 32312, 32328, 32336, 32344, 32352
+			6317, 6324, 6326, 6328, 6330, 6408, 6412, 6418,
+			6522, 6524, 6526, 6666, 6739, 8901, 8903, 8913,
+			9748, 9751, 9754, 9769, 10356, 10358, 10360, 10446,
+			10450, 10553, 11090, 11284, 11446, 11670, 11774, 11775,
+			11780, 11798, 11799, 11800, 11810, 11814, 11816, 11818,
+			11820, 11832, 11834, 11964, 11966, 12808, 12853, 13080,
+			13081, 13082, 13083, 13084, 13085, 13086, 13087, 13088,
+			13089, 13090, 13091, 13092, 13093, 13094, 13095, 13096,
+			13097, 13098, 13099, 13100, 13101, 13241, 13280, 13317,
+			13318, 19711, 20011, 20655, 20657, 20724, 22002, 22003,
+			22109, 22545, 22616, 22638, 22956, 22975, 23673, 23764,
+			23989, 24133, 24134, 24136, 24137, 24138, 24139, 24140,
+			24141, 24142, 24143, 24157, 24158, 24160, 24161, 24169,
+			24170, 24171, 24172, 24173, 24174, 24175, 24176, 24177,
+			24178, 24179, 24180, 24182, 24183, 24184, 24185, 24186,
+			24194, 24197, 24200, 24203, 24206, 24223, 24224, 24533,
+			24589, 25173, 25176, 25177, 25643, 25975, 26376, 26384,
+			26386, 26674, 26722, 26724, 26725, 26726, 26728, 26729,
+			26730, 26732, 26734, 26736, 26752, 26754, 26756, 26758,
+			26760, 27275, 27551, 27553, 28199, 28626, 30305, 32312,
+			32328, 32336, 32344, 32352
 		));
 	}
 
@@ -1100,10 +1100,10 @@ public final class SkillBankData
 
 	private static void addCooking(Map<String, List<Integer>> m)
 	{
-		// COOKING — 583 items
+		// COOKING — 584 items
 		//   Cooking tools (10), Raw fish (25), Cooked fish (23), Pies (10), Pizzas
 		//   (4), Stews & curries (3), Cakes (2), Breads (4), Gnome food /
-		//   cocktails (91), Beverages (52), Burnt food (65), Containers
+		//   cocktails (91), Beverages (53), Burnt food (65), Containers
 		//   (water/milk/etc) (18), Raw meat & ingredients (104), Misc cooked food
 		//   (33), Pies (extended) (19), Harvest produce (cross-tag with farming)
 		//   (55), Cooking pet & misc (4), Legacy (61)
@@ -1160,7 +1160,7 @@ public final class SkillBankData
 			5757, 5759, 5761, 5763, 5765, 5767, 5769, 5777,
 			5785, 5793, 5801, 5817, 5825, 5833, 5841, 5849,
 			5857, 5865, 5873, 5881, 5897, 5905, 5913, 5921,
-			5929, 5935, 5992, 6118,
+			5929, 5935, 5992, 6118, 6561,
 
 			// === Burnt food ===
 			323, 375, 381, 387, 393, 399, 528, 1867,
@@ -1606,13 +1606,14 @@ public final class SkillBankData
 
 	private static void addHerblore(Map<String, List<Integer>> m)
 	{
-		// HERBLORE — 370 items
+		// HERBLORE — 372 items
 		//   Tools (4), Grimy herbs (14), Clean herbs (14), Unfinished potion
-		//   variants (extended) (4), Vials & secondaries (32), Unfinished potions
-		//   (22), Attack potions (8), Strength potions (8), Defence potions (8),
-		//   Super attack/strength/defence (12), Super combat (8), Ranging & magic
-		//   (20), Prayer & restores (26), Antifire & anti-poison (68), Energy &
-		//   stamina (22), Other potions (60), Cape & pet (3), Legacy (37)
+		//   variants (extended) (4), Spirits of Elid secondaries (2), Vials &
+		//   secondaries (32), Unfinished potions (22), Attack potions (8),
+		//   Strength potions (8), Defence potions (8), Super
+		//   attack/strength/defence (12), Super combat (8), Ranging & magic (20),
+		//   Prayer & restores (26), Antifire & anti-poison (68), Energy & stamina
+		//   (22), Other potions (60), Cape & pet (3), Legacy (37)
 		m.put(TAG_HERBLORE, Arrays.asList(
 			// === Tools ===
 			233, 13226, 21163, 29988,
@@ -1627,6 +1628,9 @@ public final class SkillBankData
 
 			// === Unfinished potion variants (extended) ===
 			5936, 5939, 5942, 5951,
+
+			// === Spirits of Elid secondaries ===
+			6681, 6683,
 
 			// === Vials & secondaries ===
 			239, 241, 243, 187, 221, 223, 225, 227,
@@ -1760,9 +1764,9 @@ public final class SkillBankData
 
 	private static void addSlayer(Map<String, List<Integer>> m)
 	{
-		// SLAYER — 172 items
+		// SLAYER — 173 items
 		//   Slayer master items (5), Slayer rings (7), Slayer helmets (27), Black
-		//   masks (18), Task-specific gear (26), Cannon (6), Cape & pet (4),
+		//   masks (18), Task-specific gear (27), Cannon (6), Cape & pet (4),
 		//   Legacy (79)
 		m.put(TAG_SLAYER, Arrays.asList(
 			// === Slayer master items ===
@@ -1784,9 +1788,9 @@ public final class SkillBankData
 
 			// === Task-specific gear ===
 			4153, 4156, 4161, 4162, 4164, 4166, 4168, 4170,
-			4551, 7409, 7421, 7432, 8923, 13116, 13233, 21255,
-			21724, 21736, 21739, 21742, 21752, 21754, 22951, 22983,
-			22986, 23037,
+			4551, 6696, 7409, 7421, 7432, 8923, 13116, 13233,
+			21255, 21724, 21736, 21739, 21742, 21752, 21754, 22951,
+			22983, 22986, 23037,
 
 			// === Cannon ===
 			2, 6, 8, 10, 12, 21728,
@@ -1810,9 +1814,9 @@ public final class SkillBankData
 
 	private static void addFarming(Map<String, List<Integer>> m)
 	{
-		// FARMING — 322 items
+		// FARMING — 324 items
 		//   Tools (18), Compost (9), Seeds (158), Harvest produce (47), Farm
-		//   outputs / materials (40), Farmer outfit (6), Cape & pet (3), Legacy
+		//   outputs / materials (42), Farmer outfit (6), Cape & pet (3), Legacy
 		//   (41)
 		m.put(TAG_FARMING, Arrays.asList(
 			// === Tools ===
@@ -1855,11 +1859,12 @@ public final class SkillBankData
 			5472, 5474, 5478, 5960, 5962, 5964, 5968,
 
 			// === Farm outputs / materials ===
-			5931, 5933, 5970, 5972, 5974, 5976, 5978, 5980,
-			5982, 5984, 5994, 5996, 5998, 6000, 6002, 6004,
-			6006, 6008, 6010, 6012, 6014, 6020, 6022, 6024,
-			6026, 6028, 6030, 6040, 6041, 6043, 6045, 6047,
-			6049, 6051, 6053, 6055, 6057, 6059, 6113, 6311,
+			6461, 6469, 5931, 5933, 5970, 5972, 5974, 5976,
+			5978, 5980, 5982, 5984, 5994, 5996, 5998, 6000,
+			6002, 6004, 6006, 6008, 6010, 6012, 6014, 6020,
+			6022, 6024, 6026, 6028, 6030, 6040, 6041, 6043,
+			6045, 6047, 6049, 6051, 6053, 6055, 6057, 6059,
+			6113, 6311,
 
 			// === Farmer outfit ===
 			1411, 13640, 13642, 13643, 13644, 13646,
@@ -1927,11 +1932,11 @@ public final class SkillBankData
 
 	private static void addHunter(Map<String, List<Integer>> m)
 	{
-		// HUNTER — 124 items
+		// HUNTER — 127 items
 		//   Traps (5), Salamanders (10), Bait (8), Impling jars (12), Polar camo
-		//   (2), Desert camo (2), Jungle camo (2), Larupia hunter (5), Graahk
-		//   hunter (5), Kyatt hunter (5), Spotted/spottier (3), Cape & pet (4),
-		//   Legacy (61)
+		//   (2), Desert camo (2), Jungle camo (2), Generic camo outfit (3),
+		//   Larupia hunter (5), Graahk hunter (5), Kyatt hunter (5),
+		//   Spotted/spottier (3), Cape & pet (4), Legacy (61)
 		m.put(TAG_HUNTER, Arrays.asList(
 			// === Traps ===
 			10006, 10008, 10010, 10025, 28626,
@@ -1955,6 +1960,9 @@ public final class SkillBankData
 
 			// === Jungle camo ===
 			10057, 10059,
+
+			// === Generic camo outfit ===
+			6654, 6655, 6656,
 
 			// === Larupia hunter ===
 			10041, 10043, 10045, 10095, 29226,

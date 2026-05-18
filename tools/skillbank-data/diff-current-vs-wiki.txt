@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (256 items not in wiki output) ===
+=== melee (260 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -105,9 +105,13 @@ or should be added to force_include / variant_allowlist before flipping --additi
     6326  Snakeskin bandana
     6328  Snakeskin boots
     6330  Snakeskin vambraces
+    6408  Oak blackjack(o)
+    6412  Willow blackjack(o)
+    6418  Maple blackjack(o)
     6522  Toktz-xil-ul
     6524  Toktz-ket-xil
     6526  Toktz-mej-tal
+    6666  Flippers
     6739  Dragon axe
     8901  (not in wiki canonical set)
     8903  (not in wiki canonical set)

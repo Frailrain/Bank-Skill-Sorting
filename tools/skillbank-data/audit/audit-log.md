@@ -25,8 +25,9 @@
 - **Reviewed in session 20**: IDs 5501–5800 (93 items)
 - **Reviewed in session 21**: IDs 5801–6100 (116 items)
 - **Reviewed in session 22**: IDs 6101–6400 (144 items)
-- **Reviewed cumulative**: 3107 (26.2%)
-- **Resume from**: ID 6401
+- **Reviewed in session 23**: IDs 6401–6700 (129 items)
+- **Reviewed cumulative**: 3236 (27.3%)
+- **Resume from**: ID 6701
 
 ## Decision codes
 
@@ -2104,6 +2105,110 @@ See `audit/classifier-changes.md` "Session 21".
 
 See `audit/classifier-changes.md` "Session 22".
 
+---
+
+## Session 23: IDs 6401–6700
+
+### Menaphite continuing + Blackjacks
+
+- `6402-6406 Menaphite red top/robe/kilt` — EX (3 items).
+- `6408-6420 Oak/Willow/Maple blackjack + (o)/(d) variants` (~9 items) — REM melee. Currently (o) variants cross-tag melee + agility_thieving; should be agility_thieving only. Plain Maple blackjack already correct. **Fix**: force_exclude blackjack pattern from melee Weapons.
+
+### Garden of Tranquillity
+
+- `6448 Spadeful of coke` — EX.
+- `6453-6460 White/Red/Pink rose seed, Vine, Delphinium, Orchid (×2), Snowdrop seed` — OK (8 items, `farming`).
+- `6461 White tree shoot` — **ADD farming**.
+- `6464 White tree sapling` — OK (`farming`).
+- `6466-6469 Rune shards, Rune dust, Plant cure dup, White tree fruit` — EX (last 3 are quest variants); **ADD farming** for White tree fruit if needed.
+
+### Compost potion (cross-tag)
+
+- `6470-6476 Compost potion(4..1)` — OK (4 items, `herblore;farming`).
+- `6478 Trolley`, `6479 List` — EX.
+
+### TzHaar weapons
+
+- `6522 Toktz-xil-ul` — OK (`range`). Obsidian rings (thrown).
+- `6523 Toktz-xil-ak` — OK (`melee`). Obsidian short sword.
+- `6524 Toktz-ket-xil` — OK (`range`). Obsidian shield.
+- `6525 Toktz-xil-ek` — OK (`melee`). Obsidian dagger.
+- `6526 Toktz-mej-tal` — OK (`mage`). Obsidian staff.
+- `6527 Tzhaar-ket-em`, `6528 Tzhaar-ket-om` — OK (`melee`).
+- `6529 Tokkul` — OK (`misc`).
+
+### Recipe for Disaster + holiday
+
+- `6541-6556` (Mouse toy, Present, Antique lamp dup, Catspeak amulet(e), Chores, Recipe, Doctor's hat, Nurse hat, Lazy cat, Wily cat) — EX (~10 items).
+
+### Wanted! / Dwarven items
+
+- `6561 Ahab's beer` — **ADD cooking**.
+- `6562 Mud battlestaff` — OK (`mage;crafting`).
+- `6563 Mystic mud staff` — OK (`mage`).
+
+### Obsidian/Fire capes
+
+- `6568 Obsidian cape` — OK (`melee;range;mage`).
+- `6570 Fire cape` — OK (`melee;range;mage`).
+
+### Onyx
+
+- `6571 Uncut onyx` — OK (`crafting;mining_smithing`).
+- `6573 Onyx`, `6575 Onyx ring`, `6577 Onyx necklace`, `6579 Onyx amulet (u)` (in wc_fletching ✓), `6581 Onyx amulet` — OK (5 items).
+- `6583 Ring of stone` — EX. Quest item.
+- `6585 Amulet of fury` — OK (`melee;range;mage`).
+
+### White (Wanted!) armour set
+
+- `6587-6633 White claws / White battleaxe / White dagger / White halberd / White mace / White magic staff / White sword / White longsword / White 2h sword / White scimitar / White warhammer / White chainbody / White platebody / White boots / White med helm / White full helm / White platelegs / White plateskirt / White gloves / White sq shield / White kiteshield` — OK (~21 items, `melee;mining_smithing` for body parts, `melee` for weapons, `mage` for the magic staff).
+
+### Sorceress's Garden / Mosquito hunting
+
+- `6635-6653` (~18 items: Commorb, Solus's hat, Colour wheel, Hand mirror, Red/Yellow/Green/Cyan/Blue/Magenta/Fractured/Blackened/Newly made crystal, Item list, Edern's journal, Crystal trinket) — EX.
+
+### Camo outfit (Hunter)
+
+- `6654-6656 Camo top/bottoms/helmet` — **ADD hunter** (3 items, Hunter camo).
+- `6657-6659 Camo top/bottoms/helmet` dups — LOG (canonical dedupe).
+
+### Aerial Fishing / Fishing Trawler
+
+- `6662-6664 Broken fishing rod, Forlorn boot, Fishing explosive` — EX.
+- `6665 Mudskipper hat` — LOG. Currently unclassified, range/quest cosmetic.
+- `6666 Flippers` — REM melee. Cosmetic feet, not real combat gear.
+- `6667 Empty fishbowl` — OK (`crafting`).
+- `6670-6675` (Fishbowl, Fishbowl and net, Tiny net, Empty fish food box) — EX (4 items).
+
+### Spirits of the Elid
+
+- `6677-6680 Guam in a box / Seaweed in a box ×2 dups` — EX.
+- `6681 Ground guam` — **ADD herblore** (secondary).
+- `6683 Ground seaweed` — **ADD herblore** (secondary).
+
+### Saradomin brew + Slayer
+
+- `6685-6691 Saradomin brew(4..1)` — OK (4 items, `melee;prayer;herblore`).
+- `6693 Crushed nest` — OK (`herblore`).
+- `6696 Ice cooler` — **ADD slayer** (Ice giant slayer task tool).
+- `6697 Pat of butter` — OK (`cooking`).
+- `6699 Burnt potato` — OK (`cooking`).
+
+---
+
+## Session 23 totals
+
+- Items reviewed: 129
+- OK (correct as-is): 50
+- EX (correctly excluded): 50
+- ADD (missing tab, fixed): 17 (White tree shoot/fruit farming, Ahab's beer cooking, Camo outfit ×3 hunter, Ground guam/seaweed herblore, Ice cooler slayer)
+- REM (misclassified, fixed): 4 (3 Oak/Willow/Maple blackjack(o) variants from melee, Flippers from melee)
+- LOG (deferred): 5 (Camo dups, Mudskipper hat)
+
+## Classifier changes made in session 23
+
+See `audit/classifier-changes.md` "Session 23".
+
 ## Resume marker
 
-**Next session: start from ID 6401.**
+**Next session: start from ID 6701.**

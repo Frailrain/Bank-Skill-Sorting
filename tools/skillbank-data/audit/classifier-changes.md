@@ -820,6 +820,38 @@ Fishing Trawler reward.
 
 Tai Bwo Wannai repair material.
 
+---
+
+## Session 23 (audit IDs 6401–6700)
+
+### MELEE Weapons — `_is_melee_weapon_with_blackjack_check` wrapper
+
+Wraps `_is_melee_weapon` to also exclude blackjacks via `_is_blackjack` substring check. Resolves the (o)/(d) blackjack variants leaking into melee.
+
+### MELEE Boots — `Flippers` force_exclude
+
+Fishing Trawler cosmetic boots.
+
+### HUNTER — new "Generic camo outfit" section
+
+`Camo top`, `Camo bottoms`, `Camo helmet` — Hunter camo gear.
+
+### HERBLORE — new "Spirits of Elid secondaries" section
+
+`Ground guam`, `Ground seaweed` — Spirits of the Elid serum ingredients.
+
+### SLAYER Task-specific gear — `Ice cooler`
+
+Used on Ice giants.
+
+### COOKING Beverages — `Ahab's beer`
+
+Wanted! quest beer.
+
+### FARMING Farm outputs — `White tree shoot`, `White tree fruit`
+
+Garden of Tranquillity White tree outputs.
+
 ## Session 16 (audit IDs 4301–4600)
 
 ### `_BASIC_COLOUR_CAPES` — added 50 Team-N capes

@@ -287,6 +287,10 @@ def _is_melee_weapon(it):
         n = (it.get("name") or "").lower()
         if not any(k in n for k in ("battleaxe", "greataxe", "great axe")):
             return False
+    # Exclude blackjacks (Thieving weapons, weapon_type='blunt') from melee.
+    n_lower = (it.get("name") or "").lower()
+    if "blackjack" in n_lower:
+        return False
     e = _eq(it)
     melee = _max(e.get("attack_slash", 0), e.get("attack_stab", 0), e.get("attack_crush", 0))
     other = _max(e.get("attack_ranged", 0), e.get("attack_magic", 0))
@@ -704,7 +708,7 @@ MELEE = TabSpec(
                 + [n for n in _CAMO_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
                 force_exclude=["Ranger boots", "Mime boots", "Splitbark boots", "Rogue boots", "Mourner boots",
-                               "Spined boots", "Skeletal boots", "Snakeskin boots"]
+                               "Spined boots", "Skeletal boots", "Snakeskin boots", "Flippers"]
                 + [n for n in _MIME_OUTFIT if "boots" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
@@ -943,7 +947,7 @@ COOKING = TabSpec(
                 "Moonlight mead", "Axeman's folly", "Chef's delight",
                 "Slayer's respite", "Ale yeast", "Calquat keg",
                 "Strawberry", "Coconut milk", "Apple mush",
-                "Kelda stout",
+                "Kelda stout", "Ahab's beer",
             }),
             # Matured beer variants (m) and (4)/(m4) charge variants
             _name_ends("(m)"),
@@ -1296,6 +1300,9 @@ HERBLORE = TabSpec(
             "Weapon poison+ (unf)", "Weapon poison++ (unf)",
             "Antidote+ (unf)", "Antidote++ (unf)",
         })),
+        Section("Spirits of Elid secondaries", _name_in({
+            "Ground guam", "Ground seaweed",
+        })),
         Section("Vials & secondaries", _name_in({
             "Vial", "Vial of water", "Vial of blood", "Empty vial",
             "Eye of newt", "Limpwurt root", "Red spiders' eggs",
@@ -1391,7 +1398,7 @@ SLAYER = TabSpec(
         Section("Slayer helmets", _name_contains("slayer helmet")),
         Section("Black masks", _name_contains("black mask")),
         Section("Task-specific gear", _name_in({
-            "Rock hammer", "Rock thrownhammer", "Slayer's staff", "Bag of salt",
+            "Rock hammer", "Rock thrownhammer", "Slayer's staff", "Bag of salt", "Ice cooler",
             "Slayer's staff (e)", "Brittle key", "Mirror shield",
             "Witchwood icon", "Earmuffs", "Spiny helmet", "Facemask",
             "Nose peg", "Fungicide spray 10", "Fungicide", "Magic secateurs",
@@ -1453,6 +1460,7 @@ FARMING = TabSpec(
         Section("Farm outputs / materials", _or(
             _name_in({
                 "Jute fibre", "Willow branch",
+                "White tree shoot", "White tree fruit",
                 # Hops
                 "Hammerstone hops", "Asgarnian hops", "Yanillian hops",
                 "Krandorian hops", "Wildblood hops", "Kelda hops",
@@ -1537,6 +1545,7 @@ HUNTER = TabSpec(
         Section("Woodland camo", _name_in({"Woodland camo top", "Woodland camo legs"})),
         Section("Desert camo", _name_in({"Desert camo top", "Desert camo legs"})),
         Section("Jungle camo", _name_in({"Jungle camo top", "Jungle camo legs"})),
+        Section("Generic camo outfit", _name_in({"Camo top", "Camo bottoms", "Camo helmet"})),
         Section("Larupia hunter", _name_starts("Larupia ")),
         Section("Graahk hunter", _name_starts("Graahk ")),
         Section("Kyatt hunter", _name_starts("Kyatt ")),
