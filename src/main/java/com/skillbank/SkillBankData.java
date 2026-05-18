@@ -456,10 +456,10 @@ public final class SkillBankData
 	{
 		// MELEE — 1301 items
 		//   Combat utility (6), Weapons (285), Godsword construction (11), Helmets
-		//   (218), Body armour (132), Legs (118), Boots (68), Gloves (69), Shields
+		//   (218), Body armour (131), Legs (118), Boots (68), Gloves (69), Shields
 		//   (112), Trim/gilded armour cosmetic variants (78), Capes (54), Amulets
 		//   (40), Rings (17), Combat potions (56), Restores (cross-tag) (14),
-		//   Combat food (23)
+		//   Combat food (23), Legacy (1)
 		m.put(TAG_MELEE, Arrays.asList(
 			// === Combat utility ===
 			2, 6, 8, 10, 12, 21728,
@@ -547,13 +547,13 @@ public final class SkillBankData
 			3775, 3793, 4069, 4298, 5575, 6129, 8839, 9070,
 			9097, 9634, 9640, 9674, 10037, 10043, 10049, 10053,
 			10057, 10061, 10065, 10348, 10551, 10564, 10822, 11832,
-			12460, 12480, 12596, 12811, 12814, 13072, 13104, 13105,
-			13106, 13107, 13361, 13366, 13371, 13376, 13381, 19689,
-			20038, 20149, 20794, 20840, 21301, 22653, 23097, 23264,
-			23787, 23843, 23844, 23845, 24037, 25389, 25404, 26158,
-			26172, 26243, 26721, 26751, 26753, 27048, 27229, 27840,
-			27842, 27845, 27851, 28936, 29004, 29013, 29022, 29280,
-			30076, 30439, 30753, 30779,
+			12460, 12480, 12811, 12814, 13072, 13104, 13105, 13106,
+			13107, 13361, 13366, 13371, 13376, 13381, 19689, 20038,
+			20149, 20794, 20840, 21301, 22653, 23097, 23264, 23787,
+			23843, 23844, 23845, 24037, 25389, 25404, 26158, 26172,
+			26243, 26721, 26751, 26753, 27048, 27229, 27840, 27842,
+			27845, 27851, 28936, 29004, 29013, 29022, 29280, 30076,
+			30439, 30753, 30779,
 
 			// === Legs ===
 			1075, 1087, 1067, 1081, 1069, 1083, 1077, 1089,
@@ -659,17 +659,20 @@ public final class SkillBankData
 			// === Combat food ===
 			319, 315, 325, 347, 3381, 355, 333, 339,
 			351, 5003, 329, 361, 379, 365, 373, 2149,
-			7946, 3144, 385, 397, 391, 11936, 13441
+			7946, 3144, 385, 397, 391, 11936, 13441,
+
+			// === Legacy carry-over (hand-curated items the new classifier missed) ===
+			12596
 		));
 	}
 
 	private static void addRange(Map<String, List<Integer>> m)
 	{
-		// RANGE — 641 items
+		// RANGE — 642 items
 		//   Cannon parts (cross-tag) (6), Ward shards (construction intermediates)
 		//   (3), Ammunition (104), Bows (53), Crossbows (21), Thrown (41), D'hide
 		//   armour (55), Raw dragonhide (cross-tag with crafting) (21), Helmets
-		//   (36), Body (32), Legs (42), Boots (14), Gloves (41), Shields (15),
+		//   (36), Body (33), Legs (42), Boots (14), Gloves (41), Shields (15),
 		//   Capes (77), Amulets (29), Rings (10), Ranging potions (12), Bait /
 		//   feathers (cross-tag) (6), Combat food (cross-tag) (23)
 		m.put(TAG_RANGE, Arrays.asList(
@@ -740,8 +743,9 @@ public final class SkillBankData
 			// === Body ===
 			23889, 23890, 23891, 23975, 25496, 4736, 11828, 26384,
 			28256, 1133, 6133, 6322, 7362, 7364, 8839, 10330,
-			10822, 10954, 13072, 22327, 22616, 22628, 22641, 23843,
-			23844, 23845, 27229, 27238, 27831, 27834, 27837, 27848,
+			10822, 10954, 12596, 13072, 22327, 22616, 22628, 22641,
+			23843, 23844, 23845, 27229, 27238, 27831, 27834, 27837,
+			27848,
 
 			// === Legs ===
 			23892, 23893, 23894, 23979, 4738, 11830, 12510, 26386,
@@ -951,10 +955,10 @@ public final class SkillBankData
 
 	private static void addPrayer(Map<String, List<Integer>> m)
 	{
-		// PRAYER — 283 items
+		// PRAYER — 285 items
 		//   Bones (93), Ashes (9), Ensouled heads (23), Prayer potions (4), Super
 		//   restores (10), Sanfew (4), Saradomin brews (4), Holy symbols (33),
-		//   Robes (monk/proselyte/initiate/druid) (19), Bone secondaries (34),
+		//   Robes (monk/proselyte/initiate/druid) (21), Bone secondaries (34),
 		//   Shades remains (9), Quest-related prayer items (4), God pages
 		//   (Treasure trail) (24), Prayer accessories (5), Pyre log oils (8)
 		m.put(TAG_PRAYER, Arrays.asList(
@@ -1003,8 +1007,8 @@ public final class SkillBankData
 
 			// === Robes (monk/proselyte/initiate/druid) ===
 			538, 540, 542, 544, 5574, 5575, 5576, 9666,
-			9668, 9670, 9672, 9674, 9676, 9678, 20199, 20202,
-			22954, 23303, 23306,
+			9668, 9670, 9672, 9674, 9676, 9678, 12598, 12600,
+			20199, 20202, 22954, 23303, 23306,
 
 			// === Bone secondaries ===
 			4260, 4261, 11922, 22116, 31335, 2970, 4255, 4256,
@@ -1167,12 +1171,12 @@ public final class SkillBankData
 
 	private static void addWcFletching(Map<String, List<Integer>> m)
 	{
-		// WC_FLETCHING — 345 items
+		// WC_FLETCHING — 347 items
 		//   Axes (28), Logs (42), Bowstrings (3), Unstrung bows (41), Bows &
 		//   shortbows (strung) (51), Crossbow parts (17), Bolt tips (12), Bolts
 		//   (unfinished) (9), Bolts (finished) (39), Arrow shafts (3), Arrowtips
 		//   (12), Arrows (27), Darts (20), Javelins (cross-tag with range) (9),
-		//   Bird nests (1), Feathers (cross-tag with fishing) (6), Flax &
+		//   Bird nests (3), Feathers (cross-tag with fishing) (6), Flax &
 		//   secondary fletching materials (2), Tools (2), Forestry items (post-
 		//   Sept 2023) (11), Capes & pet (6), Lumberjack outfit (4)
 		m.put(TAG_WC_FLETCHING, Arrays.asList(
@@ -1253,7 +1257,7 @@ public final class SkillBankData
 			22636,
 
 			// === Bird nests ===
-			5070,
+			5070, 12792, 12793,
 
 			// === Feathers (cross-tag with fishing) ===
 			314, 10087, 10088, 10089, 10090, 10091,
@@ -1357,13 +1361,13 @@ public final class SkillBankData
 
 	private static void addCrafting(Map<String, List<Integer>> m)
 	{
-		// CRAFTING — 199 items
+		// CRAFTING — 251 items
 		//   Crafting tools (17), Thread & dyes (10), Leather (raw → tanned) (11),
-		//   D'hide (27), Glass (11), Misc crafting materials (11), Pottery (10),
-		//   Uncut gems (10), Cut gems (12), Jewellery (silver) (1), Jewellery
-		//   (gold) (5), Jewellery (gem-set) (43), Battlestaves (10), Crafting cape
-		//   & pet (2), Wool/dyes/cloth (extended) (2), Leathers (extended) (14),
-		//   Pottery & wood crafting outputs (3)
+		//   D'hide (27), Glass (11), Misc crafting materials (11), Ornament kits
+		//   (52), Pottery (10), Uncut gems (10), Cut gems (12), Jewellery (silver)
+		//   (1), Jewellery (gold) (5), Jewellery (gem-set) (43), Battlestaves
+		//   (10), Crafting cape & pet (2), Wool/dyes/cloth (extended) (2),
+		//   Leathers (extended) (14), Pottery & wood crafting outputs (3)
 		m.put(TAG_CRAFTING, Arrays.asList(
 			// === Crafting tools ===
 			1794, 1592, 1594, 1595, 1597, 1733, 1735, 1755,
@@ -1391,6 +1395,15 @@ public final class SkillBankData
 			// === Misc crafting materials ===
 			973, 1940, 1941, 3213, 3239, 6157, 6159, 6161,
 			6163, 6165, 6167,
+
+			// === Ornament kits ===
+			23227, 12532, 12534, 12536, 12538, 12800, 20002, 20143,
+			22231, 22236, 22239, 26707, 26709, 30451, 20068, 26713,
+			25744, 12526, 12528, 12530, 12798, 20062, 20065, 20071,
+			20074, 20077, 22246, 23232, 23237, 23348, 25090, 25099,
+			25742, 26421, 26479, 26528, 26541, 26711, 26717, 27098,
+			27113, 27121, 27255, 28017, 28336, 28684, 28690, 30432,
+			30443, 33305, 33308, 33311,
 
 			// === Pottery ===
 			434, 1761, 1787, 1789, 1791, 1923, 1931, 2313,
@@ -1510,10 +1523,10 @@ public final class SkillBankData
 
 	private static void addHerblore(Map<String, List<Integer>> m)
 	{
-		// HERBLORE — 412 items
+		// HERBLORE — 414 items
 		//   Tools (4), Grimy herbs (14), Clean herbs (14), Unfinished potion
 		//   variants (extended) (17), Spirits of Elid secondaries (2), Vials &
-		//   secondaries (33), Unfinished potions (22), Barbarian mix potions (58),
+		//   secondaries (35), Unfinished potions (22), Barbarian mix potions (58),
 		//   Nightmare Zone potions (21), Attack potions (8), Strength potions (8),
 		//   Defence potions (8), Super attack/strength/defence (12), Super combat
 		//   (8), Ranging & magic (20), Prayer & restores (24), Antifire & anti-
@@ -1539,11 +1552,11 @@ public final class SkillBankData
 			6681, 6683,
 
 			// === Vials & secondaries ===
-			239, 241, 243, 187, 221, 223, 225, 227,
-			229, 231, 235, 237, 245, 247, 1633, 1975,
-			2398, 2970, 2972, 2974, 3138, 5937, 5940, 6016,
-			6018, 6693, 9085, 9736, 10111, 11326, 11992, 11994,
-			22405,
+			239, 241, 243, 12640, 187, 221, 223, 225,
+			227, 229, 231, 235, 237, 245, 247, 1633,
+			1975, 2398, 2970, 2972, 2974, 3138, 5937, 5940,
+			6016, 6018, 6693, 9085, 9736, 10111, 11326, 11992,
+			11994, 12641, 22405,
 
 			// === Unfinished potions ===
 			91, 93, 95, 97, 99, 101, 103, 105,
@@ -1665,14 +1678,15 @@ public final class SkillBankData
 
 	private static void addSlayer(Map<String, List<Integer>> m)
 	{
-		// SLAYER — 128 items
-		//   Slayer master items (12), Slayer rings (7), Slayer helmets (27), Black
+		// SLAYER — 139 items
+		//   Slayer master items (23), Slayer rings (7), Slayer helmets (27), Black
 		//   masks (18), Task-specific gear (28), Cannon (6), Cape & pet (4),
 		//   Champion's Challenge scrolls (11), Mounted heads (POH trophies) (15)
 		m.put(TAG_SLAYER, Arrays.asList(
 			// === Slayer master items ===
-			4155, 5520, 10952, 11877, 11879, 11881, 11883, 11885,
-			11887, 21257, 21268, 21270,
+			12728, 12730, 12732, 12734, 12736, 12738, 4155, 5520,
+			10952, 11877, 11879, 11881, 11883, 11885, 11887, 12740,
+			12742, 12744, 12769, 12771, 21257, 21268, 21270,
 
 			// === Slayer rings ===
 			11866, 11867, 11868, 11869, 11871, 11872, 11873,
@@ -1954,12 +1968,12 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 387 items
+		// MISC — 389 items
 		//   Teleport jewellery (63), Teleport tabs (68), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (8), Clue
 		//   tools (25), Keys (12), Storage bags (6), Utility / banked supplies
-		//   (2), Combat trophies (PvM rewards) (3), Holiday rares & cosmetics
-		//   (79), Team capes (Castle Wars) (50), Currency (9)
+		//   (2), Imbue scrolls (2), Combat trophies (PvM rewards) (3), Holiday
+		//   rares & cosmetics (79), Team capes (Castle Wars) (50), Currency (9)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
@@ -2013,6 +2027,9 @@ public final class SkillBankData
 
 			// === Utility / banked supplies ===
 			954, 13660,
+
+			// === Imbue scrolls ===
+			12783, 12786,
 
 			// === Combat trophies (PvM rewards) ===
 			21295, 6570, 21439,

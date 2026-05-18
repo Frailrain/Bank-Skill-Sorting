@@ -780,7 +780,7 @@ MELEE = TabSpec(
                 force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body",
                                "Ahrim's robetop", "Karil's leathertop", "Rogue top",
                                "Spined body", "Skeletal top",
-                               "Armadyl chestplate"]
+                               "Armadyl chestplate", "Rangers' tunic"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -871,7 +871,8 @@ RANGE = TabSpec(
         Section("Body", _is_range_armour_slot("body"),
                 force_include=["Karil's leathertop", "Spined body",
                                "Studded body (g)", "Studded body (t)",
-                               "3rd age range top", "Armadyl chestplate"]
+                               "3rd age range top", "Armadyl chestplate",
+                               "Rangers' tunic"]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()],
                 force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top",
                                "Granite body", "Bandos chestplate"]),
@@ -1014,6 +1015,7 @@ PRAYER = TabSpec(
             _name_starts("Monk's "), _name_starts("Proselyte "),
             _name_starts("Initiate "), _name_starts("Devout "),
             _name_starts("Druid's "),
+            _name_in({"Holy sandals", "Druidic wreath"}),
         )),
         Section("Bone secondaries", _or(
             _name_in({
@@ -1255,7 +1257,10 @@ WC_FLETCHING = TabSpec(
                 force_exclude=["Prototype dart", "Prototype dart tip"]),
         Section("Javelin parts", _name_ends(" javelin heads", " javelin shaft")),
         Section("Javelins (cross-tag with range)", _name_ends(" javelin")),
-        Section("Bird nests", _or(_name_starts("Bird nest"), _name_starts("Bird's nest"))),
+        Section("Bird nests", _or(
+            _name_starts("Bird nest"), _name_starts("Bird's nest"),
+            _name_in({"Nest box (empty)", "Nest box (seeds)"}),
+        )),
         Section("Feathers (cross-tag with fishing)", _name_in({
             "Feather", "Stripy feather", "Red feather", "Blue feather",
             "Yellow feather", "Orange feather",
@@ -1393,6 +1398,13 @@ CRAFTING = TabSpec(
             "Rock-shell chunk", "Rock-shell shard", "Rock-shell splinter",
             "Skull piece", "Ribcage piece", "Fibula piece",
         })),
+        Section("Ornament kits", _or(
+            _name_ends(" ornament kit"),
+            _name_in({
+                "Dark infinity colour kit", "Light infinity colour kit",
+                "Steam staff upgrade kit", "Dragon pickaxe upgrade kit",
+            }),
+        )),
         Section("Pottery", _name_in({
             "Soft clay", "Clay", "Unfired bowl", "Unfired pie dish",
             "Unfired pot", "Unfired plant pot",
@@ -1529,6 +1541,8 @@ HERBLORE = TabSpec(
             "Lava scale shard", "Lava scale",
             "Cave nightshade", "Poison ivy berries",
             "Caviar", "Dragon scale dust",
+            # session 42 — Stamina potion ingredients
+            "Amylase crystal", "Amylase pack",
             # audit session 1 additions
             "Unicorn horn", "Unicorn horn dust",
             "Blue dragon scale", "Red dragon scale", "Green dragon scale",
@@ -1634,6 +1648,11 @@ SLAYER = TabSpec(
             "Empty vial pack", "Water-filled vial pack",
             "Feather pack", "Bait pack",
             "Broad arrowhead pack", "Unfinished broad bolt pack",
+            # session 42 — more slayer master packs + Wilderness slayer whip mixes
+            "Air rune pack", "Water rune pack", "Earth rune pack",
+            "Fire rune pack", "Mind rune pack", "Chaos rune pack",
+            "Bird snare pack", "Box trap pack", "Magic imp box pack",
+            "Frozen whip mix", "Volcanic whip mix",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -2012,6 +2031,9 @@ MISC = TabSpec(
         })),
         Section("Utility / banked supplies", _name_in({
             "Rope", "Chronicle",
+        })),
+        Section("Imbue scrolls", _name_in({
+            "Ring of wealth scroll", "Magic shortbow scroll",
         })),
         Section("Combat trophies (PvM rewards)", _name_in({
             "Fire cape", "Infernal cape", "Champion's cape",

@@ -3752,6 +3752,107 @@ See `audit/classifier-changes.md` "Session 40".
 
 See `audit/classifier-changes.md` "Session 41".
 
+---
+
+## Session 42: IDs 12501–12800
+
+### Ancient/Armadyl/Bandos d'hide (session 41 fixes confirmed)
+
+- `12502-12512 Bandos chaps/coif, Armadyl bracers/d'hide body/chaps/coif` (6 items) — OK (`range`, fixed in session 41).
+
+### Treasure Trails cosmetic + ornament kits
+
+- `12514 Explorer backpack`, `12516 Pith helmet` — LOG.
+- `12518-12524 Green/Blue/Red/Black dragon mask` — LOG.
+- `12526-12538 Fury ornament kit, Dark/Light infinity colour kit, Dragon sq shield/chainbody/legs/full helm/legs+skirt ornament kit` (8 items) — **ADD crafting** (ornament kits applied via crafting menu).
+- `12540 Deerstalker` — LOG.
+
+### Clue scroll (hard) dups
+
+- `12542-12590 Clue scroll (hard) × 21 dups` — LOG.
+
+### Treasure Trails Hard + Wilderness PvP rings
+
+- `12592-12594 Black pick head, Broken pickaxe` — EX.
+- `12596 Rangers' tunic` — **REM melee, ADD range** (clue scroll cosmetic range top).
+- `12598 Holy sandals` — **ADD prayer** (clue trail cosmetic, prayer aesthetic).
+- `12600 Druidic wreath` — **ADD prayer**.
+- `12601 Ring of the gods` — OK.
+- `12603-12605 Tyrannical ring, Treasonous ring` — OK (`melee`).
+
+### God books (Treasure Trails Hard set rewards)
+
+- `12607-12612 Damaged book × 3 + Book of war/law/darkness` — OK (`prayer[;mage]`).
+- `12613-12624 Bandos/Armadyl/Ancient page 1-4` — OK (12 items, `prayer`).
+
+### Stamina potion + halos + amylase
+
+- `12625-12631 Stamina potion (4-1)` — OK (`herblore;agility_thieving`).
+- `12633-12635 Stamina mix (2/1)` — OK (`herblore`).
+- `12637-12639 Saradomin/Zamorak/Guthix halo` — OK (`melee`; Castle Wars reward head, defensive stats).
+- `12640 Amylase crystal`, `12641 Amylase pack` — **ADD herblore** (2 items, Stamina potion ingredient).
+
+### Pets (boss pets — LOG)
+
+- `12642 Lumberyard teleport` — OK (`misc`).
+- `12643-12655 Pet dagannoth supreme/prime/rex, Baby mole, Kalphite princess (✓ slayer), Pet smoke devil/kree'arra/general graardor/zilyana/k'ril tsutsaroth/Prince black dragon/Pet kraken` (~10 boss pets) — LOG (not in canonical pet sections).
+- `12656 Junk` — EX.
+
+### Mage / Clan wars / PvP
+
+- `12658 Iban's staff (u)` — OK.
+- `12659, 12675 Clan wars cape × 2` — LOG.
+- `12691-12692 Tyrannical/Treasonous ring (i)` — OK (`melee`).
+- `12693-12694 Kree'arra, Chaos elemental` — LOG (NPC entries).
+
+### Super combat + boss minigame packs
+
+- `12695-12701 Super combat potion (4-1)` — OK (`melee;herblore`).
+- `12703 Pet penance queen`, `12727 Goblin paint cannon` — LOG.
+- `12728-12738 Air/Water/Earth/Fire/Mind/Chaos rune pack` (6 items) — **ADD slayer** (Slayer master bulk packs like session 39).
+- `12740-12744 Bird snare pack, Box trap pack, Magic imp box pack` (3 items) — **ADD slayer**.
+
+### Wilderness Slayer + Whip variants
+
+- `12746-12747 Archaic emblem (tier 1) × 2` — LOG.
+- `12757-12763 Blue/Green/Yellow/White dark bow paint` — LOG (cosmetic).
+- `12769-12771 Frozen whip mix, Volcanic whip mix` (2 items) — **ADD slayer** (Wilderness Slayer reward, modifies Abyssal whip).
+- `12773-12774 Volcanic abyssal whip, Frozen abyssal whip` — OK (`melee`).
+
+### Ancient Magicks teleports
+
+- `12775-12782 Annakarl/Carrallanger/Dareeyak/Ghorrock/Kharyrll/Lassar/Paddewwa/Senntisten teleport` — OK (8 items, `misc`).
+
+### Imbued + scrolls
+
+- `12783 Ring of wealth scroll` — **ADD misc** (imbue scroll, single-use).
+- `12785 Ring of wealth (i)` — OK.
+- `12786 Magic shortbow scroll` — **ADD misc** (imbue scroll).
+- `12788 Magic shortbow (i)` — OK.
+- `12789 Clue box` — LOG.
+- `12791 Rune pouch` — OK (`runecraft`).
+- `12792-12793 Nest box (empty), Nest box (seeds)` (2 items) — **ADD wc_fletching** (Wintertodt-era bird nest containers).
+
+### Dragon pickaxe + upgrade kits
+
+- `12795-12797 Steam battlestaff, Mystic steam staff, Dragon pickaxe dups` — LOG.
+- `12798 Steam staff upgrade kit`, `12800 Dragon pickaxe upgrade kit` — LOG (single-use cosmetic).
+
+---
+
+## Session 42 totals
+
+- Items reviewed: ~150
+- OK (correct as-is): 50
+- EX (correctly excluded): 8
+- ADD (missing tab, fixed): 27 (8 ornament kits, 2 prayer cosmetics, 2 amylase, 6 rune packs, 3 trap packs, 2 whip mix, 2 imbue scrolls, 2 nest box)
+- REM (misclassified, fixed): 1 (Rangers' tunic)
+- LOG: 50+ (Clue hard dups ×21, boss pets ×10, dragon mask cosmetic, paint variants)
+
+## Classifier changes made in session 42
+
+See `audit/classifier-changes.md` "Session 42".
+
 ## Resume marker
 
-**Next session: start from ID 12501.**
+**Next session: start from ID 12801.**

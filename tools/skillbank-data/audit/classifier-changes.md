@@ -1398,3 +1398,47 @@ Black skirt (g)/(t), Black wizard robe (g)/(t), Black wizard hat (g)/(t) — sam
 Ornament variant of Amulet of fury (already cross-tags into all 3 combat tabs via Amulet of fury canonical).
 
 **Affects**: 1 item.
+
+## Session 42 (audit IDs 12501–12800)
+
+### CRAFTING — new "Ornament kits" section
+
+Pattern `name_ends(" ornament kit")` + named list for Dark/Light infinity colour kit, Steam staff upgrade kit, Dragon pickaxe upgrade kit. Catches Fury ornament kit, Dragon sq shield/chainbody/legs+skirt/full helm ornament kits, etc.
+
+**Affects**: 8+ items.
+
+### RANGE/MELEE Body — `Rangers' tunic` reclassification
+
+REM melee → ADD range force_include.
+
+**Affects**: 1 item.
+
+### PRAYER Robes — `Holy sandals`, `Druidic wreath`
+
+Clue trail cosmetic prayer-themed items.
+
+**Affects**: 2 items.
+
+### HERBLORE Vials & secondaries — `Amylase crystal`, `Amylase pack`
+
+Stamina potion ingredient (Motherlode Mine reward).
+
+**Affects**: 2 items.
+
+### SLAYER Slayer master items — additional packs + whip mixes
+
+Added Air/Water/Earth/Fire/Mind/Chaos rune pack, Bird snare pack, Box trap pack, Magic imp box pack, Frozen whip mix, Volcanic whip mix.
+
+**Affects**: 11 items.
+
+### MISC — new "Imbue scrolls" section
+
+Ring of wealth scroll, Magic shortbow scroll.
+
+**Affects**: 2 items.
+
+### WC_FLETCHING Bird nests — Nest box variants
+
+Added Nest box (empty), Nest box (seeds) to bird nests section.
+
+**Affects**: 2 items.
