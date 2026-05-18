@@ -27,8 +27,9 @@
 - **Reviewed in session 22**: IDs 6101–6400 (144 items)
 - **Reviewed in session 23**: IDs 6401–6700 (129 items)
 - **Reviewed in session 24**: IDs 6701–7000 (180 items)
-- **Reviewed cumulative**: 3416 (28.8%)
-- **Resume from**: ID 7001
+- **Reviewed in session 25**: IDs 7001–7300 (131 items)
+- **Reviewed cumulative**: 3547 (29.9%)
+- **Resume from**: ID 7301
 
 ## Decision codes
 
@@ -2319,6 +2320,70 @@ See `audit/classifier-changes.md` "Session 23".
 
 See `audit/classifier-changes.md` "Session 24".
 
+---
+
+## Session 25: IDs 7001–7300
+
+### Camel + Bug lantern
+
+- `7001-7003 Camel mould (p), Stone head, Camel mask` — EX.
+- `7004 Chisel` — LOG (canonical dup).
+- `7053 Lit bug lantern` — OK (`firemaking`).
+
+### Potato variants (Cooks Assistant 2 / Hosidius)
+
+- `7054-7060 Chilli/Egg/Mushroom/Tuna potato` — **ADD cooking** (4 items).
+
+### Gnome Cooking continued
+
+- `7062-7088` (Chilli con carne, Egg and tomato, Mushroom & onion, Tuna and corn, Minced meat, Spicy sauce, Chopped garlic, Uncooked egg, Scrambled egg, Sliced mushrooms, Fried mushrooms, Fried onions, Chopped tuna, Sweetcorn dup) — **ADD cooking** (~14 items, gnome cooking recipe chain).
+- `7090-7094 Burnt egg/onion/mushroom` — OK (3 items, `cooking`).
+
+### Cabin Fever / Pirate's Treasure
+
+- `7108-7156` (~40 items: Gunpowder, Fuse, Stripy pirate shirt/bandana/boots/leggings × 4 colour variants, Canister, Cannon ball, Ramrod, Repair plank, Lucky cutlass, Harry's cutlass, Rapier ✓ for the cutlasses, Plunder, Book o' piracy, Cannon barrel, Broken cannon, Cannon balls, Tacks, Rope, Tinderbox dup) — mostly EX.
+- `7140-7142 Lucky cutlass / Harry's cutlass / Rapier` — OK (3 items, `melee`).
+- `7157 Braindeath 'rum'` — **ADD cooking** (pirate beverage).
+
+### Dragon 2h + Insulated boots
+
+- `7158 Dragon 2h sword` — OK (`melee`).
+- `7159 Insulated boots` — LOG (Heroes' Quest cosmetic, currently in melee;range).
+
+### Pie chain (multiple flavours)
+
+- `7162 Pie recipe book` — EX.
+- `7164-7218 Part/Raw/finished + Mud/Garden/Fish/Admiral/Wild/Summer pie` (~30 items): mostly cooking ✓ with some non-canonical dups (Part X dups not classified). Cooking canonical fine.
+- `7170 Mud pie` — OK (`range;cooking`). Used as throwable in Burgh de Rott.
+
+### Roast / Skewered food (Big Chompy + RFD)
+
+- `7222 Burnt rabbit` — OK (`cooking`).
+- `7223 Roast rabbit`, `7224 Skewered rabbit` — **ADD cooking** (2 items).
+- `7225 Iron spit` — **ADD cooking** (rabbit skewering tool).
+- `7226 Burnt chompy` — OK (`cooking`).
+- `7228 Cooked chompy` — LOG (canonical dup of 2878).
+- `7230 Skewered chompy` — **ADD cooking**.
+
+### Clue scrolls (canonical dedupe)
+
+- `7236-7300 Clue scroll (easy/hard/medium) × ~30 dups` — LOG.
+
+---
+
+## Session 25 totals
+
+- Items reviewed: 131
+- OK (correct as-is): 25
+- EX (correctly excluded): 60 (Camel quest, Cabin Fever pirate quest, pie recipe books, etc.)
+- ADD (missing tab, fixed): 22 (4 potato variants, ~14 gnome cooking, Roast/Skewered rabbit, Iron spit, Skewered chompy, Braindeath rum)
+- REM (misclassified, fixed): 0
+- LOG (deferred): 50+ (clue scroll canonical dups, pie part dups, pirate cosmetic dups, Insulated boots)
+
+## Classifier changes made in session 25
+
+See `audit/classifier-changes.md` "Session 25".
+
 ## Resume marker
 
-**Next session: start from ID 7001.**
+**Next session: start from ID 7301.**

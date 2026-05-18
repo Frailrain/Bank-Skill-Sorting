@@ -953,6 +953,7 @@ COOKING = TabSpec(
                 "Slayer's respite", "Ale yeast", "Calquat keg",
                 "Strawberry", "Coconut milk", "Apple mush",
                 "Kelda stout", "Ahab's beer",
+                "Braindeath 'rum'",
             }),
             # Matured beer variants (m) and (4)/(m4) charge variants
             _name_ends("(m)"),
@@ -1004,6 +1005,13 @@ COOKING = TabSpec(
                 "Raw fishlike thing", "Fishlike thing",
                 "Baked potato", "Potato with butter", "Potato with cheese",
                 "Peach", "Choc-ice",
+                # session 25 additions — Hosidius potato variants + RFD/gnome cooking + skewered foods
+                "Chilli potato", "Egg potato", "Mushroom potato", "Tuna potato",
+                "Chilli con carne", "Egg and tomato", "Mushroom & onion", "Tuna and corn",
+                "Minced meat", "Spicy sauce", "Chopped garlic", "Uncooked egg",
+                "Scrambled egg", "Sliced mushrooms", "Fried mushrooms", "Fried onions",
+                "Chopped tuna",
+                "Roast rabbit", "Skewered rabbit", "Iron spit", "Skewered chompy",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),

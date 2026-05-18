@@ -912,3 +912,17 @@ Mountain Daughter quest cosmetic helmet.
 Added Empty/unfinished/frame variants of oil lamp, oil lantern, candle lantern, bullseye lantern + lantern lens.
 
 **Affects**: 7+ items.
+
+## Session 25 (audit IDs 7001–7300)
+
+### COOKING "Misc cooked food" — major expansion
+
+Added Hosidius potato variants (Chilli/Egg/Mushroom/Tuna potato), the RFD/gnome cooking recipe chain (Chilli con carne, Egg and tomato, Mushroom & onion, Tuna and corn, Minced meat, Spicy sauce, Chopped garlic, Uncooked egg, Scrambled egg, Sliced mushrooms, Fried mushrooms, Fried onions, Chopped tuna), and Big Chompy skewered foods (Roast rabbit, Skewered rabbit, Iron spit, Skewered chompy).
+
+**Affects**: ~21 items.
+
+### COOKING Beverages — `Braindeath 'rum'`
+
+Cabin Fever pirate beverage; pirate quest reward, drinkable.
+
+**Affects**: 1 item.

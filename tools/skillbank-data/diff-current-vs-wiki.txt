@@ -681,7 +681,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26996  (not in wiki canonical set)
    28323  Siren's staff
 
-=== cooking (58 items not in wiki output) ===
+=== cooking (52 items not in wiki output) ===
      343  Burnt fish
      357  Burnt fish
      367  Burnt fish
@@ -716,12 +716,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     6713  Wrench
     7050  (not in wiki canonical set)
     7052  (not in wiki canonical set)
-    7054  Chilli potato
-    7056  Egg potato
-    7058  Mushroom potato
-    7060  Tuna potato
-    7062  Chilli con carne
-    7064  Egg and tomato
     7174  Part garden pie
     7190  (not in wiki canonical set)
     7210  (not in wiki canonical set)
