@@ -1003,12 +1003,13 @@ public final class SkillBankData
 
 	private static void addPrayer(Map<String, List<Integer>> m)
 	{
-		// PRAYER — 285 items
+		// PRAYER — 309 items
 		//   Bones (93), Ashes (9), Ensouled heads (23), Prayer potions (4), Super
 		//   restores (10), Sanfew (4), Saradomin brews (4), Holy symbols (36),
 		//   Robes (monk/proselyte/initiate/druid) (19), Bone secondaries (5),
-		//   Shades remains (9), Quest-related prayer items (5), Prayer accessories
-		//   (5), Pyre log oils (8), Legacy (51)
+		//   Shades remains (9), Quest-related prayer items (4), God pages
+		//   (Treasure trail) (24), Prayer accessories (5), Pyre log oils (8),
+		//   Legacy (52)
 		m.put(TAG_PRAYER, Arrays.asList(
 			// === Bones ===
 			526, 528, 530, 532, 534, 536, 2391, 2859,
@@ -1066,7 +1067,12 @@ public final class SkillBankData
 			32445,
 
 			// === Quest-related prayer items ===
-			3839, 3847, 4850, 12601, 13202,
+			3839, 4850, 12601, 13202,
+
+			// === God pages (Treasure trail) ===
+			12617, 12618, 12619, 12620, 3827, 3828, 3829, 3830,
+			3831, 3832, 3833, 3834, 3835, 3836, 3837, 3838,
+			12613, 12614, 12615, 12616, 12621, 12622, 12623, 12624,
 
 			// === Prayer accessories ===
 			6714, 9759, 9761, 13116, 22986,
@@ -1075,13 +1081,13 @@ public final class SkillBankData
 			3422, 3424, 3426, 3428, 3430, 3432, 3434, 3436,
 
 			// === Legacy carry-over (hand-curated items the new classifier missed) ===
-			1704, 2408, 2967, 3843, 3845, 3846, 9760, 13447,
-			13450, 13453, 13456, 13459, 13462, 13465, 13468, 13471,
-			13474, 13477, 13480, 13483, 13486, 13489, 13492, 13495,
-			13498, 13501, 13504, 13507, 13510, 18337, 19621, 19622,
-			19710, 20264, 20266, 20268, 21047, 21643, 22111, 22374,
-			22378, 22405, 22446, 22774, 24187, 25130, 25768, 25770,
-			25774, 26996, 28323
+			1704, 2408, 2967, 3843, 3845, 3846, 3847, 9760,
+			13447, 13450, 13453, 13456, 13459, 13462, 13465, 13468,
+			13471, 13474, 13477, 13480, 13483, 13486, 13489, 13492,
+			13495, 13498, 13501, 13504, 13507, 13510, 18337, 19621,
+			19622, 19710, 20264, 20266, 20268, 21047, 21643, 22111,
+			22374, 22378, 22405, 22446, 22774, 24187, 25130, 25768,
+			25770, 25774, 26996, 28323
 		));
 	}
 

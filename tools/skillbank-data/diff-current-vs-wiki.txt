@@ -524,13 +524,14 @@ or should be added to force_include / variant_allowlist before flipping --additi
    29892  (not in wiki canonical set)
    30066  (not in wiki canonical set)
 
-=== prayer (51 items not in wiki output) ===
+=== prayer (52 items not in wiki output) ===
     1704  Amulet of glory
     2408  Diary
     2967  Journal
     3843  Damaged book
     3845  Journal
     3846  Diary
+    3847  Manual
     9760  (not in wiki canonical set)
    13447  (not in wiki canonical set)
    13450  (not in wiki canonical set)

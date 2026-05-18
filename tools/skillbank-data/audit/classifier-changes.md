@@ -598,3 +598,17 @@ Now matches `Bronze/Steel/Black/Silver key startswith` AND `red/brown/crimson/bl
 ### CONSTRUCTION materials — `Fine cloth`, `Flamtaer hammer`
 
 Mahogany Homes / Shades of Mort'ton temple repair items.
+
+---
+
+## Session 14 (audit IDs 3701–4000)
+
+### PRAYER Quest-related items — removed `Manual`
+
+Generic quest book name; not a prayer item. Fremennik manual etc. were wrongly tagged.
+
+### PRAYER — new "God pages (Treasure trail)" section
+
+Matches `Saradomin/Zamorak/Guthix/Armadyl/Bandos/Ancient page` startswith AND ` 1/2/3/4` endswith.
+
+**Affects**: 12 god-page items (3 main gods × 4 pages each, plus Armadyl/Bandos/Ancient gods covered for future-proofing).

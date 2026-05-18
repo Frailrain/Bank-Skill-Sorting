@@ -16,8 +16,9 @@
 - **Reviewed in session 11**: IDs 2801–3100 (168 items)
 - **Reviewed in session 12**: IDs 3101–3400 (124 items)
 - **Reviewed in session 13**: IDs 3401–3700 (177 items)
-- **Reviewed cumulative**: 1988 (16.7%)
-- **Resume from**: ID 3701
+- **Reviewed in session 14**: IDs 3701–4000 (125 items)
+- **Reviewed cumulative**: 2113 (17.8%)
+- **Resume from**: ID 4001
 
 ## Decision codes
 
@@ -1404,6 +1405,76 @@ See `audit/classifier-changes.md` "Session 12".
 
 See `audit/classifier-changes.md` "Session 13".
 
+---
+
+## Session 14: IDs 3701–4000
+
+### Fremennik Trials + Mountain Daughter quest items
+
+- `3701-3746` (~30 items: Tracking map, Custom bow string, Unusual fish, Sea fishing map, Weather forecast, Champions token, Legendary cocktail, Fiscal statement, Promissory note, Warriors' contract, Low alcohol keg, Strange object ×2, Magnet, Blue thread, Small pick, Toy ship, Full bucket variants ×5, Frozen bucket, Full jug variants ×3, Frozen jug, Vase variants ×4, Frozen key, Red herring, Red disk, Wooden disk, Seer's key, Sticky red goop) — EX. All quest consumables.
+- `3711 Keg of beer` — OK (`cooking`).
+
+### Fremennik gear (quest reward)
+
+- `3748 Fremennik helm`, `3749 Archer helm`, `3751 Berserker helm`, `3753 Warrior helm` — OK (4 items, `melee`).
+- `3755 Farseer helm` — OK (`melee;mage`). Hybrid helm with magic and melee defence.
+- `3757 Fremennik blade`, `3758 Fremennik shield` — OK (`melee`).
+- `3759-3789 Fremennik cyan/brown/blue/green/red/grey/yellow/teal/purple/pink/black cloak` — LOG. 11 cosmetic cloaks landing in range via tiny defence_ranged stat dominance; same pattern as colour capes (1007-1031). Could add Fremennik cloak names to `_BASIC_COLOUR_CAPES`. Deferring — they're at least themed.
+- `3767-3775 Fremennik brown/grey/beige/red/blue shirt` — OK (5 items, `melee`). Quest cosmetic body armour with stub stats.
+- `3791 Fremennik boots`, `3793 Fremennik robe`, `3795 Fremennik skirt`, `3797 Fremennik hat`, `3799 Fremennik gloves` — OK (5 items, various combat tabs).
+
+### Beer duplicates
+
+- `3801 Keg of beer` (dup of 3711), `3803 Beer tankard`, `3805 Tankard` — EX / LOG dup.
+
+### God pages (Treasure trail rewards)
+
+- `3827-3830 Saradomin page 1..4` — **ADD prayer** (used to make Saradomin book + book(g)). Currently unclassified. 4 items.
+- `3831-3834 Zamorak page 1..4` — **ADD prayer**. 4 items.
+- `3835-3838 Guthix page 1..4` — **ADD prayer**. 4 items.
+
+### Prayer books
+
+- `3839 Damaged book` — OK (`prayer`, dup variant matched by force_include).
+- `3840 Holy book` — OK (`melee;range;mage;prayer`).
+- `3841 Damaged book` (dup) — EX (canonical dup).
+- `3842 Unholy book` — OK (`melee;mage;prayer`).
+- `3843 Damaged book` (dup) — EX.
+- `3844 Book of balance` — OK (4 tabs).
+- `3845 Journal`, `3846 Diary` — EX (Lunar Diplomacy / quest, both removed from prayer in sessions 9/11).
+- `3847 Manual` — **REM prayer**. Generic quest manual, not a prayer item. **Fix**: remove from prayer Quest-related items.
+
+### Misc Lunar Diplomacy items
+
+- `3848 Lighthouse key`, `3849 Rusty casket` — EX.
+
+### Games necklace (canonical + dose)
+
+- `3853-3867 Games necklace(8..1)` — OK (7 items, `misc`).
+
+### Other quest items
+
+- `3881-3901` (Board game piece, Stool, Awful/Good anthem, Treaty, Giant nib, Giant pen, Iron sickle, Ghrim's book) — EX (~9 items, mostly Fremennik / Lunar Diplomacy).
+
+### Empty-name entries
+
+- `3904-3966` (~14 empty-name rows in CSV) — EX. Wiki canonical entries with stub/template names; not real items.
+
+---
+
+## Session 14 totals
+
+- Items reviewed: 125
+- OK (correct as-is): 35
+- EX (correctly excluded): 70
+- ADD (missing tab, fixed): 12 (12 god pages to prayer)
+- REM (misclassified, fixed): 1 (Manual from prayer)
+- LOG (deferred): 14 (Fremennik cloaks in range, Beer dup, empty-name canonical rows)
+
+## Classifier changes made in session 14
+
+See `audit/classifier-changes.md` "Session 14".
+
 ## Resume marker
 
-**Next session: start from ID 3701.**
+**Next session: start from ID 4001.**

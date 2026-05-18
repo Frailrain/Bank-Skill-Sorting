@@ -808,11 +808,21 @@ PRAYER = TabSpec(
         Section("Shades remains", _name_ends(" remains")),
         Section("Quest-related prayer items", _name_in({
             "Ogre coffin key", "Ring of the gods", "Ring of the gods (i)",
-            "Damaged book", "Book of balance", "Manual",
-            # Note: "Diary" and "Journal" removed — too generic (Hazeel Cult
-            # diary, Nature Spirit journal etc. aren't prayer items; the
-            # Holy/Unholy book starts catch real prayer books).
+            "Damaged book", "Book of balance",
+            # Note: "Diary", "Journal", and "Manual" all removed — too generic
+            # (Hazeel Cult diary, Nature Spirit journal, Fremennik manual aren't
+            # prayer items; Holy/Unholy book + Book of starts catch the real ones).
         })),
+        Section("God pages (Treasure trail)", _and(
+            _or(_name_starts("Saradomin page "),
+                _name_starts("Zamorak page "),
+                _name_starts("Guthix page "),
+                _name_starts("Armadyl page "),
+                _name_starts("Bandos page "),
+                _name_starts("Ancient page ")),
+            _or(_name_ends(" 1"), _name_ends(" 2"),
+                _name_ends(" 3"), _name_ends(" 4")),
+        )),
         Section("Prayer accessories", _name_in({
             "Holy wrench", "Bonecrusher", "Bonecrusher necklace",
             "Hand of glory", "Prayer cape", "Prayer cape(t)", "Prayer hood",
