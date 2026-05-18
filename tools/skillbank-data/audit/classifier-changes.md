@@ -2460,3 +2460,43 @@ Ghommal's hilt 1-6.
 Tombs of Amascut passive prayer regen ring.
 
 **Affects**: 1 item.
+
+## Session 64 (audit IDs 26001–33393, FINAL)
+
+### `_TREASURE_TRAIL_MELEE_NAMES` extended — Group Ironman + Halloween 2021 + Torva
+
+Added Group ironman platebody/platelegs + Hardcore variants (4), Pink/Clean stained platebody/platelegs/full helm (6), Torva full helm/platebody/platelegs (3).
+
+**Affects**: 13 items REM mining_smithing.
+
+### MELEE Helmets/Body/Legs — Torva force_include + Virtus force_exclude
+
+Torva (Nex melee gear) force_include. Virtus mask/robe top/robe bottom REM melee (ToA mage gear).
+
+### MAGE Helmets/Body/Legs — Virtus force_include
+
+### RANGE Bows — Zaryte bow force_include
+
+Added Zaryte bow, Zaryte bow (uncharged).
+
+### RANGE Crossbows — `Rune crossbow (or)` force_include
+
+### MELEE Weapons — Abyssal whip/tentacle (or) ornament force_include
+
+### SLAYER Slayer master items — ToA + Nex content
+
+Added 5 Ancient ceremonial pieces, Nihil shard/dust/horn, Ancient hilt, Frozen key + 4 god piece variants, 4 Cannon (or) ornaments.
+
+**Affects**: 17 items.
+
+### QUESTS Void Knight — Elite void (or) variants
+
+Added Elite void top (or), Elite void robe (or).
+
+**Affects**: 2 items.
+
+### MISC Holiday rares — Halloween 2021 stained + Christmas 2021 Festive
+
+Added Pink/Clean stained platebody/platelegs/full helm (6 — also REM mining_smithing), Festive gingerbread gnomes, Festive mulled wine, Secret santa present (+red), Chocolate chips, A big present, Festive elf slippers/hat, Snowman ring, 7 snowball sizes.
+
+**Affects**: ~22 items.

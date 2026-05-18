@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (40 items not in wiki output) ===
+=== melee (43 items not in wiki output) ===
    12596  Rangers' tunic
    19921  Ancient d'hide boots
    19924  Bandos d'hide boots
@@ -44,14 +44,19 @@ or should be added to force_include / variant_allowlist before flipping --additi
    25410  Bloodbark boots
    25413  Bloodbark helm
    25416  Bloodbark legs
+   26241  Virtus mask
+   26243  Virtus robe top
+   26245  Virtus robe bottom
 
-=== range (6 items not in wiki output) ===
+=== range (8 items not in wiki output) ===
    22616  Vesta's chainbody
    22619  Vesta's plateskirt
    22625  Statius's full helm
    22628  Statius's platebody
    22631  Statius's platelegs
    25585  Fish sack barrel
+   26384  Torva platebody
+   26386  Torva platelegs
 
 === mage (9 items not in wiki output) ===
    19921  Ancient d'hide boots
@@ -64,7 +69,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    22641  Morrigan's leather body
    22644  Morrigan's leather chaps
 
-=== mining_smithing (21 items not in wiki output) ===
+=== mining_smithing (34 items not in wiki output) ===
    20146  Gilded med helm
    20149  Gilded chainbody
    20152  Gilded sq shield
@@ -86,3 +91,16 @@ or should be added to force_include / variant_allowlist before flipping --additi
    23789  Ardougne knight platelegs
    24421  Inquisitor's plateskirt
    25165  Decorative full helm
+   26158  Group ironman platebody
+   26166  Group ironman platelegs
+   26172  Hardcore group ironman platebody
+   26180  Hardcore group ironman platelegs
+   26280  Pink stained platebody
+   26282  Pink stained platelegs
+   26284  Pink stained full helm
+   26286  Clean platebody
+   26288  Clean platelegs
+   26290  Clean full helm
+   26382  Torva full helm
+   26384  Torva platebody
+   26386  Torva platelegs
