@@ -990,12 +990,12 @@ public final class SkillBankData
 
 	private static void addPrayer(Map<String, List<Integer>> m)
 	{
-		// PRAYER — 323 items
+		// PRAYER — 324 items
 		//   Bones (93), Ashes (9), Ensouled heads (23), Prayer potions (4), Super
 		//   restores (10), Sanfew (4), Saradomin brews (4), Holy symbols (33),
 		//   Blessings (Treasure Trails) (8), Prayer scrolls + cosmetic (4), Fossil
 		//   Island fossils (25), Robes (monk/proselyte/initiate/druid) (22), Bone
-		//   secondaries (34), Shades remains (9), Quest-related prayer items (4),
+		//   secondaries (35), Shades remains (9), Quest-related prayer items (4),
 		//   God pages (Treasure trail) (24), Prayer accessories (5), Pyre log oils
 		//   (8)
 		m.put(TAG_PRAYER, Arrays.asList(
@@ -1063,8 +1063,8 @@ public final class SkillBankData
 			4260, 4261, 11922, 22116, 31335, 2970, 4255, 4256,
 			4257, 4258, 4259, 4262, 4263, 4264, 4265, 4266,
 			4267, 4268, 4269, 4270, 4271, 4286, 4852, 4853,
-			4854, 4855, 5615, 6728, 6810, 22754, 22756, 22758,
-			30975, 31333,
+			4854, 4855, 5615, 6728, 6810, 21726, 22754, 22756,
+			22758, 30975, 31333,
 
 			// === Shades remains ===
 			0, 694, 3396, 3398, 3400, 3402, 3404, 25419,
@@ -1222,9 +1222,9 @@ public final class SkillBankData
 
 	private static void addWcFletching(Map<String, List<Integer>> m)
 	{
-		// WC_FLETCHING — 353 items
+		// WC_FLETCHING — 354 items
 		//   Axes (28), Logs (42), Bowstrings (3), Unstrung bows (41), Bows &
-		//   shortbows (strung) (51), Crossbow parts (17), Ballista construction
+		//   shortbows (strung) (51), Crossbow parts (18), Ballista construction
 		//   (MM2) (5), Bolt tips (12), Bolts (unfinished) (9), Bolts (finished)
 		//   (39), Arrow shafts (3), Arrowtips (12), Arrows (27), Darts (20),
 		//   Javelins (cross-tag with range) (9), Bird nests (3), Feathers (cross-
@@ -1269,7 +1269,7 @@ public final class SkillBankData
 			// === Crossbow parts ===
 			9420, 9423, 9425, 9427, 9429, 9431, 21918, 9422,
 			9433, 9434, 9440, 9442, 9444, 9446, 9448, 9450,
-			9452,
+			9452, 21952,
 
 			// === Ballista construction (MM2) ===
 			19595, 19598, 19601, 19604, 19607,
@@ -1772,20 +1772,21 @@ public final class SkillBankData
 
 	private static void addSlayer(Map<String, List<Integer>> m)
 	{
-		// SLAYER — 173 items
-		//   Slayer master items (57), Slayer rings (7), Slayer helmets (27), Black
+		// SLAYER — 185 items
+		//   Slayer master items (69), Slayer rings (7), Slayer helmets (27), Black
 		//   masks (18), Task-specific gear (28), Cannon (6), Cape & pet (4),
 		//   Champion's Challenge scrolls (11), Mounted heads (POH trophies) (15)
 		m.put(TAG_SLAYER, Arrays.asList(
 			// === Slayer master items ===
-			20525, 12728, 12730, 12732, 12734, 12736, 12738, 20523,
-			20524, 20607, 21698, 13227, 13229, 13231, 4155, 5520,
-			10952, 11877, 11879, 11881, 11883, 11885, 11887, 12740,
-			12742, 12744, 12769, 12771, 12857, 12859, 12922, 12927,
-			12932, 12934, 13193, 13200, 13201, 13250, 13252, 13254,
-			13273, 13274, 13275, 13276, 13391, 19679, 19681, 19683,
-			19685, 20742, 21177, 21183, 21257, 21268, 21270, 21275,
-			21637,
+			21730, 20525, 12728, 12730, 12732, 12734, 12736, 12738,
+			20523, 20524, 20607, 21698, 21701, 21704, 21707, 13227,
+			13229, 13231, 21804, 2425, 4155, 5520, 10952, 11877,
+			11879, 11881, 11883, 11885, 11887, 12740, 12742, 12744,
+			12769, 12771, 12857, 12859, 12922, 12927, 12932, 12934,
+			13193, 13200, 13201, 13250, 13252, 13254, 13273, 13274,
+			13275, 13276, 13391, 19679, 19681, 19683, 19685, 20742,
+			21177, 21183, 21257, 21268, 21270, 21275, 21637, 21807,
+			21810, 21813, 21817, 21820, 21909,
 
 			// === Slayer rings ===
 			11866, 11867, 11868, 11869, 11871, 11872, 11873,
@@ -2074,12 +2075,12 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 507 items
+		// MISC — 517 items
 		//   Teleport jewellery (68), Teleport tabs (69), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (29), Clue
 		//   tools (25), Keys (13), Storage bags (6), Utility / banked supplies
 		//   (2), Imbue scrolls (3), Combat trophies (PvM rewards) (5), Holiday
-		//   rares & cosmetics (165), Team capes (Castle Wars) (50), Currency (10)
+		//   rares & cosmetics (175), Team capes (Castle Wars) (50), Currency (10)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
@@ -2165,7 +2166,8 @@ public final class SkillBankData
 			20836, 21208, 21209, 21211, 21214, 21216, 21217, 21218,
 			21219, 21220, 21221, 21222, 21223, 21224, 21225, 21226,
 			21227, 21228, 21229, 21230, 21231, 21232, 21233, 21234,
-			21235, 21236, 21237, 21238, 21239,
+			21235, 21236, 21237, 21238, 21239, 21847, 21849, 21851,
+			21853, 21855, 21857, 21859, 21866, 21867, 21868,
 
 			// === Team capes (Castle Wars) ===
 			4315, 4317, 4319, 4321, 4323, 4325, 4327, 4329,
@@ -2184,12 +2186,12 @@ public final class SkillBankData
 
 	private static void addQuests(Map<String, List<Integer>> m)
 	{
-		// QUESTS — 140 items
+		// QUESTS — 144 items
 		//   Quest & achievement capes (8), Diary - Kandarin (4), Diary - Karamja
 		//   (4), Diary - Ardougne (4), Diary - Falador (4), Diary - Fremennik (4),
 		//   Diary - Wilderness (4), Diary - Morytania (4), Diary - Desert (4),
 		//   Diary - Varrock (4), Diary - Western (4), Diary - Lumbridge (4), Diary
-		//   consumables (4), Max hood variants (7), Quest unlock weapons (11),
+		//   consumables (4), Max hood variants (11), Quest unlock weapons (11),
 		//   Quest cosmetic gear (20), Void Knight set (21), Fighter Torso et al.
 		//   (6), Defenders (10), Boss pets (9)
 		m.put(TAG_QUESTS, Arrays.asList(
@@ -2233,7 +2235,8 @@ public final class SkillBankData
 			22941, 22943, 22945, 22947,
 
 			// === Max hood variants ===
-			21282, 13330, 13332, 13334, 13336, 13338, 20764,
+			21282, 13330, 13332, 13334, 13336, 13338, 20764, 21778,
+			21782, 21786, 21900,
 
 			// === Quest unlock weapons ===
 			35, 772, 2402, 2952, 4170, 4251, 9084, 10581,

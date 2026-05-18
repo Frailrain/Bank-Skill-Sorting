@@ -1072,7 +1072,7 @@ PRAYER = TabSpec(
         Section("Bone secondaries", _or(
             _name_in({
                 "Bonemeal pot", "Bucket of slime", "Vial of milk",
-                "Mort myre fungus",
+                "Mort myre fungus", "Granite dust",
             }),
             _name_ends(" bonemeal"),  # Bonemeal, Bat bonemeal, Dragon bonemeal, etc.
             _name_in({"Bonemeal"}),
@@ -1292,7 +1292,7 @@ WC_FLETCHING = TabSpec(
         )),
         Section("Crossbow parts", _name_in({
             "Wooden stock", "Oak stock", "Willow stock", "Teak stock",
-            "Maple stock", "Mahogany stock", "Yew stock",
+            "Maple stock", "Mahogany stock", "Yew stock", "Magic stock",
             "Bronze limbs", "Blurite limbs", "Iron limbs", "Steel limbs", "Mithril limbs",
             "Adamantite limbs", "Runite limbs", "Dragon limbs",
             "Bolt pouch", "Bolt mould",
@@ -1792,6 +1792,13 @@ SLAYER = TabSpec(
             "Dark claw",
             # session 51 — Wyvern visage + Tzhaar rune pack
             "Wyvern visage", "Tzhaar air rune pack",
+            # session 52 — Tzhaar elemental packs + Wilderness slayer emblems +
+            # Revenant items + Black tourmaline + Vorkath drops
+            "Tzhaar water rune pack", "Tzhaar earth rune pack", "Tzhaar fire rune pack",
+            "Black tourmaline core",
+            "Ancient crystal", "Ancient emblem", "Ancient totem", "Ancient statuette",
+            "Bracelet of ethereum (uncharged)", "Revenant ether",
+            "Vorkath's head", "Vorkath's stuffed head",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -2277,6 +2284,12 @@ MISC = TabSpec(
                 "Evil chicken head", "Evil chicken legs",
                 # session 49 — Christmas 2018 Snow globe set
                 "Snow globe", "Sack of presents", "Giant present",
+                # session 52 — Christmas 2018 Wise Old Man event
+                "Snow imp costume head", "Snow imp costume body",
+                "Snow imp costume legs", "Snow imp costume tail",
+                "Snow imp costume gloves", "Snow imp costume feet",
+                "Wise old man's santa hat",
+                "Santa suit", "Santa suit (wet)", "Santa suit (dry)",
                 # session 50 — Easter 2019 + RuneScape 4th Birthday
                 "Invitation list", "Birthday balloons", "4th birthday hat",
                 "Easter egg helm",
@@ -2334,6 +2347,9 @@ QUESTS = TabSpec(
             "Max hood", "Fire max hood", "Saradomin max hood",
             "Zamorak max hood", "Guthix max hood", "Accumulator max hood",
             "Ardougne max hood", "Infernal max hood",
+            # session 52 — Imbued + Assembler max hoods
+            "Imbued saradomin max hood", "Imbued zamorak max hood",
+            "Imbued guthix max hood", "Assembler max hood",
         })),
         Section("Quest unlock weapons", _name_in({
             "Dramen staff", "Lunar staff", "Ivandis flail", "Blisterwood flail",

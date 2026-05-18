@@ -4723,6 +4723,108 @@ See `audit/classifier-changes.md` "Session 50".
 
 See `audit/classifier-changes.md` "Session 51".
 
+---
+
+## Session 52: IDs 21701–22000
+
+### Tzhaar rune packs
+
+- `21701-21707 Tzhaar water/earth/fire rune pack` (3 items) — **ADD slayer**.
+
+### Sins of the Father quest material
+
+- `21710-21720 Death note, Murky potion, Spectral potion, Tomberries, Tattered book, Note, Carved gem, Time bubble, Traiborn note, Jonas mask` — EX/LOG.
+
+### Pirate's Treasure cosmetic + Granite content
+
+- `21722-21723 Diving helmet, Diving apparatus` — LOG.
+- `21724 Brittle key` — OK (`slayer;misc`).
+- `21726 Granite dust` — **ADD prayer** (Crushed superior dragon bones precursor).
+- `21728 Granite cannonball` — OK.
+- `21730 Black tourmaline core` — **ADD slayer** (Demonic Gorilla drop).
+- `21733 Guardian boots` — OK (`melee`).
+- `21736-21754 Granite gloves/ring/hammer/Jar of stone/Noon/Granite ring (i)/Rock thrownhammer` — OK/LOG.
+
+### Kharedst's Memoirs
+
+- `21756-21775 Varlamore envoy, Royal accord of twill, Certificate × 2, Kharedst's memoirs, Lunch by the lancalliums, The fisher's flute, History and hearsay, Jewellery of jubilation, A dark disposition, Secret page, Letter` — EX (~12 items, Great Kourend lore).
+
+### Imbued max capes + hoods
+
+- `21776 Imbued saradomin max cape` — OK (`mage`).
+- `21778 Imbued saradomin max hood` — **ADD quests** (Max hood variant).
+- `21780-21786 Imbued zamorak/guthix max cape + hood` — partial.
+  - Capes ✓ mage.
+  - Hoods (2 items) — **ADD quests**.
+- `21791-21795 Imbued saradomin/guthix/zamorak cape` — OK (`mage`).
+
+### Catacombs of Kourend + Wilderness slayer emblems
+
+- `21797-21800 Justiciar's hand, Ent's roots, Demon's heart, Enchanted symbol` — LOG (Catacombs altar quest material).
+- `21802 Revenant cave teleport` — OK.
+- `21804 Ancient crystal`, `21807 Ancient emblem`, `21810 Ancient totem`, `21813 Ancient statuette` (4 items) — **ADD slayer** (Wilderness slayer emblem progression).
+
+### Revenants
+
+- `21817 Bracelet of ethereum (uncharged)` — **ADD slayer** (Revenant currency holder).
+- `21820 Revenant ether` — **ADD slayer**.
+- `21826-21832 Redundant hat/top/leggings` — LOG (CW cosmetic).
+- `21837 Ogre artefact` — LOG.
+- `21838 Shaman mask` — OK (`melee`).
+
+### Christmas 2018 Wise Old Man event
+
+- `21847-21857 Snow imp costume head/body/legs/tail/gloves/feet` (6 items) — **ADD misc Holiday rares**.
+- `21859 Wise old man's santa hat` — **ADD misc Holiday rares**.
+- `21861-21862 Enchanted curtains, Enchanted snowy curtains` — LOG (POH cosmetic).
+- `21863 Wise old man's teleport tablet` — LOG (event tablet, single-use).
+- `21864-21875 Snow sprite, Fine mesh net, Santa suit (wet/dry), Logs and kindling, Promissory note, Santa's seal, Vault key, Empty/Bulging sack, Kristmas kebab` (12 items) — partial:
+  - `21866 Santa suit`, `21867 Santa suit (wet)`, `21868 Santa suit (dry)` — **ADD misc Holiday rares** (3 items).
+  - Others — LOG/EX (single-use quest material).
+
+### Wrath altar + GE armour sets + Slayer helmets
+
+- `21880 Wrath rune` — OK (`mage;runecraft`).
+- `21882-21885 Dragon armour set (lg)/(sk)` — OK (`melee` via GE pattern).
+- `21888-21890 Turquoise slayer helmet + (i)` — OK.
+
+### Dragon plate + Assembler max
+
+- `21892-21895 Dragon platebody, Dragon kiteshield` — OK (`melee;mining_smithing`).
+- `21898 Assembler max cape` — OK (`range;mage`).
+- `21900 Assembler max hood` — **ADD quests**.
+
+### Vorkath drops + Dragon crossbow + dragon bolts
+
+- `21902-21905 Dragon crossbow, Dragon bolts` — OK (`range[+wc_fletching]`).
+- `21907 Vorkath's head`, `21909 Vorkath's stuffed head` (2 items) — **ADD slayer** (Vorkath drops, POH-mountable).
+- `21918-21921 Dragon limbs, Dragon crossbow (u)`, `21930 Dragon bolts (unf)` — OK.
+- `21932-21973 Opal/Jade/Pearl/Topaz/Sapphire/Emerald/Ruby/Diamond/Dragonstone/Onyx dragon bolts (e) + base` — OK (20 items).
+
+### Magic stock + Vorkath followers
+
+- `21952 Magic stock` — **ADD wc_fletching** (Crossbow stock material — magic wood).
+- `21975 Crushed superior dragon bones` — OK (`prayer`).
+- `21978-21987 Super antifire potion (4-1)` — OK (`herblore`).
+- `21992 Vorki` — OK (`quests`).
+- `21994-21997 Super antifire mix (2/1)` — OK (`herblore` via Barbarian mix pattern).
+- `22000 Clue scroll (elite)` — LOG.
+
+---
+
+## Session 52 totals
+
+- Items reviewed: ~250
+- OK (correct as-is): 70
+- EX (correctly excluded): 20 (Sins of the Father, Kharedst's Memoirs, single-use event items)
+- ADD (missing tab, fixed): ~50 (3 Tzhaar packs, 1 Granite dust, 1 Black tourmaline core, 4 Imbued max hoods, 4 Ancient slayer emblem progression, 2 Revenant items, ~13 Christmas 2018 cosmetic, 1 Assembler max hood, 2 Vorkath drops, 1 Magic stock)
+- REM: 0
+- LOG: 50+ (Sins quest material, Catacombs altar items, Kharedst's lore, CW cosmetic, single-use event items)
+
+## Classifier changes made in session 52
+
+See `audit/classifier-changes.md` "Session 52".
+
 ## Resume marker
 
-**Next session: start from ID 21701.**
+**Next session: start from ID 22001.**

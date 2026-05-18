@@ -1917,3 +1917,35 @@ Volcanic Mine food.
 Added Wyvern visage (Ancient wyvern shield material), Tzhaar air rune pack.
 
 **Affects**: 2 items.
+
+## Session 52 (audit IDs 21701–22000)
+
+### QUESTS Max hood variants — Imbued max hoods + Assembler max hood
+
+Added Imbued saradomin/zamorak/guthix max hood, Assembler max hood.
+
+**Affects**: 4 items.
+
+### SLAYER Slayer master items — major expansion
+
+Added Tzhaar water/earth/fire rune pack (3), Black tourmaline core (1), Ancient crystal/emblem/totem/statuette (4, Wilderness slayer emblem progression), Bracelet of ethereum (uncharged) + Revenant ether (2), Vorkath's head + Vorkath's stuffed head (2).
+
+**Affects**: 12 items.
+
+### PRAYER Bone secondaries — `Granite dust`
+
+Used in Crushed superior dragon bones recipe.
+
+**Affects**: 1 item.
+
+### WC_FLETCHING Crossbow parts — `Magic stock`
+
+Crossbow stock made from magic logs.
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Christmas 2018 Wise Old Man
+
+Added Snow imp costume (6 pieces: head/body/legs/tail/gloves/feet), Wise old man's santa hat, Santa suit + (wet)/(dry) (3 items).
+
+**Affects**: 10 items.
