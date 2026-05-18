@@ -19,8 +19,9 @@
 - **Reviewed in session 14**: IDs 3701–4000 (125 items)
 - **Reviewed in session 15**: IDs 4001–4300 (169 items)
 - **Reviewed in session 16**: IDs 4301–4600 (161 items)
-- **Reviewed cumulative**: 2443 (20.6%)
-- **Resume from**: ID 4601
+- **Reviewed in session 17**: IDs 4601–4900 (125 items)
+- **Reviewed cumulative**: 2568 (21.6%)
+- **Resume from**: ID 4901
 
 ## Decision codes
 
@@ -1659,6 +1660,80 @@ See `audit/classifier-changes.md` "Session 15".
 
 See `audit/classifier-changes.md` "Session 16".
 
+---
+
+## Session 17: IDs 4601–4900
+
+### Desert / Sphinx / Spirits of the Elid quest items
+
+- `4601-4691` (~50 items: Ugthanki dung ×2, Receipt, Hag's poison, Snake charm, Snake basket variants, Super kebab, Red hot sauce, Desert disguise, Spinning plate, Broken plate, Letter, Varmen's notes, Display cabinet key, Statuette, Strange implement, Black mushroom, Phoenix feather, Black dye, Phoenix quill pen, Golem program, Etchings, Translation, Warm key, Ring of visibility, Silver pot, Blessed pot, Garlic powder, Blood/Ice/Smoke/Shadow diamond, Gilded cross, Canopic jar, Holy symbol dup, Unholy symbol dup, Linen, Embalming manual, Bucket of sap, Pile of salt, Sphinx's token, Catspeak amulet) — EX (most). Sphinx Eye of the Sphinx tablets are quest consumables.
+- `4627 Bandit's brew` — OK (`cooking`).
+- `4675 Ancient staff` — OK (`mage`).
+- `4692 Gold leaf` — OK (`construction`).
+- `4694-4699 Steam/Mist/Dust/Smoke/Mud/Lava rune` — OK (6 items, `mage;runecraft`).
+- `4700 Sapphire lantern` — OK (`firemaking`).
+- `4703 Magic stone` — OK (`construction`).
+
+### Barrows armour (huge classifier fix needed)
+
+The 6 Barrows sets all have defence on multiple combat styles, which makes my naive stat-dominance classifier put pieces in the wrong tab. Canonical OSRS combat affinity:
+
+- **Ahrim's** (4708/4710/4712/4714) — MAGE armour only. Currently `melee;mage` for hood/robetop/robeskirt. **REM melee** all 4.
+- **Dharok's** (4716/4718/4720/4722) — MELEE only. Helm/platebody/platelegs land in `melee;range` due to range defence. **REM range** all body parts. Greataxe stays melee.
+- **Guthan's** (4724/4726/4728/4730) — MELEE only. Same issue: helm/platebody/chainskirt in `melee;range`. **REM range** all body parts.
+- **Karil's** (4732/4734/4736/4738/4740) — RANGE only. Karil's coif in `melee` (wrong!), leathertop/leatherskirt in `mage` (also wrong!), Karil's crossbow + Bolt rack ✓. **REM melee+mage**, **ADD range** for coif/leathertop/leatherskirt.
+- **Torag's** (4745/4747/4749/4751) — MELEE only. Helm/platebody/platelegs in `melee;range`. **REM range** all body parts.
+- **Verac's** (4753/4755/4757/4759) — MELEE only. Already correct.
+
+**Fix**: introduce `_AHRIM_PIECES`, `_KARIL_PIECES`, `_DHAROK_PIECES`, `_GUTHAN_PIECES`, `_TORAG_PIECES` constants; force_exclude in the wrong combat tabs.
+
+### Brutal arrows
+
+- `4773-4803 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune brutal` — OK (7 items, `range`).
+
+### Zogre Flesh Eaters
+
+- `4808-4818` (Black prism, Torn page, Ruined backpack, Dragon inn tankard, Zogre bones ✓, Sithik portrait, Signed portrait, Book of portraiture, Ogre artefact) — EX (most).
+- `4812 Zogre bones` — OK (`prayer`).
+- `4817 Book of portraiture` — **REM prayer**. Quest book, not prayer. **Fix**: force_exclude on PRAYER Holy symbols.
+
+### Nails (smithing + construction)
+
+- `4819-4824 Bronze/Iron/Black/Mithril/Adamantite/Rune nails` — OK (6 items, `mining_smithing;construction`).
+
+### Ogre composite bow + Book of HAM
+
+- `4825 Unstrung comp bow` — **ADD wc_fletching**. Currently unclassified.
+- `4827 Comp ogre bow` — OK (`range;wc_fletching`).
+- `4829 Book of 'h.a.m'` — **REM prayer**. HAM book (Thieving), not prayer. **Fix**: force_exclude.
+
+### Ogre bones (Zogre Flesh Eaters / Garden of Tranquillity)
+
+- `4830 Fayrg bones`, `4832 Raurg bones`, `4834 Ourg bones` — OK (3 items, `prayer`).
+
+### Remaining quest items + Relicym's balm
+
+- `4836-4839` (Strange potion, Necromancy book, Cup of tea dup, Ogre gate key) — EX.
+- `4840 Unfinished potion` — LOG (generic dup).
+- `4842-4848 Relicym's balm(4..1)` — **ADD herblore**. Anti-disease potion, currently unclassified.
+- `4850 Ogre coffin key` — OK (`prayer`).
+- `4852-4855 Zogre/Fayrg/Raurg/Ourg bonemeal` — OK (4 items, `prayer` via bonemeal pattern).
+
+---
+
+## Session 17 totals
+
+- Items reviewed: 125
+- OK (correct as-is): 40
+- EX (correctly excluded): 55
+- ADD (missing tab, fixed): 7 (Unstrung comp bow + 4 Relicym's balm doses, Karil's leather pieces to range ×2 -- pre-fix; actual ADDs after fix more)
+- REM (misclassified, fixed): 16 (Ahrim's 3 pieces from melee; Dharok's/Guthan's/Torag's 9 pieces from range; Karil's 3 pieces wrong-tabbed; Book of portraiture + Book of 'h.a.m' from prayer)
+- LOG (deferred): 7 (canonical dups)
+
+## Classifier changes made in session 17
+
+See `audit/classifier-changes.md` "Session 17".
+
 ## Resume marker
 
-**Next session: start from ID 4601.**
+**Next session: start from ID 4901.**

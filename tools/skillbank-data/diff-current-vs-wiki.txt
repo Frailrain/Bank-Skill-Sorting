@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (231 items not in wiki output) ===
+=== melee (235 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -71,6 +71,10 @@ or should be added to force_include / variant_allowlist before flipping --additi
     3391  Splitbark gauntlets
     3393  Splitbark boots
     4502  Bearhead
+    4708  Ahrim's hood
+    4712  Ahrim's robetop
+    4714  Ahrim's robeskirt
+    4732  Karil's coif
     5013  (not in wiki canonical set)
     5680  (not in wiki canonical set)
     5698  (not in wiki canonical set)
@@ -236,7 +240,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (199 items not in wiki output) ===
+=== range (205 items not in wiki output) ===
      616  Beads of the dead
      942  (not in wiki canonical set)
     1007  Red cape
@@ -328,9 +332,15 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4409  Team-48 cape
     4411  Team-49 cape
     4413  Team-50 cape
-    4732  Karil's coif
-    4736  Karil's leathertop
-    4738  Karil's leatherskirt
+    4716  Dharok's helm
+    4720  Dharok's platebody
+    4722  Dharok's platelegs
+    4724  Guthan's helm
+    4728  Guthan's platebody
+    4730  Guthan's chainskirt
+    4745  Torag's helm
+    4749  Torag's platebody
+    4751  Torag's platelegs
     6959  Pink cape
     9757  (not in wiki canonical set)
     9977  (not in wiki canonical set)
@@ -437,7 +447,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28906  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (136 items not in wiki output) ===
+=== mage (138 items not in wiki output) ===
      616  Beads of the dead
      656  Pink hat
      658  Green hat
@@ -456,6 +466,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2920  Yellow hat
     2930  Teal hat
     2940  Purple hat
+    4736  Karil's leathertop
+    4738  Karil's leatherskirt
     6099  (not in wiki canonical set)
     6215  (not in wiki canonical set)
     6217  (not in wiki canonical set)
@@ -575,7 +587,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    29892  (not in wiki canonical set)
    30066  (not in wiki canonical set)
 
-=== prayer (53 items not in wiki output) ===
+=== prayer (55 items not in wiki output) ===
     1704  Amulet of glory
     2408  Diary
     2967  Journal
@@ -584,6 +596,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
     3846  Diary
     3847  Manual
     4248  Book of haricanto
+    4817  Book of portraiture
+    4829  Book of 'h.a.m'
     9760  (not in wiki canonical set)
    13447  (not in wiki canonical set)
    13450  (not in wiki canonical set)

@@ -639,6 +639,41 @@ Ghosts Ahoy currency.
 
 ---
 
+## Session 17 (audit IDs 4601–4900)
+
+### Barrows armour cross-tab fixes (major)
+
+The 6 Barrows sets all had pieces leaking into wrong tabs via stat-dominance:
+- Ahrim's (mage set): hood/robetop/robeskirt were classifying into melee.
+- Dharok's/Guthan's/Torag's (melee sets): helm/body/legs were classifying into range.
+- Karil's (range set): coif was in melee; leathertop/leatherskirt were in mage.
+
+**Fix**: introduced `_AHRIM_PIECES`, `_KARIL_PIECES`, `_DHAROK_BODY`,
+`_GUTHAN_BODY`, `_TORAG_BODY` constants, and added per-slot force_excludes
+in the wrong tabs + force_includes in the correct ones.
+
+- MELEE Helmets: + force_exclude `Ahrim's hood`, `Karil's coif`.
+- MELEE Body armour: + force_exclude `Ahrim's robetop`, `Karil's leathertop`.
+- MELEE Legs: + force_exclude `Ahrim's robeskirt`, `Karil's leatherskirt`.
+- RANGE Helmets: + force_include `Karil's coif`, force_exclude `Dharok's/Guthan's/Torag's helm`.
+- RANGE Body: + force_include `Karil's leathertop`, force_exclude `Dharok's/Guthan's/Torag's platebody`.
+- RANGE Legs: + force_include `Karil's leatherskirt`, force_exclude `Dharok's platelegs / Guthan's chainskirt / Torag's platelegs`.
+- MAGE Body/Legs: + force_exclude `Karil's leathertop` / `Karil's leatherskirt`.
+
+**Affects**: 13 Barrows pieces now classify into their canonical combat tab only.
+
+### PRAYER Holy symbols — more book excludes
+
+Added `Book of portraiture`, `Book of 'h.a.m'`, `Book of HAM` to the existing `Book of haricanto` exclude (4 total). These are Zogre Flesh Eaters / HAM Hideout quest books, not prayer items.
+
+### HERBLORE Other potions — `Relicym's balm` family
+
+Anti-disease potion. 4 dose variants.
+
+### WC_FLETCHING Unstrung bows — also matches `Unstrung comp bow`, `Unstrung lyre`
+
+Explicit allowlist for items without the `(u)` suffix.
+
 ## Session 16 (audit IDs 4301–4600)
 
 ### `_BASIC_COLOUR_CAPES` — added 50 Team-N capes

@@ -247,6 +247,18 @@ _SPLITBARK_PIECES = [
     "Splitbark gauntlets", "Splitbark boots",
 ]
 
+# Barrows armour — canonical OSRS combat affinity per set, but defence stats
+# are split across multiple styles which makes the stat-dominance classifier
+# put pieces in the wrong tab. Use these constants to surgical-exclude.
+_AHRIM_PIECES = ["Ahrim's hood", "Ahrim's robetop", "Ahrim's robeskirt"]  # mage only
+_KARIL_PIECES = ["Karil's coif", "Karil's leathertop", "Karil's leatherskirt"]  # range only
+# Melee Barrows sets (Dharok/Guthan/Torag/Verac) body parts cross-tag to range
+# wrongly via range_defence; weapons + Verac are correct.
+_DHAROK_BODY = ["Dharok's helm", "Dharok's platebody", "Dharok's platelegs"]
+_GUTHAN_BODY = ["Guthan's helm", "Guthan's platebody", "Guthan's chainskirt"]
+_TORAG_BODY = ["Torag's helm", "Torag's platebody", "Torag's platelegs"]
+_MELEE_BARROWS_BODY = _DHAROK_BODY + _GUTHAN_BODY + _TORAG_BODY
+
 
 def _is_melee_weapon(it):
     if not it.get("equipable_weapon") or _is_noise(it):
@@ -642,17 +654,20 @@ MELEE = TabSpec(
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
-                force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead"]
+                force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead",
+                               "Ahrim's hood", "Karil's coif"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
-                force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body"]
+                force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body",
+                               "Ahrim's robetop", "Karil's leathertop"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))),
-                force_exclude=["Mime legs", "Splitbark legs"]
+                force_exclude=["Mime legs", "Splitbark legs",
+                               "Ahrim's robeskirt", "Karil's leatherskirt"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe bottoms" in n.lower()]),
@@ -708,9 +723,14 @@ RANGE = TabSpec(
         Section("Raw dragonhide (cross-tag with crafting)",
                 lambda it: bool(_DRAGONHIDE_RAW_RE.search(it.get("name") or ""))),
         Section("Helmets", _is_range_armour_slot("head"),
-                force_include=["Robin hood hat"]),
-        Section("Body", _is_range_armour_slot("body")),
-        Section("Legs", _is_range_armour_slot("legs")),
+                force_include=["Robin hood hat", "Karil's coif"],
+                force_exclude=["Dharok's helm", "Guthan's helm", "Torag's helm"]),
+        Section("Body", _is_range_armour_slot("body"),
+                force_include=["Karil's leathertop"],
+                force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody"]),
+        Section("Legs", _is_range_armour_slot("legs"),
+                force_include=["Karil's leatherskirt"],
+                force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs"]),
         Section("Boots", _is_range_armour_slot("feet"),
                 force_include=["Ranger boots"]),
         Section("Gloves", _is_range_armour_slot("hands")),
@@ -749,8 +769,10 @@ MAGE = TabSpec(
                 force_exclude=["Mime mask"]
                 + [n for n in _MIME_OUTFIT if "hat" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
-        Section("Body", _is_mage_armour_slot("body")),
-        Section("Legs", _is_mage_armour_slot("legs")),
+        Section("Body", _is_mage_armour_slot("body"),
+                force_exclude=["Karil's leathertop"]),
+        Section("Legs", _is_mage_armour_slot("legs"),
+                force_exclude=["Karil's leatherskirt"]),
         Section("Boots", _is_mage_armour_slot("feet")),
         Section("Gloves", _is_mage_armour_slot("hands"),
                 force_include=["Chaos gauntlets"],
@@ -798,7 +820,8 @@ PRAYER = TabSpec(
                       "Silver sickle (b)"}),
             _name_starts("Holy book"), _name_starts("Unholy book"),
             _name_starts("Book of "),
-        ), force_exclude=["Book of haricanto"]),
+        ), force_exclude=["Book of haricanto", "Book of portraiture",
+                          "Book of 'h.a.m'", "Book of HAM"]),
         Section("Robes (monk/proselyte/initiate/druid)", _or(
             _name_starts("Monk's "), _name_starts("Proselyte "),
             _name_starts("Initiate "), _name_starts("Devout "),
@@ -939,9 +962,10 @@ WC_FLETCHING = TabSpec(
         Section("Axes", _is_wc_axe),
         Section("Logs", _is_log, sort_key=_log_sort_key),
         Section("Bowstrings", _name_in({"Bow string", "Crossbow string", "Magic string"})),
-        Section("Unstrung bows", _name_contains("(u)"),
-                # restrict to wood bow names
-                force_exclude=[]),
+        Section("Unstrung bows", _or(
+            _name_contains("(u)"),
+            _name_in({"Unstrung comp bow", "Unstrung lyre"}),
+        ), force_exclude=[]),
         Section("Bows & shortbows (strung)", _and(
             _is_range_weapon_type("bow"),
             _not(_name_contains("(u)")),
@@ -1231,7 +1255,7 @@ HERBLORE = TabSpec(
         Section("Antifire & anti-poison", _is_potion_family("antifire", "antipoison", "antidote", "anti-venom"), sort_key=_potion_sort_key),
         Section("Energy & stamina", _is_potion_family("energy potion", "super energy", "stamina potion"), sort_key=_potion_sort_key),
         Section("Other potions",
-                _is_potion_family("zamorak brew", "guthix rest", "ancient brew", "forgotten brew", "battlemage", "bastion potion", "compost potion", "fishing potion", "hunter potion", "agility potion"),
+                _is_potion_family("zamorak brew", "guthix rest", "ancient brew", "forgotten brew", "battlemage", "bastion potion", "compost potion", "fishing potion", "hunter potion", "agility potion", "relicym's balm"),
                 sort_key=_potion_sort_key),
         Section("Cape & pet", _name_in({
             "Herblore cape", "Herblore cape(t)", "Herblore hood", "Herbi",
