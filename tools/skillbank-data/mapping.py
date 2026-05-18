@@ -410,15 +410,39 @@ _PIZZAS = {"Plain pizza", "Meat pizza", "Anchovy pizza", "Pineapple pizza"}
 _STEWS = {"Stew", "Curry", "Spicy stew"}
 _CAKES = {"Cake", "Chocolate cake", "Slice of cake", "Chocolate slice"}
 _BREADS = {"Bread", "Bread dough", "Sweetcorn", "Pitta bread"}
-_GNOMEFOOD = {  # gnome cocktails / drinks etc
+_GNOMEFOOD = {  # gnome cocktails / drinks / food
+    # Crunchies + battas (canonical finished products)
     "Worm crunchies", "Chocchip crunchies", "Spicy crunchies", "Toad crunchies",
     "Choc-ice", "Frog spawn", "Worm hole", "Veg ball",
     "Tangled toad's legs", "Worm batta", "Toad batta", "Cheese+tom batta",
-    "Fruit batta", "Vegetable batta", "Premade w'm batta", "Premade ch ball",
-    "Gnomebowl", "Wizard blizzard", "Short green guy", "Drunk dragon",
+    "Fruit batta", "Vegetable batta",
+    "Gnomebowl", "Chocolate bomb",
+    # Cocktail finished products
+    "Wizard blizzard", "Short green guy", "Drunk dragon",
     "Choc saturday", "Blurberry special", "Pineapple punch", "Fruit blast",
-    "Premade fr blast", "Premade p punch", "Premade choc s'dy",
-    "Premade w' blizz", "Premade dr' dragon", "Premade s g g",
+    # Premade variants (cooking inventory items)
+    "Premade w'm batta", "Premade ch ball", "Premade fr blast",
+    "Premade p punch", "Premade choc s'dy", "Premade w' blizz",
+    "Premade dr' dragon", "Premade s g g", "Premade blurb' sp.",
+    "Premade sgg", "Premade fr' blast", "Premade p' punch",
+    # Bartending base spirits + tools
+    "Vodka", "Whisky", "Gin", "Brandy",
+    "Cocktail guide", "Cocktail shaker", "Cocktail glass",
+    # Toad / worm / leg gnome ingredients
+    "Swamp toad", "Toad's legs", "Equa toad's legs", "Spicy toad's legs",
+    "Seasoned legs", "Spicy worm", "King worm",
+    # Gnome cooking tools/intermediates
+    "Batta tin", "Crunchy tray", "Gnomebowl mould",
+    "Gianne's cook book", "Gnome spice", "Gianne dough",
+    "Odd gnomebowl", "Burnt gnomebowl", "Half baked bowl", "Raw gnomebowl",
+    "Unfinished bowl", "Odd crunchies", "Burnt crunchies",
+    # Fruit chunks/slices/rings for cocktails
+    "Lemon chunks", "Lemon slices",
+    "Orange chunks", "Orange slices",
+    "Pineapple chunks", "Pineapple ring",
+    "Lime", "Lime chunks", "Lime slices",
+    # Other gnome ingredients
+    "Equa leaves", "Dwellberries",
 }
 
 
@@ -778,7 +802,11 @@ COOKING = TabSpec(
         Section("Stews & curries", _name_in(_STEWS)),
         Section("Cakes", _name_in(_CAKES)),
         Section("Breads", _name_in(_BREADS)),
-        Section("Gnome food", _name_in(_GNOMEFOOD)),
+        Section("Gnome food / cocktails", _or(
+            _name_in(_GNOMEFOOD),
+            _name_starts("Premade "),
+            _name_starts("Unfinished cocktail"),
+        )),
         Section("Beverages", _name_in({
             "Beer", "Asgarnian ale", "Dwarven stout", "Wizard's mind bomb",
             "Bandit's brew", "Cider", "Mature cider",
@@ -805,6 +833,11 @@ COOKING = TabSpec(
                 "Stripy feather", "Garlic", "Lobster pot", "Salt", "Spice",
                 "Pat of butter", "Chocolate bar", "Chocolate dust",
                 "Honeycomb", "Egg shell",
+                # session 8 additions
+                "Grain", "Redberries", "Cheese", "Grapes",
+                "Chocolatey milk", "Empty cup",
+                "Half full wine jug", "Jug of bad wine", "Unfermented wine",
+                "Incomplete stew", "Uncooked stew", "Uncooked curry",
             })),
         ),
         Section("Misc cooked food", _or(
@@ -989,6 +1022,7 @@ CRAFTING = TabSpec(
         })),
         Section("Misc crafting materials", _name_in({
             "Charcoal", "Bones (Crafting)",
+            "Raw swamp paste", "Swamp paste",
         })),
         Section("Pottery", _name_in({
             "Soft clay", "Clay", "Unfired bowl", "Unfired pie dish",
@@ -1284,6 +1318,7 @@ HUNTER = TabSpec(
             "Swamp lizard", "Orange salamander", "Red salamander",
             "Black salamander", "Tecu salamander",
             "Guam tar", "Marrentill tar", "Tarromin tar", "Harralander tar",
+            "Swamp tar",
         })),
         Section("Bait", _name_in({
             "Raw chompy", "Raw bird meat", "Raw beast meat",

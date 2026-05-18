@@ -542,7 +542,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26996  (not in wiki canonical set)
    28323  Siren's staff
 
-=== cooking (83 items not in wiki output) ===
+=== cooking (64 items not in wiki output) ===
      343  Burnt fish
      357  Burnt fish
      367  Burnt fish
@@ -550,27 +550,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
     1895  (not in wiki canonical set)
     1899  (not in wiki canonical set)
     1901  (not in wiki canonical set)
-    1951  Redberries
     1971  Kebab
-    1977  Chocolatey milk
     1979  (not in wiki canonical set)
-    1985  Cheese
-    1987  Grapes
-    1989  Half full wine jug
-    1991  Jug of bad wine
-    2001  Uncooked stew
-    2009  Uncooked curry
-    2110  Orange chunks
-    2112  Orange slices
-    2150  Swamp toad
-    2152  Toad's legs
-    2154  Equa toad's legs
-    2156  Spicy toad's legs
-    2158  Seasoned legs
-    2160  Spicy worm
-    2162  King worm
-    2164  Batta tin
-    2166  Gnomebowl mould
     2168  (not in wiki canonical set)
     2170  (not in wiki canonical set)
     2172  (not in wiki canonical set)

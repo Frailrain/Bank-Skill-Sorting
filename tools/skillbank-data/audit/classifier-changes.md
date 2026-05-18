@@ -423,3 +423,35 @@ Chopped tomato/onion/ugthanki, Onion&tomato / Ugthanki&onion /
 Ugthanki&tomato, Kebab mix, Ugthanki kebab.
 
 **Affects**: ~10 items.
+
+---
+
+## Session 8 (audit IDs 1901–2200)
+
+### COOKING — major gnome cocktail/food expansion
+
+`_GNOMEFOOD` constant grew from ~30 to ~75 names. Now covers:
+- All bartending base spirits (Vodka, Whisky, Gin, Brandy).
+- Cocktail tools (Cocktail guide / shaker / glass).
+- Toad/leg gnome ingredients (Swamp toad, Toad's legs variants, Spicy/King worm).
+- Gnome cooking tools/intermediates (Batta tin, Crunchy tray, Gnomebowl mould, Gianne's cook book, Gnome spice, Gianne dough, Odd/Burnt/Half baked/Raw gnomebowl, Unfinished bowl, Odd/Burnt crunchies).
+- Fruit chunks/slices/rings (Lemon/Orange/Pineapple/Lime).
+- Lime, Equa leaves, Dwellberries.
+
+### COOKING "Gnome food / cocktails" section — broader match
+
+**Before**: `_name_in(_GNOMEFOOD)` only.
+
+**After**: OR with `_name_starts("Premade ")` and `_name_starts("Unfinished cocktail")` to catch every Premade-X and Unfinished-cocktail variant without enumerating each.
+
+### COOKING Raw meat & ingredients — additions
+
++ Grain, Redberries, Cheese, Grapes, Chocolatey milk, Empty cup, Half full wine jug, Jug of bad wine, Unfermented wine, Incomplete stew, Uncooked stew, Uncooked curry.
+
+### HUNTER Salamanders — `Swamp tar`
+
+Used to make hunter tar variants.
+
+### CRAFTING Misc crafting materials — Raw swamp paste / Swamp paste
+
+Crafting recipe ingredients.

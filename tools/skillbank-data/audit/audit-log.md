@@ -10,8 +10,9 @@
 - **Reviewed in session 5**: IDs 1001–1300 (134 items)
 - **Reviewed in session 6**: IDs 1301–1600 (179 items)
 - **Reviewed in session 7**: IDs 1601–1900 (155 items)
-- **Reviewed cumulative**: 1054 (8.9%)
-- **Resume from**: ID 1901
+- **Reviewed in session 8**: IDs 1901–2200 (140 items)
+- **Reviewed cumulative**: 1194 (10.1%)
+- **Resume from**: ID 2201
 
 ## Decision codes
 
@@ -845,6 +846,104 @@ See `audit/classifier-changes.md` "Session 6".
 
 See `audit/classifier-changes.md` "Session 7".
 
+---
+
+## Session 8: IDs 1901–2200
+
+This batch is overwhelmingly cooking food / ingredient items. Many were unclassified because finite name lists didn't cover them.
+
+### Burnt cake + basic cooking items
+
+- `1903 Burnt cake` — OK (`cooking`).
+- `1905 Asgarnian ale`, `1907 Wizard's mind bomb`, `1913 Dwarven stout`, `1915 Grog`, `1917 Beer`, `1919 Beer glass` — OK (6 items, `cooking`).
+- `1909 Greenman's ale` — EX. RFD quest variant.
+- `1911 Dragon bitter` — EX. Dragon Slayer quest beverage.
+
+### Container utilities
+
+- `1921 Bowl of water`, `1923 Bowl`, `1925 Bucket`, `1927 Bucket of milk`, `1929 Bucket of water`, `1931 Pot`, `1933 Pot of flour`, `1935 Jug`, `1937 Jug of water` — OK (9 items).
+- `1939 Swamp tar` — **ADD hunter** (used in hunter tars: Guam/Marrentill/Tarromin/Harralander tar). Currently unclassified. Add to hunter Salamanders section.
+- `1940 Raw swamp paste`, `1941 Swamp paste` — **ADD crafting** (used in crafting recipes). 2 items unclassified.
+
+### Basic ingredients
+
+- `1942 Potato`, `1944 Egg`, `1946 Flour`, `1949 Chef's hat`, `1953 Pastry dough`, `1955 Cooking apple`, `1957 Onion`, `1963 Banana`, `1965 Cabbage`, `1973 Chocolate bar`, `1975 Chocolate dust`, `1982 Tomato`, `1993 Jug of wine`, `2003 Stew`, `2005 Burnt stew`, `2011 Curry`, `2013 Burnt curry`, `2007 Spice` — OK (~18 items, all in `cooking`).
+- `1947 Grain` — **ADD cooking** (milled into flour). Currently unclassified.
+- `1951 Redberries` — **ADD cooking** (used in pies). Currently unclassified.
+- `1959 Pumpkin` — OK (`misc`). Holiday rare.
+- `1961 Easter egg` — OK (`misc`).
+- `1967 Cabbage` (dup) — LOG (canonical at 1965).
+- `1969 Spinach roll` — **ADD cooking**.
+- `1971 Kebab` — **ADD cooking**.
+- `1977 Chocolatey milk` — **ADD cooking**.
+- `1978 Cup of tea` (dup of 712) — LOG.
+- `1980 Empty cup` — **ADD cooking** (container).
+- `1984 Rotten apple` — EX.
+- `1985 Cheese` — **ADD cooking**.
+- `1987 Grapes` — **ADD cooking**.
+- `1989 Half full wine jug` — **ADD cooking**.
+- `1991-1992 Jug of bad wine` — **ADD cooking** (the failed cooking-XP product).
+- `1995-1996 Unfermented wine` — **ADD cooking**.
+- `1997 Incomplete stew` — **ADD cooking**.
+- `2001 Uncooked stew` — **ADD cooking**.
+- `2009 Uncooked curry` — **ADD cooking**.
+
+### Gnome cocktails & food
+
+A huge family. ~40 items in this batch.
+
+- `2015-2021 Vodka, Whisky, Gin, Brandy` — **ADD cooking** (gnome bartending base spirits). Currently unclassified.
+- `2023 Cocktail guide`, `2025 Cocktail shaker`, `2026 Cocktail glass` — **ADD cooking**. Bartending utensils.
+- `2028-2040 Premade <cocktail>` (×7) — partial OK (some matched gnome food, others not). All should be cooking. **Fix**: tighten gnome cocktail pattern.
+- `2042-2086 Unfinished cocktail` variants (×7 distinct IDs) — **ADD cooking** (intermediate states; players don't bank but the IDs exist).
+- `2048 Pineapple punch`, `2054 Wizard blizzard`, `2064 Blurberry special`, `2074 Choc saturday`, `2080 Short green guy`, `2084 Fruit blast`, `2092 Drunk dragon` — OK (7 items, in cooking gnome food list).
+- `2094 Odd cocktail` — EX. Random gnome quest outcome.
+
+### Fruit chunks/slices/rings
+
+- `2102 Lemon`, `2108 Orange`, `2114 Pineapple` — OK (`cooking`).
+- `2104-2124 Lemon/Orange/Pineapple/Lime chunks/slices/rings` (~10 items) — **ADD cooking**. Gnome bartending ingredients.
+- `2120 Lime` — **ADD cooking**.
+
+### Meat (raw/cooked/burnt)
+
+- `2132-2146 Raw beef/rat/bear/chicken, Cooked chicken/meat, Burnt chicken/meat` — OK (8 items, `cooking`).
+- `2134 Raw rat meat` — OK (`cooking;hunter`).
+- `2126 Dwellberries` — **ADD cooking** (used in pies/Underground Pass).
+- `2128 Equa leaves` — **ADD cooking** (gnome ingredient).
+- `2130 Pot of cream` — OK (`cooking`).
+
+### Karamja Lava eel + gnome food output
+
+- `2148 Raw lava eel` — OK (`cooking;fishing`).
+- `2149 Lava eel` — OK (`melee;range;mage;cooking;fishing`). Combat food cross-tag.
+
+### Gnome cooking ingredients (toads, worms)
+
+- `2150 Swamp toad` — **ADD cooking** (gnome ingredient).
+- `2152 Toad's legs`, `2154 Equa toad's legs`, `2156 Spicy toad's legs`, `2158 Seasoned legs` — **ADD cooking** (4 items).
+- `2160 Spicy worm`, `2162 King worm` — **ADD cooking** (2 items).
+
+### Gnome cooking tools/intermediates
+
+- `2164 Batta tin`, `2165 Crunchy tray`, `2166 Gnomebowl mould`, `2167 Gianne's cook book`, `2169 Gnome spice` — **ADD cooking** (5 items).
+- `2171 Gianne dough`, `2173 Odd gnomebowl`, `2175 Burnt gnomebowl`, `2177 Half baked bowl`, `2178 Raw gnomebowl`, `2179 Unfinished bowl`, `2185 Chocolate bomb`, `2187 Tangled toad's legs`, `2189 Unfinished bowl`, `2191 Worm hole`, `2193 Unfinished bowl`, `2195 Veg ball`, `2197 Odd crunchies`, `2199 Burnt crunchies` — **ADD cooking** for the unclassified ones.
+
+---
+
+## Session 8 totals
+
+- Items reviewed: 140
+- OK (correct as-is): 56
+- EX (correctly excluded): 6
+- ADD (missing tab, fixed): 76 (massive expansion of cooking — gnome bartending/cocktails, fruit slices/chunks, intermediate states, toad/worm gnome ingredients, etc.)
+- REM (misclassified, fixed): 0
+- LOG (deferred): 2 (Cabbage dup, Cup of tea dup — canonical-filter dupes)
+
+## Classifier changes made in session 8
+
+See `audit/classifier-changes.md` "Session 8".
+
 ## Resume marker
 
-**Next session: start from ID 1901.**
+**Next session: start from ID 2201.**
