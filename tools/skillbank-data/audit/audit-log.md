@@ -12,8 +12,9 @@
 - **Reviewed in session 7**: IDs 1601–1900 (155 items)
 - **Reviewed in session 8**: IDs 1901–2200 (140 items)
 - **Reviewed in session 9**: IDs 2201–2500 (159 items)
-- **Reviewed cumulative**: 1353 (11.4%)
-- **Resume from**: ID 2501
+- **Reviewed in session 10**: IDs 2501–2800 (166 items)
+- **Reviewed cumulative**: 1519 (12.8%)
+- **Resume from**: ID 2801
 
 ## Decision codes
 
@@ -1048,6 +1049,77 @@ See `audit/classifier-changes.md` "Session 8".
 
 See `audit/classifier-changes.md` "Session 9".
 
+---
+
+## Session 10: IDs 2501–2800
+
+### D'hide armour variants + leather
+
+- `2501 Red d'hide body`, `2503 Black d'hide body`, `2505 Blue dragon leather`, `2507 Red dragon leather`, `2509 Black dragon leather` — OK (5 items).
+
+### Misc dups + clue prep
+
+- `2511 Logs`, `2513 Dragon chainbody`, `2514 Raw shrimps`, `2516 Pot of flour`, `2518 Rotten tomato` — EX (dups / quest variants).
+- `2520-2526 Brown/White/Black/Grey toy horsey` — EX (4 items, holiday cosmetic toys).
+- `2528 Lamp`, `2529 Dead orb` — EX.
+- `2530 Bones` — LOG (canonical dup of 526).
+
+### Fire arrows
+
+- `2532-2540 Iron/Steel/Mithril/Adamant/Rune fire arrow` — OK (5 items, `range;wc_fletching`).
+
+### Rings (utility/teleport)
+
+- `2550 Ring of recoil` — **ADD misc**. Defensive ring kept for PvM.
+- `2552-2566 Ring of dueling(1..8)` — **ADD misc**. 7 charge variants of the duel arena teleport ring. Currently all unclassified. **Fix**: add to misc Teleport jewellery.
+- `2568 Ring of forging` — **ADD mining_smithing** (used in iron smithing). Currently unclassified.
+- `2570 Ring of life` — **ADD misc**. Defensive teleport ring.
+- `2572 Ring of wealth` — OK (`misc`).
+
+### Clue tools (verified)
+
+- `2574 Sextant`, `2575 Watch`, `2576 Chart` — OK (`misc`).
+
+### Treasure trail reward gear
+
+- `2577 Ranger boots` — **REM melee**, **ADD range**. Range boots with melee-defence stats; classifier picked up via slot_pred. **Fix**: force_exclude on MELEE Boots + add to RANGE Boots force_include.
+- `2579 Wizard boots` — OK (`mage`).
+- `2581 Robin hood hat` — **REM melee**, **ADD range**. Same pattern as Ranger boots.
+- `2583-2629 (t)/(g) trim/gold armour variants` (~24 items) — EX. Noise-filter excludes `(t)` and `(g)` suffixes by design. Treasure trail cosmetic; players who want these can re-tag.
+
+### Clue scroll cosmetics
+
+- `2631 Highwayman mask` — OK (`misc`).
+- `2633-2643 Blue/Black/White beret, Tan/Dark/Black cavalier` — EX (6 items). Clue cosmetic hats; not banked long-term.
+- `2645-2649 Red/Black/Brown headband` — EX (3 items). Same.
+- `2651 Pirate's hat` — EX. Clue cosmetic.
+
+### God armour (Saradomin/Guthix/Zamorak rune-tier)
+
+- `2653-2675 Zamorak/Saradomin/Guthix platebody/platelegs/full helm/kiteshield` — OK (12 items, `melee;mining_smithing`). Smithing reward + melee gear.
+
+### Clue scrolls (canonical dedup)
+
+- `2677 Clue scroll (easy)` — OK (`misc`).
+- `2722 Clue scroll (hard)` — OK (`misc`).
+- `2678-2716, 2723-2799 Clue scroll (easy/hard) ×~50 dups` — LOG. Wiki canonical filter dedupes by name; all variants of "Clue scroll (easy)" with different IDs are treated as one. This is correct behaviour — players see them as identical items.
+- `2714-2715 Casket (easy) ×2`, `2749-2756 Sliding piece ×7`, `2795 Puzzle box (hard)` — EX. Clue puzzle intermediates.
+
+---
+
+## Session 10 totals
+
+- Items reviewed: 166
+- OK (correct as-is): 33
+- EX (correctly excluded): 50 (mostly clue cosmetic + canonical-filter dedup non-canonicals)
+- ADD (missing tab, fixed): 12 (Ring of recoil, Ring of dueling ×7, Ring of forging, Ring of life, Ranger boots, Robin hood hat to range)
+- REM (misclassified, fixed): 2 (Ranger boots, Robin hood hat from melee)
+- LOG (deferred): 70+ (massive clue-scroll canonical dups; bones dup)
+
+## Classifier changes made in session 10
+
+See `audit/classifier-changes.md` "Session 10".
+
 ## Resume marker
 
-**Next session: start from ID 2501.**
+**Next session: start from ID 2801.**

@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (203 items not in wiki output) ===
+=== melee (205 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -43,6 +43,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2495  Red d'hide chaps
     2497  Black d'hide chaps
     2572  Ring of wealth
+    2577  Ranger boots
+    2581  Robin hood hat
     5013  (not in wiki canonical set)
     5680  (not in wiki canonical set)
     5698  (not in wiki canonical set)
@@ -825,12 +827,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
    21043  Kodai insignia
    21046  Ancient tablet
 
-=== mining_smithing (50 items not in wiki output) ===
+=== mining_smithing (49 items not in wiki output) ===
        2  Steel cannonball
      764  (not in wiki canonical set)
      766  (not in wiki canonical set)
     1913  Dwarven stout
-    2568  Ring of forging
     3211  Limestone
     5751  Axeman's folly
     6981  (not in wiki canonical set)

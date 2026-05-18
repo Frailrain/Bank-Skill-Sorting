@@ -623,7 +623,7 @@ MELEE = TabSpec(
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
-                force_exclude=["Khazard helmet"]),
+                force_exclude=["Khazard helmet", "Robin hood hat"]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
                 force_exclude=["Khazard armour", "Studded body", "Carnillean armour"]
@@ -634,7 +634,8 @@ MELEE = TabSpec(
                 force_exclude=[n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
-                force_exclude=[n for n in _MIME_OUTFIT if "boots" in n.lower()]),
+                force_exclude=[n for n in _MIME_OUTFIT if "boots" in n.lower()]
+                + ["Ranger boots"]),
         Section("Gloves", _slot_pred("hands"),
                 force_exclude=_SKILLING_GAUNTLETS
                 + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
@@ -680,10 +681,12 @@ RANGE = TabSpec(
         Section("D'hide armour", lambda it: bool(_DHIDE_PIECE_RE.search(it.get("name") or ""))),
         Section("Raw dragonhide (cross-tag with crafting)",
                 lambda it: bool(_DRAGONHIDE_RAW_RE.search(it.get("name") or ""))),
-        Section("Helmets", _is_range_armour_slot("head")),
+        Section("Helmets", _is_range_armour_slot("head"),
+                force_include=["Robin hood hat"]),
         Section("Body", _is_range_armour_slot("body")),
         Section("Legs", _is_range_armour_slot("legs")),
-        Section("Boots", _is_range_armour_slot("feet")),
+        Section("Boots", _is_range_armour_slot("feet"),
+                force_include=["Ranger boots"]),
         Section("Gloves", _is_range_armour_slot("hands")),
         Section("Shields", _is_range_armour_slot("shield")),
         Section("Capes", _is_range_armour_slot("cape"),
@@ -1096,7 +1099,7 @@ MINING_SMITHING = TabSpec(
         Section("Mining tools & bags", _name_in({
             "Hammer", "Imcando hammer", "Chisel",
             "Coal bag", "Gem bag", "Open gem bag", "Ore pack",
-            "Goldsmith gauntlets",
+            "Goldsmith gauntlets", "Ring of forging",
         })),
         Section("Ores", _is_ore, sort_key=_ore_sort_key),
         Section("Bars", _is_bar, sort_key=_bar_sort_key),
@@ -1421,6 +1424,11 @@ MISC = TabSpec(
             "Burning amulet(5)", "Burning amulet(4)", "Burning amulet(3)",
             "Burning amulet(2)", "Burning amulet(1)",
             "Xeric's talisman",
+            # Duel arena + utility rings
+            "Ring of dueling(8)", "Ring of dueling(7)", "Ring of dueling(6)",
+            "Ring of dueling(5)", "Ring of dueling(4)", "Ring of dueling(3)",
+            "Ring of dueling(2)", "Ring of dueling(1)",
+            "Ring of recoil", "Ring of life",
         })),
         Section("Teleport tabs", _or(
             _and(_name_ends(" teleport"), _not(_name_contains("scroll"))),

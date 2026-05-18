@@ -481,3 +481,33 @@ Hazeel Cult quest cosmetic, not real combat gear.
 ### PRAYER Quest-related prayer items — removed `Diary`
 
 Too generic; Hazeel Cult quest diary etc. is not a prayer item. The `name_starts("Book of ")` and `Unholy/Holy book` patterns still catch real prayer books.
+
+---
+
+## Session 10 (audit IDs 2501–2800)
+
+### MISC Teleport jewellery — Ring of dueling family + utility rings
+
++ `Ring of dueling(1..8)` (8 charge variants).
++ `Ring of recoil`, `Ring of life` (defensive teleport rings).
+
+**Affects**: 10 items.
+
+### MINING_SMITHING Mining tools & bags — `Ring of forging`
+
+Used in iron smelting (doubles success rate).
+
+### MELEE Boots — `Ranger boots` force_exclude
+
+Treasure trail range-spec boots; classifier picked up via melee-leaning defence stats.
+
+### MELEE Helmets — `Robin hood hat` force_exclude
+
+Same pattern — clue range-spec hat.
+
+### RANGE Boots / Helmets — force_include for ranger gear
+
++ Ranger boots in RANGE Boots.
++ Robin hood hat in RANGE Helmets.
+
+**Affects**: 2 items REM from melee, 2 items ADD to range.
