@@ -422,8 +422,8 @@ def _bar_sort_key(it): return (_BARS.get(it["name"], 999), it["id"])
 # ── Herb helpers ───────────────────────────────────────────────────────────
 
 _HERBS = [
-    "Guam", "Marrentill", "Tarromin", "Harralander", "Ranarr",
-    "Toadflax", "Spirit weed", "Irit", "Avantoe", "Kwuarm",
+    "Guam leaf", "Marrentill", "Tarromin", "Harralander", "Ranarr weed",
+    "Toadflax", "Spirit weed", "Irit leaf", "Avantoe", "Kwuarm",
     "Snapdragon", "Cadantine", "Lantadyme", "Dwarf weed", "Torstol",
 ]
 _HERB_LEVELS = {name: i + 1 for i, name in enumerate(_HERBS)}
@@ -441,7 +441,12 @@ def _is_clean_herb(it):
 
 def _herb_sort_key(it):
     n = it.get("name", "").replace("Grimy ", "")
-    return (_HERB_LEVELS.get(n, 999), it["id"])
+    # Grimy items lower-case the herb word ("Grimy guam leaf"); canonical
+    # clean herbs are capitalised ("Guam leaf"). Match either form.
+    return (
+        _HERB_LEVELS.get(n, _HERB_LEVELS.get(n[:1].upper() + n[1:], 999)),
+        it["id"],
+    )
 
 
 # ── Farming helpers ────────────────────────────────────────────────────────
@@ -545,9 +550,11 @@ MELEE = TabSpec(
                 sort_key=_melee_weapon_sort_key,
                 force_include=["Dragon pickaxe"]),
         Section("Helmets", _slot_pred("head"),
-                force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower())),
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
+                force_exclude=["Khazard helmet"]),
         Section("Body armour", _slot_pred("body"),
-                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard")))),
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
+                force_exclude=["Khazard armour"]),
         Section("Legs", _slot_pred("legs"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt")))),
         Section("Boots", _slot_pred("feet")),
@@ -767,7 +774,10 @@ WC_FLETCHING = TabSpec(
             "Bronze limbs", "Iron limbs", "Steel limbs", "Mithril limbs",
             "Adamantite limbs", "Runite limbs", "Dragon limbs",
         })),
-        Section("Bolt tips", _name_ends(" bolt tips")),
+        Section("Bolt tips", _or(
+            _name_ends(" bolt tips"),
+            _name_in({"Barb bolttips"}),  # historical no-space plural
+        )),
         Section("Bolts (unfinished)", _name_ends(" bolts (unf)")),
         Section("Bolts (finished)", _and(_name_ends(" bolts"),
                                           _not(_name_contains("(unf)")))),
@@ -827,6 +837,9 @@ FISHING = TabSpec(
             "Spirit flakes", "Soaked page", "Tackle box", "Fish barrel",
             "Tome of water (empty)", "Tome of water",
         })),
+        Section("Fishing potions (cross-tag)",
+                _is_potion_family("fishing potion"),
+                sort_key=_potion_sort_key),
         Section("Cape & pet", _name_in({"Fishing cape", "Fishing cape(t)", "Fishing hood", "Heron"})),
     ],
 )
@@ -980,6 +993,12 @@ HERBLORE = TabSpec(
             "Jangerberries", "Potato cactus", "Crushed gem",
             "Lava scale shard", "Cave nightshade", "Poison ivy berries",
             "Caviar", "Dragon scale dust",
+            # audit session 1 additions
+            "Unicorn horn", "Unicorn horn dust",
+            "Blue dragon scale", "Red dragon scale", "Green dragon scale",
+            "Black dragon scale", "Mithril dragon scale",
+            "Weapon poison", "Weapon poison(+)", "Weapon poison(++)",
+            "Weapon poison (unf)", "Weapon poison(+) (unf)", "Weapon poison(++) (unf)",
         })),
         Section("Unfinished potions", _name_ends(" potion (unf)")),
         Section("Attack potions", _is_potion_family("attack potion"), sort_key=_potion_sort_key),
@@ -990,7 +1009,7 @@ HERBLORE = TabSpec(
                 sort_key=_potion_sort_key),
         Section("Super combat", _is_potion_family("super combat", "divine super"), sort_key=_potion_sort_key),
         Section("Ranging & magic", _is_potion_family("ranging potion", "magic potion", "divine ranging", "divine magic"), sort_key=_potion_sort_key),
-        Section("Prayer & restores", _is_potion_family("prayer potion", "super restore", "sanfew", "saradomin brew"), sort_key=_potion_sort_key),
+        Section("Prayer & restores", _is_potion_family("prayer potion", "super restore", "restore potion", "sanfew", "saradomin brew"), sort_key=_potion_sort_key),
         Section("Antifire & anti-poison", _is_potion_family("antifire", "antipoison", "antidote", "anti-venom"), sort_key=_potion_sort_key),
         Section("Energy & stamina", _is_potion_family("energy potion", "super energy", "stamina potion"), sort_key=_potion_sort_key),
         Section("Other potions",
@@ -1064,7 +1083,7 @@ SLAYER = TabSpec(
         })),
         Section("Cannon", _name_in({
             "Cannon base", "Cannon stand", "Cannon barrels", "Cannon furnace",
-            "Cannonball", "Granite cannonball",
+            "Cannonball", "Granite cannonball", "Steel cannonball",
         })),
         Section("Cape & pet", _name_in({
             "Slayer cape", "Slayer cape(t)", "Slayer hood",
@@ -1311,6 +1330,10 @@ QUESTS = TabSpec(
             "Dramen staff", "Lunar staff", "Ivandis flail", "Blisterwood flail",
             "Slayer's staff", "Silverlight", "Excalibur", "Enhanced excalibur",
             "Wolfbane", "Keris", "Keris partisan", "Ectophial",
+        })),
+        Section("Quest cosmetic gear", _name_in({
+            "Khazard helmet", "Khazard armour",
+            "Fishing trophy",
         })),
         Section("Void Knight set", _name_starts("Void ")),
         Section("Fighter Torso et al.", _name_in({

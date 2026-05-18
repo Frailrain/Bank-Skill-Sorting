@@ -3,7 +3,9 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (166 items not in wiki output) ===
+=== melee (168 items not in wiki output) ===
+      74  Khazard helmet
+      75  Khazard armour
       88  Boots of lightness
     1231  (not in wiki canonical set)
     1361  Black axe
@@ -825,22 +827,9 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27028  (not in wiki canonical set)
    27030  (not in wiki canonical set)
 
-=== herblore (51 items not in wiki output) ===
-     127  Restore potion(3)
-     129  Restore potion(2)
-     131  Restore potion(1)
-     187  Weapon poison
-     235  Unicorn horn dust
-     237  Unicorn horn
-     243  Blue dragon scale
-     249  Guam leaf
-     257  Ranarr weed
-     259  Irit leaf
-    2430  Restore potion(4)
+=== herblore (38 items not in wiki output) ===
     3391  Splitbark gauntlets
-    5937  Weapon poison(+)
     5939  Weapon poison++ (unf)
-    5940  Weapon poison(++)
     6036  Plant cure
     9735  Desert goat horn
     9739  Combat potion(4)
@@ -962,8 +951,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27443  (not in wiki canonical set)
    29485  (not in wiki canonical set)
 
-=== slayer (81 items not in wiki output) ===
-       2  Steel cannonball
+=== slayer (80 items not in wiki output) ===
      985  Tooth half of key
      987  Loop half of key
      989  Crystal key
