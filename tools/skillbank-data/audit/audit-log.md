@@ -6,8 +6,9 @@
 - **Reviewed in session 1**: IDs 0–250 (145 items)
 - **Reviewed in session 2**: IDs 251–500 (145 items)
 - **Reviewed in session 3**: IDs 501–750 (177 items)
-- **Reviewed cumulative**: 467 (3.9%)
-- **Resume from**: ID 751
+- **Reviewed in session 4**: IDs 751–1000 (119 items)
+- **Reviewed cumulative**: 586 (4.9%)
+- **Resume from**: ID 1001
 
 ## Decision codes
 
@@ -461,6 +462,102 @@ See `out/classifier-changes.md` "Session 2".
 
 See `audit/classifier-changes.md` "Session 3".
 
+---
+
+## Session 4: IDs 751–1000
+
+### Gnome Restaurant / Heroes' Quest
+
+- `751 Gnomeball` — EX. Gnome Ball minigame item.
+- `753-769` (Cadava berries, Message, Cadava potion, Book, Phoenix hq key, Weapon store key, Intel report, Broken shield, Certificate) — EX (~9). Heroes' Quest items.
+- `767 Phoenix crossbow` — OK (`range`). Heroes' Quest crossbow; players keep it.
+
+### Lost City + Family Crest
+
+- `771 Dramen branch` — EX. Lost City quest item.
+- `772 Dramen staff` — OK (`melee;quests`). Lost City reward; required for fairy ring travel and used by some pures.
+- `773 'perfect' ring` — EX. Family Crest quest item, single-use.
+- `774 'perfect' necklace` — EX. Family Crest quest item.
+- `775 Cooking gauntlets` — OK (`cooking`).
+- `776 Goldsmith gauntlets` — **ADD mining_smithing**. Doubles XP for goldsmithing; banked by players training. **Fix**: add to mining_smithing tools/bags section.
+- `777 Chaos gauntlets` — **ADD mage**. Boosts chaos spell damage. Currently unclassified. **Fix**: add to mage Gloves section as force_include.
+- `778 Steel gauntlets` — **ADD melee**. Family Crest quest reward; provides melee bonus. **Fix**: add to melee Gloves force_include.
+
+### Tree Gnome Village / Watchtower / Throne of Miscellania bits
+
+- `780-799` (Crest part, Family crest, Bark sample, Translation book, Glough's journal, Hazelmere's scroll, Lumber order, Glough's key, Twigs, Daconia rock, Invasion plans, War ship, null sup, Herb bowl, Grinder, Template for cert) — EX (~15 items, all quest items).
+
+### Thrown weapons (range)
+
+- `800-805 Bronze/Iron/Steel/Mithril/Adamant/Rune thrownaxe` — OK (`range`). 6 items.
+- `806-811 Bronze/Iron/Steel/Mithril/Adamant/Rune dart` — OK (`range;wc_fletching`). 6 items.
+- `818 Poisoned dart(p)` — EX. Noise-filter-excluded as poison variant (correct per design).
+
+### Dart tips, javelins
+
+- `819-824 Bronze/Iron/Steel/Mithril/Adamant/Rune dart tip` — OK (`wc_fletching`). 6 items.
+- `825-830 Bronze/Iron/Steel/Mithril/Adamant/Rune javelin` — **ADD wc_fletching**. 6 items currently in range only; javelins ARE fletched (from javelin shaft + javelin head). Add to wc_fletching as cross-tag.
+
+### Bows + crossbow
+
+- `837 Crossbow` — OK (`range`).
+- `839-861 Longbow / Shortbow + Oak/Willow/Maple/Yew/Magic variants` — OK (12 items, all `range;wc_fletching`).
+
+### Knives (thrown)
+
+- `863-869 Iron/Bronze/Steel/Mithril/Adamant/Rune/Black knife` — OK (`range`). 7 items, thrown weapons, smithed not fletched.
+
+### Bolts + arrows
+
+- `877-881 Bronze/Opal/Pearl/Barbed bolts` — OK (`range;wc_fletching`). 4 items.
+- `882-892 Bronze/Iron/Steel/Mithril/Adamant/Rune arrow` — OK (`range;wc_fletching`). 6 items.
+
+### Skilling/utility (gap from 892 to 943)
+
+The manifest jumps — many IDs are not canonical wiki entries (skipped).
+
+### Skilling / drops / utility
+
+- `943 Worm` — **ADD hunter**. Bird snare bait. Currently unclassified.
+- `945 Throwing rope` — EX. Heroes' Quest item.
+- `946 Knife` — OK (`wc_fletching`).
+- `948 Bear fur` — **ADD crafting**. Drop used in cape crafting / some quests. Currently unclassified.
+- `950 Silk` — **ADD crafting**. Thieving drop, used in spinning wheel + leather crafting. Currently unclassified.
+- `952 Spade` — OK (`farming`).
+- `954 Rope` — **ADD misc**. Universal quest/clue tool, banked long-term. Currently unclassified.
+- `956 Flyer` — EX. Heroes' Quest item.
+- `958 Grey wolf fur` — **ADD crafting**. Drop used in some quests / crafting recipes. Currently unclassified.
+- `960 Plank` — OK (`construction`).
+- `962 Christmas cracker` — **ADD misc**. Holiday rare. Currently unclassified.
+- `964 Skull` `965 Skull` — EX (2 items). Quest / random event items.
+- `966 Tile` — EX. Construction interior tile.
+- `968 Rock` — EX. Random event drop.
+- `970 Papyrus` `972 Papyrus` — EX. Crafting paper (Mahjarrat memories); but the canonical version is in Black Knights' Fortress quest; LOG for now.
+- `973 Charcoal` — **ADD crafting**. Used for some smithing / herblore recipes. Currently unclassified.
+- `975 Machete` — **REM melee**. Karamja jungle navigation tool, not a combat weapon. **Fix**: force_exclude Machete + opal/jade/red-topaz variants on melee Weapons.
+- `977 Cooking pot` — EX. Random event tool / camping prop.
+- `979 Highwayman mask` — **ADD misc**. Holiday event cosmetic. Currently unclassified.
+- `981 Disk of returning` — EX. Random event teleport.
+- `983 Brass key` — EX. Murder Mystery key.
+- `985 Tooth half of key` `987 Loop half of key` — OK (`misc`).
+- `989 Crystal key` `991 Muddy key` `993 Sinister key` — OK (`misc`).
+- `995 Coins` — LOG. Duplicate of ID 617 ("Coins"). Wiki canonical filter dedupes; 617 is in misc, 995 isn't because not canonical. This is the same canonical-filter false-positive class flagged in session 2 (burnt fish).
+
+---
+
+## Session 4 totals
+
+- Items reviewed: 119
+- OK (correct as-is): 55
+- EX (correctly excluded): 38
+- ADD (missing tab, fixed): 16 (Goldsmith gauntlets, Chaos gauntlets, Steel gauntlets, Worm, Bear fur, Silk, Rope, Grey wolf fur, Christmas cracker, Charcoal, Highwayman mask, Javelins ×6)
+- REM (misclassified, fixed): 1 (Machete from melee)
+- LOG (deferred): 3 (Papyrus ×2, Coins duplicate)
+
+## Classifier changes made in session 4
+
+See `audit/classifier-changes.md` "Session 4".
+
 ## Resume marker
 
-**Next session: start from ID 751.**
+**Next session: start from ID 1001.**

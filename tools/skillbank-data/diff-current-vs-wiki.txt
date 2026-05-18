@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (188 items not in wiki output) ===
+=== melee (192 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -27,6 +27,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
      654  Turquoise robe bottoms
      746  Dark dagger
      747  Glowing dagger
+     975  Machete
     1231  (not in wiki canonical set)
     1361  Black axe
     1727  Amulet of magic
@@ -37,6 +38,9 @@ or should be added to force_include / variant_allowlist before flipping --additi
     6215  (not in wiki canonical set)
     6217  (not in wiki canonical set)
     6227  (not in wiki canonical set)
+    6313  Opal machete
+    6315  Jade machete
+    6317  Red topaz machete
     6522  Toktz-xil-ul
     6524  Toktz-ket-xil
     6526  Toktz-mej-tal

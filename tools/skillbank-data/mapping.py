@@ -178,7 +178,9 @@ _NOT_MELEE_WEAPON_TYPES = {
 # Gauntlets that pass the melee-gloves stat test but functionally aren't melee.
 _SKILLING_GAUNTLETS = [
     "Cooking gauntlets", "Goldsmith gauntlets", "Smithing gauntlets",
-    "Chaos gauntlets", "Family gauntlets", "Ice gauntlets", "Steel gauntlets",
+    "Chaos gauntlets", "Family gauntlets", "Ice gauntlets",
+    # Note: "Steel gauntlets" intentionally NOT here — they're defensive
+    # melee gloves (Family Crest), not a skilling utility.
 ]
 
 # Mime random event cosmetic outfit (IDs 626-664). 5 colours × 4 slots = 20 items.
@@ -191,6 +193,8 @@ _QUEST_COSMETIC_MELEE = [
     "Cattleprod", "Khazard helmet", "Khazard armour", "Khazard cell keys",
     "Dark dagger", "Glowing dagger",
     "Gnome amulet", "Beads of the dead",
+    # Machetes are navigation tools (Karamja jungle), not combat weapons.
+    "Machete", "Opal machete", "Jade machete", "Red topaz machete",
 ]
 
 
@@ -653,7 +657,8 @@ MAGE = TabSpec(
         Section("Body", _is_mage_armour_slot("body")),
         Section("Legs", _is_mage_armour_slot("legs")),
         Section("Boots", _is_mage_armour_slot("feet")),
-        Section("Gloves", _is_mage_armour_slot("hands")),
+        Section("Gloves", _is_mage_armour_slot("hands"),
+                force_include=["Chaos gauntlets"]),
         Section("Shields", _is_mage_armour_slot("shield")),
         Section("Capes", _is_mage_armour_slot("cape")),
         Section("Amulets", _is_mage_armour_slot("neck"),
@@ -811,6 +816,7 @@ WC_FLETCHING = TabSpec(
                 force_exclude=["Broken arrow"]),
         Section("Darts", _name_ends(" dart", " darts", " dart tip", " dart tips")),
         Section("Javelin parts", _name_ends(" javelin heads", " javelin shaft")),
+        Section("Javelins (cross-tag with range)", _name_ends(" javelin")),
         Section("Bird nests", _or(_name_starts("Bird nest"), _name_starts("Bird's nest"))),
         Section("Feathers (cross-tag with fishing)", _name_in({
             "Feather", "Stripy feather", "Red feather", "Blue feather",
@@ -912,6 +918,7 @@ CRAFTING = TabSpec(
             "Cowhide", "Leather", "Hard leather",
             "Snake hide", "Snakeskin", "Yak-hide", "Yak hide",
             "Soft leather", "Hardleather body",
+            "Bear fur", "Grey wolf fur", "Silk",
         })),
         Section("D'hide", _or(
             _name_ends(" dragonhide"),
@@ -921,6 +928,9 @@ CRAFTING = TabSpec(
             "Molten glass", "Empty light orb", "Light orb", "Empty fishbowl",
             "Empty vial", "Vial", "Vial of water", "Sand", "Soda ash",
             "Seaweed", "Giant seaweed",
+        })),
+        Section("Misc crafting materials", _name_in({
+            "Charcoal", "Bones (Crafting)",
         })),
         Section("Pottery", _name_in({
             "Soft clay", "Clay", "Unfired bowl", "Unfired pie dish",
@@ -972,6 +982,7 @@ MINING_SMITHING = TabSpec(
         Section("Mining tools & bags", _name_in({
             "Hammer", "Imcando hammer", "Chisel",
             "Coal bag", "Gem bag", "Open gem bag", "Ore pack",
+            "Goldsmith gauntlets",
         })),
         Section("Ores", _is_ore, sort_key=_ore_sort_key),
         Section("Bars", _is_bar, sort_key=_bar_sort_key),
@@ -1208,6 +1219,7 @@ HUNTER = TabSpec(
         Section("Bait", _name_in({
             "Raw chompy", "Raw bird meat", "Raw beast meat",
             "Raw rabbit", "Raw rat meat",
+            "Worm", "Red vine worm",
         })),
         Section("Impling jars", _is_impling, sort_key=_impling_sort_key),
         Section("Polar camo", _name_in({"Polar camo top", "Polar camo legs"})),
@@ -1326,6 +1338,13 @@ MISC = TabSpec(
             "Herb sack", "Open herb sack",
             "Plank sack", "Plant pot",
             "Fish barrel", "Seed box", "Forester's bag",
+        })),
+        Section("Utility / banked supplies", _name_in({
+            "Rope", "Chronicle",
+        })),
+        Section("Holiday rares & cosmetics", _name_in({
+            "Christmas cracker", "Highwayman mask", "Easter egg",
+            "Halloween mask", "Pumpkin", "Disk of returning",
         })),
         Section("Currency", _name_in({
             "Coins", "Platinum token", "Blood money", "Tokkul",

@@ -224,3 +224,79 @@ Also updated `_herb_sort_key` to handle case insensitivity (Grimy items lower-ca
 **After**: section with the 20 mime outfit names.
 
 **Affects**: 20 items now in misc (paired with the REM-from-combat excludes above).
+
+---
+
+## Session 4 (audit IDs 751–1000)
+
+### MELEE Weapons — Machete variants force_exclude
+
+**Before**: `_QUEST_COSMETIC_MELEE` had 8 names.
+
+**After**: + Machete, Opal machete, Jade machete, Red topaz machete (12 total). Machetes are Karamja jungle navigation tools, not combat weapons.
+
+**Affects**: 4 items removed from melee.
+
+### MELEE Gloves — `Steel gauntlets` no longer excluded
+
+**Before**: `_SKILLING_GAUNTLETS` included "Steel gauntlets".
+
+**After**: removed. Steel gauntlets are Family Crest melee defensive gloves (+6 stab/slash/crush defence), not a skilling utility like Cooking/Goldsmith/Chaos.
+
+**Affects**: Steel gauntlets (778) now classifies into melee Gloves via _slot_pred.
+
+### MAGE Gloves — `Chaos gauntlets` force_include
+
+**Before**: no force_includes.
+
+**After**: + force_include `["Chaos gauntlets"]`. Family Crest member glove that boosts chaos spell damage; canonical mage equipment.
+
+**Affects**: Chaos gauntlets (777) now in mage.
+
+### MINING_SMITHING Tools — added `Goldsmith gauntlets`
+
+**Before**: hammer / chisel / coal bag / gem bag / ore pack.
+
+**After**: + Goldsmith gauntlets (Family Crest XP-boost glove for goldsmithing).
+
+**Affects**: 1 item.
+
+### WC_FLETCHING — new "Javelins (cross-tag with range)" section
+
+**Before**: javelins were only in the range tab (auto via `_is_range_weapon_type`).
+
+**After**: new section `_name_ends(" javelin")` in wc_fletching. Javelins are fletched from heads + shaft, so the cross-tag is correct.
+
+**Affects**: 6 javelin items (Bronze..Rune) now cross-tagged.
+
+### HUNTER Bait — added `Worm`, `Red vine worm`
+
+**Before**: 5 raw meat / bait names.
+
+**After**: + Worm + Red vine worm (bird snare baits).
+
+**Affects**: 2 items.
+
+### CRAFTING Leather — added animal hides
+
+**Before**: Cowhide / Hard leather / Snake / Yak / etc.
+
+**After**: + Bear fur, Grey wolf fur, Silk.
+
+**Affects**: 3 items.
+
+### CRAFTING — new "Misc crafting materials" section
+
+**Before**: no place for Charcoal.
+
+**After**: section with Charcoal.
+
+**Affects**: 1 item.
+
+### MISC — new "Utility / banked supplies" and "Holiday rares & cosmetics" sections
+
+**Before**: rope and holiday items unclassified.
+
+**After**: Utility section (Rope, Chronicle) + Holiday section (Christmas cracker, Highwayman mask, Easter egg, Halloween mask, Pumpkin, Disk of returning).
+
+**Affects**: 8 items potentially picked up (depends on which exist in wiki canonical set).
