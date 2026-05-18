@@ -240,6 +240,13 @@ _QUEST_COSMETIC_MELEE = [
     "Machete", "Opal machete", "Jade machete", "Red topaz machete",
 ]
 
+# Splitbark armour — mage hybrid set with minor melee defence but canonically
+# magic gear. Force-exclude from melee armour sections.
+_SPLITBARK_PIECES = [
+    "Splitbark helm", "Splitbark body", "Splitbark legs",
+    "Splitbark gauntlets", "Splitbark boots",
+]
+
 
 def _is_melee_weapon(it):
     if not it.get("equipable_weapon") or _is_noise(it):
@@ -635,30 +642,31 @@ MELEE = TabSpec(
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
-                force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask"]
+                force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
-                force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top"]
+                force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))),
-                force_exclude=["Mime legs"]
+                force_exclude=["Mime legs", "Splitbark legs"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
-                force_exclude=["Ranger boots", "Mime boots"]
+                force_exclude=["Ranger boots", "Mime boots", "Splitbark boots"]
                 + [n for n in _MIME_OUTFIT if "boots" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
                 force_exclude=_SKILLING_GAUNTLETS
                 + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
-                + ["Leather vambraces", "Klank's gauntlets", "Mime gloves"]
+                + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
-        Section("Shields", _slot_pred("shield")),
+        Section("Shields", _slot_pred("shield"),
+                force_include=["Granite shield"]),
         Section("Capes", _slot_pred("cape"),
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _slot_pred("neck"),
@@ -797,6 +805,7 @@ PRAYER = TabSpec(
             "Bonemeal", "Bonemeal pot", "Bucket of slime", "Vial of milk",
             "Zogre bonemeal", "Jogre bonemeal", "Mort myre fungus",
         })),
+        Section("Shades remains", _name_ends(" remains")),
         Section("Quest-related prayer items", _name_in({
             "Ogre coffin key", "Ring of the gods", "Ring of the gods (i)",
             "Damaged book", "Book of balance", "Manual",
@@ -1061,6 +1070,7 @@ CRAFTING = TabSpec(
         Section("Misc crafting materials", _name_in({
             "Charcoal", "Bones (Crafting)",
             "Raw swamp paste", "Swamp paste",
+            "Bark", "Quicklime",
         })),
         Section("Pottery", _name_in({
             "Soft clay", "Clay", "Unfired bowl", "Unfired pie dish",
@@ -1223,7 +1233,7 @@ AGILITY_THIEVING = TabSpec(
         Section("Agility shortcut tools", _name_in({
             "Mithril grapple", "Climbing boots", "Spiked climbing boots",
             "Crystal grappling hook", "Boots of lightness",
-            "Rock-climbing boots",
+            "Rock-climbing boots", "Spiked boots",
         })),
         Section("Rogue equipment", _name_starts("Rogue ")),
         Section("Thieving accessories", _name_in({

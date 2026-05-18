@@ -552,3 +552,31 @@ Silver sickle mould.
 `_is_potion_family("energy potion", "super energy", "stamina potion", "agility potion")` + `_potion_sort_key`.
 
 **Affects**: ~16 items now cross-tag into agility_thieving (4 doses × 4 families).
+
+---
+
+## Session 12 (audit IDs 3101–3400)
+
+### New module constant `_SPLITBARK_PIECES`
+
+5 Splitbark armour piece names (helm/body/legs/gauntlets/boots).
+
+### AGILITY_THIEVING Agility shortcut tools — `Spiked boots`
+
+Used for ice-shortcut transitions.
+
+### MELEE Shields — `Granite shield` force_include
+
+Stat-wise classified as range (defence_ranged dominates), but canonically used as a melee tank shield. Cross-tag.
+
+### MELEE Helmets/Body/Legs/Gloves/Boots — Splitbark force_exclude
+
+Splitbark is hybrid mage armour with minor melee defence; canonical mage gear.
+
+### PRAYER — new "Shades remains" section
+
+`_name_ends(" remains")` catches Loar / Phrin / Riyl / Asyn / Fiyr remains (Shades of Mort'ton prayer XP items).
+
+### CRAFTING Misc crafting materials — `Bark`, `Quicklime`
+
+Crafting recipe ingredients.

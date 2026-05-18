@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (225 items not in wiki output) ===
+=== melee (230 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -65,6 +65,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2936  Purple robe top
     2938  Purple robe bottoms
     2942  Purple gloves
+    3385  Splitbark helm
+    3387  Splitbark body
+    3389  Splitbark legs
+    3391  Splitbark gauntlets
+    3393  Splitbark boots
     5013  (not in wiki canonical set)
     5680  (not in wiki canonical set)
     5698  (not in wiki canonical set)

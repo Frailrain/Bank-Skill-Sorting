@@ -14,8 +14,9 @@
 - **Reviewed in session 9**: IDs 2201–2500 (159 items)
 - **Reviewed in session 10**: IDs 2501–2800 (166 items)
 - **Reviewed in session 11**: IDs 2801–3100 (168 items)
-- **Reviewed cumulative**: 1687 (14.2%)
-- **Resume from**: ID 3101
+- **Reviewed in session 12**: IDs 3101–3400 (124 items)
+- **Reviewed cumulative**: 1811 (15.3%)
+- **Resume from**: ID 3401
 
 ## Decision codes
 
@@ -1225,6 +1226,115 @@ See `audit/classifier-changes.md` "Session 10".
 
 See `audit/classifier-changes.md` "Session 11".
 
+---
+
+## Session 12: IDs 3101–3400
+
+### Claws + climbing boots
+
+- `3101 Rune claws` — OK (`melee`).
+- `3102-3114` (Combination, IOU, Secret way map, Stone ball, Certificate) — EX (5 items, Hazeel/dwarf quest items).
+- `3105 Climbing boots` — OK (`melee;agility_thieving`). Has both tags.
+- `3107 Spiked boots` — **ADD agility_thieving**. Currently only in melee.
+
+### Granite shield + bones
+
+- `3122 Granite shield` — **ADD melee** (cross-tag). Currently only `range` due to defence_ranged dominance. Players use it as a melee tank shield.
+- `3123-3130 Shaikahan/Jogre/Burnt jogre/Pasty jogre/Marinated j' bones` — OK (5 items, all `prayer`). Burnt jogre also has cooking cross-tag.
+
+### Tribal Totem follow-on
+
+- `3135-3137 Prison key, Cell key 1, Cell key 2` — EX (3 items).
+
+### Potato cactus
+
+- `3138 Potato cactus` — OK (`herblore`).
+
+### Dragon chainbody + karambwan
+
+- `3140 Dragon chainbody` — OK (`melee;mining_smithing`).
+- `3142 Raw karambwan` — OK (`cooking;fishing`).
+- `3144 Cooked karambwan` — OK (`melee;range;mage;cooking`).
+- `3146-3148` (Poison karambwan, Cooked karambwan dup, Burnt karambwan) — partial. Burnt karambwan in cooking ✓. Poison karambwan unclassified — could ADD cooking (food that poisons player). Dup is LOG.
+- `3150 Raw karambwanji` — OK (`cooking;fishing`).
+- `3153 Karambwan paste`, `3155 Karambwanji paste` — EX (Tai Bwo Wannai consumables).
+- `3157 Karambwan vessel` — OK (`fishing`).
+
+### Monkey Madness + Monkey bones
+
+- `3161-3169` (Crafting manual, Sliced banana, Karamjan rum ×2, Monkey corpse/skin, Seaweed sandwich, Stuffed monkey) — EX (8 items, most are quest).
+- `3179-3186 Small ninja monkey bones, Medium ninja monkey bones, Gorilla bones, Bearded gorilla bones, Monkey bones, Small zombie monkey bones, Large zombie monkey bones` — OK (7 items, all `prayer`).
+- `3177 Left-handed banana` — EX. Monkey Madness quest item.
+- `3187 Bones` — LOG. Canonical dup of 526.
+- `3188 Cleaning cloth` — EX.
+
+### Halberds
+
+- `3190-3204 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune/Dragon halberd` — OK (8 items, `melee`).
+
+### Regicide / Underground Pass II
+
+- `3206-3214` (King's message, Iorwerth's message, Crystal pendant, Sulphur, Pot of quicklime) — EX (5 items).
+- `3211 Limestone` — OK (`construction`).
+- `3213 Quicklime` — **ADD crafting** (used in construction recipes too — already covered as Limestone).
+- `3215-3224` (Ground sulphur, Barrel, Barrel bomb, Barrel of coal tar/naphtha, Naphtha mix, Strip of cloth) — EX.
+
+### Raw rabbit + cooking
+
+- `3226 Raw rabbit` — OK (`cooking;hunter`).
+- `3228 Cooked rabbit` — OK (`cooking`).
+- `3230 Big book of bangs` — EX.
+
+### Misc + Mountain Daughter / Troll Stronghold
+
+- `3231 Symbol` — EX (cosmetic/quest variant).
+- `3239 Bark` — **ADD crafting** (Splitbark material). Currently unclassified.
+- `3261-3273` (Goutweed, Troll thistle, Dried/Ground thistle, Troll potion, Drunk parrot, Dirty robe, Fake man, Storeroom key, Alco-chunks, Compost bin, Spell) — EX (~12 items, all quest items).
+
+### Vampyric quest content
+
+- `3325 Vampyre dust` — EX. Vampyre Slayer quest residue.
+
+### Snelms (snail helmets)
+
+- `3327-3343 Myre/Blood'n'tar/Ochre/Bruise blue/Broken bark snelm + pointed variants` — OK (9 items, all `melee`). Tai Bwo Wannai helmets with defence stats.
+
+### Snail materials
+
+- `3345-3373 Blamish shells + Thin/Lean/Fat snail/snail meat` — EX (~13 items). Tai Bwo Wannai snail intermediates / Slayer drops, not banked long-term.
+- `3375 Burnt snail` — OK (`cooking`).
+- `3377 Sample bottle` — EX.
+
+### Slimy eels (Mort'ton)
+
+- `3379 Raw slimy eel` — OK (`cooking;fishing`).
+- `3381 Cooked slimy eel` — OK (`melee;range;mage;cooking`).
+- `3383 Burnt eel` — OK (`cooking`).
+
+### Splitbark armour
+
+- `3385-3393 Splitbark helm/body/legs/gauntlets/boots` — **REM melee** (5 items). Splitbark is canonical mage armour (gives prayer bonus, magic defence + minor melee defence). Currently `melee;mage` — should be `mage` only. **Fix**: force_exclude Splitbark pieces from MELEE Helmets/Body/Legs/Gloves/Boots.
+
+### Diary + Shades remains
+
+- `3395 Diary` — EX (Hazeel-style quest diary; session 9's fix removed Diary from prayer).
+- `3396 Loar remains`, `3398 Phrin remains`, `3400 Riyl remains` — **ADD prayer**. Shades of Mort'ton remains used for prayer XP. Currently unclassified.
+
+---
+
+## Session 12 totals
+
+- Items reviewed: 124
+- OK (correct as-is): 47
+- EX (correctly excluded): 50
+- ADD (missing tab, fixed): 12 (Spiked boots agility, Granite shield melee, Bark crafting, Quicklime crafting, Loar/Phrin/Riyl remains prayer ×3, Poison karambwan cooking)
+- REM (misclassified, fixed): 5 (Splitbark armour ×5 from melee)
+- LOG (deferred): 2 (Bones 3187 dup, Cooked karambwan 3147 dup)
+
+## Classifier changes made in session 12
+
+See `audit/classifier-changes.md` "Session 12".
+
 ## Resume marker
 
-**Next session: start from ID 3101.**
+**Next session: start from ID 3401.**
