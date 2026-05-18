@@ -817,6 +817,9 @@ PRAYER = TabSpec(
             "Holy wrench", "Bonecrusher", "Bonecrusher necklace",
             "Hand of glory", "Prayer cape", "Prayer cape(t)", "Prayer hood",
         })),
+        Section("Pyre log oils",
+                _is_potion_family("olive oil", "sacred oil"),
+                sort_key=_potion_sort_key),
         Section("Proselyte", _name_starts("Proselyte ")),
     ],
 )
@@ -1412,6 +1415,7 @@ CONSTRUCTION = TabSpec(
             "Steel bar", "Marble block", "Magic stone", "Gold leaf",
             "Mahogany table", "Servant's moneybag",
             "Clockwork", "Empty oak cape rack",
+            "Fine cloth", "Flamtaer hammer",
         })),
         Section("POH portals & telescopes",
                 _or(_name_starts("Teleport to "),
@@ -1488,10 +1492,20 @@ MISC = TabSpec(
         )),
         Section("Clue scrolls",
                 _or(_name_starts("Clue scroll"), _name_starts("Master clue"))),
-        Section("Clue tools", _name_in({
-            "Sextant", "Watch", "Chart", "Mimic kill count",
-            "Puzzle box", "Light box", "Beacon ring",
-        })),
+        Section("Clue tools", _or(
+            _name_in({
+                "Sextant", "Watch", "Chart", "Mimic kill count",
+                "Puzzle box", "Light box", "Beacon ring",
+            }),
+            # Treasure-trail colour-coded keys
+            _and(
+                _or(_name_starts("Bronze key "), _name_starts("Steel key "),
+                    _name_starts("Black key "), _name_starts("Silver key ")),
+                _or(_name_ends(" red"), _name_ends(" brown"),
+                    _name_ends(" crimson"), _name_ends(" black"),
+                    _name_ends(" purple")),
+            ),
+        )),
         Section("Keys", _name_in({
             "Crystal key", "Loop half of key", "Tooth half of key",
             "Muddy key", "Mossy key", "Brimstone key", "Larran's key",

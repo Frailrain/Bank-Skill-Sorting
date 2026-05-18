@@ -1003,12 +1003,12 @@ public final class SkillBankData
 
 	private static void addPrayer(Map<String, List<Integer>> m)
 	{
-		// PRAYER — 277 items
+		// PRAYER — 285 items
 		//   Bones (93), Ashes (9), Ensouled heads (23), Prayer potions (4), Super
 		//   restores (10), Sanfew (4), Saradomin brews (4), Holy symbols (36),
 		//   Robes (monk/proselyte/initiate/druid) (19), Bone secondaries (5),
 		//   Shades remains (9), Quest-related prayer items (5), Prayer accessories
-		//   (5), Legacy (51)
+		//   (5), Pyre log oils (8), Legacy (51)
 		m.put(TAG_PRAYER, Arrays.asList(
 			// === Bones ===
 			526, 528, 530, 532, 534, 536, 2391, 2859,
@@ -1070,6 +1070,9 @@ public final class SkillBankData
 
 			// === Prayer accessories ===
 			6714, 9759, 9761, 13116, 22986,
+
+			// === Pyre log oils ===
+			3422, 3424, 3426, 3428, 3430, 3432, 3434, 3436,
 
 			// === Legacy carry-over (hand-curated items the new classifier missed) ===
 			1704, 2408, 2967, 3843, 3845, 3846, 9760, 13447,
@@ -1927,8 +1930,8 @@ public final class SkillBankData
 
 	private static void addConstruction(Map<String, List<Integer>> m)
 	{
-		// CONSTRUCTION — 110 items
-		//   Tools (4), Planks (4), Nails (7), Construction materials (10), POH
+		// CONSTRUCTION — 112 items
+		//   Tools (4), Planks (4), Nails (7), Construction materials (12), POH
 		//   portals & telescopes (2), Bench/altar (pattern) (37), Mahogany Homes
 		//   (7), POH teleports (2), Legacy (37)
 		m.put(TAG_CONSTRUCTION, Arrays.asList(
@@ -1942,8 +1945,8 @@ public final class SkillBankData
 			4819, 4820, 1539, 4821, 4822, 4823, 4824,
 
 			// === Construction materials ===
-			2353, 1761, 3211, 3420, 4692, 4703, 8558, 8786,
-			8790, 8792,
+			2353, 1761, 3211, 3420, 3470, 3678, 4692, 4703,
+			8558, 8786, 8790, 8792,
 
 			// === POH portals & telescopes ===
 			8013, 31443,
@@ -1972,11 +1975,11 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 309 items
+		// MISC — 329 items
 		//   Teleport jewellery (52), Teleport tabs (68), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (8), Clue
-		//   tools (5), Keys (12), Storage bags (6), Utility / banked supplies (2),
-		//   Holiday rares & cosmetics (16), Currency (6), Legacy (72)
+		//   tools (25), Keys (12), Storage bags (6), Utility / banked supplies
+		//   (2), Holiday rares & cosmetics (16), Currency (6), Legacy (72)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
@@ -2015,7 +2018,10 @@ public final class SkillBankData
 			713, 2677, 2722, 2801, 12073, 19835, 23182, 27427,
 
 			// === Clue tools ===
-			2574, 2575, 2576, 11014, 20355,
+			3450, 3451, 3452, 3453, 3454, 3455, 3456, 3457,
+			3458, 3459, 3460, 3461, 3462, 3463, 3464, 3468,
+			2574, 2575, 2576, 3465, 3466, 3467, 3469, 11014,
+			20355,
 
 			// === Keys ===
 			989, 985, 987, 991, 993, 11942, 19677, 20756,

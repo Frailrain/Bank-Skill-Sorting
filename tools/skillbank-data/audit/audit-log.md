@@ -15,8 +15,9 @@
 - **Reviewed in session 10**: IDs 2501–2800 (166 items)
 - **Reviewed in session 11**: IDs 2801–3100 (168 items)
 - **Reviewed in session 12**: IDs 3101–3400 (124 items)
-- **Reviewed cumulative**: 1811 (15.3%)
-- **Resume from**: ID 3401
+- **Reviewed in session 13**: IDs 3401–3700 (177 items)
+- **Reviewed cumulative**: 1988 (16.7%)
+- **Resume from**: ID 3701
 
 ## Decision codes
 
@@ -1335,6 +1336,74 @@ See `audit/classifier-changes.md` "Session 11".
 
 See `audit/classifier-changes.md` "Session 12".
 
+---
+
+## Session 13: IDs 3401–3700
+
+### Shades remains + Nature Spirit Serum
+
+- `3402 Asyn remains`, `3404 Fiyr remains` — OK (`prayer`). Post-session 12 pattern fix.
+- `3406-3419 Unfinished potion + Serum 207/208 dose variants ×8` — EX. Nature Spirit quest items.
+
+### Construction materials
+
+- `3420 Limestone brick` — OK (`construction`).
+- `3422-3428 Olive oil(4..1)` — **ADD prayer** (used for blessing pyre logs / Saradomin's blessing). 4 items currently unclassified.
+- `3430-3436 Sacred oil(4..1)` — **ADD prayer**. Same family; blessed pyre log input. 4 items.
+
+### Pyre logs
+
+- `3438-3448 Pyre logs / Oak/Willow/Maple/Yew/Magic pyre logs` — OK (6 items, `wc_fletching;firemaking`).
+
+### Treasure trail clue keys (colour-coded)
+
+- `3450-3469 Bronze/Steel/Black/Silver key × red/brown/crimson/black/purple` — **ADD misc** (20 items). Treasure trail clue puzzle keys. **Fix**: add to misc Clue tools section using pattern.
+
+### Treasure trail rewards
+
+- `3470 Fine cloth` — **ADD construction** (Mahogany Homes / Carpenter unlocks). Could also be crafting. Add to construction materials.
+- `3472-3477 Black/Adamant/Rune plateskirt (t)/(g) variants` — EX (6 items, noise-filter excluded).
+- `3478-3480 Zamorak/Saradomin/Guthix plateskirt` — OK (`melee;mining_smithing`).
+- `3481-3488 Gilded platebody/platelegs/plateskirt/full helm/kiteshield` — OK (5 items, `melee;mining_smithing`).
+
+### Clue scroll IDs en masse
+
+- `3490-3618 Clue scroll (easy/hard/medium) ×100+` — LOG (canonical dedupe; all the duplicates fold into the canonical 2677/2722/2801).
+- `3619-3650 Sliding piece ×~14` — EX (clue puzzle intermediates).
+
+### Misc / Shades of Mort'ton tools
+
+- `3667 Boss helper tool` — EX. Beta / minigame helper.
+- `3678 Flamtaer hammer` — **ADD construction**. Shades of Mort'ton temple repair hammer.
+- `3680 Shoe` — EX. Random event drop.
+
+### Fremennik Trials
+
+- `3688 Unstrung lyre` — EX. Quest intermediate.
+- `3689 Lyre`, `3690 Enchanted lyre` — OK (`crafting`).
+- `3691 Enchanted lyre(1)` — LOG (charge variant of 3690).
+- `3692-3699 Branch, Golden fleece, Golden wool, Pet rock, Hunters' talisman ×2, Exotic flower, Fremennik ballad` — EX (~8 items, mostly Fremennik quest items).
+- `3696 Hunters' talisman` — OK (`runecraft`).
+
+### Forestry
+
+- `3700 Sturdy boots` — OK (`wc_fletching`).
+
+---
+
+## Session 13 totals
+
+- Items reviewed: 177
+- OK (correct as-is): 16
+- EX (correctly excluded): 25
+- ADD (missing tab, fixed): 29 (Olive oil + Sacred oil × 4 each = 8 prayer; 20 clue keys to misc; Fine cloth to construction; Flamtaer hammer to construction)
+- REM (misclassified, fixed): 0
+- LOG (deferred): 110+ (the massive clue-scroll dedupe block + sliding piece dups + Enchanted lyre(1))
+
+## Classifier changes made in session 13
+
+See `audit/classifier-changes.md` "Session 13".
+
 ## Resume marker
 
-**Next session: start from ID 3401.**
+**Next session: start from ID 3701.**

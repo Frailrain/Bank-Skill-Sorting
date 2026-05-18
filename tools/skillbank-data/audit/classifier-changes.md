@@ -580,3 +580,21 @@ Splitbark is hybrid mage armour with minor melee defence; canonical mage gear.
 ### CRAFTING Misc crafting materials — `Bark`, `Quicklime`
 
 Crafting recipe ingredients.
+
+---
+
+## Session 13 (audit IDs 3401–3700)
+
+### PRAYER — new "Pyre log oils" section
+
+`_is_potion_family("olive oil", "sacred oil")` with `_potion_sort_key`. Catches 8 dose variants (Olive oil(4..1), Sacred oil(4..1)).
+
+### MISC Clue tools — expanded with colour-coded keys
+
+Now matches `Bronze/Steel/Black/Silver key startswith` AND `red/brown/crimson/black/purple endswith`.
+
+**Affects**: 20 colour-coded treasure-trail keys now in misc.
+
+### CONSTRUCTION materials — `Fine cloth`, `Flamtaer hammer`
+
+Mahogany Homes / Shades of Mort'ton temple repair items.
