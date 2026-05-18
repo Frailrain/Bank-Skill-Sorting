@@ -1981,3 +1981,69 @@ Added Trident of the seas (e), Uncharged trident (e), Trident of the swamp (e), 
 REM melee for Snakeskin/Hard leather/Green/Blue/Red/Black d'hide shield; ADD range force_include (these are range shields with defence_ranged dominance).
 
 **Affects**: 6 items.
+
+## Session 54 (audit IDs 22301–22700)
+
+### New constants: `_VESTA_STATIUS_NAMES`, `_MORRIGAN_NAMES`, `_ZURIEL_NAMES`
+
+PvP armour sets — Vesta/Statius are melee, Morrigan is range, Zuriel is mage. Stat spillover misclassifies them.
+
+### MELEE Helmets/Body armour/Legs — Vesta/Statius force_include + Morrigan/Zuriel force_exclude
+
+REM melee from Morrigan/Zuriel (mage/range gear); ADD melee for Vesta's chainbody/plateskirt, Statius's full helm/platebody/platelegs.
+
+### RANGE Helmets/Body/Legs — Morrigan force_include + Vesta/Statius force_exclude
+
+REM range from Vesta/Statius (melee gear); ADD range for Morrigan's coif/leather body/leather chaps.
+
+### MAGE Helmets/Body/Legs — Zuriel force_include + Morrigan/Vesta/Statius force_exclude
+
+REM mage from Morrigan/Vesta/Statius; ADD mage for Zuriel's hood/robe top/robe bottom.
+
+### `_TREASURE_TRAIL_MELEE_NAMES` extended — Vesta/Statius plate
+
+REM mining_smithing for Vesta's chainbody/plateskirt, Statius's full helm/platebody/platelegs.
+
+**Affects**: PvP armor 11 items total (5 Vesta/Statius melee + 3 Morrigan range + 3 Zuriel mage).
+
+### MELEE — new "Avernic defender construction" section
+
+Added Avernic defender hilt.
+
+**Affects**: 1 item.
+
+### MAGE Staves — Sanguinesti staff + Thammaron's sceptre
+
+Added Sanguinesti staff, Sanguinesti staff (uncharged), Thammaron's sceptre force_include.
+
+**Affects**: 3 items.
+
+### PRAYER Holy symbols — Emerald sickle (b)
+
+Added Emerald sickle (b), Enchanted emerald sickle (b) (blessed sickles).
+
+**Affects**: 2 items.
+
+### SLAYER Slayer master items — major expansion
+
+Added Ancient effigy/relic (Wilderness slayer), Bryophyta's essence, Metamorphic dust, Xeric's guard/warrior/sentinel/general/champion (Catacombs ranks), Empty bucket pack, Kq head (tattered) + Stuffed variant.
+
+**Affects**: 12 items.
+
+### MISC Teleport tabs — Drakan's medallion + Weiss basalts
+
+Added Drakan's medallion (Sins of the Father quest tele), Icy basalt, Stony basalt, Basalt.
+
+**Affects**: 4 items.
+
+### MISC Holiday rares — Easter 2018 Eggshell + Handegg + Clown
+
+Added Eggshell platebody/platelegs, Holy/Peaceful/Chaotic handegg (3), Clown mask/bow tie/gown/trousers.
+
+**Affects**: 9 items.
+
+### RUNECRAFT — new "Weiss salts (runecrafting secondaries)" section
+
+Added Te salt, Efh salt, Urt salt.
+
+**Affects**: 3 items.

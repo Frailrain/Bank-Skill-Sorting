@@ -4898,6 +4898,112 @@ See `audit/classifier-changes.md` "Session 52".
 
 See `audit/classifier-changes.md` "Session 53".
 
+---
+
+## Session 54: IDs 22301–22700
+
+### Wilderness slayer + cosmetic
+
+- `22302-22305 Ancient effigy, Ancient relic` (2 items) — **ADD slayer** (Wilderness slayer emblem progression).
+- `22316 Prop sword`, `22320-22321 Champion's lamp, Rotten cabbage` — LOG/EX.
+
+### Theatre of Blood (ToB)
+
+- `22322 Avernic defender` — OK (`melee;quests`).
+- `22323 Sanguinesti staff` — **ADD mage**.
+- `22324 Ghrazi rapier`, `22325 Scythe of vitur` — OK (`melee`).
+- `22326-22328 Justiciar faceguard/chestguard/legguards` — OK (`range`).
+
+### Deadman starter + Easter 2018 chocolate egg
+
+- `22330-22335 Deadman starter pack, Starter sword (✓), Starter bow (✓), Starter staff` — LOG.
+- `22350 Small chocolate egg` — LOG.
+- `22351-22353 Eggshell platebody/platelegs` (2 items, currently `mining_smithing`) — **REM mining_smithing, ADD misc Holiday rares** (Easter cosmetic).
+- `22355-22361 Holy/Peaceful/Chaotic handegg` (3 items) — **ADD misc Holiday rares**.
+
+### Bryophyta + Catacombs Skotizo ranks
+
+- `22364-22367 Oculus orb, Certificate × 2, Cyan crystal` — EX.
+- `22368 Bryophyta's staff (uncharged)` — OK (`mage`).
+- `22372 Bryophyta's essence` — **ADD slayer** (Bryophyta drop, Mossy key combine).
+- `22374 Mossy key` — OK (`misc`).
+- `22386 Metamorphic dust` — **ADD slayer** (CoX boss pet variant material).
+- `22388-22396 Xeric's guard/warrior/sentinel/general/champion` (5 items) — **ADD slayer** (Skotizo combat ranks).
+
+### Sins of the Father quest
+
+- `22398 Ivandis flail` — OK (`mage;quests`).
+- `22400 Drakan's medallion` — **ADD misc** (teleport-providing quest item).
+- `22402-22432 Mysterious herb/meat/crushed meat, Vial of blood (✓), Unfinished blood potion, Blood potion, Unfinished potion, Potion, Old notes, Old diary, Flaygian's notes, Chain, Tome of experience, The turncloak, Explosive discovery, Bloody grimoire, Elixir of everlasting, Buried alive, Deed, Old key` (~18 items) — EX (Sins of the Father quest material).
+- `22430 Bloody bracer` — LOG.
+- `22433 Emerald sickle (b)`, `22435 Enchanted emerald sickle (b)` (2 items) — **ADD prayer** (blessed sickle from Tale of the Righteous).
+- `22437 Rotten carrot` — LOG.
+- `22438 Justiciar armour set` — **ADD range** (ToB GE convenience set; Justiciar set is range).
+
+### ToB potions + materials
+
+- `22443 Cadantine blood potion (unf)`, `22446 Vial of blood` — OK/LOG.
+- `22449-22458 Battlemage potion (4-1)` — OK (`mage;herblore`).
+- `22461-22470 Bastion potion (4-1)` — OK (`herblore`).
+- `22473 Lil' zik` — OK (`quests`, ToB pet).
+- `22475 Message` — EX.
+- `22477 Avernic defender hilt` — **ADD melee** (Avernic defender base).
+- `22481 Sanguinesti staff (uncharged)` — **ADD mage**.
+- `22486 Scythe of vitur (uncharged)` — OK (`melee`).
+- `22494-22502 Sinhaza shroud tier 1-5` (5 items) — LOG (ToB cosmetic).
+- `22504-22514 Serafina's diary, The butcher, Arachnids of vampyrium, The shadow realm, The wild hunt, Verzik vitur - patient record` (~6 items) — EX (ToB lore books).
+- `22516 Dawnbringer` — LOG (Verzik P1 special weapon, instance-only).
+- `22517 Escape crystal`, `22519 Cabbage`, `22541 Rotten strawberry` — LOG/EX.
+- `22521 Coin pouch` — OK (`agility_thieving`).
+
+### Revenants weapons
+
+- `22542 Viggora's chainmace (u)`, `22547 Craw's bow (u)` — OK.
+- `22552 Thammaron's sceptre (u)` — OK (`wc_fletching`).
+- `22555 Thammaron's sceptre` — **ADD mage**.
+- `22557 Amulet of avarice` — OK (`melee;range;mage`).
+
+### Weiss + Basalts
+
+- `22588-22591 Old man's coffin, Reduced cadava potion, Goat dung, Weiss fire notes` — EX.
+- `22593-22597 Te/Efh/Urt salt` (3 items) — **ADD runecraft** (Weiss runecraft salts).
+- `22599-22603 Icy basalt, Stony basalt, Basalt` (3 items) — **ADD misc** (Weiss teleport tablets/material).
+
+### PvP armour reclassification (Vesta/Statius/Morrigan/Zuriel)
+
+- `22610-22613 Vesta's spear, Vesta's longsword` — OK (`melee`).
+- `22616-22619 Vesta's chainbody, Vesta's plateskirt` (2 items, currently `range;mining_smithing`) — **REM range/mining_smithing, ADD melee** (Vesta is melee armor).
+- `22622 Statius's warhammer` — OK.
+- `22625-22631 Statius's full helm, Statius's platebody, Statius's platelegs` (3 items, currently `range;mining_smithing`) — **REM range/mining_smithing, ADD melee** (Statius is melee armor).
+- `22634-22636 Morrigan's throwing axe, Morrigan's javelin` — OK (`range`).
+- `22638-22644 Morrigan's coif, Morrigan's leather body, Morrigan's leather chaps` (3 items, currently `range;mage`) — **REM mage, keep range** (Morrigan is pure range).
+- `22647 Zuriel's staff` — OK (`mage`).
+- `22650-22656 Zuriel's hood, Zuriel's robe top, Zuriel's robe bottom` (3 items, currently `melee;mage`) — **REM melee, keep mage** (Zuriel is pure mage).
+
+### Misc + tattered KQ heads + Witch's Potion + Clown outfit
+
+- `22660 Empty bucket pack` — **ADD slayer**.
+- `22664-22666 Scythe of vitur dup, Armadyl godsword dup, Rubber chicken dup` — LOG.
+- `22671 Kq head (tattered)`, `22673 Stuffed kq head (tattered)` (2 items) — **ADD slayer** (POH-mountable tattered variants).
+- `22675-22686 Scroll sack, Crypt key, Cow blood, Hetty's empty cauldron, Cauldron of cabbages/water/water & cabbages, Eek, Dead person` — EX/LOG (Witch's Potion / Hallowed Sepulchre).
+- `22687 Church lectern` — OK (`construction`).
+- `22689-22698 Clown mask, Clown bow tie, Clown gown, Clown trousers` (4 items) — **ADD misc Holiday rares**.
+
+---
+
+## Session 54 totals
+
+- Items reviewed: ~300
+- OK (correct as-is): 65
+- EX (correctly excluded): 40 (Sins of the Father quest material ×18, ToB lore ×6, Witch's Potion, Weiss notes)
+- ADD (missing tab, fixed): 50 (2 Wilderness emblems, 2 Sanguinesti staff, 2 Eggshell holiday, 3 Handegg, 1 Bryophyta's essence, 1 Metamorphic dust, 5 Xeric ranks, 1 Drakan's medallion, 2 sickles (b), 1 Justiciar set, 1 Avernic hilt, 1 Thammaron's sceptre, 3 Weiss salts, 3 basalts, 5 Vesta/Statius melee, 1 Empty bucket pack, 2 KQ tattered, 4 Clown outfit)
+- REM (misclassified, fixed): 11 (5 Vesta/Statius from range+mining_smithing, 3 Morrigan from mage, 3 Zuriel from melee)
+- LOG: 60+ (ToB cosmetic shroud, Deadman starter, Witch's Potion material, Sinhaza, Bloody bracer)
+
+## Classifier changes made in session 54
+
+See `audit/classifier-changes.md` "Session 54".
+
 ## Resume marker
 
-**Next session: start from ID 22301.**
+**Next session: start from ID 22701.**

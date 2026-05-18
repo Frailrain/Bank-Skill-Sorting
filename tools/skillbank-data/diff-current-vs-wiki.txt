@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (15 items not in wiki output) ===
+=== melee (18 items not in wiki output) ===
    12596  Rangers' tunic
    19921  Ancient d'hide boots
    19924  Bandos d'hide boots
@@ -19,16 +19,29 @@ or should be added to force_include / variant_allowlist before flipping --additi
    22278  Blue d'hide shield
    22281  Red d'hide shield
    22284  Black d'hide shield
+   22650  Zuriel's hood
+   22653  Zuriel's robe top
+   22656  Zuriel's robe bottom
 
-=== mage (6 items not in wiki output) ===
+=== range (5 items not in wiki output) ===
+   22616  Vesta's chainbody
+   22619  Vesta's plateskirt
+   22625  Statius's full helm
+   22628  Statius's platebody
+   22631  Statius's platelegs
+
+=== mage (9 items not in wiki output) ===
    19921  Ancient d'hide boots
    19924  Bandos d'hide boots
    19927  Guthix d'hide boots
    19930  Armadyl d'hide boots
    19933  Saradomin d'hide boots
    19936  Zamorak d'hide boots
+   22638  Morrigan's coif
+   22641  Morrigan's leather body
+   22644  Morrigan's leather chaps
 
-=== mining_smithing (9 items not in wiki output) ===
+=== mining_smithing (16 items not in wiki output) ===
    20146  Gilded med helm
    20149  Gilded chainbody
    20152  Gilded sq shield
@@ -38,3 +51,10 @@ or should be added to force_include / variant_allowlist before flipping --additi
    20846  Corrupted kiteshield
    21301  Obsidian platebody
    21304  Obsidian platelegs
+   22351  Eggshell platebody
+   22353  Eggshell platelegs
+   22616  Vesta's chainbody
+   22619  Vesta's plateskirt
+   22625  Statius's full helm
+   22628  Statius's platebody
+   22631  Statius's platelegs
