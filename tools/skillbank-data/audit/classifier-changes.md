@@ -2134,3 +2134,29 @@ Added Amulet of defence (t), Amulet of power (t), Berserker necklace (or).
 Trim variant.
 
 **Affects**: 1 item.
+
+## Session 57 (audit IDs 23401–23700)
+
+### MAGE — new "Hallowed Sepulchre tomes + pages" section
+
+Added Tome of the moon/sun/temple (3) + Tattered moon/sun/temple page (3).
+
+**Affects**: 6 items.
+
+### MAGE — new "Bracelet ornament variants" section
+
+Added Tormented bracelet (or).
+
+**Affects**: 1 item.
+
+### MISC Currency — `Temple coin`
+
+Hallowed Sepulchre currency.
+
+**Affects**: 1 item.
+
+### MELEE GE armour sets — `Dragonstone armour set`
+
+Added Dragonstone armour set explicit force_include (name doesn't match `(lg)/(sk)` suffix).
+
+**Affects**: 1 item.

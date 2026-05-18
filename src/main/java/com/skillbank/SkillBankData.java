@@ -454,11 +454,11 @@ public final class SkillBankData
 
 	private static void addMelee(Map<String, List<Integer>> m)
 	{
-		// MELEE — 1416 items
+		// MELEE — 1417 items
 		//   Combat utility (6), Weapons (291), Godsword construction (11), Avernic
 		//   defender construction (1), Helmets (220), Body armour (130), Legs
 		//   (117), Boots (62), Gloves (68), Shields (101), Trim/gilded armour
-		//   cosmetic variants (78), GE armour sets (melee) (59), Spirit shield
+		//   cosmetic variants (78), GE armour sets (melee) (60), Spirit shield
 		//   construction (4), Crystal halberd (2), Shayzien supply armour (31),
 		//   Capes (54), Amulets (44), Rings (17), Combat potions (56), Restores
 		//   (cross-tag) (14), Combat food (23), Legacy (27)
@@ -634,7 +634,7 @@ public final class SkillBankData
 			13016, 13018, 13020, 13022, 13024, 13026, 13028, 13030,
 			13032, 13034, 13056, 13058, 13060, 13062, 21882, 21885,
 			13052, 13054, 13036, 13038, 13040, 13042, 13044, 13046,
-			13048, 13050, 21279,
+			13048, 13050, 21279, 23667,
 
 			// === Spirit shield construction ===
 			12819, 12823, 12827, 12833,
@@ -841,14 +841,15 @@ public final class SkillBankData
 
 	private static void addMage(Map<String, List<Integer>> m)
 	{
-		// MAGE — 704 items
+		// MAGE — 711 items
 		//   Basic runes (16), Combo runes (6), Essence (4), Staves (126), Ward
-		//   shards (construction intermediates) (3), Tomes (11), Helmets (86),
-		//   Body (60), Legs (59), Boots (29), Gloves (52), Shields (28), Capes
-		//   (80), Amulets (45), Rings (12), Magic potions (28), Orbs (cross-tag
-		//   with crafting) (7), God cloaks (2), Spell tablets (POH lectern) (9),
-		//   Magic level boost (1), CoX mage upgrades + Ancestral (2), Mage GE
-		//   armour sets (6), Combat food (cross-tag) (23), Legacy (9)
+		//   shards (construction intermediates) (3), Tomes (11), Hallowed
+		//   Sepulchre tomes + pages (6), Helmets (86), Body (60), Legs (59), Boots
+		//   (29), Gloves (52), Shields (28), Capes (80), Amulets (45), Rings (12),
+		//   Magic potions (28), Orbs (cross-tag with crafting) (7), God cloaks
+		//   (2), Spell tablets (POH lectern) (9), Magic level boost (1), CoX mage
+		//   upgrades + Ancestral (2), Mage GE armour sets (6), Bracelet ornament
+		//   variants (1), Combat food (cross-tag) (23), Legacy (9)
 		m.put(TAG_MAGE, Arrays.asList(
 			// === Basic runes ===
 			554, 555, 556, 557, 558, 559, 560, 561,
@@ -884,6 +885,9 @@ public final class SkillBankData
 			// === Tomes ===
 			4707, 6749, 7779, 7782, 7785, 7788, 7791, 7794,
 			7797, 21697, 24761,
+
+			// === Hallowed Sepulchre tomes + pages ===
+			23504, 23506, 23508, 23510, 23512, 23514,
 
 			// === Helmets ===
 			12453, 12455, 19641, 23886, 23887, 23888, 25495, 4708,
@@ -987,6 +991,9 @@ public final class SkillBankData
 
 			// === Mage GE armour sets ===
 			23110, 23113, 23116, 23119, 23336, 23339,
+
+			// === Bracelet ornament variants ===
+			23444,
 
 			// === Combat food (cross-tag) ===
 			319, 315, 325, 347, 3381, 355, 333, 339,
@@ -2101,12 +2108,12 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 532 items
+		// MISC — 533 items
 		//   Teleport jewellery (68), Teleport tabs (74), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (29), Clue
 		//   tools (25), Keys (13), Storage bags (6), Utility / banked supplies
 		//   (2), Imbue scrolls (3), Combat trophies (PvM rewards) (5), Holiday
-		//   rares & cosmetics (185), Team capes (Castle Wars) (50), Currency (10)
+		//   rares & cosmetics (185), Team capes (Castle Wars) (50), Currency (11)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
@@ -2209,7 +2216,7 @@ public final class SkillBankData
 
 			// === Currency ===
 			617, 1464, 4278, 6306, 6529, 8851, 13204, 13307,
-			21555, 29482
+			21555, 23497, 29482
 		));
 	}
 

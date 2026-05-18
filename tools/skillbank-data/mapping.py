@@ -879,7 +879,7 @@ MELEE = TabSpec(
                 _or(_name_ends(" set (lg)"), _name_ends(" set (sk)")),
                 _not(_name_contains("dragonhide")),
             ),
-            _name_in({"Obsidian armour set"}),
+            _name_in({"Obsidian armour set", "Dragonstone armour set"}),
         ), force_exclude=["Karil's armour set", "Ahrim's armour set"]),
         Section("Spirit shield construction", _name_in({
             "Elysian sigil", "Spectral sigil", "Arcane sigil",
@@ -1023,6 +1023,10 @@ MAGE = TabSpec(
         })),
         Section("Tomes", _name_ends(" tome"),
                 force_exclude=["Shaman's tome"]),
+        Section("Hallowed Sepulchre tomes + pages", _name_in({
+            "Tome of the moon", "Tome of the sun", "Tome of the temple",
+            "Tattered moon page", "Tattered sun page", "Tattered temple page",
+        })),
         Section("Helmets", _is_mage_armour_slot("head"),
                 force_include=["Blue wizard hat (g)", "Blue wizard hat (t)",
                                "Black wizard hat (g)", "Black wizard hat (t)",
@@ -1098,6 +1102,9 @@ MAGE = TabSpec(
             "Mystic set (dark)", "Mystic set (dusk)",
             # session 56 — 3rd age druidic pieces (set is mage)
             "3rd age druidic robe top", "3rd age druidic robe bottoms",
+        })),
+        Section("Bracelet ornament variants", _name_in({
+            "Tormented bracelet (or)",
         })),
         Section("Combat food (cross-tag)", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
     ],
@@ -2438,7 +2445,7 @@ MISC = TabSpec(
             "Coins", "Platinum token", "Blood money", "Tokkul",
             "Marks of grace", "Brimhaven voucher", "Archery ticket",
             "Ecto-token", "Trading sticks", "Warrior guild token",
-            "Numulite",
+            "Numulite", "Temple coin",
         })),
     ],
 )

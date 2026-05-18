@@ -5196,6 +5196,69 @@ See `audit/classifier-changes.md` "Session 55".
 
 See `audit/classifier-changes.md` "Session 56".
 
+---
+
+## Session 57: IDs 23401–23700
+
+### Heraldic + cosmetic + clue geode
+
+- `23401-23404 Adamant platebody (h4-h5)` — OK (2 items, `melee`).
+- `23407-23413 Wolf mask, Wolf cloak, Climbing boots (g)` — LOG (cosmetic).
+- `23418-23425 (empty entries × ~7)` — EX.
+- `23442 Clue geode (beginner)` — OK (`misc`).
+- `23444 Tormented bracelet (or)` — **ADD mage** (Tormented bracelet ornament variant).
+- `23446-23448 Giant easter egg, Bunnyman mask` — LOG (cosmetic event).
+- `23458 Enchanted lyre(i)` — LOG.
+- `23489-23490 Wine of zamorak dup, Larran's key ✓ misc` — partial.
+
+### Hallowed Sepulchre
+
+- `23495 Sraracha` — LOG (Sarachnis pet).
+- `23497 Temple coin` — **ADD misc** (Hallowed Sepulchre currency).
+- `23499-23502 Grubby key, Temple key` — EX (single-use access).
+- `23504-23508 Tome of the moon, Tome of the sun, Tome of the temple` (3 items) — **ADD mage** (Hallowed Sepulchre learnable tomes).
+- `23510-23514 Tattered moon/sun/temple page` (3 items) — **ADD mage** (tome production pages).
+- `23516 Lamp of knowledge` — LOG.
+
+### Sarachnis
+
+- `23517 Giant egg sac(full)` — LOG.
+- `23522 Mask of ranul` — OK (`mage`).
+- `23525 Jar of eyes` — LOG (Sarachnis pet jar).
+- `23528 Sarachnis cudgel` — OK (`melee`).
+
+### DMM/Tournament starter dups (massive)
+
+- `23533-23654 Cooked karambwan, Super combat/Ranging/Sanfew/Super restore/Saradomin brew/Stamina potion dups, Helm of neitiznot, Barrows gloves, Berserker ring, Dragon defender, Spirit shield, Rune crossbow, Imbued saradomin/zamorak/guthix cape (✓ mage), Armadyl crossbow, Staff of the dead, Vesta's longsword, Zuriel's staff, Morrigan's javelin, Statius's warhammer, Infernal cape, Seers ring (i), Kodai wand, Ghrazi rapier, Heavy ballista, Karil's/Dharok's/Torag's/Verac's pieces, Amulet of fury, Blessed spirit shield, Eternal boots, Bandos tassets, Dragon javelin, Diamond bolts (e), Rune pouch, Mage's book, Ahrim's staff, Occult necklace` (~70 items) — LOG (DMM tournament dups of canonical items).
+
+### Crystal seedlings + Dragonstone set
+
+- `23655-23661 Crystal seedling, Crystal sapling, Crystal acorn` — OK (`farming`).
+- `23667 Dragonstone armour set` — **ADD melee** (GE convenience set).
+- `23670 Iwan's flyer` — LOG.
+
+### Crystal tools + Divine potions
+
+- `23673 Crystal axe` — OK (`wc_fletching`).
+- `23677-23680 Dragon pickaxe (or), Crystal pickaxe` — OK (`mining_smithing`).
+- `23685-23694 Divine super combat potion (4-1)` — OK (`melee;herblore`).
+- `23697-23700 Divine super attack potion (4-3)` — OK.
+
+---
+
+## Session 57 totals
+
+- Items reviewed: ~250
+- OK (correct as-is): 30
+- EX (correctly excluded): 15 (empty entries, single-use Hallowed Sepulchre keys)
+- ADD (missing tab, fixed): 11 (1 Temple coin, 6 Hallowed Sepulchre tomes/pages, 1 Tormented bracelet (or), 1 Dragonstone set)
+- REM: 0
+- LOG: 100+ (DMM tournament dups massive ~70, cosmetic Wolf/Bunny/Climbing, Lamp of knowledge, jar pets)
+
+## Classifier changes made in session 57
+
+See `audit/classifier-changes.md` "Session 57".
+
 ## Resume marker
 
-**Next session: start from ID 23401.**
+**Next session: start from ID 23701.**
