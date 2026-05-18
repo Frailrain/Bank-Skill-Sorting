@@ -250,6 +250,17 @@ _SPLITBARK_PIECES = [
 # Rogue equipment — agility_thieving only; should NOT be in combat tabs.
 _ROGUE_PIECES = ["Rogue top", "Rogue mask", "Rogue trousers", "Rogue gloves", "Rogue boots"]
 
+# Dagannoth Kings drop armour. Each set is one combat style:
+# Rock-shell = melee, Spined = range, Skeletal = mage.
+_SPINED_PIECES = ["Spined helm", "Spined body", "Spined chaps",
+                  "Spined boots", "Spined gloves"]
+_SKELETAL_PIECES = ["Skeletal helm", "Skeletal top", "Skeletal bottoms",
+                    "Skeletal boots", "Skeletal gloves"]
+
+# Snakeskin armour — range, not melee.
+_SNAKESKIN_PIECES = ["Snakeskin body", "Snakeskin chaps", "Snakeskin bandana",
+                     "Snakeskin boots", "Snakeskin vambraces"]
+
 # Barrows armour — canonical OSRS combat affinity per set, but defence stats
 # are split across multiple styles which makes the stat-dominance classifier
 # put pieces in the wrong tab. Use these constants to surgical-exclude.
@@ -672,30 +683,35 @@ MELEE = TabSpec(
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
                 force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead",
-                               "Ahrim's hood", "Karil's coif", "Rogue mask"]
+                               "Ahrim's hood", "Karil's coif", "Rogue mask",
+                               "Spined helm", "Skeletal helm", "Snakeskin bandana"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
                 force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body",
-                               "Ahrim's robetop", "Karil's leathertop", "Rogue top"]
+                               "Ahrim's robetop", "Karil's leathertop", "Rogue top",
+                               "Spined body", "Skeletal top"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))),
                 force_exclude=["Mime legs", "Splitbark legs",
-                               "Ahrim's robeskirt", "Karil's leatherskirt", "Rogue trousers"]
+                               "Ahrim's robeskirt", "Karil's leatherskirt", "Rogue trousers",
+                               "Spined chaps", "Skeletal bottoms", "Snakeskin chaps"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
-                force_exclude=["Ranger boots", "Mime boots", "Splitbark boots", "Rogue boots", "Mourner boots"]
+                force_exclude=["Ranger boots", "Mime boots", "Splitbark boots", "Rogue boots", "Mourner boots",
+                               "Spined boots", "Skeletal boots", "Snakeskin boots"]
                 + [n for n in _MIME_OUTFIT if "boots" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
                 force_exclude=_SKILLING_GAUNTLETS
                 + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
-                + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves", "Mourner gloves"]
+                + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves", "Mourner gloves",
+                   "Spined gloves", "Skeletal gloves", "Snakeskin vambraces"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield"),
                 force_include=["Granite shield"]),
@@ -740,18 +756,19 @@ RANGE = TabSpec(
         Section("Raw dragonhide (cross-tag with crafting)",
                 lambda it: bool(_DRAGONHIDE_RAW_RE.search(it.get("name") or ""))),
         Section("Helmets", _is_range_armour_slot("head"),
-                force_include=["Robin hood hat", "Karil's coif"],
+                force_include=["Robin hood hat", "Karil's coif", "Spined helm", "Snakeskin bandana"],
                 force_exclude=["Dharok's helm", "Guthan's helm", "Torag's helm", "Rogue mask"]),
         Section("Body", _is_range_armour_slot("body"),
-                force_include=["Karil's leathertop"],
+                force_include=["Karil's leathertop", "Spined body"],
                 force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top"]),
         Section("Legs", _is_range_armour_slot("legs"),
-                force_include=["Karil's leatherskirt"],
+                force_include=["Karil's leatherskirt", "Spined chaps", "Snakeskin chaps"],
                 force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers"]),
         Section("Boots", _is_range_armour_slot("feet"),
-                force_include=["Ranger boots"],
+                force_include=["Ranger boots", "Spined boots", "Snakeskin boots"],
                 force_exclude=["Rogue boots"]),
         Section("Gloves", _is_range_armour_slot("hands"),
+                force_include=["Spined gloves", "Snakeskin vambraces"],
                 force_exclude=["Rogue gloves"]),
         Section("Shields", _is_range_armour_slot("shield")),
         Section("Capes", _is_range_armour_slot("cape"),
@@ -791,11 +808,13 @@ MAGE = TabSpec(
         Section("Body", _is_mage_armour_slot("body"),
                 force_exclude=["Karil's leathertop", "Rogue top"]),
         Section("Legs", _is_mage_armour_slot("legs"),
+                force_include=["Ghostly robe"],
                 force_exclude=["Karil's leatherskirt", "Rogue trousers"]),
         Section("Boots", _is_mage_armour_slot("feet"),
+                force_include=["Skeletal boots"],
                 force_exclude=["Rogue boots"]),
         Section("Gloves", _is_mage_armour_slot("hands"),
-                force_include=["Chaos gauntlets"],
+                force_include=["Chaos gauntlets", "Skeletal gloves"],
                 force_exclude=[n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
                 + ["Leather vambraces", "Rogue gloves"]),
         Section("Shields", _is_mage_armour_slot("shield")),
@@ -819,6 +838,7 @@ MAGE = TabSpec(
     ],
     variant_allowlist=[
         "Imbued saradomin cape", "Imbued zamorak cape", "Imbued guthix cape",
+        "Ghostly robe",  # legs variant (id 6108) has same name as body (6107)
     ],
 )
 
@@ -923,6 +943,7 @@ COOKING = TabSpec(
                 "Moonlight mead", "Axeman's folly", "Chef's delight",
                 "Slayer's respite", "Ale yeast", "Calquat keg",
                 "Strawberry", "Coconut milk", "Apple mush",
+                "Kelda stout",
             }),
             # Matured beer variants (m) and (4)/(m4) charge variants
             _name_ends("(m)"),
@@ -971,6 +992,7 @@ COOKING = TabSpec(
                 "Chopped tomato", "Chopped onion", "Chopped ugthanki",
                 "Onion & tomato", "Ugthanki & onion", "Ugthanki & tomato",
                 "Kebab mix", "Ugthanki kebab",
+                "Raw fishlike thing", "Fishlike thing",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1162,6 +1184,8 @@ CRAFTING = TabSpec(
             "Charcoal", "Bones (Crafting)",
             "Raw swamp paste", "Swamp paste",
             "Bark", "Quicklime",
+            "Rock-shell chunk", "Rock-shell shard", "Rock-shell splinter",
+            "Skull piece", "Ribcage piece", "Fibula piece",
         })),
         Section("Pottery", _name_in({
             "Soft clay", "Clay", "Unfired bowl", "Unfired pie dish",
@@ -1431,7 +1455,8 @@ FARMING = TabSpec(
                 "Jute fibre", "Willow branch",
                 # Hops
                 "Hammerstone hops", "Asgarnian hops", "Yanillian hops",
-                "Krandorian hops", "Wildblood hops",
+                "Krandorian hops", "Wildblood hops", "Kelda hops",
+                "Gout tuber",
                 # Crop outputs
                 "Mushroom", "Barley", "Barley malt",
                 "Marigolds", "Nasturtiums", "Rosemary",
@@ -1540,6 +1565,7 @@ CONSTRUCTION = TabSpec(
             "Mahogany table", "Servant's moneybag",
             "Clockwork", "Empty oak cape rack",
             "Fine cloth", "Flamtaer hammer",
+            "Thatch spar light", "Thatch spar med", "Thatch spar dense",
         })),
         Section("POH portals & telescopes",
                 _or(_name_starts("Teleport to "),
@@ -1653,6 +1679,13 @@ MISC = TabSpec(
                 "Blue sweets", "Deep blue sweets", "White sweets",
                 "Purple sweets", "Red sweets", "Green sweets", "Pink sweets",
                 "Easter basket", "Rubber chicken",
+                # Oktoberfest / Easter cosmetics
+                "Lederhosen top", "Lederhosen shorts", "Lederhosen hat",
+                "Frog token", "Frog mask",
+                "Royal frog tunic", "Royal frog leggings",
+                "Royal frog blouse", "Royal frog skirt",
+                # Teleport crystals
+                "Teleport crystal (1)", "Teleport crystal (2)", "Teleport crystal (3)",
             }),
             _name_ends(" sweets"),
         )),
@@ -1662,7 +1695,7 @@ MISC = TabSpec(
         Section("Currency", _name_in({
             "Coins", "Platinum token", "Blood money", "Tokkul",
             "Marks of grace", "Brimhaven voucher", "Archery ticket",
-            "Ecto-token",
+            "Ecto-token", "Trading sticks",
         })),
     ],
 )

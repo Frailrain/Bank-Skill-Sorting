@@ -768,6 +768,58 @@ Mourning's End II disguise gear, not real combat gear.
 
 + Mourner top / trousers / gloves / boots / cloak.
 
+---
+
+## Session 22 (audit IDs 6101–6400)
+
+### New constants
+
+- `_SPINED_PIECES` (5) — Dagannoth Kings range armour.
+- `_SKELETAL_PIECES` (5) — Dagannoth Kings mage armour.
+- `_SNAKESKIN_PIECES` (5) — Tai Bwo Wannai range armour.
+
+### MELEE armour sections — major exclude additions
+
+All 5 melee armour slot sections now exclude Spined/Skeletal/Snakeskin piece for their slot.
+
+**Affects**: 12+ items removed from melee.
+
+### RANGE armour sections — force_include additions
+
+Spined helm/body/chaps/boots/gloves + Snakeskin bandana/chaps/boots/vambraces added to corresponding range slots. (Snakeskin body was already in range.)
+
+### MAGE Legs — `Ghostly robe` force_include
+
+The legs variant of Ghostly robe (id 6108) wasn't classifying via the standard predicate.
+
+### CRAFTING Misc materials — Dagannoth crafting inputs
+
++ Rock-shell chunk/shard/splinter, Skull/Ribcage/Fibula piece.
+
+### MISC Holiday rares — major expansion
+
++ Lederhosen top/shorts/hat, Frog token/mask, Royal frog tunic/leggings/blouse/skirt, Teleport crystal (1)/(2)/(3).
+
+### MISC Currency — `Trading sticks`
+
+Karamja currency.
+
+### FARMING Farm outputs — Kelda hops, Gout tuber
+
+Brewing hops + rare tuber farming.
+
+### COOKING Beverages — `Kelda stout`
+
+Brewing output.
+
+### COOKING Misc cooked food — `Raw fishlike thing`, `Fishlike thing`
+
+Fishing Trawler reward.
+
+### CONSTRUCTION materials — Thatch spar variants
+
+Tai Bwo Wannai repair material.
+
 ## Session 16 (audit IDs 4301–4600)
 
 ### `_BASIC_COLOUR_CAPES` — added 50 Team-N capes

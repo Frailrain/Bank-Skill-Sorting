@@ -24,8 +24,9 @@
 - **Reviewed in session 19**: IDs 5201–5500 (133 items)
 - **Reviewed in session 20**: IDs 5501–5800 (93 items)
 - **Reviewed in session 21**: IDs 5801–6100 (116 items)
-- **Reviewed cumulative**: 2963 (25.0%)
-- **Resume from**: ID 6101
+- **Reviewed in session 22**: IDs 6101–6400 (144 items)
+- **Reviewed cumulative**: 3107 (26.2%)
+- **Resume from**: ID 6401
 
 ## Decision codes
 
@@ -1990,6 +1991,119 @@ See `audit/classifier-changes.md` "Session 20".
 
 See `audit/classifier-changes.md` "Session 21".
 
+---
+
+## Session 22: IDs 6101–6400
+
+### Teleport crystals + Ghostly robes
+
+- `6100-6102 Teleport crystal (3/2/1)` — **ADD misc** (3 items, Roving Elves elf teleport).
+- `6103 Crystal teleport seed` — OK (`farming`).
+- `6106-6111 Ghostly boots/robe (body)/robe (legs)/hood/gloves/cloak` — OK except `6108 Ghostly robe` (legs slot) currently unclassified. **ADD mage** to legs variant via force_include.
+
+### Kelda brewing chain (Eadgar's Ruse follow-on)
+
+- `6112 Kelda seed` — OK (`farming`).
+- `6113 Kelda hops` — **ADD farming**.
+- `6118 Kelda stout` — **ADD cooking** (brewing output).
+- `6119-6126` (Square stone, Letter, A chair, Beer glass dup, Enchanted lyre(2)/(3) charge variants) — EX/LOG.
+
+### Dagannoth Kings armour drops
+
+- `6128-6130 Rock-shell helm/plate/legs` — OK (melee).
+- `6131 Spined helm` — **REM melee + mage**, **ADD range**. Spined is RANGE armour.
+- `6133 Spined body`, `6135 Spined chaps` — **REM melee**, **ADD range** (2 items).
+- `6137-6141 Skeletal helm/top/bottoms` — **REM melee** (3 items). Skeletal is MAGE armour; currently melee;mage. Remove melee.
+- `6143 Spined boots` — **REM melee**, **ADD range**.
+- `6145 Rock-shell boots` — OK (melee).
+- `6147 Skeletal boots` — **REM melee**.
+- `6149 Spined gloves` — **REM melee**, **ADD range**.
+- `6151 Rock-shell gloves` — OK (melee).
+- `6153 Skeletal gloves` — **REM melee**.
+
+### Crafting materials (Dagannoth)
+
+- `6155 Dagannoth hide` — OK (`crafting`).
+- `6157-6161 Rock-shell chunk/shard/splinter` — **ADD crafting** (3 items, crafting recipe inputs).
+- `6163-6167 Skull/Ribcage/Fibula piece` — **ADD crafting** (3 items, Skeletal armour materials).
+- `6169-6173 Circular/Flattened/Stretched hide` — OK (`crafting`).
+
+### Cooking / Hunter
+
+- `6178 Raw pheasant` — OK (`cooking`).
+
+### Easter holiday cosmetics
+
+- `6180-6182 Lederhosen top/shorts/hat` — **ADD misc** (3 items, Easter event).
+- `6183 Frog token` — **ADD misc**.
+- `6184-6188 Royal frog tunic/leggings/blouse/skirt + Frog mask` — **ADD misc** (5 items, Easter event cosmetic).
+- `6189 Hex edit detected` — EX (debug item).
+- `6199 Mystery box` — EX.
+
+### Fishing Trawler
+
+- `6200 Raw fishlike thing` — OK (`cooking`). Wait — actually it shows cooking. But it should also be fishing. **ADD fishing**.
+- `6202 Fishlike thing` — **ADD cooking + fishing**.
+
+### Pyre logs (Mort'ton)
+
+- `6209 Small fishing net` — LOG (canonical dup of 303).
+- `6211 Teak pyre logs`, `6213 Mahogany pyre logs` — OK (`wc_fletching;firemaking`).
+
+### Broodoo shields (Tai Bwo Wannai)
+
+- `6219-6279 Broodoo shield + charge variants ×3 set colours` (~24 items) — Most in melee;mage from defence stats. Multiple dups via canonical filter. LOG.
+
+### Tai Bwo Wannai materials
+
+- `6281-6285 Thatch spar light/med/dense` — **ADD construction** (3 items, Karamja repair material).
+- `6287 Snake hide`, `6289 Snakeskin` — OK (`crafting`).
+
+### Spider / hunter Tai Bwo Wannai
+
+- `6291-6299 Spider carcass / Spider on stick ×2 / Spider on shaft ×2` — EX (Big Chompy hunting variants).
+- `6301 Burnt spider` — OK (`cooking`).
+- `6303 Spider on shaft` (dup), `6305 Skewer stick` — EX/LOG.
+- `6306 Trading sticks` — **ADD misc Currency** (Karamja currency).
+- `6311 Gout tuber` — **ADD farming** (rare farming seed).
+- `6313-6317 Opal/Jade/Red topaz machete` — EX (correctly excluded from melee by noise filter; not real melee).
+- `6319 Proboscis` — EX.
+
+### Snakeskin armour (range)
+
+- `6322 Snakeskin body` — OK (`range`).
+- `6324 Snakeskin chaps` — **REM melee** (currently melee;range).
+- `6326 Snakeskin bandana` — **REM melee, ADD range**.
+- `6328 Snakeskin boots` — **REM melee, ADD range**.
+- `6330 Snakeskin vambraces` — **REM melee, ADD range**.
+
+### Hardwood logs
+
+- `6332 Mahogany logs`, `6333 Teak logs` — OK (`wc_fletching;firemaking`).
+
+### Tai Bwo Wannai tribal/villager cosmetic (6335-6379)
+
+- `6335-6379 Tribal masks ×3 + Tribal tops + Villager robes/hats/sandals/armbands ×~4 variants` (~40 items) — EX. Tai Bwo Wannai cosmetic costumes.
+
+### Desert / Menaphite cosmetic
+
+- `6382-6400 Fez, Desert top/robes/legs, Menaphite purple hat/top/robe/kilt + Menaphite red hat` (~10 items) — EX. Desert cosmetic gear from Sorceress's Garden / Contact!.
+
+---
+
+## Session 22 totals
+
+- Items reviewed: 144
+- OK (correct as-is): 35
+- EX (correctly excluded): 75 (Tai Bwo Wannai tribal/villager cosmetics, Menaphite desert, spider/skewer hunting intermediates).
+- ADD (missing tab, fixed): 28 (Teleport crystals, Kelda hops/stout, Ghostly legs, Spined/Snakeskin range pieces, Skeletal mage pieces tag-cleanup, crafting materials, Lederhosen + Frog event, Trading sticks, Gout tuber, Thatch spars).
+- REM (misclassified, fixed): 16 (Spined ×5 + Skeletal ×4 from melee, Snakeskin chaps/bandana/boots/vambraces from melee, Broodoo dups).
+- LOG (deferred): 10+ (Broodoo dups, canonical dedup).
+
+## Classifier changes made in session 22
+
+See `audit/classifier-changes.md` "Session 22".
+
 ## Resume marker
 
-**Next session: start from ID 6101.**
+**Next session: start from ID 6401.**

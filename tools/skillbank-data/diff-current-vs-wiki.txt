@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (242 items not in wiki output) ===
+=== melee (256 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -85,12 +85,26 @@ or should be added to force_include / variant_allowlist before flipping --additi
     5698  (not in wiki canonical set)
     6068  Mourner gloves
     6069  Mourner boots
+    6131  Spined helm
+    6133  Spined body
+    6135  Spined chaps
+    6137  Skeletal helm
+    6139  Skeletal top
+    6141  Skeletal bottoms
+    6143  Spined boots
+    6147  Skeletal boots
+    6149  Spined gloves
+    6153  Skeletal gloves
     6215  (not in wiki canonical set)
     6217  (not in wiki canonical set)
     6227  (not in wiki canonical set)
     6313  Opal machete
     6315  Jade machete
     6317  Red topaz machete
+    6324  Snakeskin chaps
+    6326  Snakeskin bandana
+    6328  Snakeskin boots
+    6330  Snakeskin vambraces
     6522  Toktz-xil-ul
     6524  Toktz-ket-xil
     6526  Toktz-mej-tal
