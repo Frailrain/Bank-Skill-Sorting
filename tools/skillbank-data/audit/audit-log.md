@@ -5441,6 +5441,97 @@ See `audit/classifier-changes.md` "Session 58".
 
 See `audit/classifier-changes.md` "Session 59".
 
+---
+
+## Session 60: IDs 24401–24750
+
+### Twisted League cosmetic continued
+
+- `24401-24413 Twisted trousers/boots/hat/coat (t1/t2), Twisted banner` (~7 items) — LOG.
+
+### Inquisitor's armour (Nightmare drops)
+
+- `24417 Inquisitor's mace`, `24419 Inquisitor's great helm`, `24420 Inquisitor's hauberk` — OK (`melee`).
+- `24421 Inquisitor's plateskirt` (currently `melee;mining_smithing`) — **REM mining_smithing**.
+
+### Nightmare staves + Christmas 2019 Gingerbread
+
+- `24422-24425 Nightmare staff, Harmonised/Volatile/Eldritch nightmare staff` — OK (4 items, `mage`).
+- `24428-24438 Green/Red/Blue gingerbread shield, Festive cinnamon stick/ginger powder/egg/pot/flour, Gingerbread shield, Iced gingerbread shield` (~10 items) — **ADD misc Holiday rares**.
+- `24441 Scaperune teleport` — OK.
+- `24442-24443 Bakery storage key, Gingerbread gnome` — LOG.
+- `24444 Twisted slayer helmet (i)` — OK.
+
+### Twisted League rewards
+
+- `24460-24475 Twisted teleport scroll, Twisted blueprints, Twisted horns, Twisted relic hunter (t1/t2/t3) armour set` (~6 items) — LOG (LMS rewards).
+
+### Inquisitor's set + Nightmare orbs
+
+- `24488 Inquisitor's armour set` — **ADD melee** (Nightmare GE convenience set).
+- `24491-24495 Little nightmare, Jar of dreams, Clue scroll dup` — LOG.
+- `24511-24517 Harmonised orb, Volatile orb, Eldritch orb` (3 items) — **ADD mage** (Nightmare staff orbs).
+
+### Easter 2020 + Death's coffer
+
+- `24520-24528 Victor's cape (1000), Death's coffer, Cat ears, Hell cat ears, Lamp of the gatherer` — LOG.
+- `24529 Harmony` — LOG (BH).
+- `24534-24549 Mithril seeds, Magic egg ball, Carrot sword, '24-carat' sword, Painted/Unpainted fake magic egg, Conch shell, Broken egg, Dummy portal, Carrot, Broken goat horn, Cake` (~12 items) — LOG/EX (Easter 2020 quest material).
+- `24551 Blade of saeldor (c)` — OK (`melee`).
+
+### Pyromancer set + Wilderness Blighted
+
+- `24554 Pyromancer set` — **ADD firemaking** (Wintertodt GE convenience set).
+- `24565 Antique emblem (tier 1)`, `24585-24587 Looting bag note, Rune pouch note` — LOG.
+- `24589-24595 Blighted manta ray, Blighted anglerfish, Blighted karambwan` (3 items) — **ADD cooking** (Wilderness PvP food).
+- `24598-24605 Blighted super restore (4-1)` — OK (4 items, `melee;prayer;herblore`).
+- `24607-24615 Blighted ancient ice/bind/snare/entangle/teleport spell sack` (5 items) — **ADD mage** (Wilderness blighted spells).
+- `24617 Vesta's blighted longsword` — OK.
+- `24621 Blighted vengeance sack` — **ADD mage**.
+
+### Divine battlemage + bastion
+
+- `24623-24632 Divine battlemage potion (4-1)` — OK (`mage;herblore`).
+- `24635-24644 Divine bastion potion (4-1)` — OK (`herblore`).
+
+### Twisted Ancestral + vyre noble
+
+- `24664-24668 Twisted ancestral hat, robe top, robe bottom` (3 items, currently `melee;mage`) — **REM melee, keep mage**.
+- `24670 Twisted ancestral colour kit` — **ADD crafting** (ornament kit).
+- `24672 Haemalchemy volume 2`, `24682-24690 Old note, Tatty note, Journal page, Ancient armour, Tome of experience` — EX/LOG.
+- `24673-24680 Vyre noble top/legs/shoes (unscented + scented)` (6 items) — LOG (Sins of the Father cosmetic).
+- `24691 Blisterwood logs` — OK.
+- `24693-24695 Ruby sickle (b), Enchanted ruby sickle (b)` (2 items) — **ADD prayer** (blessed sickles).
+- `24697 Blisterwood sickle`, `24699 Blisterwood flail` — OK.
+
+### Hallowed Sepulchre
+
+- `24704 Daeyalt essence` — OK (`mage;runecraft`).
+- `24706 Daeyalt shard` — **ADD mining_smithing** (Daeyalt ore raw form).
+- `24709 Hallowed crystal shard` — LOG (Sepulchre material).
+- `24711 Hallowed mark` — **ADD misc** (Hallowed Sepulchre currency).
+- `24719 Hallowed token` — LOG.
+- `24721 Hallowed grapple`, `24723 Hallowed focus`, `24725 Hallowed symbol`, `24727 Hallowed hammer` (4 items) — **ADD agility_thieving** (Hallowed Sepulchre tools).
+- `24729-24733 Dark dye, Hallowed ring, Dark acorn` — partial.
+- `24731 Hallowed ring` — **ADD agility_thieving**.
+- `24735 Ring of endurance (uncharged)` — **ADD misc Teleport jewellery**.
+- `24740 Strange old lockpick (full)` — **ADD agility_thieving** (Hallowed Sepulchre completion item).
+
+---
+
+## Session 60 totals
+
+- Items reviewed: ~300
+- OK (correct as-is): 50
+- EX (correctly excluded): 30
+- ADD (missing tab, fixed): 41 (10 Gingerbread holiday, 1 Inquisitor set, 3 Nightmare orbs, 1 Pyromancer set, 3 Blighted food, 6 Blighted spell sacks, 1 colour kit, 2 blessed sickles, 1 Daeyalt shard, 1 Hallowed mark, 4 Hallowed tools, 1 Hallowed ring, 1 Ring of endurance, 1 Strange old lockpick)
+- REM (misclassified, fixed): 4 (3 Twisted ancestral from melee, 1 Inquisitor's plateskirt from mining_smithing)
+- LOG: 100+ (Twisted League cosmetic, BH cosmetic, Easter 2020 quest material, Vyre noble, lore notes)
+
+## Classifier changes made in session 60
+
+See `audit/classifier-changes.md` "Session 60".
+
 ## Resume marker
 
-**Next session: start from ID 24401.**
+**Next session: start from ID 24751.**

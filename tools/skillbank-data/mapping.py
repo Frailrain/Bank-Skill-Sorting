@@ -279,6 +279,8 @@ _TREASURE_TRAIL_MELEE_NAMES = [
     "Eggshell platebody", "Eggshell platelegs",
     # session 58 — Ardougne knight (Tower of Life clue cosmetic)
     "Ardougne knight platebody", "Ardougne knight platelegs",
+    # session 60 — Inquisitor's plateskirt (Nightmare drop, not smithable)
+    "Inquisitor's plateskirt",
 ]
 
 # Vesta/Statius PvP armor — melee gear; range/mage spillover misclassifies.
@@ -813,7 +815,8 @@ MELEE = TabSpec(
                                "Ahrim's hood", "Karil's coif", "Rogue mask",
                                "Spined helm", "Skeletal helm", "Snakeskin bandana",
                                "Armadyl helmet", "Ancestral hat",
-                               "Morrigan's coif", "Zuriel's hood"]
+                               "Morrigan's coif", "Zuriel's hood",
+                               "Twisted ancestral hat"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
@@ -827,7 +830,8 @@ MELEE = TabSpec(
                                "Ancestral robe top",
                                "Morrigan's leather body", "Zuriel's robe top",
                                "Leather body (g)",
-                               "Gilded d'hide body", "Gilded d'hide vambraces"]
+                               "Gilded d'hide body", "Gilded d'hide vambraces",
+                               "Twisted ancestral robe top"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -843,7 +847,8 @@ MELEE = TabSpec(
                                "Armadyl chainskirt", "Ancestral robe bottom",
                                "Morrigan's leather chaps", "Zuriel's robe bottom",
                                "Leather chaps (g)", "Rangers' tights",
-                               "Gilded d'hide chaps"]
+                               "Gilded d'hide chaps",
+                               "Twisted ancestral robe bottom"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -881,7 +886,8 @@ MELEE = TabSpec(
                 _or(_name_ends(" set (lg)"), _name_ends(" set (sk)")),
                 _not(_name_contains("dragonhide")),
             ),
-            _name_in({"Obsidian armour set", "Dragonstone armour set"}),
+            _name_in({"Obsidian armour set", "Dragonstone armour set",
+                      "Inquisitor's armour set"}),
         ), force_exclude=["Karil's armour set", "Ahrim's armour set"]),
         Section("Spirit shield construction", _name_in({
             "Elysian sigil", "Spectral sigil", "Arcane sigil",
@@ -1037,7 +1043,7 @@ MAGE = TabSpec(
         Section("Helmets", _is_mage_armour_slot("head"),
                 force_include=["Blue wizard hat (g)", "Blue wizard hat (t)",
                                "Black wizard hat (g)", "Black wizard hat (t)",
-                               "Zuriel's hood"],
+                               "Zuriel's hood", "Twisted ancestral hat"],
                 force_exclude=["Mime mask", "Rogue mask", "3rd age range coif", "Armadyl helmet",
                                "Morrigan's coif", "Statius's full helm"]
                 + [n for n in _MIME_OUTFIT if "hat" in n.lower()]
@@ -1045,14 +1051,14 @@ MAGE = TabSpec(
         Section("Body", _is_mage_armour_slot("body"),
                 force_include=["Blue wizard robe (g)", "Blue wizard robe (t)",
                                "Black wizard robe (g)", "Black wizard robe (t)",
-                               "Zuriel's robe top"],
+                               "Zuriel's robe top", "Twisted ancestral robe top"],
                 force_exclude=["Karil's leathertop", "Rogue top", "3rd age range top", "Armadyl chestplate",
                                "Morrigan's leather body",
                                "Vesta's chainbody", "Statius's platebody"]),
         Section("Legs", _is_mage_armour_slot("legs"),
                 force_include=["Ghostly robe", "Blue skirt (g)", "Blue skirt (t)",
                                "Black skirt (g)", "Black skirt (t)",
-                               "Zuriel's robe bottom"],
+                               "Zuriel's robe bottom", "Twisted ancestral robe bottom"],
                 force_exclude=["Karil's leatherskirt", "Rogue trousers", "3rd age range legs", "Armadyl chainskirt",
                                "Morrigan's leather chaps",
                                "Vesta's plateskirt", "Statius's platelegs"]),
@@ -1104,6 +1110,12 @@ MAGE = TabSpec(
         Section("CoX mage upgrades + Ancestral", _name_in({
             "Kodai insignia", "Ancestral robes set",
         })),
+        Section("Nightmare orbs + spell sacks", _name_in({
+            "Harmonised orb", "Volatile orb", "Eldritch orb",
+            "Blighted ancient ice sack", "Blighted bind sack",
+            "Blighted snare sack", "Blighted entangle sack",
+            "Blighted teleport spell sack", "Blighted vengeance sack",
+        })),
         Section("Mage GE armour sets", _name_in({
             "Mystic set (light)", "Mystic set (blue)",
             "Mystic set (dark)", "Mystic set (dusk)",
@@ -1139,7 +1151,8 @@ PRAYER = TabSpec(
                       "Unstrung symbol", "Unblessed symbol", "Unstrung emblem",
                       "Unpowered symbol", "Holy mould", "Silver sickle",
                       "Silver sickle (b)", "Emerald sickle (b)",
-                      "Enchanted emerald sickle (b)"}),
+                      "Enchanted emerald sickle (b)",
+                      "Ruby sickle (b)", "Enchanted ruby sickle (b)"}),
             _name_starts("Holy book"), _name_starts("Unholy book"),
             _name_starts("Book of "),
         ), force_exclude=["Book of haricanto", "Book of portraiture",
@@ -1343,6 +1356,8 @@ COOKING = TabSpec(
                 "Bowl of fish",
                 # session 58 — Gauntlet cooked paddlefish
                 "Paddlefish",
+                # session 60 — Blighted PvP food
+                "Blighted manta ray", "Blighted anglerfish", "Blighted karambwan",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1538,6 +1553,8 @@ FIREMAKING = TabSpec(
             "Phoenix", "Phoenix pet",
             # session 48 — Wintertodt rejuvenation herb
             "Bruma herb",
+            # session 60 — Wintertodt GE convenience set
+            "Pyromancer set",
         })),
         Section("Lovakengj charcoal", _name_in({
             "Juniper charcoal",
@@ -1592,9 +1609,10 @@ CRAFTING = TabSpec(
         })),
         Section("Ornament kits", _or(
             _name_ends(" ornament kit"),
+            _name_ends(" colour kit"),
             _name_in({
-                "Dark infinity colour kit", "Light infinity colour kit",
                 "Steam staff upgrade kit", "Dragon pickaxe upgrade kit",
+                "Lava staff upgrade kit",
             }),
         )),
         Section("Pottery", _name_in({
@@ -1673,6 +1691,9 @@ MINING_SMITHING = TabSpec(
         })),
         Section("Lunar Diplomacy ores/bars", _name_in({
             "Lunar ore", "Lunar bar",
+        })),
+        Section("Daeyalt (Sins of the Father)", _name_in({
+            "Daeyalt shard",
         })),
         Section("Motherlode Mine", _name_in({
             "Pay-dirt", "Golden nugget", "Soft clay pack",
@@ -1834,6 +1855,11 @@ AGILITY_THIEVING = TabSpec(
             "Mithril grapple", "Climbing boots", "Spiked climbing boots",
             "Crystal grappling hook", "Boots of lightness",
             "Rock-climbing boots", "Spiked boots",
+        })),
+        Section("Hallowed Sepulchre tools + jewellery", _name_in({
+            "Hallowed grapple", "Hallowed focus", "Hallowed symbol",
+            "Hallowed hammer", "Hallowed ring",
+            "Strange old lockpick (full)",
         })),
         Section("Rogue equipment", _name_starts("Rogue ")),
         Section("Thieving accessories", _name_in({
@@ -2276,6 +2302,8 @@ MISC = TabSpec(
             # session 40 — higher-charge variants
             "Skills necklace(6)",
             "Amulet of glory(5)", "Amulet of glory(7)", "Amulet of glory(8)",
+            # session 60 — Ring of endurance (Hallowed Sepulchre reward)
+            "Ring of endurance (uncharged)",
             "Skills necklace", "Skills necklace(1)", "Skills necklace(2)",
             "Skills necklace(3)", "Skills necklace(4)", "Skills necklace(5)",
             "Digsite pendant (1)", "Digsite pendant (2)", "Digsite pendant (3)",
@@ -2442,6 +2470,12 @@ MISC = TabSpec(
                 "Spookier hood", "Spookier robe", "Spookier skirt",
                 "Spookier gloves", "Spookier boots",
                 "Pumpkin lantern", "Skeleton lantern",
+                # session 60 — Christmas 2019 Gingerbread event
+                "Green gingerbread shield", "Red gingerbread shield",
+                "Blue gingerbread shield", "Gingerbread shield",
+                "Iced gingerbread shield",
+                "Festive cinnamon stick", "Festive ginger powder",
+                "Festive egg", "Festive pot", "Festive flour",
                 # session 52 — Christmas 2018 Wise Old Man event
                 "Snow imp costume head", "Snow imp costume body",
                 "Snow imp costume legs", "Snow imp costume tail",
@@ -2477,6 +2511,8 @@ MISC = TabSpec(
             "Marks of grace", "Brimhaven voucher", "Archery ticket",
             "Ecto-token", "Trading sticks", "Warrior guild token",
             "Numulite", "Temple coin",
+            # session 60 — Hallowed Sepulchre currency
+            "Hallowed mark",
         })),
     ],
 )

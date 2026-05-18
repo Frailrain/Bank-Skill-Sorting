@@ -2224,3 +2224,83 @@ Added Memoriam crystal (1-4) (Sote XP boost crystal), Spooky hood/robe/skirt/glo
 GE convenience mage set.
 
 **Affects**: 1 item.
+
+## Session 60 (audit IDs 24401–24750)
+
+### `_TREASURE_TRAIL_MELEE_NAMES` extended — `Inquisitor's plateskirt`
+
+Nightmare drop, not smithable.
+
+**Affects**: 1 item.
+
+### MELEE Helmets/Body/Legs — Twisted ancestral force_exclude
+
+REM melee for Twisted ancestral hat/robe top/robe bottom (Ancestral set is pure mage).
+
+### MAGE Helmets/Body/Legs — Twisted ancestral force_include
+
+### MAGE — new "Nightmare orbs + spell sacks" section
+
+Added Harmonised/Volatile/Eldritch orb (Nightmare staff orbs) + Blighted ancient ice/bind/snare/entangle/teleport/vengeance sack.
+
+**Affects**: 9 items.
+
+### COOKING Misc cooked food — Blighted PvP food
+
+Added Blighted manta ray, anglerfish, karambwan.
+
+**Affects**: 3 items.
+
+### FIREMAKING Wintertodt — `Pyromancer set`
+
+GE convenience set.
+
+**Affects**: 1 item.
+
+### PRAYER Holy symbols — Ruby sickle (b) family
+
+Added Ruby sickle (b), Enchanted ruby sickle (b).
+
+**Affects**: 2 items.
+
+### MINING_SMITHING — new "Daeyalt (Sins of the Father)" section
+
+Added Daeyalt shard.
+
+**Affects**: 1 item.
+
+### AGILITY_THIEVING — new "Hallowed Sepulchre tools + jewellery" section
+
+Added Hallowed grapple, focus, symbol, hammer, ring + Strange old lockpick (full).
+
+**Affects**: 6 items.
+
+### MISC Currency — `Hallowed mark`
+
+Hallowed Sepulchre currency.
+
+**Affects**: 1 item.
+
+### MISC Teleport jewellery — `Ring of endurance (uncharged)`
+
+Hallowed Sepulchre reward.
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Christmas 2019 Gingerbread set
+
+Added Green/Red/Blue gingerbread shield, Festive cinnamon stick/ginger powder/egg/pot/flour, Gingerbread shield, Iced gingerbread shield.
+
+**Affects**: 10 items.
+
+### MELEE GE armour sets — `Inquisitor's armour set`
+
+Added Inquisitor's armour set explicit force_include.
+
+**Affects**: 1 item.
+
+### CRAFTING Ornament kits — `Twisted ancestral colour kit`
+
+Already caught by ` ornament kit` pattern? Actually "colour kit" - need explicit add.
+
+**Affects**: 1 item.
