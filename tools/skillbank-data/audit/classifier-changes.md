@@ -1533,3 +1533,59 @@ Added Partyhat set, Halloween mask set, Bunny feet, Empty/Incomplete/Easter blas
 Xerician robes material.
 
 **Affects**: 1 item.
+
+## Session 45 (audit IDs 13401–13700)
+
+### FARMING Compost — Hosidius fertiliser
+
+Added Sulphurous fertiliser, Gricoller's fertiliser, Saltpetre.
+
+**Affects**: 3 items.
+
+### COOKING "Misc cooked food" — Hosidius gnome fruits
+
+Added Golovanova fruit, Bologano fruit, Logavano fruit (gnome cooking fruits from Hosidius).
+
+**Affects**: 3 items.
+
+### FISHING Bait — Fossil Island sandworms
+
+Added Bucket of sandworms, Sandworms, Sandworms pack.
+
+**Affects**: 3 items.
+
+### RUNECRAFT "Essence intermediates" — `Dense essence block`
+
+Added Dense essence block (Arceuus Dense runestone intermediate).
+
+**Affects**: 1 item.
+
+### MELEE — new "Shayzien supply armour" section
+
+Pattern `name_starts("Shayzien supply ")` catches all Shayzien supply armour pieces + crate + set variants.
+
+**Affects**: ~30 items.
+
+### FIREMAKING — new "Lovakengj charcoal" section
+
+Added Juniper charcoal (Lovakengj sulphurous charcoal).
+
+**Affects**: 1 item.
+
+### MINING_SMITHING — new "Lovakengj mining (sulphur + dynamite)" section
+
+Added Volcanic sulphur, Dynamite pot, Dynamite, Blasted ore.
+
+**Affects**: 4 items.
+
+### MISC Clue scrolls — Clue bottle variants
+
+Pattern extended to catch `Clue bottle (easy/medium/hard/elite)` (Wilderness clue scroll containers).
+
+**Affects**: 4 items.
+
+### MISC Holiday rares — Bunny Easter set
+
+Added Bunny top, Bunny legs, Bunny paws.
+
+**Affects**: 3 items.

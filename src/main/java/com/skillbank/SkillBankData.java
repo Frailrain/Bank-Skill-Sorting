@@ -454,13 +454,14 @@ public final class SkillBankData
 
 	private static void addMelee(Map<String, List<Integer>> m)
 	{
-		// MELEE — 1368 items
+		// MELEE — 1399 items
 		//   Combat utility (6), Weapons (285), Godsword construction (11), Helmets
 		//   (221), Body armour (131), Legs (118), Boots (68), Gloves (69), Shields
 		//   (112), Trim/gilded armour cosmetic variants (78), GE armour sets
 		//   (melee) (58), Spirit shield construction (4), Crystal halberd (2),
-		//   Capes (54), Amulets (40), Rings (17), Combat potions (56), Restores
-		//   (cross-tag) (14), Combat food (23), Legacy (1)
+		//   Shayzien supply armour (31), Capes (54), Amulets (40), Rings (17),
+		//   Combat potions (56), Restores (cross-tag) (14), Combat food (23),
+		//   Legacy (1)
 		m.put(TAG_MELEE, Arrays.asList(
 			// === Combat utility ===
 			2, 6, 8, 10, 12, 21728,
@@ -638,6 +639,12 @@ public final class SkillBankData
 
 			// === Crystal halberd ===
 			13080, 13091,
+
+			// === Shayzien supply armour ===
+			13538, 13539, 13540, 13541, 13542, 13543, 13544, 13545,
+			13546, 13547, 13548, 13549, 13550, 13551, 13552, 13553,
+			13554, 13555, 13556, 13557, 13558, 13559, 13560, 13561,
+			13562, 13563, 13565, 13566, 13567, 13568, 13569,
 
 			// === Capes ===
 			21285, 21295, 12261, 6568, 6570, 7918, 9747, 9749,
@@ -1056,12 +1063,12 @@ public final class SkillBankData
 
 	private static void addCooking(Map<String, List<Integer>> m)
 	{
-		// COOKING — 608 items
+		// COOKING — 611 items
 		//   Cooking tools (18), Raw fish (25), Cooked fish (23), Pies (10), Pizzas
 		//   (4), Stews & curries (3), Cakes (2), Breads (4), Gnome food /
 		//   cocktails (91), Beverages (58), Burnt food (65), Containers
 		//   (water/milk/etc) (18), Raw meat & ingredients (119), Misc cooked food
-		//   (90), Pies (extended) (19), Harvest produce (cross-tag with farming)
+		//   (93), Pies (extended) (19), Harvest produce (cross-tag with farming)
 		//   (55), Cooking pet & misc (4)
 		m.put(TAG_COOKING, Arrays.asList(
 			// === Cooking tools ===
@@ -1163,9 +1170,9 @@ public final class SkillBankData
 			7544, 7545, 7546, 7568, 7572, 7573, 7574, 7575,
 			7579, 7580, 9475, 9980, 9984, 9988, 9992, 9994,
 			9996, 10960, 10961, 10962, 10963, 10964, 10965, 10966,
-			10967, 10968, 10969, 10970, 10971, 24785, 29077, 29128,
-			29131, 29134, 29137, 29140, 29143, 29146, 29149, 29152,
-			29217, 33109,
+			10967, 10968, 10969, 10970, 10971, 13426, 13427, 13428,
+			24785, 29077, 29128, 29131, 29134, 29137, 29140, 29143,
+			29146, 29149, 29152, 29217, 33109,
 
 			// === Pies (extended) ===
 			2315, 2317, 2319, 2321, 7164, 7170, 7172, 7182,
@@ -1299,8 +1306,8 @@ public final class SkillBankData
 
 	private static void addFishing(Map<String, List<Integer>> m)
 	{
-		// FISHING — 88 items
-		//   Rods & tools (15), Bait (8), Raw fish (25), Specialty fish (10),
+		// FISHING — 91 items
+		//   Rods & tools (15), Bait (11), Raw fish (25), Specialty fish (10),
 		//   Angler outfit (4), Spirit angler outfit (4), Tempoross rewards (5),
 		//   Fishing potions (cross-tag) (8), Trophy fish (POH mountable) (6), Cape
 		//   & pet (3)
@@ -1311,6 +1318,7 @@ public final class SkillBankData
 
 			// === Bait ===
 			313, 314, 10087, 10088, 10089, 10090, 10091, 11940,
+			13430, 13431, 13432,
 
 			// === Raw fish ===
 			317, 327, 3150, 345, 321, 353, 335, 341,
@@ -1344,9 +1352,9 @@ public final class SkillBankData
 
 	private static void addFiremaking(Map<String, List<Integer>> m)
 	{
-		// FIREMAKING — 78 items
+		// FIREMAKING — 79 items
 		//   Tinderbox (2), Logs (42), Firelighters (6), Lanterns (17), Wintertodt
-		//   (9), Cape (2)
+		//   (9), Lovakengj charcoal (1), Cape (2)
 		m.put(TAG_FIREMAKING, Arrays.asList(
 			// === Tinderbox ===
 			590, 20720,
@@ -1370,6 +1378,9 @@ public final class SkillBankData
 			// === Wintertodt ===
 			20693, 20695, 20696, 20704, 20706, 20708, 20710, 20712,
 			20718,
+
+			// === Lovakengj charcoal ===
+			13570,
 
 			// === Cape ===
 			9804, 9806
@@ -1469,12 +1480,13 @@ public final class SkillBankData
 
 	private static void addMiningSmithing(Map<String, List<Integer>> m)
 	{
-		// MINING_SMITHING — 237 items
+		// MINING_SMITHING — 241 items
 		//   Pickaxes (18), Mining tools & bags (6), Ores (21), Bars (10), Smithing
 		//   outputs (8), Lunar Diplomacy ores/bars (2), Motherlode Mine (3),
-		//   Mining outfit (Prospector) (4), Mining/Smithing capes & pets (5),
-		//   Crystal-tool/Tier-fallback pickaxes (1), Smithing armour outputs
-		//   (extended) (149), Gem cutting/polishing inputs (10)
+		//   Lovakengj mining (sulphur + dynamite) (4), Mining outfit (Prospector)
+		//   (4), Mining/Smithing capes & pets (5), Crystal-tool/Tier-fallback
+		//   pickaxes (1), Smithing armour outputs (extended) (149), Gem
+		//   cutting/polishing inputs (10)
 		m.put(TAG_MINING_SMITHING, Arrays.asList(
 			// === Pickaxes ===
 			1265, 1267, 11721, 1269, 12297, 1273, 11720, 1271,
@@ -1501,6 +1513,9 @@ public final class SkillBankData
 
 			// === Motherlode Mine ===
 			12009, 12011, 12012,
+
+			// === Lovakengj mining (sulphur + dynamite) ===
+			13571, 13572, 13573, 13575,
 
 			// === Mining outfit (Prospector) ===
 			12013, 12014, 12015, 12016,
@@ -1746,8 +1761,8 @@ public final class SkillBankData
 
 	private static void addFarming(Map<String, List<Integer>> m)
 	{
-		// FARMING — 288 items
-		//   Tools (19), Compost (9), Seeds (158), Harvest produce (51), Farm
+		// FARMING — 291 items
+		//   Tools (19), Compost (12), Seeds (158), Harvest produce (51), Farm
 		//   outputs / materials (42), Farmer outfit (6), Cape & pet (3)
 		m.put(TAG_FARMING, Arrays.asList(
 			// === Tools ===
@@ -1756,8 +1771,8 @@ public final class SkillBankData
 			7409, 7410, 13353,
 
 			// === Compost ===
-			6032, 6034, 6036, 6470, 6472, 6474, 6476, 21483,
-			22994,
+			6032, 6034, 6036, 6470, 6472, 6474, 6476, 13419,
+			13420, 13421, 21483, 22994,
 
 			// === Seeds ===
 			4486, 6453, 6464, 22887, 4207, 6103, 9626, 23655,
@@ -1808,9 +1823,9 @@ public final class SkillBankData
 
 	private static void addRunecraft(Map<String, List<Integer>> m)
 	{
-		// RUNECRAFT — 87 items
+		// RUNECRAFT — 88 items
 		//   Talismans (24), Tiaras (20), Essence pouches (7), RC accessories (1),
-		//   Essence intermediates (2), Essence (4), Basic runes (16), Combo runes
+		//   Essence intermediates (3), Essence (4), Basic runes (16), Combo runes
 		//   (6), Raiments of the eye (4), Cape & pet (3)
 		m.put(TAG_RUNECRAFT, Arrays.asList(
 			// === Talismans ===
@@ -1830,7 +1845,7 @@ public final class SkillBankData
 			5521,
 
 			// === Essence intermediates ===
-			7938, 13446,
+			7938, 13445, 13446,
 
 			// === Essence ===
 			1436, 7936, 24704, 26390,
@@ -1991,12 +2006,12 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 418 items
+		// MISC — 426 items
 		//   Teleport jewellery (63), Teleport tabs (68), Boss & quest jewellery
-		//   (10), Cosmetic outfits / random events (52), Clue scrolls (8), Clue
+		//   (10), Cosmetic outfits / random events (52), Clue scrolls (13), Clue
 		//   tools (25), Keys (13), Storage bags (6), Utility / banked supplies
 		//   (2), Imbue scrolls (2), Combat trophies (PvM rewards) (3), Holiday
-		//   rares & cosmetics (107), Team capes (Castle Wars) (50), Currency (9)
+		//   rares & cosmetics (110), Team capes (Castle Wars) (50), Currency (9)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
@@ -2033,7 +2048,8 @@ public final class SkillBankData
 			3058, 3059, 3060, 3061,
 
 			// === Clue scrolls ===
-			713, 2677, 2722, 2801, 12073, 19835, 23182, 27427,
+			713, 2677, 2722, 2801, 12073, 13648, 13649, 13650,
+			13651, 19835, 23129, 23182, 27427,
 
 			// === Clue tools ===
 			3450, 3451, 3452, 3453, 3454, 3455, 3456, 3457,
@@ -2071,7 +2087,7 @@ public final class SkillBankData
 			11863, 12861, 12887, 12888, 12889, 12890, 12891, 12892,
 			12893, 12894, 12895, 12896, 12897, 13173, 13175, 13182,
 			13183, 13184, 13185, 13283, 13284, 13285, 13286, 13287,
-			13288, 13344, 13345,
+			13288, 13344, 13345, 13663, 13664, 13665,
 
 			// === Team capes (Castle Wars) ===
 			4315, 4317, 4319, 4321, 4323, 4325, 4327, 4329,

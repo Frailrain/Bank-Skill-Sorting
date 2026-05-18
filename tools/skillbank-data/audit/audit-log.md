@@ -4071,6 +4071,98 @@ See `audit/classifier-changes.md` "Session 43".
 
 See `audit/classifier-changes.md` "Session 44".
 
+---
+
+## Session 45: IDs 13401–13700
+
+### RFD Servery + Servery quest material
+
+- `13401-13418 Servery pie shell/Uncooked pie/Meat pie/Pizza base/Tomato/Incomplete pizza/Cheese/Uncooked pizza/Plain pizza/Pineapple/Pineapple chunks/Pineapple pizza/Cooked meat/Potato/Incomplete stew/Uncooked stew/Stew` (~17 items) — mostly EX/LOG; some cooking classified.
+
+### Hosidius farming + Sorceress's Garden
+
+- `13419 Sulphurous fertiliser`, `13420 Gricoller's fertiliser`, `13421 Saltpetre` (3 items) — **ADD farming** (Hosidius compost/fertiliser).
+- `13423-13428 Golovanova/Bologano/Logavano seed ✓ farming + Golovanova/Bologano/Logavano fruit` — partial.
+- `13426-13428 Golovanova fruit, Bologano fruit, Logavano fruit` (3 items) — **ADD cooking** (gnome-cooking fruits).
+
+### Fossil Island fishing + Anglerfish
+
+- `13429 Fresh fish` — LOG.
+- `13430-13432 Bucket of sandworms, Sandworms, Sandworms pack` (3 items) — **ADD fishing** (Fossil Island bait).
+- `13434-13438 Stolen pendant/garnet ring/circlet/family heirloom/jewelry box` — EX (random event).
+- `13439-13443 Raw/cooked/Burnt anglerfish` — OK (3 items, `cooking[+fishing]`).
+
+### Runecraft
+
+- `13445 Dense essence block` — **ADD runecraft** (Arceuus Dense runestone intermediate).
+- `13446 Dark essence block` — OK.
+
+### Ensouled heads (Arceuus reanimation)
+
+- `13448-13511 Ensouled goblin/monkey/imp/minotaur/scorpion/bear/unicorn/dog/chaos druid/giant/ogre/elf/troll/horror/kalphite/dagannoth/bloodveld/tzhaar/demon/aviansie/abyssal/dragon head` (22 items) — OK (`prayer` via `name_starts("Ensouled ")`).
+
+### Arceuus library
+
+- `13513 Book of arcane knowledge` — OK (`prayer`).
+- `13514-13521 Dark manuscript × 7` — LOG (Arceuus library quest dialogue/lore books).
+- `13524-13537 Rada's census, Ricktor's diary (7), Eathram & rada extract, Killing of a king, Hosidius letter, Wintertodt parable, Twill accord, Byrne's coronation speech, Ideology of darkness, Rada's journey, Transvergence theory, Tristessa's tragedy, Treachery of royalty, Transportation incantations` (~14 items) — LOG (Arceuus library cosmetic lore books).
+
+### Shayzien supply armour (Hosidius favor)
+
+- `13538-13562 Shayzien supply gloves/boots/helm/greaves/platebody × 5 tiers` (25 items) — **ADD melee** (Shayzien Combat XP gear; canonical Shayzien armour already classifies melee).
+- `13563 Shayzien supply crate`, `13565-13569 Shayzien supply set (1-5)` (6 items) — LOG (containers/sets).
+
+### Lovakengj mining + dynamite
+
+- `13570 Juniper charcoal` — **ADD firemaking** (Lovakengj sulphurous charcoal).
+- `13571 Volcanic sulphur` — **ADD mining_smithing**.
+- `13572-13573 Dynamite pot, Dynamite` (2 items) — **ADD mining_smithing**.
+- `13575 Blasted ore` — **ADD mining_smithing**.
+- `13576 Dragon warhammer` — OK (`melee`).
+- `13578 Arceuus icon` — LOG.
+
+### Graceful set Kourend region colour variants
+
+- `13579-13637 Graceful hood/cape/top/legs/gloves/boots × 5 Kourend region colour sets` (~36 items, 6 pieces × 6 regional sets including the original) — LOG (all have the same display name "Graceful hood/cape/..." as canonical 11850 etc.; classifier deduplicates by name).
+- `13667-13677 More Graceful variants` (6 items) — LOG (same name dups).
+
+### Misc + Farmer's outfit + clue bottles
+
+- `13639 Seed box` — OK (`misc`).
+- `13640-13646 Farmer's boro trousers/jacket/shirt/boots/strawhat` — OK (5 items, `farming`).
+- `13648-13651 Clue bottle (easy/medium/hard/elite)` (4 items) — **ADD misc** (Wilderness clue scroll containers).
+
+### Dragon claws + cosmetic + Bunny set
+
+- `13652 Dragon claws` — OK (`melee`).
+- `13653-13654 Bird nest, Nest box (seeds)` — LOG (dups).
+- `13655-13656 Gnome child hat, Present` — LOG/Holiday.
+- `13657 Grape seed` — OK (`farming`).
+- `13658 Teleport card` — LOG.
+- `13660 Chronicle` — OK (`misc`).
+- `13663-13666 Bunny top, Bunny legs, Bunny paws, Deadman teleport tablet` — partial; `13663-13665 Bunny top/legs/paws` (3 items) — **ADD misc Holiday rares**.
+- `13666 Deadman teleport tablet` — LOG.
+
+### Cabbage event
+
+- `13679 Cabbage cape` — OK (`range`).
+- `13680-13681 Cabbage rune, Cruciferous codex` — LOG (Cabbage Facepunch Bonanza event cosmetic).
+
+---
+
+## Session 45 totals
+
+- Items reviewed: ~300
+- OK (correct as-is): 80
+- EX (correctly excluded): 25 (Servery quest material, random event)
+- ADD (missing tab, fixed): 44 (3 farming fertiliser, 3 cooking fruits, 3 fishing sandworm, 1 runecraft dense block, 25 Shayzien supply, 1 firemaking, 4 mining_smithing Lovakengj, 4 clue bottle, 3 Bunny holiday)
+- REM: 0
+- LOG: 70+ (Arceuus library lore ×20, Servery material, Bunny variants alternative)
+
+## Classifier changes made in session 45
+
+See `audit/classifier-changes.md` "Session 45".
+
 ## Resume marker
 
-**Next session: start from ID 13401.**
+**Next session: start from ID 13701.**

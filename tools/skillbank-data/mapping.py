@@ -828,6 +828,7 @@ MELEE = TabSpec(
         Section("Crystal halberd", _name_in({
             "New crystal halberd full", "New crystal halberd full (i)",
         })),
+        Section("Shayzien supply armour", _name_starts("Shayzien supply ")),
         Section("Capes", _slot_pred("cape"),
                 force_include=["Attack hood", "Strength hood", "Defence hood", "Hitpoints hood"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
@@ -1195,6 +1196,8 @@ COOKING = TabSpec(
                 "Coated frogs' legs", "Bat shish", "Fingers",
                 "Grubs à la mode", "Roast frog", "Mushrooms",
                 "Fillets", "Loach", "Eel sushi",
+                # session 45 — Hosidius gnome cooking fruits
+                "Golovanova fruit", "Bologano fruit", "Logavano fruit",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1317,6 +1320,8 @@ FISHING = TabSpec(
             "Fishing bait", "Feather", "Dark fishing bait",
             "Stripy feather", "Red feather", "Yellow feather",
             "Blue feather", "Orange feather",
+            # session 45 — Fossil Island sandworm bait
+            "Bucket of sandworms", "Sandworms", "Sandworms pack",
         })),
         Section("Raw fish", _is_raw_fish, sort_key=_raw_fish_sort_key),
         Section("Specialty fish", _name_in({
@@ -1366,6 +1371,9 @@ FIREMAKING = TabSpec(
             "Pyromancer robe", "Pyromancer boots",
             "Warm gloves", "Warm cloak",
             "Phoenix", "Phoenix pet",
+        })),
+        Section("Lovakengj charcoal", _name_in({
+            "Juniper charcoal",
         })),
         Section("Cape", _name_in({"Firemaking cape", "Firemaking cape(t)", "Firemaking hood"})),
     ],
@@ -1495,6 +1503,9 @@ MINING_SMITHING = TabSpec(
         })),
         Section("Motherlode Mine", _name_in({
             "Pay-dirt", "Golden nugget", "Soft clay pack",
+        })),
+        Section("Lovakengj mining (sulphur + dynamite)", _name_in({
+            "Volcanic sulphur", "Dynamite pot", "Dynamite", "Blasted ore",
         })),
         Section("Mining outfit (Prospector)", _name_starts("Prospector ")),
         Section("Smithing outfit (Smiths')", _name_starts("Smiths' ")),
@@ -1751,6 +1762,8 @@ FARMING = TabSpec(
             "Compost potion(4)", "Compost potion(3)",
             "Compost potion(2)", "Compost potion(1)",
             "Bottomless compost bucket", "Plant cure",
+            # session 45 — Hosidius fertiliser
+            "Sulphurous fertiliser", "Gricoller's fertiliser", "Saltpetre",
         })),
         Section("Seeds", _is_seed),
         # Note: prior force_exclude for "Marigold seed" was removed in session 18
@@ -1808,6 +1821,7 @@ RUNECRAFT = TabSpec(
         })),
         Section("Essence intermediates", _name_in({
             "Dark essence fragments", "Dark essence block",
+            "Dense essence block",
         })),
         Section("Essence", _name_in(_ESSENCE)),
         Section("Basic runes", _name_in(_BASIC_RUNES)),
@@ -2030,7 +2044,8 @@ MISC = TabSpec(
             | {"Chompy bird hat", "Firework"}
         )),
         Section("Clue scrolls",
-                _or(_name_starts("Clue scroll"), _name_starts("Master clue"))),
+                _or(_name_starts("Clue scroll"), _name_starts("Master clue"),
+                    _name_starts("Clue bottle"))),
         Section("Clue tools", _or(
             _name_in({
                 "Sextant", "Watch", "Chart", "Mimic kill count",
@@ -2122,6 +2137,8 @@ MISC = TabSpec(
                 "Gravedigger boots", "Gravedigger gloves", "Anti-panties",
                 "Black santa hat", "Inverted santa hat",
                 "Anti-present", "Present",
+                # session 45 — Bunny set Easter event
+                "Bunny top", "Bunny legs", "Bunny paws",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),
