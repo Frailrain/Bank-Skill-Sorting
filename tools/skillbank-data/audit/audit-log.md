@@ -5,8 +5,9 @@
 - **Total items in manifest**: 11,875
 - **Reviewed in session 1**: IDs 0–250 (145 items)
 - **Reviewed in session 2**: IDs 251–500 (145 items)
-- **Reviewed cumulative**: 290 (2.4%)
-- **Resume from**: ID 501
+- **Reviewed in session 3**: IDs 501–750 (177 items)
+- **Reviewed cumulative**: 467 (3.9%)
+- **Resume from**: ID 751
 
 ## Decision codes
 
@@ -322,6 +323,144 @@ These IDs 466–500 are the Plague's End quest's pickaxe & axe assembly puzzle p
 
 See `out/classifier-changes.md` "Session 2".
 
+---
+
+## Session 3: IDs 501–750
+
+### Plague's End axe parts (continued from session 2)
+
+- `502-506 Broken axe` (×3, tier-specific) — EX (3 items). Quest parts.
+- `508-520 Bronze/Iron/Steel/Black/Mithril/Adamant/Rune axe head` — EX (7 items). Quest parts.
+
+### Witch's Potion enchanted-food
+
+- `522 Enchanted beef`, `523 Enchanted rat`, `524 Enchanted bear`, `525 Enchanted chicken` — EX (4 items). Witch's Potion quest items consumed at quest end.
+
+### Bones (prayer)
+
+- `526 Bones`, `528 Burnt bones`, `530 Bat bones`, `532 Big bones`, `534 Babydragon bones`, `536 Dragon bones` — OK (6 items). All in prayer. Burnt bones cross-tags into cooking (cooked-bones via firemaking sometimes).
+
+### Druid's robe / Shade robe
+
+- `538 Druid's robe` — **ADD prayer**. Currently unclassified; should be in prayer (worn for prayer flavour, also kept as cosmetic). Add to prayer Robes section.
+- `540 Druid's robe top` — **ADD prayer**. Same.
+- `542 Monk's robe` — OK (`prayer`).
+- `544 Monk's robe top` — OK (`prayer`).
+- `546 Shade robe top` — **ADD quests**. Shades of Mort'ton quest cosmetic robe. Currently unclassified.
+- `548 Shade robe` — **ADD quests**. Same.
+
+### Ghosts Ahoy / Newcomer / Pirate's Treasure follow-on
+
+- `550 Newcomer map` — EX. Misthalin Mystery / starter map; not banked.
+- `552 Ghostspeak amulet` — **ADD misc**. F2P quest reward, frequently kept and reused for ghost-related content. Add to misc Boss & quest jewellery.
+- `553 Ghost's skull` — EX. Restless Ghost quest item.
+
+### Runes (verified)
+
+- `554 Fire rune` `555 Water rune` `556 Air rune` `557 Earth rune` `558 Mind rune` `559 Body rune` — OK (6 F2P runes in `mage;runecraft`).
+- `560 Death rune` `561 Nature rune` `562 Chaos rune` `563 Law rune` `564 Cosmic rune` `565 Blood rune` `566 Soul rune` — OK (7 members runes).
+
+### Orbs (mage materials)
+
+- `567 Unpowered orb` `569 Fire orb` `571 Water orb` `573 Air orb` `575 Earth orb` — OK (5 items, all in `mage`). Session 1 fix added the section.
+
+### Wizard robes
+
+- `577 Blue wizard robe` `579 Blue wizard hat` `581 Black robe` — OK (3 items, `mage`).
+
+### Pirate's Treasure / Quest misc
+
+- `583 Bailing bucket` — EX. Pirate's Treasure / Tempoross item (used during minigame, but Tempoross-specific items are already in fishing).
+- `587 Orb of protection` `588 Orbs of protection` — EX. Witch's House / Family Crest quest items.
+- `589 Gnome amulet` — **REM melee**. Tree Gnome Stronghold quest item with neck slot but no real combat use. Classifier picked up due to slot. **ADD quests**.
+
+### Lighting / fire
+
+- `590 Tinderbox` — OK (`firemaking`).
+- `592 Ashes` — OK (`prayer`).
+- `595 Torch` — **ADD firemaking**. Unlit/lit torch are firemaking items. Add to Lanterns section.
+- `596 Unlit torch` — **ADD firemaking**. Same.
+
+### Ammunition (quest variant)
+
+- `598 Bronze fire arrow` — OK (`range;wc_fletching`).
+
+### Observatory Quest
+
+- `600 Astronomy book` — EX. Quest item.
+
+### Various early-2002 quests (Goblin Diplomacy → Shilo Village)
+
+- `601-625` (~20 quest items: Goblin kitchen key, Lens mould, Observatory lens, Bone shard, Bone key, Stone-plaque, Tattered scroll, Crumpled scroll, Rashiliyia corpse, Zadimus corpse, Locating crystal ×4, Bone beads, Paramaya tickets, Ship ticket, Sword pommel, Bervirius notes, Wampum belt) — EX. All quest consumables.
+
+### Coins
+
+- `617 Coins` — OK (`misc`).
+
+### Beads of the dead
+
+- `616 Beads of the dead` — **REM melee, range, mage**. Currently in all 3 combat tabs because it's a neck slot item with offensive bonuses, but it's a quest cosmetic (Shilo Village reward). No real combat use. **ADD quests**.
+
+### Mime random-event outfit (IDs 626–664)
+
+5 colours (Pink, Green, Blue, Cream, Turquoise) × 4 pieces (boots / robe top / robe bottoms / hat) = 20 items. All currently classified in melee or mage based on slot — but they're cosmetic random event rewards.
+
+- `626 Pink boots`, `628 Green boots`, `630 Blue boots`, `632 Cream boots`, `634 Turquoise boots` — **REM melee** (5 items). **ADD misc**. Mime random event cosmetic.
+- `636-644 Pink/Green/Blue/Cream/Turquoise robe top` — **REM melee** (5 items). **ADD misc**.
+- `646-654 Pink/Green/Blue/Cream/Turquoise robe bottoms` — **REM melee** (5 items). **ADD misc**.
+- `656-664 Pink/Green/Blue/Cream/Turquoise hat` — **REM mage** (5 items). **ADD misc**.
+
+(Fix: name-pattern force_exclude for the 5 colours; new misc section "Cosmetic outfits / random event".)
+
+### Knight's Sword
+
+- `666 Portrait` — EX. Quest item.
+- `667 Blurite sword` — OK (`melee`). Quest reward weapon kept by some players.
+- `668 Blurite ore` — OK (`mining_smithing`).
+
+### Digsite + random events
+
+- `669 Specimen jar`, `670 Specimen brush`, `672 Special cup`, `673 Teddy`, `674 Cracked sample`, `675 Rock pick`, `677-680 Panning tray/Nuggets`, `682-686 Unstamped letter/Sealed letter/Belt buckle/Old boot/Rusty sword` — EX (many items). Dig Site quest puzzle items + random-event drops.
+- `671 Animal skull` — currently in wc_fletching. **REM wc_fletching**. Random event drop, not a fletching item. EX.
+- `676 Trowel` — **REM farming**. Dig Site quest item; separate from farming trowel (different ID). EX.
+- `681 Ancient talisman` — OK (`runecraft`). Used to enter the Abyss for RC training.
+- `687 Broken arrow` — **REM wc_fletching**. Random event / Dig Site drop, not fletching material. EX.
+- `688-696` (Buttons, Broken staff, Broken glass, Level 1-3 certificates, Ceramic remains, Old tooth, Invitation letter, Damaged armour, Broken armour) — EX (9 items). Dig Site / random event items.
+
+### Murder Mystery quest
+
+- `697 Damaged armour` `698 Broken armour` `699 Stone tablet` — EX. Quest items.
+- `701-711` (Ammonium nitrate, Nitroglycerin, Ground charcoal, Mixed chemicals, Chemical compound, Arcenia root, Chest key, Vase, Book on chemicals) — EX (9 items). Murder Mystery + Witch's House quest items.
+
+### Cup of tea + Clue scroll
+
+- `712 Cup of tea` — OK (`cooking`).
+- `713 Clue scroll` — OK (`misc`).
+
+### Legends' Quest
+
+- `714 Radimus notes`, `716 Bullroarer`, `717-720` (Scrawled/scribbled/scrumpled note, Sketch), `721-723` (Gold bowl, Blessed gold bowl, Golden bowl), `727-728 Hollow reed` (×2), `730 Binding book`, `731 Enchanted vial`, `733 Smashed glass`, `735 Yommi tree seeds`, `737-739` (Snakeweed mixture, Ardrigal mixture, Bravery potion), `741-744` (Chunk/Hunk/Lump/Heart crystal), `748-750` (Holy force, Yommi totem, Gilded totem) — EX (~25 items). All Legends' Quest consumables.
+- `729 Shaman's tome` — **REM mage**. Quest book, not a magic tome. Classifier matched via `_name_ends(" tome")`. **Fix**: force_exclude `Shaman's tome` on MAGE Tomes section.
+- `732 Holy water` — OK (`range`). Thrown holy water vials (anti-demon weapon).
+- `740 Blue hat` — EX. Legends' Quest disguise.
+- `746 Dark dagger` — **REM melee**. Heroes' Quest weapon, quest cosmetic with stab_sword stats but no combat use. **ADD quests**.
+- `747 Glowing dagger` — **REM melee**. Same as 746 (it's the activated form). **ADD quests**.
+
+---
+
+## Session 3 totals
+
+- Items reviewed: 177
+- OK (correct as-is): 32
+- EX (correctly excluded): 110
+- ADD (missing tab, fixed): 31 (Druid's robes ×2, Shade robes ×2, Ghostspeak amulet, Torch ×2, Gnome amulet, Beads of the dead, Mime outfit ×20, Dark dagger + Glowing dagger)
+- REM (misclassified, fixed): 24 (Mime outfit ×20, Beads of the dead from 3 tabs, Gnome amulet, Trowel, Broken arrow, Animal skull, Shaman's tome, Dark/Glowing dagger ×2)
+- LOG (deferred): 0
+
+## Classifier changes made in session 3
+
+See `audit/classifier-changes.md` "Session 3".
+
 ## Resume marker
 
-**Next session: start from ID 501.**
+**Next session: start from ID 751.**

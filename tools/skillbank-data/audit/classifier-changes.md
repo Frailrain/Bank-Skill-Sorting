@@ -121,3 +121,106 @@ Also updated `_herb_sort_key` to handle case insensitivity (Grimy items lower-ca
 **After**: + `Oyster pearl`, `Oyster pearls`, `Pearl`.
 
 **Affects**: 3 items now in crafting. Pearls are bowstring + jewellery secondaries.
+
+---
+
+## Session 3 (audit IDs 501–750)
+
+### New module-level constants
+
+- `_MIME_OUTFIT` — list of 20 Mime random-event cosmetic clothing names (5 colours × 4 pieces).
+- `_QUEST_COSMETIC_MELEE` — names that have melee weapon stats but are quest-only cosmetics (Cattleprod, Khazard sets, Dark/Glowing dagger, Gnome amulet, Beads of the dead, etc.).
+
+### MELEE Weapons — broader force_exclude
+
+**Before**: `force_exclude=["Cattleprod"]`.
+
+**After**: `force_exclude=_QUEST_COSMETIC_MELEE` (8 names).
+
+**Affects**: Dark dagger (746), Glowing dagger (747), Khazard cell keys, etc. all removed from melee Weapons.
+
+### MELEE Body/Legs/Boots/MAGE Helmets — Mime outfit force_exclude
+
+**Before**: no exclusions for mime.
+
+**After**: each section excludes the matching mime pieces (boots → MELEE Boots, robe top → MELEE Body, robe bottoms → MELEE Legs, hat → MAGE Helmets).
+
+**Affects**: 20 mime random-event cosmetic items no longer in combat tabs.
+
+### MELEE/RANGE/MAGE Amulets — `Beads of the dead` + `Gnome amulet` force_exclude
+
+**Before**: no neck-slot exclusions.
+
+**After**: MELEE Amulets excludes `Gnome amulet`, `Beads of the dead`. RANGE and MAGE Amulets exclude `Beads of the dead`.
+
+**Affects**: 2 quest neck items removed from 3 tabs each.
+
+### MAGE Tomes — `Shaman's tome` force_exclude
+
+**Before**: `_name_ends(" tome")` matched everything.
+
+**After**: + `force_exclude=["Shaman's tome"]` (Big Chompy quest item).
+
+**Affects**: ID 729 removed from mage.
+
+### FIREMAKING Lanterns — `Torch`, `Unlit torch`, `Lit torch`
+
+**Before**: 7 names.
+
+**After**: + Torch / Unlit torch / Lit torch.
+
+**Affects**: 3 firemaking items now classified.
+
+### FARMING Tools — `Trowel` removed
+
+**Before**: `Trowel` was in the tool allowlist.
+
+**After**: removed. The Trowel ID (676) is the Dig Site quest tool, a different item from the Farming trowel (which doesn't exist by that name — farming uses Seed dibber + Spade).
+
+**Affects**: ID 676 no longer in farming.
+
+### WC_FLETCHING Arrows — `Broken arrow` force_exclude
+
+**Before**: `_name_ends(" arrow", " arrows")` matched `Broken arrow` (ID 687), a random-event drop.
+
+**After**: + `force_exclude=["Broken arrow"]`.
+
+**Affects**: ID 687 removed from wc_fletching.
+
+### WC_FLETCHING Forestry items — narrower predicate + `Animal skull` exclude
+
+**Before**: `"anima" in name` (substring) — matched `Animal skull` since it contains "anima".
+
+**After**: `"anima " in name` (with trailing space — Anima/anima as a Forestry word, not anywhere as substring) + `force_exclude=["Animal skull"]`.
+
+**Affects**: ID 671 removed from wc_fletching.
+
+### PRAYER Robes — added `Druid's `
+
+**Before**: `Monk's / Proselyte / Initiate / Devout` startswith.
+
+**After**: + `Druid's ` startswith.
+
+**Affects**: Druid's robe (538), Druid's robe top (540) now in prayer.
+
+### QUESTS Quest cosmetic gear — broader
+
+**Before**: 5 names (Khazard helmet/armour, Fishing trophy, Cattleprod, Giant carp).
+
+**After**: 10 names. Added Gnome amulet, Beads of the dead, Dark dagger, Glowing dagger, Shade robe, Shade robe top.
+
+**Affects**: 5 new items in quests.
+
+### MISC Boss & quest jewellery — added `Ghostspeak amulet`
+
+**Before**: 11 names.
+
+**After**: + Ghostspeak amulet (frequently kept for re-equipping post-Restless Ghost).
+
+### MISC — new "Cosmetic outfits / random events" section
+
+**Before**: no place for mime random-event outfit.
+
+**After**: section with the 20 mime outfit names.
+
+**Affects**: 20 items now in misc (paired with the REM-from-combat excludes above).

@@ -3,11 +3,30 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (169 items not in wiki output) ===
+=== melee (188 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
      278  Cattleprod
+     589  Gnome amulet
+     616  Beads of the dead
+     626  Pink boots
+     628  Green boots
+     630  Blue boots
+     632  Cream boots
+     634  Turquoise boots
+     636  Pink robe top
+     638  Green robe top
+     640  Blue robe top
+     642  Cream robe top
+     644  Turquoise robe top
+     646  Pink robe bottoms
+     648  Green robe bottoms
+     650  Blue robe bottoms
+     652  Cream robe bottoms
+     654  Turquoise robe bottoms
+     746  Dark dagger
+     747  Glowing dagger
     1231  (not in wiki canonical set)
     1361  Black axe
     1727  Amulet of magic
@@ -174,7 +193,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (139 items not in wiki output) ===
+=== range (140 items not in wiki output) ===
+     616  Beads of the dead
      942  (not in wiki canonical set)
     1063  Leather vambraces
     1095  Leather chaps
@@ -315,7 +335,14 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28906  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (119 items not in wiki output) ===
+=== mage (126 items not in wiki output) ===
+     616  Beads of the dead
+     656  Pink hat
+     658  Green hat
+     660  Blue hat
+     662  Cream hat
+     664  Turquoise hat
+     729  Shaman's tome
     2572  Ring of wealth
     6099  (not in wiki canonical set)
     6215  (not in wiki canonical set)
@@ -572,7 +599,9 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== wc_fletching (78 items not in wiki output) ===
+=== wc_fletching (83 items not in wiki output) ===
+     671  Animal skull
+     687  Broken arrow
     3094  (not in wiki canonical set)
     4214  (not in wiki canonical set)
     4215  (not in wiki canonical set)
@@ -584,11 +613,13 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4221  (not in wiki canonical set)
     4222  (not in wiki canonical set)
     4223  (not in wiki canonical set)
+    4428  Animate rock scroll
     5071  (not in wiki canonical set)
     5072  (not in wiki canonical set)
     5073  Bird nest
     5074  Bird nest
     5075  Bird nest
+    6904  Animals' bones
     9174  Bronze crossbow
     9380  Adamant bolts(unf)
     9422  Blurite limbs
@@ -622,6 +653,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    23985  (not in wiki canonical set)
    25484  (not in wiki canonical set)
    25862  (not in wiki canonical set)
+   28134  Anima-infused bark
    28164  (not in wiki canonical set)
    28166  Clothes pouch blueprint
    28168  (not in wiki canonical set)
@@ -1035,7 +1067,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26684  (not in wiki canonical set)
    28626  Fox whistle
 
-=== farming (51 items not in wiki output) ===
+=== farming (52 items not in wiki output) ===
+     676  Trowel
     1942  Potato
     1957  Onion
     1963  Banana

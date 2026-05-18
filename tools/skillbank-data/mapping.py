@@ -181,6 +181,18 @@ _SKILLING_GAUNTLETS = [
     "Chaos gauntlets", "Family gauntlets", "Ice gauntlets", "Steel gauntlets",
 ]
 
+# Mime random event cosmetic outfit (IDs 626-664). 5 colours × 4 slots = 20 items.
+_MIME_COLOURS = ("Pink", "Green", "Blue", "Cream", "Turquoise")
+_MIME_PIECES = ("boots", "robe top", "robe bottoms", "hat")
+_MIME_OUTFIT = [f"{c} {p}" for c in _MIME_COLOURS for p in _MIME_PIECES]
+
+# Quest cosmetic equipment with combat stats that should NOT land in melee.
+_QUEST_COSMETIC_MELEE = [
+    "Cattleprod", "Khazard helmet", "Khazard armour", "Khazard cell keys",
+    "Dark dagger", "Glowing dagger",
+    "Gnome amulet", "Beads of the dead",
+]
+
 
 def _is_melee_weapon(it):
     if not it.get("equipable_weapon") or _is_noise(it):
@@ -549,21 +561,25 @@ MELEE = TabSpec(
         Section("Weapons", _is_melee_weapon,
                 sort_key=_melee_weapon_sort_key,
                 force_include=["Dragon pickaxe"],
-                force_exclude=["Cattleprod"]),
+                force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
                 force_exclude=["Khazard helmet"]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
-                force_exclude=["Khazard armour"]),
+                force_exclude=["Khazard armour"]
+                + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
-                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt")))),
-        Section("Boots", _slot_pred("feet")),
+                force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))),
+                force_exclude=[n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]),
+        Section("Boots", _slot_pred("feet"),
+                force_exclude=[n for n in _MIME_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
                 force_exclude=_SKILLING_GAUNTLETS),
         Section("Shields", _slot_pred("shield")),
         Section("Capes", _slot_pred("cape")),
-        Section("Amulets", _slot_pred("neck")),
+        Section("Amulets", _slot_pred("neck"),
+                force_exclude=["Gnome amulet", "Beads of the dead"]),
         Section("Rings", _slot_pred("ring")),
         Section("Combat potions",
                 _is_potion_family("super combat", "super strength", "super attack",
@@ -607,7 +623,8 @@ RANGE = TabSpec(
         Section("Gloves", _is_range_armour_slot("hands")),
         Section("Shields", _is_range_armour_slot("shield")),
         Section("Capes", _is_range_armour_slot("cape")),
-        Section("Amulets", _is_range_armour_slot("neck")),
+        Section("Amulets", _is_range_armour_slot("neck"),
+                force_exclude=["Beads of the dead"]),
         Section("Rings", _is_range_armour_slot("ring")),
         Section("Ranging potions",
                 _is_potion_family("ranging potion", "divine ranging"),
@@ -629,15 +646,18 @@ MAGE = TabSpec(
         Section("Essence", _name_in(_ESSENCE)),
         Section("Staves", _is_mage_weapon_type("staff", "powered staff", "polestaff")),
         Section("Wands", _is_mage_weapon_type("wand")),
-        Section("Tomes", _name_ends(" tome")),
-        Section("Helmets", _is_mage_armour_slot("head")),
+        Section("Tomes", _name_ends(" tome"),
+                force_exclude=["Shaman's tome"]),
+        Section("Helmets", _is_mage_armour_slot("head"),
+                force_exclude=[n for n in _MIME_OUTFIT if "hat" in n.lower()]),
         Section("Body", _is_mage_armour_slot("body")),
         Section("Legs", _is_mage_armour_slot("legs")),
         Section("Boots", _is_mage_armour_slot("feet")),
         Section("Gloves", _is_mage_armour_slot("hands")),
         Section("Shields", _is_mage_armour_slot("shield")),
         Section("Capes", _is_mage_armour_slot("cape")),
-        Section("Amulets", _is_mage_armour_slot("neck")),
+        Section("Amulets", _is_mage_armour_slot("neck"),
+                force_exclude=["Beads of the dead"]),
         Section("Rings", _is_mage_armour_slot("ring")),
         Section("Magic potions",
                 _is_potion_family("magic potion", "ancient brew", "forgotten brew", "battlemage"),
@@ -676,9 +696,10 @@ PRAYER = TabSpec(
             _name_starts("Holy book"), _name_starts("Unholy book"),
             _name_starts("Book of "),
         )),
-        Section("Robes (monk/proselyte/initiate)", _or(
+        Section("Robes (monk/proselyte/initiate/druid)", _or(
             _name_starts("Monk's "), _name_starts("Proselyte "),
             _name_starts("Initiate "), _name_starts("Devout "),
+            _name_starts("Druid's "),
         )),
         Section("Bone secondaries", _name_in({
             "Bonemeal", "Bonemeal pot", "Bucket of slime", "Vial of milk",
@@ -786,7 +807,8 @@ WC_FLETCHING = TabSpec(
         Section("Arrow shafts", _name_in({"Arrow shaft", "Headless arrow"})),
         Section("Arrowtips", _name_ends(" arrowtips")),
         Section("Arrows", _and(_name_ends(" arrow", " arrows"),
-                               _not(_name_contains("shaft")))),
+                               _not(_name_contains("shaft"))),
+                force_exclude=["Broken arrow"]),
         Section("Darts", _name_ends(" dart", " darts", " dart tip", " dart tips")),
         Section("Javelin parts", _name_ends(" javelin heads", " javelin shaft")),
         Section("Bird nests", _or(_name_starts("Bird nest"), _name_starts("Bird's nest"))),
@@ -800,9 +822,12 @@ WC_FLETCHING = TabSpec(
         })),
         Section("Tools", _name_in({"Knife", "Hatchet", "Crystal hatchet", "Bruma torch"})),
         Section("Forestry items (post-Sept 2023)",
-                lambda it: "forestry" in (it.get("name") or "").lower()
-                           or "anima" in (it.get("name") or "").lower()
-                           or (it.get("name") or "").startswith("Sturdy ")),
+                lambda it: (
+                    "forestry" in (it.get("name") or "").lower()
+                    or "anima " in (it.get("name") or "").lower()  # "Anima " (Forestry items use Anima/anima as a prefix-word, not anywhere)
+                    or (it.get("name") or "").startswith("Sturdy ")
+                ),
+                force_exclude=["Animal skull"]),
         Section("Capes & pet", _name_in({
             "Woodcutting cape", "Woodcutting cape(t)", "Woodcutting hood",
             "Fletching cape", "Fletching cape(t)", "Fletching hood",
@@ -857,6 +882,7 @@ FIREMAKING = TabSpec(
         Section("Lanterns", _name_in({
             "Bullseye lantern", "Mining helmet", "Oil lantern", "Sapphire lantern",
             "Emerald lantern", "Lit bug lantern", "Candle lantern",
+            "Torch", "Unlit torch", "Lit torch",
         })),
         Section("Wintertodt", _name_in({
             "Bruma kindling", "Bruma root", "Burnt page",
@@ -1115,7 +1141,7 @@ FARMING = TabSpec(
     name="farming", const_name="TAG_FARMING",
     sections=[
         Section("Tools", _name_in({
-            "Rake", "Spade", "Seed dibber", "Trowel",
+            "Rake", "Spade", "Seed dibber",
             "Secateurs", "Magic secateurs", "Watering can",
             "Watering can(8)", "Watering can(7)", "Watering can(6)",
             "Watering can(5)", "Watering can(4)", "Watering can(3)",
@@ -1278,7 +1304,9 @@ MISC = TabSpec(
             "Ring of suffering (r)", "Ring of suffering (ri)",
             "Phoenix necklace", "Amulet of magic", "Amulet of strength",
             "Amulet of defence", "Amulet of accuracy",
+            "Ghostspeak amulet",
         })),
+        Section("Cosmetic outfits / random events", _name_in(set(_MIME_OUTFIT))),
         Section("Clue scrolls",
                 _or(_name_starts("Clue scroll"), _name_starts("Master clue"))),
         Section("Clue tools", _name_in({
@@ -1341,6 +1369,9 @@ QUESTS = TabSpec(
             "Fishing trophy",
             "Cattleprod",
             "Giant carp",
+            "Gnome amulet", "Beads of the dead",
+            "Dark dagger", "Glowing dagger",
+            "Shade robe", "Shade robe top",
         })),
         Section("Void Knight set", _name_starts("Void ")),
         Section("Fighter Torso et al.", _name_in({
