@@ -783,7 +783,7 @@ RANGE = TabSpec(
                 force_exclude=["Rogue gloves"]),
         Section("Shields", _is_range_armour_slot("shield")),
         Section("Capes", _is_range_armour_slot("cape"),
-                force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES),
+                force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES + ["Lunar cape"]),
         # Team capes are caught by the section above via _is_range_armour_slot
         # because the cape has defence_ranged=2 like basic colour capes.
         # Mass-exclude via a pattern force_exclude below in classify-time.
@@ -832,6 +832,7 @@ MAGE = TabSpec(
                 + ["Leather vambraces", "Rogue gloves"]),
         Section("Shields", _is_mage_armour_slot("shield")),
         Section("Capes", _is_mage_armour_slot("cape"),
+                force_include=["Lunar cape"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _is_mage_armour_slot("neck"),
                 force_exclude=["Beads of the dead"]),
@@ -1310,6 +1311,9 @@ MINING_SMITHING = TabSpec(
             "Mithril nails", "Adamantite nails", "Rune nails",
             "Cannonball", "Granite cannonball",
         })),
+        Section("Lunar Diplomacy ores/bars", _name_in({
+            "Lunar ore", "Lunar bar",
+        })),
         Section("Mining outfit (Prospector)", _name_starts("Prospector ")),
         Section("Smithing outfit (Smiths')", _name_starts("Smiths' ")),
         Section("Mining/Smithing capes & pets", _name_in({
@@ -1348,6 +1352,9 @@ HERBLORE = TabSpec(
         Section("Unfinished potion variants (extended)", _name_in({
             "Weapon poison+ (unf)", "Weapon poison++ (unf)",
             "Antidote+ (unf)", "Antidote++ (unf)",
+            # session 31 — Hazeel Cult magic essence (Magic potion ingredient chain)
+            "Magic essence (unf)",
+            "Magic essence(4)", "Magic essence(3)", "Magic essence(2)", "Magic essence(1)",
         })),
         Section("Spirits of Elid secondaries", _name_in({
             "Ground guam", "Ground seaweed",
@@ -1422,6 +1429,10 @@ AGILITY_THIEVING = TabSpec(
             "Pharaoh's sceptre", "Pharaoh's sceptre (3)", "Pharaoh's sceptre (2)",
             "Pharaoh's sceptre (1)", "Black ibis mask", "Black ibis body",
             "Black ibis legs",
+            # session 31 — Pyramid Plunder treasure loot
+            "Golden scarab", "Stone scarab", "Pottery scarab",
+            "Golden statuette", "Pottery statuette", "Stone statuette",
+            "Gold seal", "Stone seal",
         })),
         Section("Capes & pets", _name_in({
             "Agility cape", "Agility cape(t)", "Agility hood",

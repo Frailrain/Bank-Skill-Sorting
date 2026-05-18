@@ -266,7 +266,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (211 items not in wiki output) ===
+=== range (212 items not in wiki output) ===
      616  Beads of the dead
      942  (not in wiki canonical set)
     1007  Red cape
@@ -374,6 +374,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     5557  Rogue boots
     6809  Granite legs
     6959  Pink cape
+    9101  Lunar cape
     9757  (not in wiki canonical set)
     9977  (not in wiki canonical set)
    10033  Chinchompa

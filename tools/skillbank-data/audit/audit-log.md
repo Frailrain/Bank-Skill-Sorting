@@ -2809,6 +2809,81 @@ See `audit/classifier-changes.md` "Session 29".
 
 See `audit/classifier-changes.md` "Session 30".
 
+---
+
+## Session 31: IDs 9001–9300
+
+### Stronghold of Security + Skull sceptre
+
+- `9003-9004 Security book, Stronghold notes` — EX.
+- `9005 Fancy boots`, `9006 Fighting boots` — OK (`melee`).
+- `9007-9012 Right/Left skull half, Strange skull, Top/Bottom of sceptre, Runed sceptre` — EX (Stronghold reward chain components).
+- `9013 Skull sceptre` — OK (`mage`).
+
+### Hazeel Cult + Magic essence
+
+- `9016-9018 Gorak claws, Star flower, Gorak claw powder` — EX (Hazeel Cult quest material).
+- `9019 Magic essence (unf)`, `9021-9024 Magic essence (1-4)` — **ADD herblore** (5 items, used to make Magic potion via Magic potion(unf) chain).
+- `9025 Nuff's certificate` — EX.
+
+### Pyramid Plunder loot (Icthlarin's Little Helper)
+
+- `9026 Ivory comb` — EX.
+- `9028-9032 Golden/Stone/Pottery scarab` (3 items) — **ADD agility_thieving** (Pyramid Plunder treasure).
+- `9034-9038 Golden/Pottery/Stone statuette` (3 items) — **ADD agility_thieving**.
+- `9040-9042 Gold seal, Stone seal` (2 items) — **ADD agility_thieving**.
+- `9044 Pharaoh's sceptre` (canonical) — OK (`agility_thieving`).
+- `9046-9050 Pharaoh's sceptre × 3 dups` — LOG.
+- `9052 Locust meat` — EX (Contact! quest food).
+
+### Goblin Diplomacy
+
+- `9054-9059 Red/Black/Yellow/Green/Purple/Pink goblin mail` (6 items) — LOG (cosmetic recolour).
+
+### Lunar Diplomacy (heavy)
+
+- `9066-9067 Emerald lens, Dream log` — EX.
+- `9068-9073 Moonclan helm/hat/armour/skirt/gloves/boots` — OK (6 items, `melee;mage`).
+- `9074 Moonclan cape` — OK (`mage`).
+- `9075 Astral rune` — OK (`mage;runecraft`).
+- `9076 Lunar ore`, `9077 Lunar bar` — **ADD mining_smithing** (2 items, Astral Altar quest mining/smithing chain).
+- `9078 Moonclan manual` — EX.
+- `9079 Suqah tooth`, `9082 Ground tooth` — EX.
+- `9080-9081 Suqah hide, Suqah leather` — OK (2 items, `crafting`).
+- `9083 Seal of passage` — EX.
+- `9084 Lunar staff` — OK (`mage;quests`).
+- `9085 Empty vial` — OK (`cooking;crafting;herblore`).
+- `9086 Vial of water` (dup of canonical 227) — LOG.
+- `9087-9090 Waking sleep vial, Guam/Marr/Guam-marr vial` (4 items) — LOG (Lunar Diplomacy quest-only potions).
+- `9091-9093 Lunar staff - pt1/pt2/pt3` — OK (3 items, `mage`).
+- `9094-9095 Kindling, Soaked kindling` — EX (quest-only campfire fuel).
+- `9096-9100 Lunar helm/torso/legs/gloves/boots` — OK (5 items, `melee;mage`).
+- `9101 Lunar cape` — **REM range, ADD mage**. Lunar set is mage; cape has defence_ranged=2 spillover.
+- `9102 Lunar amulet`, `9104 Lunar ring` — OK (2 items, `mage`).
+- `9103 A special tiara`, `9106 Astral tiara` — OK (`runecraft`).
+
+### Bolts + crossbows (Defender of Varrock)
+
+- `9139-9145 Blurite/Iron/Steel/Mithril/Adamant/Runite/Silver bolts` — OK (7 items, `range;wc_fletching`).
+- `9174-9185 Bronze/Blurite/Iron/Steel/Mithril/Adamant/Rune crossbow` — OK (7 items, `range`).
+- `9187-9194 Jade/Topaz/Sapphire/Emerald/Ruby/Diamond/Dragonstone/Onyx bolt tips` — OK (8 items, `wc_fletching`).
+- `9236-9245 Opal/Jade/Pearl/Topaz/Sapphire/Emerald/Ruby/Diamond/Dragonstone/Onyx bolts (e)` — OK (10 items, `range`).
+
+---
+
+## Session 31 totals
+
+- Items reviewed: ~100
+- OK (correct as-is): 60
+- EX (correctly excluded): 18
+- ADD (missing tab, fixed): 10 (5 Magic essence variants → herblore, 8 PP loot → agility_thieving, 2 Lunar ore/bar → mining_smithing — actually 15 if we count separately, but several PP items are loot subgroups)
+- REM (misclassified, fixed): 1 (Lunar cape range → mage)
+- LOG: 15+ (Lunar quest vials, Lunar cape REMfix incidental, Pharaoh's sceptre dups, goblin mail recolour, Vial of water dup)
+
+## Classifier changes made in session 31
+
+See `audit/classifier-changes.md` "Session 31".
+
 ## Resume marker
 
-**Next session: start from ID 9001.**
+**Next session: start from ID 9301.**

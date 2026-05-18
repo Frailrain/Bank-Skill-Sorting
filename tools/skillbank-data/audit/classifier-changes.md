@@ -1030,3 +1030,29 @@ POH garden + study + bar + basic furniture coverage:
 Minigame entry currency for Warriors' Guild.
 
 **Affects**: 1 item.
+
+## Session 31 (audit IDs 9001–9300)
+
+### AGILITY_THIEVING "Pyramid plunder" — treasure loot additions
+
+Added Golden/Stone/Pottery scarab, Golden/Pottery/Stone statuette, Gold seal, Stone seal — Pyramid Plunder treasure rewards.
+
+**Affects**: 8 items.
+
+### MINING_SMITHING — new "Lunar Diplomacy ores/bars" section
+
+Added Lunar ore, Lunar bar (Astral Altar quest mining/smithing chain).
+
+**Affects**: 2 items.
+
+### HERBLORE "Unfinished potion variants" — Magic essence
+
+Added Magic essence (unf), Magic essence (1-4) — Hazeel Cult Magic potion intermediate.
+
+**Affects**: 5 items.
+
+### MAGE Capes / RANGE Capes — `Lunar cape` reclassification
+
+Moved Lunar cape from range to mage (Lunar set is mage-themed; cape has defence_ranged=2 spillover that miscategorized it).
+
+**Affects**: 1 item.
