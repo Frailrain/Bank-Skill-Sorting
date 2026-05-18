@@ -277,6 +277,8 @@ _TREASURE_TRAIL_MELEE_NAMES = [
     "Statius's full helm", "Statius's platebody", "Statius's platelegs",
     # session 54 — Easter 2018 Eggshell (holiday cosmetic, not smithable)
     "Eggshell platebody", "Eggshell platelegs",
+    # session 58 — Ardougne knight (Tower of Life clue cosmetic)
+    "Ardougne knight platebody", "Ardougne knight platelegs",
 ]
 
 # Vesta/Statius PvP armor — melee gear; range/mage spillover misclassifies.
@@ -1016,7 +1018,12 @@ MAGE = TabSpec(
                                "Trident of the seas (e)", "Uncharged trident (e)",
                                "Trident of the swamp (e)", "Uncharged toxic trident (e)",
                                "Sanguinesti staff", "Sanguinesti staff (uncharged)",
-                               "Thammaron's sceptre"]),
+                               "Thammaron's sceptre",
+                               # session 58 — Gauntlet Crystal/Corrupted staves
+                               "Corrupted staff (basic)", "Corrupted staff (attuned)",
+                               "Corrupted staff (perfected)",
+                               "Crystal staff (basic)", "Crystal staff (attuned)",
+                               "Crystal staff (perfected)"]),
         Section("Wands", _is_mage_weapon_type("wand")),
         Section("Ward shards (construction intermediates)", _name_in({
             "Malediction shard 1", "Malediction shard 2", "Malediction shard 3",
@@ -1332,6 +1339,8 @@ COOKING = TabSpec(
                 "Psykk bat (6)",
                 # session 51 — Volcanic Mine food
                 "Bowl of fish",
+                # session 58 — Gauntlet cooked paddlefish
+                "Paddlefish",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1673,6 +1682,9 @@ MINING_SMITHING = TabSpec(
             _name_ends(" ore fragment"),
             _name_in({"Heat-proof vessel"}),
         )),
+        Section("Zalcano (tephra + shards)", _name_in({
+            "Tephra", "Refined tephra", "Imbued tephra", "Zalcano shard",
+        })),
         Section("Mining outfit (Prospector)", _name_starts("Prospector ")),
         Section("Smithing outfit (Smiths')", _name_starts("Smiths' ")),
         Section("Mining/Smithing capes & pets", _name_in({
@@ -1762,6 +1774,10 @@ HERBLORE = TabSpec(
         )),
         Section("Wintertodt Rejuvenation potion", _and(
             _name_starts("Rejuvenation potion "),
+            _or(_name_ends("(4)"), _name_ends("(3)"), _name_ends("(2)"), _name_ends("(1)")),
+        )),
+        Section("Gauntlet Egniol potion", _and(
+            _name_starts("Egniol potion "),
             _or(_name_ends("(4)"), _name_ends("(3)"), _name_ends("(2)"), _name_ends("(1)")),
         )),
         Section("Chambers of Xeric herbs/secondaries", _name_in({
@@ -2356,6 +2372,7 @@ MISC = TabSpec(
                 "Royal frog blouse", "Royal frog skirt",
                 # Teleport crystals
                 "Teleport crystal (1)", "Teleport crystal (2)", "Teleport crystal (3)",
+                "Eternal teleport crystal",
                 # Christmas baubles + cosmetics
                 "Star bauble", "Box bauble", "Diamond bauble",
                 "Tree bauble", "Bell bauble", "Puppet box", "Bauble box",

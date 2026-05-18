@@ -2160,3 +2160,41 @@ Hallowed Sepulchre currency.
 Added Dragonstone armour set explicit force_include (name doesn't match `(lg)/(sk)` suffix).
 
 **Affects**: 1 item.
+
+## Session 58 (audit IDs 23701–24000)
+
+### `_TREASURE_TRAIL_MELEE_NAMES` extended — Ardougne knight plate
+
+Added Ardougne knight platebody/platelegs (Tower of Life clue trail cosmetic; REM mining_smithing).
+
+**Affects**: 2 items.
+
+### MAGE Staves — Corrupted/Crystal Gauntlet staves
+
+Added Corrupted staff (basic/attuned/perfected) + Crystal staff (basic/attuned/perfected).
+
+**Affects**: 6 items.
+
+### COOKING Misc cooked food — `Paddlefish`
+
+Gauntlet cooked food.
+
+**Affects**: 1 item.
+
+### HERBLORE — new "Gauntlet Egniol potion" section
+
+Pattern catches Egniol potion (1-4) charge variants.
+
+**Affects**: 4 items.
+
+### MINING_SMITHING — new "Zalcano (tephra + shards)" section
+
+Added Tephra, Refined tephra, Imbued tephra, Zalcano shard.
+
+**Affects**: 4 items.
+
+### MISC Holiday rares — `Eternal teleport crystal`
+
+Sote permanent Prifddinas teleport (placed in Teleport crystal cohort, which lives in Holiday rares & cosmetics).
+
+**Affects**: 1 item.

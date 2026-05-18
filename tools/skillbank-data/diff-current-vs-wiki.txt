@@ -50,7 +50,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    22641  Morrigan's leather body
    22644  Morrigan's leather chaps
 
-=== mining_smithing (17 items not in wiki output) ===
+=== mining_smithing (19 items not in wiki output) ===
    20146  Gilded med helm
    20149  Gilded chainbody
    20152  Gilded sq shield
@@ -68,3 +68,5 @@ or should be added to force_include / variant_allowlist before flipping --additi
    22628  Statius's platebody
    22631  Statius's platelegs
    23242  3rd age plateskirt
+   23787  Ardougne knight platebody
+   23789  Ardougne knight platelegs

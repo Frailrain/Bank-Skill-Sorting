@@ -5259,6 +5259,103 @@ See `audit/classifier-changes.md` "Session 56".
 
 See `audit/classifier-changes.md` "Session 57".
 
+---
+
+## Session 58: IDs 23701–24000
+
+### Divine potions continued
+
+- `23703-23754 Divine super attack/strength/defence + Divine ranging/magic potion (4-1)` (~24 items) — OK.
+
+### Sote + Crystal harpoon + Crystal impling
+
+- `23757 Youngllef`, `23760 Smolcano` — partial (Smolcano ✓ quests).
+- `23762 Crystal harpoon`, `23768 Crystal impling jar` — OK.
+- `23770-23771 Clue scroll (elite), Prifddinas teleport ✓ misc` — partial.
+- `23773-23784 Scrawled notes, Red/Yellow/Green/Cyan/Blue/Magenta/Black crystal puzzle pieces, Fractured crystal` — EX/LOG (Sote dungeon).
+
+### Ardougne knight (Tower of Life)
+
+- `23785 Ardougne knight helm` — OK.
+- `23787-23789 Ardougne knight platebody, Ardougne knight platelegs` (2 items, `melee;mining_smithing`) — **REM mining_smithing** (clue trail cosmetic).
+- `23791 Ardougne knight tabard` — LOG (cosmetic).
+
+### Sote quest material
+
+- `23792-23818 Various potions, dyes, quest items` — EX/LOG.
+- `23800 Elder cadantine potion (unf)` — OK (`herblore`).
+- `23808 Crystal seed` — OK (`farming`).
+
+### Corrupted Gauntlet drops
+
+- `23820 Corrupted sceptre`, `23821 Corrupted axe`, `23822 Corrupted pickaxe`, `23823 Corrupted harpoon` — OK.
+- `23824-23837 Corrupted shards/dust/spike/bowstring/orb/Weapon frame/Grym leaf/Linum tirinum/Corrupted ore/Phren bark/Vial` (~11 items) — LOG (Gauntlet instance-only materials).
+- `23836 Linum tirinum` — OK (`crafting`).
+
+### Corrupted Gauntlet armour + weapons
+
+- `23840-23848 Corrupted helm/body/legs (basic/attuned/perfected)` — OK (9 items, `melee;range;mage` hybrid CG armour).
+- `23849-23851 Corrupted halberd (basic/attuned/perfected)` — OK.
+- `23852-23854 Corrupted staff (basic/attuned/perfected)` (3 items) — **ADD mage**.
+- `23855-23857 Corrupted bow (basic/attuned/perfected)` — OK.
+- `23858-23859 Corrupted teleport crystal, Gauntlet cape` — LOG.
+
+### Crystal Gauntlet weapons + materials (post-fight)
+
+- `23861 Crystal sceptre` — OK.
+- `23862-23871 Crystal axe/pickaxe/harpoon dups + Pestle and mortar + Crystal shards/dust/spike/Crystalline bowstring/orb/Weapon frame` — LOG (instance dups).
+
+### Gauntlet food + Egniol potion
+
+- `23872 Raw paddlefish` — OK (`cooking`).
+- `23873 Burnt fish` — LOG.
+- `23874 Paddlefish` — **ADD cooking** (cooked Gauntlet food).
+- `23875-23880 Grym leaf/Linum tirinum/Crystal ore/Phren bark/Vial/Water-filled vial dups` — LOG.
+- `23881 Grym potion (unf)` — OK (`herblore`).
+- `23882-23885 Egniol potion (1-4)` (4 items) — **ADD herblore** (Gauntlet potion).
+
+### Crystal armour (Sote rewards)
+
+- `23886-23894 Crystal helm/body/legs (basic/attuned/perfected)` — OK (9 items, hybrid).
+- `23895-23897 Crystal halberd (basic/attuned/perfected)` — OK.
+- `23898-23900 Crystal staff (basic/attuned/perfected)` (3 items) — **ADD mage**.
+- `23901-23903 Crystal bow (basic/attuned/perfected)` — OK.
+
+### Tephra + Zalcano
+
+- `23904 Teleport crystal` — LOG.
+- `23905-23908 Tephra, Refined tephra, Imbued tephra, Zalcano shard` (4 items) — **ADD mining_smithing** (Zalcano boss material).
+
+### Crystal crowns + region keys
+
+- `23911-23925 Crystal crown × 8` — LOG (Elven region crowns, dups by name).
+- `23927-23941 Crystal of ithell/iorwerth/trahaearn/cadarn/crwys/meilyr/hefin/amlodd` (8 items) — LOG (Elven city access keys, single-instance).
+- `23943 Elven signet` — LOG.
+- `23946 Eternal teleport crystal` — **ADD misc** (Sote infinite Prifddinas tele).
+- `23948-23951 Elven dawn, Enhanced crystal key` — LOG.
+
+### Crystal seeds + final crystal gear
+
+- `23953-23959 Crystal tool seed, Crystal armour seed, Enhanced crystal teleport seed` — OK (`farming`).
+- `23962-23964 Crystal shard, Crystal dust dups` — LOG.
+- `23971-23995 Crystal helm/body/legs/bow/halberd/shield/Blade of saeldor` — OK (`range/melee`).
+- `24000 Crystal grail` — LOG.
+
+---
+
+## Session 58 totals
+
+- Items reviewed: ~300
+- OK (correct as-is): 80
+- EX (correctly excluded): 20 (Sote quest material, Sote dungeon puzzle pieces)
+- ADD (missing tab, fixed): 15 (3 Corrupted staff, 3 Crystal staff, 1 Paddlefish, 4 Egniol potion, 4 Tephra/Zalcano, 1 Eternal teleport crystal)
+- REM (misclassified, fixed): 2 (Ardougne knight platebody/platelegs from mining_smithing)
+- LOG: 100+ (Sote crystal puzzle pieces, Gauntlet instance dups, Crystal crowns ×8, Elven city keys, region signets, instance materials)
+
+## Classifier changes made in session 58
+
+See `audit/classifier-changes.md` "Session 58".
+
 ## Resume marker
 
-**Next session: start from ID 23701.**
+**Next session: start from ID 24001.**
