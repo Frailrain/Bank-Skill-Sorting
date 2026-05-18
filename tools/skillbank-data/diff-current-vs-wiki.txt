@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (261 items not in wiki output) ===
+=== melee (272 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -121,9 +121,20 @@ or should be added to force_include / variant_allowlist before flipping --additi
     9751  (not in wiki canonical set)
     9754  (not in wiki canonical set)
     9769  (not in wiki canonical set)
+   10330  3rd age range top
+   10332  3rd age range legs
    10356  (not in wiki canonical set)
    10358  (not in wiki canonical set)
    10360  (not in wiki canonical set)
+   10370  Zamorak d'hide body
+   10372  Zamorak chaps
+   10374  Zamorak coif
+   10378  Guthix d'hide body
+   10380  Guthix chaps
+   10382  Guthix coif
+   10386  Saradomin d'hide body
+   10388  Saradomin chaps
+   10390  Saradomin coif
    10446  Saradomin cloak
    10450  Zamorak cloak
    10553  Penance gloves
@@ -266,7 +277,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (212 items not in wiki output) ===
+=== range (211 items not in wiki output) ===
      616  Beads of the dead
      942  (not in wiki canonical set)
     1007  Red cape
@@ -383,7 +394,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10356  (not in wiki canonical set)
    10358  (not in wiki canonical set)
    10360  (not in wiki canonical set)
-   10362  Amulet of glory (t)
    10364  Strength amulet (t)
    10366  Amulet of magic (t)
    10446  Saradomin cloak
@@ -480,7 +490,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28906  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (145 items not in wiki output) ===
+=== mage (150 items not in wiki output) ===
      616  Beads of the dead
      656  Pink hat
      658  Green hat
@@ -516,9 +526,14 @@ or should be added to force_include / variant_allowlist before flipping --additi
     9763  (not in wiki canonical set)
    10083  Red spiky vambraces
    10085  Black spiky vambraces
+   10330  3rd age range top
+   10336  3rd age vambraces
    10356  (not in wiki canonical set)
    10358  (not in wiki canonical set)
    10360  (not in wiki canonical set)
+   10368  Zamorak bracers
+   10376  Guthix bracers
+   10384  Saradomin bracers
    10446  Saradomin cloak
    10450  Zamorak cloak
    11090  Phoenix necklace
@@ -949,7 +964,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    21043  Kodai insignia
    21046  Ancient tablet
 
-=== mining_smithing (49 items not in wiki output) ===
+=== mining_smithing (52 items not in wiki output) ===
        2  Steel cannonball
      764  (not in wiki canonical set)
      766  (not in wiki canonical set)
@@ -966,6 +981,9 @@ or should be added to force_include / variant_allowlist before flipping --additi
     9382  Silver bolts (unf)
     9793  (not in wiki canonical set)
     9796  (not in wiki canonical set)
+   10346  3rd age platelegs
+   10348  3rd age platebody
+   10352  3rd age kiteshield
    10386  Saradomin d'hide body
    10387  (not in wiki canonical set)
    10388  Saradomin chaps

@@ -3143,6 +3143,88 @@ See `audit/classifier-changes.md` "Session 33".
 
 See `audit/classifier-changes.md` "Session 34".
 
+---
+
+## Session 35: IDs 10201–10500
+
+### Clue scroll dups
+
+- `10202-10232 Clue scroll (easy) × 16` — LOG.
+- `10234-10252 Clue scroll (hard) × 10` — LOG.
+- `10254-10278 Clue scroll (medium) × 13` — LOG.
+
+### Composite bows + heraldic helms (Treasure Trails)
+
+- `10280-10284 Willow/Yew/Magic comp bow` — OK (3 items, `range;wc_fletching`).
+- `10286-10314 Rune/Adamant/Black helm (h1-h5)` (15 items) — OK (`melee`).
+
+### Bob's shirts (Wise Old Man random event cosmetic)
+
+- `10316-10324 Bob's red/blue/green/black/purple shirt` (5 items) — LOG (cosmetic chest-piece).
+
+### Firelighters + colour logs
+
+- `10326-10327 Purple/White firelighter` — OK (`firemaking`).
+- `10328-10329 White/Purple logs` — OK (`wc_fletching;firemaking`).
+
+### 3rd age armour set (clue scroll rare)
+
+- `10330 3rd age range top`, `10332 3rd age range legs`, `10334 3rd age range coif`, `10336 3rd age vambraces` — **REM melee/mage, ADD range** (4 items).
+- `10338-10344 3rd age robe top/robe/mage hat/amulet` — OK (4 items, `mage`).
+- `10346-10352 3rd age platelegs/platebody/full helmet/kiteshield` — **REM mining_smithing** (4 items; 3rd age armour is not smithable).
+
+### Glory / Strength / Magic amulet trim variants
+
+- `10354 Amulet of glory (t4)` — OK (`melee;range;mage`).
+- `10362 Amulet of glory (t)` — **ADD melee;range;mage** (1 item, trim variant of canonical 1704).
+- `10364 Strength amulet (t)` — **ADD melee** (trim variant of Amulet of strength).
+- `10366 Amulet of magic (t)` — **ADD mage** (trim variant).
+
+### God d'hide armour (Treasure Trails set)
+
+- `10368 Zamorak bracers`, `10376 Guthix bracers`, `10384 Saradomin bracers` — **REM mage, ADD range** (3 items; bracers are range gloves/vambraces).
+- `10370 Zamorak d'hide body`, `10378 Guthix d'hide body`, `10386 Saradomin d'hide body` — **REM melee, ADD range only** (3 items; d'hide body cross-tag with crafting OK retained).
+- `10372 Zamorak chaps`, `10380 Guthix chaps`, `10388 Saradomin chaps` — **REM melee, ADD range** (3 items; range d'hide legs equivalent).
+- `10374 Zamorak coif`, `10382 Guthix coif`, `10390 Saradomin coif` — **REM melee, ADD range** (3 items).
+
+### Treasure Trails fashion cosmetic
+
+- `10392 A powdered wig`, `10394 Flared trousers`, `10396 Pantaloons`, `10398 Sleeping cap` (4 items) — LOG (fashion-only cosmetic).
+- `10400-10438 Black/Red/Blue/Green/Purple elegant shirt/legs + White/Red/Blue/Green/Purple elegant blouse/skirt` (~20 items) — LOG (Treasure Trails elegant cosmetic outfits).
+
+### God robes (priest/druid sets — Treasure Trails Hard rewards)
+
+- `10440-10444 Saradomin/Guthix/Zamorak crozier` — OK (3 items, `mage`).
+- `10446 Saradomin cloak` (dup of 4041), `10450 Zamorak cloak` (dup of 4042) — LOG.
+- `10448 Guthix cloak` (newer variant) — OK (`melee;range;mage` cross-tag, plus `mage` God cloaks).
+- `10452-10456 Saradomin/Guthix/Zamorak mitre` — OK (3 items, `mage`).
+- `10458-10468 Saradomin/Zamorak/Guthix robe top/legs` — OK (6 items, `mage`).
+- `10470-10474 Saradomin/Guthix/Zamorak stole` — OK (3 items, `mage`).
+
+### Misc Halloween + clue scroll items
+
+- `10476 Purple sweets` — OK (`misc`).
+- `10485-10495 Scroll, Empty sack, Undead chicken, Selected iron, Bar magnet, Undead twigs, Blessed axe, Research notes, Translated notes, A pattern, A container` — EX/LOG (Animal Magnetism quest material).
+- `10491 Blessed axe` — OK (`wc_fletching`).
+- `10496 Polished buttons` — EX.
+- `10498-10499 Ava's attractor, Ava's accumulator` — OK (`mage`). Note: Avas are cross-tag with range too, but classifier currently puts them in mage only.
+- `10500 Crone-made amulet` — LOG (Olaf's Quest reward, single-use teleport).
+
+---
+
+## Session 35 totals
+
+- Items reviewed: ~150
+- OK (correct as-is): 70
+- EX (correctly excluded): 13 (Animal Magnetism quest material)
+- ADD (missing tab, fixed): 15 (4 3rd age range to range, 3 god bracers to range, 3 god d'hide body REM melee, 3 god chaps REM melee, 3 god coif REM melee, 3 amulet trim variants)
+- REM (misclassified, fixed): 26 (3rd age range pieces × 4 from melee/mage, 3rd age plate × 4 from mining_smithing, 3 god bracers from mage, 9 god d'hide pieces from melee)
+- LOG: 70+ (clue scroll dups, elegant fashion ×20, Bob's shirts ×5, fashion cosmetic ×4, cloak dups)
+
+## Classifier changes made in session 35
+
+See `audit/classifier-changes.md` "Session 35".
+
 ## Resume marker
 
-**Next session: start from ID 10201.**
+**Next session: start from ID 10501.**

@@ -219,6 +219,29 @@ _DHIDE_ALL_NAMES = [
     "Studded body", "Studded chaps",
 ]
 
+# God d'hide variants (Saradomin/Guthix/Zamorak Treasure Trails set) —
+# range armour despite the lack of "d'hide" in chaps/coif/bracers names.
+_GOD_DHIDE_NAMES = [
+    "Saradomin d'hide body", "Guthix d'hide body", "Zamorak d'hide body",
+    "Saradomin chaps", "Guthix chaps", "Zamorak chaps",
+    "Saradomin coif", "Guthix coif", "Zamorak coif",
+    "Saradomin bracers", "Guthix bracers", "Zamorak bracers",
+]
+
+# 3rd age range armour (clue scroll rare) — range armour with mixed defences
+# that spills into melee/mage by stat predicates.
+_3RD_AGE_RANGE_NAMES = [
+    "3rd age range top", "3rd age range legs", "3rd age range coif",
+    "3rd age vambraces",
+]
+
+# 3rd age melee armour — melee armour but the smithing extended pattern
+# (`name_ends(" platebody")` etc.) wrongly tags them as smithable.
+_3RD_AGE_MELEE_NAMES = [
+    "3rd age platelegs", "3rd age platebody", "3rd age full helmet",
+    "3rd age kiteshield",
+]
+
 # Cape of legends — quest cosmetic, not real combat gear.
 _QUEST_COSMETIC_CAPES = ["Cape of legends"]
 
@@ -694,13 +717,16 @@ MELEE = TabSpec(
                 force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead",
                                "Ahrim's hood", "Karil's coif", "Rogue mask",
                                "Spined helm", "Skeletal helm", "Snakeskin bandana"]
-                + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
+                + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]
+                + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
                 force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body",
                                "Ahrim's robetop", "Karil's leathertop", "Rogue top",
                                "Spined body", "Skeletal top"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
+                + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()]
+                + _3RD_AGE_RANGE_NAMES
                 + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
@@ -709,6 +735,8 @@ MELEE = TabSpec(
                                "Ahrim's robeskirt", "Karil's leatherskirt", "Rogue trousers",
                                "Spined chaps", "Skeletal bottoms", "Snakeskin chaps"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
+                + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()]
+                + _3RD_AGE_RANGE_NAMES
                 + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
@@ -720,6 +748,8 @@ MELEE = TabSpec(
                 force_include=["Red spiky vambraces", "Black spiky vambraces"],
                 force_exclude=_SKILLING_GAUNTLETS
                 + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
+                + [n for n in _GOD_DHIDE_NAMES if "bracers" in n.lower()]
+                + _3RD_AGE_RANGE_NAMES
                 + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves", "Mourner gloves",
                    "Spined gloves", "Skeletal gloves", "Snakeskin vambraces"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
@@ -729,6 +759,7 @@ MELEE = TabSpec(
                 force_include=["Attack hood", "Strength hood", "Defence hood", "Hitpoints hood"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _slot_pred("neck"),
+                force_include=["Amulet of glory (t)", "Strength amulet (t)"],
                 force_exclude=["Gnome amulet", "Beads of the dead"]),
         Section("Rings", _slot_pred("ring")),
         Section("Combat potions",
@@ -767,21 +798,29 @@ RANGE = TabSpec(
         Section("Raw dragonhide (cross-tag with crafting)",
                 lambda it: bool(_DRAGONHIDE_RAW_RE.search(it.get("name") or ""))),
         Section("Helmets", _is_range_armour_slot("head"),
-                force_include=["Robin hood hat", "Karil's coif", "Spined helm", "Snakeskin bandana"],
+                force_include=["Robin hood hat", "Karil's coif", "Spined helm", "Snakeskin bandana",
+                               "3rd age range coif"]
+                + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()],
                 force_exclude=["Dharok's helm", "Guthan's helm", "Torag's helm", "Rogue mask"]),
         Section("Body", _is_range_armour_slot("body"),
                 force_include=["Karil's leathertop", "Spined body",
-                               "Studded body (g)", "Studded body (t)"],
+                               "Studded body (g)", "Studded body (t)",
+                               "3rd age range top"]
+                + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()],
                 force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top"]),
         Section("Legs", _is_range_armour_slot("legs"),
                 force_include=["Karil's leatherskirt", "Spined chaps", "Snakeskin chaps",
-                               "Studded chaps (g)", "Studded chaps (t)"],
+                               "Studded chaps (g)", "Studded chaps (t)",
+                               "3rd age range legs"]
+                + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()],
                 force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers", "Granite legs"]),
         Section("Boots", _is_range_armour_slot("feet"),
                 force_include=["Ranger boots", "Spined boots", "Snakeskin boots"],
                 force_exclude=["Rogue boots"]),
         Section("Gloves", _is_range_armour_slot("hands"),
-                force_include=["Spined gloves", "Snakeskin vambraces"],
+                force_include=["Spined gloves", "Snakeskin vambraces",
+                               "3rd age vambraces"]
+                + [n for n in _GOD_DHIDE_NAMES if "bracers" in n.lower()],
                 force_exclude=["Rogue gloves"]),
         Section("Shields", _is_range_armour_slot("shield")),
         Section("Capes", _is_range_armour_slot("cape"),
@@ -791,6 +830,7 @@ RANGE = TabSpec(
         # because the cape has defence_ranged=2 like basic colour capes.
         # Mass-exclude via a pattern force_exclude below in classify-time.
         Section("Amulets", _is_range_armour_slot("neck"),
+                force_include=["Amulet of glory (t)"],
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_range_armour_slot("ring")),
         Section("Ranging potions",
@@ -817,21 +857,23 @@ MAGE = TabSpec(
                 force_exclude=["Shaman's tome"]),
         Section("Helmets", _is_mage_armour_slot("head"),
                 force_include=["Blue wizard hat (g)", "Blue wizard hat (t)"],
-                force_exclude=["Mime mask", "Rogue mask"]
+                force_exclude=["Mime mask", "Rogue mask", "3rd age range coif"]
                 + [n for n in _MIME_OUTFIT if "hat" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body", _is_mage_armour_slot("body"),
                 force_include=["Blue wizard robe (g)", "Blue wizard robe (t)"],
-                force_exclude=["Karil's leathertop", "Rogue top"]),
+                force_exclude=["Karil's leathertop", "Rogue top", "3rd age range top"]),
         Section("Legs", _is_mage_armour_slot("legs"),
                 force_include=["Ghostly robe", "Blue skirt (g)", "Blue skirt (t)"],
-                force_exclude=["Karil's leatherskirt", "Rogue trousers"]),
+                force_exclude=["Karil's leatherskirt", "Rogue trousers", "3rd age range legs"]),
         Section("Boots", _is_mage_armour_slot("feet"),
                 force_include=["Skeletal boots"],
                 force_exclude=["Rogue boots"]),
         Section("Gloves", _is_mage_armour_slot("hands"),
                 force_include=["Chaos gauntlets", "Skeletal gloves"],
                 force_exclude=[n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
+                + [n for n in _GOD_DHIDE_NAMES if "bracers" in n.lower()]
+                + _3RD_AGE_RANGE_NAMES
                 + ["Leather vambraces", "Rogue gloves",
                    # session 34 — spiky vambraces colour variants are melee, not mage
                    "Red spiky vambraces", "Black spiky vambraces"]),
@@ -840,6 +882,7 @@ MAGE = TabSpec(
                 force_include=["Lunar cape", "Magic hood", "Hitpoints hood"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _is_mage_armour_slot("neck"),
+                force_include=["Amulet of magic (t)", "Amulet of glory (t)"],
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_mage_armour_slot("ring")),
         Section("Magic potions",
@@ -1346,7 +1389,7 @@ MINING_SMITHING = TabSpec(
             _name_ends(" platebody"), _name_ends(" platelegs"),
             _name_ends(" plateskirt"), _name_ends(" chainbody"),
             _name_ends(" sq shield"), _name_ends(" kiteshield"),
-        )),
+        ), force_exclude=_3RD_AGE_MELEE_NAMES),
         Section("Gem cutting/polishing inputs", _or(
             _name_starts("Uncut "),
             _name_in({"Chisel", "Crystal chisel"}),

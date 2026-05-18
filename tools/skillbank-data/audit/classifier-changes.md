@@ -1126,3 +1126,42 @@ Added Jack lantern mask, Skeleton boots/gloves/leggings/shirt/mask.
 Red/Black spiky vambraces colour variants have defence_magic but no melee defence stats, so they were getting matched into MAGE Gloves. Forced into MELEE Gloves (force_include) and excluded from MAGE Gloves (force_exclude).
 
 **Affects**: 2 items.
+
+## Session 35 (audit IDs 10201–10500)
+
+### New constants: `_GOD_DHIDE_NAMES`, `_3RD_AGE_RANGE_NAMES`, `_3RD_AGE_MELEE_NAMES`
+
+- `_GOD_DHIDE_NAMES`: Saradomin/Guthix/Zamorak d'hide body/chaps/coif/bracers (12 items).
+- `_3RD_AGE_RANGE_NAMES`: 3rd age range top/legs/coif, 3rd age vambraces (4 items).
+- `_3RD_AGE_MELEE_NAMES`: 3rd age platelegs/platebody/full helmet/kiteshield (4 items).
+
+### RANGE Helmets/Body/Legs/Gloves — God d'hide + 3rd age range force_include
+
+Added 12 god d'hide pieces + 4 3rd age range pieces to appropriate range armour sections (these have mixed defence stats that the predicate doesn't pick up).
+
+**Affects**: 16 items.
+
+### MELEE Helmets/Body/Legs/Gloves — God d'hide + 3rd age range force_exclude
+
+Excluded god d'hide + 3rd age range pieces from melee sections to prevent miscategorization via defence stat spillover.
+
+**Affects**: 16 exclusions (no item loss to melee since they belong in range).
+
+### MAGE Gloves/Helmets/Body/Legs — God d'hide bracers + 3rd age range force_exclude
+
+Bracers had defence_magic spillover putting them in mage; excluded explicitly.
+
+**Affects**: 7 exclusions.
+
+### MELEE "Smithing armour outputs (extended)" — 3rd age melee force_exclude
+
+3rd age platebody/legs/full helmet/kiteshield are not smithable (clue scroll rare drops), so excluded from the smithing pattern.
+
+**Affects**: 4 items moved out of mining_smithing (still classify into melee via slot predicate).
+
+### MELEE Amulets / MAGE Amulets — trim variant force_includes
+
+- MELEE: Strength amulet (t), Amulet of glory (t).
+- MAGE: Amulet of magic (t), Amulet of glory (t).
+
+**Affects**: 3 items (Glory trim cross-tags).
