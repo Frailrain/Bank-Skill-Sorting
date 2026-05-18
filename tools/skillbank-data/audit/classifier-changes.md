@@ -674,6 +674,18 @@ Anti-disease potion. 4 dose variants.
 
 Explicit allowlist for items without the `(u)` suffix.
 
+---
+
+## Session 18 (audit IDs 4901–5200)
+
+### FARMING Seeds — removed `Marigold seed` force_exclude
+
+The prior force_exclude was wrong; Marigold is a real farming flower seed.
+
+### HUNTER Bait — `Bird's egg`
+
+Falconry / nest drop used as bait.
+
 ## Session 16 (audit IDs 4301–4600)
 
 ### `_BASIC_COLOUR_CAPES` — added 50 Team-N capes

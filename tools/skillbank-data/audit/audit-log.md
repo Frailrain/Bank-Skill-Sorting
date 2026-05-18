@@ -20,8 +20,9 @@
 - **Reviewed in session 15**: IDs 4001–4300 (169 items)
 - **Reviewed in session 16**: IDs 4301–4600 (161 items)
 - **Reviewed in session 17**: IDs 4601–4900 (125 items)
-- **Reviewed cumulative**: 2568 (21.6%)
-- **Resume from**: ID 4901
+- **Reviewed in session 18**: IDs 4901–5200 (53 items)
+- **Reviewed cumulative**: 2621 (22.1%)
+- **Resume from**: ID 5201
 
 ## Decision codes
 
@@ -1734,6 +1735,63 @@ The 6 Barrows sets all have defence on multiple combat styles, which makes my na
 
 See `audit/classifier-changes.md` "Session 17".
 
+---
+
+## Session 18: IDs 4901–5200
+
+(Sparse ID range — only 53 canonical items in this window.)
+
+### Cave eel + Frog spawn
+
+- `5001 Raw cave eel` — OK (`cooking;fishing`).
+- `5002 Burnt cave eel` — OK (`cooking`).
+- `5003 Cave eel` — OK (`melee;range;mage;cooking;fishing`).
+- `5004 Frog spawn` — OK (`cooking;fishing`).
+
+### Lost Tribe quest
+
+- `5008-5012 Brooch, Goblin symbol book, Key, Silverware, Peace treaty` — EX (5 items).
+
+### Mining helmet + Bone weapons
+
+- `5014 Mining helmet` — OK (`melee;firemaking`). Light source + head slot defence.
+- `5016 Bone spear`, `5018 Bone club` — OK (2 items, `melee`). Big Chompy quest weapons.
+- `5020 Minecart ticket` — EX.
+
+### Lost Tribe / Goblin Diplomacy cosmetics
+
+- `5024-5052 Woven top ×3 / Shirt ×3 / Trousers ×3 / Shorts ×3 / Skirt ×3` — EX (15 items). Lost Tribe / NPC cosmetics; players don't bank these.
+
+### Dwarven Cannon / Forgettable Tale
+
+- `5054-5067` (Dwarf, Dwarven battleaxe ×2 dups, Left/Right boot, Exquisite boots, Book on costumes, Meeting notes, Exquisite clothes) — EX (~9 items).
+
+### Bird nests / Bird's egg
+
+- `5070 Bird nest` — OK (`wc_fletching`).
+- `5073-5075 Bird nest` (3 dups) — LOG (canonical dedupe).
+- `5076 Bird's egg` — **ADD hunter** (Falconry bird egg drop). Currently unclassified.
+
+### Seeds
+
+- `5096 Marigold seed` — **ADD farming**. Currently blocked by force_exclude from a prior session — that was wrong; Marigold IS a real farming seed (flower). **Fix**: remove the force_exclude.
+- `5097-5106 Rosemary/Nasturtium/Woad/Limpwurt/Redberry/Cadavaberry/Dwellberry/Jangerberry/Whiteberry/Poison ivy seed` — OK (10 items, `farming`).
+
+---
+
+## Session 18 totals
+
+- Items reviewed: 53
+- OK (correct as-is): 18
+- EX (correctly excluded): 28 (Lost Tribe / Forgettable Tale quest items + cosmetics)
+- ADD (missing tab, fixed): 2 (Bird's egg hunter, Marigold seed farming)
+- REM (misclassified, fixed): 0
+- LOG (deferred): 5 (Bird nest dups, Dwarven battleaxe dup, canonical dedupe)
+
+## Classifier changes made in session 18
+
+See `audit/classifier-changes.md` "Session 18".
+
 ## Resume marker
 
-**Next session: start from ID 4901.**
+**Next session: start from ID 5201.**

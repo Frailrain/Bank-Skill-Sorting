@@ -1370,8 +1370,9 @@ FARMING = TabSpec(
             "Compost potion(2)", "Compost potion(1)",
             "Bottomless compost bucket", "Plant cure",
         })),
-        Section("Seeds", _is_seed,
-                force_exclude=["Marigold seed"]),  # marigold is decorative; leave it in alphabetical
+        Section("Seeds", _is_seed),
+        # Note: prior force_exclude for "Marigold seed" was removed in session 18
+        # audit — marigold IS a real farming flower seed.
         Section("Saplings", _is_sapling),
         Section("Farmer outfit", _name_starts("Farmer's ")),
         Section("Cape & pet", _name_in({
@@ -1426,6 +1427,7 @@ HUNTER = TabSpec(
             "Raw chompy", "Raw bird meat", "Raw beast meat",
             "Raw rabbit", "Raw rat meat",
             "Worm", "Red vine worm",
+            "Bird's egg",
         })),
         Section("Impling jars", _is_impling, sort_key=_impling_sort_key),
         Section("Polar camo", _name_in({"Polar camo top", "Polar camo legs"})),

@@ -1171,7 +1171,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26684  (not in wiki canonical set)
    28626  Fox whistle
 
-=== farming (52 items not in wiki output) ===
+=== farming (51 items not in wiki output) ===
      676  Trowel
     1942  Potato
     1957  Onion
@@ -1179,7 +1179,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     1965  Cabbage
     1982  Tomato
     1985  Cheese
-    5096  Marigold seed
     5282  Mushroom spore
     5312  Acorn
     5336  (not in wiki canonical set)
