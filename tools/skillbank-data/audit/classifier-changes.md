@@ -1496,3 +1496,40 @@ NPC drink reward.
 Added Santa mask/jacket/pantaloons/gloves/boots, Antisanta mask/jacket/pantaloons/gloves/boots/coal box, Thanksgiving dinner.
 
 **Affects**: 12 items.
+
+## Session 44 (audit IDs 13101–13400)
+
+### QUESTS — new sections
+
+- **"Diary - Lumbridge"**: pattern `name_starts("Explorer's ring")` (Lumbridge Diary reward, charges 1-4).
+- **"Max hood variants"**: Max hood, Fire/Saradomin/Zamorak/Guthix/Accumulator max hood.
+
+**Affects**: 9 items.
+
+### MELEE Helmets — Tanzanite/Magma helm (uncharged) force_include
+
+**Affects**: 2 items.
+
+### SLAYER Slayer master items — major expansion
+
+Added Tanzanite/Magma mutagen (Zulrah), Bone bolt pack, Plant pot pack, Sack pack, Basket pack, Eternal/Pegasian/Primordial crystal (Cerberus boots), Unsired/Bludgeon spine/claw/axon (Sire boss), Lizardman fang.
+
+**Affects**: 14 items.
+
+### MISC Keys — `Key master's key`
+
+Cerberus access key.
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Partyhat/Halloween set + Easter blaster + Gravedigger + Christmas extras
+
+Added Partyhat set, Halloween mask set, Bunny feet, Empty/Incomplete/Easter blaster, Gravedigger mask/top/leggings/boots/gloves, Anti-panties, Black santa hat, Inverted santa hat, Anti-present, Present.
+
+**Affects**: 17 items.
+
+### CRAFTING Misc crafting materials — `Xerician fabric`
+
+Xerician robes material.
+
+**Affects**: 1 item.

@@ -454,9 +454,9 @@ public final class SkillBankData
 
 	private static void addMelee(Map<String, List<Integer>> m)
 	{
-		// MELEE — 1366 items
+		// MELEE — 1368 items
 		//   Combat utility (6), Weapons (285), Godsword construction (11), Helmets
-		//   (219), Body armour (131), Legs (118), Boots (68), Gloves (69), Shields
+		//   (221), Body armour (131), Legs (118), Boots (68), Gloves (69), Shields
 		//   (112), Trim/gilded armour cosmetic variants (78), GE armour sets
 		//   (melee) (58), Spirit shield construction (4), Crystal halberd (2),
 		//   Capes (54), Amulets (40), Rings (17), Combat potions (56), Restores
@@ -525,17 +525,17 @@ public final class SkillBankData
 			10547, 10548, 10549, 10550, 10589, 10828, 11200, 11663,
 			11664, 11665, 11864, 11865, 12466, 12486, 12637, 12638,
 			12639, 12810, 12813, 12929, 12931, 13137, 13138, 13139,
-			13140, 13197, 13199, 13359, 13364, 13369, 13374, 13379,
-			19643, 19645, 19647, 19649, 19687, 19988, 20035, 20146,
-			20792, 20838, 21264, 21266, 21298, 21838, 21888, 21890,
-			22650, 23073, 23075, 23101, 23258, 23785, 23840, 23841,
-			23842, 24034, 24195, 24198, 24201, 24204, 24271, 24370,
-			24444, 25165, 25398, 25413, 25898, 25900, 25904, 25906,
-			25910, 25912, 26156, 26170, 26241, 26731, 26733, 26735,
-			26743, 26745, 26747, 27042, 27235, 27836, 27839, 27844,
-			27847, 27850, 28933, 29010, 29019, 29028, 29816, 29818,
-			30073, 30111, 30321, 30437, 30750, 30777, 31172, 33066,
-			33068, 33247, 33338,
+			13140, 13196, 13197, 13198, 13199, 13359, 13364, 13369,
+			13374, 13379, 19643, 19645, 19647, 19649, 19687, 19988,
+			20035, 20146, 20792, 20838, 21264, 21266, 21298, 21838,
+			21888, 21890, 22650, 23073, 23075, 23101, 23258, 23785,
+			23840, 23841, 23842, 24034, 24195, 24198, 24201, 24204,
+			24271, 24370, 24444, 25165, 25398, 25413, 25898, 25900,
+			25904, 25906, 25910, 25912, 26156, 26170, 26241, 26731,
+			26733, 26735, 26743, 26745, 26747, 27042, 27235, 27836,
+			27839, 27844, 27847, 27850, 28933, 29010, 29019, 29028,
+			29816, 29818, 30073, 30111, 30321, 30437, 30750, 30777,
+			31172, 33066, 33068, 33247, 33338,
 
 			// === Body armour ===
 			1103, 1117, 1101, 1115, 1105, 1119, 1107, 1125,
@@ -1378,9 +1378,9 @@ public final class SkillBankData
 
 	private static void addCrafting(Map<String, List<Integer>> m)
 	{
-		// CRAFTING — 251 items
+		// CRAFTING — 252 items
 		//   Crafting tools (17), Thread & dyes (10), Leather (raw → tanned) (11),
-		//   D'hide (27), Glass (11), Misc crafting materials (11), Ornament kits
+		//   D'hide (27), Glass (11), Misc crafting materials (12), Ornament kits
 		//   (52), Pottery (10), Uncut gems (10), Cut gems (12), Jewellery (silver)
 		//   (1), Jewellery (gold) (5), Jewellery (gem-set) (43), Battlestaves
 		//   (10), Crafting cape & pet (2), Wool/dyes/cloth (extended) (2),
@@ -1411,7 +1411,7 @@ public final class SkillBankData
 
 			// === Misc crafting materials ===
 			973, 1940, 1941, 3213, 3239, 6157, 6159, 6161,
-			6163, 6165, 6167,
+			6163, 6165, 6167, 13383,
 
 			// === Ornament kits ===
 			23227, 12532, 12534, 12536, 12538, 12800, 20002, 20143,
@@ -1695,16 +1695,18 @@ public final class SkillBankData
 
 	private static void addSlayer(Map<String, List<Integer>> m)
 	{
-		// SLAYER — 145 items
-		//   Slayer master items (29), Slayer rings (7), Slayer helmets (27), Black
+		// SLAYER — 159 items
+		//   Slayer master items (43), Slayer rings (7), Slayer helmets (27), Black
 		//   masks (18), Task-specific gear (28), Cannon (6), Cape & pet (4),
 		//   Champion's Challenge scrolls (11), Mounted heads (POH trophies) (15)
 		m.put(TAG_SLAYER, Arrays.asList(
 			// === Slayer master items ===
-			12728, 12730, 12732, 12734, 12736, 12738, 4155, 5520,
-			10952, 11877, 11879, 11881, 11883, 11885, 11887, 12740,
-			12742, 12744, 12769, 12771, 12857, 12859, 12922, 12927,
-			12932, 12934, 21257, 21268, 21270,
+			12728, 12730, 12732, 12734, 12736, 12738, 13227, 13229,
+			13231, 4155, 5520, 10952, 11877, 11879, 11881, 11883,
+			11885, 11887, 12740, 12742, 12744, 12769, 12771, 12857,
+			12859, 12922, 12927, 12932, 12934, 13193, 13200, 13201,
+			13250, 13252, 13254, 13273, 13274, 13275, 13276, 13391,
+			21257, 21268, 21270,
 
 			// === Slayer rings ===
 			11866, 11867, 11868, 11869, 11871, 11872, 11873,
@@ -1989,12 +1991,12 @@ public final class SkillBankData
 
 	private static void addMisc(Map<String, List<Integer>> m)
 	{
-		// MISC — 401 items
+		// MISC — 418 items
 		//   Teleport jewellery (63), Teleport tabs (68), Boss & quest jewellery
 		//   (10), Cosmetic outfits / random events (52), Clue scrolls (8), Clue
-		//   tools (25), Keys (12), Storage bags (6), Utility / banked supplies
+		//   tools (25), Keys (13), Storage bags (6), Utility / banked supplies
 		//   (2), Imbue scrolls (2), Combat trophies (PvM rewards) (3), Holiday
-		//   rares & cosmetics (91), Team capes (Castle Wars) (50), Currency (9)
+		//   rares & cosmetics (107), Team capes (Castle Wars) (50), Currency (9)
 		m.put(TAG_MISC, Arrays.asList(
 			// === Teleport jewellery ===
 			1704, 1706, 1708, 1710, 1712, 2550, 2552, 2554,
@@ -2040,8 +2042,8 @@ public final class SkillBankData
 			20355,
 
 			// === Keys ===
-			989, 985, 987, 991, 993, 11942, 19677, 20756,
-			21724, 22374, 23083, 23490,
+			989, 985, 987, 991, 993, 11942, 13248, 19677,
+			20756, 21724, 22374, 23083, 23490,
 
 			// === Storage bags ===
 			5356, 11941, 13226, 13639, 24882, 25582,
@@ -2056,18 +2058,20 @@ public final class SkillBankData
 			21295, 6570, 21439,
 
 			// === Holiday rares & cosmetics ===
-			11847, 11862, 1048, 4560, 6100, 6101, 6102, 962,
-			979, 981, 1037, 1038, 1040, 1042, 1044, 1046,
-			1050, 1053, 1055, 1057, 1959, 1961, 4558, 4559,
-			4562, 4563, 4564, 4565, 4566, 6180, 6181, 6182,
-			6183, 6184, 6185, 6186, 6187, 6188, 6822, 6828,
-			6834, 6840, 6846, 6852, 6853, 6856, 6857, 6858,
-			6859, 6860, 6861, 6862, 6863, 6864, 6865, 6866,
-			6867, 7592, 7593, 7594, 7595, 7596, 7927, 9920,
-			9921, 9922, 9923, 9924, 9925, 10476, 11019, 11020,
-			11021, 11022, 11023, 11024, 11025, 11026, 11863, 12861,
-			12887, 12888, 12889, 12890, 12891, 12892, 12893, 12894,
-			12895, 12896, 12897,
+			11847, 11862, 13343, 1048, 4560, 6100, 6101, 6102,
+			962, 979, 981, 1037, 1038, 1040, 1042, 1044,
+			1046, 1050, 1053, 1055, 1057, 1959, 1961, 4558,
+			4559, 4562, 4563, 4564, 4565, 4566, 6180, 6181,
+			6182, 6183, 6184, 6185, 6186, 6187, 6188, 6542,
+			6822, 6828, 6834, 6840, 6846, 6852, 6853, 6856,
+			6857, 6858, 6859, 6860, 6861, 6862, 6863, 6864,
+			6865, 6866, 6867, 7592, 7593, 7594, 7595, 7596,
+			7927, 9920, 9921, 9922, 9923, 9924, 9925, 10476,
+			11019, 11020, 11021, 11022, 11023, 11024, 11025, 11026,
+			11863, 12861, 12887, 12888, 12889, 12890, 12891, 12892,
+			12893, 12894, 12895, 12896, 12897, 13173, 13175, 13182,
+			13183, 13184, 13185, 13283, 13284, 13285, 13286, 13287,
+			13288, 13344, 13345,
 
 			// === Team capes (Castle Wars) ===
 			4315, 4317, 4319, 4321, 4323, 4325, 4327, 4329,
@@ -2086,13 +2090,14 @@ public final class SkillBankData
 
 	private static void addQuests(Map<String, List<Integer>> m)
 	{
-		// QUESTS — 128 items
+		// QUESTS — 137 items
 		//   Quest & achievement capes (8), Diary - Kandarin (4), Diary - Karamja
 		//   (4), Diary - Ardougne (4), Diary - Falador (4), Diary - Fremennik (4),
 		//   Diary - Wilderness (4), Diary - Morytania (4), Diary - Desert (4),
-		//   Diary - Varrock (4), Diary - Western (4), Diary consumables (4), Quest
-		//   unlock weapons (11), Quest cosmetic gear (20), Void Knight set (21),
-		//   Fighter Torso et al. (6), Defenders (9), Boss pets (9)
+		//   Diary - Varrock (4), Diary - Western (4), Diary - Lumbridge (4), Diary
+		//   consumables (4), Max hood variants (5), Quest unlock weapons (11),
+		//   Quest cosmetic gear (20), Void Knight set (21), Fighter Torso et al.
+		//   (6), Defenders (9), Boss pets (9)
 		m.put(TAG_QUESTS, Arrays.asList(
 			// === Quest & achievement capes ===
 			9813, 9814, 13070, 13221, 13223, 13280, 13281, 19476,
@@ -2127,8 +2132,14 @@ public final class SkillBankData
 			// === Diary - Western ===
 			13141, 13142, 13143, 13144,
 
+			// === Diary - Lumbridge ===
+			13125, 13126, 13127, 13128,
+
 			// === Diary consumables ===
 			22941, 22943, 22945, 22947,
+
+			// === Max hood variants ===
+			13330, 13332, 13334, 13336, 13338,
 
 			// === Quest unlock weapons ===
 			35, 772, 2402, 2952, 4170, 4251, 9084, 10581,

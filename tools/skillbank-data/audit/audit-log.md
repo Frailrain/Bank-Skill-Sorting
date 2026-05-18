@@ -3948,6 +3948,129 @@ See `audit/classifier-changes.md` "Session 42".
 
 See `audit/classifier-changes.md` "Session 43".
 
+---
+
+## Session 44: IDs 13101–13400
+
+### Achievement Diary rewards
+
+- `13102 Teleport crystal (5)` — LOG (charge variant).
+- `13103-13144 Karamja gloves 4, Varrock armour 1-4, Wilderness sword 1-4, Morytania legs 1-4, Falador shield 1-4, Ardougne cloak 1-4, Explorer's ring 1-4 (0 tabs!), Fremennik sea boots 1-4, Desert amulet 1-4, Kandarin headgear 1-4, Western banner 1-4` (43 items) — mostly OK.
+- `13125-13128 Explorer's ring 1-4` (4 items) — **ADD quests** (Lumbridge Diary reward; quest cape teleport jewellery).
+
+### Antique lamps + God book page sets + God dragonhide sets
+
+- `13145-13148 Antique lamp × 4` — EX.
+- `13149-13159 Holy/Unholy/Balance/War/Law/Darkness book page set` (6 items) — OK (`prayer`).
+- `13161-13171 Zamorak/Saradomin/Guthix/Bandos/Armadyl/Ancient dragonhide set` (6 items) — OK (`range`).
+- `13173-13175 Partyhat set, Halloween mask set` — **ADD misc Holiday rares** (2 items).
+
+### Wilderness boss pets + Easter 2014 event
+
+- `13177-13181 Venenatis spiderling, Callisto cub, Vet'ion jr., Scorpia's offspring` — LOG (boss pets).
+- `13182-13185 Bunny feet, Empty/Incomplete/Easter blaster` (4 items) — **ADD misc Holiday rares**.
+- `13186-13188 Volatile mineral, Package, Diango's claws` — EX/LOG.
+
+### Bond + slayer packs
+
+- `13190 Old school bond` — LOG.
+- `13193 Bone bolt pack` — **ADD slayer**.
+- `13195 Oddskull` — LOG.
+
+### Zulrah helm variants + mutagens
+
+- `13196 Tanzanite helm (uncharged)` — **ADD melee**.
+- `13197 Tanzanite helm` — OK (`melee`).
+- `13198 Magma helm (uncharged)` — **ADD melee**.
+- `13199 Magma helm` — OK.
+- `13200-13201 Tanzanite mutagen, Magma mutagen` (2 items) — **ADD slayer**.
+- `13202 Ring of the gods (i)`, `13204 Platinum token` — OK.
+- `13203 Mask of balance` — LOG.
+- `13205 Rotten egg` — EX.
+
+### Cosmetic + skill pets
+
+- `13215-13218 Tiger/Lion/Snow leopard/Amur leopard toy` (4 items) — LOG (charity cosmetic).
+- `13221-13223 Music cape, Music hood` — OK (`quests`).
+- `13225 Tzrek-jad` — OK (`quests`).
+- `13226 Herb sack` — OK (`herblore;misc`).
+
+### Cerberus boots + crystals + Slayer key
+
+- `13227-13231 Eternal/Pegasian/Primordial crystal` (3 items) — **ADD slayer** (Cerberus boss drop, boot ingredient).
+- `13233 Smouldering stone` — OK (`slayer`).
+- `13235-13239 Eternal boots (mage), Pegasian boots (multi), Primordial boots (melee)` — OK.
+- `13241-13244 Infernal axe/pickaxe + uncharged variants` — OK.
+- `13245 Jar of souls`, `13247 Hellpuppy` — LOG (Cerberus pet).
+- `13248 Key master's key` — **ADD misc** (Cerberus access key).
+- `13249 Key master teleport` — OK (`misc`).
+
+### Slayer packs + Angler
+
+- `13250-13254 Plant pot pack, Sack pack, Basket pack` (3 items) — **ADD slayer**.
+- `13256 Saradomin's light` — LOG.
+- `13258-13261 Angler hat/top/waders/boots` — OK (4 items, `fishing`).
+
+### Abyssal Sire boss drops
+
+- `13262 Abyssal orphan` — OK (`slayer`).
+- `13263-13265 Abyssal bludgeon, Abyssal dagger` — OK (`melee`).
+- `13273-13276 Unsired, Bludgeon spine/claw/axon` (4 items) — **ADD slayer** (Sire boss drops; Bludgeon production materials).
+- `13277-13279 Jar of miasma, Overseer's book` — LOG.
+
+### Max cape + Halloween 2016 Gravedigger
+
+- `13280-13281 Max cape, Max hood` — OK (`quests`).
+- `13283-13288 Gravedigger mask/top/leggings/boots/gloves, Anti-panties` (6 items) — **ADD misc Holiday rares** (Halloween 2016 event).
+- `13302 Bank key` — LOG.
+- `13307 Blood money` — OK.
+
+### Skill pets + Misc + Max cape variants
+
+- `13320-13324 Heron/Rock golem/Beaver/Baby chinchompa` — OK (4 items, skill pets).
+- `13327 Rotten onion` — EX.
+- `13328 Green banner` — LOG.
+- `13329-13338 Fire/Saradomin/Zamorak/Guthix/Accumulator max cape + corresponding hoods` — heavy review:
+  - Capes: Fire max cape `melee;range;mage`, Saradomin/Zamorak/Guthix max cape `mage`, Accumulator max cape `mage` — OK.
+  - Hoods (0 tabs): Fire max hood, Saradomin/Zamorak/Guthix/Accumulator max hood (5 items) — **ADD quests** (Max hood family).
+
+### Misc
+
+- `13339 Sacred eel` — OK (`fishing`).
+- `13340 Agility cape` — LOG (dup of canonical).
+- `13343-13346 Black santa hat, Inverted santa hat, Anti-present, Present` (4 items) — **ADD misc Holiday rares**.
+- `13348-13352 Vial of tears (1/2/3/full), Vial of sorrow` — EX (Drakan quest material).
+
+### Lovakite + Juniper + Shayzien
+
+- `13353 Gricoller's can` — OK (`farming`).
+- `13354-13356 Lovakite bar, Juniper logs, Lovakite ore` — OK.
+- `13357-13381 Shayzien gloves/boots/helm/greaves/platebody/body × 5 tiers` (~25 items) — OK (`melee[;range]`).
+- `13382 Shayzien medpack` — LOG.
+
+### Xerician + Servery
+
+- `13383 Xerician fabric` — **ADD crafting** (Xerician robes material).
+- `13385-13389 Xerician hat/top/robe` — OK (3 items, `mage`).
+- `13391 Lizardman fang` — **ADD slayer** (lizardman drop, Xeric's talisman ingredient).
+- `13393 Xeric's talisman` — OK (`mage;runecraft;misc`).
+- `13394-13400 Gang meeting info, Intelligence, Training manual, Servery flour/pastry dough/raw meat/dish` — EX (Recipe for Disaster Servery + quest material).
+
+---
+
+## Session 44 totals
+
+- Items reviewed: ~250
+- OK (correct as-is): 100
+- EX (correctly excluded): 20
+- ADD (missing tab, fixed): 41 (4 Explorer's ring, 2 Holiday set, 4 Easter blaster, 1 Bone bolt pack, 2 Tanzanite/Magma uncharged, 2 mutagens, 3 boot crystals, 1 Key master's key, 3 plant pot packs, 4 Sire drops, 6 Gravedigger, 5 max hoods, 4 Christmas+Anti-present, 1 Xerician fabric, 1 Lizardman fang)
+- REM: 0
+- LOG: 60+ (boss pets, charity toy, mask of balance, banner, agility dup)
+
+## Classifier changes made in session 44
+
+See `audit/classifier-changes.md` "Session 44".
+
 ## Resume marker
 
-**Next session: start from ID 13101.**
+**Next session: start from ID 13401.**

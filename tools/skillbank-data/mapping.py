@@ -767,7 +767,8 @@ MELEE = TabSpec(
         })),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower())
-                + ["Granite helm", "Serpentine helm (uncharged)"],
+                + ["Granite helm", "Serpentine helm (uncharged)",
+                   "Tanzanite helm (uncharged)", "Magma helm (uncharged)"],
                 force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead",
                                "Ahrim's hood", "Karil's coif", "Rogue mask",
                                "Spined helm", "Skeletal helm", "Snakeskin bandana",
@@ -1409,6 +1410,8 @@ CRAFTING = TabSpec(
             "Bark", "Quicklime",
             "Rock-shell chunk", "Rock-shell shard", "Rock-shell splinter",
             "Skull piece", "Ribcage piece", "Fibula piece",
+            # session 44 — Xerician fabric (Xerician robes material)
+            "Xerician fabric",
         })),
         Section("Ornament kits", _or(
             _name_ends(" ornament kit"),
@@ -1671,6 +1674,12 @@ SLAYER = TabSpec(
             "Olive oil pack", "Eye of newt pack",
             "Tanzanite fang", "Serpentine visage", "Magic fang",
             "Zulrah's scales",
+            # session 44 — Zulrah mutagens + more packs + Cerberus + Sire + Xeric drops
+            "Tanzanite mutagen", "Magma mutagen",
+            "Bone bolt pack", "Plant pot pack", "Sack pack", "Basket pack",
+            "Eternal crystal", "Pegasian crystal", "Primordial crystal",
+            "Unsired", "Bludgeon spine", "Bludgeon claw", "Bludgeon axon",
+            "Lizardman fang",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -2041,6 +2050,8 @@ MISC = TabSpec(
             "Muddy key", "Mossy key", "Brimstone key", "Larran's key",
             "Ecumenical key", "Ancient shard", "Hill giant club",
             "Sinister key", "Brittle key",
+            # session 44 — Cerberus access key
+            "Key master's key",
         })),
         Section("Storage bags", _name_in({
             "Looting bag", "Open looting bag",
@@ -2103,6 +2114,14 @@ MISC = TabSpec(
                 "Antisanta mask", "Antisanta jacket", "Antisanta pantaloons",
                 "Antisanta gloves", "Antisanta boots", "Antisanta's coal box",
                 "Thanksgiving dinner",
+                # session 44 — Partyhat/Halloween set, Easter blaster, Gravedigger,
+                # Black/Inverted santa hat, Anti-present, Present
+                "Partyhat set", "Halloween mask set",
+                "Bunny feet", "Empty blaster", "Incomplete blaster", "Easter blaster",
+                "Gravedigger mask", "Gravedigger top", "Gravedigger leggings",
+                "Gravedigger boots", "Gravedigger gloves", "Anti-panties",
+                "Black santa hat", "Inverted santa hat",
+                "Anti-present", "Present",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),
@@ -2142,7 +2161,12 @@ QUESTS = TabSpec(
         Section("Diary - Desert", _name_starts("Desert amulet")),
         Section("Diary - Varrock", _name_starts("Varrock armour")),
         Section("Diary - Western", _name_starts("Western banner")),
+        Section("Diary - Lumbridge", _name_starts("Explorer's ring")),
         Section("Diary consumables", _name_starts("Rada's blessing")),
+        Section("Max hood variants", _name_in({
+            "Max hood", "Fire max hood", "Saradomin max hood",
+            "Zamorak max hood", "Guthix max hood", "Accumulator max hood",
+        })),
         Section("Quest unlock weapons", _name_in({
             "Dramen staff", "Lunar staff", "Ivandis flail", "Blisterwood flail",
             "Slayer's staff", "Silverlight", "Excalibur", "Enhanced excalibur",
