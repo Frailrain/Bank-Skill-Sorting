@@ -5356,6 +5356,91 @@ See `audit/classifier-changes.md` "Session 57".
 
 See `audit/classifier-changes.md` "Session 58".
 
+---
+
+## Session 59: IDs 24001–24400
+
+### Elven cosmetic clothing
+
+- `24003-24027 Elven boots, Elven gloves, Elven top × 3 colours, Elven skirt × 2, Elven legwear, Elven top` (~9 items) — LOG (Sote cosmetic, name dedup).
+
+### Memoriam crystal + Dragonstone armour
+
+- `24030-24033 Memoriam crystal (1-4)` (4 items) — **ADD misc** (Sote XP boost crystal, retains in bank).
+- `24034-24040 Dragonstone full helm/platebody/platelegs` — OK (3 items, `melee;mining_smithing`; Dragonstone armour IS smithable).
+- `24043-24046 Dragonstone boots, Dragonstone gauntlets` — OK (`melee`).
+
+### Sote lore books
+
+- `24049-24075 Crazed scribbles, A dear friend, On leprechauns, Bloody diary, The eight clans, Gollwyn's final statement, Niff & harry, Soggy journal, Ebrill's journal, Stained journal, The truth behind the myth, The living statues, The spurned demon, Legends of the mountain` (~14 items) — EX (Sote lore).
+
+### Combat path + various
+
+- `24130-24131 Combat path starter kit, Combat path voucher` — LOG.
+- `24144 Staff of balance` — OK (`melee`).
+- `24187 Trouver parchment` — LOG (Account protection).
+- `24189-24191 Deadman's chest, Deadman's legs, Deadman's cape` — LOG (DMM event cosmetic).
+
+### Halos (Castle Wars)
+
+- `24192-24204 Armadyl/Bandos/Seren/Ancient/Brassica halo` — OK (5 items, `melee`).
+
+### Victor's cape + misc Wilderness
+
+- `24207-24215 Victor's cape (1/10/50/100/500)` (5 items) — LOG (DMM rank).
+- `24217-24229 Guthixian icon, Swift blade, Granite maul, Ornate maul handle` — LOG.
+
+### Wilderness Slayer + Vorkath shield variants
+
+- `24251 Wilderness crabs teleport` — OK.
+- `24253 Clue scroll (elite)` — LOG.
+- `24254-24256 Fang, Venom gland, Unsealed letter` — EX (Sins of the Father quest).
+- `24258 V sigil`, `24259 V sigil (e)`, `24260 Molten glass (i)`, `24261 Lunar glass`, `24262 Polishing rock` (5 items) — **ADD slayer** (V's shield construction materials).
+- `24263 Ballad of the basilisk` — EX (Slayer Tower lore).
+- `24266 V's shield` — OK (`melee`).
+- `24268 Basilisk jaw` — **ADD slayer** (Basilisk knight drop).
+- `24271 Neitiznot faceguard` — OK.
+- `24277 Mysterious emblem (tier 1)`, `24287 Decorative emblem` — LOG.
+
+### Dagon'hai robes
+
+- `24288-24294 Dagon'hai hat, Dagon'hai robe top, Dagon'hai robe bottom` — OK (3 items, `mage`).
+- `24297-24299 White bed sheets, Smoke powder, Shiny glass` — EX/LOG.
+
+### Halloween 2019 Spooky + Pumpkin lantern
+
+- `24305-24323 Spooky hood/robe/skirt/gloves/boots + Spookier variants` (10 items) — **ADD misc Holiday rares**.
+- `24325-24327 Pumpkin lantern, Skeleton lantern` (2 items) — **ADD misc Holiday rares**.
+- `24329 Bounty crate`, `24331 Birthday cake` — LOG.
+
+### Dagon'hai set + BH hats + scroll boxes
+
+- `24333 Dagon'hai robes set` — **ADD mage** (Mage GE set).
+- `24336 Target teleport` — OK.
+- `24338-24348 Bounty hunter hat (tier 1-6)` (6 items) — LOG (BH tier rank).
+- `24361-24366 Scroll box (beginner/easy/medium/hard/elite/master)` (6 items) — **ADD misc** (clue scroll boxes).
+
+### LMS Twisted League cosmetic
+
+- `24370 Twisted slayer helmet` — OK.
+- `24372-24384 Twisted dragon/rune/adamant/mithril/steel/iron/bronze trophy` (7 items) — LOG.
+- `24387-24399 Twisted hat (t2/t3), Twisted coat (t2/t3), Twisted trousers (t3), Twisted boots (t3), Twisted cane` (~10 items) — LOG (LMS cosmetic).
+
+---
+
+## Session 59 totals
+
+- Items reviewed: ~250
+- OK (correct as-is): 40
+- EX (correctly excluded): 30 (Sote lore, Sins quest material)
+- ADD (missing tab, fixed): 30 (4 Memoriam crystal, 5 V's shield materials, 1 Basilisk jaw, 10 Spooky outfit, 2 lanterns, 1 Dagon'hai set, 6 Scroll boxes, 1 Bounty hunter hat)
+- REM: 0
+- LOG: 100+ (Elven cosmetic dups, Victor's cape, Twisted League cosmetic, BH tier cosmetic, lore books)
+
+## Classifier changes made in session 59
+
+See `audit/classifier-changes.md` "Session 59".
+
 ## Resume marker
 
-**Next session: start from ID 24001.**
+**Next session: start from ID 24401.**

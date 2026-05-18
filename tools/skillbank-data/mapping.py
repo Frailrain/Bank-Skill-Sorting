@@ -1109,6 +1109,8 @@ MAGE = TabSpec(
             "Mystic set (dark)", "Mystic set (dusk)",
             # session 56 — 3rd age druidic pieces (set is mage)
             "3rd age druidic robe top", "3rd age druidic robe bottoms",
+            # session 59 — Dagon'hai robes set (GE convenience)
+            "Dagon'hai robes set",
         })),
         Section("Bracelet ornament variants", _name_in({
             "Tormented bracelet (or)",
@@ -1928,6 +1930,9 @@ SLAYER = TabSpec(
             "Hydra's claw", "Hydra's heart", "Hydra's fang", "Hydra's eye",
             "Hydra tail",
             "Alchemical hydra heads", "Stuffed hydra heads",
+            # session 59 — V's shield construction + Basilisk jaw
+            "V sigil", "V sigil (e)", "Molten glass (i)", "Lunar glass",
+            "Polishing rock", "Basilisk jaw",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -2316,7 +2321,8 @@ MISC = TabSpec(
         Section("Clue scrolls",
                 _or(_name_starts("Clue scroll"), _name_starts("Master clue"),
                     _name_starts("Clue bottle"), _name_starts("Clue nest"),
-                    _name_starts("Clue geode"), _name_starts("Reward casket"))),
+                    _name_starts("Clue geode"), _name_starts("Reward casket"),
+                    _name_starts("Scroll box"))),
         Section("Clue tools", _or(
             _name_in({
                 "Sextant", "Watch", "Chart", "Mimic kill count",
@@ -2428,6 +2434,14 @@ MISC = TabSpec(
                 "Evil chicken head", "Evil chicken legs",
                 # session 49 — Christmas 2018 Snow globe set
                 "Snow globe", "Sack of presents", "Giant present",
+                # session 59 — Memoriam crystals + Halloween 2019 Spooky + lanterns
+                "Memoriam crystal (1)", "Memoriam crystal (2)",
+                "Memoriam crystal (3)", "Memoriam crystal (4)",
+                "Spooky hood", "Spooky robe", "Spooky skirt",
+                "Spooky gloves", "Spooky boots",
+                "Spookier hood", "Spookier robe", "Spookier skirt",
+                "Spookier gloves", "Spookier boots",
+                "Pumpkin lantern", "Skeleton lantern",
                 # session 52 — Christmas 2018 Wise Old Man event
                 "Snow imp costume head", "Snow imp costume body",
                 "Snow imp costume legs", "Snow imp costume tail",

@@ -2198,3 +2198,29 @@ Added Tephra, Refined tephra, Imbued tephra, Zalcano shard.
 Sote permanent Prifddinas teleport (placed in Teleport crystal cohort, which lives in Holiday rares & cosmetics).
 
 **Affects**: 1 item.
+
+## Session 59 (audit IDs 24001–24400)
+
+### SLAYER Slayer master items — V's shield materials + Basilisk jaw
+
+Added V sigil, V sigil (e), Molten glass (i), Lunar glass, Polishing rock (V's shield construction) + Basilisk jaw (Basilisk knight drop).
+
+**Affects**: 6 items.
+
+### MISC Clue scrolls — Scroll box variants
+
+Pattern extended to catch Scroll box (beginner/easy/medium/hard/elite/master).
+
+**Affects**: 6 items.
+
+### MISC Holiday rares — Memoriam crystals + Halloween 2019 Spooky + lanterns
+
+Added Memoriam crystal (1-4) (Sote XP boost crystal), Spooky hood/robe/skirt/gloves/boots + Spookier variants (10 items), Pumpkin lantern, Skeleton lantern.
+
+**Affects**: 16 items.
+
+### MAGE GE armour sets — `Dagon'hai robes set`
+
+GE convenience mage set.
+
+**Affects**: 1 item.
