@@ -1300,7 +1300,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27626  (not in wiki canonical set)
    27628  (not in wiki canonical set)
 
-=== hunter (44 items not in wiki output) ===
+=== hunter (43 items not in wiki output) ===
     5070  Bird nest
     5071  (not in wiki canonical set)
     5072  (not in wiki canonical set)
@@ -1328,7 +1328,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10091  Orange feather
    10092  Ferret
    10111  Kebbit teeth dust
-   11258  Jar generator
    13323  (not in wiki canonical set)
    13325  (not in wiki canonical set)
    13326  (not in wiki canonical set)

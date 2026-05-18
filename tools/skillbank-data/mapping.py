@@ -756,7 +756,7 @@ MELEE = TabSpec(
                    "Spined gloves", "Skeletal gloves", "Snakeskin vambraces"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield"),
-                force_include=["Granite shield"]),
+                force_include=["Granite shield", "Draconic visage"]),
         Section("Capes", _slot_pred("cape"),
                 force_include=["Attack hood", "Strength hood", "Defence hood", "Hitpoints hood"],
                 force_exclude=_QUEST_COSMETIC_CAPES),
@@ -1230,6 +1230,9 @@ FISHING = TabSpec(
             "Sacred eel", "Infernal eel", "Cave eel", "Lava eel",
             "Slimy eel", "Frog spawn",
             # Bass removed — that's the cooked variant; raw bass is already in Raw fish.
+            # session 38 — Barbarian Training fishing catches + byproducts
+            "Leaping trout", "Leaping salmon", "Leaping sturgeon",
+            "Roe", "Fish offcuts",
         })),
         Section("Angler outfit", _name_starts("Angler ")),
         Section("Spirit angler outfit", _name_starts("Spirit angler ")),
@@ -1457,6 +1460,9 @@ HERBLORE = TabSpec(
             "Mort myre stem", "Mort myre pear",
         })),
         Section("Unfinished potions", _name_ends(" potion (unf)")),
+        Section("Barbarian mix potions", _or(
+            _name_ends("mix(1)"), _name_ends("mix(2)"),
+        )),
         Section("Attack potions", _is_potion_family("attack potion"), sort_key=_potion_sort_key),
         Section("Strength potions", _is_potion_family("strength potion"), sort_key=_potion_sort_key),
         Section("Defence potions", _is_potion_family("defence potion"), sort_key=_potion_sort_key),
@@ -1565,6 +1571,8 @@ SLAYER = TabSpec(
             "Stuffed crawling hand", "Stuffed cockatrice head",
             "Stuffed basilisk head", "Stuffed kurask head",
             "Stuffed abyssal head", "Stuffed kbd heads", "Stuffed kq head",
+            # session 38 — Dragon Slayer trophy
+            "Elvarg's head",
         })),
     ],
     variant_allowlist=[
@@ -1687,6 +1695,8 @@ HUNTER = TabSpec(
             "Rabbit snare", "Noose wand", "Teasing stick",
             "Butterfly jar", "Falconer's glove",
             "Imp-in-a-box(2)", "Imp-in-a-box(1)",
+            # session 38 — impling jar tools
+            "Jar generator", "Magic butterfly net", "Impling jar",
         })),
         Section("Caught butterflies", _name_in({
             "Black warlock", "Snowy knight", "Sapphire glacialis", "Ruby harvest",

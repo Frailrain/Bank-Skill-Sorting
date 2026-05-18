@@ -3416,6 +3416,78 @@ See `audit/classifier-changes.md` "Session 36".
 
 See `audit/classifier-changes.md` "Session 37".
 
+---
+
+## Session 38: IDs 11201–11500
+
+### Eyes of Glouphrie material
+
+- `11202-11210 Shrinking recipe, To-do list, Shrink-me-quick, Shrunk ogleroot, Golden goblin, Magic beans` — EX.
+
+### Dragon range ammo (Mourning's End Part II)
+
+- `11212-11237 Dragon arrow, Dragon fire arrow, Dragon dart, Dragon dart tip, Dark bow, Dragon arrowtips` — OK (`range[+wc_fletching]`).
+
+### Impling jars + butterfly net
+
+- `11238-11256 Baby/Young/Gourmet/Earth/Essence/Eclectic/Nature/Magpie/Ninja/Dragon impling jar` — OK (10 items, `hunter`).
+- `11258 Jar generator`, `11259 Magic butterfly net`, `11260 Impling jar` (3 items) — **ADD hunter**.
+- `11262 Imp repellent`, `11264-11266 Anchovy oil/paste`, `11273 Impling scroll` — EX/LOG (Imp Catcher / Eyes of Glouphrie material).
+
+### Mounted heads + cosmetic masks
+
+- `11279 Elvarg's head` — **ADD slayer** (Dragon Slayer trophy head, mountable in POH).
+- `11280 Cavalier mask`, `11282 Beret mask` — LOG (Treasure Trails fashion).
+
+### Dragonfire shield + Draconic visage
+
+- `11283 Dragonfire shield` — OK (`melee`).
+- `11284 Dragonfire shield` (dup) — LOG.
+- `11286 Draconic visage` — **ADD melee** (raw uncrafted shield base; combat tab valuable for grouping).
+
+### Barbarian Training fishing chain
+
+- `11323 Barbarian rod` — OK (`fishing`).
+- `11324 Roe` — **ADD fishing** (barbarian fishing byproduct, also herblore secondary at 11326 Caviar).
+- `11326 Caviar` — OK (`herblore`).
+- `11328-11332 Leaping trout, Leaping salmon, Leaping sturgeon` (3 items) — **ADD fishing**.
+- `11334 Fish offcuts` — **ADD fishing**.
+
+### Dragon full helm + bones
+
+- `11335 Dragon full helm` — OK (`melee;mining_smithing`).
+- `11337-11338 Mangled bones, Chewed bones` — OK (`prayer`).
+- `11339-11340 My notes, Barbarian skills` — EX.
+- `11341-11348 Ancient page × 7` — LOG (Memoirs of a Barbarian).
+
+### Hasta weapons
+
+- `11367-11377 Bronze/Iron/Steel/Mithril/Adamant/Rune hasta` — OK (6 items, `melee`).
+
+### Barbarian Training mix potions
+
+- `11427-11428 Fish vial × 2` — LOG (Barbarian Training caviar prep vial).
+- `11429-11523 various mix(1)/mix(2) potions` — heavy review:
+  - Already classified (Antipoison mix, Super energy mix, Super restore mix, Antidote+ mix, Antifire mix) — OK.
+  - Currently 0 tabs (Attack mix, Strength mix, Combat mix, Restore mix, Energy mix, Defence mix, Agility mix, Prayer mix, Superattack mix, Anti-poison supermix, Fishing mix, Super str. mix, Magic essence mix, Super def. mix, Relicym's mix, Ranging mix, Magic mix, Hunting mix, Zamorak mix) — **ADD herblore** via new pattern-based section catching `name_ends("mix(1)")` and `name_ends("mix(2)")`.
+
+**Affects**: ~40 mix variants (all current + new pattern coverage).
+
+---
+
+## Session 38 totals
+
+- Items reviewed: ~120
+- OK (correct as-is): 40
+- EX (correctly excluded): 15
+- ADD (missing tab, fixed): 50 (3 hunter jars, 5 barbarian fishing, 1 Elvarg's head, 1 Draconic visage, ~40 mix potion variants)
+- REM: 0
+- LOG: 15+ (Ancient pages, fashion masks, Imp Catcher material)
+
+## Classifier changes made in session 38
+
+See `audit/classifier-changes.md` "Session 38".
+
 ## Resume marker
 
-**Next session: start from ID 11201.**
+**Next session: start from ID 11525.**

@@ -1235,3 +1235,35 @@ Added Mixture - step 1 (1-4), Mixture - step 2 (1-4) — Dream Mentor Sanfew ser
 Slayer task tracking utility.
 
 **Affects**: 1 item.
+
+## Session 38 (audit IDs 11201–11500)
+
+### HUNTER Traps — impling jar tools
+
+Added Jar generator, Magic butterfly net, Impling jar.
+
+**Affects**: 3 items.
+
+### SLAYER "Mounted heads" — `Elvarg's head`
+
+Dragon Slayer quest trophy, POH-mountable.
+
+**Affects**: 1 item.
+
+### MELEE Shields — `Draconic visage`
+
+Dragonfire shield base material; valuable to group with combat gear.
+
+**Affects**: 1 item.
+
+### FISHING "Specialty fish" — Barbarian Training catches + byproducts
+
+Added Leaping trout/salmon/sturgeon (3-tick barbarian fishing catches) + Roe, Fish offcuts (Caviar production byproducts).
+
+**Affects**: 5 items.
+
+### HERBLORE — new "Barbarian mix potions" section
+
+Pattern `name_ends("mix(1)")` or `name_ends("mix(2)")` catches all Barbarian Training brewable mix potions (Attack/Strength/Combat/Restore/Energy/Defence/Agility/Prayer/Superattack/Anti-poison supermix/Fishing/Super energy/Super str./Magic essence/Super restore/Super def./Antidote+/Antifire/Ranging/Magic/Hunting/Zamorak mix + (1)/(2) charge variants).
+
+**Affects**: ~40 items.
