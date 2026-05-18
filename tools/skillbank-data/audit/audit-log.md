@@ -22,8 +22,9 @@
 - **Reviewed in session 17**: IDs 4601–4900 (125 items)
 - **Reviewed in session 18**: IDs 4901–5200 (53 items)
 - **Reviewed in session 19**: IDs 5201–5500 (133 items)
-- **Reviewed cumulative**: 2754 (23.2%)
-- **Resume from**: ID 5501
+- **Reviewed in session 20**: IDs 5501–5800 (93 items)
+- **Reviewed cumulative**: 2847 (24.0%)
+- **Resume from**: ID 5801
 
 ## Decision codes
 
@@ -1845,6 +1846,74 @@ Heavy farming batch. Most items correctly classified; gaps are mostly harvest pr
 
 See `audit/classifier-changes.md` "Session 19".
 
+---
+
+## Session 20: IDs 5501–5800
+
+### Farming + Strawberry
+
+- `5501-5503 Papaya/Palm/Calquat sapling` — OK (`farming`).
+- `5504 Strawberry` — **ADD cooking** (singular fruit; Strawberry pie input).
+
+### Books / runecraft
+
+- `5506-5508 Old man's message / Strange book / Book of folklore` — Book of folklore in prayer ✓; others EX.
+- `5509-5514 Small/Medium/Large/Giant pouch` — OK (4 items, `runecraft`).
+- `5516 Elemental talisman` — OK.
+- `5519 Scrying orb`, `5520 Abyssal book` — partial. **ADD slayer** for Abyssal book.
+- `5521 Binding necklace` — **ADD runecraft**. RC neck slot teleport.
+- `5523 Tiara mould` — OK (`crafting`).
+- `5525-5549 Tiara + Air/Mind/Water/Body/Earth/Fire/Cosmic/Nature/Chaos/Law/Death/Blood tiara` — OK (13 items, `runecraft`).
+
+### Rogue equipment (Stealing Creation cosmetic)
+
+- `5553-5557 Rogue top / mask / trousers / gloves / boots` — **REM melee, range, mage** (5 items). Currently in all 4 combat tabs + agility_thieving. Rogue set is thieving-only. **Fix**: force_exclude on all 5 melee/range/mage armour slot sections.
+- `5558 Rogue kit` — OK (`agility_thieving`).
+- `5559 Flash powder` — EX.
+- `5560 Stethoscope` — OK (`agility_thieving`).
+
+### Misc quest items
+
+- `5561-5568` (Mystic jewel, Gear ×5, Tile) — EX.
+
+### Initiate set (Recruitment Drive)
+
+- `5574-5576 Initiate sallet/hauberk/cuisse` — OK (3 items, `melee;prayer`). Prayer-themed melee armour.
+
+### Devious Minds + alchemy items
+
+- `5577-5605` (~25 items: Cupric sulfate, Acetic acid, Gypsum, Sodium chloride, Nitrous oxide, Vial of liquid, ore powders, Bronze key, Metal spade, Alchemical notes, ??? mixture, Tin, Chisel/Bronze wire/Shears/Magnet/Knife dups) — EX (all quest items / dups).
+- `5606 Makeover voucher` — EX.
+
+### RFD transformations + Hourglass + Magic carpet
+
+- `5607 Grain` (cape slot — transformation), `5608 Fox`, `5609 Chicken`, `5610 Hourglass`, `5614 Magic carpet` — EX.
+- `5615 Shaikahan bonemeal` — OK (`prayer`).
+
+### Beer / brewing
+
+- `5732 Stool`, `5733 Rotten potato` — EX.
+- `5739-5761` (Asgarnian ale(m), Mature wmb, Greenman's ale(m), Dragon bitter(m), Dwarven stout(m), Moonlight mead(m), Axeman's folly + (m), Chef's delight + (m), Slayer's respite + (m)) — **ADD cooking** (~12 items). Matured beer brewing outputs.
+- `5763 Cider`, `5765 Mature cider` — OK (`cooking`).
+- `5767 Ale yeast` — **ADD cooking**. Brewing secondary.
+- `5769 Calquat keg` — **ADD cooking**. Empty brewing keg.
+- `5777, 5785, 5793 Dwarven stout(4), Asgarnian ale(4), Greenmans ale(4)` — **ADD cooking** (3 items, charge variants).
+
+---
+
+## Session 20 totals
+
+- Items reviewed: 93
+- OK (correct as-is): 30
+- EX (correctly excluded): 35
+- ADD (missing tab, fixed): 23 (Strawberry, Abyssal book, Binding necklace, ~16 beer variants, Ale yeast, Calquat keg)
+- REM (misclassified, fixed): 15 (5 Rogue pieces × 3 combat tabs)
+- LOG (deferred): 0
+
+## Classifier changes made in session 20
+
+See `audit/classifier-changes.md` "Session 20".
+
 ## Resume marker
 
-**Next session: start from ID 5501.**
+**Next session: start from ID 5801.**

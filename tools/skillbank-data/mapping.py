@@ -247,6 +247,9 @@ _SPLITBARK_PIECES = [
     "Splitbark gauntlets", "Splitbark boots",
 ]
 
+# Rogue equipment — agility_thieving only; should NOT be in combat tabs.
+_ROGUE_PIECES = ["Rogue top", "Rogue mask", "Rogue trousers", "Rogue gloves", "Rogue boots"]
+
 # Barrows armour — canonical OSRS combat affinity per set, but defence stats
 # are split across multiple styles which makes the stat-dominance classifier
 # put pieces in the wrong tab. Use these constants to surgical-exclude.
@@ -669,30 +672,30 @@ MELEE = TabSpec(
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
                 force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead",
-                               "Ahrim's hood", "Karil's coif"]
+                               "Ahrim's hood", "Karil's coif", "Rogue mask"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
                 force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top", "Splitbark body",
-                               "Ahrim's robetop", "Karil's leathertop"]
+                               "Ahrim's robetop", "Karil's leathertop", "Rogue top"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))),
                 force_exclude=["Mime legs", "Splitbark legs",
-                               "Ahrim's robeskirt", "Karil's leatherskirt"]
+                               "Ahrim's robeskirt", "Karil's leatherskirt", "Rogue trousers"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
-                force_exclude=["Ranger boots", "Mime boots", "Splitbark boots"]
+                force_exclude=["Ranger boots", "Mime boots", "Splitbark boots", "Rogue boots"]
                 + [n for n in _MIME_OUTFIT if "boots" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
                 force_exclude=_SKILLING_GAUNTLETS
                 + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
-                + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets"]
+                + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield"),
                 force_include=["Granite shield"]),
@@ -738,16 +741,18 @@ RANGE = TabSpec(
                 lambda it: bool(_DRAGONHIDE_RAW_RE.search(it.get("name") or ""))),
         Section("Helmets", _is_range_armour_slot("head"),
                 force_include=["Robin hood hat", "Karil's coif"],
-                force_exclude=["Dharok's helm", "Guthan's helm", "Torag's helm"]),
+                force_exclude=["Dharok's helm", "Guthan's helm", "Torag's helm", "Rogue mask"]),
         Section("Body", _is_range_armour_slot("body"),
                 force_include=["Karil's leathertop"],
-                force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody"]),
+                force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top"]),
         Section("Legs", _is_range_armour_slot("legs"),
                 force_include=["Karil's leatherskirt"],
-                force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs"]),
+                force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers"]),
         Section("Boots", _is_range_armour_slot("feet"),
-                force_include=["Ranger boots"]),
-        Section("Gloves", _is_range_armour_slot("hands")),
+                force_include=["Ranger boots"],
+                force_exclude=["Rogue boots"]),
+        Section("Gloves", _is_range_armour_slot("hands"),
+                force_exclude=["Rogue gloves"]),
         Section("Shields", _is_range_armour_slot("shield")),
         Section("Capes", _is_range_armour_slot("cape"),
                 force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES),
@@ -780,18 +785,19 @@ MAGE = TabSpec(
         Section("Tomes", _name_ends(" tome"),
                 force_exclude=["Shaman's tome"]),
         Section("Helmets", _is_mage_armour_slot("head"),
-                force_exclude=["Mime mask"]
+                force_exclude=["Mime mask", "Rogue mask"]
                 + [n for n in _MIME_OUTFIT if "hat" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body", _is_mage_armour_slot("body"),
-                force_exclude=["Karil's leathertop"]),
+                force_exclude=["Karil's leathertop", "Rogue top"]),
         Section("Legs", _is_mage_armour_slot("legs"),
-                force_exclude=["Karil's leatherskirt"]),
-        Section("Boots", _is_mage_armour_slot("feet")),
+                force_exclude=["Karil's leatherskirt", "Rogue trousers"]),
+        Section("Boots", _is_mage_armour_slot("feet"),
+                force_exclude=["Rogue boots"]),
         Section("Gloves", _is_mage_armour_slot("hands"),
                 force_include=["Chaos gauntlets"],
                 force_exclude=[n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
-                + ["Leather vambraces"]),
+                + ["Leather vambraces", "Rogue gloves"]),
         Section("Shields", _is_mage_armour_slot("shield")),
         Section("Capes", _is_mage_armour_slot("cape"),
                 force_exclude=_QUEST_COSMETIC_CAPES),
@@ -907,12 +913,24 @@ COOKING = TabSpec(
                 "Wrapped oomlie", "Pie dish",
             }),
         )),
-        Section("Beverages", _name_in({
-            "Beer", "Asgarnian ale", "Dwarven stout", "Wizard's mind bomb",
-            "Bandit's brew", "Cider", "Mature cider",
-            "Tea", "Cup of tea", "Tea (gnome)", "Grog", "Beer glass",
-            "Keg of beer", "Mature dwarven stout",
-        })),
+        Section("Beverages", _or(
+            _name_in({
+                "Beer", "Asgarnian ale", "Dwarven stout", "Wizard's mind bomb",
+                "Bandit's brew", "Cider", "Mature cider",
+                "Tea", "Cup of tea", "Tea (gnome)", "Grog", "Beer glass",
+                "Keg of beer", "Mature dwarven stout",
+                "Mature wmb", "Greenman's ale", "Dragon bitter",
+                "Moonlight mead", "Axeman's folly", "Chef's delight",
+                "Slayer's respite", "Ale yeast", "Calquat keg",
+                "Strawberry",
+            }),
+            # Matured beer variants (m) and (4) charge variants
+            _name_ends("(m)"),
+            _and(_or(_name_starts("Asgarnian ale"), _name_starts("Dwarven stout"),
+                     _name_starts("Greenman"), _name_starts("Dragon bitter"),
+                     _name_starts("Moonlight mead")),
+                 _name_ends("(4)")),
+        )),
         Section("Burnt food", _name_starts("Burnt ")),
         Section("Containers (water/milk/etc)", _name_in({
             "Vial", "Vial of water", "Empty vial", "Vial of blood",
@@ -1328,7 +1346,7 @@ SLAYER = TabSpec(
     sections=[
         Section("Slayer master items", _name_in({
             "Enchanted gem", "Eternal gem", "Slayer ring", "Slayer ring (eternal)",
-            "Slayer's enchantment", "Mysterious emblem",
+            "Slayer's enchantment", "Mysterious emblem", "Abyssal book",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -1410,6 +1428,9 @@ RUNECRAFT = TabSpec(
         Section("Essence pouches", _name_in({
             "Small pouch", "Medium pouch", "Large pouch", "Giant pouch",
             "Colossal pouch", "Divine rune pouch", "Rune pouch",
+        })),
+        Section("RC accessories", _name_in({
+            "Binding necklace",
         })),
         Section("Essence", _name_in(_ESSENCE)),
         Section("Basic runes", _name_in(_BASIC_RUNES)),

@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (235 items not in wiki output) ===
+=== melee (240 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -76,6 +76,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4714  Ahrim's robeskirt
     4732  Karil's coif
     5013  (not in wiki canonical set)
+    5553  Rogue top
+    5554  Rogue mask
+    5555  Rogue trousers
+    5556  Rogue gloves
+    5557  Rogue boots
     5680  (not in wiki canonical set)
     5698  (not in wiki canonical set)
     6215  (not in wiki canonical set)
@@ -240,7 +245,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (205 items not in wiki output) ===
+=== range (210 items not in wiki output) ===
      616  Beads of the dead
      942  (not in wiki canonical set)
     1007  Red cape
@@ -341,6 +346,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4745  Torag's helm
     4749  Torag's platebody
     4751  Torag's platelegs
+    5553  Rogue top
+    5554  Rogue mask
+    5555  Rogue trousers
+    5556  Rogue gloves
+    5557  Rogue boots
     6959  Pink cape
     9757  (not in wiki canonical set)
     9977  (not in wiki canonical set)
@@ -447,7 +457,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28906  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (138 items not in wiki output) ===
+=== mage (143 items not in wiki output) ===
      616  Beads of the dead
      656  Pink hat
      658  Green hat
@@ -468,6 +478,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2940  Purple hat
     4736  Karil's leathertop
     4738  Karil's leatherskirt
+    5553  Rogue top
+    5554  Rogue mask
+    5555  Rogue trousers
+    5556  Rogue gloves
+    5557  Rogue boots
     6099  (not in wiki canonical set)
     6215  (not in wiki canonical set)
     6217  (not in wiki canonical set)
@@ -1220,13 +1235,12 @@ or should be added to force_include / variant_allowlist before flipping --additi
    24858  (not in wiki canonical set)
    24860  Wizard path starter kit
 
-=== runecraft (40 items not in wiki output) ===
+=== runecraft (39 items not in wiki output) ===
     1755  Chisel
     5517  (not in wiki canonical set)
     5518  (not in wiki canonical set)
     5519  Scrying orb
     5520  Abyssal book
-    5521  Binding necklace
     5528  (not in wiki canonical set)
     9084  Lunar staff
     9766  (not in wiki canonical set)

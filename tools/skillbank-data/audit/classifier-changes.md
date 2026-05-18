@@ -710,6 +710,34 @@ Also explicit allowlist for `Basket`, `Empty sack`, `Filled plant pot`.
 
 Same regex pattern, cross-tagged into cooking since the produce items are also cooking ingredients.
 
+---
+
+## Session 20 (audit IDs 5501–5800)
+
+### New `_ROGUE_PIECES` constant + force_excludes from combat tabs
+
+5 Rogue equipment names. MELEE/RANGE/MAGE Helmets/Body/Legs/Gloves/Boots all add Rogue piece excludes.
+
+**Affects**: 15 cross-tab removals (5 pieces × 3 combat tabs).
+
+### COOKING Beverages — major expansion
+
+`_name_in` allowlist + `_name_ends("(m)")` for matured beer + pattern for `<beer>(4)` charge variants. Captures Mature wmb, Greenman's ale, Dragon bitter, Moonlight mead, Axeman's folly, Chef's delight, Slayer's respite, Ale yeast, Calquat keg, plus all (m) and (4) variants.
+
+**Affects**: ~16 items.
+
+### COOKING Beverages — `Strawberry`
+
+Singular fruit ingredient.
+
+### SLAYER Slayer master items — `Abyssal book`
+
+Abyss teleport / strange object related; slayer-flavoured.
+
+### RUNECRAFT — new "RC accessories" section
+
+Currently with `Binding necklace`. Useful for combination rune crafting.
+
 ## Session 16 (audit IDs 4301–4600)
 
 ### `_BASIC_COLOUR_CAPES` — added 50 Team-N capes
