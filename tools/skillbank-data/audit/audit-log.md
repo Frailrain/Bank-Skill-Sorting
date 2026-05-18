@@ -13,8 +13,9 @@
 - **Reviewed in session 8**: IDs 1901–2200 (140 items)
 - **Reviewed in session 9**: IDs 2201–2500 (159 items)
 - **Reviewed in session 10**: IDs 2501–2800 (166 items)
-- **Reviewed cumulative**: 1519 (12.8%)
-- **Resume from**: ID 2801
+- **Reviewed in session 11**: IDs 2801–3100 (168 items)
+- **Reviewed cumulative**: 1687 (14.2%)
+- **Resume from**: ID 3101
 
 ## Decision codes
 
@@ -1120,6 +1121,110 @@ See `audit/classifier-changes.md` "Session 9".
 
 See `audit/classifier-changes.md` "Session 10".
 
+---
+
+## Session 11: IDs 2801–3100
+
+### Medium clue scrolls (canonical dedup)
+
+- `2801 Clue scroll (medium)` — OK (`misc`).
+- `2803–2858 Clue scroll (medium) variants` (~30 items) — LOG (canonical dups).
+- `2832 Key (medium)`, `2842 Challenge scroll (medium)` — EX. Clue intermediates.
+
+### Big Chompy / ogre arrows
+
+- `2859 Wolf bones` — OK (`prayer`).
+- `2861 Wolfbone arrowtips` — OK (`wc_fletching`).
+- `2862 Achey tree logs` — OK (`wc_fletching;firemaking`).
+- `2864 Ogre arrow shaft` — **ADD wc_fletching**. Currently unclassified.
+- `2865 Flighted ogre arrow` — OK (`wc_fletching`).
+- `2866 Ogre arrow` — OK (`range;wc_fletching`).
+- `2871-2885` (Ogre bellows, Bloated toad, Raw chompy in cooking;hunter ✓, Cooked chompy in cooking ✓, Ruined chompy, Seasoned chompy, Ogre bow ✓, Chompy bird obj, Whoopsie) — EX (most) / OK (chompy meats).
+
+### Elemental Workshop I
+
+- `2886-2888 Battered book/key, A stone bowl` — EX.
+- `2890 Elemental shield` — OK (`mage`).
+- `2892 Elemental ore` — OK (`mining_smithing`).
+- `2893 Elemental metal` — EX.
+
+### Camouflage random event outfit (IDs 2894–2942)
+
+5 colours (Grey/Red/Yellow/Teal/Purple) × 5 pieces (boots/robe top/robe bottoms/hat/gloves) = 25 items. Like the Mime outfit (sessions 3), all wrongly classified in combat tabs.
+
+- `2894–2942` — **REM melee/mage** (25 items, slot-dependent). **ADD misc**. **Fix**: add `_CAMO_OUTFIT` constant analogous to `_MIME_OUTFIT`; force_exclude from each combat slot section; new misc "Camouflage outfit" section.
+
+### Holy Grail follow-on
+
+- `2944-2951 Golden key/tinderbox/candle/pot/hammer/feather/needle + Iron key` — EX (8 items, Holy Grail quest cosmetics).
+- `2952 Wolfbane` — OK (`melee;quests`). Hard-coded combat weapon vs vampyres.
+
+### Nature Spirit / Mort'ton
+
+- `2953-2959 Murky water, Blessed water, Moonlight mead, Druid pouch, Rotten food` — EX (5 items, quest consumables).
+- `2961 Silver sickle`, `2963 Silver sickle (b)` — OK (`prayer`).
+- `2964-2974` (Washing bowl, Mirror, Journal, Druidic spell, A used spell, Mort myre fungus, Mort myre stem, Mort myre pear) — partial OK + EX.
+- `2967 Journal` — **REM prayer**. Quest item, not a prayer book. Fixed by session 9's removal of "Diary"/"Journal" from prayer list.
+- `2970 Mort myre fungus` — OK (`prayer;herblore`).
+- `2972 Mort myre stem` — **ADD herblore** (used in Super Saradomin brew recipes? Actually used in Pray-related Mort'ton flavour). Currently unclassified.
+- `2974 Mort myre pear` — **ADD herblore** (used in Nature Spirit serum).
+- `2976 Sickle mould` — **ADD crafting**. Silversmith mould for sickles.
+
+### Chompy bird hat variants
+
+- `2978-2995 Chompy bird hat ×18` — **ADD misc**. 18 colour/style variants kept as Big Chompy kill-count trophy. Currently unclassified. **Fix**: misc Cosmetic outfit section.
+
+### Agility / herblore continued
+
+- `2996 Agility arena ticket` — OK (`agility_thieving`).
+- `2997 Pirate's hook` — OK (`melee`). Cabin Fever quest cosmetic gloves with combat stats; players bank for cosmetic.
+- `2998 Toadflax`, `3000 Snapdragon`, `3002 Toadflax potion (unf)`, `3004 Snapdragon potion (unf)`, `3049 Grimy toadflax`, `3051 Grimy snapdragon` — OK (6 items, `herblore`).
+
+### Firework
+
+- `3006 Firework` — **ADD misc** (Holiday rares). Holiday event item.
+
+### Stamina / Energy / Agility / Magic potions
+
+- `3008-3014 Energy potion(4..1)` — OK (`herblore`). Cross-tag to agility_thieving missing. **ADD agility_thieving** to all dose variants of "energy potion" family.
+- `3016-3022 Super energy(4..1)` — Same. **ADD agility_thieving** cross-tag.
+- `3024-3030 Super restore(4..1)` — OK (`melee;prayer;herblore`).
+- `3032-3038 Agility potion(4..1)` — OK (`herblore`). **ADD agility_thieving** cross-tag.
+- `3040-3046 Magic potion(4..1)` — OK (`mage;herblore`).
+
+### Lava battlestaves
+
+- `3053 Lava battlestaff` — OK (`mage;crafting`).
+- `3054 Mystic lava staff` — OK (`mage`).
+
+### Mime random event (actual)
+
+- `3057-3061 Mime mask/top/legs/gloves/boots` — **ADD misc**. 5 items separate from the colour-prefixed `_MIME_OUTFIT` (those were the Mage Training Arena cosmetics; THIS is the real Mime random event). Currently unclassified. **Fix**: add a new `_REAL_MIME_OUTFIT` allowlist and Misc section entry.
+
+### Stronghold of Security puzzle
+
+- `3062 Strange box`, `3063 Cube part` — EX. SoS puzzle items.
+
+### Range + claws
+
+- `3093 Black dart` — OK (`range;wc_fletching`).
+- `3095-3100 Bronze/Iron/Steel/Black/Mithril/Adamant claws` — OK (6 items, `melee`).
+
+---
+
+## Session 11 totals
+
+- Items reviewed: 168
+- OK (correct as-is): 50
+- EX (correctly excluded): 20
+- ADD (missing tab, fixed): 65 (Ogre arrow shaft, Mort myre stem/pear, Sickle mould, Camo outfit ×25, Chompy bird hats ×18, Firework, Mime outfit ×5, Energy/Super energy/Agility potions cross-tag ×12)
+- REM (misclassified, fixed): 26 (Camo outfit ×25 from combat tabs, Journal from prayer)
+- LOG (deferred): 30+ (clue medium dups)
+
+## Classifier changes made in session 11
+
+See `audit/classifier-changes.md` "Session 11".
+
 ## Resume marker
 
-**Next session: start from ID 2801.**
+**Next session: start from ID 3101.**

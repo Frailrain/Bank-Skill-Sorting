@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (205 items not in wiki output) ===
+=== melee (225 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -45,6 +45,26 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2572  Ring of wealth
     2577  Ranger boots
     2581  Robin hood hat
+    2894  Grey boots
+    2896  Grey robe top
+    2898  Grey robe bottoms
+    2902  Grey gloves
+    2904  Red boots
+    2906  Red robe top
+    2908  Red robe bottoms
+    2912  Red gloves
+    2914  Yellow boots
+    2916  Yellow robe top
+    2918  Yellow robe bottoms
+    2922  Yellow gloves
+    2924  Teal boots
+    2926  Teal robe top
+    2928  Teal robe bottoms
+    2932  Teal gloves
+    2934  Purple boots
+    2936  Purple robe top
+    2938  Purple robe bottoms
+    2942  Purple gloves
     5013  (not in wiki canonical set)
     5680  (not in wiki canonical set)
     5698  (not in wiki canonical set)
@@ -361,7 +381,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28906  (not in wiki canonical set)
    28957  (not in wiki canonical set)
 
-=== mage (131 items not in wiki output) ===
+=== mage (136 items not in wiki output) ===
      616  Beads of the dead
      656  Pink hat
      658  Green hat
@@ -375,6 +395,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2489  Red d'hide vambraces
     2491  Black d'hide vambraces
     2572  Ring of wealth
+    2900  Grey hat
+    2910  Red hat
+    2920  Yellow hat
+    2930  Teal hat
+    2940  Purple hat
     6099  (not in wiki canonical set)
     6215  (not in wiki canonical set)
     6217  (not in wiki canonical set)
@@ -494,9 +519,10 @@ or should be added to force_include / variant_allowlist before flipping --additi
    29892  (not in wiki canonical set)
    30066  (not in wiki canonical set)
 
-=== prayer (50 items not in wiki output) ===
+=== prayer (51 items not in wiki output) ===
     1704  Amulet of glory
     2408  Diary
+    2967  Journal
     3843  Damaged book
     3845  Journal
     3846  Diary
@@ -918,12 +944,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    27003  (not in wiki canonical set)
    27390  Adventurer's trousers (t1)
 
-=== agility_thieving (82 items not in wiki output) ===
+=== agility_thieving (74 items not in wiki output) ===
     2572  Ring of wealth
-    3016  Super energy(4)
-    3018  Super energy(3)
-    3020  Super energy(2)
-    3022  Super energy(1)
     3672  (not in wiki canonical set)
     6404  Menaphite red robe
     6406  Menaphite red kilt
@@ -935,10 +957,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     9772  (not in wiki canonical set)
     9778  (not in wiki canonical set)
    12623  Ancient page 3
-   12625  Stamina potion(4)
-   12627  Stamina potion(3)
-   12629  Stamina potion(2)
-   12631  Stamina potion(1)
    21387  Master scroll book (empty)
    22257  Maple shield
    24375  (not in wiki canonical set)

@@ -188,6 +188,18 @@ _MIME_COLOURS = ("Pink", "Green", "Blue", "Cream", "Turquoise")
 _MIME_PIECES = ("boots", "robe top", "robe bottoms", "hat")
 _MIME_OUTFIT = [f"{c} {p}" for c in _MIME_COLOURS for p in _MIME_PIECES]
 
+# Camouflage random event outfit (IDs 2894-2942). 5 colours × 5 slots = 25 items.
+_CAMO_COLOURS = ("Grey", "Red", "Yellow", "Teal", "Purple")
+_CAMO_PIECES = ("boots", "robe top", "robe bottoms", "hat", "gloves")
+_CAMO_OUTFIT = [f"{c} {p}" for c in _CAMO_COLOURS for p in _CAMO_PIECES]
+
+# Actual Mime random event outfit (IDs 3057-3061). 5 pieces.
+_REAL_MIME_OUTFIT = ["Mime mask", "Mime top", "Mime legs", "Mime gloves", "Mime boots"]
+
+# Chompy bird hat variants (IDs 2978-2995). 18 colour/style variants, all named identically
+# "Chompy bird hat". Wiki canonical filter handles dedup; we just need to include the canonical.
+_CHOMPY_HATS = ["Chompy bird hat"]
+
 # Basic colour capes (cosmetic) — have tiny ranged defence (rd=2 vs md=1)
 # which makes the range classifier capture them, but they're not real range gear.
 _BASIC_COLOUR_CAPES = [
@@ -623,23 +635,29 @@ MELEE = TabSpec(
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
-                force_exclude=["Khazard helmet", "Robin hood hat"]),
+                force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask"]
+                + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
-                force_exclude=["Khazard armour", "Studded body", "Carnillean armour"]
+                force_exclude=["Khazard armour", "Studded body", "Carnillean armour", "Mime top"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
-                + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]),
+                + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]
+                + [n for n in _CAMO_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platelegs","chainskirt","plateskirt"))),
-                force_exclude=[n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
-                + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]),
+                force_exclude=["Mime legs"]
+                + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
+                + [n for n in _MIME_OUTFIT if "robe bottoms" in n.lower()]
+                + [n for n in _CAMO_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
-                force_exclude=[n for n in _MIME_OUTFIT if "boots" in n.lower()]
-                + ["Ranger boots"]),
+                force_exclude=["Ranger boots", "Mime boots"]
+                + [n for n in _MIME_OUTFIT if "boots" in n.lower()]
+                + [n for n in _CAMO_OUTFIT if "boots" in n.lower()]),
         Section("Gloves", _slot_pred("hands"),
                 force_exclude=_SKILLING_GAUNTLETS
                 + [n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
-                + ["Leather vambraces", "Klank's gauntlets"]),
+                + ["Leather vambraces", "Klank's gauntlets", "Mime gloves"]
+                + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield")),
         Section("Capes", _slot_pred("cape"),
                 force_exclude=_QUEST_COSMETIC_CAPES),
@@ -717,7 +735,9 @@ MAGE = TabSpec(
         Section("Tomes", _name_ends(" tome"),
                 force_exclude=["Shaman's tome"]),
         Section("Helmets", _is_mage_armour_slot("head"),
-                force_exclude=[n for n in _MIME_OUTFIT if "hat" in n.lower()]),
+                force_exclude=["Mime mask"]
+                + [n for n in _MIME_OUTFIT if "hat" in n.lower()]
+                + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body", _is_mage_armour_slot("body")),
         Section("Legs", _is_mage_armour_slot("legs")),
         Section("Boots", _is_mage_armour_slot("feet")),
@@ -779,10 +799,10 @@ PRAYER = TabSpec(
         })),
         Section("Quest-related prayer items", _name_in({
             "Ogre coffin key", "Ring of the gods", "Ring of the gods (i)",
-            "Damaged book", "Book of balance", "Journal", "Manual",
-            # Note: "Diary" removed — too generic (Hazeel Cult diary etc.
-            # is not a prayer item; the Holy/Unholy book starts catch the
-            # actual prayer books).
+            "Damaged book", "Book of balance", "Manual",
+            # Note: "Diary" and "Journal" removed — too generic (Hazeel Cult
+            # diary, Nature Spirit journal etc. aren't prayer items; the
+            # Holy/Unholy book starts catch real prayer books).
         })),
         Section("Prayer accessories", _name_in({
             "Holy wrench", "Bonecrusher", "Bonecrusher necklace",
@@ -910,7 +930,10 @@ WC_FLETCHING = TabSpec(
         Section("Bolts (unfinished)", _name_ends(" bolts (unf)")),
         Section("Bolts (finished)", _and(_name_ends(" bolts"),
                                           _not(_name_contains("(unf)")))),
-        Section("Arrow shafts", _name_in({"Arrow shaft", "Headless arrow"})),
+        Section("Arrow shafts", _or(
+            _name_in({"Arrow shaft", "Headless arrow"}),
+            _name_ends(" arrow shaft"),
+        )),
         Section("Arrowtips", _name_ends(" arrowtips")),
         Section("Arrows", _and(_name_ends(" arrow", " arrows"),
                                _not(_name_contains("shaft"))),
@@ -1012,6 +1035,7 @@ CRAFTING = TabSpec(
             "Spinning wheel", "Lyre", "Enchanted lyre", "Shears",
             "Ring mould", "Amulet mould", "Necklace mould",
             "Unholy mould", "Tiara mould", "Bracelet mould",
+            "Sickle mould",
             "Bronze wire", "Bucket of sand", "Woad leaf",
         })),
         Section("Thread & dyes", _name_in({
@@ -1158,6 +1182,8 @@ HERBLORE = TabSpec(
             "Black dragon scale", "Mithril dragon scale",
             "Weapon poison", "Weapon poison(+)", "Weapon poison(++)",
             "Weapon poison (unf)", "Weapon poison(+) (unf)", "Weapon poison(++) (unf)",
+            # audit session 11 additions
+            "Mort myre stem", "Mort myre pear",
         })),
         Section("Unfinished potions", _name_ends(" potion (unf)")),
         Section("Attack potions", _is_potion_family("attack potion"), sort_key=_potion_sort_key),
@@ -1217,6 +1243,10 @@ AGILITY_THIEVING = TabSpec(
             "Thieving cape", "Thieving cape(t)", "Thieving hood",
             "Giant squirrel", "Rocky",
         })),
+        Section("Energy / stamina potions (cross-tag)",
+                _is_potion_family("energy potion", "super energy", "stamina potion",
+                                  "agility potion"),
+                sort_key=_potion_sort_key),
     ],
 )
 
@@ -1442,7 +1472,10 @@ MISC = TabSpec(
             "Amulet of defence", "Amulet of accuracy",
             "Ghostspeak amulet",
         })),
-        Section("Cosmetic outfits / random events", _name_in(set(_MIME_OUTFIT))),
+        Section("Cosmetic outfits / random events", _name_in(
+            set(_MIME_OUTFIT) | set(_CAMO_OUTFIT) | set(_REAL_MIME_OUTFIT)
+            | {"Chompy bird hat", "Firework"}
+        )),
         Section("Clue scrolls",
                 _or(_name_starts("Clue scroll"), _name_starts("Master clue"))),
         Section("Clue tools", _name_in({

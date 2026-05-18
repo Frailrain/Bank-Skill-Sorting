@@ -511,3 +511,44 @@ Same pattern — clue range-spec hat.
 + Robin hood hat in RANGE Helmets.
 
 **Affects**: 2 items REM from melee, 2 items ADD to range.
+
+---
+
+## Session 11 (audit IDs 2801–3100)
+
+### New module constants
+
+- `_CAMO_OUTFIT` — 25 names (5 colours × 5 pieces) for the Camouflage random event.
+- `_REAL_MIME_OUTFIT` — 5 names for the actual Mime random event (different from the colour-prefixed mage-arena outfit in `_MIME_OUTFIT`).
+
+### MELEE Helmets/Body/Legs/Boots/Gloves — Camo + Mime excludes
+
+All five melee armour sections now also `force_exclude` the corresponding Camo piece + real Mime piece for that slot.
+
+**Affects**: 25 Camo items + 5 real Mime items removed from melee.
+
+### MAGE Helmets — Camo hats + Mime mask
+
+Same pattern: + Camo hats and `Mime mask` to `force_exclude`.
+
+### MISC Cosmetic outfits / random events — expanded
+
+**Before**: `_MIME_OUTFIT` only (20 items).
+
+**After**: `_MIME_OUTFIT | _CAMO_OUTFIT | _REAL_MIME_OUTFIT | {Chompy bird hat, Firework}` — 50 items.
+
+**Affects**: 30+ new items in misc.
+
+### HERBLORE Vials & secondaries — `Mort myre stem`, `Mort myre pear`
+
+Nature Spirit secondary materials. + to allowlist.
+
+### CRAFTING Crafting tools — `Sickle mould`
+
+Silver sickle mould.
+
+### AGILITY_THIEVING — new "Energy / stamina potions (cross-tag)" section
+
+`_is_potion_family("energy potion", "super energy", "stamina potion", "agility potion")` + `_potion_sort_key`.
+
+**Affects**: ~16 items now cross-tag into agility_thieving (4 doses × 4 families).
