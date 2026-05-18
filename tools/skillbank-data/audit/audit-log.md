@@ -4432,6 +4432,99 @@ See `audit/classifier-changes.md` "Session 47".
 
 See `audit/classifier-changes.md` "Session 48".
 
+---
+
+## Session 49: IDs 20701–21000
+
+### Wintertodt continued
+
+- `20701-20702 Rejuvenation potion (2)/(1)` — OK (`herblore`).
+- `20703-20722 Supply crate, Pyromancer set, Warm gloves, Tome of fire, Burnt page, Bruma torch, Emerald lantern` — OK.
+- `20724 Imbued heart` — **ADD mage** (Magic level boost).
+
+### Misc weapons + slayer pack
+
+- `20727 Leaf-bladed battleaxe` — OK (`melee`).
+- `20730-20739 Mist/Dust battlestaff + Mystic mist/dust staff` — OK (`mage;crafting`).
+- `20742 Empty jug pack` — **ADD slayer**.
+
+### Bologa's blessing (already caught) + Ardougne Diary
+
+- `20747 Bologa's blessing` — OK (`prayer` via blessing pattern, session 48).
+- `20749-20752 Zamorak's grapes, Zamorak's unfermented wine` — EX.
+- `20754 Giant key` — LOG.
+- `20756 Hill giant club` — OK.
+- `20760 Ardougne max cape` — OK (`melee;mage`).
+- `20764 Ardougne max hood` — **ADD quests** (Max hood variant).
+
+### Banshee (Slayer Tower cosmetic) + Hardcore ironman
+
+- `20773-20779 Banshee mask/top/robe, Hunting knife` — LOG (Slayer cosmetic Treasure Trails outfit).
+- `20784 Dragon claws` — LOG (dup).
+- `20786 Ring of wealth (i5)` — **ADD misc** (Imbued + 5-charge Ring of wealth).
+- `20791 Extra supply crate` — LOG.
+- `20792-20796 Hardcore ironman helm/platebody/platelegs` — OK.
+
+### Misc events + Corrupted armour
+
+- `20798-20801 Smelly journal, Kindling, Empty/Water-filled gourd vial` — EX/LOG.
+- `20832-20836 Snow globe, Sack of presents, Giant present` (3 items) — **ADD misc Holiday rares**.
+- `20838 Corrupted helm` — OK (`melee`).
+- `20840-20846 Corrupted platebody/platelegs/plateskirt/kiteshield` (4 items, `melee;mining_smithing`) — **REM mining_smithing** (Last Man Standing reward, not smithable).
+- `20849 Dragon thrownaxe` — OK (`range`).
+- `20851 Olmlet` — OK (`quests`).
+
+### Chambers of Xeric (CoX) — fish + bats
+
+- `20853-20854 Cave worms, Burnt fish` — LOG.
+- `20855-20868 Raw pysk fish (0), Pysk fish (0), Raw suphi fish (1), Suphi fish (1), Raw leckish fish (2), Leckish fish (2), Raw brawk fish (3), Brawk fish (3), Raw mycil fish (4), Mycil fish (4), Raw roqed fish (5), Roqed fish (5), Raw kyren fish (6), Kyren fish (6)` — partial:
+  - Raw variants (7 items) ✓ cooking.
+  - Cooked variants (`Pysk/Suphi/Leckish/Brawk/Mycil/Roqed/Kyren fish (0-6)`, 7 items) — **ADD cooking**.
+- `20869 Burnt bat` — OK (`cooking`).
+- `20870-20883 Raw guanic/prael/giral/phluxia/kryket/murng/psykk bat + cooked variants` — partial:
+  - Raw variants ✓ cooking.
+  - Cooked variants (7 items) — **ADD cooking**.
+
+### CoX dungeon material
+
+- `20884-20899 Keystone crystal, Cavern grubs, Creature keeper's journal, Nistirio's manifesto, Tekton's journal, Medivaemia blossom, Transdimensional notes, Vanguard judgement, Houndmaster's diary, Dark journal` — LOG (CoX dungeon-specific quest/lore material).
+
+### CoX herbs (Chambers herbs)
+
+- `20901-20902 Grimy noxifer, Noxifer` — **ADD herblore** (2 items, CoX herb).
+- `20903 Noxifer seed` — OK (`farming`).
+- `20904-20905 Grimy golpar, Golpar` — **ADD herblore** (2 items).
+- `20906 Golpar seed` — OK.
+- `20907-20908 Grimy buchu leaf, Buchu leaf` — **ADD herblore** (2 items).
+- `20909 Buchu seed` — OK.
+- `20910-20912 Stinkhorn mushroom, Endarkened juice, Cicely` — **ADD herblore** (3 items, CoX herblore secondary).
+
+### CoX raid potions (massive — pattern-based)
+
+- `20913-20984 Elder/Twisted/Kodai/Revitalisation/Prayer enhance/Xeric's aid` × 3 phases (-)(1-4), (1-4), (+)(1-4) (72 items) — **ADD herblore** via new pattern catching CoX potion family names.
+- `20985-20996 Overload (-)(1-4), Overload (1-4) (dups), Overload (+)(1-4)` (12 items, 4 CoX dups of NZ Overload + 8 (-)/(+) variants):
+  - Overload (-)(1-4), Overload (+)(1-4) — OK (`herblore` via NZ pattern session 39).
+  - Overload (1-4) (4 items) — LOG (dups of NZ canonical at 11730-11733).
+
+### CoX rewards
+
+- `20997 Twisted bow`, `21000 Twisted buckler` — OK (`range`).
+
+---
+
+## Session 49 totals
+
+- Items reviewed: ~300
+- OK (correct as-is): 60
+- EX (correctly excluded): 10
+- ADD (missing tab, fixed): ~100 (Imbued heart, Ardougne max hood, Empty jug pack, Ring of wealth (i5), 3 Christmas presents, 14 CoX cooked fish+bats, 9 CoX herbs, 72 CoX raid potions)
+- REM (misclassified, fixed): 4 (Corrupted plate × 4 from mining_smithing)
+- LOG: 50+ (Banshee cosmetic, dragon claws dup, CoX dungeon material, Overload CoX dups, Stale baguette/dups)
+
+## Classifier changes made in session 49
+
+See `audit/classifier-changes.md` "Session 49".
+
 ## Resume marker
 
-**Next session: start from ID 20701.**
+**Next session: start from ID 21001.**

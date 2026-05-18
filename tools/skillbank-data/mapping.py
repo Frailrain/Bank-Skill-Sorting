@@ -267,6 +267,9 @@ _TREASURE_TRAIL_MELEE_NAMES = [
     "Bandos full helm", "Bandos kiteshield",
     # session 47 — Gilded clue trail unique-shape items
     "Gilded med helm", "Gilded chainbody", "Gilded sq shield",
+    # session 49 — Corrupted armour (Last Man Standing reward)
+    "Corrupted platebody", "Corrupted platelegs", "Corrupted plateskirt",
+    "Corrupted kiteshield",
 ]
 
 # Trim/gilded armour variants — equipable=0 cosmetics of standard smithed
@@ -1007,6 +1010,9 @@ MAGE = TabSpec(
             }),
             # Teleport tablets are already in misc; restrict here to spell tablets only
         )),
+        Section("Magic level boost", _name_in({
+            "Imbued heart",
+        })),
         Section("Combat food (cross-tag)", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
     ],
     variant_allowlist=[
@@ -1215,6 +1221,13 @@ COOKING = TabSpec(
                 "Golovanova fruit", "Bologano fruit", "Logavano fruit",
                 # session 46 — Botanical pie filling
                 "Golovanova fruit top",
+                # session 49 — Chambers of Xeric cooked fish + bats
+                "Pysk fish (0)", "Suphi fish (1)", "Leckish fish (2)",
+                "Brawk fish (3)", "Mycil fish (4)", "Roqed fish (5)",
+                "Kyren fish (6)",
+                "Guanic bat (0)", "Prael bat (1)", "Giral bat (2)",
+                "Phluxia bat (3)", "Kryket bat (4)", "Murng bat (5)",
+                "Psykk bat (6)",
             }),
         ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
@@ -1623,6 +1636,20 @@ HERBLORE = TabSpec(
             _name_starts("Rejuvenation potion "),
             _or(_name_ends("(4)"), _name_ends("(3)"), _name_ends("(2)"), _name_ends("(1)")),
         )),
+        Section("Chambers of Xeric herbs/secondaries", _name_in({
+            "Grimy noxifer", "Noxifer",
+            "Grimy golpar", "Golpar",
+            "Grimy buchu leaf", "Buchu leaf",
+            "Stinkhorn mushroom", "Endarkened juice", "Cicely",
+        })),
+        Section("Chambers of Xeric raid potions", _and(
+            _or(_name_starts("Elder "), _name_starts("Twisted "),
+                _name_starts("Kodai "), _name_starts("Revitalisation "),
+                _name_starts("Prayer enhance "), _name_starts("Xeric's aid "),
+                _name_starts("Overload ")),
+            _or(_name_ends("(1)"), _name_ends("(2)"),
+                _name_ends("(3)"), _name_ends("(4)")),
+        )),
         Section("Attack potions", _is_potion_family("attack potion"), sort_key=_potion_sort_key),
         Section("Strength potions", _is_potion_family("strength potion"), sort_key=_potion_sort_key),
         Section("Defence potions", _is_potion_family("defence potion"), sort_key=_potion_sort_key),
@@ -1726,6 +1753,8 @@ SLAYER = TabSpec(
             # session 48 — Slayer master rune/arrow packs
             "Catalytic rune pack", "Elemental rune pack",
             "Adamant arrow pack", "Rune arrow pack",
+            # session 49 — Empty jug pack
+            "Empty jug pack",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -2034,6 +2063,7 @@ MISC = TabSpec(
             "Ring of wealth", "Ring of wealth (i)",
             "Ring of wealth (1)", "Ring of wealth (2)",
             "Ring of wealth (3)", "Ring of wealth (4)", "Ring of wealth (5)",
+            "Ring of wealth (i5)",
             "Games necklace(8)", "Games necklace(7)", "Games necklace(6)",
             "Games necklace(5)", "Games necklace(4)", "Games necklace(3)",
             "Games necklace(2)", "Games necklace(1)",
@@ -2191,6 +2221,8 @@ MISC = TabSpec(
                 # session 48 — Easter 2018 Evil chicken outfit
                 "Evil chicken feet", "Evil chicken wings",
                 "Evil chicken head", "Evil chicken legs",
+                # session 49 — Christmas 2018 Snow globe set
+                "Snow globe", "Sack of presents", "Giant present",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),
@@ -2235,6 +2267,7 @@ QUESTS = TabSpec(
         Section("Max hood variants", _name_in({
             "Max hood", "Fire max hood", "Saradomin max hood",
             "Zamorak max hood", "Guthix max hood", "Accumulator max hood",
+            "Ardougne max hood",
         })),
         Section("Quest unlock weapons", _name_in({
             "Dramen staff", "Lunar staff", "Ivandis flail", "Blisterwood flail",

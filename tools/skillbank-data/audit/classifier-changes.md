@@ -1731,3 +1731,53 @@ Wintertodt-side Bruma herb (Rejuvenation potion ingredient).
 Pattern catches Rejuvenation potion (4-1) charge variants.
 
 **Affects**: 4 items.
+
+## Session 49 (audit IDs 20701–21000)
+
+### HERBLORE — new "Chambers of Xeric herbs/secondaries" section
+
+Added Grimy/clean noxifer, golpar, buchu leaf + Stinkhorn mushroom, Endarkened juice, Cicely (CoX-specific herblore secondaries).
+
+**Affects**: 9 items.
+
+### HERBLORE — new "Chambers of Xeric raid potions" section
+
+Pattern combining CoX potion family names (Elder/Twisted/Kodai/Revitalisation/Prayer enhance/Xeric's aid/Overload) with charge endings (1)/(2)/(3)/(4). Catches all (-)/(+)/standard charge variants.
+
+**Affects**: ~75 items.
+
+### COOKING Misc cooked food — CoX cooked fish + bats
+
+Added Pysk/Suphi/Leckish/Brawk/Mycil/Roqed/Kyren fish (0-6) (7 items) and Guanic/Prael/Giral/Phluxia/Kryket/Murng/Psykk bat (0-6) (7 items).
+
+**Affects**: 14 items.
+
+### MAGE — new "Magic level boost" section
+
+Added Imbued heart (Magic level boost, mage rare drop).
+
+**Affects**: 1 item.
+
+### QUESTS Max hood variants — `Ardougne max hood`
+
+**Affects**: 1 item.
+
+### `_TREASURE_TRAIL_MELEE_NAMES` extended — Corrupted plates
+
+Corrupted platebody/platelegs/plateskirt/kiteshield (Last Man Standing reward) — REM mining_smithing.
+
+**Affects**: 4 items.
+
+### MISC Teleport jewellery — `Ring of wealth (i5)`
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Christmas 2018 Snow globe set
+
+Added Snow globe, Sack of presents, Giant present.
+
+**Affects**: 3 items.
+
+### SLAYER Slayer master items — `Empty jug pack`
+
+**Affects**: 1 item.
