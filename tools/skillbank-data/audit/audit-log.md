@@ -2493,6 +2493,86 @@ See `audit/classifier-changes.md` "Session 25".
 
 See `audit/classifier-changes.md` "Session 26".
 
+---
+
+## Session 27: IDs 7601–7900
+
+### Shades of Mort'ton / Darkness of Hallowvale (early)
+
+- `7622-7635 Bucket of rubble, Plaster fragment, Dusty scroll, Crate, Temple library key, The sleeping seven, Histories of the hallowland, Modern day morytania` — EX (Hallowvale lore/quest).
+
+### Rod of ivandis
+
+- `7636-7637 Rod dust, Silvthrill rod` — EX (intermediate quest material).
+- `7639-7648 Rod of ivandis (1-10)` — OK (8 items, `mage`).
+- `7649-7650 Rod mould, Silver dust` — EX.
+
+### Guthix balance potions (Darkness of Hallowvale)
+
+- `7654-7666 Guthix balance (unf) × 3, Guthix balance (4-1)` — LOG (vyrewatch poison; charge-dose dups; classifier should pick up as herblore — see below).
+
+### Joke weapons (Stronghold of Security)
+
+- `7668 Gadderhammer` — OK (`melee`).
+- `7671 Boxing gloves` — LOG (Stronghold training cosmetic; equipable=0).
+- `7675 Wooden sword` — OK (`melee`).
+- `7676 Wooden shield` — LOG (Stronghold training; equipable=0).
+
+### Stronghold of Security rewards + misc
+
+- `7677-7686 Treasure stone, Prize key, Pugel, Game book, Hoop, Dart, Bow and arrow` — mostly LOG (cosmetic prize items).
+- `7686 Bow and arrow` — OK (`wc_fletching` from cosmetic catch).
+
+### Tea ceremony chain (Penguin Hide and Seek / various)
+
+- `7688 Kettle` — **ADD cooking** (tea-making tool).
+- `7690 Full kettle`, `7691 Hot kettle` — **ADD cooking** (2 items).
+- `7692-7716 Pot of tea (4) × 4 dups` — LOG (only `Pot of tea (4)` canonical needs cooking; non-canonical dups left as-is).
+- `7700 Teapot with leaves`, `7702 Teapot` — **ADD cooking** (2 items).
+- `7728 Empty cup` (dup of 1980), `7732/7735 Porcelain cup` (dups of 4244) — LOG (canonical already in cooking).
+- `7730/7733/7736 Cup of tea` — already in COOKING Beverages allowlist; LOG dups.
+- `7738 Tea leaves` — **ADD cooking** (1 item).
+
+### Beer collection (Brewery / dups of canonical brews)
+
+- `7740-7754 Beer/Asgarnian ale/Greenman's ale/Dragon bitter/Moonlight mead/Cider/Chef's delight` — LOG (~8 dups of the canonical brews already in COOKING Beverages).
+
+### Toy + reward + vine items (Tower of Life)
+
+- `7756-7778 Paintbrush, Rusty sword, Toy soldier/doll/mouse/cat, Branch, Reward token, Long/Short vine` — EX (Tower of Life quest cosmetic).
+
+### Tomes (Treasure Trails Hard reward)
+
+- `7779-7797 Fishing/Agility/Thieving/Slayer/Mining/Firemaking/Woodcutting tome` — OK (7 items, `mage` via tome regex).
+
+### Animal Magnetism / Strange creature
+
+- `7800-7804 Snail shell, Snake hide, Yin yang amulet, Ancient mjolnir` — EX (quest items).
+- `7806-7809 Anger sword, Anger battleaxe, Anger mace, Anger spear` — OK (4 items, `melee`; Recipe for Disaster final boss reward weapons).
+- `7810-7818 Jug of vinegar, Pot of vinegar, Goblin skull, Bone in vinegar, Bear ribs, Ram skull` — EX (Lunar Diplomacy / Animal Magnetism quest items, not buryable).
+
+### Buryable bone collection (canonical + quest variants)
+
+- `7821-7896 various-bone/bone-ribs/wing items` — mixed classification:
+  - Prayer-classified (`Unicorn bone, Giant rat bone, Wolf bone, Rat bone, Baby dragon bone, Jogre/Zogre/Mogre bone, Zombie bone, Werewolf bone, Moss giant/Fire giant bone, Ghoul bone, Troll bone, Experiment bone, Rabbit bone, Basilisk bone`) — OK (~18 items, `prayer`).
+  - Unclassified (`Giant bat wing, Bat wing, Ogre ribs, Monkey paw, Dagannoth ribs, Snake spine, Ice giant ribs, Terrorbird wing, Seagull wing, Undead cow ribs`) — LOG (~10 items; quest-only, not buryable for XP).
+- `7899 Basilisk bone` — OK (`prayer`).
+
+---
+
+## Session 27 totals
+
+- Items reviewed: ~120
+- OK (correct as-is): 50 (Rod of ivandis, tomes, anger weapons, prayer bones, etc.)
+- EX (correctly excluded): 35 (Hallowvale lore, Tower of Life cosmetic, quest material)
+- ADD (missing tab, fixed): 6 (Kettle/Full/Hot kettle, Teapot/Teapot with leaves, Tea leaves)
+- REM (misclassified, fixed): 0
+- LOG (deferred): 30+ (Stronghold cosmetics, beer dups, non-buryable quest bones, Pot of tea charge variants)
+
+## Classifier changes made in session 27
+
+See `audit/classifier-changes.md` "Session 27".
+
 ## Resume marker
 
-**Next session: start from ID 7601.**
+**Next session: start from ID 7901.**

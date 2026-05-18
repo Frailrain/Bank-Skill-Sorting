@@ -964,3 +964,11 @@ Mole quest reward, max-harvest farming tool.
 Added Zombie shirt/trousers/mask/gloves/boots (Halloween 2009 event cosmetic outfit).
 
 **Affects**: 5 items.
+
+## Session 27 (audit IDs 7601–7900)
+
+### COOKING "Cooking tools" — tea ceremony additions
+
+Added Kettle, Full kettle, Hot kettle, Teapot, Teapot with leaves, Empty cup, Porcelain cup, Tea leaves — tea-making chain tools/ingredients used in Penguin Hide and Seek + miscellaneous cooking content.
+
+**Affects**: 8 items.

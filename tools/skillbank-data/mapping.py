@@ -925,6 +925,10 @@ COOKING = TabSpec(
             "Chef's hat", "Cooking cape", "Cooking cape(t)", "Cooking hood",
             "Cooking gauntlets", "Spice", "Garlic", "Rolling pin",
             "Bowl", "Empty pot", "Jug", "Cake tin",
+            # session 27 additions — tea ceremony tools
+            "Kettle", "Full kettle", "Hot kettle",
+            "Teapot", "Teapot with leaves",
+            "Empty cup", "Porcelain cup", "Tea leaves",
         })),
         Section("Raw fish", _is_raw_fish, sort_key=_raw_fish_sort_key),
         Section("Cooked fish", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
