@@ -206,7 +206,7 @@ _BASIC_COLOUR_CAPES = [
     "Red cape", "Black cape", "Blue cape", "Yellow cape",
     "Green cape", "Purple cape", "Orange cape",
     "Pink cape", "White cape",
-]
+] + [f"Team-{n} cape" for n in range(1, 51)]  # 50 team capes (Castle Wars cosmetic)
 
 # D'hide armour names that should NEVER land in melee or mage even though
 # basic stat checks might let them through (defensive numbers can spill).
@@ -642,7 +642,7 @@ MELEE = TabSpec(
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Helmets", _slot_pred("head"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if "helm" in n.lower()),
-                force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm"]
+                force_exclude=["Khazard helmet", "Robin hood hat", "Mime mask", "Splitbark helm", "Bearhead"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
@@ -717,6 +717,9 @@ RANGE = TabSpec(
         Section("Shields", _is_range_armour_slot("shield")),
         Section("Capes", _is_range_armour_slot("cape"),
                 force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES),
+        # Team capes are caught by the section above via _is_range_armour_slot
+        # because the cape has defence_ranged=2 like basic colour capes.
+        # Mass-exclude via a pattern force_exclude below in classify-time.
         Section("Amulets", _is_range_armour_slot("neck"),
                 force_exclude=["Beads of the dead"]),
         Section("Rings", _is_range_armour_slot("ring")),
@@ -1037,8 +1040,11 @@ FIREMAKING = TabSpec(
         Section("Logs", _is_log, sort_key=_log_sort_key),
         Section("Firelighters", _name_ends(" firelighter")),
         Section("Lanterns", _name_in({
-            "Bullseye lantern", "Mining helmet", "Oil lantern", "Sapphire lantern",
-            "Emerald lantern", "Lit bug lantern", "Candle lantern",
+            "Bullseye lantern", "Bullseye lantern (unf)", "Bullseye lantern (empty)",
+            "Mining helmet", "Oil lantern", "Empty oil lantern", "Oil lantern frame",
+            "Sapphire lantern", "Emerald lantern", "Lit bug lantern",
+            "Candle lantern", "Empty candle lantern",
+            "Lantern lens", "Oil lamp", "Empty oil lamp",
             "Torch", "Unlit torch", "Lit torch",
         })),
         Section("Wintertodt", _name_in({
@@ -1537,7 +1543,18 @@ MISC = TabSpec(
         Section("Utility / banked supplies", _name_in({
             "Rope", "Chronicle",
         })),
-        Section("Holiday rares & cosmetics", _name_in(set(_HOLIDAY_RARES))),
+        Section("Holiday rares & cosmetics", _or(
+            _name_in(set(_HOLIDAY_RARES) | {
+                # Easter event
+                "Blue sweets", "Deep blue sweets", "White sweets",
+                "Purple sweets", "Red sweets", "Green sweets", "Pink sweets",
+                "Easter basket", "Rubber chicken",
+            }),
+            _name_ends(" sweets"),
+        )),
+        Section("Team capes (Castle Wars)",
+                lambda it: (it.get("name") or "").startswith("Team-") and
+                           (it.get("name") or "").endswith(" cape")),
         Section("Currency", _name_in({
             "Coins", "Platinum token", "Blood money", "Tokkul",
             "Marks of grace", "Brimhaven voucher", "Archery ticket",
@@ -1586,6 +1603,7 @@ QUESTS = TabSpec(
             "Shade robe", "Shade robe top",
             "Cape of legends",
             "Carnillean armour",
+            "Bearhead",
         })),
         Section("Void Knight set", _name_starts("Void ")),
         Section("Fighter Torso et al.", _name_in({

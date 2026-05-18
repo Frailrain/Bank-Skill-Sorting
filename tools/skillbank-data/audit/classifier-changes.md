@@ -636,3 +636,32 @@ Used to finish off Rockslugs.
 ### MISC Currency — `Ecto-token`
 
 Ghosts Ahoy currency.
+
+---
+
+## Session 16 (audit IDs 4301–4600)
+
+### `_BASIC_COLOUR_CAPES` — added 50 Team-N capes
+
+`Team-1 cape` through `Team-50 cape` are Castle Wars team identifier cosmetics; have defence_ranged=2 like the basic colour capes and were mass-classified into range.
+
+### MISC — new "Team capes (Castle Wars)" section + holiday expansion
+
+- New "Team capes" section matching `name_starts("Team-") and name_ends(" cape")`.
+- "Holiday rares & cosmetics" now also matches `name_ends(" sweets")` and the explicit Easter event names (Easter basket, Rubber chicken).
+
+**Affects**: 50 team capes + 9 Easter event items.
+
+### QUESTS Quest cosmetic gear — `Bearhead`
+
+Mountain Daughter quest cosmetic helmet.
+
+### MELEE Helmets — `Bearhead` force_exclude
+
+(pairs with the QUESTS add above)
+
+### FIREMAKING Lanterns — expanded variants
+
+Added Empty/unfinished/frame variants of oil lamp, oil lantern, candle lantern, bullseye lantern + lantern lens.
+
+**Affects**: 7+ items.

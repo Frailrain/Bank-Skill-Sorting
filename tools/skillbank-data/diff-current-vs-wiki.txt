@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (230 items not in wiki output) ===
+=== melee (231 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -70,6 +70,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     3389  Splitbark legs
     3391  Splitbark gauntlets
     3393  Splitbark boots
+    4502  Bearhead
     5013  (not in wiki canonical set)
     5680  (not in wiki canonical set)
     5698  (not in wiki canonical set)
@@ -235,7 +236,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32344  Bluefin
    32352  Marlin
 
-=== range (149 items not in wiki output) ===
+=== range (199 items not in wiki output) ===
      616  Beads of the dead
      942  (not in wiki canonical set)
     1007  Red cape
@@ -277,6 +278,56 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4232  (not in wiki canonical set)
     4233  (not in wiki canonical set)
     4234  (not in wiki canonical set)
+    4315  Team-1 cape
+    4317  Team-2 cape
+    4319  Team-3 cape
+    4321  Team-4 cape
+    4323  Team-5 cape
+    4325  Team-6 cape
+    4327  Team-7 cape
+    4329  Team-8 cape
+    4331  Team-9 cape
+    4333  Team-10 cape
+    4335  Team-11 cape
+    4337  Team-12 cape
+    4339  Team-13 cape
+    4341  Team-14 cape
+    4343  Team-15 cape
+    4345  Team-16 cape
+    4347  Team-17 cape
+    4349  Team-18 cape
+    4351  Team-19 cape
+    4353  Team-20 cape
+    4355  Team-21 cape
+    4357  Team-22 cape
+    4359  Team-23 cape
+    4361  Team-24 cape
+    4363  Team-25 cape
+    4365  Team-26 cape
+    4367  Team-27 cape
+    4369  Team-28 cape
+    4371  Team-29 cape
+    4373  Team-30 cape
+    4375  Team-31 cape
+    4377  Team-32 cape
+    4379  Team-33 cape
+    4381  Team-34 cape
+    4383  Team-35 cape
+    4385  Team-36 cape
+    4387  Team-37 cape
+    4389  Team-38 cape
+    4391  Team-39 cape
+    4393  Team-40 cape
+    4395  Team-41 cape
+    4397  Team-42 cape
+    4399  Team-43 cape
+    4401  Team-44 cape
+    4403  Team-45 cape
+    4405  Team-46 cape
+    4407  Team-47 cape
+    4409  Team-48 cape
+    4411  Team-49 cape
+    4413  Team-50 cape
     4732  Karil's coif
     4736  Karil's leathertop
     4738  Karil's leatherskirt
@@ -771,7 +822,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32341  Raw bluefin
    32349  Raw marlin
 
-=== firemaking (28 items not in wiki output) ===
+=== firemaking (26 items not in wiki output) ===
       33  (not in wiki canonical set)
       36  Candle
     1831  (not in wiki canonical set)
@@ -782,10 +833,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
     3434  Sacred oil(2)
     3435  (not in wiki canonical set)
     4524  (not in wiki canonical set)
-    4525  Empty oil lamp
     4530  (not in wiki canonical set)
     4539  (not in wiki canonical set)
-    4544  Bullseye lantern (unf)
     5013  (not in wiki canonical set)
     6215  (not in wiki canonical set)
     6217  (not in wiki canonical set)

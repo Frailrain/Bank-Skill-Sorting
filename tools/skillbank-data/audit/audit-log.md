@@ -18,8 +18,9 @@
 - **Reviewed in session 13**: IDs 3401–3700 (177 items)
 - **Reviewed in session 14**: IDs 3701–4000 (125 items)
 - **Reviewed in session 15**: IDs 4001–4300 (169 items)
-- **Reviewed cumulative**: 2282 (19.2%)
-- **Resume from**: ID 4301
+- **Reviewed in session 16**: IDs 4301–4600 (161 items)
+- **Reviewed cumulative**: 2443 (20.6%)
+- **Resume from**: ID 4601
 
 ## Decision codes
 
@@ -1575,6 +1576,89 @@ See `audit/classifier-changes.md` "Session 14".
 
 See `audit/classifier-changes.md` "Session 15".
 
+---
+
+## Session 16: IDs 4301–4600
+
+### H.A.M. set
+
+- `4302 Ham hood`, `4304 Ham cloak`, `4306 Ham logo`, `4308 Ham gloves`, `4310 Ham boots` — partial OK. Ham set is thieving disguise; classifier puts pieces in melee/range based on minimal stats. Leave for now.
+- `4313 Crystal singing for beginners` — EX. Roving Elves quest item.
+
+### Team capes (Castle Wars cosmetic, IDs 4315–4413)
+
+50 team capes. All currently in range due to defence_ranged stat dominance. **Mass REM range, ADD misc**. **Fix**: pattern force_exclude `Team-N cape` from RANGE Capes + new misc section.
+
+### Death Plateau / Eadgar's Ruse
+
+- `4415-4435` (Blunt axe, Herbal tincture, Guthix rest dose variants ✓, Stodgy/Comfy mattress, Iron oxide, Animate rock scroll, Directionals, Broken vane part, Ornament, Weathervane pillar, Weather report) — EX (mostly).
+- `4417-4423 Guthix rest(4..1)` — OK (`herblore`).
+
+### Pottery / Mort'ton tea
+
+- `4436 Airtight pot`, `4438 Unfired pot lid` (in crafting ✓), `4440 Pot lid` — partial.
+- `4442 Breathing salts`, `4443 Chicken cage`, `4444 Sharpened axe`, `4445 Red mahogany log`, `4446 Steel key ring`, `4447 Antique lamp`, `4456-4464` (Bowl of hot water, Cup of water, Cup of hot water, Ruined herb tea, Herb tea mix) — EX.
+
+### Fremennik Isles + misc
+
+- `4484-4500` (Safety guarantee, White pearl, White pearl seed in farming ✓, Half a rock, Corpse of woman, Asleif's necklace, Mud, Muddy rock, Pole ×4, Broken pole, Rope) — EX.
+- `4502 Bearhead` — **REM melee**, **ADD quests**. Mountain Daughter quest cosmetic helmet.
+
+### Castle Wars decorative armour + cloak/hood
+
+- `4503-4512 Decorative sword/armour/helm/shield dups` — LOG (canonical dups).
+- `4513-4516 Castlewars hood/cloak ×2 dups` — partial OK (melee/range), dups LOG.
+
+### Lanterns + Spiny helmet
+
+- `4517 Giant frog legs` — EX.
+- `4522-4548` (Oil lamp, Empty oil lamp, Empty candle lantern, Candle lantern ✓, Empty oil lantern, Oil lantern ✓, Oil lantern frame, Lantern lens, Bullseye lantern (unf), Bullseye lantern (empty), Bullseye lantern ✓) — **ADD firemaking** for the unclassified empty/unf variants (Empty oil lamp, Empty candle lantern, Empty oil lantern, Oil lantern frame, Lantern lens, Bullseye lantern (unf), Bullseye lantern (empty)). 7 items.
+- `4551 Spiny helmet` — OK (`melee;slayer`).
+
+### Easter event
+
+- `4557 Telescope dummy` — EX.
+- `4558-4564 Blue/Deep blue/White/Purple/Red/Green/Pink sweets` — **ADD misc** (7 items). Holiday cosmetics. Add to Holiday rares.
+- `4565 Easter basket` — **ADD misc**. Easter event weapon.
+- `4566 Rubber chicken` — **ADD misc**. April Fools event weapon.
+
+### Heroes' Quest
+
+- `4567 Gold helmet` — LOG. Heroes' Quest gold cosmetic; currently melee but it's a quest cosmetic. Could be quests.
+
+### Hand in the Sand / Dwarf Cannon repeat
+
+- `4568-4579` (Dwarven lore, Book page 1/2/3, Pages ×2, Base schematics, Schematic, Schematics ×2, Cannon ball) — EX.
+
+### Black spear + Dragon platelegs / scimitar
+
+- `4580 Black spear` — OK (`melee`).
+- `4585 Dragon plateskirt` — OK (`melee;mining_smithing`).
+- `4587 Dragon scimitar` — OK (`melee`).
+
+### Sorceress's Garden + RFD opener
+
+- `4589-4598` (Keys, Jewels, Kharidian headpiece, Fake beard, Karidian disguise, Note ×2) — EX.
+
+### Blackjacks (Thieving)
+
+- `4599 Oak blackjack`, `4600 Willow blackjack` — OK (`agility_thieving`).
+
+---
+
+## Session 16 totals
+
+- Items reviewed: 161
+- OK (correct as-is): 30
+- EX (correctly excluded): 60
+- ADD (missing tab, fixed): 60 (50 team capes to misc, 7 sweets to misc, Easter basket/Rubber chicken/Bearhead, 7 lantern variants to firemaking)
+- REM (misclassified, fixed): 51 (50 team capes from range, Bearhead from melee)
+- LOG (deferred): 12 (Decorative armour dups, Castle wars hood/cloak dups, Gold helmet, Pole variants)
+
+## Classifier changes made in session 16
+
+See `audit/classifier-changes.md` "Session 16".
+
 ## Resume marker
 
-**Next session: start from ID 4301.**
+**Next session: start from ID 4601.**
