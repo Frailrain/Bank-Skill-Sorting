@@ -626,7 +626,7 @@ MELEE = TabSpec(
                 force_exclude=["Khazard helmet"]),
         Section("Body armour", _slot_pred("body"),
                 force_include=list(n for n in _BARROWS_MELEE_PIECES if any(k in n.lower() for k in ("platebody","brassard"))),
-                force_exclude=["Khazard armour", "Studded body"]
+                force_exclude=["Khazard armour", "Studded body", "Carnillean armour"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "robe top" in n.lower()]),
         Section("Legs", _slot_pred("legs"),
@@ -776,7 +776,10 @@ PRAYER = TabSpec(
         })),
         Section("Quest-related prayer items", _name_in({
             "Ogre coffin key", "Ring of the gods", "Ring of the gods (i)",
-            "Damaged book", "Book of balance", "Journal", "Diary", "Manual",
+            "Damaged book", "Book of balance", "Journal", "Manual",
+            # Note: "Diary" removed — too generic (Hazeel Cult diary etc.
+            # is not a prayer item; the Holy/Unholy book starts catch the
+            # actual prayer books).
         })),
         Section("Prayer accessories", _name_in({
             "Holy wrench", "Bonecrusher", "Bonecrusher necklace",
@@ -806,6 +809,14 @@ COOKING = TabSpec(
             _name_in(_GNOMEFOOD),
             _name_starts("Premade "),
             _name_starts("Unfinished cocktail"),
+            _name_starts("Unfinished batta"),
+            _name_starts("Unfinished crunchy"),
+            _name_starts("Half baked "),
+            _name_in({
+                "Odd batta", "Odd crunchies", "Odd gnomebowl",
+                "Pizza base", "Incomplete pizza", "Uncooked pizza",
+                "Wrapped oomlie", "Pie dish",
+            }),
         )),
         Section("Beverages", _name_in({
             "Beer", "Asgarnian ale", "Dwarven stout", "Wizard's mind bomb",
@@ -1183,6 +1194,7 @@ AGILITY_THIEVING = TabSpec(
         Section("Agility shortcut tools", _name_in({
             "Mithril grapple", "Climbing boots", "Spiked climbing boots",
             "Crystal grappling hook", "Boots of lightness",
+            "Rock-climbing boots",
         })),
         Section("Rogue equipment", _name_starts("Rogue ")),
         Section("Thieving accessories", _name_in({
@@ -1493,6 +1505,7 @@ QUESTS = TabSpec(
             "Dark dagger", "Glowing dagger",
             "Shade robe", "Shade robe top",
             "Cape of legends",
+            "Carnillean armour",
         })),
         Section("Void Knight set", _name_starts("Void ")),
         Section("Fighter Torso et al.", _name_in({

@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (202 items not in wiki output) ===
+=== melee (203 items not in wiki output) ===
       74  Khazard helmet
       75  Khazard armour
       88  Boots of lightness
@@ -38,6 +38,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
     1361  Black axe
     1495  Klank's gauntlets
     1727  Amulet of magic
+    2405  Carnillean armour
     2493  Blue d'hide chaps
     2495  Red d'hide chaps
     2497  Black d'hide chaps
@@ -491,8 +492,9 @@ or should be added to force_include / variant_allowlist before flipping --additi
    29892  (not in wiki canonical set)
    30066  (not in wiki canonical set)
 
-=== prayer (49 items not in wiki output) ===
+=== prayer (50 items not in wiki output) ===
     1704  Amulet of glory
+    2408  Diary
     3843  Damaged book
     3845  Journal
     3846  Diary
@@ -542,7 +544,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26996  (not in wiki canonical set)
    28323  Siren's staff
 
-=== cooking (64 items not in wiki output) ===
+=== cooking (63 items not in wiki output) ===
      343  Burnt fish
      357  Burnt fish
      367  Burnt fish
@@ -560,7 +562,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2180  (not in wiki canonical set)
     2182  (not in wiki canonical set)
     2184  (not in wiki canonical set)
-    2287  Uncooked pizza
     2880  Ruined chompy
     2881  (not in wiki canonical set)
     2883  Ogre bow

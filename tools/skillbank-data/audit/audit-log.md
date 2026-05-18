@@ -11,8 +11,9 @@
 - **Reviewed in session 6**: IDs 1301–1600 (179 items)
 - **Reviewed in session 7**: IDs 1601–1900 (155 items)
 - **Reviewed in session 8**: IDs 1901–2200 (140 items)
-- **Reviewed cumulative**: 1194 (10.1%)
-- **Resume from**: ID 2201
+- **Reviewed in session 9**: IDs 2201–2500 (159 items)
+- **Reviewed cumulative**: 1353 (11.4%)
+- **Resume from**: ID 2501
 
 ## Decision codes
 
@@ -944,6 +945,109 @@ A huge family. ~40 items in this batch.
 
 See `audit/classifier-changes.md` "Session 8".
 
+---
+
+## Session 9: IDs 2201–2500
+
+### Gnome crunchies + battas (intermediates)
+
+- `2201 Half baked crunchy`, `2207 Unfinished crunchy` ×3, `2245 Odd batta`, `2249 Half baked batta`, `2251/2257/2261/2279 Unfinished batta` ×4 — **ADD cooking**. Gnome cooking intermediate states. **Fix**: add name patterns to gnome food OR add to existing list.
+- `2202 Raw crunchies`, `2205 Worm crunchies`, `2209 Chocchip crunchies`, `2213 Spicy crunchies`, `2217 Toad crunchies` — OK (5 items, `cooking`).
+- `2219-2243 Premade <batta/crunchies>` (~13 items) — OK (all `cooking` via Premade pattern).
+- `2247 Burnt batta`, `2250 Raw batta`, `2253 Worm batta`, `2255 Toad batta`, `2259 Cheese+tom batta`, `2277 Fruit batta`, `2281 Vegetable batta` — OK (7 items).
+
+### Rock-climbing boots
+
+- `2203 Rock-climbing boots` — **ADD agility_thieving**. Death Plateau quest reward; banked for agility shortcuts. Currently unclassified.
+
+### Pizza chain
+
+- `2283 Pizza base` — OK.
+- `2285 Incomplete pizza`, `2287 Uncooked pizza` — **ADD cooking** (2 items).
+- `2289 Plain pizza`, `2293 Meat pizza`, `2297 Anchovy pizza`, `2301 Pineapple pizza`, `2305 Burnt pizza` — OK (5 items, `cooking`).
+
+### Bread chain
+
+- `2307 Bread dough`, `2309 Bread`, `2311 Burnt bread` — OK (3 items).
+
+### Pie chain
+
+- `2313 Pie dish` — OK (`crafting`) but also belongs in cooking. **ADD cooking**.
+- `2315 Pie shell` — OK (`cooking;crafting`).
+- `2317-2321 Uncooked apple/meat/berry pie` — OK (3 items, `cooking`).
+- `2323-2327 Apple pie, Redberry pie, Meat pie` — OK (3 items, `cooking`).
+- `2329 Burnt pie` — OK.
+
+### Karamja / Oomlie
+
+- `2337 Raw oomlie` — OK.
+- `2339-2340 Palm leaf` — EX (Tai Bwo Wannai quest item, 2 dups).
+- `2341 Wrapped oomlie` — **ADD cooking**.
+- `2343 Cooked oomlie wrap`, `2345 Burnt oomlie wrap`, `2426 Burnt oomlie` — OK (3 items, `cooking`).
+
+### Hammer + bars
+
+- `2347 Hammer` — OK (`crafting;mining_smithing;construction`).
+- `2349-2363 Bronze/Iron/Steel/Silver/Gold/Mithril/Adamantite/Runite bar` — OK (8 items, `mining_smithing`). Steel bar also has `construction` cross-tag.
+
+### Watchtower / Family Crest follow-on
+
+- `2365 'perfect' gold bar` — EX. Family Crest variant.
+- `2366 Shield left half`, `2368 Shield right half`, `2370 Steel studs` — EX. Watchtower quest items.
+- `2372-2398` (Ogre relic, Relic part 1/2/3, Skavid map, Ogre tooth, Toban's key, Rock cake, Crystal, Fingernails, Old robe, Unusual armour, Damaged dagger, Tattered eye patch, Vial ×2, Ground bat bones (in prayer ✓), Toban's gold, Potion (quest), Magic ogre potion, Spell scroll, Shaman robe, Cave nightshade) — EX (mostly).
+- `2391 Ground bat bones` — OK (`prayer`).
+- `2398 Cave nightshade` — OK (`herblore`).
+
+### Demon Slayer + Hazeel Cult
+
+- `2399-2401 Silverlight key ×3` — EX.
+- `2402 Silverlight` — OK (`melee;quests`).
+- `2403-2411` (Hazeel scroll, Chest key, Carnillean armour, Hazeel's mark, Ball, Diary in prayer, Door key, Magnet, Key) — EX (~9 items).
+- `2405 Carnillean armour` — **REM melee**. Hazeel Cult quest cosmetic body armour. **ADD quests cosmetic**.
+- `2408 Diary` — LOG. Currently in `prayer` via my "Robes/Holy symbols" pattern (Book of /Diary). Hazeel quest diary, not a holy book. **REM prayer**.
+
+### God capes + god staves
+
+- `2412-2414 Saradomin/Guthix/Zamorak cape` — OK (`mage`). Session 3 fix.
+- `2415-2417 Saradomin/Guthix/Zamorak staff` — OK (`mage`).
+
+### Murder Mystery (more) + holiday
+
+- `2418-2425 Bronze key, Wig, Blue partyhat (dup), Key print, Paste, Vorkath's head` — EX (Murder Mystery + Vorkath's Head quest reward).
+- `2422 Blue partyhat` — LOG (dup of 1042 canonical).
+
+### Potions (4-dose)
+
+- `2428 Attack potion(4)`, `2430 Restore potion(4)`, `2432 Defence potion(4)`, `2434 Prayer potion(4)`, `2436 Super attack(4)`, `2438 Fishing potion(4)`, `2440 Super strength(4)`, `2442 Super defence(4)`, `2444 Ranging potion(4)`, `2446 Antipoison(4)`, `2448 Superantipoison(4)`, `2450 Zamorak brew(4)` — OK (12 items, all classify correctly).
+- `2452-2458 Antifire potion(4..1)` — OK (`herblore`). Could cross-tag to melee for dragon-fighting but herblore is canonical.
+
+### Flower bouquets
+
+- `2460-2476 Assorted/Red/Blue/Yellow/Purple/Orange/Mixed/White/Black flowers` (~9 items) — EX. Wedding event / Holy Grail flowers; cosmetic with stub blunt stats. Currently unclassified (which is correct).
+
+### Lantadyme herb
+
+- `2481 Lantadyme`, `2483 Lantadyme potion (unf)`, `2485 Grimy lantadyme` — OK (`herblore`).
+
+### D'hide variants (range armour)
+
+- `2487-2499 Blue/Red/Black d'hide vambraces, Blue/Red/Black d'hide chaps, Blue d'hide body` — OK (7 items, `range;crafting`).
+
+---
+
+## Session 9 totals
+
+- Items reviewed: 159
+- OK (correct as-is): 86
+- EX (correctly excluded): 51
+- ADD (missing tab, fixed): 20 (gnome intermediates, Rock-climbing boots, Pizza chain intermediates, Pie dish to cooking, Wrapped oomlie, Carnillean armour to quests)
+- REM (misclassified, fixed): 2 (Carnillean armour from melee, Diary from prayer)
+- LOG (deferred): 2 (Blue partyhat dup, Diary classifier loose match)
+
+## Classifier changes made in session 9
+
+See `audit/classifier-changes.md` "Session 9".
+
 ## Resume marker
 
-**Next session: start from ID 2201.**
+**Next session: start from ID 2501.**

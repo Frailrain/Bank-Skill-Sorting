@@ -455,3 +455,29 @@ Used to make hunter tar variants.
 ### CRAFTING Misc crafting materials — Raw swamp paste / Swamp paste
 
 Crafting recipe ingredients.
+
+---
+
+## Session 9 (audit IDs 2201–2500)
+
+### COOKING Gnome food / cocktails — broader intermediate patterns
+
+**Before**: `_name_in(_GNOMEFOOD)` OR `_name_starts("Premade ")` OR `_name_starts("Unfinished cocktail")`.
+
+**After**: also `_name_starts("Unfinished batta")`, `_name_starts("Unfinished crunchy")`, `_name_starts("Half baked ")` and explicit allowlist for Odd batta/crunchies/gnomebowl, Pizza base/Incomplete pizza/Uncooked pizza, Wrapped oomlie, Pie dish.
+
+**Affects**: ~15 items.
+
+### AGILITY_THIEVING Agility shortcut tools — `Rock-climbing boots`
+
+Death Plateau quest reward used for agility shortcuts.
+
+### MELEE Body armour — `Carnillean armour` force_exclude
+
+Hazeel Cult quest cosmetic, not real combat gear.
+
+### QUESTS Quest cosmetic gear — `Carnillean armour`
+
+### PRAYER Quest-related prayer items — removed `Diary`
+
+Too generic; Hazeel Cult quest diary etc. is not a prayer item. The `name_starts("Book of ")` and `Unholy/Holy book` patterns still catch real prayer books.
