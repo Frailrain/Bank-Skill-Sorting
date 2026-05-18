@@ -762,7 +762,9 @@ MELEE = TabSpec(
         })),
         Section("Weapons", _is_melee_weapon,
                 sort_key=_melee_weapon_sort_key,
-                force_include=["Dragon pickaxe", "Dragon scimitar (or)"],
+                force_include=["Dragon pickaxe", "Dragon scimitar (or)",
+                               "Armadyl godsword (or)", "Bandos godsword (or)",
+                               "Saradomin godsword (or)", "Zamorak godsword (or)"],
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Godsword construction", _name_in({
             "Godsword shards 1 & 2", "Godsword shards 1 & 3",
@@ -840,7 +842,7 @@ MELEE = TabSpec(
                 force_exclude=_QUEST_COSMETIC_CAPES),
         Section("Amulets", _slot_pred("neck"),
                 force_include=["Amulet of glory (t)", "Strength amulet (t)",
-                               "Amulet of fury (or)"],
+                               "Amulet of fury (or)", "Amulet of torture (or)"],
                 force_exclude=["Gnome amulet", "Beads of the dead"]),
         Section("Rings", _slot_pred("ring")),
         Section("Combat potions",
@@ -1033,6 +1035,11 @@ PRAYER = TabSpec(
             _name_starts("Book of "),
         ), force_exclude=["Book of haricanto", "Book of portraiture",
                           "Book of 'h.a.m'", "Book of HAM"]),
+        Section("Blessings (Treasure Trails)", _or(
+            _name_ends(" blessing"),
+            _name_in({"Holy blessing", "Unholy blessing", "Peaceful blessing",
+                      "Honourable blessing", "War blessing", "Ancient blessing"}),
+        )),
         Section("Robes (monk/proselyte/initiate/druid)", _or(
             _name_starts("Monk's "), _name_starts("Proselyte "),
             _name_starts("Initiate "), _name_starts("Devout "),
@@ -1385,6 +1392,8 @@ FIREMAKING = TabSpec(
             "Pyromancer robe", "Pyromancer boots",
             "Warm gloves", "Warm cloak",
             "Phoenix", "Phoenix pet",
+            # session 48 — Wintertodt rejuvenation herb
+            "Bruma herb",
         })),
         Section("Lovakengj charcoal", _name_in({
             "Juniper charcoal",
@@ -1610,6 +1619,10 @@ HERBLORE = TabSpec(
             )),
             _name_in({"Herb box"}),
         )),
+        Section("Wintertodt Rejuvenation potion", _and(
+            _name_starts("Rejuvenation potion "),
+            _or(_name_ends("(4)"), _name_ends("(3)"), _name_ends("(2)"), _name_ends("(1)")),
+        )),
         Section("Attack potions", _is_potion_family("attack potion"), sort_key=_potion_sort_key),
         Section("Strength potions", _is_potion_family("strength potion"), sort_key=_potion_sort_key),
         Section("Defence potions", _is_potion_family("defence potion"), sort_key=_potion_sort_key),
@@ -1710,6 +1723,9 @@ SLAYER = TabSpec(
             # session 46 — Skotizo Dark totem fragments
             "Dark totem base", "Dark totem middle", "Dark totem top",
             "Dark totem",
+            # session 48 — Slayer master rune/arrow packs
+            "Catalytic rune pack", "Elemental rune pack",
+            "Adamant arrow pack", "Rune arrow pack",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -2051,6 +2067,7 @@ MISC = TabSpec(
         Section("Teleport tabs", _or(
             _and(_name_ends(" teleport"), _not(_name_contains("scroll"))),
             _name_starts("Teleport to "),
+            _name_in({"Ancient magicks tablet"}),
         )),
         Section("Boss & quest jewellery", _name_in({
             "Ring of the gods", "Ring of the gods (i)",
@@ -2066,7 +2083,8 @@ MISC = TabSpec(
         )),
         Section("Clue scrolls",
                 _or(_name_starts("Clue scroll"), _name_starts("Master clue"),
-                    _name_starts("Clue bottle"), _name_starts("Clue nest"))),
+                    _name_starts("Clue bottle"), _name_starts("Clue nest"),
+                    _name_starts("Clue geode"), _name_starts("Reward casket"))),
         Section("Clue tools", _or(
             _name_in({
                 "Sextant", "Watch", "Chart", "Mimic kill count",
@@ -2102,6 +2120,7 @@ MISC = TabSpec(
         })),
         Section("Imbue scrolls", _name_in({
             "Ring of wealth scroll", "Magic shortbow scroll",
+            "Charge dragonstone jewellery scroll",
         })),
         Section("Combat trophies (PvM rewards)", _name_in({
             "Fire cape", "Infernal cape", "Champion's cape",
@@ -2169,6 +2188,9 @@ MISC = TabSpec(
                 "Mummy's legs", "Mummy's feet",
                 "Ankou mask", "Ankou top", "Ankou gloves",
                 "Ankou's leggings", "Ankou socks",
+                # session 48 — Easter 2018 Evil chicken outfit
+                "Evil chicken feet", "Evil chicken wings",
+                "Evil chicken head", "Evil chicken legs",
             }),
             _name_ends(" sweets"),
             _name_ends(" marionette"),

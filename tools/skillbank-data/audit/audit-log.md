@@ -4338,6 +4338,100 @@ See `audit/classifier-changes.md` "Session 46".
 
 See `audit/classifier-changes.md` "Session 47".
 
+---
+
+## Session 48: IDs 20201–20700
+
+### Prayer robes + Team capes
+
+- `20202 Monk's robe (g)` — OK (`prayer`).
+- `20205-20208 Golden chef's hat, Golden apron` — LOG.
+- `20211-20217 Team cape zero/x/i` — OK (3 items, `range`).
+
+### Treasure Trails blessings
+
+- `20220-20235 Holy/Unholy/Peaceful/Honourable/War/Ancient blessing` (6 items) — **ADD prayer** (clue scroll prayer-aesthetic items).
+
+### Misc scrolls + cosmetic
+
+- `20238 Charge dragonstone jewellery scroll` — **ADD misc Imbue scrolls**.
+- `20240-20249 Crier coat, Crier bell, Black leprechaun hat, Clueless scroll` — LOG.
+
+### Kourend banners
+
+- `20251-20263 Arceuus/Hosidius/Lovakengj/Piscarilius/Shayzien banner` — OK (5 items, `mage`).
+
+### Cosmetic + Cabbage event
+
+- `20266-20269 Black/White unicorn mask` — LOG.
+- `20272 Cabbage round shield` — OK (`melee`).
+- `20275 Gnomish firelighter` — OK (`firemaking`).
+- `20283-20338 (empty entries × ~17)` — EX (data placeholders).
+- `20355 Light box` — OK (`misc`).
+
+### Clue geodes + ornament kits
+
+- `20358-20364 Clue geode (easy/medium/hard/elite)` (4 items) — **ADD misc Clue scrolls** (clue scroll container, like Clue nest).
+- `20366 Amulet of torture (or)` — **ADD melee** (ornament variant).
+- `20368-20374 Armadyl/Bandos/Saradomin/Zamorak godsword (or)` (4 items) — **ADD melee** (ornament variants).
+
+### Steel trim/gold-trim sets
+
+- `20376-20385 Steel trimmed set, Steel gold-trimmed set (lg)/(sk)` — OK (4 items, `melee` via GE pattern).
+
+### Reward Chest dups + Ancient magicks tablet
+
+- `20389-20408 Various dups (Dragon arrow, Shark, Prayer potion, Spear ✓, Abyssal whip, Dragon scimitar, Dragon dagger, Dark bow)` — LOG.
+- `20422-20426 Rune platelegs, Black d'hide body/chaps, Mystic robe top/bottom dups` — LOG.
+- `20430 Ancient magicks tablet` — **ADD mage** (Ancient teleport tablet).
+- `20431 Ancient staff` — LOG (dup).
+
+### Easter 2018 Evil chicken outfit
+
+- `20433-20442 Evil chicken feet/wings/head/legs` (4 items) — **ADD misc Holiday rares**.
+
+### Elder chaos + Slayer packs
+
+- `20517-20520 Elder chaos top/robe` — OK (`mage`).
+- `20523-20525 Catalytic rune pack, Elemental rune pack, Adamant arrow pack` (3 items) — **ADD slayer**.
+- `20526-20527 Bloody key, Survival token` — LOG.
+
+### Reward casket + Wintertodt
+
+- `20543-20546 Reward casket (elite/hard/medium/easy)` (4 items) — **ADD misc Clue scrolls** (clue completion containers).
+- `20548-20551 Super energy(4-1) dups` — LOG.
+- `20557 Granite maul`, `20576-20599 various clue reward dups (3rd age robe top/robe, Climbing boots, Mithril gloves, Adamant gloves, Amulet of power, Amulet of glory, Rope, Stale baguette, Armadyl godsword, Bank filler, Ahrim's dups)` — LOG.
+- `20595 Elder chaos hood` — OK (`mage`).
+
+### Rune arrow pack + signets + PvP
+
+- `20607 Rune arrow pack` — **ADD slayer**.
+- `20608 Bloodier key` — LOG.
+- `20609 Fairy enchantment`, `20611-20615 Ancient/Lunar/Arceuus signet` (4 items) — LOG (quest material).
+
+### Skill pets + Wintertodt potions
+
+- `20659-20693 Giant squirrel, Tangleroot, Rocky, Rift guardian, Phoenix` — OK (5 skill pets).
+- `20695-20696 Bruma root, Bruma kindling` — OK (`firemaking`).
+- `20697 Rejuvenation potion (unf)` — OK (`herblore`).
+- `20698 Bruma herb` — **ADD firemaking** (Wintertodt herb).
+- `20699-20700 Rejuvenation potion (4/3)` (2 items) — **ADD herblore** (Wintertodt-only potion charge variants).
+
+---
+
+## Session 48 totals
+
+- Items reviewed: ~200
+- OK (correct as-is): 45
+- EX (correctly excluded): 20 (empty entries, signet quest material)
+- ADD (missing tab, fixed): 28 (6 blessings, 1 scroll, 4 Clue geode, 5 ornament weapons, 1 Ancient tablet, 4 Evil chicken, 4 slayer packs, 4 Reward casket, 1 Bruma herb, 2 Rejuvenation)
+- REM: 0
+- LOG: 50+ (Various clue reward dups, signets, cosmetic crier/leprechaun, unicorn masks)
+
+## Classifier changes made in session 48
+
+See `audit/classifier-changes.md` "Session 48".
+
 ## Resume marker
 
-**Next session: start from ID 20201.**
+**Next session: start from ID 20701.**

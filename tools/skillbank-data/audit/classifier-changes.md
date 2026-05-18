@@ -1671,3 +1671,63 @@ Ornament variant of Dragon scimitar.
 Added Dark/Light tuxedo jacket/cuffs/trousers/shoes/bow tie (10), Mummy's head/body/hands/legs/feet (5), Ankou mask/top/gloves/leggings/socks (5).
 
 **Affects**: 20 items.
+
+## Session 48 (audit IDs 20201–20700)
+
+### PRAYER — new "Blessings (Treasure Trails)" section
+
+Pattern `name_ends(" blessing")` catches Holy/Unholy/Peaceful/Honourable/War/Ancient blessing.
+
+**Affects**: 6 items.
+
+### MISC Clue scrolls — Clue geode + Reward casket
+
+Pattern extended to catch `Clue geode (easy/medium/hard/elite)` and `Reward casket` variants.
+
+**Affects**: 8 items.
+
+### MISC Imbue scrolls — `Charge dragonstone jewellery scroll`
+
+**Affects**: 1 item.
+
+### MELEE Weapons — Godsword (or) ornaments
+
+Force_include Armadyl/Bandos/Saradomin/Zamorak godsword (or) (ornament variants).
+
+**Affects**: 4 items.
+
+### MELEE Amulets — `Amulet of torture (or)`
+
+Ornament variant.
+
+**Affects**: 1 item.
+
+### MISC Teleport tabs — `Ancient magicks tablet`
+
+Teleport tablet for Ancient Magicks altar.
+
+**Affects**: 1 item.
+
+### MISC Holiday rares — Easter 2018 Evil chicken
+
+Added Evil chicken feet/wings/head/legs.
+
+**Affects**: 4 items.
+
+### SLAYER Slayer master items — more bulk packs
+
+Added Catalytic rune pack, Elemental rune pack, Adamant arrow pack, Rune arrow pack.
+
+**Affects**: 4 items.
+
+### FIREMAKING Wintertodt — `Bruma herb`
+
+Wintertodt-side Bruma herb (Rejuvenation potion ingredient).
+
+**Affects**: 1 item.
+
+### HERBLORE — new "Wintertodt Rejuvenation potion" section
+
+Pattern catches Rejuvenation potion (4-1) charge variants.
+
+**Affects**: 4 items.
