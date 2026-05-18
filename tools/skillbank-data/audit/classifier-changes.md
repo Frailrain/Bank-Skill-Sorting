@@ -2336,3 +2336,63 @@ Pattern catches Infernal axe (or) + 3rd age axe + Dragon axe (or).
 ### FISHING Rods & tools — `Infernal harpoon (or)`
 
 **Affects**: 1 item.
+
+## Session 62 (audit IDs 25101–25500)
+
+### New constant `_SWAMPBARK_BLOODBARK_NAMES`
+
+Swampbark/Bloodbark armour — mage gear with melee defence spillover.
+
+### MELEE Helmets/Body/Legs/Boots/Gloves — Swampbark/Bloodbark force_exclude
+
+REM melee for 10 Swampbark/Bloodbark pieces (helm/body/legs/gauntlets/boots × 2 sets).
+
+### MAGE Helmets/Body/Legs/Boots/Gloves — Swampbark/Bloodbark force_include
+
+ADD mage for 10 Swampbark/Bloodbark pieces.
+
+### `_TREASURE_TRAIL_MELEE_NAMES` — `Decorative full helm`
+
+CW cosmetic not smithable. REM mining_smithing.
+
+### PRAYER Robes — `Zealot's ` prefix
+
+Pattern `name_starts("Zealot's ")` catches Zealot's robe top/bottom/helm/boots (Hallowed Sepulchre prayer XP outfit).
+
+**Affects**: 4 items.
+
+### PRAYER Bone secondaries — `Bone fragments`
+
+Sepulchre buryable bone fragment.
+
+**Affects**: 1 item.
+
+### SLAYER Slayer master items — Soul Wars rewards + Essence pack
+
+Added Essence pack, Ectoplasmator.
+
+**Affects**: 2 items.
+
+### QUESTS `_is_quest_cape` — `Soul cape`
+
+Soul Wars combat completion cape.
+
+**Affects**: 1 item.
+
+### MAGE — new "Runescrolls (spell scrolls)" section
+
+Added Runescroll of swampbark, Runescroll of bloodbark.
+
+**Affects**: 2 items.
+
+### FISHING Rods & tools — Echo/Infernal/Dragon harpoon variants
+
+Added Echo harpoon, Infernal harpoon (uncharged), Dragon harpoon (or).
+
+**Affects**: 3 items.
+
+### MISC Holiday rares — 20th Anniversary outfit
+
+Added 20th anniversary hat/top/bottom/boots/gloves/necklace/cape.
+
+**Affects**: 7 items.

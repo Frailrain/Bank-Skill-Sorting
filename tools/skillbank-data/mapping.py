@@ -281,6 +281,17 @@ _TREASURE_TRAIL_MELEE_NAMES = [
     "Ardougne knight platebody", "Ardougne knight platelegs",
     # session 60 — Inquisitor's plateskirt (Nightmare drop, not smithable)
     "Inquisitor's plateskirt",
+    # session 62 — Decorative full helm (CW cosmetic)
+    "Decorative full helm",
+]
+
+# Swampbark/Bloodbark armour — mage gear, melee defence spillover
+# misclassifies them.
+_SWAMPBARK_BLOODBARK_NAMES = [
+    "Swampbark body", "Swampbark gauntlets", "Swampbark boots",
+    "Swampbark helm", "Swampbark legs",
+    "Bloodbark body", "Bloodbark gauntlets", "Bloodbark boots",
+    "Bloodbark helm", "Bloodbark legs",
 ]
 
 # Vesta/Statius PvP armor — melee gear; range/mage spillover misclassifies.
@@ -816,7 +827,8 @@ MELEE = TabSpec(
                                "Spined helm", "Skeletal helm", "Snakeskin bandana",
                                "Armadyl helmet", "Ancestral hat",
                                "Morrigan's coif", "Zuriel's hood",
-                               "Twisted ancestral hat"]
+                               "Twisted ancestral hat",
+                               "Swampbark helm", "Bloodbark helm"]
                 + [n for n in _CAMO_OUTFIT if "hat" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()]),
         Section("Body armour", _slot_pred("body"),
@@ -831,7 +843,8 @@ MELEE = TabSpec(
                                "Morrigan's leather body", "Zuriel's robe top",
                                "Leather body (g)",
                                "Gilded d'hide body", "Gilded d'hide vambraces",
-                               "Twisted ancestral robe top"]
+                               "Twisted ancestral robe top",
+                               "Swampbark body", "Bloodbark body"]
                 + [n for n in _DHIDE_ALL_NAMES if "body" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -848,7 +861,8 @@ MELEE = TabSpec(
                                "Morrigan's leather chaps", "Zuriel's robe bottom",
                                "Leather chaps (g)", "Rangers' tights",
                                "Gilded d'hide chaps",
-                               "Twisted ancestral robe bottom"]
+                               "Twisted ancestral robe bottom",
+                               "Swampbark legs", "Bloodbark legs"]
                 + [n for n in _DHIDE_ALL_NAMES if "chaps" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -856,7 +870,8 @@ MELEE = TabSpec(
                 + [n for n in _CAMO_OUTFIT if "robe bottoms" in n.lower()]),
         Section("Boots", _slot_pred("feet"),
                 force_exclude=["Ranger boots", "Mime boots", "Splitbark boots", "Rogue boots", "Mourner boots",
-                               "Spined boots", "Skeletal boots", "Snakeskin boots", "Flippers"]
+                               "Spined boots", "Skeletal boots", "Snakeskin boots", "Flippers",
+                               "Swampbark boots", "Bloodbark boots"]
                 + [n for n in _GOD_DHIDE_NAMES if "boots" in n.lower()]
                 + [n for n in _MIME_OUTFIT if "boots" in n.lower()]
                 + [n for n in _CAMO_OUTFIT if "boots" in n.lower()]),
@@ -868,7 +883,8 @@ MELEE = TabSpec(
                 + _3RD_AGE_RANGE_NAMES
                 + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves", "Mourner gloves",
                    "Spined gloves", "Skeletal gloves", "Snakeskin vambraces",
-                   "Gilded d'hide vambraces"]
+                   "Gilded d'hide vambraces",
+                   "Swampbark gauntlets", "Bloodbark gauntlets"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield"),
                 force_include=["Granite shield", "Draconic visage"],
@@ -1043,7 +1059,8 @@ MAGE = TabSpec(
         Section("Helmets", _is_mage_armour_slot("head"),
                 force_include=["Blue wizard hat (g)", "Blue wizard hat (t)",
                                "Black wizard hat (g)", "Black wizard hat (t)",
-                               "Zuriel's hood", "Twisted ancestral hat"],
+                               "Zuriel's hood", "Twisted ancestral hat",
+                               "Swampbark helm", "Bloodbark helm"],
                 force_exclude=["Mime mask", "Rogue mask", "3rd age range coif", "Armadyl helmet",
                                "Morrigan's coif", "Statius's full helm"]
                 + [n for n in _MIME_OUTFIT if "hat" in n.lower()]
@@ -1051,23 +1068,26 @@ MAGE = TabSpec(
         Section("Body", _is_mage_armour_slot("body"),
                 force_include=["Blue wizard robe (g)", "Blue wizard robe (t)",
                                "Black wizard robe (g)", "Black wizard robe (t)",
-                               "Zuriel's robe top", "Twisted ancestral robe top"],
+                               "Zuriel's robe top", "Twisted ancestral robe top",
+                               "Swampbark body", "Bloodbark body"],
                 force_exclude=["Karil's leathertop", "Rogue top", "3rd age range top", "Armadyl chestplate",
                                "Morrigan's leather body",
                                "Vesta's chainbody", "Statius's platebody"]),
         Section("Legs", _is_mage_armour_slot("legs"),
                 force_include=["Ghostly robe", "Blue skirt (g)", "Blue skirt (t)",
                                "Black skirt (g)", "Black skirt (t)",
-                               "Zuriel's robe bottom", "Twisted ancestral robe bottom"],
+                               "Zuriel's robe bottom", "Twisted ancestral robe bottom",
+                               "Swampbark legs", "Bloodbark legs"],
                 force_exclude=["Karil's leatherskirt", "Rogue trousers", "3rd age range legs", "Armadyl chainskirt",
                                "Morrigan's leather chaps",
                                "Vesta's plateskirt", "Statius's platelegs"]),
         Section("Boots", _is_mage_armour_slot("feet"),
-                force_include=["Skeletal boots"],
+                force_include=["Skeletal boots", "Swampbark boots", "Bloodbark boots"],
                 force_exclude=["Rogue boots"]
                 + [n for n in _GOD_DHIDE_NAMES if "boots" in n.lower()]),
         Section("Gloves", _is_mage_armour_slot("hands"),
-                force_include=["Chaos gauntlets", "Skeletal gloves"],
+                force_include=["Chaos gauntlets", "Skeletal gloves",
+                               "Swampbark gauntlets", "Bloodbark gauntlets"],
                 force_exclude=[n for n in _DHIDE_ALL_NAMES if "vambrace" in n.lower()]
                 + [n for n in _GOD_DHIDE_NAMES if "bracers" in n.lower()]
                 + _3RD_AGE_RANGE_NAMES
@@ -1115,6 +1135,9 @@ MAGE = TabSpec(
             "Blighted ancient ice sack", "Blighted bind sack",
             "Blighted snare sack", "Blighted entangle sack",
             "Blighted teleport spell sack", "Blighted vengeance sack",
+        })),
+        Section("Runescrolls (spell scrolls)", _name_in({
+            "Runescroll of swampbark", "Runescroll of bloodbark",
         })),
         Section("Mage GE armour sets", _name_in({
             "Mystic set (light)", "Mystic set (blue)",
@@ -1174,12 +1197,13 @@ PRAYER = TabSpec(
             _name_starts("Monk's "), _name_starts("Proselyte "),
             _name_starts("Initiate "), _name_starts("Devout "),
             _name_starts("Druid's "),
+            _name_starts("Zealot's "),
             _name_in({"Holy sandals", "Druidic wreath", "Holy wraps"}),
         )),
         Section("Bone secondaries", _or(
             _name_in({
                 "Bonemeal pot", "Bucket of slime", "Vial of milk",
-                "Mort myre fungus", "Granite dust",
+                "Mort myre fungus", "Granite dust", "Bone fragments",
             }),
             _name_ends(" bonemeal"),  # Bonemeal, Bat bonemeal, Dragon bonemeal, etc.
             _name_in({"Bonemeal"}),
@@ -1493,6 +1517,9 @@ FISHING = TabSpec(
             "Oily pearl fishing rod",
             # session 61 — Infernal harpoon ornament
             "Infernal harpoon (or)",
+            # session 62 — Echo + Infernal harpoon variants + Dragon harpoon (or)
+            "Echo harpoon", "Infernal harpoon (uncharged)",
+            "Dragon harpoon (or)",
         })),
         Section("Aerial fishing catches + byproducts", _name_in({
             "Bluegill", "Common tench", "Mottled eel", "Greater siren",
@@ -1968,6 +1995,8 @@ SLAYER = TabSpec(
             "Polishing rock", "Basilisk jaw",
             # session 61 — Vyre noble drop (Amulet of blood fury creation)
             "Blood shard",
+            # session 62 — Soul Wars rewards + bulk pack
+            "Essence pack", "Ectoplasmator",
         })),
         Section("Slayer rings", _name_starts("Slayer ring")),
         Section("Slayer helmets", _name_contains("slayer helmet")),
@@ -2491,6 +2520,11 @@ MISC = TabSpec(
                 "Red candy", "Green candy", "Black candy", "Orange candy",
                 "Pink candy",
                 "Rick's box", "Rick's head",
+                # session 62 — RuneScape 20th Anniversary outfit
+                "20th anniversary hat", "20th anniversary top",
+                "20th anniversary bottom", "20th anniversary boots",
+                "20th anniversary gloves", "20th anniversary necklace",
+                "20th anniversary cape",
                 # session 52 — Christmas 2018 Wise Old Man event
                 "Snow imp costume head", "Snow imp costume body",
                 "Snow imp costume legs", "Snow imp costume tail",
@@ -2539,7 +2573,9 @@ def _is_quest_cape(it):
                  "Music cape", "Music cape(t)", "Music hood",
                  "Max cape", "Max hood", "Completionist cape",
                  "Achievement diary cape", "Achievement diary cape(t)",
-                 "Achievement diary hood"}
+                 "Achievement diary hood",
+                 # session 62 — Soul Wars combat completion cape
+                 "Soul cape"}
 
 
 QUESTS = TabSpec(

@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (30 items not in wiki output) ===
+=== melee (40 items not in wiki output) ===
    12596  Rangers' tunic
    19921  Ancient d'hide boots
    19924  Bandos d'hide boots
@@ -34,6 +34,16 @@ or should be added to force_include / variant_allowlist before flipping --additi
    24664  Twisted ancestral hat
    24666  Twisted ancestral robe top
    24668  Twisted ancestral robe bottom
+   25389  Swampbark body
+   25392  Swampbark gauntlets
+   25395  Swampbark boots
+   25398  Swampbark helm
+   25401  Swampbark legs
+   25404  Bloodbark body
+   25407  Bloodbark gauntlets
+   25410  Bloodbark boots
+   25413  Bloodbark helm
+   25416  Bloodbark legs
 
 === range (5 items not in wiki output) ===
    22616  Vesta's chainbody
@@ -53,7 +63,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    22641  Morrigan's leather body
    22644  Morrigan's leather chaps
 
-=== mining_smithing (20 items not in wiki output) ===
+=== mining_smithing (21 items not in wiki output) ===
    20146  Gilded med helm
    20149  Gilded chainbody
    20152  Gilded sq shield
@@ -74,3 +84,4 @@ or should be added to force_include / variant_allowlist before flipping --additi
    23787  Ardougne knight platebody
    23789  Ardougne knight platelegs
    24421  Inquisitor's plateskirt
+   25165  Decorative full helm

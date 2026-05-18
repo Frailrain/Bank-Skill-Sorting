@@ -5612,6 +5612,98 @@ See `audit/classifier-changes.md` "Session 60".
 
 See `audit/classifier-changes.md` "Session 61".
 
+---
+
+## Session 62: IDs 25101–25500
+
+### Trailblazer + Echo tools
+
+- `25102-25106 Fairy mushroom, Crystal of echoes, Extradimensional bag` — LOG.
+- `25110 Echo axe`, `25112 Echo pickaxe` — OK (`wc_fletching/mining_smithing`).
+- `25114 Echo harpoon` — **ADD melee;fishing** (Trailblazer Echo tool).
+- `25117 League tomato` — LOG.
+
+### Beekeeper outfit + Hallowed Sepulchre
+
+- `25129-25137 Beekeeper's hat/top/legs/gloves/boots` (5 items) — LOG (random event cosmetic).
+- `25139 Bone fragments` — **ADD prayer** (Sepulchre bone fragment, Bury for XP).
+- `25145-25147 Clay head, Fur head, Bloody head` — LOG.
+- `25152 Neilan's journal` — EX (Sepulchre lore).
+
+### Castle Wars brew + Decorative
+
+- `25159-25162 Castlewars brew (4-1)` — LOG (CW minigame).
+- `25163 Decorative boots`, `25167 Decorative boots dup`, `25171 Decorative boots dup` — OK (canonical 25163 melee) / LOG (dups).
+- `25165 Decorative full helm` (currently `melee;mining_smithing`) — **REM mining_smithing** (CW cosmetic).
+- `25169 Decorative full helm dup`, `25174 Decorative full helm dup` — LOG.
+
+### Soul Wars + LMS minigame items
+
+- `25195-25212 Blue cape, Soul wars guide, Bones, Soul fragment, Bandages, Potion of power (4-1), Red cape, Barricade, Explosive potion, Blue icon` (~12 items) — LOG (Soul Wars minigame instance items).
+- `25228 Red icon`, `25244 Dark key` — LOG.
+
+### Imbued + Black mask dups
+
+- `25246 Ring of suffering (i)`, `25268-25276 Black mask (i) charge variant dups` — LOG.
+
+### Christmas 2020 Goblin + 20th anniversary
+
+- `25280 Essence pack` — **ADD slayer**.
+- `25282-25316 Sled, Red/Green fireflies, Stick, Mouldy sawdust, Rotten meat, Stale bread, Goblin stew, Goblin gifts, Giant boulder, Goblin decorations` — LOG/EX (Christmas 2020 Goblin event).
+- `25322-25334 20th anniversary hat/top/bottom/boots/gloves/necklace/cape` (7 items) — **ADD misc Holiday rares**.
+- `25336-25338 Gnome child mask, Gnome child icon` — LOG.
+
+### Soul Wars rewards
+
+- `25340 Ectoplasmator` — **ADD slayer**.
+- `25342 Spoils of war` — LOG (SW currency).
+- `25344 Soul cape` — **ADD quests** (Soul Wars combat completion cape).
+- `25348 Lil' creator` — OK (`quests`).
+
+### Infernal tool (uncharged) + Dragon tool (or)
+
+- `25367 Infernal harpoon (uncharged)` — **ADD melee;fishing**.
+- `25369 Infernal pickaxe (uncharged)` — already in mining_smithing list (canonical).
+- `25371 Infernal axe (uncharged)` — already in wc_fletching list (Axes).
+- `25373 Dragon harpoon (or)` — **ADD melee;fishing** (Dragon harpoon ornament).
+- `25376 Dragon pickaxe (or)`, `25378 Dragon axe (or)` — OK.
+
+### Trailblazer relic + Swampbark/Bloodbark armour
+
+- `25380-25386 Trailblazer relic hunter (t1/t2/t3) armour set` — LOG.
+- `25389-25401 Swampbark body/gauntlets/boots/helm/legs` (5 items, currently `melee;mage`) — **REM melee, keep mage** (Swampbark is mage armour).
+- `25404-25416 Bloodbark body/gauntlets/boots/helm/legs` (5 items, currently `melee;mage`) — **REM melee, keep mage** (Bloodbark is mage armour).
+
+### Hallowed Sepulchre
+
+- `25419 Urium remains`, `25422 Bleached bones` — OK (`prayer`).
+- `25424-25432 Gold key red/brown/crimson/black/purple` (5 items) — LOG (Sepulchre key tier puzzle).
+- `25434-25440 Zealot's robe top/bottom/helm/boots` (4 items) — **ADD prayer** (Zealot's prayer XP outfit).
+- `25442-25467 Bronze/Steel/Black/Silver/Gold locks + coffins (Broken + tier coffins)` (~10 items) — LOG (Sepulchre puzzle pieces).
+- `25474-25481 Tree wizards' journal, Bloody notes, Runescroll of swampbark, Runescroll of bloodbark` — partial.
+- `25478 Runescroll of swampbark`, `25481 Runescroll of bloodbark` (2 items) — **ADD mage** (spell scrolls).
+
+### Beta + clue dups
+
+- `25493-25497 Beta d'hide/Crystal items` — LOG (beta variants).
+- `25498-25499 Clue scroll (elite) dups` — LOG.
+- `25500 Cursed banana` — LOG.
+
+---
+
+## Session 62 totals
+
+- Items reviewed: ~300
+- OK (correct as-is): 25
+- EX (correctly excluded): 25 (Sepulchre lore, beta items, CW minigame, SW minigame)
+- ADD (missing tab, fixed): 18 (1 Echo harpoon, 1 Bone fragments, 1 Essence pack, 7 20th anniversary, 1 Ectoplasmator, 1 Soul cape, 1 Infernal harpoon (uncharged), 1 Dragon harpoon (or), 4 Zealot's prayer outfit, 2 Runescroll spells)
+- REM (misclassified, fixed): 11 (Decorative full helm from mining_smithing, 5 Swampbark + 5 Bloodbark from melee)
+- LOG: 100+ (Trailblazer cosmetic, Soul Wars minigame, Christmas 2020 Goblin event, Sepulchre puzzle pieces, Beekeeper random event)
+
+## Classifier changes made in session 62
+
+See `audit/classifier-changes.md` "Session 62".
+
 ## Resume marker
 
-**Next session: start from ID 25101.**
+**Next session: start from ID 25501.**
