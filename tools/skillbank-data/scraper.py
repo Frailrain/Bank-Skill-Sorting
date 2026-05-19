@@ -22,9 +22,33 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
 CACHE_DIR = SCRIPT_DIR / "cache"
 WIKI_CACHE_DIR = CACHE_DIR / "wiki"
+WIKI_PAGE_CACHE_DIR = CACHE_DIR / "wiki-pages"
+LLM_CACHE_DIR = CACHE_DIR / "llm-classifications"
 OUT_DIR = SCRIPT_DIR / "out"
 DATA_JAVA = REPO_ROOT / "src/main/java/com/skillbank/SkillBankData.java"
 DIFF_REPORT_FILE = SCRIPT_DIR / "diff-current-vs-wiki.txt"
+
+
+def _load_env() -> None:
+    """Load KEY=VALUE pairs from tools/skillbank-data/.env into os.environ.
+
+    Existing env vars take precedence. Silently does nothing if .env is missing
+    (the scraper has many modes that don't need it). Lines starting with # are
+    comments; blank lines ignored. Quoted values (single or double) are unquoted.
+    """
+    env_file = SCRIPT_DIR / ".env"
+    if not env_file.exists():
+        return
+    for line in env_file.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        k = k.strip()
+        v = v.strip()
+        if len(v) >= 2 and v[0] == v[-1] and v[0] in ("'", '"'):
+            v = v[1:-1]
+        os.environ.setdefault(k, v)
 
 OSRSBOX_URL = (
     "https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/"
@@ -132,6 +156,7 @@ def merge_wiki_osrsbox(
 
         name = _first(it.get("item_name")) or ""
         pns = _first(it.get("page_name_sub")) or ""
+        page_name = _first(it.get("page_name")) or ""
         members = _truthy(it.get("is_members_only"))
 
         bonuses = bonuses_by_pns.get(pns, {})
@@ -188,6 +213,8 @@ def merge_wiki_osrsbox(
         merged[str(iid)] = {
             "id": iid,
             "name": name,
+            "page_name": page_name,
+            "page_name_sub": pns,
             "members": members,
             "tradeable": _truthy(it.get("tradeable")),
             "weight": _first(it.get("weight")),
@@ -1129,6 +1156,256 @@ def filter_classified_to_ids(
 
 # ── Main ────────────────────────────────────────────────────────────────────
 
+def run_llm_classification(
+    items_by_id: dict[int, dict],
+    current: dict[str, list[int]],
+    out_dir: Path,
+    *,
+    pilot: int | None = None,
+    reclassify: bool = False,
+    new_only: bool = False,
+    use_cache: bool = True,
+) -> dict:
+    """Run LLM classification for some/all items. Writes JSON + Markdown reports.
+
+    Returns the assembled classification dict so callers can post-process.
+    """
+    import random
+    sys.path.insert(0, str(SCRIPT_DIR))
+    import wiki_page  # type: ignore
+    import llm_classifier  # type: ignore
+
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        print(
+            "ERROR: ANTHROPIC_API_KEY not set. Create tools/skillbank-data/.env "
+            "from .env.example or export the variable directly.",
+            file=sys.stderr,
+        )
+        sys.exit(2)
+
+    classifiable: list[dict] = []
+    for iid in sorted(items_by_id):
+        it = items_by_id[iid]
+        if it.get("noted") or it.get("placeholder") or it.get("duplicate"):
+            continue
+        classifiable.append(it)
+
+    # --new-only: drop items already present somewhere in SkillBankData.java
+    if new_only:
+        currently_classified: set[int] = set()
+        for ids in current.values():
+            currently_classified.update(ids)
+        before = len(classifiable)
+        classifiable = [it for it in classifiable if it["id"] not in currently_classified]
+        print(
+            f"--new-only: filtered {before} → {len(classifiable)} (dropped already-classified)",
+            file=sys.stderr,
+        )
+
+    # --pilot N: sample. Always include the flagged items if they're in scope.
+    if pilot is not None:
+        flagged_names = {n for n, _, _ in FLAGGED_ITEMS}
+        flagged_items = [it for it in classifiable if it.get("name") in flagged_names]
+        flagged_ids = {it["id"] for it in flagged_items}
+        remaining = [it for it in classifiable if it["id"] not in flagged_ids]
+        n_random = max(0, pilot - len(flagged_items))
+        rng = random.Random(0xBADC0DE)
+        rng.shuffle(remaining)
+        sample = flagged_items + remaining[:n_random]
+        print(
+            f"--pilot {pilot}: {len(flagged_items)} flagged + "
+            f"{min(n_random, len(remaining))} random = {len(sample)} total items",
+            file=sys.stderr,
+        )
+        classifiable = sample
+
+    print(
+        f"Classifying {len(classifiable)} item(s) via LLM "
+        f"(model={llm_classifier.DEFAULT_MODEL}, cache={'off' if reclassify else 'on'})...",
+        file=sys.stderr,
+    )
+
+    results: dict[int, dict] = {}
+    n_cached = 0
+    n_fresh = 0
+    n_errors = 0
+    total_in = total_out = total_cache_read = total_cache_write = 0
+
+    for i, it in enumerate(classifiable, 1):
+        name = it.get("name") or f"id={it['id']}"
+        page_name = it.get("page_name") or ""
+        if not page_name and it.get("page_name_sub"):
+            page_name = it["page_name_sub"].split("#", 1)[0]
+        if not page_name:
+            page_name = name  # last resort
+
+        try:
+            wt = wiki_page.fetch_page_wikitext(
+                page_name, WIKI_PAGE_CACHE_DIR,
+                use_cache=use_cache, refresh=False,
+            )
+        except Exception as e:
+            print(f"  [{i}/{len(classifiable)}] {name}: wiki fetch failed: {e}", file=sys.stderr)
+            wt = None
+        wt_trimmed = wiki_page.trim_wikitext(wt or "")
+
+        try:
+            result = llm_classifier.classify_item(
+                it, wt_trimmed, LLM_CACHE_DIR, api_key,
+                use_cache=use_cache and not reclassify,
+                refresh=reclassify,
+            )
+        except Exception as e:
+            print(f"  [{i}/{len(classifiable)}] {name}: classify failed: {e}", file=sys.stderr)
+            n_errors += 1
+            continue
+
+        results[it["id"]] = {
+            "id": it["id"],
+            "name": name,
+            "primary_tab": result["primary_tab"],
+            "cross_tags": result["cross_tags"],
+            "rationale": result["rationale"],
+        }
+        if result.get("_cached"):
+            n_cached += 1
+        else:
+            n_fresh += 1
+            u = result.get("_usage") or {}
+            total_in += u.get("input_tokens") or 0
+            total_out += u.get("output_tokens") or 0
+            total_cache_read += u.get("cache_read_input_tokens") or 0
+            total_cache_write += u.get("cache_creation_input_tokens") or 0
+
+        if i % 25 == 0 or i == len(classifiable):
+            print(
+                f"  progress {i}/{len(classifiable)} "
+                f"(cached={n_cached}, fresh={n_fresh}, errors={n_errors})",
+                file=sys.stderr,
+            )
+
+    # Write outputs
+    out_dir.mkdir(parents=True, exist_ok=True)
+    json_path = out_dir / "llm-classifications.json"
+    json_path.write_text(json.dumps({
+        "model": llm_classifier.DEFAULT_MODEL,
+        "count": len(results),
+        "cached": n_cached,
+        "fresh": n_fresh,
+        "errors": n_errors,
+        "usage_totals": {
+            "input_tokens": total_in,
+            "output_tokens": total_out,
+            "cache_read_input_tokens": total_cache_read,
+            "cache_creation_input_tokens": total_cache_write,
+        },
+        "items": list(results.values()),
+    }, indent=2))
+    print(f"Wrote {json_path}", file=sys.stderr)
+
+    # Diff vs current data
+    diff_path = out_dir / "classification-diff.md"
+    write_classification_diff(results, current, items_by_id, diff_path)
+    print(f"Wrote {diff_path}", file=sys.stderr)
+
+    # Cost estimate (Sonnet 4.6 pricing as of 2026-01: $3/MTok input, $15/MTok output)
+    in_cost = total_in * 3 / 1_000_000
+    out_cost = total_out * 15 / 1_000_000
+    cache_read_cost = total_cache_read * 0.30 / 1_000_000
+    cache_write_cost = total_cache_write * 3.75 / 1_000_000
+    print(
+        f"\nFresh queries: {n_fresh}  cached: {n_cached}  errors: {n_errors}\n"
+        f"Usage: input={total_in:,}  cache_read={total_cache_read:,}  "
+        f"cache_write={total_cache_write:,}  output={total_out:,}\n"
+        f"Estimated cost (Sonnet 4.6 pricing, may vary):\n"
+        f"  input ${in_cost:.4f} + cache_read ${cache_read_cost:.4f} "
+        f"+ cache_write ${cache_write_cost:.4f} + output ${out_cost:.4f} "
+        f"= ${in_cost + out_cost + cache_read_cost + cache_write_cost:.4f}",
+    )
+    return results
+
+
+def write_classification_diff(
+    llm_results: dict[int, dict],
+    current: dict[str, list[int]],
+    items_by_id: dict[int, dict],
+    out_path: Path,
+) -> None:
+    """Diff LLM-assigned primary tab vs live SkillBankData.java placement."""
+    from datetime import datetime, timezone
+
+    # Build current placement map: id -> set[tab]
+    current_tabs: dict[int, set[str]] = {}
+    for tab, ids in current.items():
+        for iid in ids:
+            current_tabs.setdefault(iid, set()).add(tab)
+
+    agree: list[tuple[int, str, str, list[str]]] = []
+    disagree: list[tuple[int, str, set[str], str, list[str]]] = []
+    new_assignments: list[tuple[int, str, str, list[str], str]] = []
+
+    for iid, r in sorted(llm_results.items()):
+        name = r["name"]
+        primary = r["primary_tab"]
+        cross = r["cross_tags"]
+        rationale = r["rationale"]
+        cur = current_tabs.get(iid, set())
+        if not cur:
+            new_assignments.append((iid, name, primary, cross, rationale))
+        elif primary in cur:
+            agree.append((iid, name, primary, cross))
+        else:
+            disagree.append((iid, name, cur, primary, cross))
+
+    lines: list[str] = []
+    lines.append("# LLM classification diff vs live SkillBankData.java")
+    lines.append("")
+    lines.append(f"Generated {datetime.now(timezone.utc).isoformat(timespec='seconds')}")
+    lines.append("")
+    lines.append(
+        f"- **Total classified**: {len(llm_results)}\n"
+        f"- **Agreement** (LLM primary matches a current tab): {len(agree)}\n"
+        f"- **Disagreement** (LLM primary not in current tabs): {len(disagree)}\n"
+        f"- **New** (item not in any current tab): {len(new_assignments)}"
+    )
+    lines.append("")
+
+    if disagree:
+        lines.append("## Disagreements")
+        lines.append("")
+        lines.append("LLM proposes a different primary tab than where the item currently lives.")
+        lines.append("Use this to decide whether the heuristic was wrong or the LLM is wrong.")
+        lines.append("")
+        for iid, name, cur, primary, cross in disagree:
+            cross_s = f", cross={cross}" if cross else ""
+            it = items_by_id.get(iid, {})
+            ex = it.get("examine") or ""
+            lines.append(f"- **{name}** (ID {iid}) — current: `{sorted(cur)}` → LLM: `{primary}`{cross_s}")
+            if ex:
+                lines.append(f"  - _examine: {ex}_")
+        lines.append("")
+
+    if new_assignments:
+        lines.append("## New (not in any current tab)")
+        lines.append("")
+        for iid, name, primary, cross, rat in new_assignments:
+            cross_s = f", cross={cross}" if cross else ""
+            lines.append(f"- **{name}** (ID {iid}) → `{primary}`{cross_s}")
+            lines.append(f"  - _{rat}_")
+        lines.append("")
+
+    if agree:
+        lines.append("## Agreements (collapsed)")
+        lines.append("")
+        for iid, name, primary, cross in agree:
+            cross_s = f", cross={cross}" if cross else ""
+            lines.append(f"- {name} (ID {iid}): `{primary}`{cross_s}")
+        lines.append("")
+
+    out_path.write_text("\n".join(lines))
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--no-fetch", action="store_true",
@@ -1154,7 +1431,28 @@ def main():
     p.add_argument("--trace", action="store_true",
                    help="write out/classifier-reasoning.md — per-item diagnostic dump showing "
                         "which tab/section assigned each item and via which match path.")
+    p.add_argument("--classify", action="store_true",
+                   help="run LLM-based classification (Anthropic API). Requires ANTHROPIC_API_KEY "
+                        "in env or tools/skillbank-data/.env. Writes out/llm-classifications.json "
+                        "and out/classification-diff.md. Does NOT promote without --promote.")
+    p.add_argument("--pilot", type=int, metavar="N",
+                   help="with --classify: classify only N items (flagged items + random sample). "
+                        "Recommended first run; use without --pilot only after reviewing pilot output.")
+    p.add_argument("--reclassify", action="store_true",
+                   help="with --classify: bypass LLM response cache and re-query every item.")
+    p.add_argument("--new-only", action="store_true",
+                   help="with --classify: only classify items not currently in SkillBankData.java "
+                        "(combine with --auto-promote to additively grow coverage).")
+    p.add_argument("--llm-render", action="store_true",
+                   help="read out/llm-classifications.json and render an LLM-driven "
+                        "SkillBankData.java.llm-proposed (with mapping.py force_include/exclude "
+                        "as overrides). Does NOT overwrite the live file.")
+    p.add_argument("--llm-promote", action="store_true",
+                   help="like --llm-render but also overwrites the live "
+                        "src/main/java/com/skillbank/SkillBankData.java.")
     args = p.parse_args()
+
+    _load_env()
 
     import wiki  # type: ignore
 
@@ -1293,6 +1591,68 @@ def main():
         trace_path = out_dir / "classifier-reasoning.md"
         write_reasoning_report(classified, tabs, items_by_id, trace_path)
         print(f"Wrote {trace_path}")
+
+    if args.classify:
+        run_llm_classification(
+            items_by_id, current, out_dir,
+            pilot=args.pilot,
+            reclassify=args.reclassify,
+            new_only=args.new_only,
+            use_cache=use_cache,
+        )
+
+    if args.llm_render or args.llm_promote:
+        llm_json = out_dir / "llm-classifications.json"
+        if not llm_json.exists():
+            print(
+                f"ERROR: {llm_json} not found. Run with --classify first to generate it.",
+                file=sys.stderr,
+            )
+            sys.exit(2)
+        import llm_promote  # type: ignore
+
+        print(f"Building LLM-driven Java from {llm_json}...", file=sys.stderr)
+        # Preserve the slayer cross-tag loadout from Brief #50: every item
+        # currently in slayer (prayer pots, combat pots, top food, cannonballs,
+        # salve amulet, etc.) stays in slayer regardless of LLM placement.
+        syn_tabs, llm_classified, report = llm_promote.build_synthetic_tabs(
+            llm_json, mapping.TABS, items_by_id,
+            current_membership=current,
+            preserve_tabs=["slayer"],
+        )
+        # Render without legacy carry-over: LLM run is the new source of truth.
+        llm_proposed = render_proposed(
+            java_src, syn_tabs, llm_classified, current=None, additive=False,
+        )
+        llm_proposed_path = out_dir / "SkillBankData.java.llm-proposed"
+        llm_proposed_path.write_text(llm_proposed)
+        print(f"Wrote {llm_proposed_path}")
+
+        # Per-tab report
+        print("\nLLM tab summary:")
+        print(f"  {'tab':<18} {'count':>6}  {'ovr_add':>7}  {'ovr_drop':>8}  {'extra':>5}  {'preserved':>9}")
+        for tn in llm_promote.ALL_TAB_NAMES:
+            r = report["tabs"][tn]
+            print(
+                f"  {tn:<18} {r['count']:>6}  {r['override_added']:>7}  "
+                f"{r['override_dropped']:>8}  {r['extra_items_added']:>5}  {r['preserved']:>9}"
+            )
+
+        # Show a few override examples so it's obvious what came from mapping.py.
+        if report["override_adds_sample"]:
+            print("\nForce-include overrides (sample, name-based from mapping.py):")
+            for tab, ex in report["override_adds_sample"].items():
+                names = ", ".join(f"{n}({i})" for i, n in ex)
+                print(f"  +{tab}: {names}")
+        if report["override_drops_sample"]:
+            print("\nForce-exclude overrides (sample, name-based from mapping.py):")
+            for tab, ex in report["override_drops_sample"].items():
+                names = ", ".join(f"{n}({i})" for i, n in ex)
+                print(f"  -{tab}: {names}")
+
+        if args.llm_promote:
+            DATA_JAVA.write_text(llm_proposed)
+            print(f"\nPROMOTED → {DATA_JAVA}")
 
     if args.delta:
         print("Computing delta against live data...", file=sys.stderr)

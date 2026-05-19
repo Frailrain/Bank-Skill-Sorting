@@ -7,3 +7,7 @@ build
 nbactions.xml
 nb-configuration.xml
 nbproject/
+
+# Secrets — never commit
+.env
+tools/skillbank-data/.env

@@ -2995,7 +2995,16 @@ COSMETICS = TabSpec(
                 "Lava staff upgrade kit",
             }),
         )),
-        Section("Treasure Trail fashion (no stats)", _name_in(_TT_FASHION_NAMES)),
+        Section(
+            "Treasure Trail fashion (no stats)",
+            _name_in(_TT_FASHION_NAMES),
+            force_include=[
+                # Gnome fashion hats from Tree Gnome Stronghold — tradeable
+                # cosmetics. Added to override LLM's mage-only routing for
+                # IDs 656/660/662/664 (force_excluded from mage upstream).
+                "Pink hat", "Green hat", "Blue hat", "Cream hat", "Turquoise hat",
+            ],
+        ),
     ],
 )
 
