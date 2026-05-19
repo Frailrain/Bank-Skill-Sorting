@@ -635,6 +635,276 @@ def build_report(
     return "\n".join(summary_lines), "\n".join(diff_lines)
 
 
+# ── Trace mode (classifier diagnostic dump) ────────────────────────────────
+
+def describe_predicate(pred) -> str:
+    """Best-effort one-line description of a predicate by inspecting the
+    factory's closure cells. Falls back to qualname or repr if the predicate
+    isn't one of the mapping.py factories we know about."""
+    if pred is None:
+        return "(none)"
+    try:
+        qn = getattr(pred, "__qualname__", None) or repr(pred)
+        factory = qn.split(".")[0] if "." in qn else qn
+        freevars = pred.__code__.co_freevars if hasattr(pred, "__code__") else ()
+        closure = pred.__closure__ or ()
+        cells = {v: c.cell_contents for v, c in zip(freevars, closure)}
+
+        if factory == "_name_in":
+            names = cells.get("names_set")
+            if names is not None:
+                n = len(names)
+                sample = list(sorted(names))[:5]
+                return f"name_in (n={n}, e.g. {sample})"
+        if factory in ("_name_starts", "_name_ends", "_name_contains"):
+            toks = cells.get("toks_lower", ())
+            return f"{factory.lstrip('_')}({list(toks)})"
+        if factory == "_slot_pred":
+            return f"slot_pred(slot={cells.get('slot')!r}) — melee defence/offence dominance"
+        if factory == "_is_range_armour_slot":
+            return f"is_range_armour_slot(slot={cells.get('slot')!r}) — ranged defence dominance"
+        if factory == "_is_mage_armour_slot":
+            return f"is_mage_armour_slot(slot={cells.get('slot')!r}) — magic defence dominance"
+        if factory == "_is_range_weapon_type":
+            return f"is_range_weapon_type({list(cells.get('types_set', ()))})"
+        if factory == "_is_mage_weapon_type":
+            return f"is_mage_weapon_type({list(cells.get('types_set', ()))})"
+        if factory in ("_or", "_and"):
+            preds = cells.get("preds", ())
+            sub = [describe_predicate(p) for p in preds]
+            return f"{factory.lstrip('_')}([{' | '.join(sub)}])"
+        if factory == "_not":
+            return f"not({describe_predicate(cells.get('pred'))})"
+        # Functions defined at module level in mapping (e.g. _is_melee_weapon, _is_seed, etc.)
+        return factory
+    except Exception as e:
+        return f"{repr(pred)} ({e})"
+
+
+def trace_match(it: dict, sec) -> dict:
+    """Why did this item match this section? Returns {type, detail}."""
+    name = it.get("name", "")
+    if name in getattr(sec, "force_exclude", ()):
+        return {"type": "force_exclude_but_assigned", "detail": "<<bug — should not happen>>"}
+    if name in getattr(sec, "force_include", ()):
+        return {"type": "force_include", "detail": f"name in force_include list"}
+    try:
+        if sec.classifier(it):
+            return {"type": "predicate", "detail": describe_predicate(sec.classifier)}
+    except Exception as e:
+        return {"type": "predicate_error", "detail": str(e)}
+    return {"type": "unknown",
+            "detail": "(assigned but no clear match — possibly variant_allowlist or extra_items injection)"}
+
+
+def summarize_item_fields(it: dict) -> str:
+    """One-line summary of relevant wiki fields for the diagnostic report."""
+    fields = []
+    if it.get("slot"):
+        fields.append(f"slot={it['slot']}")
+    if it.get("weapon_type"):
+        fields.append(f"weapon_type={it['weapon_type']}")
+    eq = it.get("equipment") or {}
+    interesting = (
+        "attack_stab", "attack_slash", "attack_crush", "attack_magic", "attack_ranged",
+        "defence_stab", "defence_slash", "defence_crush", "defence_magic", "defence_ranged",
+        "melee_strength", "ranged_strength", "magic_damage", "prayer",
+    )
+    for k in interesting:
+        v = eq.get(k)
+        if v:
+            fields.append(f"{k}={v}")
+    for flag in ("members", "equipable", "equipable_weapon", "quest_item", "noted", "placeholder", "duplicate"):
+        if it.get(flag):
+            fields.append(f"{flag}=true")
+    return ", ".join(fields) if fields else "(no stat fields)"
+
+
+def diagnose_item_in_tab(it: dict, tab) -> list[dict]:
+    """For each section of tab, show whether this item matches or why not.
+    Returns a list of {section, result, reason} dicts. Stops at first MATCHED."""
+    results = []
+    name = it.get("name", "")
+    for sec in tab.sections:
+        entry = {"section": sec.label}
+        if name in getattr(sec, "force_exclude", ()):
+            entry["result"] = "EXCLUDED"
+            entry["reason"] = "name in force_exclude"
+            results.append(entry)
+            continue
+        if name in getattr(sec, "force_include", ()):
+            entry["result"] = "MATCHED"
+            entry["reason"] = "force_include"
+            results.append(entry)
+            return results
+        try:
+            matched = sec.classifier(it)
+        except Exception as e:
+            entry["result"] = "ERROR"
+            entry["reason"] = f"{describe_predicate(sec.classifier)}: {e}"
+            results.append(entry)
+            continue
+        if matched:
+            entry["result"] = "MATCHED"
+            entry["reason"] = describe_predicate(sec.classifier)
+            results.append(entry)
+            return results
+        else:
+            entry["result"] = "no match"
+            entry["reason"] = describe_predicate(sec.classifier)
+            results.append(entry)
+    return results
+
+
+# Canonical flagged items from Brief #50 part 1.
+# (item_name, optional_target_tab_for_why_not, prose_hint)
+FLAGGED_ITEMS: list[tuple[str, str | None, str]] = [
+    ("Rocky", None, "Thieving pet — should NOT be in cooking."),
+    ("Zombie axe", None, "Quest cosmetic — should NOT be in woodcutting."),
+    ("Graceful hood", "agility_thieving", "Should be in agility but isn't."),
+    ("Graceful set", None, "Currently in hunter — why?"),
+    ("Coins", "misc", "Should be misc, currently in hunter — why?"),
+    ("Eclipse moon helm", "range", "Eclipse moon set: melee placement OK but range missing."),
+    ("Eclipse moon chestplate", "range", "Eclipse moon set: range coverage check."),
+    ("Eclipse moon tassets", "range", "Eclipse moon set: range coverage check."),
+    ("Black gloves", None, "Currently in mage — why?"),
+    ("Ava's assembler", None, "Currently in mage — why? (Should be range cross-tag)"),
+    ("Green dragonhide", "crafting", "Untanned dragonhide — should be in crafting."),
+    ("Blue dragonhide", "crafting", "Untanned dragonhide — should be in crafting."),
+    ("Red dragonhide", "crafting", "Untanned dragonhide — should be in crafting."),
+    ("Black dragonhide", "crafting", "Untanned dragonhide — should be in crafting."),
+    ("Shark", None, "Top food — what rule puts food in mage? (Combat food cross-tag inspection)"),
+    ("Monkfish", None, "Top food — what rule puts food in mage?"),
+    ("Karambwan", None, "Top food — what rule puts food in mage?"),
+]
+
+
+def write_reasoning_report(
+    classified: dict[str, list[list[tuple[float, int, str]]]],
+    tabs: list,
+    items_by_id: dict[int, dict],
+    out_path: Path,
+) -> None:
+    """Generate the full per-item diagnostic dump."""
+    from datetime import datetime, timezone
+
+    # name -> canonical id (skip non-canonical IDs like the classifier does)
+    name_to_canonical: dict[str, int] = {}
+    for iid in sorted(items_by_id.keys()):
+        it = items_by_id[iid]
+        if it.get("noted") or it.get("placeholder") or it.get("duplicate"):
+            continue
+        nm = it.get("name") or ""
+        name_to_canonical.setdefault(nm, iid)
+
+    # Build assignments map: id -> [{tab, section, type, detail}]
+    assignments: dict[int, list[dict]] = {}
+    for tab in tabs:
+        for i, sec_items in enumerate(classified[tab.name]):
+            sec = tab.sections[i]
+            for _, iid, _name in sec_items:
+                it = items_by_id.get(iid, {})
+                tm = trace_match(it, sec)
+                assignments.setdefault(iid, []).append({
+                    "tab": tab.name,
+                    "section": sec.label,
+                    **tm,
+                })
+
+    lines: list[str] = []
+    lines.append("# Classifier reasoning dump")
+    lines.append("")
+    lines.append(f"Generated {datetime.now(timezone.utc).isoformat(timespec='seconds')}")
+    lines.append("")
+    lines.append("Per-item trace of which tab/section assigned each item, via which")
+    lines.append("match path. Predicate descriptors are introspected from the factory's")
+    lines.append("closure cells where possible; falls back to qualname for module-level")
+    lines.append("predicates and to repr() for anything unrecognized.")
+    lines.append("")
+
+    # FLAGGED MISCLASSIFICATIONS at top
+    lines.append("## FLAGGED MISCLASSIFICATIONS")
+    lines.append("")
+    lines.append("Specific items reported by in-game testing. Each block shows current")
+    lines.append("assignment(s), the rule that placed the item there, and (if a target")
+    lines.append("tab is given) why the item is or isn't matched by that tab's sections.")
+    lines.append("")
+    for name, target_tab, hint in FLAGGED_ITEMS:
+        lines.append(f"### {name}")
+        lines.append("")
+        lines.append(f"_{hint}_")
+        lines.append("")
+        iid = name_to_canonical.get(name)
+        if iid is None:
+            lines.append(f"- **Not found** in wiki dataset (or only present as noted/placeholder/duplicate).")
+            lines.append("")
+            continue
+        it = items_by_id[iid]
+        lines.append(f"- **ID**: {iid}")
+        lines.append(f"- **Wiki fields**: {summarize_item_fields(it)}")
+        asg = assignments.get(iid, [])
+        tabs_in = sorted({a["tab"] for a in asg})
+        lines.append(f"- **Currently assigned to**: {', '.join(tabs_in) if tabs_in else '_(no tabs)_'}")
+        if asg:
+            lines.append(f"- **Rules matched**:")
+            for a in asg:
+                lines.append(f"  - `{a['tab']}/{a['section']}`: **{a['type']}** — {a['detail']}")
+        if target_tab:
+            target = next((t for t in tabs if t.name == target_tab), None)
+            if target:
+                lines.append(f"- **Diagnostic for `{target_tab}` tab**:")
+                diag = diagnose_item_in_tab(it, target)
+                matched_any = False
+                for d in diag:
+                    if d["result"] == "MATCHED":
+                        lines.append(f"  - `{d['section']}`: ✓ **MATCHED** ({d['reason']})")
+                        matched_any = True
+                    elif d["result"] == "EXCLUDED":
+                        lines.append(f"  - `{d['section']}`: ✗ excluded (force_exclude)")
+                    elif d["result"] == "ERROR":
+                        lines.append(f"  - `{d['section']}`: ⚠ error — {d['reason']}")
+                    # Skip "no match" entries to keep report focused; readers can re-run
+                    # the diagnostic to see every section if needed.
+                if not matched_any:
+                    lines.append(f"  - **No section matched** — item is not classified into `{target_tab}`.")
+        lines.append("")
+
+    # Full per-tab dump
+    lines.append("## All assignments by tab")
+    lines.append("")
+    lines.append("Sorted alphabetically within each tab. The line shows section + match")
+    lines.append("path + predicate descriptor + cross-tag tabs + key wiki fields.")
+    lines.append("")
+    for tab in tabs:
+        items_in_tab: list[tuple[int, str, str]] = []
+        for i, sec_items in enumerate(classified[tab.name]):
+            for _, iid, name in sec_items:
+                items_in_tab.append((iid, name, tab.sections[i].label))
+        items_in_tab.sort(key=lambda x: (x[1].lower(), x[0]))
+
+        lines.append(f"### {tab.name} ({len(items_in_tab)} items)")
+        lines.append("")
+        for iid, name, sec_label in items_in_tab:
+            it = items_by_id.get(iid, {})
+            this_asg = next(
+                (a for a in assignments.get(iid, [])
+                 if a["tab"] == tab.name and a["section"] == sec_label),
+                None,
+            )
+            all_tabs = sorted({a["tab"] for a in assignments.get(iid, [])})
+            cross = [t for t in all_tabs if t != tab.name]
+            mt = this_asg["type"] if this_asg else "?"
+            det = this_asg["detail"] if this_asg else "?"
+            cross_str = f" · cross: {', '.join(cross)}" if cross else ""
+            lines.append(
+                f"- **{name}** (ID: {iid}) — `{sec_label}` · {mt} · {det}{cross_str}"
+            )
+            lines.append(f"  - {summarize_item_fields(it)}")
+        lines.append("")
+
+    out_path.write_text("\n".join(lines))
+
+
 # ── Delta mode ─────────────────────────────────────────────────────────────
 
 def compute_delta(
@@ -881,6 +1151,9 @@ def main():
     p.add_argument("--auto-promote", action="store_true",
                    help="with --delta, also write new auto-classified items back to SkillBankData.java. "
                         "Unclassified, removed, and reclassified items are never auto-promoted.")
+    p.add_argument("--trace", action="store_true",
+                   help="write out/classifier-reasoning.md — per-item diagnostic dump showing "
+                        "which tab/section assigned each item and via which match path.")
     args = p.parse_args()
 
     import wiki  # type: ignore
@@ -1014,6 +1287,12 @@ def main():
     if args.promote:
         DATA_JAVA.write_text(proposed)
         print(f"\nPROMOTED → {DATA_JAVA}")
+
+    if args.trace:
+        print("Writing classifier reasoning dump...", file=sys.stderr)
+        trace_path = out_dir / "classifier-reasoning.md"
+        write_reasoning_report(classified, tabs, items_by_id, trace_path)
+        print(f"Wrote {trace_path}")
 
     if args.delta:
         print("Computing delta against live data...", file=sys.stderr)
