@@ -323,4 +323,16 @@ public interface SkillBankConfig extends Config
 	{
 		return true;
 	}
+
+	@ConfigItem(
+		keyName = "tabCosmetics",
+		name = "cosmetics",
+		description = "Seed the cosmetics tag (Treasure trail/holiday cosmetic outfits, ornament kits, purely-visual items)",
+		section = tabsSection,
+		position = 20
+	)
+	default boolean tabCosmetics()
+	{
+		return true;
+	}
 }

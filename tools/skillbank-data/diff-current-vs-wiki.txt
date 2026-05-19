@@ -3,8 +3,31 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (43 items not in wiki output) ===
+=== melee (66 items not in wiki output) ===
+     315  Shrimps
+     319  Anchovies
+     325  Sardine
+     329  Salmon
+     333  Trout
+     339  Cod
+     347  Herring
+     351  Pike
+     355  Mackerel
+     361  Tuna
+     365  Bass
+     373  Swordfish
+     379  Lobster
+     385  Shark
+     391  Manta ray
+     397  Sea turtle
+    2149  Lava eel
+    3144  Cooked karambwan
+    3381  Cooked slimy eel
+    5003  Cave eel
+    7946  Monkfish
+   11936  Dark crab
    12596  Rangers' tunic
+   13441  Anglerfish
    19921  Ancient d'hide boots
    19924  Bandos d'hide boots
    19927  Guthix d'hide boots
@@ -48,7 +71,30 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26243  Virtus robe top
    26245  Virtus robe bottom
 
-=== range (8 items not in wiki output) ===
+=== range (31 items not in wiki output) ===
+     315  Shrimps
+     319  Anchovies
+     325  Sardine
+     329  Salmon
+     333  Trout
+     339  Cod
+     347  Herring
+     351  Pike
+     355  Mackerel
+     361  Tuna
+     365  Bass
+     373  Swordfish
+     379  Lobster
+     385  Shark
+     391  Manta ray
+     397  Sea turtle
+    2149  Lava eel
+    3144  Cooked karambwan
+    3381  Cooked slimy eel
+    5003  Cave eel
+    7946  Monkfish
+   11936  Dark crab
+   13441  Anglerfish
    22616  Vesta's chainbody
    22619  Vesta's plateskirt
    22625  Statius's full helm
@@ -58,16 +104,119 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26384  Torva platebody
    26386  Torva platelegs
 
-=== mage (9 items not in wiki output) ===
+=== mage (47 items not in wiki output) ===
+     315  Shrimps
+     319  Anchovies
+     325  Sardine
+     329  Salmon
+     333  Trout
+     339  Cod
+     347  Herring
+     351  Pike
+     355  Mackerel
+     361  Tuna
+     365  Bass
+     373  Swordfish
+     379  Lobster
+     385  Shark
+     391  Manta ray
+     397  Sea turtle
+    2149  Lava eel
+    3144  Cooked karambwan
+    3381  Cooked slimy eel
+    5003  Cave eel
+    7453  Hardleather gloves
+    7454  Bronze gloves
+    7455  Iron gloves
+    7456  Steel gloves
+    7457  Black gloves
+    7458  Mithril gloves
+    7459  Adamant gloves
+    7460  Rune gloves
+    7461  Dragon gloves
+    7462  Barrows gloves
+    7946  Monkfish
+    9756  Ranging cape
+    9948  Hunter cape
+   10498  Ava's attractor
+   10499  Ava's accumulator
+   11936  Dark crab
+   13441  Anglerfish
    19921  Ancient d'hide boots
    19924  Bandos d'hide boots
    19927  Guthix d'hide boots
    19930  Armadyl d'hide boots
    19933  Saradomin d'hide boots
    19936  Zamorak d'hide boots
+   22109  Ava's assembler
    22638  Morrigan's coif
    22641  Morrigan's leather body
    22644  Morrigan's leather chaps
+
+=== cooking (3 items not in wiki output) ===
+   13320  Heron
+   13322  Beaver
+   20663  Rocky
+
+=== wc_fletching (2 items not in wiki output) ===
+   28810  Zombie axe
+   33335  Soulreaper axe (o)
+
+=== crafting (54 items not in wiki output) ===
+   12526  Fury ornament kit
+   12528  Dark infinity colour kit
+   12530  Light infinity colour kit
+   12532  Dragon sq shield ornament kit
+   12534  Dragon chainbody ornament kit
+   12536  Dragon legs/skirt ornament kit
+   12538  Dragon full helm ornament kit
+   12798  Steam staff upgrade kit
+   12800  Dragon pickaxe upgrade kit
+   20002  Dragon scimitar ornament kit
+   20062  Torture ornament kit
+   20065  Occult ornament kit
+   20068  Armadyl godsword ornament kit
+   20071  Bandos godsword ornament kit
+   20074  Saradomin godsword ornament kit
+   20077  Zamorak godsword ornament kit
+   20143  Dragon defender ornament kit
+   21202  Lava staff upgrade kit
+   22231  Dragon boots ornament kit
+   22236  Dragon platebody ornament kit
+   22239  Dragon kiteshield ornament kit
+   22246  Anguish ornament kit
+   23227  Rune defender ornament kit
+   23232  Tzhaar-ket-om ornament kit
+   23237  Berserker necklace ornament kit
+   23348  Tormented ornament kit
+   24670  Twisted ancestral colour kit
+   25090  Trailblazer tool ornament kit
+   25099  Trailblazer graceful ornament kit
+   25742  Holy ornament kit
+   25744  Sanguine ornament kit
+   26421  Shattered relics variety ornament kit
+   26479  Shattered relics void ornament kit
+   26528  Shattered cannon ornament kit
+   26541  Shattered relics mystic ornament kit
+   26707  Dragon claws ornament kit
+   26709  Dragon warhammer ornament kit
+   26711  Heavy ballista ornament kit
+   26713  Armadyl armour ornament kit
+   26717  Bandos armour ornament kit
+   27098  Elder maul ornament kit
+   27113  Elder chaos robes ornament kit
+   27121  Dagon'hai robes ornament kit
+   27255  Menaphite ornament kit
+   28017  Bounty hunter ornament kit
+   28336  Ancient blood ornament kit
+   28684  Trailblazer reloaded bulwark ornament kit
+   28690  Trailblazer reloaded blowpipe ornament kit
+   30432  Echo venator bow ornament kit
+   30443  Echo virtus ornament kit
+   30451  Echo ahrim's ornament kit
+   33305  Demonic axe ornament kit
+   33308  Demonic staff ornament kit
+   33311  Demonic trident ornament kit
 
 === mining_smithing (34 items not in wiki output) ===
    20146  Gilded med helm
@@ -104,3 +253,258 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26382  Torva full helm
    26384  Torva platebody
    26386  Torva platelegs
+
+=== misc (253 items not in wiki output) ===
+     962  Christmas cracker
+     979  Highwayman mask
+     981  Disk of returning
+    1037  Bunny ears
+    1038  Red partyhat
+    1040  Yellow partyhat
+    1042  Blue partyhat
+    1044  Green partyhat
+    1046  Purple partyhat
+    1048  White partyhat
+    1050  Santa hat
+    1053  Green halloween mask
+    1055  Blue halloween mask
+    1057  Red halloween mask
+    1959  Pumpkin
+    1961  Easter egg
+    4558  Blue sweets
+    4559  Deep blue sweets
+    4560  White sweets
+    4562  Red sweets
+    4563  Green sweets
+    4564  Pink sweets
+    4565  Easter basket
+    4566  Rubber chicken
+    6100  Teleport crystal (3)
+    6101  Teleport crystal (2)
+    6102  Teleport crystal (1)
+    6180  Lederhosen top
+    6181  Lederhosen shorts
+    6182  Lederhosen hat
+    6183  Frog token
+    6184  Royal frog tunic
+    6185  Royal frog leggings
+    6186  Royal frog blouse
+    6187  Royal frog skirt
+    6188  Frog mask
+    6542  Present
+    6822  Star bauble
+    6828  Box bauble
+    6834  Diamond bauble
+    6840  Tree bauble
+    6846  Bell bauble
+    6852  Puppet box
+    6853  Bauble box
+    6856  Bobble hat
+    6857  Bobble scarf
+    6858  Jester hat
+    6859  Jester scarf
+    6860  Tri-jester hat
+    6861  Tri-jester scarf
+    6862  Woolly hat
+    6863  Woolly scarf
+    6864  Marionette handle
+    6865  Blue marionette
+    6866  Green marionette
+    6867  Red marionette
+    7592  Zombie shirt
+    7593  Zombie trousers
+    7594  Zombie mask
+    7595  Zombie gloves
+    7596  Zombie boots
+    7927  Easter ring
+    9920  Jack lantern mask
+    9921  Skeleton boots
+    9922  Skeleton gloves
+    9923  Skeleton leggings
+    9924  Skeleton shirt
+    9925  Skeleton mask
+   10476  Purple sweets
+   11019  Chicken feet
+   11020  Chicken wings
+   11021  Chicken head
+   11022  Chicken legs
+   11023  Magic egg
+   11024  Rabbit mould
+   11025  Chocolate chunks
+   11026  Chocolate kebbit
+   11847  Black h'ween mask
+   11862  Black partyhat
+   11863  Rainbow partyhat
+   12861  Thanksgiving dinner
+   12887  Santa mask
+   12888  Santa jacket
+   12889  Santa pantaloons
+   12890  Santa gloves
+   12891  Santa boots
+   12892  Antisanta mask
+   12893  Antisanta jacket
+   12894  Antisanta pantaloons
+   12895  Antisanta gloves
+   12896  Antisanta boots
+   12897  Antisanta's coal box
+   13173  Partyhat set
+   13175  Halloween mask set
+   13182  Bunny feet
+   13183  Empty blaster
+   13184  Incomplete blaster
+   13185  Easter blaster
+   13283  Gravedigger mask
+   13284  Gravedigger top
+   13285  Gravedigger leggings
+   13286  Gravedigger boots
+   13287  Gravedigger gloves
+   13288  Anti-panties
+   13343  Black santa hat
+   13344  Inverted santa hat
+   13345  Anti-present
+   13663  Bunny top
+   13664  Bunny legs
+   13665  Bunny paws
+   19958  Dark tuxedo jacket
+   19961  Dark tuxedo cuffs
+   19964  Dark trousers
+   19967  Dark tuxedo shoes
+   19970  Dark bow tie
+   19973  Light tuxedo jacket
+   19976  Light tuxedo cuffs
+   19979  Light trousers
+   19982  Light tuxedo shoes
+   19985  Light bow tie
+   20080  Mummy's head
+   20083  Mummy's body
+   20086  Mummy's hands
+   20089  Mummy's legs
+   20092  Mummy's feet
+   20095  Ankou mask
+   20098  Ankou top
+   20101  Ankou gloves
+   20104  Ankou's leggings
+   20107  Ankou socks
+   20433  Evil chicken feet
+   20436  Evil chicken wings
+   20439  Evil chicken head
+   20442  Evil chicken legs
+   20832  Snow globe
+   20834  Sack of presents
+   20836  Giant present
+   21208  Invitation list
+   21209  Birthday balloons
+   21211  4th birthday hat
+   21214  Easter egg helm
+   21216  Fruity easter egg
+   21217  Fresh easter egg
+   21218  Bitter easter egg
+   21219  Earthy easter egg
+   21220  Spicy easter egg
+   21221  Meaty easter egg
+   21222  Salted easter egg
+   21223  Rich easter egg
+   21224  Fluffy easter egg
+   21225  Smoked easter egg
+   21226  Fishy easter egg
+   21227  Crunchy easter egg
+   21228  Fruity chocolate mix
+   21229  Fresh chocolate mix
+   21230  Bitter chocolate mix
+   21231  Earthy chocolate mix
+   21232  Spicy chocolate mix
+   21233  Meaty chocolate mix
+   21234  Salted chocolate mix
+   21235  Rich chocolate mix
+   21236  Fluffy chocolate mix
+   21237  Smoked chocolate mix
+   21238  Fishy chocolate mix
+   21239  Crunchy chocolate mix
+   21847  Snow imp costume head
+   21849  Snow imp costume body
+   21851  Snow imp costume legs
+   21853  Snow imp costume tail
+   21855  Snow imp costume gloves
+   21857  Snow imp costume feet
+   21859  Wise old man's santa hat
+   21866  Santa suit
+   21867  Santa suit (wet)
+   21868  Santa suit (dry)
+   22351  Eggshell platebody
+   22353  Eggshell platelegs
+   22355  Holy handegg
+   22358  Peaceful handegg
+   22361  Chaotic handegg
+   22689  Clown mask
+   22692  Clown bow tie
+   22695  Clown gown
+   22698  Clown trousers
+   22701  Clown shoes
+   23946  Eternal teleport crystal
+   24030  Memoriam crystal (1)
+   24031  Memoriam crystal (2)
+   24032  Memoriam crystal (3)
+   24033  Memoriam crystal (4)
+   24305  Spooky hood
+   24307  Spooky robe
+   24309  Spooky skirt
+   24311  Spooky gloves
+   24313  Spooky boots
+   24315  Spookier hood
+   24317  Spookier robe
+   24319  Spookier skirt
+   24321  Spookier gloves
+   24323  Spookier boots
+   24325  Pumpkin lantern
+   24327  Skeleton lantern
+   24428  Green gingerbread shield
+   24430  Red gingerbread shield
+   24431  Blue gingerbread shield
+   24432  Festive cinnamon stick
+   24433  Festive ginger powder
+   24434  Festive egg
+   24435  Festive pot
+   24436  Festive flour
+   24437  Gingerbread shield
+   24438  Iced gingerbread shield
+   24977  Magical pumpkin
+   24980  Brown candy
+   24981  Blue candy
+   24982  White candy
+   24983  Purple candy
+   24984  Red candy
+   24985  Green candy
+   24986  Black candy
+   24987  Orange candy
+   24988  Pink candy
+   24989  Rick's box
+   24990  Rick's head
+   25322  20th anniversary hat
+   25324  20th anniversary top
+   25326  20th anniversary bottom
+   25328  20th anniversary boots
+   25330  20th anniversary gloves
+   25332  20th anniversary necklace
+   25334  20th anniversary cape
+   26280  Pink stained platebody
+   26282  Pink stained platelegs
+   26284  Pink stained full helm
+   26286  Clean platebody
+   26288  Clean platelegs
+   26290  Clean full helm
+   26292  Festive gingerbread gnomes
+   26294  Festive mulled wine
+   26298  Secret santa present
+   26304  Chocolate chips
+   26308  A big present
+   26310  Festive elf slippers
+   26312  Festive elf hat
+   26314  Snowman ring
+   26316  Secret santa present (red)
+   26326  Little snowball
+   26328  Small snowball
+   26330  Normal snowball
+   26332  Big snowball
+   26334  Large snowball
+   26336  Huge snowball
+   26338  Humongous snowball

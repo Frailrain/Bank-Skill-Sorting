@@ -353,6 +353,221 @@ _HOLIDAY_RARES = [
     "Purple partyhat", "White partyhat", "Santa hat",
 ]
 
+# Brief #50: items that belong in the dedicated cosmetics tab.
+# Event outfits, partyhat variants, Christmas/Halloween/Easter cosmetics,
+# trinkets and stat-less event rewards. Everything here is purely visual —
+# items with combat stats (Gilded armour, Robin hood hat, Ranger boots,
+# etc.) stay in their stat-relevant tabs.
+_COSMETIC_NAMES = set(_HOLIDAY_RARES) | {
+    # Easter event
+    "Blue sweets", "Deep blue sweets", "White sweets",
+    "Purple sweets", "Red sweets", "Green sweets", "Pink sweets",
+    "Easter basket", "Rubber chicken",
+    # Oktoberfest / Easter cosmetics
+    "Lederhosen top", "Lederhosen shorts", "Lederhosen hat",
+    "Frog token", "Frog mask",
+    "Royal frog tunic", "Royal frog leggings",
+    "Royal frog blouse", "Royal frog skirt",
+    # Teleport crystals (event-tier crystals — actual quest crystals live in misc)
+    "Teleport crystal (1)", "Teleport crystal (2)", "Teleport crystal (3)",
+    "Eternal teleport crystal",
+    # Christmas baubles + cosmetics
+    "Star bauble", "Box bauble", "Diamond bauble",
+    "Tree bauble", "Bell bauble", "Puppet box", "Bauble box",
+    "Bobble hat", "Bobble scarf",
+    "Jester hat", "Jester scarf",
+    "Tri-jester hat", "Tri-jester scarf",
+    "Woolly hat", "Woolly scarf",
+    "Marionette handle",
+    "Blue marionette", "Green marionette", "Red marionette",
+    # Halloween 2009 zombie outfit
+    "Zombie shirt", "Zombie trousers", "Zombie mask",
+    "Zombie gloves", "Zombie boots",
+    "Easter ring",
+    # Halloween skeleton outfit + Jack lantern mask
+    "Jack lantern mask",
+    "Skeleton boots", "Skeleton gloves", "Skeleton leggings",
+    "Skeleton shirt", "Skeleton mask",
+    # Easter 2007 chicken outfit + chocolate kebbit
+    "Chicken feet", "Chicken wings", "Chicken head", "Chicken legs",
+    "Magic egg",
+    "Rabbit mould", "Chocolate chunks", "Chocolate kebbit",
+    # Halloween + Christmas partyhats
+    "Black h'ween mask",
+    "Black partyhat", "Rainbow partyhat",
+    # Santa/Antisanta event + Thanksgiving
+    "Santa mask", "Santa jacket", "Santa pantaloons",
+    "Santa gloves", "Santa boots",
+    "Antisanta mask", "Antisanta jacket", "Antisanta pantaloons",
+    "Antisanta gloves", "Antisanta boots", "Antisanta's coal box",
+    "Thanksgiving dinner",
+    # Partyhat/Halloween set, Easter blaster, Gravedigger,
+    # Black/Inverted santa hat, Anti-present, Present
+    "Partyhat set", "Halloween mask set",
+    "Bunny feet", "Empty blaster", "Incomplete blaster", "Easter blaster",
+    "Gravedigger mask", "Gravedigger top", "Gravedigger leggings",
+    "Gravedigger boots", "Gravedigger gloves", "Anti-panties",
+    "Black santa hat", "Inverted santa hat",
+    "Anti-present", "Present",
+    # Bunny set Easter event
+    "Bunny top", "Bunny legs", "Bunny paws",
+    # Christmas 2017 Tuxedo, Halloween 2017 Mummy + Ankou
+    "Dark tuxedo jacket", "Dark tuxedo cuffs", "Dark trousers",
+    "Dark tuxedo shoes", "Dark bow tie",
+    "Light tuxedo jacket", "Light tuxedo cuffs", "Light trousers",
+    "Light tuxedo shoes", "Light bow tie",
+    "Mummy's head", "Mummy's body", "Mummy's hands",
+    "Mummy's legs", "Mummy's feet",
+    "Ankou mask", "Ankou top", "Ankou gloves",
+    "Ankou's leggings", "Ankou socks",
+    # Easter 2018 Evil chicken outfit
+    "Evil chicken feet", "Evil chicken wings",
+    "Evil chicken head", "Evil chicken legs",
+    # Christmas 2018 Snow globe set
+    "Snow globe", "Sack of presents", "Giant present",
+    # Memoriam crystals + Halloween 2019 Spooky + lanterns
+    "Memoriam crystal (1)", "Memoriam crystal (2)",
+    "Memoriam crystal (3)", "Memoriam crystal (4)",
+    "Spooky hood", "Spooky robe", "Spooky skirt",
+    "Spooky gloves", "Spooky boots",
+    "Spookier hood", "Spookier robe", "Spookier skirt",
+    "Spookier gloves", "Spookier boots",
+    "Pumpkin lantern", "Skeleton lantern",
+    # Christmas 2019 Gingerbread event
+    "Green gingerbread shield", "Red gingerbread shield",
+    "Blue gingerbread shield", "Gingerbread shield",
+    "Iced gingerbread shield",
+    "Festive cinnamon stick", "Festive ginger powder",
+    "Festive egg", "Festive pot", "Festive flour",
+    # Halloween 2020 candy event
+    "Magical pumpkin",
+    "Brown candy", "Blue candy", "White candy", "Purple candy",
+    "Red candy", "Green candy", "Black candy", "Orange candy",
+    "Pink candy",
+    "Rick's box", "Rick's head",
+    # RuneScape 20th Anniversary outfit
+    "20th anniversary hat", "20th anniversary top",
+    "20th anniversary bottom", "20th anniversary boots",
+    "20th anniversary gloves", "20th anniversary necklace",
+    "20th anniversary cape",
+    # Halloween 2021 stained armour + Christmas 2021 Festive
+    "Pink stained platebody", "Pink stained platelegs",
+    "Pink stained full helm",
+    "Clean platebody", "Clean platelegs", "Clean full helm",
+    "Festive gingerbread gnomes", "Festive mulled wine",
+    "Secret santa present", "Secret santa present (red)",
+    "Chocolate chips", "A big present",
+    "Festive elf slippers", "Festive elf hat", "Snowman ring",
+    "Little snowball", "Small snowball", "Normal snowball",
+    "Big snowball", "Large snowball", "Huge snowball",
+    "Humongous snowball",
+    # Christmas 2018 Wise Old Man event
+    "Snow imp costume head", "Snow imp costume body",
+    "Snow imp costume legs", "Snow imp costume tail",
+    "Snow imp costume gloves", "Snow imp costume feet",
+    "Wise old man's santa hat",
+    "Santa suit", "Santa suit (wet)", "Santa suit (dry)",
+    # Easter 2018 Eggshell + Handegg, Clown outfit
+    "Eggshell platebody", "Eggshell platelegs",
+    "Holy handegg", "Peaceful handegg", "Chaotic handegg",
+    "Clown mask", "Clown bow tie", "Clown gown", "Clown trousers",
+    "Clown shoes",
+    # Easter 2019 + RuneScape 4th Birthday
+    "Invitation list", "Birthday balloons", "4th birthday hat",
+    "Easter egg helm",
+    "Fruity easter egg", "Fresh easter egg", "Bitter easter egg",
+    "Earthy easter egg", "Spicy easter egg", "Meaty easter egg",
+    "Salted easter egg", "Rich easter egg", "Fluffy easter egg",
+    "Smoked easter egg", "Fishy easter egg", "Crunchy easter egg",
+    "Fruity chocolate mix", "Fresh chocolate mix", "Bitter chocolate mix",
+    "Earthy chocolate mix", "Spicy chocolate mix", "Meaty chocolate mix",
+    "Salted chocolate mix", "Rich chocolate mix", "Fluffy chocolate mix",
+    "Smoked chocolate mix", "Fishy chocolate mix", "Crunchy chocolate mix",
+}
+
+# Treasure Trail fashion (clue scroll cosmetic head/clothing with no stats).
+_TT_FASHION_NAMES = {
+    "Beanie", "Red beret", "Imp mask", "Goblin mask",
+    "Pith helmet", "Cavalier mask", "Beret mask", "Deerstalker",
+    "Crier coat", "Crier bell", "Crier hat", "Black leprechaun hat",
+    "Briefcase", "Sagacious spectacles", "Half moon spectacles",
+    "Musketeer hat", "Monocle", "Big pirate hat", "Leprechaun hat",
+    "Cat mask", "Bronze dragon mask", "Iron dragon mask",
+    "Steel dragon mask", "Mithril dragon mask", "Lava dragon mask",
+    "Green dragon mask", "Blue dragon mask", "Red dragon mask",
+    "Black dragon mask", "Adamant dragon mask", "Rune dragon mask",
+    "Penguin mask", "Afro", "Top hat", "Top hat & monocle",
+    "Wolf mask", "Wolf cloak", "Unicorn mask",
+    "Black unicorn mask", "White unicorn mask",
+    "Hornwood helm",
+    # Elegant outfits (clue trail fashion, no stats)
+    "Pink elegant shirt", "Pink elegant legs",
+    "Pink elegant blouse", "Pink elegant skirt",
+    "Gold elegant blouse", "Gold elegant skirt",
+    "Gold elegant shirt", "Gold elegant legs",
+    "Black elegant shirt", "Black elegant legs",
+    "Red elegant shirt", "Red elegant legs",
+    "Blue elegant shirt", "Blue elegant legs",
+    "Green elegant shirt", "Green elegant legs",
+    "Purple elegant shirt", "Purple elegant legs",
+    "White elegant blouse", "White elegant skirt",
+    "Red elegant blouse", "Red elegant skirt",
+    "Blue elegant blouse", "Blue elegant skirt",
+    "Green elegant blouse", "Green elegant skirt",
+    "Purple elegant blouse", "Purple elegant skirt",
+    # Cavalier hat colour variants
+    "White cavalier", "Red cavalier", "Navy cavalier",
+    # Bob's shirts (random event cosmetic)
+    "Bob's red shirt", "Bob's blue shirt", "Bob's green shirt",
+    "Bob's black shirt", "Bob's purple shirt",
+    # Boater hats
+    "Red boater", "Orange boater", "Green boater",
+    "Blue boater", "Black boater",
+    "Pink boater", "Purple boater", "White boater",
+    # Coloured headbands
+    "White headband", "Blue headband", "Gold headband",
+    "Pink headband", "Green headband",
+    # Random event cosmetic feet
+    "Mole slippers", "Frog slippers", "Bear feet", "Demon feet",
+    "Jester cape", "Shoulder parrot",
+    # Sandwich lady / Cooking random event cosmetic
+    "Sandwich lady hat", "Sandwich lady top", "Sandwich lady bottom",
+    "Golden chef's hat", "Golden apron",
+    # Royal gown + Partyhat & specs
+    "Royal gown top", "Royal gown bottom", "Royal crown",
+    "Partyhat & specs",
+    # Cabin Fever pirate cosmetic
+    "Pirate bandana", "Pirate hat", "Pirate hat & patch",
+    # Trouble Brewing naval cosmetic
+    "Blue naval shirt", "Green naval shirt", "Red naval shirt",
+    "Brown naval shirt", "Black naval shirt", "Purple naval shirt",
+    "Grey naval shirt",
+    "Blue tricorn hat", "Green tricorn hat", "Red tricorn hat",
+    "Brown tricorn hat", "Black tricorn hat", "Purple tricorn hat",
+    "Grey tricorn hat",
+    "Blue navy slacks", "Green navy slacks", "Red navy slacks",
+    "Brown navy slacks", "Black navy slacks", "Purple navy slacks",
+    "Grey navy slacks",
+    # Wise Old Man Christmas 2018 extras
+    "Enchanted curtains", "Enchanted snowy curtains",
+    # Misc cosmetic
+    "Ham joint", "Ale of the gods",
+    # Banshee Slayer Tower cosmetic
+    "Banshee mask", "Banshee top", "Banshee robe",
+    # Builder kit (Slug Menace) cosmetic
+    "Hard hat", "Builder's shirt", "Builder's trousers",
+    "Builder's boots",
+    # Bobby socks (Pollnivneach), Slayer cosmetic eyepatches
+    "Bandana eyepatch (white)", "Bandana eyepatch (red)",
+    "Bandana eyepatch (blue)", "Bandana eyepatch (brown)",
+    "Hat eyepatch",
+    # Kourend faction cosmetics
+    "Arceuus scarf", "Hosidius scarf", "Lovakengj scarf",
+    "Piscarilius scarf", "Shayzien scarf",
+    "Arceuus hood", "Hosidius hood", "Lovakengj hood",
+    "Piscarilius hood", "Shayzien hood",
+}
+
 # Quest cosmetic equipment with combat stats that should NOT land in melee.
 _QUEST_COSMETIC_MELEE = [
     "Cattleprod", "Khazard helmet", "Khazard armour", "Khazard cell keys",
@@ -409,8 +624,14 @@ def _is_melee_weapon(it):
     if wt == "axe":
         # osrsbox conflates wc axes and battleaxes under weapon_type='axe'.
         n = (it.get("name") or "").lower()
+        # Brief #50 fix: quest melee axes (Zombie axe etc.) have weapon_type='axe'
+        # but no "battleaxe" keyword. Detect them by melee strength threshold.
         if not any(k in n for k in ("battleaxe", "greataxe", "great axe")):
-            return False
+            if e_strength := (it.get("equipment") or {}).get("melee_strength", 0):
+                if e_strength < 50:
+                    return False
+            else:
+                return False
     # Exclude blackjacks (Thieving weapons, weapon_type='blunt') from melee.
     n_lower = (it.get("name") or "").lower()
     if "blackjack" in n_lower:
@@ -949,7 +1170,8 @@ MELEE = TabSpec(
         Section("Restores (cross-tag)",
                 _is_potion_family("super restore", "sanfew"),
                 sort_key=_potion_sort_key),
-        Section("Combat food", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
+        # Brief #50 fix: Combat food cross-tag removed from melee. Top food
+        # now lives in cooking + slayer loadout cross-tag only.
     ],
     variant_allowlist=[
         "Slayer helmet (i)", "Black mask (i)",
@@ -984,7 +1206,9 @@ RANGE = TabSpec(
         Section("Helmets", _is_range_armour_slot("head"),
                 force_include=["Robin hood hat", "Karil's coif", "Spined helm", "Snakeskin bandana",
                                "3rd age range coif", "Armadyl helmet",
-                               "Morrigan's coif"]
+                               "Morrigan's coif",
+                               # Brief #50 fix: Eclipse moon is hybrid melee/range
+                               "Eclipse moon helm"]
                 + [n for n in _GOD_DHIDE_NAMES if "coif" in n.lower()],
                 force_exclude=["Dharok's helm", "Guthan's helm", "Torag's helm", "Rogue mask",
                                "Granite helm", "Statius's full helm"]),
@@ -993,7 +1217,9 @@ RANGE = TabSpec(
                                "Studded body (g)", "Studded body (t)",
                                "3rd age range top", "Armadyl chestplate",
                                "Rangers' tunic", "Morrigan's leather body",
-                               "Leather body (g)"]
+                               "Leather body (g)",
+                               # Brief #50 fix: Eclipse moon hybrid set
+                               "Eclipse moon chestplate"]
                 + [n for n in _GOD_DHIDE_NAMES if "body" in n.lower()],
                 force_exclude=["Dharok's platebody", "Guthan's platebody", "Torag's platebody", "Rogue top",
                                "Granite body", "Bandos chestplate",
@@ -1004,7 +1230,9 @@ RANGE = TabSpec(
                                "Studded chaps (g)", "Studded chaps (t)",
                                "3rd age range legs", "Armadyl chainskirt",
                                "Morrigan's leather chaps",
-                               "Rangers' tights", "Leather chaps (g)"]
+                               "Rangers' tights", "Leather chaps (g)",
+                               # Brief #50 fix: Eclipse moon hybrid set
+                               "Eclipse moon tassets"]
                 + [n for n in _GOD_DHIDE_NAMES if "chaps" in n.lower()],
                 force_exclude=["Dharok's platelegs", "Guthan's chainskirt", "Torag's platelegs", "Rogue trousers", "Granite legs",
                                "Bandos tassets",
@@ -1046,7 +1274,8 @@ RANGE = TabSpec(
             "Feather", "Stripy feather", "Red feather", "Blue feather",
             "Yellow feather", "Orange feather", "Bone bolts",
         })),
-        Section("Combat food (cross-tag)", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
+        # Brief #50 fix: Combat food cross-tag removed from range and mage. Top
+        # food now lives in cooking + slayer loadout cross-tag only.
     ],
 )
 
@@ -1121,11 +1350,24 @@ MAGE = TabSpec(
                 + _3RD_AGE_RANGE_NAMES
                 + ["Leather vambraces", "Rogue gloves",
                    # session 34 — spiky vambraces colour variants are melee, not mage
-                   "Red spiky vambraces", "Black spiky vambraces"]),
+                   "Red spiky vambraces", "Black spiky vambraces",
+                   # Brief #50 fix: balanced tri-stat gloves have attack_magic=3
+                   # which triggers the mage predicate's early exit. They're not
+                   # mage gear, just have token magic stats.
+                   "Hardleather gloves", "Bronze gloves", "Iron gloves",
+                   "Steel gloves", "Black gloves", "Mithril gloves",
+                   "Adamant gloves", "Rune gloves", "Dragon gloves",
+                   "Barrows gloves"]),
         Section("Shields", _is_mage_armour_slot("shield")),
         Section("Capes", _is_mage_armour_slot("cape"),
                 force_include=["Lunar cape", "Magic hood", "Hitpoints hood"],
-                force_exclude=_QUEST_COSMETIC_CAPES),
+                force_exclude=_QUEST_COSMETIC_CAPES
+                # Brief #50 fix: Ava's capes are range — defence_magic dominance
+                # is a side effect, not the design intent. Force_exclude from mage.
+                + ["Ava's attractor", "Ava's accumulator", "Ava's assembler",
+                   "Ava's assembler (or)", "Trailblazer assembler",
+                   # Same issue for Diary capes that have defence_magic > defence_ranged.
+                   "Ranging cape", "Ranging cape(t)", "Hunter cape", "Hunter cape(t)"]),
         Section("Amulets", _is_mage_armour_slot("neck"),
                 force_include=["Amulet of magic (t)", "Amulet of glory (t)",
                                "Amulet of fury (or)", "Occult necklace (or)"],
@@ -1178,7 +1420,8 @@ MAGE = TabSpec(
         Section("Bracelet ornament variants", _name_in({
             "Tormented bracelet (or)",
         })),
-        Section("Combat food (cross-tag)", _is_cooked_fish, sort_key=_cooked_fish_sort_key),
+        # Brief #50 fix: Combat food cross-tag removed from range and mage. Top
+        # food now lives in cooking + slayer loadout cross-tag only.
     ],
     variant_allowlist=[
         "Imbued saradomin cape", "Imbued zamorak cape", "Imbued guthix cape",
@@ -1426,14 +1669,18 @@ COOKING = TabSpec(
                 "Watermelon slice", "Mushroom", "Barley", "Barley malt",
             }),
         )),
-        Section("Cooking pet & misc", _name_in({"Rocky", "Heron", "Beaver", "Pet hellpuppy", "Pet kitten"})),
+        # Brief #50 fix: Rocky removed (Thieving pet, not cooking). Heron is fishing,
+        # Beaver is woodcutting — leave them as cross-tag with cooking pet section is
+        # historically inclusive of all skill pets, but the real homes are elsewhere.
+        Section("Cooking pet & misc", _name_in({"Pet hellpuppy", "Pet kitten"})),
     ],
 )
 
 # === WC + FLETCHING ===
 def _is_wc_axe(it):
     """Woodcutting axe — weapon_type='axe' but exclude battleaxes/greataxes
-    which osrsbox lumps under the same weapon_type."""
+    which osrsbox lumps under the same weapon_type. Also exclude quest
+    cosmetic 'axe' weapons that aren't actual woodcutting tools (Brief #50)."""
     if _wtype(it) != "axe" or _is_noise(it):
         return False
     if _slot(it) not in ("weapon", "2h"):
@@ -1441,7 +1688,20 @@ def _is_wc_axe(it):
     n = (it.get("name") or "").lower()
     if any(k in n for k in ("battleaxe", "greataxe", "great axe")):
         return False
+    if it.get("name") in _WC_AXE_FORCE_EXCLUDE:
+        return False
+    # If the item has melee combat strength but no woodcutting tool indicators,
+    # it's a quest combat weapon classed as 'axe' by osrsbox — exclude.
+    e = _eq(it)
+    if e.get("melee_strength", 0) >= 50:
+        return False
     return True
+
+
+# Quest/cosmetic 'axe' weapons that aren't woodcutting tools.
+_WC_AXE_FORCE_EXCLUDE = {
+    "Zombie axe",
+}
 
 
 WC_FLETCHING = TabSpec(
@@ -1515,6 +1775,7 @@ WC_FLETCHING = TabSpec(
                     "forestry" in (it.get("name") or "").lower()
                     or "anima " in (it.get("name") or "").lower()  # "Anima " (Forestry items use Anima/anima as a prefix-word, not anywhere)
                     or (it.get("name") or "").startswith("Sturdy ")
+                    or "felling axe" in (it.get("name") or "").lower()
                 ),
                 force_exclude=["Animal skull"]),
         Section("Capes & pet", _name_in({
@@ -1675,14 +1936,8 @@ CRAFTING = TabSpec(
             # session 55 — Celastrus bark (Magic shortbow material)
             "Celastrus bark",
         })),
-        Section("Ornament kits", _or(
-            _name_ends(" ornament kit"),
-            _name_ends(" colour kit"),
-            _name_in({
-                "Steam staff upgrade kit", "Dragon pickaxe upgrade kit",
-                "Lava staff upgrade kit",
-            }),
-        )),
+        # NOTE (brief #50): Ornament kits moved to COSMETICS tab — they're
+        # cosmetic appliers, not crafting materials proper.
         Section("Pottery", _name_in({
             "Soft clay", "Clay", "Unfired bowl", "Unfired pie dish",
             "Unfired pot", "Unfired plant pot",
@@ -1750,6 +2005,10 @@ MINING_SMITHING = TabSpec(
             # session 51 — Mining guild gloves variants
             "Mining gloves", "Superior mining gloves", "Expert mining gloves",
         })),
+        # Brief #50: Varrock armour grants free pickaxe action; cross-tag with mining.
+        Section("Varrock armour (Varrock Diary mining buff)", _or(
+            _name_starts("Varrock armour"),
+        )),
         Section("Ores", _is_ore, sort_key=_ore_sort_key),
         Section("Bars", _is_bar, sort_key=_bar_sort_key),
         Section("Smithing outputs", _name_in({
@@ -2095,6 +2354,74 @@ SLAYER = TabSpec(
             # session 38 — Dragon Slayer trophy
             "Elvarg's head",
         })),
+        # Brief #50: Slayer loadout cross-tags. Slayer is encompassing combat
+        # activity — the tab acts as a one-shot "ready for a slayer trip" view.
+        # Cross-tags pull in top food / combat potions / utility teleports /
+        # bone/loot utility. Combat GEAR stays in melee/range/mage; only
+        # slayer-specific gear lives here directly.
+        Section("Top food (cross-tag)", _name_in({
+            "Shark", "Manta ray", "Anglerfish", "Dark crab",
+            "Karambwan", "Sea turtle", "Tuna potato", "Monkfish",
+            "Saradomin brew(4)", "Saradomin brew(3)",
+            "Saradomin brew(2)", "Saradomin brew(1)",
+        })),
+        Section("Combat potions (cross-tag)", _or(
+            _is_potion_family(
+                "super combat", "super strength", "super attack", "super defence",
+                "divine super", "ranging potion", "divine ranging",
+                "super ranging",
+                "prayer potion", "super restore", "sanfew", "saradomin brew",
+                "super magic potion",
+            ),
+            _name_in({
+                "Bastion potion(4)", "Bastion potion(3)",
+                "Bastion potion(2)", "Bastion potion(1)",
+                "Battlemage potion(4)", "Battlemage potion(3)",
+                "Battlemage potion(2)", "Battlemage potion(1)",
+                "Super antifire potion(4)", "Super antifire potion(3)",
+                "Super antifire potion(2)", "Super antifire potion(1)",
+                "Extended super antifire(4)", "Extended super antifire(3)",
+                "Extended super antifire(2)", "Extended super antifire(1)",
+                "Antidote+(4)", "Antidote+(3)", "Antidote+(2)", "Antidote+(1)",
+                "Anti-venom+(4)", "Anti-venom+(3)",
+                "Anti-venom+(2)", "Anti-venom+(1)",
+            }),
+        ), sort_key=_potion_sort_key),
+        Section("Teleport utility (cross-tag)", _name_in({
+            # Slayer-flavoured teleports + house tab + fairy ring access.
+            "Teleport to house", "Construct. cape teleport",
+            "Slayer ring", "Slayer ring (eternal)",
+            "Slayer ring(8)", "Slayer ring(7)", "Slayer ring(6)",
+            "Slayer ring(5)", "Slayer ring(4)", "Slayer ring(3)",
+            "Slayer ring(2)", "Slayer ring(1)",
+            "Dramen staff", "Lunar staff",
+            "Ring of dueling(8)", "Ring of dueling(7)", "Ring of dueling(6)",
+            "Ring of dueling(5)", "Ring of dueling(4)", "Ring of dueling(3)",
+            "Ring of dueling(2)", "Ring of dueling(1)",
+            "Burning amulet(5)", "Burning amulet(4)", "Burning amulet(3)",
+            "Burning amulet(2)", "Burning amulet(1)",
+            "Skills necklace", "Skills necklace(6)", "Skills necklace(5)",
+            "Skills necklace(4)", "Skills necklace(3)",
+            "Skills necklace(2)", "Skills necklace(1)",
+            "Necklace of passage(5)", "Necklace of passage(4)",
+            "Necklace of passage(3)", "Necklace of passage(2)",
+            "Necklace of passage(1)",
+            "Amulet of glory(6)", "Amulet of glory(4)", "Amulet of glory(3)",
+            "Amulet of glory(2)", "Amulet of glory(1)",
+            "Xeric's talisman",
+        })),
+        Section("Storage & utility (cross-tag)", _name_in({
+            "Rune pouch", "Divine rune pouch",
+            "Herb sack", "Open herb sack",
+            "Gem bag", "Open gem bag",
+            "Coal bag", "Open coal bag",
+            "Looting bag", "Open looting bag",
+            "Bonecrusher", "Bonecrusher necklace", "Ash sanctifier",
+            "Avas attractor", "Ava's attractor", "Ava's accumulator",
+            "Ava's assembler", "Ava's assembler (or)",
+            "Imbued heart",
+            "Eternal slayer ring", "Slayer ring (eternal)",
+        })),
     ],
     variant_allowlist=[
         "Slayer helmet (i)", "Black mask (i)",
@@ -2193,6 +2520,8 @@ RUNECRAFT = TabSpec(
         })),
         Section("RC accessories", _name_in({
             "Binding necklace",
+            # Brief #50 fix: Abyssal lantern (Guardians of the Rift)
+            "Abyssal lantern",
         })),
         Section("Essence intermediates", _name_in({
             "Dark essence fragments", "Dark essence block",
@@ -2494,138 +2823,8 @@ MISC = TabSpec(
             # session 63 — Tombs of Amascut passive prayer regen ring
             "Lightbearer",
         })),
-        Section("Holiday rares & cosmetics", _or(
-            _name_in(set(_HOLIDAY_RARES) | {
-                # Easter event
-                "Blue sweets", "Deep blue sweets", "White sweets",
-                "Purple sweets", "Red sweets", "Green sweets", "Pink sweets",
-                "Easter basket", "Rubber chicken",
-                # Oktoberfest / Easter cosmetics
-                "Lederhosen top", "Lederhosen shorts", "Lederhosen hat",
-                "Frog token", "Frog mask",
-                "Royal frog tunic", "Royal frog leggings",
-                "Royal frog blouse", "Royal frog skirt",
-                # Teleport crystals
-                "Teleport crystal (1)", "Teleport crystal (2)", "Teleport crystal (3)",
-                "Eternal teleport crystal",
-                # Christmas baubles + cosmetics
-                "Star bauble", "Box bauble", "Diamond bauble",
-                "Tree bauble", "Bell bauble", "Puppet box", "Bauble box",
-                "Bobble hat", "Bobble scarf",
-                "Jester hat", "Jester scarf",
-                "Tri-jester hat", "Tri-jester scarf",
-                "Woolly hat", "Woolly scarf",
-                "Marionette handle",
-                "Blue marionette", "Green marionette", "Red marionette",
-                # Halloween 2009 zombie outfit
-                "Zombie shirt", "Zombie trousers", "Zombie mask",
-                "Zombie gloves", "Zombie boots",
-                # session 28 — Easter ring + Easter egg (cosmetic event item)
-                "Easter ring",
-                # session 34 — Halloween skeleton outfit + Jack lantern mask
-                "Jack lantern mask",
-                "Skeleton boots", "Skeleton gloves", "Skeleton leggings",
-                "Skeleton shirt", "Skeleton mask",
-                # session 37 — Easter 2007 chicken outfit + chocolate kebbit
-                "Chicken feet", "Chicken wings", "Chicken head", "Chicken legs",
-                "Magic egg",
-                "Rabbit mould", "Chocolate chunks", "Chocolate kebbit",
-                # session 39 — Halloween + Christmas partyhats
-                "Black h'ween mask",
-                "Black partyhat", "Rainbow partyhat",
-                # session 43 — Santa/Antisanta event + Thanksgiving
-                "Santa mask", "Santa jacket", "Santa pantaloons",
-                "Santa gloves", "Santa boots",
-                "Antisanta mask", "Antisanta jacket", "Antisanta pantaloons",
-                "Antisanta gloves", "Antisanta boots", "Antisanta's coal box",
-                "Thanksgiving dinner",
-                # session 44 — Partyhat/Halloween set, Easter blaster, Gravedigger,
-                # Black/Inverted santa hat, Anti-present, Present
-                "Partyhat set", "Halloween mask set",
-                "Bunny feet", "Empty blaster", "Incomplete blaster", "Easter blaster",
-                "Gravedigger mask", "Gravedigger top", "Gravedigger leggings",
-                "Gravedigger boots", "Gravedigger gloves", "Anti-panties",
-                "Black santa hat", "Inverted santa hat",
-                "Anti-present", "Present",
-                # session 45 — Bunny set Easter event
-                "Bunny top", "Bunny legs", "Bunny paws",
-                # session 47 — Christmas 2017 Tuxedo, Halloween 2017 Mummy + Ankou
-                "Dark tuxedo jacket", "Dark tuxedo cuffs", "Dark trousers",
-                "Dark tuxedo shoes", "Dark bow tie",
-                "Light tuxedo jacket", "Light tuxedo cuffs", "Light trousers",
-                "Light tuxedo shoes", "Light bow tie",
-                "Mummy's head", "Mummy's body", "Mummy's hands",
-                "Mummy's legs", "Mummy's feet",
-                "Ankou mask", "Ankou top", "Ankou gloves",
-                "Ankou's leggings", "Ankou socks",
-                # session 48 — Easter 2018 Evil chicken outfit
-                "Evil chicken feet", "Evil chicken wings",
-                "Evil chicken head", "Evil chicken legs",
-                # session 49 — Christmas 2018 Snow globe set
-                "Snow globe", "Sack of presents", "Giant present",
-                # session 59 — Memoriam crystals + Halloween 2019 Spooky + lanterns
-                "Memoriam crystal (1)", "Memoriam crystal (2)",
-                "Memoriam crystal (3)", "Memoriam crystal (4)",
-                "Spooky hood", "Spooky robe", "Spooky skirt",
-                "Spooky gloves", "Spooky boots",
-                "Spookier hood", "Spookier robe", "Spookier skirt",
-                "Spookier gloves", "Spookier boots",
-                "Pumpkin lantern", "Skeleton lantern",
-                # session 60 — Christmas 2019 Gingerbread event
-                "Green gingerbread shield", "Red gingerbread shield",
-                "Blue gingerbread shield", "Gingerbread shield",
-                "Iced gingerbread shield",
-                "Festive cinnamon stick", "Festive ginger powder",
-                "Festive egg", "Festive pot", "Festive flour",
-                # session 61 — Halloween 2020 candy event
-                "Magical pumpkin",
-                "Brown candy", "Blue candy", "White candy", "Purple candy",
-                "Red candy", "Green candy", "Black candy", "Orange candy",
-                "Pink candy",
-                "Rick's box", "Rick's head",
-                # session 62 — RuneScape 20th Anniversary outfit
-                "20th anniversary hat", "20th anniversary top",
-                "20th anniversary bottom", "20th anniversary boots",
-                "20th anniversary gloves", "20th anniversary necklace",
-                "20th anniversary cape",
-                # session 64 — Halloween 2021 stained armour + Christmas 2021 Festive
-                "Pink stained platebody", "Pink stained platelegs",
-                "Pink stained full helm",
-                "Clean platebody", "Clean platelegs", "Clean full helm",
-                "Festive gingerbread gnomes", "Festive mulled wine",
-                "Secret santa present", "Secret santa present (red)",
-                "Chocolate chips", "A big present",
-                "Festive elf slippers", "Festive elf hat", "Snowman ring",
-                "Little snowball", "Small snowball", "Normal snowball",
-                "Big snowball", "Large snowball", "Huge snowball",
-                "Humongous snowball",
-                # session 52 — Christmas 2018 Wise Old Man event
-                "Snow imp costume head", "Snow imp costume body",
-                "Snow imp costume legs", "Snow imp costume tail",
-                "Snow imp costume gloves", "Snow imp costume feet",
-                "Wise old man's santa hat",
-                "Santa suit", "Santa suit (wet)", "Santa suit (dry)",
-                # session 54 — Easter 2018 Eggshell + Handegg, Clown outfit
-                "Eggshell platebody", "Eggshell platelegs",
-                "Holy handegg", "Peaceful handegg", "Chaotic handegg",
-                "Clown mask", "Clown bow tie", "Clown gown", "Clown trousers",
-                # session 55 — Clown shoes
-                "Clown shoes",
-                # session 50 — Easter 2019 + RuneScape 4th Birthday
-                "Invitation list", "Birthday balloons", "4th birthday hat",
-                "Easter egg helm",
-                "Fruity easter egg", "Fresh easter egg", "Bitter easter egg",
-                "Earthy easter egg", "Spicy easter egg", "Meaty easter egg",
-                "Salted easter egg", "Rich easter egg", "Fluffy easter egg",
-                "Smoked easter egg", "Fishy easter egg", "Crunchy easter egg",
-                "Fruity chocolate mix", "Fresh chocolate mix", "Bitter chocolate mix",
-                "Earthy chocolate mix", "Spicy chocolate mix", "Meaty chocolate mix",
-                "Salted chocolate mix", "Rich chocolate mix", "Fluffy chocolate mix",
-                "Smoked chocolate mix", "Fishy chocolate mix", "Crunchy chocolate mix",
-            }),
-            _name_ends(" sweets"),
-            _name_ends(" marionette"),
-        )),
+        # NOTE (brief #50): Holiday rares & cosmetics moved to COSMETICS tab.
+        # The full set is in `_COSMETIC_NAMES` near top of file.
         Section("Team capes (Castle Wars)",
                 lambda it: (it.get("name") or "").startswith("Team-") and
                            (it.get("name") or "").endswith(" cape")),
@@ -2775,8 +2974,34 @@ SAILING = TabSpec(
 )
 
 
+# === COSMETICS ===
+# Brief #50 tab #21: items that are purely visual — Treasure Trail reward
+# cosmetics, holiday event outfits, ornament kits (the kit item itself,
+# not the applied result). Items with real combat or skill stats stay in
+# their stat-relevant tabs.
+COSMETICS = TabSpec(
+    name="cosmetics", const_name="TAG_COSMETICS",
+    sections=[
+        Section("Holiday rares & event cosmetics", _or(
+            _name_in(_COSMETIC_NAMES),
+            _name_ends(" sweets"),
+            _name_ends(" marionette"),
+        )),
+        Section("Ornament kits", _or(
+            _name_ends(" ornament kit"),
+            _name_ends(" colour kit"),
+            _name_in({
+                "Steam staff upgrade kit", "Dragon pickaxe upgrade kit",
+                "Lava staff upgrade kit",
+            }),
+        )),
+        Section("Treasure Trail fashion (no stats)", _name_in(_TT_FASHION_NAMES)),
+    ],
+)
+
+
 TABS: list[TabSpec] = [
     MELEE, RANGE, MAGE, PRAYER, COOKING, WC_FLETCHING, FISHING, FIREMAKING,
     CRAFTING, MINING_SMITHING, HERBLORE, AGILITY_THIEVING, SLAYER, FARMING,
-    RUNECRAFT, HUNTER, CONSTRUCTION, MISC, QUESTS, SAILING,
+    RUNECRAFT, HUNTER, CONSTRUCTION, MISC, QUESTS, SAILING, COSMETICS,
 ]

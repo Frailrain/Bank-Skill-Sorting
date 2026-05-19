@@ -437,6 +437,7 @@ public class SkillBankPlugin extends Plugin
 		toggles.put(SkillBankData.TAG_MISC, config::tabMisc);
 		toggles.put(SkillBankData.TAG_QUESTS, config::tabQuests);
 		toggles.put(SkillBankData.TAG_SAILING, config::tabSailing);
+		toggles.put(SkillBankData.TAG_COSMETICS, config::tabCosmetics);
 		BooleanSupplier s = toggles.get(tagName);
 		return s != null && s.getAsBoolean();
 	}

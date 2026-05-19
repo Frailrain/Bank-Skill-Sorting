@@ -1,6 +1,6 @@
 # Classifier reasoning dump
 
-Generated 2026-05-19T01:13:24+00:00
+Generated 2026-05-19T01:39:21+00:00
 
 Per-item trace of which tab/section assigned each item, via which
 match path. Predicate descriptors are introspected from the factory's
@@ -19,9 +19,8 @@ _Thieving pet — should NOT be in cooking._
 
 - **ID**: 20663
 - **Wiki fields**: members=true
-- **Currently assigned to**: agility_thieving, cooking
+- **Currently assigned to**: agility_thieving
 - **Rules matched**:
-  - `cooking/Cooking pet & misc`: **predicate** — name_in (n=5, e.g. ['Beaver', 'Heron', 'Pet hellpuppy', 'Pet kitten', 'Rocky'])
   - `agility_thieving/Capes & pets`: **predicate** — name_in (n=8, e.g. ['Agility cape', 'Agility cape(t)', 'Agility hood', 'Giant squirrel', 'Rocky'])
 
 ### Zombie axe
@@ -30,9 +29,9 @@ _Quest cosmetic — should NOT be in woodcutting._
 
 - **ID**: 28810
 - **Wiki fields**: attack_stab=-3, attack_slash=105, attack_crush=90, defence_stab=-1, defence_ranged=-1, melee_strength=107, members=true, equipable=true, equipable_weapon=true
-- **Currently assigned to**: wc_fletching
+- **Currently assigned to**: melee
 - **Rules matched**:
-  - `wc_fletching/Axes`: **predicate** — _is_wc_axe
+  - `melee/Weapons`: **predicate** — _is_melee_weapon
 
 ### Graceful hood
 
@@ -70,11 +69,12 @@ _Eclipse moon set: melee placement OK but range missing._
 
 - **ID**: 29010
 - **Wiki fields**: attack_magic=-6, attack_ranged=8, defence_stab=2, defence_slash=3, defence_crush=14, defence_magic=10, defence_ranged=4, melee_strength=3, members=true, equipable=true
-- **Currently assigned to**: melee
+- **Currently assigned to**: melee, range
 - **Rules matched**:
   - `melee/Helmets`: **predicate** — slot_pred(slot='head') — melee defence/offence dominance
+  - `range/Helmets`: **force_include** — name in force_include list
 - **Diagnostic for `range` tab**:
-  - **No section matched** — item is not classified into `range`.
+  - `Helmets`: ✓ **MATCHED** (force_include)
 
 ### Eclipse moon chestplate
 
@@ -82,11 +82,12 @@ _Eclipse moon set: range coverage check._
 
 - **ID**: 29004
 - **Wiki fields**: attack_magic=-15, attack_ranged=31, defence_stab=15, defence_slash=18, defence_crush=57, defence_magic=55, defence_ranged=32, melee_strength=3, members=true, equipable=true
-- **Currently assigned to**: melee
+- **Currently assigned to**: melee, range
 - **Rules matched**:
   - `melee/Body armour`: **predicate** — slot_pred(slot='body') — melee defence/offence dominance
+  - `range/Body`: **force_include** — name in force_include list
 - **Diagnostic for `range` tab**:
-  - **No section matched** — item is not classified into `range`.
+  - `Body`: ✓ **MATCHED** (force_include)
 
 ### Eclipse moon tassets
 
@@ -94,11 +95,12 @@ _Eclipse moon set: range coverage check._
 
 - **ID**: 29007
 - **Wiki fields**: attack_magic=-15, attack_ranged=17, defence_stab=9, defence_slash=13, defence_crush=37, defence_magic=31, defence_ranged=17, melee_strength=1, members=true, equipable=true
-- **Currently assigned to**: melee
+- **Currently assigned to**: melee, range
 - **Rules matched**:
   - `melee/Legs`: **predicate** — slot_pred(slot='legs') — melee defence/offence dominance
+  - `range/Legs`: **force_include** — name in force_include list
 - **Diagnostic for `range` tab**:
-  - **No section matched** — item is not classified into `range`.
+  - `Legs`: ✓ **MATCHED** (force_include)
 
 ### Black gloves
 
@@ -106,11 +108,10 @@ _Currently in mage — why?_
 
 - **ID**: 7457
 - **Wiki fields**: attack_stab=5, attack_slash=5, attack_crush=5, attack_magic=3, attack_ranged=5, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=5, members=true, equipable=true
-- **Currently assigned to**: mage, melee, range
+- **Currently assigned to**: melee, range
 - **Rules matched**:
   - `melee/Gloves`: **predicate** — slot_pred(slot='hands') — melee defence/offence dominance
   - `range/Gloves`: **predicate** — is_range_armour_slot(slot='hands') — ranged defence dominance
-  - `mage/Gloves`: **predicate** — is_mage_armour_slot(slot='hands') — magic defence dominance
 
 ### Ava's assembler
 
@@ -118,10 +119,10 @@ _Currently in mage — why? (Should be range cross-tag)_
 
 - **ID**: 22109
 - **Wiki fields**: attack_ranged=8, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=8, defence_ranged=2, ranged_strength=2, members=true, equipable=true
-- **Currently assigned to**: mage, range
+- **Currently assigned to**: range, slayer
 - **Rules matched**:
   - `range/Capes`: **predicate** — is_range_armour_slot(slot='cape') — ranged defence dominance
-  - `mage/Capes`: **predicate** — is_mage_armour_slot(slot='cape') — magic defence dominance
+  - `slayer/Storage & utility (cross-tag)`: **predicate** — name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"])
 
 ### Green dragonhide
 
@@ -181,12 +182,10 @@ _Top food — what rule puts food in mage? (Combat food cross-tag inspection)_
 
 - **ID**: 385
 - **Wiki fields**: members=true
-- **Currently assigned to**: cooking, mage, melee, range
+- **Currently assigned to**: cooking, slayer
 - **Rules matched**:
-  - `melee/Combat food`: **predicate** — _is_cooked_fish
-  - `range/Combat food (cross-tag)`: **predicate** — _is_cooked_fish
-  - `mage/Combat food (cross-tag)`: **predicate** — _is_cooked_fish
   - `cooking/Cooked fish`: **predicate** — _is_cooked_fish
+  - `slayer/Top food (cross-tag)`: **predicate** — name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish'])
 
 ### Monkfish
 
@@ -194,12 +193,10 @@ _Top food — what rule puts food in mage?_
 
 - **ID**: 7946
 - **Wiki fields**: members=true
-- **Currently assigned to**: cooking, mage, melee, range
+- **Currently assigned to**: cooking, slayer
 - **Rules matched**:
-  - `melee/Combat food`: **predicate** — _is_cooked_fish
-  - `range/Combat food (cross-tag)`: **predicate** — _is_cooked_fish
-  - `mage/Combat food (cross-tag)`: **predicate** — _is_cooked_fish
   - `cooking/Cooked fish`: **predicate** — _is_cooked_fish
+  - `slayer/Top food (cross-tag)`: **predicate** — name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish'])
 
 ### Karambwan
 
@@ -212,12 +209,14 @@ _Top food — what rule puts food in mage?_
 Sorted alphabetically within each tab. The line shows section + match
 path + predicate descriptor + cross-tag tabs + key wiki fields.
 
-### melee (1385 items)
+### melee (1367 items)
 
 - **3rd age cloak** (ID: 12437) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: mage, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, prayer=5, members=true, equipable=true
 - **3rd age druidic cloak** (ID: 23345) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: mage, range
   - attack_magic=1, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, prayer=3, members=true, equipable=true
+- **3rd age felling axe** (ID: 28226) — `Weapons` · predicate · _is_melee_weapon · cross: wc_fletching
+  - attack_stab=-3, attack_slash=60, attack_crush=51, defence_slash=1, melee_strength=67, members=true, equipable=true, equipable_weapon=true
 - **3rd age full helmet** (ID: 10350) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
   - attack_magic=-5, attack_ranged=-2, defence_stab=47, defence_slash=49, defence_crush=43, defence_magic=-3, defence_ranged=48, members=true, equipable=true
 - **3rd age kiteshield** (ID: 10352) — `Shields` · predicate · slot_pred(slot='shield') — melee defence/offence dominance
@@ -270,7 +269,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-6, attack_ranged=-3, defence_stab=19, defence_slash=21, defence_crush=16, defence_magic=-1, defence_ranged=19, equipable=true
 - **Adamant full helm (t)** (ID: 2605) — `Trim/gilded armour cosmetic variants` · predicate · _is_trim_gilded_melee_armour
   - attack_magic=-6, attack_ranged=-3, defence_stab=19, defence_slash=21, defence_crush=16, defence_magic=-1, defence_ranged=19, equipable=true
-- **Adamant gloves** (ID: 7459) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Adamant gloves** (ID: 7459) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=4, attack_ranged=7, defence_stab=7, defence_slash=7, defence_crush=7, defence_magic=4, defence_ranged=7, melee_strength=7, members=true, equipable=true
 - **Adamant gold-trimmed set (lg)** (ID: 13020) — `GE armour sets (melee)` · predicate · or([and([or([name_ends([' set (lg)']) | name_ends([' set (sk)'])]) | not(name_contains(['dragonhide']))]) | name_in (n=3, e.g. ['Dragonstone armour set', "Inquisitor's armour set", 'Obsidian armour set'])])
   - (no stat fields)
@@ -384,17 +383,17 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of glory (t4)** (ID: 10354) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, range
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(1)** (ID: 1706) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range
+- **Amulet of glory(1)** (ID: 1706) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(2)** (ID: 1708) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range
+- **Amulet of glory(2)** (ID: 1708) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(3)** (ID: 1710) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range
+- **Amulet of glory(3)** (ID: 1710) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(4)** (ID: 1712) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range
+- **Amulet of glory(4)** (ID: 1712) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of glory(5)** (ID: 11976) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(6)** (ID: 11978) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range
+- **Amulet of glory(6)** (ID: 11978) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of power** (ID: 1731) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance · cross: mage, range
   - attack_stab=6, attack_slash=6, attack_crush=6, attack_magic=6, attack_ranged=6, defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=6, defence_ranged=6, melee_strength=6, prayer=1, equipable=true
@@ -416,8 +415,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=15, attack_slash=15, attack_crush=15, melee_strength=10, prayer=2, members=true, equipable=true
 - **Amy's saw** (ID: 24880) — `Weapons` · predicate · _is_melee_weapon · cross: construction
   - attack_stab=2, attack_slash=5, attack_crush=-2, defence_slash=2, defence_crush=1, melee_strength=5, members=true, equipable=true, equipable_weapon=true
-- **Anchovies** (ID: 319) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
 - **Ancient cloak** (ID: 12197) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: mage, range
   - attack_magic=1, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, prayer=3, members=true, equipable=true
 - **Ancient full helm** (ID: 12466) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
@@ -450,8 +447,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=2, attack_slash=2, attack_crush=2, defence_stab=1, defence_slash=1, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Anger sword** (ID: 7806) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=2, attack_slash=2, attack_crush=2, defence_slash=2, defence_crush=1, members=true, equipable=true, equipable_weapon=true, quest_item=true
-- **Anglerfish** (ID: 13441) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Anti-dragon shield** (ID: 1540) — `Shields` · predicate · slot_pred(slot='shield') — melee defence/offence dominance
   - defence_stab=7, defence_slash=9, defence_crush=8, defence_magic=2, defence_ranged=8, equipable=true, quest_item=true
 - **Anti-dragon shield (nz)** (ID: 11710) — `Shields` · predicate · slot_pred(slot='shield') — melee defence/offence dominance
@@ -586,12 +581,10 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=-2, attack_slash=10, attack_crush=102, melee_strength=110, members=true, equipable=true, equipable_weapon=true
 - **Barronite mace** (ID: 25641) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=20, attack_slash=-2, attack_crush=40, melee_strength=40, prayer=2, equipable=true, equipable_weapon=true
-- **Barrows gloves** (ID: 7462) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Barrows gloves** (ID: 7462) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=12, attack_slash=12, attack_crush=12, attack_magic=6, attack_ranged=12, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=6, defence_ranged=12, melee_strength=12, members=true, equipable=true
 - **Barrows gloves (wrapped)** (ID: 27112) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage
   - attack_stab=21, attack_slash=21, attack_crush=21, attack_magic=9, attack_ranged=21, melee_strength=12, members=true, equipable=true
-- **Bass** (ID: 365) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Battlehat** (ID: 31172) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: mage, range
   - attack_stab=15, attack_slash=15, attack_crush=15, attack_magic=15, attack_ranged=15, defence_stab=60, defence_slash=60, defence_crush=60, defence_magic=60, defence_ranged=60, melee_strength=10, ranged_strength=5, magic_damage=5, prayer=10, members=true, equipable=true
 - **Beach boxing gloves** (ID: 11705) — `Weapons` · predicate · _is_melee_weapon
@@ -632,7 +625,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-6, attack_ranged=-3, defence_stab=12, defence_slash=13, defence_crush=10, defence_magic=-1, defence_ranged=12, equipable=true
 - **Black full helm (t)** (ID: 2587) — `Trim/gilded armour cosmetic variants` · predicate · _is_trim_gilded_melee_armour
   - attack_magic=-6, attack_ranged=-3, defence_stab=12, defence_slash=13, defence_crush=10, defence_magic=-1, defence_ranged=12, equipable=true
-- **Black gloves** (ID: 7457) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Black gloves** (ID: 7457) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=5, attack_slash=5, attack_crush=5, attack_magic=3, attack_ranged=5, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=5, members=true, equipable=true
 - **Black gold-trimmed set (lg)** (ID: 12996) — `GE armour sets (melee)` · predicate · or([and([or([name_ends([' set (lg)']) | name_ends([' set (sk)'])]) | not(name_contains(['dragonhide']))]) | name_in (n=3, e.g. ['Dragonstone armour set', "Inquisitor's armour set", 'Obsidian armour set'])])
   - (no stat fields)
@@ -768,13 +761,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=55, attack_slash=94, melee_strength=89, members=true, equipable=true, equipable_weapon=true
 - **Blessed spirit shield** (ID: 12831) — `Shields` · predicate · slot_pred(slot='shield') — melee defence/offence dominance
   - defence_stab=53, defence_slash=55, defence_crush=73, defence_magic=2, defence_ranged=52, prayer=3, members=true, equipable=true
-- **Blighted super restore(1)** (ID: 24605) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Blighted super restore(1)** (ID: 24605) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Blighted super restore(2)** (ID: 24603) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Blighted super restore(2)** (ID: 24603) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Blighted super restore(3)** (ID: 24601) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Blighted super restore(3)** (ID: 24601) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Blighted super restore(4)** (ID: 24598) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Blighted super restore(4)** (ID: 24598) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
 - **Blisterwood sickle** (ID: 24697) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=30, attack_slash=38, defence_stab=1, defence_slash=2, defence_crush=2, defence_magic=2, defence_ranged=2, melee_strength=32, prayer=5, members=true, equipable=true, equipable_weapon=true, quest_item=true
@@ -842,7 +835,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-6, attack_ranged=-3, defence_stab=4, defence_slash=5, defence_crush=3, defence_magic=-1, defence_ranged=4, equipable=true
 - **Bronze full helm (t)** (ID: 12221) — `Trim/gilded armour cosmetic variants` · predicate · _is_trim_gilded_melee_armour
   - attack_magic=-6, attack_ranged=-3, defence_stab=4, defence_slash=5, defence_crush=3, defence_magic=-1, defence_ranged=4, equipable=true
-- **Bronze gloves** (ID: 7454) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Bronze gloves** (ID: 7454) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=2, attack_slash=2, attack_crush=2, attack_magic=1, attack_ranged=2, defence_stab=2, defence_slash=2, defence_crush=2, defence_magic=1, defence_ranged=2, melee_strength=2, members=true, equipable=true
 - **Bronze gold-trimmed set (lg)** (ID: 12968) — `GE armour sets (melee)` · predicate · or([and([or([name_ends([' set (lg)']) | name_ends([' set (sk)'])]) | not(name_contains(['dragonhide']))]) | name_in (n=3, e.g. ['Dragonstone armour set', "Inquisitor's armour set", 'Obsidian armour set'])])
   - (no stat fields)
@@ -936,8 +929,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Castlewars hood** (ID: 4513) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
   - defence_slash=1, defence_crush=2, defence_ranged=1, equipable=true
-- **Cave eel** (ID: 5003) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, fishing, mage, range
-  - members=true
 - **Centurion cuirass** (ID: 26721) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance
   - attack_magic=-40, defence_stab=72, defence_slash=91, defence_crush=70, defence_magic=-10, defence_ranged=7, melee_strength=4, members=true, equipable=true
 - **Citizen shoes** (ID: 9644) — `Boots` · predicate · slot_pred(slot='feet') — melee defence/offence dominance
@@ -958,8 +949,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_slash=1, defence_crush=2, members=true, equipable=true
 - **Clue hunter trousers** (ID: 19693) — `Legs` · predicate · slot_pred(slot='legs') — melee defence/offence dominance
   - attack_ranged=4, defence_stab=2, defence_slash=2, defence_crush=1, members=true, equipable=true
-- **Cod** (ID: 339) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Coif** (ID: 1169) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
   - attack_magic=-1, attack_ranged=2, defence_stab=4, defence_slash=6, defence_crush=8, defence_magic=4, defence_ranged=4, equipable=true
 - **Colossal blade** (ID: 27021) — `Weapons` · predicate · _is_melee_weapon
@@ -990,10 +979,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=20, attack_ranged=-4, defence_stab=15, defence_slash=18, defence_crush=7, defence_magic=5, defence_ranged=5, magic_damage=7, prayer=2, members=true, equipable=true
 - **Construct. cape** (ID: 9789) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: mage, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Cooked karambwan** (ID: 3144) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
-- **Cooked slimy eel** (ID: 3381) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Cooking cape** (ID: 9801) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: cooking, mage, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Corrupted armadyl godsword** (ID: 28537) — `Weapons` · predicate · _is_melee_weapon
@@ -1078,6 +1063,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=15, attack_slash=16, attack_crush=5, attack_magic=16, attack_ranged=16, defence_stab=124, defence_slash=124, defence_crush=124, defence_magic=124, defence_ranged=124, prayer=5, members=true, equipable=true
 - **Crystal dagger (perfected)** (ID: 30340) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=20, attack_slash=140, attack_crush=-4, attack_magic=1, defence_magic=1, melee_strength=40, prayer=3, members=true, equipable=true, equipable_weapon=true
+- **Crystal felling axe** (ID: 28220) — `Weapons` · predicate · _is_melee_weapon · cross: wc_fletching
+  - attack_stab=-3, attack_slash=60, attack_crush=51, defence_slash=1, melee_strength=67, members=true, equipable=true, equipable_weapon=true
 - **Crystal halberd** (ID: 23987) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=85, attack_slash=110, attack_crush=5, attack_magic=-4, defence_stab=-1, defence_slash=4, defence_crush=5, melee_strength=118, members=true, equipable=true, equipable_weapon=true
 - **Crystal halberd (attuned)** (ID: 23896) — `Weapons` · predicate · _is_melee_weapon
@@ -1102,8 +1089,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=14, attack_slash=14, attack_crush=4, attack_magic=14, attack_ranged=14, defence_stab=92, defence_slash=92, defence_crush=92, defence_magic=92, defence_ranged=92, prayer=4, members=true, equipable=true
 - **Crystal sceptre** (ID: 23861) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=8, attack_slash=10, attack_crush=16, melee_strength=20, members=true, equipable=true, equipable_weapon=true
-- **Dark crab** (ID: 11936) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Dark flippers** (ID: 25557) — `Boots` · predicate · slot_pred(slot='feet') — melee defence/offence dominance
   - attack_stab=-2, attack_slash=-2, attack_crush=-2, defence_slash=1, defence_crush=1, members=true, equipable=true
 - **Darklight** (ID: 6746) — `Weapons` · predicate · _is_melee_weapon
@@ -1152,37 +1137,37 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_crush=124, defence_stab=106, defence_slash=109, defence_crush=109, defence_magic=-10, defence_ranged=148, melee_strength=38, members=true, equipable=true, equipable_weapon=true
 - **Dinh's bulwark** (ID: 21015) — `Weapons` · predicate · _is_melee_weapon
   - attack_crush=124, defence_stab=106, defence_slash=109, defence_crush=109, defence_magic=-10, defence_ranged=148, melee_strength=38, members=true, equipable=true, equipable_weapon=true
-- **Divine super attack potion(1)** (ID: 23706) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super attack potion(1)** (ID: 23706) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super attack potion(2)** (ID: 23703) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super attack potion(2)** (ID: 23703) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super attack potion(3)** (ID: 23700) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super attack potion(3)** (ID: 23700) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super attack potion(4)** (ID: 23697) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super attack potion(4)** (ID: 23697) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super combat potion(1)** (ID: 23694) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super combat potion(1)** (ID: 23694) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super combat potion(2)** (ID: 23691) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super combat potion(2)** (ID: 23691) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super combat potion(3)** (ID: 23688) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super combat potion(3)** (ID: 23688) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super combat potion(4)** (ID: 23685) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super combat potion(4)** (ID: 23685) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super defence potion(1)** (ID: 23730) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super defence potion(1)** (ID: 23730) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super defence potion(2)** (ID: 23727) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super defence potion(2)** (ID: 23727) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super defence potion(3)** (ID: 23724) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super defence potion(3)** (ID: 23724) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super defence potion(4)** (ID: 23721) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super defence potion(4)** (ID: 23721) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super strength potion(1)** (ID: 23718) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super strength potion(1)** (ID: 23718) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super strength potion(2)** (ID: 23715) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super strength potion(2)** (ID: 23715) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super strength potion(3)** (ID: 23712) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super strength potion(3)** (ID: 23712) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine super strength potion(4)** (ID: 23709) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Divine super strength potion(4)** (ID: 23709) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
 - **Draconic visage** (ID: 11286) — `Shields` · force_include · name in force_include list
   - members=true
@@ -1208,11 +1193,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=40, attack_slash=25, attack_crush=-4, attack_magic=1, defence_magic=1, melee_strength=40, members=true, equipable=true, equipable_weapon=true
 - **Dragon defender** (ID: 12954) — `Shields` · predicate · slot_pred(slot='shield') — melee defence/offence dominance · cross: quests
   - attack_stab=25, attack_slash=24, attack_crush=23, attack_magic=-3, attack_ranged=-2, defence_stab=25, defence_slash=24, defence_crush=23, defence_magic=-3, defence_ranged=-2, melee_strength=6, members=true, equipable=true
+- **Dragon felling axe** (ID: 28217) — `Weapons` · predicate · _is_melee_weapon · cross: wc_fletching
+  - attack_stab=-3, attack_slash=60, attack_crush=51, defence_slash=1, melee_strength=67, members=true, equipable=true, equipable_weapon=true
 - **Dragon full helm** (ID: 11335) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: mining_smithing
   - attack_magic=-6, attack_ranged=-3, defence_stab=45, defence_slash=48, defence_crush=41, defence_magic=-1, defence_ranged=46, members=true, equipable=true
 - **Dragon full helm (g)** (ID: 12417) — `Trim/gilded armour cosmetic variants` · predicate · _is_trim_gilded_melee_armour
   - attack_magic=-6, attack_ranged=-3, defence_stab=45, defence_slash=48, defence_crush=41, defence_magic=-1, defence_ranged=46, members=true, equipable=true
-- **Dragon gloves** (ID: 7461) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Dragon gloves** (ID: 7461) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=9, attack_slash=9, attack_crush=9, attack_magic=5, attack_ranged=9, defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=5, defence_ranged=9, melee_strength=9, members=true, equipable=true
 - **Dragon halberd** (ID: 3204) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=70, attack_slash=95, attack_magic=-4, defence_stab=-1, defence_slash=4, defence_crush=5, melee_strength=89, members=true, equipable=true, equipable_weapon=true, quest_item=true
@@ -1280,7 +1267,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-30, attack_ranged=-15, defence_stab=82, defence_slash=80, defence_crush=72, defence_magic=-6, defence_ranged=80, equipable=true
 - **Dragonstone platelegs** (ID: 24040) — `Legs` · predicate · slot_pred(slot='legs') — melee defence/offence dominance · cross: mining_smithing
   - attack_magic=-21, attack_ranged=-11, defence_stab=51, defence_slash=49, defence_crush=47, defence_magic=-4, defence_ranged=49, equipable=true
-- **Dramen staff** (ID: 772) — `Weapons` · predicate · _is_melee_weapon · cross: quests
+- **Dramen staff** (ID: 772) — `Weapons` · predicate · _is_melee_weapon · cross: quests, slayer
   - attack_stab=-1, attack_slash=-1, attack_crush=10, attack_magic=10, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=10, melee_strength=10, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Dual macuahuitl** (ID: 28997) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=115, attack_slash=-4, attack_crush=121, attack_magic=-4, melee_strength=81, members=true, equipable=true, equipable_weapon=true
@@ -1304,11 +1291,11 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=26, attack_ranged=-9, defence_stab=31, defence_slash=28, defence_crush=34, defence_magic=22, magic_damage=2, prayer=1, members=true, equipable=true
 - **Echo virtus robe top** (ID: 30439) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: mage
   - attack_magic=35, attack_ranged=-11, defence_stab=47, defence_slash=36, defence_crush=56, defence_magic=31, magic_damage=2, prayer=2, members=true, equipable=true
-- **Eclipse moon chestplate** (ID: 29004) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance
+- **Eclipse moon chestplate** (ID: 29004) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: range
   - attack_magic=-15, attack_ranged=31, defence_stab=15, defence_slash=18, defence_crush=57, defence_magic=55, defence_ranged=32, melee_strength=3, members=true, equipable=true
-- **Eclipse moon helm** (ID: 29010) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
+- **Eclipse moon helm** (ID: 29010) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: range
   - attack_magic=-6, attack_ranged=8, defence_stab=2, defence_slash=3, defence_crush=14, defence_magic=10, defence_ranged=4, melee_strength=3, members=true, equipable=true
-- **Eclipse moon tassets** (ID: 29007) — `Legs` · predicate · slot_pred(slot='legs') — melee defence/offence dominance
+- **Eclipse moon tassets** (ID: 29007) — `Legs` · predicate · slot_pred(slot='legs') — melee defence/offence dominance · cross: range
   - attack_magic=-15, attack_ranged=17, defence_stab=9, defence_slash=13, defence_crush=37, defence_magic=31, defence_ranged=17, melee_strength=1, members=true, equipable=true
 - **Egg whisk** (ID: 7435) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=5, attack_slash=3, attack_crush=-4, attack_magic=1, defence_magic=1, melee_strength=4, members=true, equipable=true, equipable_weapon=true
@@ -1598,7 +1585,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-21, attack_ranged=-11, defence_stab=11, defence_slash=10, defence_crush=10, defence_magic=-4, defence_ranged=10, equipable=true
 - **Hardleather body** (ID: 1131) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: crafting
   - attack_magic=-4, attack_ranged=8, defence_stab=12, defence_slash=15, defence_crush=18, defence_magic=6, defence_ranged=15, equipable=true
-- **Hardleather gloves** (ID: 7453) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Hardleather gloves** (ID: 7453) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, melee_strength=1, members=true, equipable=true
 - **Harry's cutlass** (ID: 7141) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=3, attack_slash=14, attack_magic=-5, defence_stab=4, defence_slash=4, defence_crush=4, melee_strength=22, members=true, equipable=true, equipable_weapon=true
@@ -1614,8 +1601,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=3, defence_stab=6, defence_slash=7, defence_crush=5, defence_magic=3, defence_ranged=6, prayer=3, members=true, equipable=true
 - **Herblore cape** (ID: 9774) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: herblore, mage, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Herring** (ID: 347) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
 - **Hill giant club** (ID: 20756) — `Weapons` · predicate · _is_melee_weapon · cross: misc
   - attack_stab=-4, attack_slash=50, attack_crush=65, attack_magic=-4, defence_ranged=-1, melee_strength=70, equipable=true, equipable_weapon=true
 - **Hitpoints cape** (ID: 9768) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: mage, range
@@ -1644,7 +1629,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-10, attack_ranged=17, defence_stab=31, defence_slash=25, defence_crush=33, defence_magic=30, defence_ranged=31, prayer=2, members=true, equipable=true
 - **Hueycoatl hide coif** (ID: 30073) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
   - attack_magic=-1, attack_ranged=7, defence_stab=4, defence_slash=7, defence_crush=10, defence_magic=5, defence_ranged=8, prayer=2, members=true, equipable=true
-- **Hunter cape** (ID: 9948) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: hunter, mage, range
+- **Hunter cape** (ID: 9948) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: hunter, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Hydra slayer helmet** (ID: 23073) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: slayer
   - attack_magic=-6, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, members=true, equipable=true
@@ -1700,7 +1685,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-6, attack_ranged=-3, defence_stab=6, defence_slash=7, defence_crush=5, defence_magic=-1, defence_ranged=6, equipable=true
 - **Iron full helm (t)** (ID: 12231) — `Trim/gilded armour cosmetic variants` · predicate · _is_trim_gilded_melee_armour
   - attack_magic=-6, attack_ranged=-3, defence_stab=6, defence_slash=7, defence_crush=5, defence_magic=-1, defence_ranged=6, equipable=true
-- **Iron gloves** (ID: 7455) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Iron gloves** (ID: 7455) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=3, attack_slash=3, attack_crush=3, attack_magic=2, attack_ranged=3, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=2, defence_ranged=3, melee_strength=3, members=true, equipable=true
 - **Iron gold-trimmed set (lg)** (ID: 12980) — `GE armour sets (melee)` · predicate · or([and([or([name_ends([' set (lg)']) | name_ends([' set (sk)'])]) | not(name_contains(['dragonhide']))]) | name_in (n=3, e.g. ['Dragonstone armour set', "Inquisitor's armour set", 'Obsidian armour set'])])
   - (no stat fields)
@@ -1812,8 +1797,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=-7, defence_stab=11, defence_slash=10, defence_crush=10, defence_ranged=10, members=true, equipable=true
 - **Larupia top** (ID: 10043) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: hunter
   - defence_stab=10, defence_slash=15, defence_crush=19, defence_ranged=12, members=true, equipable=true
-- **Lava eel** (ID: 2149) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, fishing, mage, range
-  - members=true, quest_item=true
 - **Leaf-bladed battleaxe** (ID: 20727) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=-2, attack_slash=72, attack_crush=72, defence_ranged=-1, melee_strength=92, members=true, equipable=true, equipable_weapon=true
 - **Leaf-bladed spear** (ID: 4158) — `Weapons` · predicate · _is_melee_weapon
@@ -1830,8 +1813,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=1, defence_stab=2, defence_slash=3, defence_crush=4, defence_magic=2, defence_ranged=3, equipable=true
 - **Leather gloves** (ID: 1059) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance
   - defence_slash=1, defence_crush=2, equipable=true
-- **Lobster** (ID: 379) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
 - **Lucky cutlass** (ID: 7140) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=5, attack_slash=20, attack_magic=-5, defence_stab=6, defence_slash=6, defence_crush=6, melee_strength=25, members=true, equipable=true, equipable_weapon=true
 - **Lunar boots** (ID: 9100) — `Boots` · predicate · slot_pred(slot='feet') — melee defence/offence dominance · cross: mage
@@ -1844,8 +1825,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=7, attack_ranged=-7, defence_stab=20, defence_slash=19, defence_crush=23, defence_magic=9, members=true, equipable=true, quest_item=true
 - **Lunar torso** (ID: 9097) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: mage
   - attack_magic=10, attack_ranged=-10, defence_stab=34, defence_slash=22, defence_crush=40, defence_magic=12, members=true, equipable=true, quest_item=true
-- **Mackerel** (ID: 355) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Magic cape** (ID: 9762) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: mage, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Magic secateurs** (ID: 7409) — `Weapons` · predicate · _is_melee_weapon · cross: farming, slayer
@@ -1860,8 +1839,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-5, attack_ranged=-5, members=true
 - **Malediction ward** (ID: 11924) — `Shields` · predicate · slot_pred(slot='shield') — melee defence/offence dominance · cross: mage
   - attack_stab=-8, attack_slash=-8, attack_crush=-8, attack_magic=12, attack_ranged=-12, defence_stab=50, defence_slash=52, defence_crush=48, defence_magic=15, magic_damage=2, members=true, equipable=true
-- **Manta ray** (ID: 391) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Maoma's full helm** (ID: 26745) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: mining_smithing, range
   - attack_stab=8, attack_slash=8, attack_crush=8, attack_magic=-40, attack_ranged=-40, defence_magic=-15, defence_ranged=15, melee_strength=2, members=true, equipable=true
 - **Maoma's great helm** (ID: 26747) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: range
@@ -1906,7 +1883,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-6, attack_ranged=-3, defence_stab=13, defence_slash=14, defence_crush=11, defence_magic=-1, defence_ranged=13, equipable=true
 - **Mithril full helm (t)** (ID: 12293) — `Trim/gilded armour cosmetic variants` · predicate · _is_trim_gilded_melee_armour
   - attack_magic=-6, attack_ranged=-3, defence_stab=13, defence_slash=14, defence_crush=11, defence_magic=-1, defence_ranged=13, equipable=true
-- **Mithril gloves** (ID: 7458) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Mithril gloves** (ID: 7458) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=6, attack_slash=6, attack_crush=6, attack_magic=3, attack_ranged=6, defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=3, defence_ranged=6, melee_strength=6, members=true, equipable=true
 - **Mithril gloves (wrapped)** (ID: 27110) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage
   - attack_stab=15, attack_slash=15, attack_crush=15, attack_magic=6, attack_ranged=15, melee_strength=6, members=true, equipable=true
@@ -1972,8 +1949,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=3, attack_slash=-1, attack_crush=-2, attack_magic=-10, attack_ranged=14, defence_stab=20, defence_slash=23, defence_crush=22, defence_magic=16, defence_ranged=20, members=true, equipable=true
 - **Mixed hide top** (ID: 29280) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance
   - attack_stab=4, attack_slash=-2, attack_crush=-3, attack_magic=-15, attack_ranged=27, defence_stab=33, defence_slash=39, defence_crush=43, defence_magic=30, defence_ranged=32, melee_strength=2, members=true, equipable=true
-- **Monkfish** (ID: 7946) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Mooleta** (ID: 33101) — `Shields` · predicate · slot_pred(slot='shield') — melee defence/offence dominance
   - attack_stab=5, attack_slash=7, attack_crush=7, attack_magic=-1, attack_ranged=-1, defence_stab=4, defence_slash=8, defence_crush=8, defence_magic=-2, defence_ranged=-1, melee_strength=1, equipable=true
 - **Moonclan armour** (ID: 9070) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: mage
@@ -2054,8 +2029,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-12, attack_ranged=12, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=5, defence_ranged=5, members=true, equipable=true
 - **Penance skirt** (ID: 10555) — `Legs` · predicate · slot_pred(slot='legs') — melee defence/offence dominance · cross: quests
   - attack_magic=-10, attack_ranged=15, defence_stab=26, defence_slash=21, defence_crush=28, defence_magic=19, defence_ranged=26, members=true, equipable=true
-- **Pike** (ID: 351) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
 - **Pirate's hook** (ID: 2997) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance
   - defence_stab=1, defence_slash=5, defence_crush=3, members=true, equipable=true
 - **Pointed blood'n'tar snelm** (ID: 3339) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
@@ -2100,7 +2073,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-10, attack_ranged=11, defence_stab=1, defence_slash=2, defence_crush=1, defence_magic=2, members=true, equipable=true
 - **Ranger hat** (ID: 10550) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
   - attack_stab=-5, attack_slash=-5, attack_crush=-5, attack_magic=-5, attack_ranged=6, defence_stab=7, defence_slash=10, defence_crush=11, defence_magic=5, defence_ranged=8, members=true, equipable=true
-- **Ranging cape** (ID: 9756) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: mage, range
+- **Ranging cape** (ID: 9756) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Rapier** (ID: 7142) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=45, attack_slash=7, attack_crush=-2, defence_slash=1, melee_strength=44, members=true, equipable=true, equipable_weapon=true
@@ -2164,7 +2137,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-6, attack_ranged=-3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, equipable=true
 - **Rune full helm (t)** (ID: 2627) — `Trim/gilded armour cosmetic variants` · predicate · _is_trim_gilded_melee_armour
   - attack_magic=-6, attack_ranged=-3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, equipable=true
-- **Rune gloves** (ID: 7460) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Rune gloves** (ID: 7460) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=8, attack_slash=8, attack_crush=8, attack_magic=4, attack_ranged=8, defence_stab=8, defence_slash=8, defence_crush=8, defence_magic=4, defence_ranged=8, melee_strength=8, members=true, equipable=true
 - **Rune gloves (wrapped)** (ID: 27111) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage
   - attack_stab=17, attack_slash=17, attack_crush=17, attack_magic=7, attack_ranged=17, melee_strength=8, members=true, equipable=true
@@ -2266,8 +2239,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=-40, attack_slash=-40, attack_crush=-40, attack_magic=14, attack_ranged=-40, defence_stab=15, defence_slash=15, defence_crush=15, defence_ranged=-15, members=true, equipable=true
 - **Sailing cape** (ID: 31288) — `Capes` · predicate · slot_pred(slot='cape') — melee defence/offence dominance · cross: mage, range, sailing
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Salmon** (ID: 329) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
 - **Salve amulet** (ID: 4081) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance
   - defence_stab=3, defence_slash=3, defence_crush=3, prayer=3, members=true, equipable=true, quest_item=true
 - **Salve amulet (e)** (ID: 10588) — `Amulets` · predicate · slot_pred(slot='neck') — melee defence/offence dominance
@@ -2286,13 +2257,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_stab=16, defence_slash=17, defence_crush=15, defence_magic=4, defence_ranged=16, members=true, equipable=true
 - **Samurai shirt** (ID: 20038) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance
   - defence_stab=69, defence_slash=67, defence_crush=59, defence_magic=10, defence_ranged=67, members=true, equipable=true
-- **Sanfew serum(1)** (ID: 10931) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Sanfew serum(1)** (ID: 10931) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Sanfew serum(2)** (ID: 10929) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Sanfew serum(2)** (ID: 10929) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Sanfew serum(3)** (ID: 10927) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Sanfew serum(3)** (ID: 10927) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Sanfew serum(4)** (ID: 10925) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Sanfew serum(4)** (ID: 10925) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
 - **Sanguine scythe of vitur** (ID: 25739) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=70, attack_slash=125, attack_crush=30, attack_magic=-6, defence_stab=-2, defence_slash=8, defence_crush=10, melee_strength=75, members=true, equipable=true, equipable_weapon=true
@@ -2306,13 +2277,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Saradomin armour set (sk)** (ID: 13042) — `GE armour sets (melee)` · predicate · or([and([or([name_ends([' set (lg)']) | name_ends([' set (sk)'])]) | not(name_contains(['dragonhide']))]) | name_in (n=3, e.g. ['Dragonstone armour set', "Inquisitor's armour set", 'Obsidian armour set'])])
   - (no stat fields)
-- **Saradomin brew(1)** (ID: 6691) — `Combat potions` · predicate · _is_potion_family · cross: herblore, prayer
+- **Saradomin brew(1)** (ID: 6691) — `Combat potions` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Saradomin brew(2)** (ID: 6689) — `Combat potions` · predicate · _is_potion_family · cross: herblore, prayer
+- **Saradomin brew(2)** (ID: 6689) — `Combat potions` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Saradomin brew(3)** (ID: 6687) — `Combat potions` · predicate · _is_potion_family · cross: herblore, prayer
+- **Saradomin brew(3)** (ID: 6687) — `Combat potions` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Saradomin brew(4)** (ID: 6685) — `Combat potions` · predicate · _is_potion_family · cross: herblore, prayer
+- **Saradomin brew(4)** (ID: 6685) — `Combat potions` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
 - **Saradomin full helm** (ID: 2665) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: mining_smithing
   - attack_magic=-6, attack_ranged=-3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, prayer=1, equipable=true
@@ -2336,16 +2307,12 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_slash=82, attack_crush=60, melee_strength=82, prayer=2, members=true, equipable=true, equipable_weapon=true
 - **Saradomin's blessed sword** (ID: 12809) — `Weapons` · predicate · _is_melee_weapon
   - attack_slash=100, attack_crush=60, melee_strength=88, prayer=2, members=true, equipable=true, equipable_weapon=true
-- **Sardine** (ID: 325) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
 - **Scythe** (ID: 1419) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=3, attack_slash=8, attack_crush=3, defence_slash=3, defence_crush=1, melee_strength=10, equipable=true, equipable_weapon=true
 - **Scythe of vitur** (ID: 22325) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=70, attack_slash=125, attack_crush=30, attack_magic=-6, defence_stab=-2, defence_slash=8, defence_crush=10, melee_strength=75, members=true, equipable=true, equipable_weapon=true
 - **Scythe of vitur (uncharged)** (ID: 22486) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=50, attack_slash=75, attack_crush=10, attack_magic=-6, defence_stab=-2, defence_slash=6, melee_strength=50, members=true, equipable=true, equipable_weapon=true
-- **Sea turtle** (ID: 397) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Seren halo** (ID: 24198) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
   - defence_stab=11, defence_slash=12, defence_crush=10, defence_magic=11, defence_ranged=-1, prayer=3, members=true, equipable=true
 - **Serpentine helm** (ID: 12931) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
@@ -2356,8 +2323,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=-4, attack_slash=27, attack_crush=21, attack_magic=4, defence_magic=4, defence_ranged=-1, melee_strength=26, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Shaman mask** (ID: 21838) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
   - attack_magic=-6, attack_ranged=-2, defence_stab=6, defence_slash=7, defence_crush=5, defence_magic=-1, defence_ranged=6, equipable=true
-- **Shark** (ID: 385) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - members=true
 - **Shayzien body (5)** (ID: 13381) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance
   - attack_magic=-10, attack_ranged=10, defence_stab=20, defence_slash=24, defence_crush=28, defence_magic=-4, defence_ranged=27, members=true, equipable=true
 - **Shayzien boots (1)** (ID: 13358) — `Boots` · predicate · slot_pred(slot='feet') — melee defence/offence dominance
@@ -2470,8 +2435,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Shayzien supply set (5)** (ID: 13569) — `Shayzien supply armour` · predicate · name_starts(['shayzien supply '])
   - members=true
-- **Shrimps** (ID: 315) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
 - **Silverlight** (ID: 2402) — `Weapons` · predicate · _is_melee_weapon · cross: quests
   - attack_stab=9, attack_slash=14, attack_crush=-2, defence_slash=3, defence_crush=2, defence_magic=1, melee_strength=12, equipable=true, equipable_weapon=true, quest_item=true
 - **Skewer** (ID: 7443) — `Weapons` · predicate · _is_melee_weapon
@@ -2486,6 +2449,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Soulflame horn** (ID: 30759) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=2, attack_crush=21, defence_slash=7, defence_crush=3, defence_magic=11, melee_strength=23, magic_damage=1, members=true, equipable=true, equipable_weapon=true
+- **Soulreaper axe (o)** (ID: 33335) — `Weapons` · predicate · _is_melee_weapon
+  - attack_stab=28, attack_slash=134, attack_crush=66, melee_strength=121, members=true, equipable=true, equipable_weapon=true
 - **Spatula** (ID: 7439) — `Weapons` · predicate · _is_melee_weapon
   - attack_stab=-4, attack_slash=27, attack_crush=21, attack_magic=-4, defence_ranged=-1, melee_strength=26, members=true, equipable=true, equipable_weapon=true
 - **Spear** (ID: 20397) — `Weapons` · predicate · _is_melee_weapon
@@ -2550,7 +2515,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-6, attack_ranged=-3, defence_stab=9, defence_slash=10, defence_crush=7, defence_magic=-1, defence_ranged=9, equipable=true
 - **Steel gauntlets** (ID: 778) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance
   - attack_stab=2, attack_slash=2, attack_crush=2, defence_stab=8, defence_slash=9, defence_crush=7, melee_strength=2, members=true, equipable=true, quest_item=true
-- **Steel gloves** (ID: 7456) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
+- **Steel gloves** (ID: 7456) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=2, attack_ranged=4, defence_stab=4, defence_slash=4, defence_crush=4, defence_magic=2, defence_ranged=4, melee_strength=4, members=true, equipable=true
 - **Steel gold-trimmed set (lg)** (ID: 20382) — `GE armour sets (melee)` · predicate · or([and([or([name_ends([' set (lg)']) | name_ends([' set (sk)'])]) | not(name_contains(['dragonhide']))]) | name_in (n=3, e.g. ['Dragonstone armour set', "Inquisitor's armour set", 'Obsidian armour set'])])
   - (no stat fields)
@@ -2638,56 +2603,54 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=125, attack_slash=75, defence_stab=70, defence_slash=70, defence_crush=70, defence_magic=28, defence_ranged=70, melee_strength=113, members=true, equipable=true, equipable_weapon=true
 - **Sunlit bracers** (ID: 30386) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: mage, range
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=6, attack_ranged=18, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=6, defence_ranged=12, melee_strength=8, ranged_strength=4, members=true, equipable=true
-- **Super attack(1)** (ID: 149) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super attack(1)** (ID: 149) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super attack(2)** (ID: 147) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super attack(2)** (ID: 147) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super attack(3)** (ID: 145) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super attack(3)** (ID: 145) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super attack(4)** (ID: 2436) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super attack(4)** (ID: 2436) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super combat potion(1)** (ID: 12701) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super combat potion(1)** (ID: 12701) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super combat potion(2)** (ID: 12699) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super combat potion(2)** (ID: 12699) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super combat potion(3)** (ID: 12697) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super combat potion(3)** (ID: 12697) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super combat potion(4)** (ID: 12695) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super combat potion(4)** (ID: 12695) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super defence(1)** (ID: 167) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super defence(1)** (ID: 167) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super defence(2)** (ID: 165) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super defence(2)** (ID: 165) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super defence(3)** (ID: 163) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super defence(3)** (ID: 163) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super defence(4)** (ID: 2442) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super defence(4)** (ID: 2442) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super restore mix(1)** (ID: 11495) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Super restore mix(1)** (ID: 11495) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Super restore mix(2)** (ID: 11493) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Super restore mix(2)** (ID: 11493) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Super restore(1)** (ID: 3030) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Super restore(1)** (ID: 3030) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Super restore(2)** (ID: 3028) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Super restore(2)** (ID: 3028) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Super restore(3)** (ID: 3026) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Super restore(3)** (ID: 3026) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Super restore(4)** (ID: 3024) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer
+- **Super restore(4)** (ID: 3024) — `Restores (cross-tag)` · predicate · _is_potion_family · cross: herblore, prayer, slayer
   - members=true
-- **Super strength(1)** (ID: 161) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super strength(1)** (ID: 161) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super strength(2)** (ID: 159) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super strength(2)** (ID: 159) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super strength(3)** (ID: 157) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super strength(3)** (ID: 157) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super strength(4)** (ID: 2440) — `Combat potions` · predicate · _is_potion_family · cross: herblore
+- **Super strength(4)** (ID: 2440) — `Combat potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
 - **Superior calamity breeches** (ID: 26757) — `Legs` · predicate · slot_pred(slot='legs') — melee defence/offence dominance · cross: mage
   - attack_stab=3, attack_slash=3, attack_crush=3, attack_magic=8, attack_ranged=11, defence_stab=32, defence_slash=34, defence_crush=36, defence_magic=20, defence_ranged=32, members=true, equipable=true
 - **Superior calamity chest** (ID: 26751) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: mage
   - attack_stab=5, attack_slash=5, attack_crush=5, attack_magic=12, attack_ranged=16, defence_stab=47, defence_slash=51, defence_crush=54, defence_magic=28, defence_ranged=48, members=true, equipable=true
-- **Swordfish** (ID: 373) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
 - **Tanzanite helm** (ID: 13197) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
   - attack_magic=-5, attack_ranged=-5, defence_stab=52, defence_slash=55, defence_crush=58, defence_ranged=50, melee_strength=5, members=true, equipable=true
 - **Tanzanite helm (uncharged)** (ID: 13196) — `Helmets` · force_include · name in force_include list
@@ -2734,10 +2697,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=4, defence_stab=4, members=true, equipable=true
 - **Treasonous ring (i)** (ID: 12692) — `Rings` · predicate · slot_pred(slot='ring') — melee defence/offence dominance
   - attack_stab=8, defence_stab=8, members=true, equipable=true
-- **Trout** (ID: 333) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
-- **Tuna** (ID: 361) — `Combat food` · predicate · _is_cooked_fish · cross: cooking, mage, range
-  - (no stat fields)
 - **Turquoise slayer helmet** (ID: 21888) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: slayer
   - attack_magic=-6, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, members=true, equipable=true
 - **Turquoise slayer helmet (i)** (ID: 21890) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: mage, slayer
@@ -2792,13 +2751,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-6, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, members=true, equipable=true
 - **Vampyric slayer helmet (i)** (ID: 25906) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: mage, slayer
   - attack_magic=3, attack_ranged=3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=10, defence_ranged=30, members=true, equipable=true
-- **Varrock armour 1** (ID: 13104) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: quests
+- **Varrock armour 1** (ID: 13104) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: mining_smithing, quests
   - attack_magic=-30, attack_ranged=-10, defence_stab=32, defence_slash=31, defence_crush=24, defence_magic=-6, defence_ranged=31, members=true, equipable=true
-- **Varrock armour 2** (ID: 13105) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: quests
+- **Varrock armour 2** (ID: 13105) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: mining_smithing, quests
   - attack_magic=-30, attack_ranged=-10, defence_stab=41, defence_slash=40, defence_crush=30, defence_magic=-6, defence_ranged=40, members=true, equipable=true
-- **Varrock armour 3** (ID: 13106) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: quests
+- **Varrock armour 3** (ID: 13106) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: mining_smithing, quests
   - attack_magic=-30, attack_ranged=-10, defence_stab=46, defence_slash=44, defence_crush=38, defence_magic=-6, defence_ranged=44, members=true, equipable=true
-- **Varrock armour 4** (ID: 13107) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: quests
+- **Varrock armour 4** (ID: 13107) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: mining_smithing, quests
   - attack_magic=-30, attack_ranged=-10, defence_stab=65, defence_slash=63, defence_crush=55, defence_magic=-6, defence_ranged=63, members=true, equipable=true
 - **Verac's brassard** (ID: 4757) — `Body armour` · force_include · name in force_include list
   - attack_magic=-6, attack_ranged=-2, defence_stab=81, defence_slash=95, defence_crush=85, defence_ranged=81, prayer=5, members=true, equipable=true
@@ -2976,6 +2935,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=85, attack_slash=65, attack_crush=65, defence_stab=13, defence_slash=13, defence_crush=12, defence_ranged=13, melee_strength=75, prayer=2, members=true, equipable=true, equipable_weapon=true
 - **Zaryte vambraces** (ID: 26235) — `Gloves` · predicate · slot_pred(slot='hands') — melee defence/offence dominance · cross: range
   - attack_stab=-8, attack_slash=-8, attack_crush=-8, attack_ranged=18, defence_stab=8, defence_slash=8, defence_crush=8, defence_magic=5, defence_ranged=8, ranged_strength=2, prayer=1, members=true, equipable=true
+- **Zombie axe** (ID: 28810) — `Weapons` · predicate · _is_melee_weapon
+  - attack_stab=-3, attack_slash=105, attack_crush=90, defence_stab=-1, defence_ranged=-1, melee_strength=107, members=true, equipable=true, equipable_weapon=true
 - **Zombie helmet** (ID: 30321) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance
   - attack_crush=8, attack_magic=-4, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=38, defence_ranged=30, melee_strength=2, members=true, equipable=true
 - **Zuriel's hood (bh)** (ID: 27839) — `Helmets` · predicate · slot_pred(slot='head') — melee defence/offence dominance · cross: mage
@@ -2985,7 +2946,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Zuriel's robe top (bh)** (ID: 27840) — `Body armour` · predicate · slot_pred(slot='body') — melee defence/offence dominance · cross: mage
   - attack_magic=58, attack_ranged=-10, defence_stab=63, defence_slash=45, defence_crush=74, defence_magic=35, magic_damage=3, members=true, equipable=true
 
-### range (642 items)
+### range (622 items)
 
 - **3rd age bow** (ID: 12424) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=80, members=true, equipable=true, equipable_weapon=true
@@ -3015,7 +2976,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=17, members=true, equipable=true, equipable_weapon=true
 - **Adamant fire arrow** (ID: 2538) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=31, members=true, equipable=true
-- **Adamant gloves** (ID: 7459) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Adamant gloves** (ID: 7459) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=4, attack_ranged=7, defence_stab=7, defence_slash=7, defence_crush=7, defence_magic=4, defence_ranged=7, melee_strength=7, members=true, equipable=true
 - **Adamant javelin** (ID: 829) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=102, members=true, equipable=true
@@ -3053,17 +3014,17 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of glory (t4)** (ID: 10354) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(1)** (ID: 1706) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc
+- **Amulet of glory(1)** (ID: 1706) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(2)** (ID: 1708) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc
+- **Amulet of glory(2)** (ID: 1708) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(3)** (ID: 1710) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc
+- **Amulet of glory(3)** (ID: 1710) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(4)** (ID: 1712) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc
+- **Amulet of glory(4)** (ID: 1712) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of glory(5)** (ID: 11976) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(6)** (ID: 11978) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc
+- **Amulet of glory(6)** (ID: 11978) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee, misc, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of power** (ID: 1731) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee
   - attack_stab=6, attack_slash=6, attack_crush=6, attack_magic=6, attack_ranged=6, defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=6, defence_ranged=6, melee_strength=6, prayer=1, equipable=true
@@ -3071,8 +3032,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of the monarchs** (ID: 30376) — `Amulets` · predicate · is_range_armour_slot(slot='neck') — ranged defence dominance · cross: mage, melee
   - attack_stab=30, attack_slash=30, attack_crush=30, attack_magic=30, attack_ranged=30, defence_stab=30, defence_slash=30, defence_crush=30, defence_magic=30, defence_ranged=30, melee_strength=15, ranged_strength=15, magic_damage=10, prayer=10, members=true, equipable=true
-- **Anchovies** (ID: 319) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
 - **Ancient bracers** (ID: 12490) — `Gloves` · force_include · name in force_include list
   - attack_magic=-10, attack_ranged=11, defence_stab=6, defence_slash=5, defence_crush=7, defence_magic=8, prayer=1, members=true, equipable=true
 - **Ancient chaps** (ID: 12494) — `Legs` · force_include · name in force_include list
@@ -3088,8 +3047,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Ancient d'hide shield** (ID: 23197) — `D'hide armour` · predicate · <lambda>
   - attack_stab=-15, attack_slash=-15, attack_crush=-11, attack_magic=-10, attack_ranged=7, defence_stab=21, defence_slash=18, defence_crush=16, defence_magic=15, defence_ranged=14, prayer=1, members=true, equipable=true
 - **Ancient dragonhide set** (ID: 13171) — `Raw dragonhide (cross-tag with crafting)` · predicate · <lambda>
-  - members=true
-- **Anglerfish** (ID: 13441) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
   - members=true
 - **Antler guard** (ID: 31081) — `Shields` · predicate · is_range_armour_slot(slot='shield') — ranged defence dominance · cross: mage, melee
   - attack_stab=15, attack_slash=15, attack_crush=15, attack_magic=9, attack_ranged=9, defence_stab=-15, defence_slash=-15, defence_crush=-15, defence_magic=-15, defence_ranged=-15, melee_strength=5, ranged_strength=2, prayer=5, members=true, equipable=true
@@ -3127,7 +3084,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=8, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=8, defence_ranged=2, ranged_strength=2, members=true, equipable=true
 - **Attack cape** (ID: 9747) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage, melee
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Ava's assembler** (ID: 22109) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage
+- **Ava's assembler** (ID: 22109) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: slayer
   - attack_ranged=8, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=8, defence_ranged=2, ranged_strength=2, members=true, equipable=true
 - **Avernic treads** (ID: 31088) — `Boots` · predicate · is_range_armour_slot(slot='feet') — ranged defence dominance · cross: mage, melee
   - attack_stab=5, attack_slash=5, attack_crush=5, attack_magic=11, attack_ranged=15, defence_stab=21, defence_slash=25, defence_crush=25, defence_magic=10, defence_ranged=10, melee_strength=4, ranged_strength=2, magic_damage=1, members=true, equipable=true
@@ -3167,10 +3124,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=46, ranged_strength=125, members=true, equipable=true
 - **Barbed bolts** (ID: 881) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=12, members=true, equipable=true
-- **Barrows gloves** (ID: 7462) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Barrows gloves** (ID: 7462) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=12, attack_slash=12, attack_crush=12, attack_magic=6, attack_ranged=12, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=6, defence_ranged=12, melee_strength=12, members=true, equipable=true
-- **Bass** (ID: 365) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
 - **Battlehat** (ID: 31172) — `Helmets` · predicate · is_range_armour_slot(slot='head') — ranged defence dominance · cross: mage, melee
   - attack_stab=15, attack_slash=15, attack_crush=15, attack_magic=15, attack_ranged=15, defence_stab=60, defence_slash=60, defence_crush=60, defence_magic=60, defence_ranged=60, melee_strength=10, ranged_strength=5, magic_damage=5, prayer=10, members=true, equipable=true
 - **Black brutal** (ID: 4788) — `Ammunition` · predicate · _is_range_ammo
@@ -3203,7 +3158,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Black dragonhide set** (ID: 12871) — `Raw dragonhide (cross-tag with crafting)` · predicate · <lambda>
   - members=true
-- **Black gloves** (ID: 7457) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Black gloves** (ID: 7457) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=5, attack_slash=5, attack_crush=5, attack_magic=3, attack_ranged=5, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=5, members=true, equipable=true
 - **Black knife** (ID: 869) — `Thrown` · predicate · is_range_weapon_type(['thrown'])
   - attack_ranged=10, ranged_strength=8, members=true, equipable=true, equipable_weapon=true
@@ -3273,7 +3228,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=1, members=true, equipable=true, equipable_weapon=true
 - **Bronze fire arrow** (ID: 598) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=7, members=true, equipable=true
-- **Bronze gloves** (ID: 7454) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Bronze gloves** (ID: 7454) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=2, attack_slash=2, attack_crush=2, attack_magic=1, attack_ranged=2, defence_stab=2, defence_slash=2, defence_crush=2, defence_magic=1, defence_ranged=2, melee_strength=2, members=true, equipable=true
 - **Bronze javelin** (ID: 825) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=25, members=true, equipable=true
@@ -3305,12 +3260,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=122, members=true, equipable=true
 - **Castlewars cloak** (ID: 4514) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance
   - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
-- **Cave eel** (ID: 5003) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, fishing, mage, melee
-  - members=true
 - **Clue hunter cloak** (ID: 19697) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance
   - defence_slash=1, defence_crush=1, defence_ranged=2, members=true, equipable=true
-- **Cod** (ID: 339) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
 - **Combat bracelet** (ID: 11126) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee, misc
   - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=3, attack_ranged=7, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=6, members=true, equipable=true
 - **Combat bracelet(1)** (ID: 11124) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee, misc
@@ -3329,10 +3280,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=38, members=true, equipable=true, equipable_weapon=true
 - **Construct. cape** (ID: 9789) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage, melee
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Cooked karambwan** (ID: 3144) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
-- **Cooked slimy eel** (ID: 3381) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
 - **Cooking cape** (ID: 9801) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: cooking, mage, melee
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Corrupted body (attuned)** (ID: 23844) — `Body` · predicate · is_range_armour_slot(slot='body') — ranged defence dominance · cross: mage, melee
@@ -3421,8 +3368,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=105, members=true, equipable=true, equipable_weapon=true
 - **Dark bow (deadman)** (ID: 29611) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=95, members=true, equipable=true, equipable_weapon=true
-- **Dark crab** (ID: 11936) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
 - **Defence cape** (ID: 9753) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage, melee
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Diamond bolts** (ID: 9340) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
@@ -3433,13 +3378,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=122, members=true, equipable=true
 - **Diamond dragon bolts (e)** (ID: 21946) — `Ammunition` · predicate · _is_range_ammo
   - ranged_strength=122, members=true, equipable=true
-- **Divine ranging potion(1)** (ID: 23742) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Divine ranging potion(1)** (ID: 23742) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine ranging potion(2)** (ID: 23739) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Divine ranging potion(2)** (ID: 23739) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine ranging potion(3)** (ID: 23736) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Divine ranging potion(3)** (ID: 23736) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Divine ranging potion(4)** (ID: 23733) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Divine ranging potion(4)** (ID: 23733) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
 - **Dizana's max cape** (ID: 28902) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance
   - attack_ranged=18, ranged_strength=3, members=true, equipable=true
@@ -3459,7 +3404,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=35, members=true, equipable=true, equipable_weapon=true
 - **Dragon fire arrow** (ID: 11217) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=60, members=true, equipable=true
-- **Dragon gloves** (ID: 7461) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Dragon gloves** (ID: 7461) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=9, attack_slash=9, attack_crush=9, attack_magic=5, attack_ranged=9, defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=5, defence_ranged=9, melee_strength=9, members=true, equipable=true
 - **Dragon hunter crossbow** (ID: 21012) — `Crossbows` · predicate · is_range_weapon_type(['crossbow'])
   - attack_ranged=95, members=true, equipable=true, equipable_weapon=true
@@ -3493,6 +3438,12 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=90, ranged_strength=25, members=true, equipable=true, equipable_weapon=true
 - **Eclipse atlatl** (ID: 29000) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=87, melee_strength=40, members=true, equipable=true, equipable_weapon=true
+- **Eclipse moon chestplate** (ID: 29004) — `Body` · force_include · name in force_include list · cross: melee
+  - attack_magic=-15, attack_ranged=31, defence_stab=15, defence_slash=18, defence_crush=57, defence_magic=55, defence_ranged=32, melee_strength=3, members=true, equipable=true
+- **Eclipse moon helm** (ID: 29010) — `Helmets` · force_include · name in force_include list · cross: melee
+  - attack_magic=-6, attack_ranged=8, defence_stab=2, defence_slash=3, defence_crush=14, defence_magic=10, defence_ranged=4, melee_strength=3, members=true, equipable=true
+- **Eclipse moon tassets** (ID: 29007) — `Legs` · force_include · name in force_include list · cross: melee
+  - attack_magic=-15, attack_ranged=17, defence_stab=9, defence_slash=13, defence_crush=37, defence_magic=31, defence_ranged=17, melee_strength=1, members=true, equipable=true
 - **Elite calamity breeches** (ID: 26759) — `Legs` · predicate · is_range_armour_slot(slot='legs') — ranged defence dominance · cross: mage, melee
   - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=11, attack_ranged=14, defence_stab=44, defence_slash=43, defence_crush=44, defence_magic=24, defence_ranged=44, members=true, equipable=true
 - **Elite void robe** (ID: 13073) — `Legs` · predicate · is_range_armour_slot(slot='legs') — ranged defence dominance · cross: mage, melee
@@ -3623,7 +3574,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=-15, attack_slash=-15, attack_crush=-11, attack_magic=-10, attack_ranged=2, defence_stab=8, defence_slash=7, defence_crush=7, defence_magic=5, defence_ranged=9, members=true, equipable=true
 - **Hardcore group ironman bracers** (ID: 26182) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
   - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, equipable=true
-- **Hardleather gloves** (ID: 7453) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Hardleather gloves** (ID: 7453) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, melee_strength=1, members=true, equipable=true
 - **Harralander tar** (ID: 10145) — `Ammunition` · predicate · _is_range_ammo · cross: hunter
   - ranged_strength=49, members=true, equipable=true
@@ -3631,8 +3582,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=125, ranged_strength=15, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Herblore cape** (ID: 9774) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: herblore, mage, melee
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Herring** (ID: 347) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
 - **Hitpoints cape** (ID: 9768) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage, melee
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Hitpoints hood** (ID: 9770) — `Capes` · force_include · name in force_include list · cross: mage, melee
@@ -3643,7 +3592,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_stab=2, defence_slash=2, defence_crush=2, defence_magic=2, defence_ranged=2, prayer=8, equipable=true, quest_item=true
 - **Holy water** (ID: 732) — `Thrown` · predicate · is_range_weapon_type(['thrown'])
   - attack_ranged=6, ranged_strength=12, members=true, equipable=true, equipable_weapon=true, quest_item=true
-- **Hunter cape** (ID: 9948) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: hunter, mage, melee
+- **Hunter cape** (ID: 9948) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: hunter, melee
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Hunter's spear** (ID: 29305) — `Thrown` · predicate · is_range_weapon_type(['thrown'])
   - attack_ranged=73, melee_strength=48, prayer=1, members=true, equipable=true, equipable_weapon=true
@@ -3673,7 +3622,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=2, members=true, equipable=true, equipable_weapon=true
 - **Iron fire arrow** (ID: 2532) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=10, members=true, equipable=true
-- **Iron gloves** (ID: 7455) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Iron gloves** (ID: 7455) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=3, attack_slash=3, attack_crush=3, attack_magic=2, attack_ranged=3, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=2, defence_ranged=3, melee_strength=3, members=true, equipable=true
 - **Iron javelin** (ID: 826) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=42, members=true, equipable=true
@@ -3717,22 +3666,16 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=28, members=true, equipable=true
 - **King's barrage** (ID: 33251) — `Crossbows` · predicate · is_range_weapon_type(['crossbow'])
   - attack_ranged=130, defence_stab=20, defence_slash=20, defence_crush=20, defence_magic=25, defence_ranged=60, ranged_strength=14, members=true, equipable=true, equipable_weapon=true
-- **Lava eel** (ID: 2149) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, fishing, mage, melee
-  - members=true, quest_item=true
 - **Leather body (g)** (ID: 23381) — `Body` · force_include · name in force_include list
   - attack_magic=-2, attack_ranged=2, defence_stab=8, defence_slash=9, defence_crush=10, defence_magic=4, defence_ranged=9, equipable=true
 - **Leather chaps (g)** (ID: 23384) — `Legs` · force_include · name in force_include list
   - attack_ranged=4, defence_stab=2, defence_slash=2, defence_crush=1, equipable=true
 - **Light ballista** (ID: 19478) — `Crossbows` · predicate · is_range_weapon_type(['crossbow'])
   - attack_ranged=110, members=true, equipable=true, equipable_weapon=true
-- **Lobster** (ID: 379) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
 - **Long kebbit bolts** (ID: 10159) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=38, members=true, equipable=true
 - **Longbow** (ID: 839) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=8, equipable=true, equipable_weapon=true
-- **Mackerel** (ID: 355) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
 - **Magic cape** (ID: 9762) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage, melee
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Magic comp bow** (ID: 10284) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
@@ -3743,8 +3686,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=69, members=true, equipable=true, equipable_weapon=true
 - **Magic shortbow (i)** (ID: 12788) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=75, members=true, equipable=true, equipable_weapon=true
-- **Manta ray** (ID: 391) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
 - **Maoma's full helm** (ID: 26745) — `Helmets` · predicate · is_range_armour_slot(slot='head') — ranged defence dominance · cross: melee, mining_smithing
   - attack_stab=8, attack_slash=8, attack_crush=8, attack_magic=-40, attack_ranged=-40, defence_magic=-15, defence_ranged=15, melee_strength=2, members=true, equipable=true
 - **Maoma's great helm** (ID: 26747) — `Helmets` · predicate · is_range_armour_slot(slot='head') — ranged defence dominance · cross: melee
@@ -3787,7 +3728,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=9, members=true, equipable=true, equipable_weapon=true
 - **Mithril fire arrow** (ID: 2536) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=22, members=true, equipable=true
-- **Mithril gloves** (ID: 7458) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Mithril gloves** (ID: 7458) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=6, attack_slash=6, attack_crush=6, attack_magic=3, attack_ranged=6, defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=3, defence_ranged=6, melee_strength=6, members=true, equipable=true
 - **Mithril javelin** (ID: 828) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=85, members=true, equipable=true
@@ -3795,8 +3736,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=11, ranged_strength=10, members=true, equipable=true, equipable_weapon=true
 - **Mithril thrownaxe** (ID: 803) — `Thrown` · predicate · is_range_weapon_type(['thrown'])
   - attack_ranged=12, ranged_strength=16, members=true, equipable=true, equipable_weapon=true
-- **Monkfish** (ID: 7946) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
 - **Moonlight antler bolts** (ID: 28878) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=60, members=true, equipable=true
 - **Morrigan's coif** (ID: 22638) — `Helmets` · force_include · name in force_include list
@@ -3895,8 +3834,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-12, attack_ranged=12, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=5, defence_ranged=5, members=true, equipable=true
 - **Phoenix crossbow** (ID: 767) — `Crossbows` · predicate · is_range_weapon_type(['crossbow'])
   - attack_ranged=6, equipable=true, equipable_weapon=true, quest_item=true
-- **Pike** (ID: 351) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
 - **Prayer cape** (ID: 9759) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage, melee, prayer
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Quest point cape** (ID: 9813) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage, melee, quests
@@ -3909,17 +3846,17 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-10, attack_ranged=15, members=true, equipable=true
 - **Rangers' tunic** (ID: 12596) — `Body` · force_include · name in force_include list
   - attack_magic=-15, attack_ranged=15, defence_stab=6, defence_slash=9, defence_crush=12, defence_magic=6, defence_ranged=6, members=true, equipable=true
-- **Ranging cape** (ID: 9756) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage, melee
+- **Ranging cape** (ID: 9756) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: melee
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Ranging hood** (ID: 9758) — `Capes` · force_include · name in force_include list
   - members=true, equipable=true
-- **Ranging potion(1)** (ID: 173) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Ranging potion(1)** (ID: 173) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Ranging potion(2)** (ID: 171) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Ranging potion(2)** (ID: 171) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Ranging potion(3)** (ID: 169) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Ranging potion(3)** (ID: 169) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Ranging potion(4)** (ID: 2444) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Ranging potion(4)** (ID: 2444) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
 - **Red d'hide body** (ID: 2501) — `D'hide armour` · predicate · <lambda> · cross: crafting
   - attack_magic=-15, attack_ranged=25, defence_stab=26, defence_slash=34, defence_crush=36, defence_magic=36, defence_ranged=45, members=true, equipable=true
@@ -3979,7 +3916,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=26, members=true, equipable=true, equipable_weapon=true
 - **Rune fire arrow** (ID: 2540) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=49, members=true, equipable=true
-- **Rune gloves** (ID: 7460) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Rune gloves** (ID: 7460) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=8, attack_slash=8, attack_crush=8, attack_magic=4, attack_ranged=8, defence_stab=8, defence_slash=8, defence_crush=8, defence_magic=4, defence_ranged=8, melee_strength=8, members=true, equipable=true
 - **Rune javelin** (ID: 830) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=124, members=true, equipable=true
@@ -3995,8 +3932,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true, equipable=true, equipable_weapon=true
 - **Sailing cape** (ID: 31288) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance · cross: mage, melee, sailing
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Salmon** (ID: 329) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
 - **Samurai gloves** (ID: 20041) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
   - attack_stab=2, attack_slash=2, attack_crush=2, attack_magic=2, attack_ranged=2, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, members=true, equipable=true
 - **Sanguine torva platebody** (ID: 28256) — `Body` · predicate · is_range_armour_slot(slot='body') — ranged defence dominance · cross: mining_smithing
@@ -4025,18 +3960,12 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=-15, attack_slash=-15, attack_crush=-11, attack_magic=-10, attack_ranged=7, defence_stab=21, defence_slash=18, defence_crush=16, defence_magic=15, defence_ranged=14, prayer=1, members=true, equipable=true
 - **Saradomin dragonhide set** (ID: 13163) — `Raw dragonhide (cross-tag with crafting)` · predicate · <lambda>
   - members=true
-- **Sardine** (ID: 325) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
 - **Scaly blue dragonhide** (ID: 27897) — `Raw dragonhide (cross-tag with crafting)` · predicate · <lambda> · cross: crafting
   - members=true
 - **Scorching bow** (ID: 29591) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=124, ranged_strength=40, members=true, equipable=true, equipable_weapon=true
-- **Sea turtle** (ID: 397) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
 - **Seercull** (ID: 6724) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=69, members=true, equipable=true, equipable_weapon=true
-- **Shark** (ID: 385) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - members=true
 - **Shayzien greaves (1)** (ID: 13360) — `Legs` · predicate · is_range_armour_slot(slot='legs') — ranged defence dominance · cross: melee
   - attack_magic=-10, attack_ranged=-2, defence_stab=10, defence_slash=9, defence_crush=8, defence_magic=-2, defence_ranged=10, members=true, equipable=true
 - **Shayzien greaves (2)** (ID: 13365) — `Legs` · predicate · is_range_armour_slot(slot='legs') — ranged defence dominance · cross: melee
@@ -4051,8 +3980,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-5, attack_ranged=-2, defence_stab=3, defence_slash=5, defence_crush=4, defence_magic=-1, defence_ranged=5, members=true, equipable=true
 - **Shortbow** (ID: 841) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=8, equipable=true, equipable_weapon=true
-- **Shrimps** (ID: 315) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
 - **Signed oak bow** (ID: 4236) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=14, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Silver bolts** (ID: 9145) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
@@ -4105,7 +4032,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=3, members=true, equipable=true, equipable_weapon=true
 - **Steel fire arrow** (ID: 2534) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=16, members=true, equipable=true
-- **Steel gloves** (ID: 7456) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
+- **Steel gloves** (ID: 7456) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=2, attack_ranged=4, defence_stab=4, defence_slash=4, defence_crush=4, defence_magic=2, defence_ranged=4, melee_strength=4, members=true, equipable=true
 - **Steel javelin** (ID: 827) — `Ammunition` · predicate · _is_range_ammo · cross: wc_fletching
   - ranged_strength=64, members=true, equipable=true
@@ -4131,16 +4058,14 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=55, members=true, equipable=true
 - **Sunlit bracers** (ID: 30386) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: mage, melee
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=6, attack_ranged=18, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=6, defence_ranged=12, melee_strength=8, ranged_strength=4, members=true, equipable=true
-- **Super ranging (1)** (ID: 11725) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Super ranging (1)** (ID: 11725) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super ranging (2)** (ID: 11724) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Super ranging (2)** (ID: 11724) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super ranging (3)** (ID: 11723) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Super ranging (3)** (ID: 11723) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super ranging (4)** (ID: 11722) — `Ranging potions` · predicate · _is_potion_family · cross: herblore
+- **Super ranging (4)** (ID: 11722) — `Ranging potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Swordfish** (ID: 373) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
 - **Tarromin tar** (ID: 10144) — `Ammunition` · predicate · _is_range_ammo · cross: hunter
   - ranged_strength=31, members=true, equipable=true
 - **Team cape i** (ID: 20217) — `Capes` · predicate · is_range_armour_slot(slot='cape') — ranged defence dominance
@@ -4175,10 +4100,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=7, equipable=true
 - **Training bow** (ID: 9705) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=8, equipable=true, equipable_weapon=true
-- **Trout** (ID: 333) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
-- **Tuna** (ID: 361) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, mage, melee
-  - (no stat fields)
 - **Twisted bow** (ID: 20997) — `Bows` · predicate · is_range_weapon_type(['bow']) · cross: wc_fletching
   - attack_ranged=70, ranged_strength=20, members=true, equipable=true, equipable_weapon=true
 - **Twisted buckler** (ID: 21000) — `Shields` · predicate · is_range_armour_slot(slot='shield') — ranged defence dominance
@@ -4272,7 +4193,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Zaryte vambraces** (ID: 26235) — `Gloves` · predicate · is_range_armour_slot(slot='hands') — ranged defence dominance · cross: melee
   - attack_stab=-8, attack_slash=-8, attack_crush=-8, attack_ranged=18, defence_stab=8, defence_slash=8, defence_crush=8, defence_magic=5, defence_ranged=8, ranged_strength=2, prayer=1, members=true, equipable=true
 
-### mage (722 items)
+### mage (684 items)
 
 - **3rd age amulet** (ID: 10344) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance
   - attack_magic=15, defence_magic=10, members=true, equipable=true
@@ -4302,8 +4223,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=22, defence_magic=20, members=true, equipable=true, equipable_weapon=true
 - **Achievement diary cape** (ID: 19476) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: construction, melee, quests, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, prayer=4, members=true, equipable=true
-- **Adamant gloves** (ID: 7459) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=4, attack_ranged=7, defence_stab=7, defence_slash=7, defence_crush=7, defence_magic=4, defence_ranged=7, melee_strength=7, members=true, equipable=true
 - **Agility cape** (ID: 9771) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: agility_thieving, melee, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Agility tome** (ID: 7782) — `Tomes` · predicate · name_ends([' tome'])
@@ -4342,17 +4261,17 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of glory (t4)** (ID: 10354) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, range
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(1)** (ID: 1706) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range
+- **Amulet of glory(1)** (ID: 1706) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(2)** (ID: 1708) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range
+- **Amulet of glory(2)** (ID: 1708) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(3)** (ID: 1710) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range
+- **Amulet of glory(3)** (ID: 1710) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(4)** (ID: 1712) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range
+- **Amulet of glory(4)** (ID: 1712) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of glory(5)** (ID: 11976) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(6)** (ID: 11978) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range
+- **Amulet of glory(6)** (ID: 11978) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, misc, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of magic** (ID: 1727) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: misc
   - attack_magic=10, equipable=true
@@ -4372,8 +4291,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=35, attack_ranged=-8, defence_stab=42, defence_slash=31, defence_crush=51, defence_magic=28, magic_damage=3, members=true, equipable=true
 - **Ancestral robes set** (ID: 21049) — `CoX mage upgrades + Ancestral` · predicate · name_in (n=2, e.g. ['Ancestral robes set', 'Kodai insignia'])
   - members=true
-- **Anchovies** (ID: 319) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
 - **Ancient brew(1)** (ID: 26346) — `Magic potions` · predicate · _is_potion_family · cross: herblore
   - members=true
 - **Ancient brew(2)** (ID: 26344) — `Magic potions` · predicate · _is_potion_family · cross: herblore
@@ -4400,8 +4317,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=2, defence_magic=2, prayer=10, members=true, equipable=true
 - **Ancient wyvern shield** (ID: 21633) — `Shields` · predicate · is_mage_armour_slot(slot='shield') — magic defence dominance · cross: melee
   - attack_stab=-10, attack_slash=-10, attack_crush=-10, attack_magic=15, attack_ranged=-10, defence_stab=72, defence_slash=80, defence_crush=75, defence_magic=15, defence_ranged=-5, melee_strength=-2, magic_damage=2, members=true, equipable=true
-- **Anglerfish** (ID: 13441) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Antler guard** (ID: 31081) — `Shields` · predicate · is_mage_armour_slot(slot='shield') — magic defence dominance · cross: melee, range
   - attack_stab=15, attack_slash=15, attack_crush=15, attack_magic=9, attack_ranged=9, defence_stab=-15, defence_slash=-15, defence_crush=-15, defence_magic=-15, defence_ranged=-15, melee_strength=5, ranged_strength=2, prayer=5, members=true, equipable=true
 - **Apprentice wand** (ID: 6910) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
@@ -4446,12 +4361,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Attack cape** (ID: 9747) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Ava's accumulator** (ID: 10499) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance
-  - attack_ranged=4, defence_slash=1, defence_magic=4, members=true, equipable=true, quest_item=true
-- **Ava's assembler** (ID: 22109) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: range
-  - attack_ranged=8, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=8, defence_ranged=2, ranged_strength=2, members=true, equipable=true
-- **Ava's attractor** (ID: 10498) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance
-  - attack_ranged=2, defence_magic=2, members=true, equipable=true, quest_item=true
 - **Avernic treads** (ID: 31088) — `Boots` · predicate · is_mage_armour_slot(slot='feet') — magic defence dominance · cross: melee, range
   - attack_stab=5, attack_slash=5, attack_crush=5, attack_magic=11, attack_ranged=15, defence_stab=21, defence_slash=25, defence_crush=25, defence_magic=10, defence_ranged=10, melee_strength=4, ranged_strength=2, magic_damage=1, members=true, equipable=true
 - **Avernic treads (et)** (ID: 31093) — `Boots` · predicate · is_mage_armour_slot(slot='feet') — magic defence dominance · cross: melee, range
@@ -4480,21 +4389,17 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=4, defence_magic=4, prayer=6, members=true, equipable=true
 - **Bandos stole** (ID: 12269) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance
   - attack_magic=2, defence_magic=2, prayer=10, members=true, equipable=true
-- **Barrows gloves** (ID: 7462) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=12, attack_slash=12, attack_crush=12, attack_magic=6, attack_ranged=12, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=6, defence_ranged=12, melee_strength=12, members=true, equipable=true
 - **Barrows gloves (wrapped)** (ID: 27112) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee
   - attack_stab=21, attack_slash=21, attack_crush=21, attack_magic=9, attack_ranged=21, melee_strength=12, members=true, equipable=true
-- **Bass** (ID: 365) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Battlehat** (ID: 31172) — `Helmets` · predicate · is_mage_armour_slot(slot='head') — magic defence dominance · cross: melee, range
   - attack_stab=15, attack_slash=15, attack_crush=15, attack_magic=15, attack_ranged=15, defence_stab=60, defence_slash=60, defence_crush=60, defence_magic=60, defence_ranged=60, melee_strength=10, ranged_strength=5, magic_damage=5, prayer=10, members=true, equipable=true
-- **Battlemage potion(1)** (ID: 22458) — `Magic potions` · predicate · _is_potion_family · cross: herblore
+- **Battlemage potion(1)** (ID: 22458) — `Magic potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Battlemage potion(2)** (ID: 22455) — `Magic potions` · predicate · _is_potion_family · cross: herblore
+- **Battlemage potion(2)** (ID: 22455) — `Magic potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Battlemage potion(3)** (ID: 22452) — `Magic potions` · predicate · _is_potion_family · cross: herblore
+- **Battlemage potion(3)** (ID: 22452) — `Magic potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Battlemage potion(4)** (ID: 22449) — `Magic potions` · predicate · _is_potion_family · cross: herblore
+- **Battlemage potion(4)** (ID: 22449) — `Magic potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
 - **Battlestaff** (ID: 1391) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_stab=7, attack_slash=-1, attack_crush=25, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=32, members=true, equipable=true, equipable_weapon=true
@@ -4504,8 +4409,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=5, defence_magic=5, members=true, equipable=true, equipable_weapon=true
 - **Black d'hide vambraces (beta)** (ID: 25494) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: range
   - attack_magic=-10, attack_ranged=11, defence_stab=4, defence_slash=5, defence_crush=5, defence_magic=8, members=true, equipable=true
-- **Black gloves** (ID: 7457) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=5, attack_slash=5, attack_crush=5, attack_magic=3, attack_ranged=5, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=5, members=true, equipable=true
 - **Black robe** (ID: 581) — `Body` · predicate · is_mage_armour_slot(slot='body') — magic defence dominance
   - attack_magic=3, defence_magic=3, equipable=true
 - **Black skirt (g)** (ID: 12445) — `Legs` · force_include · name in force_include list
@@ -4594,8 +4497,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=3, defence_magic=3, members=true, equipable=true
 - **Brimstone ring** (ID: 22975) — `Rings` · predicate · is_mage_armour_slot(slot='ring') — magic defence dominance
   - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=6, attack_ranged=4, defence_stab=4, defence_slash=4, defence_crush=4, defence_magic=6, defence_ranged=4, melee_strength=4, members=true, equipable=true
-- **Bronze gloves** (ID: 7454) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=2, attack_slash=2, attack_crush=2, attack_magic=1, attack_ranged=2, defence_stab=2, defence_slash=2, defence_crush=2, defence_magic=1, defence_ranged=2, melee_strength=2, members=true, equipable=true
 - **Broodoo shield** (ID: 6235) — `Shields` · predicate · is_mage_armour_slot(slot='shield') — magic defence dominance · cross: melee
   - attack_magic=3, attack_ranged=-7, defence_stab=10, defence_slash=10, defence_crush=15, defence_magic=5, prayer=5, members=true, equipable=true
 - **Broodoo shield (1)** (ID: 6233) — `Shields` · predicate · is_mage_armour_slot(slot='shield') — magic defence dominance · cross: melee
@@ -4620,14 +4521,10 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=8, attack_ranged=11, defence_stab=6, defence_slash=7, defence_crush=10, defence_magic=12, defence_ranged=10, members=true, equipable=true
 - **Cape of skulls** (ID: 23351) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Cave eel** (ID: 5003) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, fishing, melee, range
-  - members=true
 - **Chaos gauntlets** (ID: 777) — `Gloves` · force_include · name in force_include list
   - attack_stab=2, attack_slash=2, attack_crush=2, defence_stab=8, defence_slash=9, defence_crush=7, melee_strength=2, members=true, equipable=true, quest_item=true
 - **Chaos rune** (ID: 562) — `Basic runes` · predicate · name_in (n=16, e.g. ['Air rune', 'Astral rune', 'Blood rune', 'Body rune', 'Chaos rune']) · cross: runecraft
   - (no stat fields)
-- **Cod** (ID: 339) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Combat bracelet** (ID: 11126) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, misc, range
   - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=3, attack_ranged=7, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=6, members=true, equipable=true
 - **Combat bracelet(1)** (ID: 11124) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, misc, range
@@ -4646,10 +4543,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=20, attack_ranged=-4, defence_stab=15, defence_slash=18, defence_crush=7, defence_magic=5, defence_ranged=5, magic_damage=7, prayer=2, members=true, equipable=true
 - **Construct. cape** (ID: 9789) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Cooked karambwan** (ID: 3144) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
-- **Cooked slimy eel** (ID: 3381) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Cooking cape** (ID: 9801) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: cooking, melee, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Corrupted body (attuned)** (ID: 23844) — `Body` · predicate · is_mage_armour_slot(slot='body') — magic defence dominance · cross: melee, range
@@ -4734,8 +4627,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=25, defence_magic=21, magic_damage=1, prayer=2, members=true, equipable=true
 - **Dagon'hai robes set** (ID: 24333) — `Mage GE armour sets` · predicate · name_in (n=7, e.g. ['3rd age druidic robe bottoms', '3rd age druidic robe top', "Dagon'hai robes set", 'Mystic set (blue)', 'Mystic set (dark)'])
   - members=true
-- **Dark crab** (ID: 11936) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Dark infinity bottoms** (ID: 12459) — `Legs` · predicate · is_mage_armour_slot(slot='legs') — magic defence dominance
   - attack_magic=17, defence_magic=17, magic_damage=1, members=true, equipable=true
 - **Dark infinity hat** (ID: 12457) — `Helmets` · predicate · is_mage_armour_slot(slot='head') — magic defence dominance
@@ -4774,8 +4665,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Dragon cane** (ID: 12373) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_stab=40, attack_slash=-2, attack_crush=60, melee_strength=55, prayer=5, members=true, equipable=true, equipable_weapon=true
-- **Dragon gloves** (ID: 7461) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=9, attack_slash=9, attack_crush=9, attack_magic=5, attack_ranged=9, defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=5, defence_ranged=9, melee_strength=9, members=true, equipable=true
 - **Dragon hunter wand** (ID: 30070) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_magic=16, defence_magic=16, magic_damage=10, members=true, equipable=true, equipable_weapon=true
 - **Dragonbone necklace** (ID: 22111) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: melee, range
@@ -4942,8 +4831,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=2, defence_magic=2, prayer=10, members=true, equipable=true
 - **Hardcore group ironman bracers** (ID: 26182) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
   - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, equipable=true
-- **Hardleather gloves** (ID: 7453) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, melee_strength=1, members=true, equipable=true
 - **Harmonised nightmare staff** (ID: 24423) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_magic=16, defence_magic=14, magic_damage=15, members=true, equipable=true, equipable_weapon=true
 - **Harmonised orb** (ID: 24511) — `Nightmare orbs + spell sacks` · predicate · name_in (n=9, e.g. ['Blighted ancient ice sack', 'Blighted bind sack', 'Blighted entangle sack', 'Blighted snare sack', 'Blighted teleport spell sack'])
@@ -4954,8 +4841,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=3, defence_stab=6, defence_slash=7, defence_crush=5, defence_magic=3, defence_ranged=6, prayer=3, members=true, equipable=true
 - **Herblore cape** (ID: 9774) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: herblore, melee, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Herring** (ID: 347) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
 - **Hitpoints cape** (ID: 9768) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Hitpoints hood** (ID: 9770) — `Capes` · force_include · name in force_include list · cross: melee, range
@@ -4976,8 +4861,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=12, attack_slash=12, attack_crush=12, defence_stab=1, defence_slash=1, melee_strength=12, members=true, equipable=true, equipable_weapon=true
 - **Hueycoatl hide vambraces** (ID: 30082) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance
   - attack_magic=-10, attack_ranged=11, defence_stab=6, defence_slash=5, defence_crush=7, defence_magic=8, prayer=1, members=true, equipable=true
-- **Hunter cape** (ID: 9948) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: hunter, melee, range
-  - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Hydra slayer helmet (i)** (ID: 23075) — `Helmets` · predicate · is_mage_armour_slot(slot='head') — magic defence dominance · cross: melee, slayer
   - attack_magic=3, attack_ranged=3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=10, defence_ranged=30, members=true, equipable=true
 - **Iban's staff** (ID: 1409) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
@@ -4994,7 +4877,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=15, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=15, magic_damage=2, members=true, equipable=true
 - **Imbued guthix max cape** (ID: 21784) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance
   - attack_magic=15, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=15, magic_damage=2, members=true, equipable=true
-- **Imbued heart** (ID: 20724) — `Magic level boost` · predicate · name_in (n=1, e.g. ['Imbued heart'])
+- **Imbued heart** (ID: 20724) — `Magic level boost` · predicate · name_in (n=1, e.g. ['Imbued heart']) · cross: slayer
   - members=true
 - **Imbued saradomin cape** (ID: 21791) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance
   - attack_magic=15, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=15, magic_damage=2, members=true, equipable=true
@@ -5026,8 +4909,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=6, defence_magic=6, magic_damage=1, members=true, equipable=true
 - **Infinity top** (ID: 6916) — `Body` · predicate · is_mage_armour_slot(slot='body') — magic defence dominance
   - attack_magic=22, defence_magic=22, magic_damage=1, members=true, equipable=true
-- **Iron gloves** (ID: 7455) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=3, attack_slash=3, attack_crush=3, attack_magic=2, attack_ranged=3, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=2, defence_ranged=3, melee_strength=3, members=true, equipable=true
 - **Ivandis flail** (ID: 22398) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff']) · cross: quests
   - attack_stab=24, attack_slash=38, attack_crush=62, attack_magic=8, defence_stab=4, defence_slash=4, defence_crush=2, defence_magic=8, melee_strength=42, prayer=5, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Karamja gloves 1** (ID: 11136) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, quests, range
@@ -5050,8 +4931,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=-20, attack_slash=-20, attack_crush=-20, attack_magic=-20, attack_ranged=10, defence_stab=-10, defence_slash=-10, defence_crush=-10, defence_magic=10, members=true, equipable=true
 - **Lava battlestaff** (ID: 3053) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff']) · cross: crafting
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
-- **Lava eel** (ID: 2149) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, fishing, melee, range
-  - members=true, quest_item=true
 - **Lava rune** (ID: 4699) — `Combo runes` · predicate · name_in (n=6, e.g. ['Dust rune', 'Lava rune', 'Mist rune', 'Mud rune', 'Smoke rune']) · cross: runecraft
   - members=true
 - **Law rune** (ID: 563) — `Basic runes` · predicate · name_in (n=16, e.g. ['Air rune', 'Astral rune', 'Blood rune', 'Body rune', 'Chaos rune']) · cross: runecraft
@@ -5068,8 +4947,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=25, defence_stab=10, defence_slash=10, defence_crush=10, defence_magic=20, members=true, equipable=true, equipable_weapon=true
 - **Lithic sceptre (uncharged)** (ID: 33257) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_magic=25, defence_stab=10, defence_slash=10, defence_crush=10, defence_magic=20, members=true, equipable=true, equipable_weapon=true
-- **Lobster** (ID: 379) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
 - **Lovakengj banner** (ID: 20257) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_stab=12, attack_slash=12, attack_crush=12, defence_stab=1, defence_slash=1, melee_strength=12, members=true, equipable=true, equipable_weapon=true
 - **Lunar amulet** (ID: 9102) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance
@@ -5086,7 +4963,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=7, attack_ranged=-7, defence_stab=20, defence_slash=19, defence_crush=23, defence_magic=9, members=true, equipable=true, quest_item=true
 - **Lunar ring** (ID: 9104) — `Rings` · predicate · is_mage_armour_slot(slot='ring') — magic defence dominance
   - attack_magic=2, defence_magic=2, members=true, equipable=true, quest_item=true
-- **Lunar staff** (ID: 9084) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff']) · cross: quests
+- **Lunar staff** (ID: 9084) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff']) · cross: quests, slayer
   - attack_stab=3, attack_slash=2, attack_crush=16, attack_magic=13, defence_stab=2, defence_slash=3, defence_crush=2, defence_magic=13, defence_ranged=1, melee_strength=15, prayer=3, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Lunar staff - pt1** (ID: 9091) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_stab=-1, attack_slash=-1, attack_crush=10, attack_magic=10, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=10, melee_strength=10, members=true, equipable=true, equipable_weapon=true, quest_item=true
@@ -5096,8 +4973,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=-1, attack_slash=-1, attack_crush=10, attack_magic=10, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=10, melee_strength=10, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Lunar torso** (ID: 9097) — `Body` · predicate · is_mage_armour_slot(slot='body') — magic defence dominance · cross: melee
   - attack_magic=10, attack_ranged=-10, defence_stab=34, defence_slash=22, defence_crush=40, defence_magic=12, members=true, equipable=true, quest_item=true
-- **Mackerel** (ID: 355) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Mage's book** (ID: 6889) — `Shields` · predicate · is_mage_armour_slot(slot='shield') — magic defence dominance
   - attack_magic=15, defence_magic=15, magic_damage=2, members=true, equipable=true
 - **Magic cape** (ID: 9762) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, range
@@ -5124,8 +4999,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Malediction ward** (ID: 11924) — `Shields` · predicate · is_mage_armour_slot(slot='shield') — magic defence dominance · cross: melee
   - attack_stab=-8, attack_slash=-8, attack_crush=-8, attack_magic=12, attack_ranged=-12, defence_stab=50, defence_slash=52, defence_crush=48, defence_magic=15, magic_damage=2, members=true, equipable=true
-- **Manta ray** (ID: 391) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Mask of ranul** (ID: 23522) — `Helmets` · predicate · is_mage_armour_slot(slot='head') — magic defence dominance
   - attack_magic=2, defence_magic=2, members=true, equipable=true
 - **Masori assembler** (ID: 27374) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: range
@@ -5156,14 +5029,10 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
 - **Mist rune** (ID: 4695) — `Combo runes` · predicate · name_in (n=6, e.g. ['Dust rune', 'Lava rune', 'Mist rune', 'Mud rune', 'Smoke rune']) · cross: runecraft
   - members=true
-- **Mithril gloves** (ID: 7458) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=6, attack_slash=6, attack_crush=6, attack_magic=3, attack_ranged=6, defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=3, defence_ranged=6, melee_strength=6, members=true, equipable=true
 - **Mithril gloves (wrapped)** (ID: 27110) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee
   - attack_stab=15, attack_slash=15, attack_crush=15, attack_magic=6, attack_ranged=15, melee_strength=6, members=true, equipable=true
 - **Mixed hide cape** (ID: 29289) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance
   - attack_magic=-15, attack_ranged=5, defence_stab=2, defence_slash=2, defence_crush=2, defence_magic=5, defence_ranged=1, melee_strength=1, members=true, equipable=true
-- **Monkfish** (ID: 7946) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Moonclan armour** (ID: 9070) — `Body` · predicate · is_mage_armour_slot(slot='body') — magic defence dominance · cross: melee
   - attack_magic=5, attack_ranged=-10, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=5, defence_ranged=-10, members=true, equipable=true
 - **Moonclan boots** (ID: 9073) — `Boots` · predicate · is_mage_armour_slot(slot='feet') — magic defence dominance · cross: melee
@@ -5278,8 +5147,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_magic=3, prayer=2, members=true, equipable=true
 - **Pharaoh's sceptre (uncharged)** (ID: 26945) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_stab=7, attack_slash=-1, attack_crush=25, attack_magic=10, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=10, melee_strength=32, members=true, equipable=true, equipable_weapon=true
-- **Pike** (ID: 351) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
 - **Piscarilius banner** (ID: 20260) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_stab=12, attack_slash=12, attack_crush=12, defence_stab=1, defence_slash=1, melee_strength=12, members=true, equipable=true, equipable_weapon=true
 - **Prayer cape** (ID: 9759) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, prayer, range
@@ -5294,8 +5161,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Ranger gloves** (ID: 19994) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee
   - attack_magic=-10, attack_ranged=11, defence_stab=1, defence_slash=2, defence_crush=1, defence_magic=2, members=true, equipable=true
-- **Ranging cape** (ID: 9756) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, range
-  - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Red slayer helmet (i)** (ID: 19649) — `Helmets` · predicate · is_mage_armour_slot(slot='head') — magic defence dominance · cross: melee, slayer
   - attack_magic=3, attack_ranged=3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=10, defence_ranged=30, members=true, equipable=true
 - **Regen bracelet** (ID: 11133) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
@@ -5334,8 +5199,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true, equipable=true, equipable_weapon=true
 - **Rune essence** (ID: 1436) — `Essence` · predicate · name_in (n=4, e.g. ['Blood essence', 'Daeyalt essence', 'Pure essence', 'Rune essence']) · cross: runecraft
   - (no stat fields)
-- **Rune gloves** (ID: 7460) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=8, attack_slash=8, attack_crush=8, attack_magic=4, attack_ranged=8, defence_stab=8, defence_slash=8, defence_crush=8, defence_magic=4, defence_ranged=8, melee_strength=8, members=true, equipable=true
 - **Rune gloves (wrapped)** (ID: 27111) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee
   - attack_stab=17, attack_slash=17, attack_crush=17, attack_magic=7, attack_ranged=17, melee_strength=8, members=true, equipable=true
 - **Runecraft cape** (ID: 9765) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, range, runecraft
@@ -5354,8 +5217,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=-40, attack_slash=-40, attack_crush=-40, attack_magic=14, attack_ranged=-40, defence_stab=15, defence_slash=15, defence_crush=15, defence_ranged=-15, members=true, equipable=true
 - **Sailing cape** (ID: 31288) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, range, sailing
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
-- **Salmon** (ID: 329) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
 - **Samurai gloves** (ID: 20041) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
   - attack_stab=2, attack_slash=2, attack_crush=2, attack_magic=2, attack_ranged=2, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, members=true, equipable=true
 - **Sanguinesti staff** (ID: 22323) — `Staves` · force_include · name in force_include list
@@ -5382,22 +5243,14 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=-1, attack_slash=-1, attack_crush=6, attack_magic=6, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=6, melee_strength=2, members=true, equipable=true, equipable_weapon=true
 - **Saradomin stole** (ID: 10470) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance
   - attack_magic=2, defence_magic=2, prayer=10, members=true, equipable=true
-- **Sardine** (ID: 325) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
-- **Sea turtle** (ID: 397) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Seers ring** (ID: 6731) — `Rings` · predicate · is_mage_armour_slot(slot='ring') — magic defence dominance
   - attack_magic=6, defence_magic=6, members=true, equipable=true
 - **Seers ring (i)** (ID: 11770) — `Rings` · predicate · is_mage_armour_slot(slot='ring') — magic defence dominance
   - attack_magic=12, defence_magic=12, members=true, equipable=true
 - **Shadowflame quadrant** (ID: 33253) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_crush=60, attack_magic=25, defence_slash=5, defence_crush=5, defence_magic=17, melee_strength=50, magic_damage=15, members=true, equipable=true, equipable_weapon=true
-- **Shark** (ID: 385) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - members=true
 - **Shayzien banner** (ID: 20263) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_stab=12, attack_slash=12, attack_crush=12, defence_stab=1, defence_slash=1, melee_strength=12, members=true, equipable=true, equipable_weapon=true
-- **Shrimps** (ID: 315) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
 - **Silly jester boots** (ID: 10839) — `Boots` · predicate · is_mage_armour_slot(slot='feet') — magic defence dominance
   - defence_magic=5, defence_ranged=-5, members=true, equipable=true, quest_item=true
 - **Silly jester hat** (ID: 10836) — `Helmets` · predicate · is_mage_armour_slot(slot='head') — magic defence dominance
@@ -5468,8 +5321,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
 - **Steam rune** (ID: 4694) — `Combo runes` · predicate · name_in (n=6, e.g. ['Dust rune', 'Lava rune', 'Mist rune', 'Mud rune', 'Smoke rune']) · cross: runecraft
   - members=true
-- **Steel gloves** (ID: 7456) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
-  - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=2, attack_ranged=4, defence_stab=4, defence_slash=4, defence_crush=4, defence_magic=2, defence_ranged=4, melee_strength=4, members=true, equipable=true
 - **Strange hallowed tome** (ID: 24761) — `Tomes` · predicate · name_ends([' tome'])
   - members=true
 - **Strength cape** (ID: 9750) — `Capes` · predicate · is_mage_armour_slot(slot='cape') — magic defence dominance · cross: melee, range
@@ -5478,13 +5329,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Sunlit bracers** (ID: 30386) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=6, attack_ranged=18, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=6, defence_ranged=12, melee_strength=8, ranged_strength=4, members=true, equipable=true
-- **Super magic potion (1)** (ID: 11729) — `Magic potions` · predicate · _is_potion_family · cross: herblore
+- **Super magic potion (1)** (ID: 11729) — `Magic potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super magic potion (2)** (ID: 11728) — `Magic potions` · predicate · _is_potion_family · cross: herblore
+- **Super magic potion (2)** (ID: 11728) — `Magic potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super magic potion (3)** (ID: 11727) — `Magic potions` · predicate · _is_potion_family · cross: herblore
+- **Super magic potion (3)** (ID: 11727) — `Magic potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Super magic potion (4)** (ID: 11726) — `Magic potions` · predicate · _is_potion_family · cross: herblore
+- **Super magic potion (4)** (ID: 11726) — `Magic potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
 - **Superior calamity breeches** (ID: 26757) — `Legs` · predicate · is_mage_armour_slot(slot='legs') — magic defence dominance · cross: melee
   - attack_stab=3, attack_slash=3, attack_crush=3, attack_magic=8, attack_ranged=11, defence_stab=32, defence_slash=34, defence_crush=36, defence_magic=20, defence_ranged=32, members=true, equipable=true
@@ -5500,8 +5351,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=4, defence_stab=13, defence_slash=11, defence_crush=14, defence_magic=5, members=true, equipable=true
 - **Swampbark legs** (ID: 25401) — `Legs` · force_include · name in force_include list
   - attack_magic=10, defence_stab=20, defence_slash=22, defence_crush=24, defence_magic=15, members=true, equipable=true
-- **Swordfish** (ID: 373) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
 - **Tattered moon page** (ID: 23510) — `Hallowed Sepulchre tomes + pages` · predicate · name_in (n=6, e.g. ['Tattered moon page', 'Tattered sun page', 'Tattered temple page', 'Tome of the moon', 'Tome of the sun'])
   - members=true
 - **Tattered sun page** (ID: 23512) — `Hallowed Sepulchre tomes + pages` · predicate · name_in (n=6, e.g. ['Tattered moon page', 'Tattered sun page', 'Tattered temple page', 'Tome of the moon', 'Tome of the sun'])
@@ -5558,10 +5407,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=25, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=15, members=true, equipable=true, equipable_weapon=true
 - **Trident of the swamp (o)** (ID: 33314) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
   - attack_magic=25, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=15, members=true, equipable=true, equipable_weapon=true
-- **Trout** (ID: 333) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
-- **Tuna** (ID: 361) — `Combat food (cross-tag)` · predicate · _is_cooked_fish · cross: cooking, melee, range
-  - (no stat fields)
 - **Turquoise slayer helmet (i)** (ID: 21890) — `Helmets` · predicate · is_mage_armour_slot(slot='head') — magic defence dominance · cross: melee, slayer
   - attack_magic=3, attack_ranged=3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=10, defence_ranged=30, members=true, equipable=true
 - **Twinflame staff** (ID: 30634) — `Staves` · predicate · is_mage_weapon_type(['powered staff', 'polestaff', 'staff'])
@@ -5670,7 +5515,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=12, attack_slash=12, attack_crush=12, attack_magic=6, attack_ranged=12, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=6, defence_ranged=12, melee_strength=12, members=true, equipable=true
 - **Wristbands of the arena (i)** (ID: 26727) — `Gloves` · predicate · is_mage_armour_slot(slot='hands') — magic defence dominance · cross: melee, range
   - attack_stab=14, attack_slash=13, attack_crush=15, attack_magic=7, attack_ranged=13, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=6, defence_ranged=12, melee_strength=12, members=true, equipable=true
-- **Xeric's talisman** (ID: 13393) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: misc, runecraft
+- **Xeric's talisman** (ID: 13393) — `Amulets` · predicate · is_mage_armour_slot(slot='neck') — magic defence dominance · cross: misc, runecraft, slayer
   - attack_magic=3, defence_magic=1, members=true, equipable=true
 - **Xerician hat** (ID: 13385) — `Helmets` · predicate · is_mage_armour_slot(slot='head') — magic defence dominance
   - attack_magic=3, defence_magic=3, members=true, equipable=true
@@ -5751,7 +5596,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Armadyl page 4** (ID: 12620) — `God pages (Treasure trail)` · predicate · and([or([name_starts(['saradomin page ']) | name_starts(['zamorak page ']) | name_starts(['guthix page ']) | name_starts(['armadyl page ']) | name_starts(['bandos page ']) | name_starts(['ancient page '])]) | or([name_ends([' 1']) | name_ends([' 2']) | name_ends([' 3']) | name_ends([' 4'])])])
   - members=true
-- **Ash sanctifier** (ID: 25781) — `Prayer scrolls + cosmetic` · predicate · name_in (n=5, e.g. ['Arcane prayer scroll', 'Ash sanctifier', 'Dexterous prayer scroll', 'Necklace of faith', 'Torn prayer scroll'])
+- **Ash sanctifier** (ID: 25781) — `Prayer scrolls + cosmetic` · predicate · name_in (n=5, e.g. ['Arcane prayer scroll', 'Ash sanctifier', 'Dexterous prayer scroll', 'Necklace of faith', 'Torn prayer scroll']) · cross: slayer
   - members=true
 - **Ashes** (ID: 592) — `Ashes` · predicate · _is_ashes
   - (no stat fields)
@@ -5823,13 +5668,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Blessed zogre bones** (ID: 29350) — `Bones` · predicate · _is_bones
   - members=true
-- **Blighted super restore(1)** (ID: 24605) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Blighted super restore(1)** (ID: 24605) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Blighted super restore(2)** (ID: 24603) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Blighted super restore(2)** (ID: 24603) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Blighted super restore(3)** (ID: 24601) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Blighted super restore(3)** (ID: 24601) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Blighted super restore(4)** (ID: 24598) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Blighted super restore(4)** (ID: 24598) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
 - **Bologa's blessing** (ID: 20747) — `Blessings (Treasure Trails)` · predicate · or([name_ends([' blessing']) | name_in (n=6, e.g. ['Ancient blessing', 'Holy blessing', 'Honourable blessing', 'Peaceful blessing', 'Unholy blessing'])])
   - members=true
@@ -6167,13 +6012,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Prayer hood** (ID: 9761) — `Prayer accessories` · predicate · name_in (n=7, e.g. ['Bonecrusher', 'Bonecrusher necklace', 'Hand of glory', 'Holy wrench', 'Prayer cape'])
   - members=true, equipable=true
-- **Prayer potion(1)** (ID: 143) — `Prayer potions` · predicate · _is_potion_family · cross: herblore
+- **Prayer potion(1)** (ID: 143) — `Prayer potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Prayer potion(2)** (ID: 141) — `Prayer potions` · predicate · _is_potion_family · cross: herblore
+- **Prayer potion(2)** (ID: 141) — `Prayer potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Prayer potion(3)** (ID: 139) — `Prayer potions` · predicate · _is_potion_family · cross: herblore
+- **Prayer potion(3)** (ID: 139) — `Prayer potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
-- **Prayer potion(4)** (ID: 2434) — `Prayer potions` · predicate · _is_potion_family · cross: herblore
+- **Prayer potion(4)** (ID: 2434) — `Prayer potions` · predicate · _is_potion_family · cross: herblore, slayer
   - members=true
 - **Proselyte cuisse** (ID: 9676) — `Robes (monk/proselyte/initiate/druid)` · predicate · or([name_starts(["monk's "]) | name_starts(['proselyte ']) | name_starts(['initiate ']) | name_starts(['devout ']) | name_starts(["druid's "]) | name_starts(["zealot's "]) | name_in (n=3, e.g. ['Druidic wreath', 'Holy sandals', 'Holy wraps'])]) · cross: melee
   - attack_magic=-21, attack_ranged=-11, defence_stab=33, defence_slash=31, defence_crush=29, defence_magic=-4, defence_ranged=31, prayer=6, members=true, equipable=true, quest_item=true
@@ -6227,21 +6072,21 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Sacred oil(4)** (ID: 3430) — `Pyre log oils` · predicate · _is_potion_family
   - members=true
-- **Sanfew serum(1)** (ID: 10931) — `Sanfew` · predicate · _is_potion_family · cross: herblore, melee
+- **Sanfew serum(1)** (ID: 10931) — `Sanfew` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Sanfew serum(2)** (ID: 10929) — `Sanfew` · predicate · _is_potion_family · cross: herblore, melee
+- **Sanfew serum(2)** (ID: 10929) — `Sanfew` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Sanfew serum(3)** (ID: 10927) — `Sanfew` · predicate · _is_potion_family · cross: herblore, melee
+- **Sanfew serum(3)** (ID: 10927) — `Sanfew` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Sanfew serum(4)** (ID: 10925) — `Sanfew` · predicate · _is_potion_family · cross: herblore, melee
+- **Sanfew serum(4)** (ID: 10925) — `Sanfew` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Saradomin brew(1)** (ID: 6691) — `Saradomin brews` · predicate · _is_potion_family · cross: herblore, melee
+- **Saradomin brew(1)** (ID: 6691) — `Saradomin brews` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Saradomin brew(2)** (ID: 6689) — `Saradomin brews` · predicate · _is_potion_family · cross: herblore, melee
+- **Saradomin brew(2)** (ID: 6689) — `Saradomin brews` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Saradomin brew(3)** (ID: 6687) — `Saradomin brews` · predicate · _is_potion_family · cross: herblore, melee
+- **Saradomin brew(3)** (ID: 6687) — `Saradomin brews` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Saradomin brew(4)** (ID: 6685) — `Saradomin brews` · predicate · _is_potion_family · cross: herblore, melee
+- **Saradomin brew(4)** (ID: 6685) — `Saradomin brews` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
 - **Saradomin page 1** (ID: 3827) — `God pages (Treasure trail)` · predicate · and([or([name_starts(['saradomin page ']) | name_starts(['zamorak page ']) | name_starts(['guthix page ']) | name_starts(['armadyl page ']) | name_starts(['bandos page ']) | name_starts(['ancient page '])]) | or([name_ends([' 1']) | name_ends([' 2']) | name_ends([' 3']) | name_ends([' 4'])])])
   - members=true
@@ -6293,17 +6138,17 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Sun-kissed bones** (ID: 29378) — `Bones` · predicate · _is_bones
   - members=true
-- **Super restore mix(1)** (ID: 11495) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Super restore mix(1)** (ID: 11495) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Super restore mix(2)** (ID: 11493) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Super restore mix(2)** (ID: 11493) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Super restore(1)** (ID: 3030) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Super restore(1)** (ID: 3030) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Super restore(2)** (ID: 3028) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Super restore(2)** (ID: 3028) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Super restore(3)** (ID: 3026) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Super restore(3)** (ID: 3026) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
-- **Super restore(4)** (ID: 3024) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee
+- **Super restore(4)** (ID: 3024) — `Super restores` · predicate · _is_potion_family · cross: herblore, melee, slayer
   - members=true
 - **Superior dragon bonemeal** (ID: 22116) — `Bone secondaries` · predicate · or([name_in (n=6, e.g. ['Bone fragments', 'Bonemeal pot', 'Bucket of slime', 'Granite dust', 'Mort myre fungus']) | name_ends([' bonemeal']) | name_in (n=1, e.g. ['Bonemeal'])])
   - members=true
@@ -6392,7 +6237,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Zombie bone** (ID: 7863) — `Bones` · predicate · _is_bones
   - members=true, quest_item=true
 
-### cooking (639 items)
+### cooking (636 items)
 
 - **Admiral pie** (ID: 7198) — `Pies` · predicate · name_in (n=10, e.g. ['Admiral pie', 'Apple pie', 'Dragonfruit pie', 'Fish pie', 'Garden pie'])
   - members=true
@@ -6400,11 +6245,11 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Ale yeast** (ID: 5767) — `Beverages` · predicate · or([name_in (n=33, e.g. ["Ahab's beer", 'Ale yeast', 'Apple mush', 'Asgarnian ale', "Autumn sq'irkjuice"]) | name_ends(['(m)']) | and([or([name_starts(['asgarnian ale']) | name_starts(['dwarven stout']) | name_starts(['greenman']) | name_starts(['dragon bitter']) | name_starts(['moonlight mead']) | name_starts(['mind bomb']) | name_starts(["axeman's folly"]) | name_starts(["chef's delight"]) | name_starts(["slayer's respite"]) | name_starts(['cider']) | name_starts(["wizard's mind bomb"])]) | or([name_ends(['(4)']) | name_ends(['(m4)'])])])])
   - members=true, quest_item=true
-- **Anchovies** (ID: 319) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Anchovies** (ID: 319) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
 - **Anchovy pizza** (ID: 2297) — `Pizzas` · predicate · name_in (n=4, e.g. ['Anchovy pizza', 'Meat pizza', 'Pineapple pizza', 'Plain pizza'])
   - (no stat fields)
-- **Anglerfish** (ID: 13441) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Anglerfish** (ID: 13441) — `Cooked fish` · predicate · _is_cooked_fish · cross: slayer
   - members=true
 - **Apple mush** (ID: 5992) — `Beverages` · predicate · or([name_in (n=33, e.g. ["Ahab's beer", 'Ale yeast', 'Apple mush', 'Asgarnian ale', "Autumn sq'irkjuice"]) | name_ends(['(m)']) | and([or([name_starts(['asgarnian ale']) | name_starts(['dwarven stout']) | name_starts(['greenman']) | name_starts(['dragon bitter']) | name_starts(['moonlight mead']) | name_starts(['mind bomb']) | name_starts(["axeman's folly"]) | name_starts(["chef's delight"]) | name_starts(["slayer's respite"]) | name_starts(['cider']) | name_starts(["wizard's mind bomb"])]) | or([name_ends(['(4)']) | name_ends(['(m4)'])])])])
   - members=true
@@ -6456,13 +6301,11 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Barley malt** (ID: 6008) — `Harvest produce (cross-tag with farming)` · predicate · or([_is_harvest_produce | name_in (n=11, e.g. ['Barley', 'Barley malt', 'Calquat fruit', 'Coconut', 'Coconut shell'])]) · cross: farming
   - members=true
-- **Bass** (ID: 365) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Bass** (ID: 365) — `Cooked fish` · predicate · _is_cooked_fish
   - members=true
 - **Bat shish** (ID: 10964) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
 - **Batta tin** (ID: 2164) — `Gnome food / cocktails` · predicate · or([name_in (n=73, e.g. ['Batta tin', 'Blurberry special', 'Brandy', 'Burnt crunchies', 'Burnt gnomebowl']) | name_starts(['premade ']) | name_starts(['unfinished cocktail']) | name_starts(['unfinished batta']) | name_starts(['unfinished crunchy']) | name_starts(['half baked ']) | name_in (n=8, e.g. ['Incomplete pizza', 'Odd batta', 'Odd crunchies', 'Odd gnomebowl', 'Pie dish'])])
-  - members=true
-- **Beaver** (ID: 13322) — `Cooking pet & misc` · predicate · name_in (n=5, e.g. ['Beaver', 'Heron', 'Pet hellpuppy', 'Pet kitten', 'Rocky']) · cross: hunter, wc_fletching
   - members=true
 - **Beer** (ID: 1917) — `Beverages` · predicate · or([name_in (n=33, e.g. ["Ahab's beer", 'Ale yeast', 'Apple mush', 'Asgarnian ale', "Autumn sq'irkjuice"]) | name_ends(['(m)']) | and([or([name_starts(['asgarnian ale']) | name_starts(['dwarven stout']) | name_starts(['greenman']) | name_starts(['dragon bitter']) | name_starts(['moonlight mead']) | name_starts(['mind bomb']) | name_starts(["axeman's folly"]) | name_starts(["chef's delight"]) | name_starts(["slayer's respite"]) | name_starts(['cider']) | name_starts(["wizard's mind bomb"])]) | or([name_ends(['(4)']) | name_ends(['(m4)'])])])])
   - (no stat fields)
@@ -6678,7 +6521,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Catfish** (ID: 25672) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Cave eel** (ID: 5003) — `Cooked fish` · predicate · _is_cooked_fish · cross: fishing, mage, melee, range
+- **Cave eel** (ID: 5003) — `Cooked fish` · predicate · _is_cooked_fish · cross: fishing
   - members=true
 - **Cavefish** (ID: 25660) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - (no stat fields)
@@ -6746,7 +6589,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Coconut shell** (ID: 5978) — `Harvest produce (cross-tag with farming)` · predicate · or([_is_harvest_produce | name_in (n=11, e.g. ['Barley', 'Barley malt', 'Calquat fruit', 'Coconut', 'Coconut shell'])]) · cross: farming
   - members=true
-- **Cod** (ID: 339) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Cod** (ID: 339) — `Cooked fish` · predicate · _is_cooked_fish
   - members=true
 - **Cooked barb-tailed kebbit** (ID: 29131) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
@@ -6766,7 +6609,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Cooked jubbly** (ID: 7568) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true, quest_item=true
-- **Cooked karambwan** (ID: 3144) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Cooked karambwan** (ID: 3144) — `Cooked fish` · predicate · _is_cooked_fish
   - members=true
 - **Cooked kyatt** (ID: 29152) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
@@ -6786,7 +6629,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Cooked rabbit** (ID: 3228) — `Raw meat & ingredients` · predicate · or([name_starts(['raw ']) | name_in (n=43, e.g. ['Banana', 'Bread dough', 'Bucket of milk', 'Cabbage', 'Cheese']) | and([or([name_starts(['red spice']) | name_starts(['orange spice']) | name_starts(['brown spice']) | name_starts(['yellow spice'])]) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])])])
   - members=true
-- **Cooked slimy eel** (ID: 3381) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Cooked slimy eel** (ID: 3381) — `Cooked fish` · predicate · _is_cooked_fish
   - members=true
 - **Cooked sunlight antelope** (ID: 29140) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
@@ -6818,7 +6661,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Curry leaf** (ID: 5970) — `Harvest produce (cross-tag with farming)` · predicate · or([_is_harvest_produce | name_in (n=11, e.g. ['Barley', 'Barley malt', 'Calquat fruit', 'Coconut', 'Coconut shell'])]) · cross: farming
   - members=true
-- **Dark crab** (ID: 11936) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Dark crab** (ID: 11936) — `Cooked fish` · predicate · _is_cooked_fish · cross: slayer
   - members=true
 - **Dragon bitter** (ID: 1911) — `Beverages` · predicate · or([name_in (n=33, e.g. ["Ahab's beer", 'Ale yeast', 'Apple mush', 'Asgarnian ale', "Autumn sq'irkjuice"]) | name_ends(['(m)']) | and([or([name_starts(['asgarnian ale']) | name_starts(['dwarven stout']) | name_starts(['greenman']) | name_starts(['dragon bitter']) | name_starts(['moonlight mead']) | name_starts(['mind bomb']) | name_starts(["axeman's folly"]) | name_starts(["chef's delight"]) | name_starts(["slayer's respite"]) | name_starts(['cider']) | name_starts(["wizard's mind bomb"])]) | or([name_ends(['(4)']) | name_ends(['(m4)'])])])])
   - members=true
@@ -6952,9 +6795,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Harpoonfish** (ID: 25565) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Heron** (ID: 13320) — `Cooking pet & misc` · predicate · name_in (n=5, e.g. ['Beaver', 'Heron', 'Pet hellpuppy', 'Pet kitten', 'Rocky']) · cross: fishing
-  - members=true
-- **Herring** (ID: 347) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Herring** (ID: 347) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
 - **Hot kettle** (ID: 7691) — `Cooking tools` · predicate · name_in (n=20, e.g. ['Bowl', 'Cake tin', "Chef's hat", 'Cooking cape', 'Cooking cape(t)'])
   - members=true
@@ -6986,7 +6827,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Kyren fish (6)** (ID: 20868) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Lava eel** (ID: 2149) — `Cooked fish` · predicate · _is_cooked_fish · cross: fishing, mage, melee, range
+- **Lava eel** (ID: 2149) — `Cooked fish` · predicate · _is_cooked_fish · cross: fishing
   - members=true, quest_item=true
 - **Leckish fish (2)** (ID: 20860) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
@@ -7004,15 +6845,15 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Loach** (ID: 10970) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Lobster** (ID: 379) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Lobster** (ID: 379) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
 - **Lobster pot** (ID: 301) — `Raw meat & ingredients` · predicate · or([name_starts(['raw ']) | name_in (n=43, e.g. ['Banana', 'Bread dough', 'Bucket of milk', 'Cabbage', 'Cheese']) | and([or([name_starts(['red spice']) | name_starts(['orange spice']) | name_starts(['brown spice']) | name_starts(['yellow spice'])]) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])])]) · cross: fishing
   - (no stat fields)
 - **Logavano fruit** (ID: 13428) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Mackerel** (ID: 355) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Mackerel** (ID: 355) — `Cooked fish` · predicate · _is_cooked_fish
   - members=true
-- **Manta ray** (ID: 391) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Manta ray** (ID: 391) — `Cooked fish` · predicate · _is_cooked_fish · cross: slayer
   - members=true
 - **Mature cider** (ID: 5765) — `Beverages` · predicate · or([name_in (n=33, e.g. ["Ahab's beer", 'Ale yeast', 'Apple mush', 'Asgarnian ale', "Autumn sq'irkjuice"]) | name_ends(['(m)']) | and([or([name_starts(['asgarnian ale']) | name_starts(['dwarven stout']) | name_starts(['greenman']) | name_starts(['dragon bitter']) | name_starts(['moonlight mead']) | name_starts(['mind bomb']) | name_starts(["axeman's folly"]) | name_starts(["chef's delight"]) | name_starts(["slayer's respite"]) | name_starts(['cider']) | name_starts(["wizard's mind bomb"])]) | or([name_ends(['(4)']) | name_ends(['(m4)'])])])])
   - members=true
@@ -7030,7 +6871,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Mint cake** (ID: 9475) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Monkfish** (ID: 7946) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Monkfish** (ID: 7946) — `Cooked fish` · predicate · _is_cooked_fish · cross: slayer
   - members=true
 - **Moonlight mead** (ID: 2955) — `Beverages` · predicate · or([name_in (n=33, e.g. ["Ahab's beer", 'Ale yeast', 'Apple mush', 'Asgarnian ale', "Autumn sq'irkjuice"]) | name_ends(['(m)']) | and([or([name_starts(['asgarnian ale']) | name_starts(['dwarven stout']) | name_starts(['greenman']) | name_starts(['dragon bitter']) | name_starts(['moonlight mead']) | name_starts(['mind bomb']) | name_starts(["axeman's folly"]) | name_starts(["chef's delight"]) | name_starts(["slayer's respite"]) | name_starts(['cider']) | name_starts(["wizard's mind bomb"])]) | or([name_ends(['(4)']) | name_ends(['(m4)'])])])])
   - members=true
@@ -7126,7 +6967,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Peach** (ID: 6883) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Pet kitten** (ID: 1555) — `Cooking pet & misc` · predicate · name_in (n=5, e.g. ['Beaver', 'Heron', 'Pet hellpuppy', 'Pet kitten', 'Rocky'])
+- **Pet kitten** (ID: 1555) — `Cooking pet & misc` · predicate · name_in (n=2, e.g. ['Pet hellpuppy', 'Pet kitten'])
   - members=true
 - **Phluxia bat (3)** (ID: 20877) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
@@ -7134,7 +6975,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Pie shell** (ID: 2315) — `Pies (extended)` · predicate · or([name_ends([' pie']) | name_in (n=1, e.g. ['Pie shell'])]) · cross: crafting
   - (no stat fields)
-- **Pike** (ID: 351) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Pike** (ID: 351) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
 - **Pineapple** (ID: 2114) — `Raw meat & ingredients` · predicate · or([name_starts(['raw ']) | name_in (n=43, e.g. ['Banana', 'Bread dough', 'Bucket of milk', 'Cabbage', 'Cheese']) | and([or([name_starts(['red spice']) | name_starts(['orange spice']) | name_starts(['brown spice']) | name_starts(['yellow spice'])]) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])])])
   - members=true
@@ -7450,19 +7291,17 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Roast rabbit** (ID: 7223) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Rocky** (ID: 20663) — `Cooking pet & misc` · predicate · name_in (n=5, e.g. ['Beaver', 'Heron', 'Pet hellpuppy', 'Pet kitten', 'Rocky']) · cross: agility_thieving
-  - members=true
 - **Rolling pin** (ID: 7445) — `Cooking tools` · predicate · name_in (n=20, e.g. ['Bowl', 'Cake tin', "Chef's hat", 'Cooking cape', 'Cooking cape(t)']) · cross: melee
   - attack_stab=20, attack_slash=-2, attack_crush=39, melee_strength=36, prayer=4, members=true, equipable=true, equipable_weapon=true
 - **Roqed fish (5)** (ID: 20866) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Salmon** (ID: 329) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Salmon** (ID: 329) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
-- **Sardine** (ID: 325) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Sardine** (ID: 325) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
 - **Scrambled egg** (ID: 7078) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Sea turtle** (ID: 397) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Sea turtle** (ID: 397) — `Cooked fish` · predicate · _is_cooked_fish · cross: slayer
   - members=true
 - **Seasoned legs** (ID: 2158) — `Gnome food / cocktails` · predicate · or([name_in (n=73, e.g. ['Batta tin', 'Blurberry special', 'Brandy', 'Burnt crunchies', 'Burnt gnomebowl']) | name_starts(['premade ']) | name_starts(['unfinished cocktail']) | name_starts(['unfinished batta']) | name_starts(['unfinished crunchy']) | name_starts(['half baked ']) | name_in (n=8, e.g. ['Incomplete pizza', 'Odd batta', 'Odd crunchies', 'Odd gnomebowl', 'Pie dish'])])
   - members=true
@@ -7470,11 +7309,11 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Servery uncooked pie** (ID: 13402) — `Pies (extended)` · predicate · or([name_ends([' pie']) | name_in (n=1, e.g. ['Pie shell'])])
   - members=true
-- **Shark** (ID: 385) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Shark** (ID: 385) — `Cooked fish` · predicate · _is_cooked_fish · cross: slayer
   - members=true
 - **Short green guy** (ID: 2080) — `Gnome food / cocktails` · predicate · or([name_in (n=73, e.g. ['Batta tin', 'Blurberry special', 'Brandy', 'Burnt crunchies', 'Burnt gnomebowl']) | name_starts(['premade ']) | name_starts(['unfinished cocktail']) | name_starts(['unfinished batta']) | name_starts(['unfinished crunchy']) | name_starts(['half baked ']) | name_in (n=8, e.g. ['Incomplete pizza', 'Odd batta', 'Odd crunchies', 'Odd gnomebowl', 'Pie dish'])])
   - members=true
-- **Shrimps** (ID: 315) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Shrimps** (ID: 315) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
 - **Skewered beast** (ID: 9992) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
@@ -7542,7 +7381,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Sweetcorn** (ID: 5986) — `Breads` · predicate · name_in (n=4, e.g. ['Bread', 'Bread dough', 'Pitta bread', 'Sweetcorn'])
   - members=true
-- **Swordfish** (ID: 373) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Swordfish** (ID: 373) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
 - **Tangled toad's legs** (ID: 2187) — `Gnome food / cocktails` · predicate · or([name_in (n=73, e.g. ['Batta tin', 'Blurberry special', 'Brandy', 'Burnt crunchies', 'Burnt gnomebowl']) | name_starts(['premade ']) | name_starts(['unfinished cocktail']) | name_starts(['unfinished batta']) | name_starts(['unfinished crunchy']) | name_starts(['half baked ']) | name_in (n=8, e.g. ['Incomplete pizza', 'Odd batta', 'Odd crunchies', 'Odd gnomebowl', 'Pie dish'])])
   - members=true
@@ -7574,13 +7413,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Tomatoes(5)** (ID: 5968) — `Harvest produce (cross-tag with farming)` · predicate · or([_is_harvest_produce | name_in (n=11, e.g. ['Barley', 'Barley malt', 'Calquat fruit', 'Coconut', 'Coconut shell'])]) · cross: farming
   - members=true
-- **Trout** (ID: 333) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Trout** (ID: 333) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
-- **Tuna** (ID: 361) — `Cooked fish` · predicate · _is_cooked_fish · cross: mage, melee, range
+- **Tuna** (ID: 361) — `Cooked fish` · predicate · _is_cooked_fish
   - (no stat fields)
 - **Tuna and corn** (ID: 7068) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
-- **Tuna potato** (ID: 7060) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
+- **Tuna potato** (ID: 7060) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])]) · cross: slayer
   - members=true
 - **Ugthanki & onion** (ID: 1877) — `Misc cooked food` · predicate · or([name_starts(['cooked ']) | name_in (n=106, e.g. ['Baked potato', 'Bat shish', 'Blighted anglerfish', 'Blighted karambwan', 'Blighted manta ray'])])
   - members=true
@@ -7673,13 +7512,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Yellow spice (4)** (ID: 7492) — `Raw meat & ingredients` · predicate · or([name_starts(['raw ']) | name_in (n=43, e.g. ['Banana', 'Bread dough', 'Bucket of milk', 'Cabbage', 'Cheese']) | and([or([name_starts(['red spice']) | name_starts(['orange spice']) | name_starts(['brown spice']) | name_starts(['yellow spice'])]) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])])])
   - members=true, quest_item=true
 
-### wc_fletching (356 items)
+### wc_fletching (355 items)
 
 - **3rd age axe** (ID: 20011) — `Axes` · predicate · _is_wc_axe
   - attack_stab=-2, attack_slash=38, attack_crush=32, defence_slash=1, melee_strength=42, members=true, equipable=true, equipable_weapon=true
 - **3rd age bow** (ID: 12424) — `Bows & shortbows (strung)` · predicate · and([is_range_weapon_type(['bow']) | not(name_contains(['(u)']))]) · cross: range
   - attack_ranged=80, members=true, equipable=true, equipable_weapon=true
-- **3rd age felling axe** (ID: 28226) — `Axes` · predicate · _is_wc_axe
+- **3rd age felling axe** (ID: 28226) — `Forestry items (post-Sept 2023)` · predicate · <lambda> · cross: melee
   - attack_stab=-3, attack_slash=60, attack_crush=51, defence_slash=1, melee_strength=67, members=true, equipable=true, equipable_weapon=true
 - **Accursed sceptre (u)** (ID: 27662) — `Unstrung bows` · predicate · or([name_contains(['(u)']) | name_in (n=2, e.g. ['Unstrung comp bow', 'Unstrung lyre'])])
   - attack_magic=22, defence_magic=20, members=true, equipable=true, equipable_weapon=true
@@ -7747,7 +7586,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=46, ranged_strength=125, members=true, equipable=true
 - **Barbed bolts** (ID: 881) — `Bolts (finished)` · predicate · and([name_ends([' bolts']) | not(name_contains(['(unf)']))]) · cross: range
   - ranged_strength=12, members=true, equipable=true
-- **Beaver** (ID: 13322) — `Capes & pet` · predicate · name_in (n=8, e.g. ['Beaver', 'Fletching cape', 'Fletching cape(t)', 'Fletching hood', 'Imcando hammer']) · cross: cooking, hunter
+- **Beaver** (ID: 13322) — `Capes & pet` · predicate · name_in (n=8, e.g. ['Beaver', 'Fletching cape', 'Fletching cape(t)', 'Fletching hood', 'Imcando hammer']) · cross: hunter
   - members=true
 - **Bird nest** (ID: 5070) — `Bird nests` · predicate · or([name_starts(['bird nest']) | name_starts(["bird's nest"]) | name_in (n=2, e.g. ['Nest box (empty)', 'Nest box (seeds)'])])
   - members=true
@@ -7873,7 +7712,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_ranged=72, ranged_strength=42, prayer=1, members=true, equipable=true, equipable_weapon=true
 - **Crystal bow (perfected)** (ID: 23903) — `Bows & shortbows (strung)` · predicate · and([is_range_weapon_type(['bow']) | not(name_contains(['(u)']))]) · cross: range
   - attack_ranged=172, ranged_strength=138, prayer=3, members=true, equipable=true, equipable_weapon=true
-- **Crystal felling axe** (ID: 28220) — `Axes` · predicate · _is_wc_axe
+- **Crystal felling axe** (ID: 28220) — `Forestry items (post-Sept 2023)` · predicate · <lambda> · cross: melee
   - attack_stab=-3, attack_slash=60, attack_crush=51, defence_slash=1, melee_strength=67, members=true, equipable=true, equipable_weapon=true
 - **Cursed goblin bow** (ID: 11708) — `Bows & shortbows (strung)` · predicate · and([is_range_weapon_type(['bow']) | not(name_contains(['(u)']))]) · cross: range
   - equipable=true, equipable_weapon=true
@@ -7911,7 +7750,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=35, members=true, equipable=true, equipable_weapon=true
 - **Dragon dart tip** (ID: 11232) — `Darts` · predicate · name_ends([' dart', ' darts', ' dart tip', ' dart tips'])
   - members=true
-- **Dragon felling axe** (ID: 28217) — `Axes` · predicate · _is_wc_axe
+- **Dragon felling axe** (ID: 28217) — `Forestry items (post-Sept 2023)` · predicate · <lambda> · cross: melee
   - attack_stab=-3, attack_slash=60, attack_crush=51, defence_slash=1, melee_strength=67, members=true, equipable=true, equipable_weapon=true
 - **Dragon fire arrow** (ID: 11217) — `Arrows` · predicate · and([name_ends([' arrow', ' arrows']) | not(name_contains(['shaft']))]) · cross: range
   - ranged_strength=60, members=true, equipable=true
@@ -7944,6 +7783,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Emerald dragon bolts** (ID: 21965) — `Bolts (finished)` · predicate · and([name_ends([' bolts']) | not(name_contains(['(unf)']))]) · cross: range
   - ranged_strength=122, members=true, equipable=true
 - **Feather** (ID: 314) — `Feathers (cross-tag with fishing)` · predicate · name_in (n=6, e.g. ['Blue feather', 'Feather', 'Orange feather', 'Red feather', 'Stripy feather']) · cross: fishing, range
+  - (no stat fields)
+- **Felling axe handle** (ID: 28177) — `Forestry items (post-Sept 2023)` · predicate · <lambda>
   - (no stat fields)
 - **Field arrow** (ID: 22228) — `Arrows` · predicate · and([name_ends([' arrow', ' arrows']) | not(name_contains(['shaft']))]) · cross: range
   - attack_ranged=46, ranged_strength=125, members=true, equipable=true
@@ -8253,8 +8094,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Sinew** (ID: 9436) — `Flax & secondary fletching materials` · predicate · name_in (n=5, e.g. ['Bow string', 'Crossbow string', 'Flax', 'Magic string', 'Sinew'])
   - members=true
-- **Soulreaper axe (o)** (ID: 33335) — `Axes` · predicate · _is_wc_axe
-  - attack_stab=28, attack_slash=134, attack_crush=66, melee_strength=121, members=true, equipable=true, equipable_weapon=true
 - **Starter bow** (ID: 22333) — `Bows & shortbows (strung)` · predicate · and([is_range_weapon_type(['bow']) | not(name_contains(['(u)']))]) · cross: range
   - attack_ranged=20, ranged_strength=7, equipable=true, equipable_weapon=true
 - **Steel arrow** (ID: 886) — `Arrows` · predicate · and([name_ends([' arrow', ' arrows']) | not(name_contains(['shaft']))]) · cross: range
@@ -8385,8 +8224,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Zenyte amulet (u)** (ID: 19501) — `Unstrung bows` · predicate · or([name_contains(['(u)']) | name_in (n=2, e.g. ['Unstrung comp bow', 'Unstrung lyre'])])
   - members=true
-- **Zombie axe** (ID: 28810) — `Axes` · predicate · _is_wc_axe
-  - attack_stab=-3, attack_slash=105, attack_crush=90, defence_stab=-1, defence_ranged=-1, melee_strength=107, members=true, equipable=true, equipable_weapon=true
 
 ### fishing (110 items)
 
@@ -8418,7 +8255,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Bucket of sandworms** (ID: 13430) — `Bait` · predicate · name_in (n=11, e.g. ['Blue feather', 'Bucket of sandworms', 'Dark fishing bait', 'Feather', 'Fishing bait'])
   - members=true
-- **Cave eel** (ID: 5003) — `Specialty fish` · predicate · name_in (n=12, e.g. ['Cave eel', 'Fish offcuts', 'Frog spawn', 'Infernal eel', 'Lava eel']) · cross: cooking, mage, melee, range
+- **Cave eel** (ID: 5003) — `Specialty fish` · predicate · name_in (n=12, e.g. ['Cave eel', 'Fish offcuts', 'Frog spawn', 'Infernal eel', 'Lava eel']) · cross: cooking
   - members=true
 - **Common tench** (ID: 22829) — `Aerial fishing catches + byproducts` · predicate · name_in (n=7, e.g. ['Bluegill', 'Common tench', 'Fish chunks', 'Golden tench', 'Greater siren'])
   - members=true
@@ -8472,7 +8309,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Harpoon** (ID: 311) — `Rods & tools` · predicate · name_in (n=25, e.g. ['Barb-tail harpoon', 'Barbarian rod', 'Big fishing net', "Cormorant's glove", 'Crystal harpoon'])
   - (no stat fields)
-- **Heron** (ID: 13320) — `Cape & pet` · predicate · name_in (n=4, e.g. ['Fishing cape', 'Fishing cape(t)', 'Fishing hood', 'Heron']) · cross: cooking
+- **Heron** (ID: 13320) — `Cape & pet` · predicate · name_in (n=4, e.g. ['Fishing cape', 'Fishing cape(t)', 'Fishing hood', 'Heron'])
   - members=true
 - **Infernal eel** (ID: 21293) — `Specialty fish` · predicate · name_in (n=12, e.g. ['Cave eel', 'Fish offcuts', 'Frog spawn', 'Infernal eel', 'Lava eel'])
   - members=true
@@ -8484,7 +8321,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=38, attack_slash=32, defence_slash=1, melee_strength=42, members=true, equipable=true, equipable_weapon=true
 - **Karambwan vessel** (ID: 3157) — `Rods & tools` · predicate · name_in (n=25, e.g. ['Barb-tail harpoon', 'Barbarian rod', 'Big fishing net', "Cormorant's glove", 'Crystal harpoon'])
   - members=true, quest_item=true
-- **Lava eel** (ID: 2149) — `Specialty fish` · predicate · name_in (n=12, e.g. ['Cave eel', 'Fish offcuts', 'Frog spawn', 'Infernal eel', 'Lava eel']) · cross: cooking, mage, melee, range
+- **Lava eel** (ID: 2149) — `Specialty fish` · predicate · name_in (n=12, e.g. ['Cave eel', 'Fish offcuts', 'Frog spawn', 'Infernal eel', 'Lava eel']) · cross: cooking
   - members=true, quest_item=true
 - **Leaping salmon** (ID: 11330) — `Specialty fish` · predicate · name_in (n=12, e.g. ['Cave eel', 'Fish offcuts', 'Frog spawn', 'Infernal eel', 'Lava eel'])
   - members=true
@@ -8776,38 +8613,24 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Yew pyre logs** (ID: 3446) — `Logs` · predicate · _is_log · cross: wc_fletching
   - members=true
 
-### crafting (256 items)
+### crafting (202 items)
 
 - **Air battlestaff** (ID: 1397) — `Battlestaves` · predicate · and([name_ends([' battlestaff']) | not(name_contains(['mystic']))]) · cross: mage
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
 - **Amulet mould** (ID: 1595) — `Crafting tools` · predicate · name_in (n=18, e.g. ['Amulet mould', 'Bracelet mould', 'Bronze wire', 'Bucket of sand', 'Chisel'])
   - (no stat fields)
-- **Ancient blood ornament kit** (ID: 28336) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Ancient d'hide body** (ID: 12492) — `D'hide` · predicate · or([name_ends([' dragonhide']) | name_ends([" d'hide", " d'hide body", " d'hide chaps", " d'hide vambraces"])]) · cross: range
   - attack_magic=-15, attack_ranged=30, defence_stab=55, defence_slash=47, defence_crush=60, defence_magic=50, defence_ranged=55, prayer=1, members=true, equipable=true
-- **Anguish ornament kit** (ID: 22246) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Armadyl armour ornament kit** (ID: 26713) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Armadyl d'hide body** (ID: 12508) — `D'hide` · predicate · or([name_ends([' dragonhide']) | name_ends([" d'hide", " d'hide body", " d'hide chaps", " d'hide vambraces"])]) · cross: range
   - attack_magic=-15, attack_ranged=30, defence_stab=55, defence_slash=47, defence_crush=60, defence_magic=50, defence_ranged=55, prayer=1, members=true, equipable=true
-- **Armadyl godsword ornament kit** (ID: 20068) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Ball of wool** (ID: 1759) — `Thread & dyes` · predicate · name_in (n=10, e.g. ['Ball of wool', 'Blue dye', 'Green dye', 'Orange dye', 'Pink dye'])
   - (no stat fields)
-- **Bandos armour ornament kit** (ID: 26717) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Bandos d'hide body** (ID: 12500) — `D'hide` · predicate · or([name_ends([' dragonhide']) | name_ends([" d'hide", " d'hide body", " d'hide chaps", " d'hide vambraces"])]) · cross: range
   - attack_magic=-15, attack_ranged=30, defence_stab=55, defence_slash=47, defence_crush=60, defence_magic=50, defence_ranged=55, prayer=1, members=true, equipable=true
-- **Bandos godsword ornament kit** (ID: 20071) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Bark** (ID: 3239) — `Misc crafting materials` · predicate · name_in (n=14, e.g. ['Bark', 'Bones (Crafting)', 'Celastrus bark', 'Charcoal', 'Fibula piece'])
   - members=true
 - **Bear fur** (ID: 948) — `Leather (raw → tanned)` · predicate · name_in (n=13, e.g. ['Bear fur', 'Cowhide', 'Cured yak-hide', 'Grey wolf fur', 'Hard leather'])
   - (no stat fields)
-- **Berserker necklace ornament kit** (ID: 23237) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Black bracelet** (ID: 11067) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
   - (no stat fields)
 - **Black d'hide body** (ID: 2503) — `D'hide` · predicate · or([name_ends([' dragonhide']) | name_ends([" d'hide", " d'hide body", " d'hide chaps", " d'hide vambraces"])]) · cross: range
@@ -8837,8 +8660,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Blue dye** (ID: 1767) — `Thread & dyes` · predicate · name_in (n=10, e.g. ['Ball of wool', 'Blue dye', 'Green dye', 'Orange dye', 'Pink dye'])
   - (no stat fields)
 - **Bolt of cloth** (ID: 8790) — `Wool/dyes/cloth (extended)` · predicate · name_in (n=5, e.g. ['Ball of wool', 'Bolt of cloth', 'Linum tirinum', 'Spun flax', 'Wool']) · cross: construction
-  - members=true
-- **Bounty hunter ornament kit** (ID: 28017) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
   - members=true
 - **Bowl** (ID: 1923) — `Pottery` · predicate · name_in (n=10, e.g. ['Bowl', 'Clay', 'Pie dish', 'Plant pot', 'Pot']) · cross: cooking
   - (no stat fields)
@@ -8872,16 +8693,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Dagannoth hide** (ID: 6155) — `Leathers (extended)` · predicate · or([name_ends([' leather']) | name_ends([' hide'])])
   - members=true
-- **Dagon'hai robes ornament kit** (ID: 27121) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dark infinity colour kit** (ID: 12528) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Demonic axe ornament kit** (ID: 33305) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Demonic staff ornament kit** (ID: 33308) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Demonic trident ornament kit** (ID: 33311) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Diamond** (ID: 1601) — `Cut gems` · predicate · name_in (n=14, e.g. ['Diamond', 'Dragonstone', 'Emerald', 'Jade', 'Onyx'])
   - (no stat fields)
 - **Diamond amulet** (ID: 1700) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
@@ -8892,32 +8703,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - equipable=true
 - **Diamond ring** (ID: 1643) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
   - equipable=true
-- **Dragon boots ornament kit** (ID: 22231) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon chainbody ornament kit** (ID: 12534) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon claws ornament kit** (ID: 26707) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon defender ornament kit** (ID: 20143) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon full helm ornament kit** (ID: 12538) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon kiteshield ornament kit** (ID: 22239) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon legs/skirt ornament kit** (ID: 12536) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Dragon necklace** (ID: 1664) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
   - members=true, equipable=true
-- **Dragon pickaxe upgrade kit** (ID: 12800) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon platebody ornament kit** (ID: 22236) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon scimitar ornament kit** (ID: 20002) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon sq shield ornament kit** (ID: 12532) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Dragon warhammer ornament kit** (ID: 26709) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Dragonstone** (ID: 1615) — `Cut gems` · predicate · name_in (n=14, e.g. ['Diamond', 'Dragonstone', 'Emerald', 'Jade', 'Onyx'])
   - members=true
 - **Dragonstone amulet** (ID: 1702) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
@@ -8930,16 +8717,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
 - **Earth battlestaff** (ID: 1399) — `Battlestaves` · predicate · and([name_ends([' battlestaff']) | not(name_contains(['mystic']))]) · cross: mage
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
-- **Echo ahrim's ornament kit** (ID: 30451) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Echo venator bow ornament kit** (ID: 30432) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Echo virtus ornament kit** (ID: 30443) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Elder chaos robes ornament kit** (ID: 27113) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Elder maul ornament kit** (ID: 27098) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Emerald** (ID: 1605) — `Cut gems` · predicate · name_in (n=14, e.g. ['Diamond', 'Dragonstone', 'Emerald', 'Jade', 'Onyx'])
   - (no stat fields)
 - **Emerald amulet** (ID: 1696) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
@@ -8963,8 +8740,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Fire battlestaff** (ID: 1393) — `Battlestaves` · predicate · and([name_ends([' battlestaff']) | not(name_contains(['mystic']))]) · cross: mage
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
 - **Flattened hide** (ID: 6171) — `Leathers (extended)` · predicate · or([name_ends([' leather']) | name_ends([' hide'])])
-  - members=true
-- **Fury ornament kit** (ID: 12526) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
   - members=true
 - **Giant seaweed** (ID: 21504) — `Glass` · predicate · name_in (n=11, e.g. ['Empty fishbowl', 'Empty light orb', 'Empty vial', 'Giant seaweed', 'Light orb'])
   - members=true
@@ -9008,10 +8783,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Hardleather body** (ID: 1131) — `Leather (raw → tanned)` · predicate · name_in (n=13, e.g. ['Bear fur', 'Cowhide', 'Cured yak-hide', 'Grey wolf fur', 'Hard leather']) · cross: melee
   - attack_magic=-4, attack_ranged=8, defence_stab=12, defence_slash=15, defence_crush=18, defence_magic=6, defence_ranged=15, equipable=true
-- **Heavy ballista ornament kit** (ID: 26711) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Holy ornament kit** (ID: 25742) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Hueycoatl hide** (ID: 30085) — `Leathers (extended)` · predicate · or([name_ends([' leather']) | name_ends([' hide'])])
   - members=true
 - **Hydra leather** (ID: 22983) — `Leathers (extended)` · predicate · or([name_ends([' leather']) | name_ends([' hide'])]) · cross: slayer
@@ -9028,20 +8799,14 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true, equipable=true
 - **Lava battlestaff** (ID: 3053) — `Battlestaves` · predicate · and([name_ends([' battlestaff']) | not(name_contains(['mystic']))]) · cross: mage
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
-- **Lava staff upgrade kit** (ID: 21202) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Leather** (ID: 1741) — `Leather (raw → tanned)` · predicate · name_in (n=13, e.g. ['Bear fur', 'Cowhide', 'Cured yak-hide', 'Grey wolf fur', 'Hard leather'])
   - (no stat fields)
-- **Light infinity colour kit** (ID: 12530) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Light orb** (ID: 10973) — `Glass` · predicate · name_in (n=11, e.g. ['Empty fishbowl', 'Empty light orb', 'Empty vial', 'Giant seaweed', 'Light orb']) · cross: mage
   - members=true
 - **Linum tirinum** (ID: 23836) — `Wool/dyes/cloth (extended)` · predicate · name_in (n=5, e.g. ['Ball of wool', 'Bolt of cloth', 'Linum tirinum', 'Spun flax', 'Wool'])
   - members=true
 - **Lyre** (ID: 3689) — `Crafting tools` · predicate · name_in (n=18, e.g. ['Amulet mould', 'Bracelet mould', 'Bronze wire', 'Bucket of sand', 'Chisel'])
   - members=true, equipable=true, equipable_weapon=true, quest_item=true
-- **Menaphite ornament kit** (ID: 27255) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Mist battlestaff** (ID: 20730) — `Battlestaves` · predicate · and([name_ends([' battlestaff']) | not(name_contains(['mystic']))]) · cross: mage
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
 - **Molten glass** (ID: 1775) — `Glass` · predicate · name_in (n=11, e.g. ['Empty fishbowl', 'Empty light orb', 'Empty vial', 'Giant seaweed', 'Light orb'])
@@ -9054,8 +8819,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Needle** (ID: 1733) — `Crafting tools` · predicate · name_in (n=18, e.g. ['Amulet mould', 'Bracelet mould', 'Bronze wire', 'Bucket of sand', 'Chisel'])
   - (no stat fields)
-- **Occult ornament kit** (ID: 20065) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Onyx** (ID: 6573) — `Cut gems` · predicate · name_in (n=14, e.g. ['Diamond', 'Dragonstone', 'Emerald', 'Jade', 'Onyx'])
   - members=true
 - **Onyx amulet** (ID: 6581) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
@@ -9132,12 +8895,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - equipable=true
 - **Ruby ring** (ID: 1641) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
   - equipable=true
-- **Rune defender ornament kit** (ID: 23227) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Sand** (ID: 6958) — `Glass` · predicate · name_in (n=11, e.g. ['Empty fishbowl', 'Empty light orb', 'Empty vial', 'Giant seaweed', 'Light orb'])
   - members=true, quest_item=true
-- **Sanguine ornament kit** (ID: 25744) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Sapphire** (ID: 1607) — `Cut gems` · predicate · name_in (n=14, e.g. ['Diamond', 'Dragonstone', 'Emerald', 'Jade', 'Onyx'])
   - (no stat fields)
 - **Sapphire amulet** (ID: 1694) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
@@ -9150,19 +8909,9 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - equipable=true
 - **Saradomin d'hide body** (ID: 10386) — `D'hide` · predicate · or([name_ends([' dragonhide']) | name_ends([" d'hide", " d'hide body", " d'hide chaps", " d'hide vambraces"])]) · cross: range
   - attack_magic=-15, attack_ranged=30, defence_stab=55, defence_slash=47, defence_crush=60, defence_magic=50, defence_ranged=55, prayer=1, members=true, equipable=true
-- **Saradomin godsword ornament kit** (ID: 20074) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Scaly blue dragonhide** (ID: 27897) — `D'hide` · predicate · or([name_ends([' dragonhide']) | name_ends([" d'hide", " d'hide body", " d'hide chaps", " d'hide vambraces"])]) · cross: range
   - members=true
 - **Seaweed** (ID: 401) — `Glass` · predicate · name_in (n=11, e.g. ['Empty fishbowl', 'Empty light orb', 'Empty vial', 'Giant seaweed', 'Light orb'])
-  - members=true
-- **Shattered cannon ornament kit** (ID: 26528) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Shattered relics mystic ornament kit** (ID: 26541) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Shattered relics variety ornament kit** (ID: 26421) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Shattered relics void ornament kit** (ID: 26479) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
   - members=true
 - **Shears** (ID: 1735) — `Crafting tools` · predicate · name_in (n=18, e.g. ['Amulet mould', 'Bracelet mould', 'Bronze wire', 'Bucket of sand', 'Chisel'])
   - (no stat fields)
@@ -9186,8 +8935,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Steam battlestaff** (ID: 11787) — `Battlestaves` · predicate · and([name_ends([' battlestaff']) | not(name_contains(['mystic']))]) · cross: mage
   - attack_stab=7, attack_slash=-1, attack_crush=28, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=12, melee_strength=35, members=true, equipable=true, equipable_weapon=true
-- **Steam staff upgrade kit** (ID: 12798) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Stretched hide** (ID: 6173) — `Leathers (extended)` · predicate · or([name_ends([' leather']) | name_ends([' hide'])])
   - members=true
 - **Suqah hide** (ID: 9080) — `Leathers (extended)` · predicate · or([name_ends([' leather']) | name_ends([' hide'])])
@@ -9208,22 +8955,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true, equipable=true
 - **Topaz ring** (ID: 21087) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
   - members=true, equipable=true
-- **Tormented ornament kit** (ID: 23348) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Torture ornament kit** (ID: 20062) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Trailblazer graceful ornament kit** (ID: 25099) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Trailblazer reloaded blowpipe ornament kit** (ID: 28690) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Trailblazer reloaded bulwark ornament kit** (ID: 28684) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Trailblazer tool ornament kit** (ID: 25090) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Twisted ancestral colour kit** (ID: 24670) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
-- **Tzhaar-ket-om ornament kit** (ID: 23232) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Uncut diamond** (ID: 1617) — `Uncut gems` · predicate · or([name_starts(['uncut '])]) · cross: mining_smithing
   - (no stat fields)
 - **Uncut dragonstone** (ID: 1631) — `Uncut gems` · predicate · or([name_starts(['uncut '])]) · cross: mining_smithing
@@ -9276,8 +9007,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Zamorak d'hide body** (ID: 10370) — `D'hide` · predicate · or([name_ends([' dragonhide']) | name_ends([" d'hide", " d'hide body", " d'hide chaps", " d'hide vambraces"])]) · cross: range
   - attack_magic=-15, attack_ranged=30, defence_stab=55, defence_slash=47, defence_crush=60, defence_magic=50, defence_ranged=55, prayer=1, members=true, equipable=true
-- **Zamorak godsword ornament kit** (ID: 20077) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
-  - members=true
 - **Zenyte** (ID: 19493) — `Cut gems` · predicate · name_in (n=14, e.g. ['Diamond', 'Dragonstone', 'Emerald', 'Jade', 'Onyx'])
   - members=true
 - **Zenyte amulet** (ID: 19541) — `Jewellery (gem-set)` · predicate · and([or([name_ends([' ring']) | name_ends([' necklace']) | name_ends([' amulet']) | name_ends([' bracelet'])]) | or([name_starts(['sapphire ']) | name_starts(['emerald ']) | name_starts(['ruby ']) | name_starts(['diamond ']) | name_starts(['dragonstone ']) | name_starts(['onyx ']) | name_starts(['zenyte ']) | name_starts(['opal ']) | name_starts(['jade ']) | name_starts(['topaz ']) | name_starts(['pearl ']) | name_starts(['dragon ']) | name_starts(['black '])])])
@@ -9291,7 +9020,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Zenyte shard** (ID: 19529) — `Cut gems` · predicate · name_in (n=14, e.g. ['Diamond', 'Dragonstone', 'Emerald', 'Jade', 'Onyx'])
   - members=true
 
-### mining_smithing (234 items)
+### mining_smithing (238 items)
 
 - **3rd age pickaxe** (ID: 20014) — `Pickaxes` · predicate · <lambda>
   - attack_stab=38, attack_slash=-2, attack_crush=32, defence_slash=1, melee_strength=42, members=true, equipable=true, equipable_weapon=true
@@ -9727,6 +9456,14 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Uncut zenyte** (ID: 19496) — `Gem cutting/polishing inputs` · predicate · or([name_starts(['uncut ']) | name_in (n=2, e.g. ['Chisel', 'Crystal chisel'])]) · cross: crafting
   - members=true
+- **Varrock armour 1** (ID: 13104) — `Varrock armour (Varrock Diary mining buff)` · predicate · or([name_starts(['varrock armour'])]) · cross: melee, quests
+  - attack_magic=-30, attack_ranged=-10, defence_stab=32, defence_slash=31, defence_crush=24, defence_magic=-6, defence_ranged=31, members=true, equipable=true
+- **Varrock armour 2** (ID: 13105) — `Varrock armour (Varrock Diary mining buff)` · predicate · or([name_starts(['varrock armour'])]) · cross: melee, quests
+  - attack_magic=-30, attack_ranged=-10, defence_stab=41, defence_slash=40, defence_crush=30, defence_magic=-6, defence_ranged=40, members=true, equipable=true
+- **Varrock armour 3** (ID: 13106) — `Varrock armour (Varrock Diary mining buff)` · predicate · or([name_starts(['varrock armour'])]) · cross: melee, quests
+  - attack_magic=-30, attack_ranged=-10, defence_stab=46, defence_slash=44, defence_crush=38, defence_magic=-6, defence_ranged=44, members=true, equipable=true
+- **Varrock armour 4** (ID: 13107) — `Varrock armour (Varrock Diary mining buff)` · predicate · or([name_starts(['varrock armour'])]) · cross: melee, quests
+  - attack_magic=-30, attack_ranged=-10, defence_stab=65, defence_slash=63, defence_crush=55, defence_magic=-6, defence_ranged=63, members=true, equipable=true
 - **Verac's plateskirt** (ID: 4759) — `Smithing armour outputs (extended)` · predicate · or([name_ends([' full helm']) | name_ends([' med helm']) | name_ends([' platebody']) | name_ends([' platelegs']) | name_ends([' plateskirt']) | name_ends([' chainbody']) | name_ends([' sq shield']) | name_ends([' kiteshield'])]) · cross: melee
   - attack_magic=-21, attack_ranged=-11, defence_stab=85, defence_slash=82, defence_crush=83, defence_ranged=84, prayer=4, members=true, equipable=true
 - **Volcanic ash** (ID: 21622) — `Ores` · predicate · _is_ore
@@ -9816,13 +9553,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Anti-venom(4)** (ID: 12905) — `Antifire & anti-poison` · predicate · _is_potion_family
   - members=true
-- **Anti-venom+(1)** (ID: 12919) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Anti-venom+(1)** (ID: 12919) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Anti-venom+(2)** (ID: 12917) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Anti-venom+(2)** (ID: 12917) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Anti-venom+(3)** (ID: 12915) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Anti-venom+(3)** (ID: 12915) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Anti-venom+(4)** (ID: 12913) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Anti-venom+(4)** (ID: 12913) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
 - **Antidote+ (unf)** (ID: 5942) — `Unfinished potion variants (extended)` · predicate · name_in (n=17, e.g. ['Antidote+ (unf)', 'Antidote++ (unf)', 'Magic essence (unf)', 'Magic essence(1)', 'Magic essence(2)'])
   - members=true
@@ -9830,13 +9567,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Antidote+ mix(2)** (ID: 11501) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])])
   - members=true
-- **Antidote+(1)** (ID: 5949) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Antidote+(1)** (ID: 5949) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Antidote+(2)** (ID: 5947) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Antidote+(2)** (ID: 5947) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Antidote+(3)** (ID: 5945) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Antidote+(3)** (ID: 5945) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Antidote+(4)** (ID: 5943) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Antidote+(4)** (ID: 5943) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
 - **Antidote++ (unf)** (ID: 5951) — `Unfinished potion variants (extended)` · predicate · name_in (n=17, e.g. ['Antidote+ (unf)', 'Antidote++ (unf)', 'Magic essence (unf)', 'Magic essence(1)', 'Magic essence(2)'])
   - members=true
@@ -9912,29 +9649,29 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Avantoe potion (unf)** (ID: 103) — `Unfinished potions` · predicate · name_ends([' potion (unf)'])
   - members=true
-- **Bastion potion(1)** (ID: 22470) — `Other potions` · predicate · _is_potion_family
+- **Bastion potion(1)** (ID: 22470) — `Other potions` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Bastion potion(2)** (ID: 22467) — `Other potions` · predicate · _is_potion_family
+- **Bastion potion(2)** (ID: 22467) — `Other potions` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Bastion potion(3)** (ID: 22464) — `Other potions` · predicate · _is_potion_family
+- **Bastion potion(3)** (ID: 22464) — `Other potions` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Bastion potion(4)** (ID: 22461) — `Other potions` · predicate · _is_potion_family
+- **Bastion potion(4)** (ID: 22461) — `Other potions` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Battlemage potion(1)** (ID: 22458) — `Other potions` · predicate · _is_potion_family · cross: mage
+- **Battlemage potion(1)** (ID: 22458) — `Other potions` · predicate · _is_potion_family · cross: mage, slayer
   - members=true
-- **Battlemage potion(2)** (ID: 22455) — `Other potions` · predicate · _is_potion_family · cross: mage
+- **Battlemage potion(2)** (ID: 22455) — `Other potions` · predicate · _is_potion_family · cross: mage, slayer
   - members=true
-- **Battlemage potion(3)** (ID: 22452) — `Other potions` · predicate · _is_potion_family · cross: mage
+- **Battlemage potion(3)** (ID: 22452) — `Other potions` · predicate · _is_potion_family · cross: mage, slayer
   - members=true
-- **Battlemage potion(4)** (ID: 22449) — `Other potions` · predicate · _is_potion_family · cross: mage
+- **Battlemage potion(4)** (ID: 22449) — `Other potions` · predicate · _is_potion_family · cross: mage, slayer
   - members=true
-- **Blighted super restore(1)** (ID: 24605) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Blighted super restore(1)** (ID: 24605) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Blighted super restore(2)** (ID: 24603) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Blighted super restore(2)** (ID: 24603) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Blighted super restore(3)** (ID: 24601) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Blighted super restore(3)** (ID: 24601) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Blighted super restore(4)** (ID: 24598) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Blighted super restore(4)** (ID: 24598) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
 - **Blue dragon scale** (ID: 243) — `Vials & secondaries` · predicate · name_in (n=42, e.g. ['Amylase crystal', 'Amylase pack', 'Black dragon scale', 'Blue dragon scale', 'Cactus spine'])
   - members=true
@@ -10008,45 +9745,45 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Divine magic potion(4)** (ID: 23745) — `Ranging & magic` · predicate · _is_potion_family · cross: mage
   - members=true
-- **Divine ranging potion(1)** (ID: 23742) — `Ranging & magic` · predicate · _is_potion_family · cross: range
+- **Divine ranging potion(1)** (ID: 23742) — `Ranging & magic` · predicate · _is_potion_family · cross: range, slayer
   - members=true
-- **Divine ranging potion(2)** (ID: 23739) — `Ranging & magic` · predicate · _is_potion_family · cross: range
+- **Divine ranging potion(2)** (ID: 23739) — `Ranging & magic` · predicate · _is_potion_family · cross: range, slayer
   - members=true
-- **Divine ranging potion(3)** (ID: 23736) — `Ranging & magic` · predicate · _is_potion_family · cross: range
+- **Divine ranging potion(3)** (ID: 23736) — `Ranging & magic` · predicate · _is_potion_family · cross: range, slayer
   - members=true
-- **Divine ranging potion(4)** (ID: 23733) — `Ranging & magic` · predicate · _is_potion_family · cross: range
+- **Divine ranging potion(4)** (ID: 23733) — `Ranging & magic` · predicate · _is_potion_family · cross: range, slayer
   - members=true
-- **Divine super attack potion(1)** (ID: 23706) — `Attack potions` · predicate · _is_potion_family · cross: melee
+- **Divine super attack potion(1)** (ID: 23706) — `Attack potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super attack potion(2)** (ID: 23703) — `Attack potions` · predicate · _is_potion_family · cross: melee
+- **Divine super attack potion(2)** (ID: 23703) — `Attack potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super attack potion(3)** (ID: 23700) — `Attack potions` · predicate · _is_potion_family · cross: melee
+- **Divine super attack potion(3)** (ID: 23700) — `Attack potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super attack potion(4)** (ID: 23697) — `Attack potions` · predicate · _is_potion_family · cross: melee
+- **Divine super attack potion(4)** (ID: 23697) — `Attack potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super combat potion(1)** (ID: 23694) — `Super combat` · predicate · _is_potion_family · cross: melee
+- **Divine super combat potion(1)** (ID: 23694) — `Super combat` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super combat potion(2)** (ID: 23691) — `Super combat` · predicate · _is_potion_family · cross: melee
+- **Divine super combat potion(2)** (ID: 23691) — `Super combat` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super combat potion(3)** (ID: 23688) — `Super combat` · predicate · _is_potion_family · cross: melee
+- **Divine super combat potion(3)** (ID: 23688) — `Super combat` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super combat potion(4)** (ID: 23685) — `Super combat` · predicate · _is_potion_family · cross: melee
+- **Divine super combat potion(4)** (ID: 23685) — `Super combat` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super defence potion(1)** (ID: 23730) — `Defence potions` · predicate · _is_potion_family · cross: melee
+- **Divine super defence potion(1)** (ID: 23730) — `Defence potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super defence potion(2)** (ID: 23727) — `Defence potions` · predicate · _is_potion_family · cross: melee
+- **Divine super defence potion(2)** (ID: 23727) — `Defence potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super defence potion(3)** (ID: 23724) — `Defence potions` · predicate · _is_potion_family · cross: melee
+- **Divine super defence potion(3)** (ID: 23724) — `Defence potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super defence potion(4)** (ID: 23721) — `Defence potions` · predicate · _is_potion_family · cross: melee
+- **Divine super defence potion(4)** (ID: 23721) — `Defence potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super strength potion(1)** (ID: 23718) — `Strength potions` · predicate · _is_potion_family · cross: melee
+- **Divine super strength potion(1)** (ID: 23718) — `Strength potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super strength potion(2)** (ID: 23715) — `Strength potions` · predicate · _is_potion_family · cross: melee
+- **Divine super strength potion(2)** (ID: 23715) — `Strength potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super strength potion(3)** (ID: 23712) — `Strength potions` · predicate · _is_potion_family · cross: melee
+- **Divine super strength potion(3)** (ID: 23712) — `Strength potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Divine super strength potion(4)** (ID: 23709) — `Strength potions` · predicate · _is_potion_family · cross: melee
+- **Divine super strength potion(4)** (ID: 23709) — `Strength potions` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
 - **Dragon scale dust** (ID: 241) — `Vials & secondaries` · predicate · name_in (n=42, e.g. ['Amylase crystal', 'Amylase pack', 'Black dragon scale', 'Blue dragon scale', 'Cactus spine'])
   - members=true
@@ -10138,13 +9875,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Extended super antifire mix(2)** (ID: 22221) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])])
   - members=true
-- **Extended super antifire(1)** (ID: 22218) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Extended super antifire(1)** (ID: 22218) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Extended super antifire(2)** (ID: 22215) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Extended super antifire(2)** (ID: 22215) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Extended super antifire(3)** (ID: 22212) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Extended super antifire(3)** (ID: 22212) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Extended super antifire(4)** (ID: 22209) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Extended super antifire(4)** (ID: 22209) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
 - **Extreme energy potion(1)** (ID: 31623) — `Energy & stamina` · predicate · _is_potion_family · cross: agility_thieving
   - members=true
@@ -10238,7 +9975,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Herb box** (ID: 11738) — `Nightmare Zone potions` · predicate · or([and([name_starts(['super ranging ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['overload ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['absorption ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | name_in (n=1, e.g. ['Herb box'])])
   - members=true
-- **Herb sack** (ID: 13226) — `Tools` · predicate · name_in (n=5, e.g. ["Alchemist's amulet", 'Amulet of chemistry', 'Herb sack', 'Open herb sack', 'Pestle and mortar']) · cross: misc
+- **Herb sack** (ID: 13226) — `Tools` · predicate · name_in (n=5, e.g. ["Alchemist's amulet", 'Amulet of chemistry', 'Herb sack', 'Open herb sack', 'Pestle and mortar']) · cross: misc, slayer
   - members=true
 - **Herbi** (ID: 21509) — `Cape & pet` · predicate · name_in (n=4, e.g. ['Herbi', 'Herblore cape', 'Herblore cape(t)', 'Herblore hood'])
   - members=true
@@ -10420,13 +10157,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Prayer mix(2)** (ID: 11465) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])])
   - members=true
-- **Prayer potion(1)** (ID: 143) — `Prayer & restores` · predicate · _is_potion_family · cross: prayer
+- **Prayer potion(1)** (ID: 143) — `Prayer & restores` · predicate · _is_potion_family · cross: prayer, slayer
   - members=true
-- **Prayer potion(2)** (ID: 141) — `Prayer & restores` · predicate · _is_potion_family · cross: prayer
+- **Prayer potion(2)** (ID: 141) — `Prayer & restores` · predicate · _is_potion_family · cross: prayer, slayer
   - members=true
-- **Prayer potion(3)** (ID: 139) — `Prayer & restores` · predicate · _is_potion_family · cross: prayer
+- **Prayer potion(3)** (ID: 139) — `Prayer & restores` · predicate · _is_potion_family · cross: prayer, slayer
   - members=true
-- **Prayer potion(4)** (ID: 2434) — `Prayer & restores` · predicate · _is_potion_family · cross: prayer
+- **Prayer potion(4)** (ID: 2434) — `Prayer & restores` · predicate · _is_potion_family · cross: prayer, slayer
   - members=true
 - **Ranarr potion (unf)** (ID: 99) — `Unfinished potions` · predicate · name_ends([' potion (unf)'])
   - members=true
@@ -10436,13 +10173,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Ranging mix(2)** (ID: 11509) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])])
   - members=true
-- **Ranging potion(1)** (ID: 173) — `Ranging & magic` · predicate · _is_potion_family · cross: range
+- **Ranging potion(1)** (ID: 173) — `Ranging & magic` · predicate · _is_potion_family · cross: range, slayer
   - members=true
-- **Ranging potion(2)** (ID: 171) — `Ranging & magic` · predicate · _is_potion_family · cross: range
+- **Ranging potion(2)** (ID: 171) — `Ranging & magic` · predicate · _is_potion_family · cross: range, slayer
   - members=true
-- **Ranging potion(3)** (ID: 169) — `Ranging & magic` · predicate · _is_potion_family · cross: range
+- **Ranging potion(3)** (ID: 169) — `Ranging & magic` · predicate · _is_potion_family · cross: range, slayer
   - members=true
-- **Ranging potion(4)** (ID: 2444) — `Ranging & magic` · predicate · _is_potion_family · cross: range
+- **Ranging potion(4)** (ID: 2444) — `Ranging & magic` · predicate · _is_potion_family · cross: range, slayer
   - members=true
 - **Red spiders' eggs** (ID: 223) — `Vials & secondaries` · predicate · name_in (n=42, e.g. ['Amylase crystal', 'Amylase pack', 'Black dragon scale', 'Blue dragon scale', 'Cactus spine'])
   - (no stat fields)
@@ -10504,21 +10241,21 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Revitalisation potion (4)** (ID: 20956) — `Chambers of Xeric raid potions` · predicate · and([or([name_starts(['elder ']) | name_starts(['twisted ']) | name_starts(['kodai ']) | name_starts(['revitalisation ']) | name_starts(['prayer enhance ']) | name_starts(["xeric's aid "]) | name_starts(['overload '])]) | or([name_ends(['(1)']) | name_ends(['(2)']) | name_ends(['(3)']) | name_ends(['(4)'])])])
   - members=true
-- **Sanfew serum(1)** (ID: 10931) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Sanfew serum(1)** (ID: 10931) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Sanfew serum(2)** (ID: 10929) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Sanfew serum(2)** (ID: 10929) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Sanfew serum(3)** (ID: 10927) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Sanfew serum(3)** (ID: 10927) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Sanfew serum(4)** (ID: 10925) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Sanfew serum(4)** (ID: 10925) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Saradomin brew(1)** (ID: 6691) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Saradomin brew(1)** (ID: 6691) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Saradomin brew(2)** (ID: 6689) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Saradomin brew(2)** (ID: 6689) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Saradomin brew(3)** (ID: 6687) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Saradomin brew(3)** (ID: 6687) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Saradomin brew(4)** (ID: 6685) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Saradomin brew(4)** (ID: 6685) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
 - **Snapdragon** (ID: 3000) — `Clean herbs` · predicate · _is_clean_herb
   - members=true
@@ -10556,41 +10293,41 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Super antifire mix(2)** (ID: 21994) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])])
   - members=true
-- **Super antifire potion(1)** (ID: 21987) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Super antifire potion(1)** (ID: 21987) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Super antifire potion(2)** (ID: 21984) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Super antifire potion(2)** (ID: 21984) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Super antifire potion(3)** (ID: 21981) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Super antifire potion(3)** (ID: 21981) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Super antifire potion(4)** (ID: 21978) — `Antifire & anti-poison` · predicate · _is_potion_family
+- **Super antifire potion(4)** (ID: 21978) — `Antifire & anti-poison` · predicate · _is_potion_family · cross: slayer
   - members=true
-- **Super attack(1)** (ID: 149) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super attack(1)** (ID: 149) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super attack(2)** (ID: 147) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super attack(2)** (ID: 147) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super attack(3)** (ID: 145) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super attack(3)** (ID: 145) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super attack(4)** (ID: 2436) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super attack(4)** (ID: 2436) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super combat potion(1)** (ID: 12701) — `Super combat` · predicate · _is_potion_family · cross: melee
+- **Super combat potion(1)** (ID: 12701) — `Super combat` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super combat potion(2)** (ID: 12699) — `Super combat` · predicate · _is_potion_family · cross: melee
+- **Super combat potion(2)** (ID: 12699) — `Super combat` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super combat potion(3)** (ID: 12697) — `Super combat` · predicate · _is_potion_family · cross: melee
+- **Super combat potion(3)** (ID: 12697) — `Super combat` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super combat potion(4)** (ID: 12695) — `Super combat` · predicate · _is_potion_family · cross: melee
+- **Super combat potion(4)** (ID: 12695) — `Super combat` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
 - **Super def. mix(1)** (ID: 11499) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])])
   - members=true
 - **Super def. mix(2)** (ID: 11497) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])])
   - members=true
-- **Super defence(1)** (ID: 167) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super defence(1)** (ID: 167) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super defence(2)** (ID: 165) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super defence(2)** (ID: 165) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super defence(3)** (ID: 163) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super defence(3)** (ID: 163) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super defence(4)** (ID: 2442) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super defence(4)** (ID: 2442) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
 - **Super energy mix(1)** (ID: 11483) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])]) · cross: agility_thieving
   - members=true
@@ -10620,45 +10357,45 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Super hunter potion(4)** (ID: 31626) — `Other potions` · predicate · _is_potion_family
   - members=true
-- **Super magic potion (1)** (ID: 11729) — `Ranging & magic` · predicate · _is_potion_family · cross: mage
+- **Super magic potion (1)** (ID: 11729) — `Ranging & magic` · predicate · _is_potion_family · cross: mage, slayer
   - members=true
-- **Super magic potion (2)** (ID: 11728) — `Ranging & magic` · predicate · _is_potion_family · cross: mage
+- **Super magic potion (2)** (ID: 11728) — `Ranging & magic` · predicate · _is_potion_family · cross: mage, slayer
   - members=true
-- **Super magic potion (3)** (ID: 11727) — `Ranging & magic` · predicate · _is_potion_family · cross: mage
+- **Super magic potion (3)** (ID: 11727) — `Ranging & magic` · predicate · _is_potion_family · cross: mage, slayer
   - members=true
-- **Super magic potion (4)** (ID: 11726) — `Ranging & magic` · predicate · _is_potion_family · cross: mage
+- **Super magic potion (4)** (ID: 11726) — `Ranging & magic` · predicate · _is_potion_family · cross: mage, slayer
   - members=true
-- **Super ranging (1)** (ID: 11725) — `Nightmare Zone potions` · predicate · or([and([name_starts(['super ranging ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['overload ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['absorption ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | name_in (n=1, e.g. ['Herb box'])]) · cross: range
+- **Super ranging (1)** (ID: 11725) — `Nightmare Zone potions` · predicate · or([and([name_starts(['super ranging ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['overload ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['absorption ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | name_in (n=1, e.g. ['Herb box'])]) · cross: range, slayer
   - members=true
-- **Super ranging (2)** (ID: 11724) — `Nightmare Zone potions` · predicate · or([and([name_starts(['super ranging ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['overload ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['absorption ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | name_in (n=1, e.g. ['Herb box'])]) · cross: range
+- **Super ranging (2)** (ID: 11724) — `Nightmare Zone potions` · predicate · or([and([name_starts(['super ranging ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['overload ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['absorption ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | name_in (n=1, e.g. ['Herb box'])]) · cross: range, slayer
   - members=true
-- **Super ranging (3)** (ID: 11723) — `Nightmare Zone potions` · predicate · or([and([name_starts(['super ranging ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['overload ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['absorption ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | name_in (n=1, e.g. ['Herb box'])]) · cross: range
+- **Super ranging (3)** (ID: 11723) — `Nightmare Zone potions` · predicate · or([and([name_starts(['super ranging ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['overload ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['absorption ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | name_in (n=1, e.g. ['Herb box'])]) · cross: range, slayer
   - members=true
-- **Super ranging (4)** (ID: 11722) — `Nightmare Zone potions` · predicate · or([and([name_starts(['super ranging ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['overload ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['absorption ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | name_in (n=1, e.g. ['Herb box'])]) · cross: range
+- **Super ranging (4)** (ID: 11722) — `Nightmare Zone potions` · predicate · or([and([name_starts(['super ranging ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['overload ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | and([name_starts(['absorption ']) | or([name_ends(['(4)']) | name_ends(['(3)']) | name_ends(['(2)']) | name_ends(['(1)'])])]) | name_in (n=1, e.g. ['Herb box'])]) · cross: range, slayer
   - members=true
-- **Super restore mix(1)** (ID: 11495) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])]) · cross: melee, prayer
+- **Super restore mix(1)** (ID: 11495) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])]) · cross: melee, prayer, slayer
   - members=true
-- **Super restore mix(2)** (ID: 11493) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])]) · cross: melee, prayer
+- **Super restore mix(2)** (ID: 11493) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])]) · cross: melee, prayer, slayer
   - members=true
-- **Super restore(1)** (ID: 3030) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Super restore(1)** (ID: 3030) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Super restore(2)** (ID: 3028) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Super restore(2)** (ID: 3028) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Super restore(3)** (ID: 3026) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Super restore(3)** (ID: 3026) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
-- **Super restore(4)** (ID: 3024) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer
+- **Super restore(4)** (ID: 3024) — `Prayer & restores` · predicate · _is_potion_family · cross: melee, prayer, slayer
   - members=true
 - **Super str. mix(1)** (ID: 11487) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])])
   - members=true
 - **Super str. mix(2)** (ID: 11485) — `Barbarian mix potions` · predicate · or([name_ends(['mix(1)']) | name_ends(['mix(2)'])])
   - members=true
-- **Super strength(1)** (ID: 161) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super strength(1)** (ID: 161) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super strength(2)** (ID: 159) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super strength(2)** (ID: 159) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super strength(3)** (ID: 157) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super strength(3)** (ID: 157) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
-- **Super strength(4)** (ID: 2440) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee
+- **Super strength(4)** (ID: 2440) — `Super attack/strength/defence` · predicate · _is_potion_family · cross: melee, slayer
   - members=true
 - **Superantipoison(1)** (ID: 185) — `Antifire & anti-poison` · predicate · _is_potion_family
   - members=true
@@ -10889,7 +10626,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Rock-climbing boots** (ID: 2203) — `Agility shortcut tools` · predicate · name_in (n=7, e.g. ['Boots of lightness', 'Climbing boots', 'Crystal grappling hook', 'Mithril grapple', 'Rock-climbing boots'])
   - members=true
-- **Rocky** (ID: 20663) — `Capes & pets` · predicate · name_in (n=8, e.g. ['Agility cape', 'Agility cape(t)', 'Agility hood', 'Giant squirrel', 'Rocky']) · cross: cooking
+- **Rocky** (ID: 20663) — `Capes & pets` · predicate · name_in (n=8, e.g. ['Agility cape', 'Agility cape(t)', 'Agility hood', 'Giant squirrel', 'Rocky'])
   - members=true
 - **Rogue boots** (ID: 5557) — `Rogue equipment` · predicate · name_starts(['rogue '])
   - defence_stab=2, defence_slash=2, defence_crush=2, defence_magic=2, defence_ranged=2, members=true, equipable=true
@@ -10948,7 +10685,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Willow blackjack(o)** (ID: 6412) — `Blackjacks` · predicate · _is_blackjack
   - attack_crush=8, melee_strength=8, members=true, equipable=true, equipable_weapon=true
 
-### slayer (238 items)
+### slayer (378 items)
 
 - **Abyssal book** (ID: 5520) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
@@ -10962,6 +10699,16 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Alchemical hydra heads** (ID: 23077) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
+- **Amulet of glory(1)** (ID: 1706) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: mage, melee, misc, range
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(2)** (ID: 1708) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: mage, melee, misc, range
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(3)** (ID: 1710) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: mage, melee, misc, range
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(4)** (ID: 1712) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: mage, melee, misc, range
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(6)** (ID: 11978) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: mage, melee, misc, range
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Ancient ceremonial boots** (ID: 26229) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - prayer=1, members=true, equipable=true
 - **Ancient ceremonial gloves** (ID: 26227) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
@@ -10986,10 +10733,36 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Ancient totem** (ID: 21810) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
+- **Anglerfish** (ID: 13441) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: cooking
+  - members=true
+- **Anti-venom+(1)** (ID: 12919) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Anti-venom+(2)** (ID: 12917) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Anti-venom+(3)** (ID: 12915) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Anti-venom+(4)** (ID: 12913) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Antidote+(1)** (ID: 5949) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Antidote+(2)** (ID: 5947) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Antidote+(3)** (ID: 5945) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Antidote+(4)** (ID: 5943) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
 - **Araxyte slayer helmet** (ID: 29816) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: melee
   - attack_magic=-6, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, members=true, equipable=true
 - **Araxyte slayer helmet (i)** (ID: 29818) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: mage, melee
   - attack_magic=3, attack_ranged=3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=10, defence_ranged=30, members=true, equipable=true
+- **Ash sanctifier** (ID: 25781) — `Storage & utility (cross-tag)` · predicate · name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"]) · cross: prayer
+  - members=true
+- **Ava's accumulator** (ID: 10499) — `Storage & utility (cross-tag)` · predicate · name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"])
+  - attack_ranged=4, defence_slash=1, defence_magic=4, members=true, equipable=true, quest_item=true
+- **Ava's assembler** (ID: 22109) — `Storage & utility (cross-tag)` · predicate · name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"]) · cross: range
+  - attack_ranged=8, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=8, defence_ranged=2, ranged_strength=2, members=true, equipable=true
+- **Ava's attractor** (ID: 10498) — `Storage & utility (cross-tag)` · predicate · name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"])
+  - attack_ranged=2, defence_magic=2, members=true, equipable=true, quest_item=true
 - **Bag of salt** (ID: 4161) — `Task-specific gear` · predicate · name_in (n=29, e.g. ['Bag of salt', 'Bonecrusher', 'Bonecrusher necklace', 'Boots of brimstone', 'Boots of stone'])
   - members=true
 - **Bait pack** (ID: 11883) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
@@ -10999,6 +10772,22 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Basilisk jaw** (ID: 24268) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Basket pack** (ID: 13254) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
+  - members=true
+- **Bastion potion(1)** (ID: 22470) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Bastion potion(2)** (ID: 22467) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Bastion potion(3)** (ID: 22464) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Bastion potion(4)** (ID: 22461) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Battlemage potion(1)** (ID: 22458) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, mage
+  - members=true
+- **Battlemage potion(2)** (ID: 22455) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, mage
+  - members=true
+- **Battlemage potion(3)** (ID: 22452) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, mage
+  - members=true
+- **Battlemage potion(4)** (ID: 22449) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, mage
   - members=true
 - **Bird snare pack** (ID: 12740) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
@@ -11044,6 +10833,14 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=3, attack_ranged=3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=10, defence_ranged=30, members=true, equipable=true
 - **Black tourmaline core** (ID: 21730) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
+- **Blighted super restore(1)** (ID: 24605) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Blighted super restore(2)** (ID: 24603) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Blighted super restore(3)** (ID: 24601) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Blighted super restore(4)** (ID: 24598) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
 - **Blood shard** (ID: 24777) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Bludgeon axon** (ID: 13276) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
@@ -11074,6 +10871,14 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Bryophyta's essence** (ID: 22372) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - (no stat fields)
+- **Burning amulet(1)** (ID: 21175) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Burning amulet(2)** (ID: 21173) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Burning amulet(3)** (ID: 21171) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Burning amulet(5)** (ID: 21166) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
 - **Cannon barrels** (ID: 10) — `Cannon` · predicate · name_in (n=7, e.g. ['Cannon barrels', 'Cannon base', 'Cannon furnace', 'Cannon stand', 'Cannonball']) · cross: melee, range
   - members=true, quest_item=true
 - **Cannon barrels (or)** (ID: 26524) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
@@ -11100,6 +10905,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Dark claw** (ID: 21275) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
+- **Dark crab** (ID: 11936) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: cooking
+  - members=true
 - **Dark totem** (ID: 19685) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Dark totem base** (ID: 19679) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
@@ -11110,6 +10917,48 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Demonic slayer helmet** (ID: 33338) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: melee
   - attack_magic=-6, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, members=true, equipable=true
+- **Divine ranging potion(1)** (ID: 23742) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Divine ranging potion(2)** (ID: 23739) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Divine ranging potion(3)** (ID: 23736) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Divine ranging potion(4)** (ID: 23733) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Divine rune pouch** (ID: 27281) — `Storage & utility (cross-tag)` · predicate · name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"]) · cross: runecraft
+  - members=true
+- **Divine super attack potion(1)** (ID: 23706) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super attack potion(2)** (ID: 23703) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super attack potion(3)** (ID: 23700) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super attack potion(4)** (ID: 23697) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super combat potion(1)** (ID: 23694) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super combat potion(2)** (ID: 23691) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super combat potion(3)** (ID: 23688) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super combat potion(4)** (ID: 23685) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super defence potion(1)** (ID: 23730) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super defence potion(2)** (ID: 23727) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super defence potion(3)** (ID: 23724) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super defence potion(4)** (ID: 23721) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super strength potion(1)** (ID: 23718) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super strength potion(2)** (ID: 23715) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super strength potion(3)** (ID: 23712) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Divine super strength potion(4)** (ID: 23709) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
 - **Dragon metal lump** (ID: 22103) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Dragon metal shard** (ID: 22097) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
@@ -11120,6 +10969,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Drake's tooth** (ID: 22960) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
+- **Dramen staff** (ID: 772) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: melee, quests
+  - attack_stab=-1, attack_slash=-1, attack_crush=10, attack_magic=10, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=10, melee_strength=10, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Earmuffs** (ID: 4166) — `Task-specific gear` · predicate · name_in (n=29, e.g. ['Bag of salt', 'Bonecrusher', 'Bonecrusher necklace', 'Boots of brimstone', 'Boots of stone'])
   - members=true, equipable=true
 - **Earth rune pack** (ID: 12732) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
@@ -11148,6 +10999,14 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Expeditious bracelet** (ID: 21177) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true, equipable=true
+- **Extended super antifire(1)** (ID: 22218) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Extended super antifire(2)** (ID: 22215) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Extended super antifire(3)** (ID: 22212) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Extended super antifire(4)** (ID: 22209) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
 - **Eye of newt pack** (ID: 12859) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - (no stat fields)
 - **Facemask** (ID: 4164) — `Task-specific gear` · predicate · name_in (n=29, e.g. ['Bag of salt', 'Bonecrusher', 'Bonecrusher necklace', 'Boots of brimstone', 'Boots of stone'])
@@ -11194,6 +11053,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_magic=-6, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, members=true, equipable=true
 - **Green slayer helmet (i)** (ID: 19645) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: mage, melee
   - attack_magic=3, attack_ranged=3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=10, defence_ranged=30, members=true, equipable=true
+- **Herb sack** (ID: 13226) — `Storage & utility (cross-tag)` · predicate · name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"]) · cross: herblore, misc
+  - members=true
 - **Hobgoblin champion scroll** (ID: 6802) — `Champion's Challenge scrolls` · predicate · name_ends([' champion scroll'])
   - members=true
 - **Hooded slayer helmet** (ID: 33066) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: melee
@@ -11218,6 +11079,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Ice cooler** (ID: 6696) — `Task-specific gear` · predicate · name_in (n=29, e.g. ['Bag of salt', 'Bonecrusher', 'Bonecrusher necklace', 'Boots of brimstone', 'Boots of stone'])
   - members=true
+- **Imbued heart** (ID: 20724) — `Storage & utility (cross-tag)` · predicate · name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"]) · cross: mage
+  - members=true
 - **Imp champion scroll** (ID: 6803) — `Champion's Challenge scrolls` · predicate · name_ends([' champion scroll'])
   - members=true
 - **Jogre champion scroll** (ID: 6804) — `Champion's Challenge scrolls` · predicate · name_ends([' champion scroll'])
@@ -11240,8 +11103,12 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Lizardman fang** (ID: 13391) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
+- **Looting bag** (ID: 11941) — `Storage & utility (cross-tag)` · predicate · name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"]) · cross: misc
+  - members=true
 - **Lunar glass** (ID: 24261) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true, quest_item=true
+- **Lunar staff** (ID: 9084) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: mage, quests
+  - attack_stab=3, attack_slash=2, attack_crush=16, attack_magic=13, defence_stab=2, defence_slash=3, defence_crush=2, defence_magic=13, defence_ranged=1, melee_strength=15, prayer=3, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Magic fang** (ID: 12932) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Magic imp box pack** (ID: 12744) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
@@ -11249,6 +11116,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Magic secateurs** (ID: 7409) — `Task-specific gear` · predicate · name_in (n=29, e.g. ['Bag of salt', 'Bonecrusher', 'Bonecrusher necklace', 'Boots of brimstone', 'Boots of stone']) · cross: farming, melee
   - attack_stab=7, attack_slash=9, attack_crush=-5, attack_magic=1, defence_slash=1, defence_magic=1, melee_strength=1, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Magma mutagen** (ID: 13201) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
+  - members=true
+- **Manta ray** (ID: 391) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: cooking
   - members=true
 - **Metamorphic dust** (ID: 22386) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
@@ -11258,6 +11127,16 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_stab=10, defence_slash=15, defence_crush=5, defence_magic=5, defence_ranged=10, members=true, equipable=true
 - **Molten glass (i)** (ID: 24260) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true, quest_item=true
+- **Monkfish** (ID: 7946) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: cooking
+  - members=true
+- **Necklace of passage(1)** (ID: 21155) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Necklace of passage(2)** (ID: 21153) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Necklace of passage(3)** (ID: 21151) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Necklace of passage(5)** (ID: 21146) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
 - **Nihil dust** (ID: 26368) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Nihil horn** (ID: 26372) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
@@ -11274,34 +11153,98 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Polishing rock** (ID: 24262) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true, quest_item=true
+- **Prayer potion(1)** (ID: 143) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, prayer
+  - members=true
+- **Prayer potion(2)** (ID: 141) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, prayer
+  - members=true
+- **Prayer potion(3)** (ID: 139) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, prayer
+  - members=true
+- **Prayer potion(4)** (ID: 2434) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, prayer
+  - members=true
 - **Primordial crystal** (ID: 13231) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Purple slayer helmet** (ID: 21264) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: melee
   - attack_magic=-6, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, members=true, equipable=true
 - **Purple slayer helmet (i)** (ID: 21266) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: mage, melee
   - attack_magic=3, attack_ranged=3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=10, defence_ranged=30, members=true, equipable=true
+- **Ranging potion(1)** (ID: 173) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Ranging potion(2)** (ID: 171) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Ranging potion(3)** (ID: 169) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Ranging potion(4)** (ID: 2444) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
 - **Red slayer helmet** (ID: 19647) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: melee
   - attack_magic=-6, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, members=true, equipable=true
 - **Red slayer helmet (i)** (ID: 19649) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: mage, melee
   - attack_magic=3, attack_ranged=3, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=10, defence_ranged=30, members=true, equipable=true
 - **Revenant ether** (ID: 21820) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
+- **Ring of dueling(1)** (ID: 2566) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Ring of dueling(2)** (ID: 2564) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Ring of dueling(3)** (ID: 2562) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Ring of dueling(5)** (ID: 2558) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Ring of dueling(6)** (ID: 2556) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Ring of dueling(7)** (ID: 2554) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Ring of dueling(8)** (ID: 2552) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
 - **Rock hammer** (ID: 4162) — `Task-specific gear` · predicate · name_in (n=29, e.g. ['Bag of salt', 'Bonecrusher', 'Bonecrusher necklace', 'Boots of brimstone', 'Boots of stone'])
   - members=true
 - **Rock thrownhammer** (ID: 21754) — `Task-specific gear` · predicate · name_in (n=29, e.g. ['Bag of salt', 'Bonecrusher', 'Bonecrusher necklace', 'Boots of brimstone', 'Boots of stone'])
   - members=true
 - **Rune arrow pack** (ID: 20607) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - (no stat fields)
+- **Rune pouch** (ID: 12791) — `Storage & utility (cross-tag)` · predicate · name_in (n=21, e.g. ['Ash sanctifier', "Ava's accumulator", "Ava's assembler", "Ava's assembler (or)", "Ava's attractor"]) · cross: runecraft
+  - members=true
 - **Sack pack** (ID: 13252) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
+  - members=true
+- **Sanfew serum(1)** (ID: 10931) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Sanfew serum(2)** (ID: 10929) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Sanfew serum(3)** (ID: 10927) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Sanfew serum(4)** (ID: 10925) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
   - members=true
 - **Sanguine dust** (ID: 25746) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
+- **Saradomin brew(1)** (ID: 6691) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: herblore, melee, prayer
+  - members=true
+- **Saradomin brew(2)** (ID: 6689) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: herblore, melee, prayer
+  - members=true
+- **Saradomin brew(3)** (ID: 6687) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: herblore, melee, prayer
+  - members=true
+- **Saradomin brew(4)** (ID: 6685) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: herblore, melee, prayer
+  - members=true
+- **Sea turtle** (ID: 397) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: cooking
+  - members=true
 - **Serpentine visage** (ID: 12927) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
+  - members=true
+- **Shark** (ID: 385) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: cooking
   - members=true
 - **Skeletal visage** (ID: 22006) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Skeleton champion scroll** (ID: 6806) — `Champion's Challenge scrolls` · predicate · name_ends([' champion scroll'])
   - members=true
+- **Skills necklace** (ID: 11113) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Skills necklace(1)** (ID: 11111) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Skills necklace(2)** (ID: 11109) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Skills necklace(3)** (ID: 11107) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Skills necklace(5)** (ID: 11970) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
+- **Skills necklace(6)** (ID: 11968) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: misc
+  - members=true, equipable=true
 - **Slayer bell** (ID: 10952) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Slayer cape** (ID: 9786) — `Cape & pet` · predicate · name_in (n=5, e.g. ['Abyssal orphan', 'Kalphite princess', 'Slayer cape', 'Slayer cape(t)', 'Slayer hood']) · cross: mage, melee, range
@@ -11358,9 +11301,81 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Stuffed kurask head** (ID: 7985) — `Mounted heads (POH trophies)` · predicate · name_in (n=15, e.g. ['Abyssal head', 'Basilisk head', 'Cockatrice head', 'Crawling hand', "Elvarg's head"])
   - members=true
+- **Super antifire potion(1)** (ID: 21987) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Super antifire potion(2)** (ID: 21984) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Super antifire potion(3)** (ID: 21981) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Super antifire potion(4)** (ID: 21978) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore
+  - members=true
+- **Super attack(1)** (ID: 149) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super attack(2)** (ID: 147) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super attack(3)** (ID: 145) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super attack(4)** (ID: 2436) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super combat potion(1)** (ID: 12701) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super combat potion(2)** (ID: 12699) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super combat potion(3)** (ID: 12697) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super combat potion(4)** (ID: 12695) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super defence(1)** (ID: 167) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super defence(2)** (ID: 165) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super defence(3)** (ID: 163) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super defence(4)** (ID: 2442) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super magic potion (1)** (ID: 11729) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, mage
+  - members=true
+- **Super magic potion (2)** (ID: 11728) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, mage
+  - members=true
+- **Super magic potion (3)** (ID: 11727) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, mage
+  - members=true
+- **Super magic potion (4)** (ID: 11726) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, mage
+  - members=true
+- **Super ranging (1)** (ID: 11725) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Super ranging (2)** (ID: 11724) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Super ranging (3)** (ID: 11723) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Super ranging (4)** (ID: 11722) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, range
+  - members=true
+- **Super restore mix(1)** (ID: 11495) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Super restore mix(2)** (ID: 11493) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Super restore(1)** (ID: 3030) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Super restore(2)** (ID: 3028) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Super restore(3)** (ID: 3026) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Super restore(4)** (ID: 3024) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee, prayer
+  - members=true
+- **Super strength(1)** (ID: 161) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super strength(2)** (ID: 159) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super strength(3)** (ID: 157) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
+- **Super strength(4)** (ID: 2440) — `Combat potions (cross-tag)` · predicate · or([_is_potion_family | name_in (n=24, e.g. ['Anti-venom+(1)', 'Anti-venom+(2)', 'Anti-venom+(3)', 'Anti-venom+(4)', 'Antidote+(1)'])]) · cross: herblore, melee
+  - members=true
 - **Tanzanite fang** (ID: 12922) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true
 - **Tanzanite mutagen** (ID: 13200) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
+  - members=true
+- **Teleport to house** (ID: 8013) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: construction, misc
+  - members=true
+- **Tuna potato** (ID: 7060) — `Top food (cross-tag)` · predicate · name_in (n=12, e.g. ['Anglerfish', 'Dark crab', 'Karambwan', 'Manta ray', 'Monkfish']) · cross: cooking
   - members=true
 - **Turquoise slayer helmet** (ID: 21888) — `Slayer helmets` · predicate · name_contains(['slayer helmet']) · cross: melee
   - attack_magic=-6, attack_ranged=-2, defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=-1, defence_ranged=30, members=true, equipable=true
@@ -11420,6 +11435,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true, equipable=true
 - **Xeric's sentinel** (ID: 22392) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true, equipable=true
+- **Xeric's talisman** (ID: 13393) — `Teleport utility (cross-tag)` · predicate · name_in (n=45, e.g. ['Amulet of glory(1)', 'Amulet of glory(2)', 'Amulet of glory(3)', 'Amulet of glory(4)', 'Amulet of glory(6)']) · cross: mage, misc, runecraft
+  - attack_magic=3, defence_magic=1, members=true, equipable=true
 - **Xeric's warrior** (ID: 22390) — `Slayer master items` · predicate · name_in (n=124, e.g. ['Abyssal book', 'Adamant arrow pack', 'Air rune pack', 'Alchemical hydra heads', 'Ancient ceremonial boots'])
   - members=true, equipable=true
 - **Zombie champion scroll** (ID: 6807) — `Champion's Challenge scrolls` · predicate · name_ends([' champion scroll'])
@@ -12028,10 +12045,12 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Yew seedling** (ID: 5361) — `Seeds` · predicate · _is_seed
   - members=true
 
-### runecraft (91 items)
+### runecraft (92 items)
 
 - **A special tiara** (ID: 9103) — `Tiaras` · predicate · _is_tiara
   - members=true, quest_item=true
+- **Abyssal lantern** (ID: 26822) — `RC accessories` · predicate · name_in (n=2, e.g. ['Abyssal lantern', 'Binding necklace'])
+  - members=true, equipable=true
 - **Air rune** (ID: 556) — `Basic runes` · predicate · name_in (n=16, e.g. ['Air rune', 'Astral rune', 'Blood rune', 'Body rune', 'Chaos rune']) · cross: mage
   - (no stat fields)
 - **Air talisman** (ID: 1438) — `Talismans` · predicate · _is_talisman
@@ -12044,7 +12063,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Astral tiara** (ID: 9106) — `Tiaras` · predicate · _is_tiara
   - members=true, equipable=true
-- **Binding necklace** (ID: 5521) — `RC accessories` · predicate · name_in (n=1, e.g. ['Binding necklace'])
+- **Binding necklace** (ID: 5521) — `RC accessories` · predicate · name_in (n=2, e.g. ['Abyssal lantern', 'Binding necklace'])
   - members=true, equipable=true
 - **Blood essence** (ID: 26390) — `Essence` · predicate · name_in (n=4, e.g. ['Blood essence', 'Daeyalt essence', 'Pure essence', 'Rune essence']) · cross: mage
   - members=true
@@ -12094,7 +12113,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true, equipable=true
 - **Dense essence block** (ID: 13445) — `Essence intermediates` · predicate · name_in (n=3, e.g. ['Dark essence block', 'Dark essence fragments', 'Dense essence block'])
   - members=true
-- **Divine rune pouch** (ID: 27281) — `Essence pouches` · predicate · name_in (n=7, e.g. ['Colossal pouch', 'Divine rune pouch', 'Giant pouch', 'Large pouch', 'Medium pouch'])
+- **Divine rune pouch** (ID: 27281) — `Essence pouches` · predicate · name_in (n=7, e.g. ['Colossal pouch', 'Divine rune pouch', 'Giant pouch', 'Large pouch', 'Medium pouch']) · cross: slayer
   - members=true
 - **Dust rune** (ID: 4696) — `Combo runes` · predicate · name_in (n=6, e.g. ['Dust rune', 'Lava rune', 'Mist rune', 'Mud rune', 'Smoke rune']) · cross: mage
   - members=true
@@ -12174,7 +12193,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true, equipable=true
 - **Rune essence** (ID: 1436) — `Essence` · predicate · name_in (n=4, e.g. ['Blood essence', 'Daeyalt essence', 'Pure essence', 'Rune essence']) · cross: mage
   - (no stat fields)
-- **Rune pouch** (ID: 12791) — `Essence pouches` · predicate · name_in (n=7, e.g. ['Colossal pouch', 'Divine rune pouch', 'Giant pouch', 'Large pouch', 'Medium pouch'])
+- **Rune pouch** (ID: 12791) — `Essence pouches` · predicate · name_in (n=7, e.g. ['Colossal pouch', 'Divine rune pouch', 'Giant pouch', 'Large pouch', 'Medium pouch']) · cross: slayer
   - members=true
 - **Runecraft cape** (ID: 9765) — `Cape & pet` · predicate · name_in (n=4, e.g. ['Rift guardian', 'Runecraft cape', 'Runecraft cape(t)', 'Runecraft hood']) · cross: mage, melee, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
@@ -12210,7 +12229,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Wrath tiara** (ID: 22121) — `Tiaras` · predicate · _is_tiara
   - members=true, equipable=true
-- **Xeric's talisman** (ID: 13393) — `Talismans` · predicate · _is_talisman · cross: mage, misc
+- **Xeric's talisman** (ID: 13393) — `Talismans` · predicate · _is_talisman · cross: mage, misc, slayer
   - attack_magic=3, defence_magic=1, members=true, equipable=true
 
 ### hunter (107 items)
@@ -12219,7 +12238,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Baby impling jar** (ID: 11238) — `Impling jars` · predicate · _is_impling
   - members=true
-- **Beaver** (ID: 13322) — `Cape & pet` · predicate · name_in (n=5, e.g. ['Baby chinchompa', 'Beaver', 'Hunter cape', 'Hunter cape(t)', 'Hunter hood']) · cross: cooking, wc_fletching
+- **Beaver** (ID: 13322) — `Cape & pet` · predicate · name_in (n=5, e.g. ['Baby chinchompa', 'Beaver', 'Hunter cape', 'Hunter cape(t)', 'Hunter hood']) · cross: wc_fletching
   - members=true
 - **Bird house** (ID: 21512) — `Traps` · predicate · name_in (n=28, e.g. ['Bird house', 'Bird snare', 'Bone blowpipe', 'Box trap', 'Butterfly jar'])
   - members=true
@@ -12293,7 +12312,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - ranged_strength=16, members=true, equipable=true
 - **Harralander tar** (ID: 10145) — `Salamanders` · predicate · name_in (n=10, e.g. ['Black salamander', 'Guam tar', 'Harralander tar', 'Marrentill tar', 'Orange salamander']) · cross: range
   - ranged_strength=49, members=true, equipable=true
-- **Hunter cape** (ID: 9948) — `Cape & pet` · predicate · name_in (n=5, e.g. ['Baby chinchompa', 'Beaver', 'Hunter cape', 'Hunter cape(t)', 'Hunter hood']) · cross: mage, melee, range
+- **Hunter cape** (ID: 9948) — `Cape & pet` · predicate · name_in (n=5, e.g. ['Baby chinchompa', 'Beaver', 'Hunter cape', 'Hunter cape(t)', 'Hunter hood']) · cross: melee, range
   - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
 - **Hunter hood** (ID: 9950) — `Cape & pet` · predicate · name_in (n=5, e.g. ['Baby chinchompa', 'Beaver', 'Hunter cape', 'Hunter cape(t)', 'Hunter hood'])
   - members=true, equipable=true
@@ -12776,7 +12795,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Teleport to boat** (ID: 31443) — `POH portals & telescopes` · predicate · or([name_starts(['teleport to ']) | name_in (n=2, e.g. ['Construct. cape teleport', 'House teleport'])]) · cross: misc
   - members=true
-- **Teleport to house** (ID: 8013) — `POH portals & telescopes` · predicate · or([name_starts(['teleport to ']) | name_in (n=2, e.g. ['Construct. cape teleport', 'House teleport'])]) · cross: misc
+- **Teleport to house** (ID: 8013) — `POH portals & telescopes` · predicate · or([name_starts(['teleport to ']) | name_in (n=2, e.g. ['Construct. cape teleport', 'House teleport'])]) · cross: misc, slayer
   - members=true
 - **Thatch spar dense** (ID: 6285) — `Construction materials` · predicate · name_in (n=17, e.g. ['Bolt of cloth', 'Clockwork', 'Empty oak cape rack', 'Fine cloth', 'Flamtaer hammer'])
   - members=true
@@ -12797,26 +12816,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
 - **Wooden chair** (ID: 8498) — `Basic furniture (non-Oak/Teak/Mahogany)` · predicate · name_in (n=42, e.g. ['Beer barrel', 'Bookcase', 'Cider barrel', 'Construct. hood', 'Construction guide'])
   - members=true
 
-### misc (610 items)
+### misc (357 items)
 
-- **20th anniversary boots** (ID: 25328) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **20th anniversary bottom** (ID: 25326) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **20th anniversary cape** (ID: 25334) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **20th anniversary gloves** (ID: 25330) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **20th anniversary hat** (ID: 25322) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **20th anniversary necklace** (ID: 25332) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **20th anniversary top** (ID: 25324) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **4th birthday hat** (ID: 21211) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **A big present** (ID: 26308) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Abyssal bracelet(1)** (ID: 11103) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
   - members=true, equipable=true
 - **Abyssal bracelet(2)** (ID: 11101) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
@@ -12833,17 +12834,17 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_stab=7, defence_slash=7, defence_crush=7, defence_magic=7, defence_ranged=7, equipable=true
 - **Amulet of glory** (ID: 1704) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(1)** (ID: 1706) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range
+- **Amulet of glory(1)** (ID: 1706) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(2)** (ID: 1708) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range
+- **Amulet of glory(2)** (ID: 1708) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(3)** (ID: 1710) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range
+- **Amulet of glory(3)** (ID: 1710) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(4)** (ID: 1712) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range
+- **Amulet of glory(4)** (ID: 1712) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of glory(5)** (ID: 11976) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
-- **Amulet of glory(6)** (ID: 11978) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range
+- **Amulet of glory(6)** (ID: 11978) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, melee, range, slayer
   - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
 - **Amulet of magic** (ID: 1727) — `Boss & quest jewellery` · predicate · name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet']) · cross: mage
   - attack_magic=10, equipable=true
@@ -12853,34 +12854,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Ancient shard** (ID: 19677) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
   - members=true
-- **Ankou gloves** (ID: 20101) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Ankou mask** (ID: 20095) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Ankou socks** (ID: 20107) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Ankou top** (ID: 20098) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Ankou's leggings** (ID: 20104) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
 - **Annakarl teleport** (ID: 12775) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Anti-panties** (ID: 13288) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Anti-present** (ID: 13345) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Antisanta boots** (ID: 12896) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Antisanta gloves** (ID: 12895) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Antisanta jacket** (ID: 12893) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Antisanta mask** (ID: 12892) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Antisanta pantaloons** (ID: 12894) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Antisanta's coal box** (ID: 12897) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Ape atoll teleport** (ID: 19631) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Arceuus library teleport** (ID: 19613) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
@@ -12897,24 +12872,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Battlefront teleport** (ID: 22949) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Bauble box** (ID: 6853) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Beacon ring** (ID: 11014) — `Clue tools` · predicate · or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])]) · cross: mage
   - attack_magic=2, defence_magic=1, members=true, equipable=true, quest_item=true
-- **Bell bauble** (ID: 6846) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Big snowball** (ID: 26332) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Birthday balloons** (ID: 21209) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
-- **Bitter chocolate mix** (ID: 21230) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Bitter easter egg** (ID: 21218) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Black candy** (ID: 24986) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Black h'ween mask** (ID: 11847) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Black key black** (ID: 3463) — `Clue tools` · predicate · or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
   - members=true
 - **Black key brown** (ID: 3461) — `Clue tools` · predicate · or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
@@ -12925,38 +12884,16 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Black key red** (ID: 3460) — `Clue tools` · predicate · or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
   - members=true
-- **Black partyhat** (ID: 11862) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Black santa hat** (ID: 13343) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Blood money** (ID: 13307) — `Currency` · predicate · name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
   - members=true
 - **Blue boots** (ID: 630) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=1, defence_crush=1, members=true, equipable=true
-- **Blue candy** (ID: 24981) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Blue gingerbread shield** (ID: 24431) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Blue halloween mask** (ID: 1055) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Blue hat** (ID: 660) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - attack_magic=3, defence_magic=3, members=true, equipable=true
-- **Blue marionette** (ID: 6865) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Blue partyhat** (ID: 1042) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Blue robe bottoms** (ID: 650) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
 - **Blue robe top** (ID: 640) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
-- **Blue sweets** (ID: 4558) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Bobble hat** (ID: 6856) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Bobble scarf** (ID: 6857) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Box bauble** (ID: 6828) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Brimhaven teleport** (ID: 11745) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Brimhaven voucher** (ID: 29482) — `Currency` · predicate · name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token']) · cross: agility_thieving
@@ -12975,25 +12912,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Bronze key red** (ID: 3450) — `Clue tools` · predicate · or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
   - members=true
-- **Brown candy** (ID: 24980) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Bunny ears** (ID: 1037) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Bunny feet** (ID: 13182) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Bunny legs** (ID: 13664) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Bunny paws** (ID: 13665) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Bunny top** (ID: 13663) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Burning amulet(1)** (ID: 21175) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Burning amulet(1)** (ID: 21175) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Burning amulet(2)** (ID: 21173) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Burning amulet(2)** (ID: 21173) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Burning amulet(3)** (ID: 21171) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Burning amulet(3)** (ID: 21171) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Burning amulet(5)** (ID: 21166) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Burning amulet(5)** (ID: 21166) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
 - **Camelot teleport** (ID: 8010) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
@@ -13011,50 +12936,16 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Champion's cape** (ID: 21439) — `Combat trophies (PvM rewards)` · predicate · name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer'])
   - members=true, equipable=true
-- **Chaotic handegg** (ID: 22361) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Charge dragonstone jewellery scroll** (ID: 20238) — `Imbue scrolls` · predicate · name_in (n=3, e.g. ['Charge dragonstone jewellery scroll', 'Magic shortbow scroll', 'Ring of wealth scroll'])
   - members=true
 - **Chart** (ID: 2576) — `Clue tools` · predicate · or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
   - members=true
-- **Chicken feet** (ID: 11019) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Chicken head** (ID: 11021) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Chicken legs** (ID: 11022) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Chicken wings** (ID: 11020) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Chocolate chips** (ID: 26304) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Chocolate chunks** (ID: 11025) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Chocolate kebbit** (ID: 11026) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Chompy bird hat** (ID: 2978) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - members=true, equipable=true
-- **Christmas cracker** (ID: 962) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Chronicle** (ID: 13660) — `Utility / banked supplies` · predicate · name_in (n=2, e.g. ['Chronicle', 'Rope'])
   - equipable=true
 - **Civitas illa fortis teleport** (ID: 28824) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Clean full helm** (ID: 26290) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Clean platebody** (ID: 26286) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Clean platelegs** (ID: 26288) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Clown bow tie** (ID: 22692) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Clown gown** (ID: 22695) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Clown mask** (ID: 22689) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Clown shoes** (ID: 22701) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Clown trousers** (ID: 22698) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Clue bottle (beginner)** (ID: 23129) — `Clue scrolls` · predicate · or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
   - (no stat fields)
 - **Clue bottle (easy)** (ID: 13648) — `Clue scrolls` · predicate · or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
@@ -13125,30 +13016,12 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_slash=2, defence_crush=2, members=true, equipable=true
 - **Cream robe top** (ID: 642) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
-- **Crunchy chocolate mix** (ID: 21239) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Crunchy easter egg** (ID: 21227) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Crystal key** (ID: 989) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
   - members=true
 - **Curator's medallion** (ID: 22710) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Dareeyak teleport** (ID: 12777) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Dark bow tie** (ID: 19970) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Dark trousers** (ID: 19964) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Dark tuxedo cuffs** (ID: 19961) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Dark tuxedo jacket** (ID: 19958) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Dark tuxedo shoes** (ID: 19967) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Deep blue sweets** (ID: 4559) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Diamond bauble** (ID: 6834) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Digsite pendant (1)** (ID: 11190) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
   - members=true, equipable=true
 - **Digsite pendant (2)** (ID: 11191) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
@@ -13159,70 +13032,20 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true, equipable=true
 - **Digsite teleport** (ID: 12403) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Disk of returning** (ID: 981) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Drakan's medallion** (ID: 22400) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true, equipable=true, quest_item=true
 - **Draynor manor teleport** (ID: 19615) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Earthy chocolate mix** (ID: 21231) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Earthy easter egg** (ID: 21219) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Easter basket** (ID: 4565) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
-- **Easter blaster** (ID: 13185) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Easter egg** (ID: 1961) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Easter egg helm** (ID: 21214) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Easter ring** (ID: 7927) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Ecto-token** (ID: 4278) — `Currency` · predicate · name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
   - members=true
 - **Ecumenical key** (ID: 11942) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
   - members=true
-- **Eggshell platebody** (ID: 22351) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Eggshell platelegs** (ID: 22353) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Empty blaster** (ID: 13183) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Eternal teleport crystal** (ID: 23946) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Evil chicken feet** (ID: 20433) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Evil chicken head** (ID: 20439) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Evil chicken legs** (ID: 20442) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Evil chicken wings** (ID: 20436) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
 - **Falador teleport** (ID: 8009) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Feldip hills teleport** (ID: 12404) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Fenkenstrain's castle teleport** (ID: 19621) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Festive cinnamon stick** (ID: 24432) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Festive egg** (ID: 24434) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Festive elf hat** (ID: 26312) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Festive elf slippers** (ID: 26310) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Festive flour** (ID: 24436) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Festive ginger powder** (ID: 24433) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Festive gingerbread gnomes** (ID: 26292) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Festive mulled wine** (ID: 26294) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Festive pot** (ID: 24435) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Fire cape** (ID: 6570) — `Combat trophies (PvM rewards)` · predicate · name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer']) · cross: mage, melee, range
   - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=11, defence_slash=11, defence_crush=11, defence_magic=11, defence_ranged=11, melee_strength=4, prayer=2, members=true, equipable=true
 - **Firework** (ID: 3006) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
@@ -13231,26 +13054,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Fishing guild teleport** (ID: 24959) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Fishy chocolate mix** (ID: 21238) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Fishy easter egg** (ID: 21226) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Fluffy chocolate mix** (ID: 21236) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Fluffy easter egg** (ID: 21224) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Fresh chocolate mix** (ID: 21229) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Fresh easter egg** (ID: 21217) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Frog mask** (ID: 6188) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Frog token** (ID: 6183) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Fruity chocolate mix** (ID: 21228) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Fruity easter egg** (ID: 21216) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Games necklace(1)** (ID: 3867) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
   - members=true, equipable=true
 - **Games necklace(2)** (ID: 3865) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
@@ -13269,40 +13072,14 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Ghostspeak amulet** (ID: 552) — `Boss & quest jewellery` · predicate · name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
   - equipable=true, quest_item=true
-- **Giant present** (ID: 20836) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
-- **Gingerbread shield** (ID: 24437) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Gravedigger boots** (ID: 13286) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Gravedigger gloves** (ID: 13287) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Gravedigger leggings** (ID: 13285) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Gravedigger mask** (ID: 13283) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Gravedigger top** (ID: 13284) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Green boots** (ID: 628) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=1, defence_crush=1, members=true, equipable=true
-- **Green candy** (ID: 24985) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Green gingerbread shield** (ID: 24428) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Green halloween mask** (ID: 1053) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Green hat** (ID: 658) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - attack_magic=3, defence_magic=3, members=true, equipable=true
-- **Green marionette** (ID: 6866) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Green partyhat** (ID: 1044) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Green robe bottoms** (ID: 648) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
 - **Green robe top** (ID: 638) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
-- **Green sweets** (ID: 4563) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Grey boots** (ID: 2894) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=1, defence_crush=1, equipable=true
 - **Grey gloves** (ID: 2902) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
@@ -13317,50 +13094,26 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Hallowed mark** (ID: 24711) — `Currency` · predicate · name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
   - members=true
-- **Halloween mask set** (ID: 13175) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Harmony island teleport** (ID: 19625) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Herb sack** (ID: 13226) — `Storage bags` · predicate · name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack']) · cross: herblore
+- **Herb sack** (ID: 13226) — `Storage bags` · predicate · name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack']) · cross: herblore, slayer
   - members=true
-- **Highwayman mask** (ID: 979) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Hill giant club** (ID: 20756) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key']) · cross: melee
   - attack_stab=-4, attack_slash=50, attack_crush=65, attack_magic=-4, defence_ranged=-1, melee_strength=70, equipable=true, equipable_weapon=true
-- **Holy handegg** (ID: 22355) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Hosidius teleport** (ID: 19651) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Huge snowball** (ID: 26336) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Humongous snowball** (ID: 26338) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Ice plateau teleport** (ID: 24963) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Iced gingerbread shield** (ID: 24438) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Icy basalt** (ID: 22599) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Incomplete blaster** (ID: 13184) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Infernal cape** (ID: 21295) — `Combat trophies (PvM rewards)` · predicate · name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer']) · cross: mage, melee, range
   - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=1, attack_ranged=1, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=12, defence_ranged=12, melee_strength=8, prayer=2, members=true, equipable=true
 - **Infernal max cape** (ID: 21285) — `Combat trophies (PvM rewards)` · predicate · name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer']) · cross: mage, melee, range
   - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=1, attack_ranged=1, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=12, defence_ranged=12, melee_strength=8, prayer=2, members=true, equipable=true
 - **Inoculation bracelet** (ID: 11088) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
   - members=true, equipable=true
-- **Inverted santa hat** (ID: 13344) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Invitation list** (ID: 21208) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Iorwerth camp teleport** (ID: 12410) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Jack lantern mask** (ID: 9920) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Jester hat** (ID: 6858) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Jester scarf** (ID: 6859) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Key master teleport** (ID: 13249) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Key master's key** (ID: 13248) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
@@ -13371,37 +13124,17 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Kourend castle teleport** (ID: 28790) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Large snowball** (ID: 26334) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Larran's key** (ID: 23490) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
   - members=true
 - **Lassar teleport** (ID: 12780) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Lederhosen hat** (ID: 6182) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Lederhosen shorts** (ID: 6181) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Lederhosen top** (ID: 6180) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Light bow tie** (ID: 19985) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
 - **Light box** (ID: 20355) — `Clue tools` · predicate · or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
   - members=true
-- **Light trousers** (ID: 19979) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Light tuxedo cuffs** (ID: 19976) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Light tuxedo jacket** (ID: 19973) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Light tuxedo shoes** (ID: 19982) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
 - **Lightbearer** (ID: 25975) — `Combat trophies (PvM rewards)` · predicate · name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer'])
   - members=true, equipable=true
-- **Little snowball** (ID: 26326) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Loop half of key** (ID: 987) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
   - members=true
-- **Looting bag** (ID: 11941) — `Storage bags` · predicate · name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack'])
+- **Looting bag** (ID: 11941) — `Storage bags` · predicate · name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack']) · cross: slayer
   - members=true
 - **Lumberyard teleport** (ID: 12642) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
@@ -13409,25 +13142,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Lunar isle teleport** (ID: 12405) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Magic egg** (ID: 11023) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Magic shortbow scroll** (ID: 12786) — `Imbue scrolls` · predicate · name_in (n=3, e.g. ['Charge dragonstone jewellery scroll', 'Magic shortbow scroll', 'Ring of wealth scroll'])
-  - members=true
-- **Magical pumpkin** (ID: 24977) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Marionette handle** (ID: 6864) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Meaty chocolate mix** (ID: 21233) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Meaty easter egg** (ID: 21221) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Memoriam crystal (1)** (ID: 24030) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Memoriam crystal (2)** (ID: 24031) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Memoriam crystal (3)** (ID: 24032) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Memoriam crystal (4)** (ID: 24033) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
   - members=true
 - **Mime boots** (ID: 3061) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - equipable=true
@@ -13451,62 +13166,34 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Muddy key** (ID: 991) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
   - (no stat fields)
-- **Mummy's body** (ID: 20083) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Mummy's feet** (ID: 20092) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Mummy's hands** (ID: 20086) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Mummy's head** (ID: 20080) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
-- **Mummy's legs** (ID: 20089) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, equipable=true
 - **Nardah teleport** (ID: 12402) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Necklace of passage(1)** (ID: 21155) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Necklace of passage(1)** (ID: 21155) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Necklace of passage(2)** (ID: 21153) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Necklace of passage(2)** (ID: 21153) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Necklace of passage(3)** (ID: 21151) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Necklace of passage(3)** (ID: 21151) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Necklace of passage(5)** (ID: 21146) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Necklace of passage(5)** (ID: 21146) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Normal snowball** (ID: 26330) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Numulite** (ID: 21555) — `Currency` · predicate · name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
-  - members=true
-- **Orange candy** (ID: 24987) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
   - members=true
 - **Ourania teleport** (ID: 24951) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Paddewwa teleport** (ID: 12781) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Partyhat set** (ID: 13173) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Peaceful handegg** (ID: 22358) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Pest control teleport** (ID: 12407) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Phoenix necklace** (ID: 11090) — `Boss & quest jewellery` · predicate · name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
   - members=true, equipable=true
 - **Pink boots** (ID: 626) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=1, defence_crush=1, members=true, equipable=true
-- **Pink candy** (ID: 24988) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
 - **Pink hat** (ID: 656) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - attack_magic=3, defence_magic=3, members=true, equipable=true
 - **Pink robe bottoms** (ID: 646) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
 - **Pink robe top** (ID: 636) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
-- **Pink stained full helm** (ID: 26284) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Pink stained platebody** (ID: 26280) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Pink stained platelegs** (ID: 26282) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Pink sweets** (ID: 4564) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Piscatoris teleport** (ID: 12408) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Plank sack** (ID: 24882) — `Storage bags` · predicate · name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack']) · cross: construction
@@ -13517,58 +13204,28 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - (no stat fields)
 - **Pollnivneach teleport** (ID: 11743) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Present** (ID: 6542) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true, quest_item=true
 - **Prifddinas teleport** (ID: 23771) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Pumpkin** (ID: 1959) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Pumpkin lantern** (ID: 24325) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Puppet box** (ID: 6852) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Purple boots** (ID: 2934) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=1, defence_crush=1, equipable=true
-- **Purple candy** (ID: 24983) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
 - **Purple gloves** (ID: 2942) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=1, defence_crush=2, equipable=true
 - **Purple hat** (ID: 2940) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - attack_magic=3, defence_magic=3, members=true, equipable=true
-- **Purple partyhat** (ID: 1046) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Purple robe bottoms** (ID: 2938) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
 - **Purple robe top** (ID: 2936) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
-- **Purple sweets** (ID: 10476) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Rabbit mould** (ID: 11024) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Rainbow partyhat** (ID: 11863) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Red boots** (ID: 2904) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=1, defence_crush=1, equipable=true
-- **Red candy** (ID: 24984) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Red gingerbread shield** (ID: 24430) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Red gloves** (ID: 2912) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=1, defence_crush=2, equipable=true
-- **Red halloween mask** (ID: 1057) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Red hat** (ID: 2910) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - attack_magic=3, defence_magic=3, members=true, equipable=true
-- **Red marionette** (ID: 6867) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Red partyhat** (ID: 1038) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Red robe bottoms** (ID: 2908) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
 - **Red robe top** (ID: 2906) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
-- **Red sweets** (ID: 4562) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Rellekka teleport** (ID: 11744) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Revenant cave teleport** (ID: 21802) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
@@ -13585,29 +13242,21 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Reward casket (medium)** (ID: 20545) — `Clue scrolls` · predicate · or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
   - members=true
-- **Rich chocolate mix** (ID: 21235) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Rich easter egg** (ID: 21223) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Rick's box** (ID: 24989) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Rick's head** (ID: 24990) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Rimmington teleport** (ID: 11741) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Ring of dueling(1)** (ID: 2566) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Ring of dueling(1)** (ID: 2566) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Ring of dueling(2)** (ID: 2564) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Ring of dueling(2)** (ID: 2564) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Ring of dueling(3)** (ID: 2562) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Ring of dueling(3)** (ID: 2562) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Ring of dueling(5)** (ID: 2558) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Ring of dueling(5)** (ID: 2558) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Ring of dueling(6)** (ID: 2556) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Ring of dueling(6)** (ID: 2556) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Ring of dueling(7)** (ID: 2554) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Ring of dueling(7)** (ID: 2554) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Ring of dueling(8)** (ID: 2552) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Ring of dueling(8)** (ID: 2552) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
 - **Ring of endurance (uncharged)** (ID: 24735) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
   - members=true, quest_item=true
@@ -13649,42 +13298,8 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Rope** (ID: 954) — `Utility / banked supplies` · predicate · name_in (n=2, e.g. ['Chronicle', 'Rope'])
   - (no stat fields)
-- **Royal frog blouse** (ID: 6186) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Royal frog leggings** (ID: 6185) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Royal frog skirt** (ID: 6187) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Royal frog tunic** (ID: 6184) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Rubber chicken** (ID: 4566) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
-- **Sack of presents** (ID: 20834) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Salted chocolate mix** (ID: 21234) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Salted easter egg** (ID: 21222) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Salve graveyard teleport** (ID: 19619) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Santa boots** (ID: 12891) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Santa gloves** (ID: 12890) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Santa hat** (ID: 1050) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Santa jacket** (ID: 12888) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Santa mask** (ID: 12887) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Santa pantaloons** (ID: 12889) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Santa suit** (ID: 21866) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Santa suit (dry)** (ID: 21868) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Santa suit (wet)** (ID: 21867) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Scaperune teleport** (ID: 24441) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - (no stat fields)
 - **Scroll box (beginner)** (ID: 24361) — `Clue scrolls` · predicate · or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
@@ -13699,10 +13314,6 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Scroll box (medium)** (ID: 24363) — `Clue scrolls` · predicate · or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
   - members=true
-- **Secret santa present** (ID: 26298) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Secret santa present (red)** (ID: 26316) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Seed box** (ID: 13639) — `Storage bags` · predicate · name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack'])
   - members=true
 - **Senntisten teleport** (ID: 12782) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
@@ -13721,80 +13332,20 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Sinister key** (ID: 993) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
   - members=true
-- **Skeleton boots** (ID: 9921) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Skeleton gloves** (ID: 9922) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Skeleton lantern** (ID: 24327) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
-- **Skeleton leggings** (ID: 9923) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Skeleton mask** (ID: 9925) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Skeleton shirt** (ID: 9924) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Skills necklace** (ID: 11113) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Skills necklace** (ID: 11113) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Skills necklace(1)** (ID: 11111) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Skills necklace(1)** (ID: 11111) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Skills necklace(2)** (ID: 11109) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Skills necklace(2)** (ID: 11109) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Skills necklace(3)** (ID: 11107) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Skills necklace(3)** (ID: 11107) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Skills necklace(5)** (ID: 11970) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Skills necklace(5)** (ID: 11970) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Skills necklace(6)** (ID: 11968) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+- **Skills necklace(6)** (ID: 11968) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: slayer
   - members=true, equipable=true
-- **Small snowball** (ID: 26328) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Smoked chocolate mix** (ID: 21237) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Smoked easter egg** (ID: 21225) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Snow globe** (ID: 20832) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Snow imp costume body** (ID: 21849) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Snow imp costume feet** (ID: 21857) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Snow imp costume gloves** (ID: 21855) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Snow imp costume head** (ID: 21847) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Snow imp costume legs** (ID: 21851) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Snow imp costume tail** (ID: 21853) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Snowman ring** (ID: 26314) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spicy chocolate mix** (ID: 21232) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Spicy easter egg** (ID: 21220) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Spider cave teleport** (ID: 29782) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Spookier boots** (ID: 24323) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spookier gloves** (ID: 24321) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spookier hood** (ID: 24315) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spookier robe** (ID: 24317) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spookier skirt** (ID: 24319) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spooky boots** (ID: 24313) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spooky gloves** (ID: 24311) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spooky hood** (ID: 24305) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spooky robe** (ID: 24307) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Spooky skirt** (ID: 24309) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Star bauble** (ID: 6822) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Steel key black** (ID: 3458) — `Clue tools` · predicate · or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
   - members=true
 - **Steel key brown** (ID: 3456) — `Clue tools` · predicate · or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
@@ -13923,32 +13474,18 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
 - **Team-9 cape** (ID: 4331) — `Team capes (Castle Wars)` · predicate · <lambda>
   - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
-- **Teleport crystal (1)** (ID: 6102) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Teleport crystal (2)** (ID: 6101) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **Teleport crystal (3)** (ID: 6100) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
 - **Teleport to boat** (ID: 31443) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])]) · cross: construction
   - members=true
-- **Teleport to house** (ID: 8013) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])]) · cross: construction
+- **Teleport to house** (ID: 8013) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])]) · cross: construction, slayer
   - members=true
 - **Temple coin** (ID: 23497) — `Currency` · predicate · name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
   - members=true, quest_item=true
-- **Thanksgiving dinner** (ID: 12861) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
 - **Tokkul** (ID: 6529) — `Currency` · predicate · name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
   - members=true
 - **Tooth half of key** (ID: 985) — `Keys` · predicate · name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
   - members=true
 - **Trading sticks** (ID: 6306) — `Currency` · predicate · name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
   - members=true
-- **Tree bauble** (ID: 6840) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
-- **Tri-jester hat** (ID: 6860) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Tri-jester scarf** (ID: 6861) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Trollheim teleport** (ID: 11747) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 - **Turquoise boots** (ID: 634) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
@@ -13975,23 +13512,11 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **West ardougne teleport** (ID: 19623) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **White candy** (ID: 24982) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - members=true
-- **White partyhat** (ID: 1048) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **White sweets** (ID: 4560) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - (no stat fields)
 - **Wilderness champion amulet** (ID: 21433) — `Combat trophies (PvM rewards)` · predicate · name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer'])
   - (no stat fields)
 - **Wilderness crabs teleport** (ID: 24251) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
-- **Wise old man's santa hat** (ID: 21859) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Woolly hat** (ID: 6862) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Woolly scarf** (ID: 6863) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Xeric's talisman** (ID: 13393) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, runecraft
+- **Xeric's talisman** (ID: 13393) — `Teleport jewellery` · predicate · name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory']) · cross: mage, runecraft, slayer
   - attack_magic=3, defence_magic=1, members=true, equipable=true
 - **Yanille teleport** (ID: 11746) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
@@ -14001,22 +13526,10 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - defence_slash=1, defence_crush=2, equipable=true
 - **Yellow hat** (ID: 2920) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - attack_magic=3, defence_magic=3, members=true, equipable=true
-- **Yellow partyhat** (ID: 1040) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Yellow robe bottoms** (ID: 2918) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
 - **Yellow robe top** (ID: 2916) — `Cosmetic outfits / random events` · predicate · name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
   - defence_slash=2, defence_crush=2, members=true, equipable=true
-- **Zombie boots** (ID: 7596) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Zombie gloves** (ID: 7595) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Zombie mask** (ID: 7594) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Zombie shirt** (ID: 7592) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
-- **Zombie trousers** (ID: 7593) — `Holiday rares & cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
-  - equipable=true
 - **Zul-andra teleport** (ID: 12938) — `Teleport tabs` · predicate · or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
   - members=true
 
@@ -14076,7 +13589,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=25, attack_slash=24, attack_crush=23, attack_magic=-3, attack_ranged=-2, defence_stab=25, defence_slash=24, defence_crush=23, defence_magic=-3, defence_ranged=-2, melee_strength=6, members=true, equipable=true
 - **Dragon defender (t)** (ID: 19722) — `Defenders` · predicate · or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
   - attack_stab=25, attack_slash=24, attack_crush=23, attack_magic=-3, attack_ranged=-2, defence_stab=25, defence_slash=24, defence_crush=23, defence_magic=-3, defence_ranged=-2, melee_strength=6, members=true, equipable=true
-- **Dramen staff** (ID: 772) — `Quest unlock weapons` · predicate · name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur']) · cross: melee
+- **Dramen staff** (ID: 772) — `Quest unlock weapons` · predicate · name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur']) · cross: melee, slayer
   - attack_stab=-1, attack_slash=-1, attack_crush=10, attack_magic=10, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=10, melee_strength=10, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Ectophial** (ID: 4251) — `Quest unlock weapons` · predicate · name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
   - members=true, quest_item=true
@@ -14170,7 +13683,7 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Lil' zik** (ID: 22473) — `Boss pets` · predicate · name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
   - members=true
-- **Lunar staff** (ID: 9084) — `Quest unlock weapons` · predicate · name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur']) · cross: mage
+- **Lunar staff** (ID: 9084) — `Quest unlock weapons` · predicate · name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur']) · cross: mage, slayer
   - attack_stab=3, attack_slash=2, attack_crush=16, attack_magic=13, defence_stab=2, defence_slash=3, defence_crush=2, defence_magic=13, defence_ranged=1, melee_strength=15, prayer=3, members=true, equipable=true, equipable_weapon=true, quest_item=true
 - **Max cape** (ID: 13280) — `Quest & achievement capes` · predicate · _is_quest_cape
   - members=true, equipable=true
@@ -14248,13 +13761,13 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - attack_stab=7, attack_slash=6, attack_crush=5, attack_magic=-3, attack_ranged=-2, defence_stab=7, defence_slash=6, defence_crush=5, defence_magic=-3, defence_ranged=-2, melee_strength=1, members=true, equipable=true
 - **Tzrek-jad** (ID: 13225) — `Boss pets` · predicate · name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
   - members=true
-- **Varrock armour 1** (ID: 13104) — `Diary - Varrock` · predicate · name_starts(['varrock armour']) · cross: melee
+- **Varrock armour 1** (ID: 13104) — `Diary - Varrock` · predicate · name_starts(['varrock armour']) · cross: melee, mining_smithing
   - attack_magic=-30, attack_ranged=-10, defence_stab=32, defence_slash=31, defence_crush=24, defence_magic=-6, defence_ranged=31, members=true, equipable=true
-- **Varrock armour 2** (ID: 13105) — `Diary - Varrock` · predicate · name_starts(['varrock armour']) · cross: melee
+- **Varrock armour 2** (ID: 13105) — `Diary - Varrock` · predicate · name_starts(['varrock armour']) · cross: melee, mining_smithing
   - attack_magic=-30, attack_ranged=-10, defence_stab=41, defence_slash=40, defence_crush=30, defence_magic=-6, defence_ranged=40, members=true, equipable=true
-- **Varrock armour 3** (ID: 13106) — `Diary - Varrock` · predicate · name_starts(['varrock armour']) · cross: melee
+- **Varrock armour 3** (ID: 13106) — `Diary - Varrock` · predicate · name_starts(['varrock armour']) · cross: melee, mining_smithing
   - attack_magic=-30, attack_ranged=-10, defence_stab=46, defence_slash=44, defence_crush=38, defence_magic=-6, defence_ranged=44, members=true, equipable=true
-- **Varrock armour 4** (ID: 13107) — `Diary - Varrock` · predicate · name_starts(['varrock armour']) · cross: melee
+- **Varrock armour 4** (ID: 13107) — `Diary - Varrock` · predicate · name_starts(['varrock armour']) · cross: melee, mining_smithing
   - attack_magic=-30, attack_ranged=-10, defence_stab=65, defence_slash=63, defence_crush=55, defence_magic=-6, defence_ranged=63, members=true, equipable=true
 - **Void knight gloves** (ID: 8842) — `Void Knight set` · predicate · or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])]) · cross: melee, range
   - defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=4, defence_ranged=6, members=true, equipable=true
@@ -14417,3 +13930,928 @@ path + predicate descriptor + cross-tag tabs + key wiki fields.
   - members=true
 - **Yellowfin** (ID: 32328) — `Cooked sailing fish` · predicate · _is_sailing_fish
   - members=true
+
+### cosmetics (461 items)
+
+- **20th anniversary boots** (ID: 25328) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **20th anniversary bottom** (ID: 25326) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **20th anniversary cape** (ID: 25334) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **20th anniversary gloves** (ID: 25330) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **20th anniversary hat** (ID: 25322) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **20th anniversary necklace** (ID: 25332) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **20th anniversary top** (ID: 25324) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **4th birthday hat** (ID: 21211) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **A big present** (ID: 26308) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Adamant dragon mask** (ID: 23270) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Afro** (ID: 12430) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Ale of the gods** (ID: 20056) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true, equipable_weapon=true
+- **Ancient blood ornament kit** (ID: 28336) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Anguish ornament kit** (ID: 22246) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Ankou gloves** (ID: 20101) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Ankou mask** (ID: 20095) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Ankou socks** (ID: 20107) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Ankou top** (ID: 20098) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Ankou's leggings** (ID: 20104) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Anti-panties** (ID: 13288) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Anti-present** (ID: 13345) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Antisanta boots** (ID: 12896) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Antisanta gloves** (ID: 12895) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Antisanta jacket** (ID: 12893) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Antisanta mask** (ID: 12892) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Antisanta pantaloons** (ID: 12894) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Antisanta's coal box** (ID: 12897) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Arceuus hood** (ID: 20113) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Arceuus scarf** (ID: 19943) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Armadyl armour ornament kit** (ID: 26713) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Armadyl godsword ornament kit** (ID: 20068) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Bandana eyepatch (blue)** (ID: 8926) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bandana eyepatch (brown)** (ID: 8927) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bandana eyepatch (red)** (ID: 8925) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bandana eyepatch (white)** (ID: 8924) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bandos armour ornament kit** (ID: 26717) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Bandos godsword ornament kit** (ID: 20071) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Banshee mask** (ID: 20773) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Banshee robe** (ID: 20777) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Banshee top** (ID: 20775) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Bauble box** (ID: 6853) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Beanie** (ID: 12245) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bear feet** (ID: 23291) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Bell bauble** (ID: 6846) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Beret mask** (ID: 11282) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Berserker necklace ornament kit** (ID: 23237) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Big pirate hat** (ID: 12355) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Big snowball** (ID: 26332) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Birthday balloons** (ID: 21209) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
+- **Bitter chocolate mix** (ID: 21230) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Bitter easter egg** (ID: 21218) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Black boater** (ID: 7327) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Black candy** (ID: 24986) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Black dragon mask** (ID: 12524) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Black elegant legs** (ID: 10402) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Black elegant shirt** (ID: 10400) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Black h'ween mask** (ID: 11847) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Black leprechaun hat** (ID: 20246) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Black naval shirt** (ID: 8956) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Black navy slacks** (ID: 8995) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Black partyhat** (ID: 11862) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Black santa hat** (ID: 13343) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Black tricorn hat** (ID: 8963) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Black unicorn mask** (ID: 20266) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue boater** (ID: 7325) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue candy** (ID: 24981) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Blue dragon mask** (ID: 12520) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue elegant blouse** (ID: 10428) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue elegant legs** (ID: 10410) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue elegant shirt** (ID: 10408) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue elegant skirt** (ID: 10430) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue gingerbread shield** (ID: 24431) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Blue halloween mask** (ID: 1055) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Blue headband** (ID: 12301) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue marionette** (ID: 6865) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Blue naval shirt** (ID: 8952) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue navy slacks** (ID: 8991) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Blue partyhat** (ID: 1042) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Blue sweets** (ID: 4558) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Blue tricorn hat** (ID: 8959) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bob's black shirt** (ID: 10322) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bob's blue shirt** (ID: 10318) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bob's green shirt** (ID: 10320) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bob's purple shirt** (ID: 10324) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bob's red shirt** (ID: 10316) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bobble hat** (ID: 6856) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Bobble scarf** (ID: 6857) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Bounty hunter ornament kit** (ID: 28017) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Box bauble** (ID: 6828) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Briefcase** (ID: 12335) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Bronze dragon mask** (ID: 12363) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Brown candy** (ID: 24980) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Brown naval shirt** (ID: 8955) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Brown navy slacks** (ID: 8994) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Brown tricorn hat** (ID: 8962) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Builder's boots** (ID: 10865) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true, quest_item=true
+- **Builder's shirt** (ID: 10863) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true, quest_item=true
+- **Builder's trousers** (ID: 10864) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true, quest_item=true
+- **Bunny ears** (ID: 1037) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Bunny feet** (ID: 13182) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Bunny legs** (ID: 13664) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Bunny paws** (ID: 13665) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Bunny top** (ID: 13663) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Cat mask** (ID: 12361) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Cavalier mask** (ID: 11280) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Chaotic handegg** (ID: 22361) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Chicken feet** (ID: 11019) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Chicken head** (ID: 11021) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Chicken legs** (ID: 11022) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Chicken wings** (ID: 11020) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Chocolate chips** (ID: 26304) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Chocolate chunks** (ID: 11025) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Chocolate kebbit** (ID: 11026) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Christmas cracker** (ID: 962) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Clean full helm** (ID: 26290) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Clean platebody** (ID: 26286) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Clean platelegs** (ID: 26288) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Clown bow tie** (ID: 22692) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Clown gown** (ID: 22695) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Clown mask** (ID: 22689) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Clown shoes** (ID: 22701) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Clown trousers** (ID: 22698) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Crier bell** (ID: 20243) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, members=true, equipable=true, equipable_weapon=true
+- **Crier coat** (ID: 20240) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Crier hat** (ID: 12319) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Crunchy chocolate mix** (ID: 21239) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Crunchy easter egg** (ID: 21227) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Dagon'hai robes ornament kit** (ID: 27121) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dark bow tie** (ID: 19970) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Dark infinity colour kit** (ID: 12528) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dark trousers** (ID: 19964) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Dark tuxedo cuffs** (ID: 19961) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Dark tuxedo jacket** (ID: 19958) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Dark tuxedo shoes** (ID: 19967) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Deep blue sweets** (ID: 4559) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Deerstalker** (ID: 12540) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Demon feet** (ID: 23294) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Demonic axe ornament kit** (ID: 33305) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Demonic staff ornament kit** (ID: 33308) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Demonic trident ornament kit** (ID: 33311) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Diamond bauble** (ID: 6834) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Disk of returning** (ID: 981) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Dragon boots ornament kit** (ID: 22231) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon chainbody ornament kit** (ID: 12534) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon claws ornament kit** (ID: 26707) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon defender ornament kit** (ID: 20143) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon full helm ornament kit** (ID: 12538) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon kiteshield ornament kit** (ID: 22239) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon legs/skirt ornament kit** (ID: 12536) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon pickaxe upgrade kit** (ID: 12800) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon platebody ornament kit** (ID: 22236) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon scimitar ornament kit** (ID: 20002) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon sq shield ornament kit** (ID: 12532) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Dragon warhammer ornament kit** (ID: 26709) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Earthy chocolate mix** (ID: 21231) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Earthy easter egg** (ID: 21219) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Easter basket** (ID: 4565) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
+- **Easter blaster** (ID: 13185) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Easter egg** (ID: 1961) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Easter egg helm** (ID: 21214) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Easter ring** (ID: 7927) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Echo ahrim's ornament kit** (ID: 30451) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Echo venator bow ornament kit** (ID: 30432) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Echo virtus ornament kit** (ID: 30443) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Eggshell platebody** (ID: 22351) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Eggshell platelegs** (ID: 22353) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Elder chaos robes ornament kit** (ID: 27113) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Elder maul ornament kit** (ID: 27098) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Empty blaster** (ID: 13183) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Enchanted curtains** (ID: 21861) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - (no stat fields)
+- **Enchanted snowy curtains** (ID: 21862) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - (no stat fields)
+- **Eternal teleport crystal** (ID: 23946) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Evil chicken feet** (ID: 20433) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Evil chicken head** (ID: 20439) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Evil chicken legs** (ID: 20442) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Evil chicken wings** (ID: 20436) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Festive cinnamon stick** (ID: 24432) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Festive egg** (ID: 24434) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Festive elf hat** (ID: 26312) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Festive elf slippers** (ID: 26310) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Festive flour** (ID: 24436) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Festive ginger powder** (ID: 24433) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Festive gingerbread gnomes** (ID: 26292) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Festive mulled wine** (ID: 26294) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Festive pot** (ID: 24435) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Fishy chocolate mix** (ID: 21238) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Fishy easter egg** (ID: 21226) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Fluffy chocolate mix** (ID: 21236) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Fluffy easter egg** (ID: 21224) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Fresh chocolate mix** (ID: 21229) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Fresh easter egg** (ID: 21217) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Frog mask** (ID: 6188) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Frog slippers** (ID: 23288) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Frog token** (ID: 6183) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Fruity chocolate mix** (ID: 21228) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Fruity easter egg** (ID: 21216) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Fury ornament kit** (ID: 12526) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Giant present** (ID: 20836) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
+- **Gingerbread shield** (ID: 24437) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Goblin mask** (ID: 12251) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Gold elegant blouse** (ID: 12343) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Gold elegant legs** (ID: 12349) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Gold elegant shirt** (ID: 12347) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Gold elegant skirt** (ID: 12345) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Gold headband** (ID: 12303) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Golden apron** (ID: 20208) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Golden chef's hat** (ID: 20205) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Gravedigger boots** (ID: 13286) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Gravedigger gloves** (ID: 13287) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Gravedigger leggings** (ID: 13285) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Gravedigger mask** (ID: 13283) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Gravedigger top** (ID: 13284) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Green boater** (ID: 7323) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Green candy** (ID: 24985) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Green dragon mask** (ID: 12518) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Green elegant blouse** (ID: 10432) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Green elegant legs** (ID: 10414) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Green elegant shirt** (ID: 10412) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Green elegant skirt** (ID: 10434) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Green gingerbread shield** (ID: 24428) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Green halloween mask** (ID: 1053) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Green headband** (ID: 12307) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Green marionette** (ID: 6866) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Green naval shirt** (ID: 8953) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Green navy slacks** (ID: 8992) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Green partyhat** (ID: 1044) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Green sweets** (ID: 4563) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Green tricorn hat** (ID: 8960) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Grey naval shirt** (ID: 8958) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Grey navy slacks** (ID: 8997) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Grey tricorn hat** (ID: 8965) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Half moon spectacles** (ID: 20053) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Halloween mask set** (ID: 13175) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Ham joint** (ID: 23360) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true, equipable_weapon=true
+- **Hard hat** (ID: 10862) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true, quest_item=true
+- **Hat eyepatch** (ID: 8928) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Heavy ballista ornament kit** (ID: 26711) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Highwayman mask** (ID: 979) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Holy handegg** (ID: 22355) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Holy ornament kit** (ID: 25742) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Hornwood helm** (ID: 19699) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Hosidius hood** (ID: 20116) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Hosidius scarf** (ID: 19946) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Huge snowball** (ID: 26336) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Humongous snowball** (ID: 26338) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Iced gingerbread shield** (ID: 24438) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Imp mask** (ID: 12249) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Incomplete blaster** (ID: 13184) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Inverted santa hat** (ID: 13344) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Invitation list** (ID: 21208) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Iron dragon mask** (ID: 12365) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Jack lantern mask** (ID: 9920) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Jester cape** (ID: 23297) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Jester hat** (ID: 6858) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Jester scarf** (ID: 6859) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Large snowball** (ID: 26334) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Lava dragon mask** (ID: 12371) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Lava staff upgrade kit** (ID: 21202) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Lederhosen hat** (ID: 6182) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Lederhosen shorts** (ID: 6181) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Lederhosen top** (ID: 6180) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Leprechaun hat** (ID: 12359) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Light bow tie** (ID: 19985) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Light infinity colour kit** (ID: 12530) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Light trousers** (ID: 19979) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Light tuxedo cuffs** (ID: 19976) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Light tuxedo jacket** (ID: 19973) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Light tuxedo shoes** (ID: 19982) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Little snowball** (ID: 26326) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Lovakengj hood** (ID: 20119) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Lovakengj scarf** (ID: 19949) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Magic egg** (ID: 11023) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Magical pumpkin** (ID: 24977) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Marionette handle** (ID: 6864) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Meaty chocolate mix** (ID: 21233) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Meaty easter egg** (ID: 21221) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Memoriam crystal (1)** (ID: 24030) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Memoriam crystal (2)** (ID: 24031) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Memoriam crystal (3)** (ID: 24032) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Memoriam crystal (4)** (ID: 24033) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Menaphite ornament kit** (ID: 27255) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Mithril dragon mask** (ID: 12369) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Mole slippers** (ID: 23285) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Monocle** (ID: 12353) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Mummy's body** (ID: 20083) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Mummy's feet** (ID: 20092) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Mummy's hands** (ID: 20086) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Mummy's head** (ID: 20080) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Mummy's legs** (ID: 20089) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, equipable=true
+- **Musketeer hat** (ID: 12351) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Navy cavalier** (ID: 12325) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Normal snowball** (ID: 26330) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Occult ornament kit** (ID: 20065) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Orange boater** (ID: 7321) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Orange candy** (ID: 24987) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Partyhat & specs** (ID: 12399) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Partyhat set** (ID: 13173) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Peaceful handegg** (ID: 22358) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Penguin mask** (ID: 12428) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pink boater** (ID: 12309) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pink candy** (ID: 24988) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Pink elegant blouse** (ID: 12339) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pink elegant legs** (ID: 12317) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pink elegant shirt** (ID: 12315) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pink elegant skirt** (ID: 12341) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pink headband** (ID: 12305) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pink stained full helm** (ID: 26284) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Pink stained platebody** (ID: 26280) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Pink stained platelegs** (ID: 26282) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Pink sweets** (ID: 4564) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Pirate bandana** (ID: 7112) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pirate hat** (ID: 8950) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pirate hat & patch** (ID: 12412) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Piscarilius hood** (ID: 20122) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Piscarilius scarf** (ID: 19952) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Pith helmet** (ID: 12516) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Present** (ID: 6542) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true, quest_item=true
+- **Pumpkin** (ID: 1959) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Pumpkin lantern** (ID: 24325) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Puppet box** (ID: 6852) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Purple boater** (ID: 12311) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Purple candy** (ID: 24983) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Purple elegant blouse** (ID: 10436) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Purple elegant legs** (ID: 10418) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Purple elegant shirt** (ID: 10416) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Purple elegant skirt** (ID: 10438) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Purple naval shirt** (ID: 8957) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Purple navy slacks** (ID: 8996) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Purple partyhat** (ID: 1046) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Purple sweets** (ID: 10476) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Purple tricorn hat** (ID: 8964) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Rabbit mould** (ID: 11024) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Rainbow partyhat** (ID: 11863) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Red beret** (ID: 12247) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red boater** (ID: 7319) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red candy** (ID: 24984) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Red cavalier** (ID: 12323) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red dragon mask** (ID: 12522) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red elegant blouse** (ID: 10424) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red elegant legs** (ID: 10406) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red elegant shirt** (ID: 10404) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red elegant skirt** (ID: 10426) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red gingerbread shield** (ID: 24430) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Red halloween mask** (ID: 1057) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Red marionette** (ID: 6867) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Red naval shirt** (ID: 8954) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red navy slacks** (ID: 8993) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Red partyhat** (ID: 1038) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Red sweets** (ID: 4562) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Red tricorn hat** (ID: 8961) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Rich chocolate mix** (ID: 21235) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Rich easter egg** (ID: 21223) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Rick's box** (ID: 24989) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Rick's head** (ID: 24990) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Royal crown** (ID: 12397) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Royal frog blouse** (ID: 6186) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Royal frog leggings** (ID: 6185) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Royal frog skirt** (ID: 6187) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Royal frog tunic** (ID: 6184) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Royal gown bottom** (ID: 12395) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Royal gown top** (ID: 12393) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Rubber chicken** (ID: 4566) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
+- **Rune defender ornament kit** (ID: 23227) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Rune dragon mask** (ID: 23273) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Sack of presents** (ID: 20834) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Sagacious spectacles** (ID: 12337) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Salted chocolate mix** (ID: 21234) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Salted easter egg** (ID: 21222) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Sandwich lady bottom** (ID: 23318) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Sandwich lady hat** (ID: 23312) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Sandwich lady top** (ID: 23315) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Sanguine ornament kit** (ID: 25744) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Santa boots** (ID: 12891) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Santa gloves** (ID: 12890) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Santa hat** (ID: 1050) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Santa jacket** (ID: 12888) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Santa mask** (ID: 12887) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Santa pantaloons** (ID: 12889) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Santa suit** (ID: 21866) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Santa suit (dry)** (ID: 21868) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Santa suit (wet)** (ID: 21867) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Saradomin godsword ornament kit** (ID: 20074) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Secret santa present** (ID: 26298) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Secret santa present (red)** (ID: 26316) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Shattered cannon ornament kit** (ID: 26528) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Shattered relics mystic ornament kit** (ID: 26541) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Shattered relics variety ornament kit** (ID: 26421) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Shattered relics void ornament kit** (ID: 26479) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Shayzien hood** (ID: 20125) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Shayzien scarf** (ID: 19955) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Shoulder parrot** (ID: 23300) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Skeleton boots** (ID: 9921) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Skeleton gloves** (ID: 9922) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Skeleton lantern** (ID: 24327) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - attack_stab=-100, attack_slash=-100, attack_crush=-50, melee_strength=-10, equipable=true, equipable_weapon=true
+- **Skeleton leggings** (ID: 9923) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Skeleton mask** (ID: 9925) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Skeleton shirt** (ID: 9924) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Small snowball** (ID: 26328) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Smoked chocolate mix** (ID: 21237) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Smoked easter egg** (ID: 21225) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Snow globe** (ID: 20832) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Snow imp costume body** (ID: 21849) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Snow imp costume feet** (ID: 21857) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Snow imp costume gloves** (ID: 21855) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Snow imp costume head** (ID: 21847) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Snow imp costume legs** (ID: 21851) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Snow imp costume tail** (ID: 21853) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Snowman ring** (ID: 26314) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spicy chocolate mix** (ID: 21232) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Spicy easter egg** (ID: 21220) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Spookier boots** (ID: 24323) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spookier gloves** (ID: 24321) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spookier hood** (ID: 24315) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spookier robe** (ID: 24317) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spookier skirt** (ID: 24319) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spooky boots** (ID: 24313) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spooky gloves** (ID: 24311) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spooky hood** (ID: 24305) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spooky robe** (ID: 24307) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Spooky skirt** (ID: 24309) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Star bauble** (ID: 6822) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Steam staff upgrade kit** (ID: 12798) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Steel dragon mask** (ID: 12367) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Teleport crystal (1)** (ID: 6102) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Teleport crystal (2)** (ID: 6101) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Teleport crystal (3)** (ID: 6100) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Thanksgiving dinner** (ID: 12861) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **Top hat** (ID: 12432) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Top hat & monocle** (ID: 12434) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Tormented ornament kit** (ID: 23348) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Torture ornament kit** (ID: 20062) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Trailblazer graceful ornament kit** (ID: 25099) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Trailblazer reloaded blowpipe ornament kit** (ID: 28690) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Trailblazer reloaded bulwark ornament kit** (ID: 28684) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Trailblazer tool ornament kit** (ID: 25090) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Tree bauble** (ID: 6840) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **Tri-jester hat** (ID: 6860) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Tri-jester scarf** (ID: 6861) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Twisted ancestral colour kit** (ID: 24670) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Tzhaar-ket-om ornament kit** (ID: 23232) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **White boater** (ID: 12313) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **White candy** (ID: 24982) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - members=true
+- **White cavalier** (ID: 12321) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **White elegant blouse** (ID: 10420) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **White elegant skirt** (ID: 10422) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **White headband** (ID: 12299) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **White partyhat** (ID: 1048) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **White sweets** (ID: 4560) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - (no stat fields)
+- **White unicorn mask** (ID: 20269) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Wise old man's santa hat** (ID: 21859) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Wolf cloak** (ID: 23410) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - equipable=true
+- **Wolf mask** (ID: 23407) — `Treasure Trail fashion (no stats)` · predicate · name_in (n=155, e.g. ['Adamant dragon mask', 'Afro', 'Ale of the gods', 'Arceuus hood', 'Arceuus scarf'])
+  - members=true, equipable=true
+- **Woolly hat** (ID: 6862) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Woolly scarf** (ID: 6863) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Yellow partyhat** (ID: 1040) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Zamorak godsword ornament kit** (ID: 20077) — `Ornament kits` · predicate · or([name_ends([' ornament kit']) | name_ends([' colour kit']) | name_in (n=3, e.g. ['Dragon pickaxe upgrade kit', 'Lava staff upgrade kit', 'Steam staff upgrade kit'])])
+  - members=true
+- **Zombie boots** (ID: 7596) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Zombie gloves** (ID: 7595) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Zombie mask** (ID: 7594) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Zombie shirt** (ID: 7592) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true
+- **Zombie trousers** (ID: 7593) — `Holiday rares & event cosmetics` · predicate · or([name_in (n=254, e.g. ['20th anniversary boots', '20th anniversary bottom', '20th anniversary cape', '20th anniversary gloves', '20th anniversary hat']) | name_ends([' sweets']) | name_ends([' marionette'])])
+  - equipable=true

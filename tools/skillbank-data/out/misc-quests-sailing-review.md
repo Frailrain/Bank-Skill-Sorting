@@ -1,0 +1,1192 @@
+# Misc / Quests / Sailing review
+
+Per-item dump of these three tabs to inform design decisions.
+
+## misc (357 items)
+
+### Boss & quest jewellery
+
+- **Amulet of accuracy** (ID: 1478) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=4, attack_ranged=4, equipable=true, quest_item=true
+- **Amulet of defence** (ID: 1729) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - defence_stab=7, defence_slash=7, defence_crush=7, defence_magic=7, defence_ranged=7, equipable=true
+- **Amulet of magic** (ID: 1727) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - attack_magic=10, equipable=true
+- **Amulet of strength** (ID: 1725) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - melee_strength=10, equipable=true
+- **Ghostspeak amulet** (ID: 552) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - equipable=true, quest_item=true
+- **Phoenix necklace** (ID: 11090) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - members=true, equipable=true
+- **Ring of suffering** (ID: 19550) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - defence_stab=10, defence_slash=10, defence_crush=10, defence_magic=10, defence_ranged=10, prayer=2, members=true, equipable=true
+- **Ring of suffering (i)** (ID: 19710) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - defence_stab=20, defence_slash=20, defence_crush=20, defence_magic=20, defence_ranged=20, prayer=4, members=true, equipable=true
+- **Ring of the gods** (ID: 12601) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, prayer=4, members=true, equipable=true
+- **Ring of the gods (i)** (ID: 13202) — predicate — name_in (n=12, e.g. ['Amulet of accuracy', 'Amulet of defence', 'Amulet of magic', 'Amulet of strength', 'Ghostspeak amulet'])
+  - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, prayer=8, members=true, equipable=true
+### Clue scrolls
+
+- **Clue bottle (beginner)** (ID: 23129) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - (no stat fields)
+- **Clue bottle (easy)** (ID: 13648) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue bottle (elite)** (ID: 13651) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue bottle (hard)** (ID: 13650) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue bottle (medium)** (ID: 13649) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue geode (beginner)** (ID: 23442) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - (no stat fields)
+- **Clue geode (easy)** (ID: 20358) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue geode (elite)** (ID: 20364) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue geode (hard)** (ID: 20362) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue geode (medium)** (ID: 20360) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue nest (beginner)** (ID: 23127) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - (no stat fields)
+- **Clue nest (easy)** (ID: 19712) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue nest (elite)** (ID: 19718) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue nest (hard)** (ID: 19716) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue nest (medium)** (ID: 19714) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue scroll** (ID: 713) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - (no stat fields)
+- **Clue scroll (beginner)** (ID: 23182) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - (no stat fields)
+- **Clue scroll (easy)** (ID: 2677) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue scroll (elite)** (ID: 12073) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue scroll (hard)** (ID: 2722) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue scroll (master)** (ID: 19835) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue scroll (medium)** (ID: 2801) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Clue scroll (special)** (ID: 27427) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - (no stat fields)
+- **Reward casket (beginner)** (ID: 23245) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - (no stat fields)
+- **Reward casket (easy)** (ID: 20546) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Reward casket (elite)** (ID: 20543) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Reward casket (hard)** (ID: 20544) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Reward casket (master)** (ID: 19836) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Reward casket (medium)** (ID: 20545) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Scroll box (beginner)** (ID: 24361) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - (no stat fields)
+- **Scroll box (easy)** (ID: 24362) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Scroll box (elite)** (ID: 24365) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Scroll box (hard)** (ID: 24364) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Scroll box (master)** (ID: 24366) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+- **Scroll box (medium)** (ID: 24363) — predicate — or([name_starts(['clue scroll']) | name_starts(['master clue']) | name_starts(['clue bottle']) | name_starts(['clue nest']) | name_starts(['clue geode']) | name_starts(['reward casket']) | name_starts(['scroll box'])])
+  - members=true
+### Clue tools
+
+- **Beacon ring** (ID: 11014) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - attack_magic=2, defence_magic=1, members=true, equipable=true, quest_item=true
+- **Black key black** (ID: 3463) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Black key brown** (ID: 3461) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Black key crimson** (ID: 3462) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Black key purple** (ID: 3464) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Black key red** (ID: 3460) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Bronze key black** (ID: 3453) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Bronze key brown** (ID: 3451) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Bronze key crimson** (ID: 3452) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Bronze key purple** (ID: 3454) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Bronze key red** (ID: 3450) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Chart** (ID: 2576) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Light box** (ID: 20355) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Sextant** (ID: 2574) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Silver key black** (ID: 3468) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Silver key brown** (ID: 3466) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Silver key crimson** (ID: 3467) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Silver key purple** (ID: 3469) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Silver key red** (ID: 3465) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Steel key black** (ID: 3458) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Steel key brown** (ID: 3456) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Steel key crimson** (ID: 3457) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Steel key purple** (ID: 3459) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Steel key red** (ID: 3455) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+- **Watch** (ID: 2575) — predicate — or([name_in (n=7, e.g. ['Beacon ring', 'Chart', 'Light box', 'Mimic kill count', 'Puzzle box']) | and([or([name_starts(['bronze key ']) | name_starts(['steel key ']) | name_starts(['black key ']) | name_starts(['silver key '])]) | or([name_ends([' red']) | name_ends([' brown']) | name_ends([' crimson']) | name_ends([' black']) | name_ends([' purple'])])])])
+  - members=true
+### Combat trophies (PvM rewards)
+
+- **Champion's cape** (ID: 21439) — predicate — name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer'])
+  - members=true, equipable=true
+- **Fire cape** (ID: 6570) — predicate — name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer'])
+  - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=11, defence_slash=11, defence_crush=11, defence_magic=11, defence_ranged=11, melee_strength=4, prayer=2, members=true, equipable=true
+- **Infernal cape** (ID: 21295) — predicate — name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer'])
+  - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=1, attack_ranged=1, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=12, defence_ranged=12, melee_strength=8, prayer=2, members=true, equipable=true
+- **Infernal max cape** (ID: 21285) — predicate — name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer'])
+  - attack_stab=4, attack_slash=4, attack_crush=4, attack_magic=1, attack_ranged=1, defence_stab=12, defence_slash=12, defence_crush=12, defence_magic=12, defence_ranged=12, melee_strength=8, prayer=2, members=true, equipable=true
+- **Lightbearer** (ID: 25975) — predicate — name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer'])
+  - members=true, equipable=true
+- **Wilderness champion amulet** (ID: 21433) — predicate — name_in (n=6, e.g. ["Champion's cape", 'Fire cape', 'Infernal cape', 'Infernal max cape', 'Lightbearer'])
+  - (no stat fields)
+### Cosmetic outfits / random events
+
+- **Blue boots** (ID: 630) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, members=true, equipable=true
+- **Blue hat** (ID: 660) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Blue robe bottoms** (ID: 650) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Blue robe top** (ID: 640) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Chompy bird hat** (ID: 2978) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - members=true, equipable=true
+- **Cream boots** (ID: 632) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, members=true, equipable=true
+- **Cream hat** (ID: 662) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Cream robe bottoms** (ID: 652) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Cream robe top** (ID: 642) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Firework** (ID: 3006) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - members=true
+- **Green boots** (ID: 628) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, members=true, equipable=true
+- **Green hat** (ID: 658) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Green robe bottoms** (ID: 648) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Green robe top** (ID: 638) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Grey boots** (ID: 2894) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, equipable=true
+- **Grey gloves** (ID: 2902) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=2, equipable=true
+- **Grey hat** (ID: 2900) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Grey robe bottoms** (ID: 2898) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Grey robe top** (ID: 2896) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Mime boots** (ID: 3061) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - equipable=true
+- **Mime gloves** (ID: 3060) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - equipable=true
+- **Mime legs** (ID: 3059) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - equipable=true
+- **Mime mask** (ID: 3057) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - equipable=true
+- **Mime top** (ID: 3058) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - equipable=true
+- **Pink boots** (ID: 626) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, members=true, equipable=true
+- **Pink hat** (ID: 656) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Pink robe bottoms** (ID: 646) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Pink robe top** (ID: 636) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Purple boots** (ID: 2934) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, equipable=true
+- **Purple gloves** (ID: 2942) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=2, equipable=true
+- **Purple hat** (ID: 2940) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Purple robe bottoms** (ID: 2938) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Purple robe top** (ID: 2936) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Red boots** (ID: 2904) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, equipable=true
+- **Red gloves** (ID: 2912) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=2, equipable=true
+- **Red hat** (ID: 2910) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Red robe bottoms** (ID: 2908) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Red robe top** (ID: 2906) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Teal boots** (ID: 2924) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, equipable=true
+- **Teal gloves** (ID: 2932) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=2, equipable=true
+- **Teal hat** (ID: 2930) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Teal robe bottoms** (ID: 2928) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Teal robe top** (ID: 2926) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Turquoise boots** (ID: 634) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, members=true, equipable=true
+- **Turquoise hat** (ID: 664) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Turquoise robe bottoms** (ID: 654) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Turquoise robe top** (ID: 644) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Yellow boots** (ID: 2914) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=1, equipable=true
+- **Yellow gloves** (ID: 2922) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=1, defence_crush=2, equipable=true
+- **Yellow hat** (ID: 2920) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - attack_magic=3, defence_magic=3, members=true, equipable=true
+- **Yellow robe bottoms** (ID: 2918) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+- **Yellow robe top** (ID: 2916) — predicate — name_in (n=52, e.g. ['Blue boots', 'Blue hat', 'Blue robe bottoms', 'Blue robe top', 'Chompy bird hat'])
+  - defence_slash=2, defence_crush=2, members=true, equipable=true
+### Currency
+
+- **Archery ticket** (ID: 1464) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+- **Blood money** (ID: 13307) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+- **Brimhaven voucher** (ID: 29482) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+- **Coins** (ID: 617) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+- **Ecto-token** (ID: 4278) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+- **Hallowed mark** (ID: 24711) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+- **Numulite** (ID: 21555) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+- **Platinum token** (ID: 13204) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - (no stat fields)
+- **Temple coin** (ID: 23497) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true, quest_item=true
+- **Tokkul** (ID: 6529) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+- **Trading sticks** (ID: 6306) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+- **Warrior guild token** (ID: 8851) — predicate — name_in (n=13, e.g. ['Archery ticket', 'Blood money', 'Brimhaven voucher', 'Coins', 'Ecto-token'])
+  - members=true
+### Imbue scrolls
+
+- **Charge dragonstone jewellery scroll** (ID: 20238) — predicate — name_in (n=3, e.g. ['Charge dragonstone jewellery scroll', 'Magic shortbow scroll', 'Ring of wealth scroll'])
+  - members=true
+- **Magic shortbow scroll** (ID: 12786) — predicate — name_in (n=3, e.g. ['Charge dragonstone jewellery scroll', 'Magic shortbow scroll', 'Ring of wealth scroll'])
+  - members=true
+- **Ring of wealth scroll** (ID: 12783) — predicate — name_in (n=3, e.g. ['Charge dragonstone jewellery scroll', 'Magic shortbow scroll', 'Ring of wealth scroll'])
+  - members=true
+### Keys
+
+- **Ancient shard** (ID: 19677) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+- **Brimstone key** (ID: 23083) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+- **Brittle key** (ID: 21724) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+- **Crystal key** (ID: 989) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+- **Ecumenical key** (ID: 11942) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+- **Hill giant club** (ID: 20756) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - attack_stab=-4, attack_slash=50, attack_crush=65, attack_magic=-4, defence_ranged=-1, melee_strength=70, equipable=true, equipable_weapon=true
+- **Key master's key** (ID: 13248) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+- **Larran's key** (ID: 23490) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+- **Loop half of key** (ID: 987) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+- **Mossy key** (ID: 22374) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - (no stat fields)
+- **Muddy key** (ID: 991) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - (no stat fields)
+- **Sinister key** (ID: 993) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+- **Tooth half of key** (ID: 985) — predicate — name_in (n=13, e.g. ['Ancient shard', 'Brimstone key', 'Brittle key', 'Crystal key', 'Ecumenical key'])
+  - members=true
+### Storage bags
+
+- **Fish barrel** (ID: 25582) — predicate — name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack'])
+  - members=true
+- **Herb sack** (ID: 13226) — predicate — name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack'])
+  - members=true
+- **Looting bag** (ID: 11941) — predicate — name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack'])
+  - members=true
+- **Plank sack** (ID: 24882) — predicate — name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack'])
+  - members=true
+- **Plant pot** (ID: 5356) — predicate — name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack'])
+  - members=true
+- **Seed box** (ID: 13639) — predicate — name_in (n=13, e.g. ['Coal bag', 'Fish barrel', "Forester's bag", 'Gem bag', 'Herb sack'])
+  - members=true
+### Team capes (Castle Wars)
+
+- **Team-1 cape** (ID: 4315) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-10 cape** (ID: 4333) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-11 cape** (ID: 4335) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-12 cape** (ID: 4337) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-13 cape** (ID: 4339) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-14 cape** (ID: 4341) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-15 cape** (ID: 4343) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-16 cape** (ID: 4345) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-17 cape** (ID: 4347) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-18 cape** (ID: 4349) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-19 cape** (ID: 4351) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-2 cape** (ID: 4317) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-20 cape** (ID: 4353) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-21 cape** (ID: 4355) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-22 cape** (ID: 4357) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-23 cape** (ID: 4359) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-24 cape** (ID: 4361) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-25 cape** (ID: 4363) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-26 cape** (ID: 4365) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-27 cape** (ID: 4367) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-28 cape** (ID: 4369) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-29 cape** (ID: 4371) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-3 cape** (ID: 4319) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-30 cape** (ID: 4373) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-31 cape** (ID: 4375) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-32 cape** (ID: 4377) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-33 cape** (ID: 4379) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-34 cape** (ID: 4381) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-35 cape** (ID: 4383) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-36 cape** (ID: 4385) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-37 cape** (ID: 4387) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-38 cape** (ID: 4389) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-39 cape** (ID: 4391) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-4 cape** (ID: 4321) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-40 cape** (ID: 4393) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-41 cape** (ID: 4395) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-42 cape** (ID: 4397) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-43 cape** (ID: 4399) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-44 cape** (ID: 4401) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-45 cape** (ID: 4403) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-46 cape** (ID: 4405) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-47 cape** (ID: 4407) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-48 cape** (ID: 4409) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-49 cape** (ID: 4411) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-5 cape** (ID: 4323) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-50 cape** (ID: 4413) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-6 cape** (ID: 4325) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-7 cape** (ID: 4327) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-8 cape** (ID: 4329) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+- **Team-9 cape** (ID: 4331) — predicate — <lambda>
+  - defence_slash=1, defence_crush=1, defence_ranged=2, equipable=true
+### Teleport jewellery
+
+- **Abyssal bracelet(1)** (ID: 11103) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Abyssal bracelet(2)** (ID: 11101) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Abyssal bracelet(3)** (ID: 11099) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Abyssal bracelet(5)** (ID: 11095) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Amulet of glory** (ID: 1704) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(1)** (ID: 1706) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(2)** (ID: 1708) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(3)** (ID: 1710) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(4)** (ID: 1712) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(5)** (ID: 11976) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Amulet of glory(6)** (ID: 11978) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=10, attack_slash=10, attack_crush=10, attack_magic=10, attack_ranged=10, defence_stab=3, defence_slash=3, defence_crush=3, defence_magic=3, defence_ranged=3, melee_strength=6, prayer=3, members=true, equipable=true
+- **Burning amulet(1)** (ID: 21175) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Burning amulet(2)** (ID: 21173) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Burning amulet(3)** (ID: 21171) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Burning amulet(5)** (ID: 21166) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Castle wars bracelet(1)** (ID: 11083) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - equipable=true
+- **Castle wars bracelet(2)** (ID: 11081) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - equipable=true
+- **Castle wars bracelet(3)** (ID: 11079) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - equipable=true
+- **Combat bracelet** (ID: 11126) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=3, attack_ranged=7, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=6, members=true, equipable=true
+- **Combat bracelet(1)** (ID: 11124) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=3, attack_ranged=7, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=6, members=true, equipable=true
+- **Combat bracelet(2)** (ID: 11122) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=3, attack_ranged=7, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=6, members=true, equipable=true
+- **Combat bracelet(3)** (ID: 11120) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=3, attack_ranged=7, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=6, members=true, equipable=true
+- **Combat bracelet(4)** (ID: 11118) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=3, attack_ranged=7, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=6, members=true, equipable=true
+- **Combat bracelet(5)** (ID: 11974) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=3, attack_ranged=7, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=6, members=true, equipable=true
+- **Combat bracelet(6)** (ID: 11972) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_stab=7, attack_slash=7, attack_crush=7, attack_magic=3, attack_ranged=7, defence_stab=5, defence_slash=5, defence_crush=5, defence_magic=3, defence_ranged=5, melee_strength=6, members=true, equipable=true
+- **Digsite pendant (1)** (ID: 11190) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Digsite pendant (2)** (ID: 11191) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Digsite pendant (3)** (ID: 11192) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Digsite pendant (5)** (ID: 11194) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Games necklace(1)** (ID: 3867) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Games necklace(2)** (ID: 3865) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Games necklace(3)** (ID: 3863) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Games necklace(5)** (ID: 3859) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Games necklace(6)** (ID: 3857) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Games necklace(7)** (ID: 3855) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Games necklace(8)** (ID: 3853) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Inoculation bracelet** (ID: 11088) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Necklace of passage(1)** (ID: 21155) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Necklace of passage(2)** (ID: 21153) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Necklace of passage(3)** (ID: 21151) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Necklace of passage(5)** (ID: 21146) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of dueling(1)** (ID: 2566) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of dueling(2)** (ID: 2564) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of dueling(3)** (ID: 2562) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of dueling(5)** (ID: 2558) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of dueling(6)** (ID: 2556) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of dueling(7)** (ID: 2554) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of dueling(8)** (ID: 2552) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of endurance (uncharged)** (ID: 24735) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, quest_item=true
+- **Ring of life** (ID: 2570) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of recoil** (ID: 2550) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of returning(1)** (ID: 21138) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of returning(2)** (ID: 21136) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of returning(3)** (ID: 21134) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of returning(5)** (ID: 21129) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of wealth** (ID: 2572) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of wealth (1)** (ID: 11988) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of wealth (2)** (ID: 11986) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of wealth (3)** (ID: 11984) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of wealth (5)** (ID: 11980) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of wealth (i)** (ID: 12785) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Ring of wealth (i5)** (ID: 20786) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Skills necklace** (ID: 11113) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Skills necklace(1)** (ID: 11111) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Skills necklace(2)** (ID: 11109) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Skills necklace(3)** (ID: 11107) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Skills necklace(5)** (ID: 11970) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Skills necklace(6)** (ID: 11968) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - members=true, equipable=true
+- **Xeric's talisman** (ID: 13393) — predicate — name_in (n=80, e.g. ['Abyssal bracelet(1)', 'Abyssal bracelet(2)', 'Abyssal bracelet(3)', 'Abyssal bracelet(5)', 'Amulet of glory'])
+  - attack_magic=3, defence_magic=1, members=true, equipable=true
+### Teleport tabs
+
+- **Aldarin teleport** (ID: 30149) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Ancient magicks tablet** (ID: 20430) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Annakarl teleport** (ID: 12775) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Ape atoll teleport** (ID: 19631) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Arceuus library teleport** (ID: 19613) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Ardougne teleport** (ID: 8011) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Barbarian teleport** (ID: 24955) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Barrows teleport** (ID: 19629) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Basalt** (ID: 22603) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Battlefront teleport** (ID: 22949) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Brimhaven teleport** (ID: 11745) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Camelot teleport** (ID: 8010) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Carrallanger teleport** (ID: 12776) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Catherby teleport** (ID: 24961) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Cemetery teleport** (ID: 19627) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Civitas illa fortis teleport** (ID: 28824) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Curator's medallion** (ID: 22710) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Dareeyak teleport** (ID: 12777) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Digsite teleport** (ID: 12403) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Drakan's medallion** (ID: 22400) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true, equipable=true, quest_item=true
+- **Draynor manor teleport** (ID: 19615) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Falador teleport** (ID: 8009) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Feldip hills teleport** (ID: 12404) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Fenkenstrain's castle teleport** (ID: 19621) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Fishing guild teleport** (ID: 24959) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Ghorrock teleport** (ID: 12778) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Guthixian temple teleport** (ID: 29684) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Harmony island teleport** (ID: 19625) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Hosidius teleport** (ID: 19651) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Ice plateau teleport** (ID: 24963) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Icy basalt** (ID: 22599) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Iorwerth camp teleport** (ID: 12410) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Key master teleport** (ID: 13249) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Kharyrll teleport** (ID: 12779) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Khazard teleport** (ID: 24957) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Kourend castle teleport** (ID: 28790) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Lassar teleport** (ID: 12780) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Lumberyard teleport** (ID: 12642) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Lumbridge teleport** (ID: 8008) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Lunar isle teleport** (ID: 12405) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Mind altar teleport** (ID: 19617) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Moonclan teleport** (ID: 24949) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Mort'ton teleport** (ID: 12406) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Mos le'harmless teleport** (ID: 12411) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Nardah teleport** (ID: 12402) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Ourania teleport** (ID: 24951) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Paddewwa teleport** (ID: 12781) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Pest control teleport** (ID: 12407) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Piscatoris teleport** (ID: 12408) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Pollnivneach teleport** (ID: 11743) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Prifddinas teleport** (ID: 23771) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Rellekka teleport** (ID: 11744) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Revenant cave teleport** (ID: 21802) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Rimmington teleport** (ID: 11741) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Salve graveyard teleport** (ID: 19619) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Scaperune teleport** (ID: 24441) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - (no stat fields)
+- **Senntisten teleport** (ID: 12782) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Spider cave teleport** (ID: 29782) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Stony basalt** (ID: 22601) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Tai bwo wannai teleport** (ID: 12409) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Target teleport** (ID: 24336) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Taverley teleport** (ID: 11742) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Teleport to boat** (ID: 31443) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Teleport to house** (ID: 8013) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Trollheim teleport** (ID: 11747) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Varrock teleport** (ID: 8007) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Volcanic mine teleport** (ID: 21541) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Watchtower teleport** (ID: 8012) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Waterbirth teleport** (ID: 24953) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Watson teleport** (ID: 23387) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **West ardougne teleport** (ID: 19623) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Wilderness crabs teleport** (ID: 24251) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Yanille teleport** (ID: 11746) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+- **Zul-andra teleport** (ID: 12938) — predicate — or([and([name_ends([' teleport']) | not(name_contains(['scroll']))]) | name_starts(['teleport to ']) | name_in (n=6, e.g. ['Ancient magicks tablet', 'Basalt', "Curator's medallion", "Drakan's medallion", 'Icy basalt'])])
+  - members=true
+### Utility / banked supplies
+
+- **Chronicle** (ID: 13660) — predicate — name_in (n=2, e.g. ['Chronicle', 'Rope'])
+  - equipable=true
+- **Rope** (ID: 954) — predicate — name_in (n=2, e.g. ['Chronicle', 'Rope'])
+  - (no stat fields)
+
+## quests (149 items)
+
+### Boss pets
+
+- **Bloodhound** (ID: 19730) — predicate — name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
+  - members=true
+- **Jal-nib-rek** (ID: 21291) — predicate — name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
+  - members=true
+- **Lil' creator** (ID: 25348) — predicate — name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
+  - members=true
+- **Lil' zik** (ID: 22473) — predicate — name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
+  - members=true
+- **Olmlet** (ID: 20851) — predicate — name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
+  - members=true
+- **Skotos** (ID: 21273) — predicate — name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
+  - members=true
+- **Smolcano** (ID: 23760) — predicate — name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
+  - members=true
+- **Tzrek-jad** (ID: 13225) — predicate — name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
+  - members=true
+- **Vorki** (ID: 21992) — predicate — name_in (n=9, e.g. ['Bloodhound', 'Jal-nib-rek', "Lil' creator", "Lil' zik", 'Olmlet'])
+  - members=true
+### Defenders
+
+- **Adamant defender** (ID: 8849) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=13, attack_slash=12, attack_crush=11, attack_magic=-3, attack_ranged=-2, defence_stab=13, defence_slash=12, defence_crush=11, defence_magic=-3, defence_ranged=-2, melee_strength=4, members=true, equipable=true
+- **Avernic defender** (ID: 22322) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=30, attack_slash=29, attack_crush=28, attack_magic=-5, attack_ranged=-4, defence_stab=30, defence_slash=29, defence_crush=28, defence_magic=-5, defence_ranged=-4, melee_strength=8, members=true, equipable=true
+- **Black defender** (ID: 8847) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=9, attack_slash=8, attack_crush=7, attack_magic=-3, attack_ranged=-2, defence_stab=9, defence_slash=8, defence_crush=7, defence_magic=-3, defence_ranged=-2, melee_strength=2, members=true, equipable=true
+- **Bronze defender** (ID: 8844) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=3, attack_slash=2, attack_crush=1, attack_magic=-3, attack_ranged=-2, defence_stab=3, defence_slash=2, defence_crush=1, defence_magic=-3, defence_ranged=-2, members=true, equipable=true
+- **Dragon defender** (ID: 12954) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=25, attack_slash=24, attack_crush=23, attack_magic=-3, attack_ranged=-2, defence_stab=25, defence_slash=24, defence_crush=23, defence_magic=-3, defence_ranged=-2, melee_strength=6, members=true, equipable=true
+- **Dragon defender (t)** (ID: 19722) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=25, attack_slash=24, attack_crush=23, attack_magic=-3, attack_ranged=-2, defence_stab=25, defence_slash=24, defence_crush=23, defence_magic=-3, defence_ranged=-2, melee_strength=6, members=true, equipable=true
+- **Iron defender** (ID: 8845) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=5, attack_slash=4, attack_crush=3, attack_magic=-3, attack_ranged=-2, defence_stab=5, defence_slash=4, defence_crush=3, defence_magic=-3, defence_ranged=-2, members=true, equipable=true
+- **Mithril defender** (ID: 8848) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=10, attack_slash=9, attack_crush=8, attack_magic=-3, attack_ranged=-2, defence_stab=10, defence_slash=9, defence_crush=8, defence_magic=-3, defence_ranged=-2, melee_strength=3, members=true, equipable=true
+- **Rune defender** (ID: 8850) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=20, attack_slash=19, attack_crush=18, attack_magic=-3, attack_ranged=-2, defence_stab=20, defence_slash=19, defence_crush=18, defence_magic=-3, defence_ranged=-2, melee_strength=5, members=true, equipable=true
+- **Rune defender (t)** (ID: 23230) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=20, attack_slash=19, attack_crush=18, attack_magic=-3, attack_ranged=-2, defence_stab=20, defence_slash=19, defence_crush=18, defence_magic=-3, defence_ranged=-2, melee_strength=5, members=true, equipable=true
+- **Steel defender** (ID: 8846) — predicate — or([name_ends([' defender']) | name_in (n=2, e.g. ['Dragon defender (t)', 'Rune defender (t)'])])
+  - attack_stab=7, attack_slash=6, attack_crush=5, attack_magic=-3, attack_ranged=-2, defence_stab=7, defence_slash=6, defence_crush=5, defence_magic=-3, defence_ranged=-2, melee_strength=1, members=true, equipable=true
+### Diary - Ardougne
+
+- **Ardougne cloak 1** (ID: 13121) — predicate — name_starts(['ardougne cloak'])
+  - attack_stab=2, attack_magic=2, defence_stab=2, defence_magic=2, prayer=2, members=true, equipable=true
+- **Ardougne cloak 2** (ID: 13122) — predicate — name_starts(['ardougne cloak'])
+  - attack_stab=4, attack_magic=4, defence_stab=4, defence_magic=4, prayer=4, members=true, equipable=true
+- **Ardougne cloak 3** (ID: 13123) — predicate — name_starts(['ardougne cloak'])
+  - attack_stab=5, attack_magic=5, defence_stab=5, defence_magic=5, prayer=5, members=true, equipable=true
+- **Ardougne cloak 4** (ID: 13124) — predicate — name_starts(['ardougne cloak'])
+  - attack_stab=6, attack_magic=6, defence_stab=6, defence_magic=6, prayer=6, members=true, equipable=true
+### Diary - Desert
+
+- **Desert amulet 1** (ID: 13133) — predicate — name_starts(['desert amulet'])
+  - members=true, equipable=true
+- **Desert amulet 2** (ID: 13134) — predicate — name_starts(['desert amulet'])
+  - members=true, equipable=true
+- **Desert amulet 3** (ID: 13135) — predicate — name_starts(['desert amulet'])
+  - members=true, equipable=true
+- **Desert amulet 4** (ID: 13136) — predicate — name_starts(['desert amulet'])
+  - members=true, equipable=true
+### Diary - Falador
+
+- **Falador shield 1** (ID: 13117) — predicate — name_starts(['falador shield'])
+  - attack_magic=-8, attack_ranged=-2, defence_stab=8, defence_slash=10, defence_crush=9, defence_magic=-1, defence_ranged=9, prayer=1, members=true, equipable=true
+- **Falador shield 2** (ID: 13118) — predicate — name_starts(['falador shield'])
+  - attack_magic=-8, attack_ranged=-2, defence_stab=13, defence_slash=15, defence_crush=14, defence_magic=-1, defence_ranged=14, prayer=3, members=true, equipable=true
+- **Falador shield 3** (ID: 13119) — predicate — name_starts(['falador shield'])
+  - attack_magic=-8, attack_ranged=-2, defence_stab=18, defence_slash=22, defence_crush=20, defence_magic=-1, defence_ranged=20, prayer=4, members=true, equipable=true
+- **Falador shield 4** (ID: 13120) — predicate — name_starts(['falador shield'])
+  - attack_magic=-8, attack_ranged=-2, defence_stab=27, defence_slash=31, defence_crush=29, defence_magic=-1, defence_ranged=29, prayer=5, members=true, equipable=true
+### Diary - Fremennik
+
+- **Fremennik sea boots 1** (ID: 13129) — predicate — name_starts(['fremennik sea boots'])
+  - attack_magic=-3, attack_ranged=-1, defence_stab=2, defence_slash=3, defence_crush=4, members=true, equipable=true
+- **Fremennik sea boots 2** (ID: 13130) — predicate — name_starts(['fremennik sea boots'])
+  - attack_magic=-3, attack_ranged=-1, defence_stab=5, defence_slash=6, defence_crush=7, members=true, equipable=true
+- **Fremennik sea boots 3** (ID: 13131) — predicate — name_starts(['fremennik sea boots'])
+  - attack_magic=-3, attack_ranged=-1, defence_stab=7, defence_slash=8, defence_crush=9, members=true, equipable=true
+- **Fremennik sea boots 4** (ID: 13132) — predicate — name_starts(['fremennik sea boots'])
+  - attack_magic=1, attack_ranged=1, defence_stab=10, defence_slash=11, defence_crush=12, melee_strength=1, members=true, equipable=true
+### Diary - Kandarin
+
+- **Kandarin headgear 1** (ID: 13137) — predicate — name_starts(['kandarin headgear'])
+  - attack_magic=-3, attack_ranged=-1, defence_stab=4, defence_slash=5, defence_crush=3, defence_magic=-1, defence_ranged=4, members=true, equipable=true
+- **Kandarin headgear 2** (ID: 13138) — predicate — name_starts(['kandarin headgear'])
+  - attack_magic=-3, attack_ranged=-1, defence_stab=7, defence_slash=8, defence_crush=6, defence_magic=-1, defence_ranged=7, members=true, equipable=true
+- **Kandarin headgear 3** (ID: 13139) — predicate — name_starts(['kandarin headgear'])
+  - attack_magic=-3, attack_ranged=-1, defence_stab=9, defence_slash=10, defence_crush=8, defence_magic=-1, defence_ranged=9, members=true, equipable=true
+- **Kandarin headgear 4** (ID: 13140) — predicate — name_starts(['kandarin headgear'])
+  - attack_magic=-3, attack_ranged=-1, defence_stab=10, defence_slash=11, defence_crush=9, defence_magic=-1, defence_ranged=10, members=true, equipable=true
+### Diary - Karamja
+
+- **Karamja gloves 1** (ID: 11136) — predicate — name_starts(['karamja gloves'])
+  - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, melee_strength=1, members=true, equipable=true
+- **Karamja gloves 2** (ID: 11138) — predicate — name_starts(['karamja gloves'])
+  - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, melee_strength=1, members=true, equipable=true
+- **Karamja gloves 3** (ID: 11140) — predicate — name_starts(['karamja gloves'])
+  - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, melee_strength=1, members=true, equipable=true
+- **Karamja gloves 4** (ID: 13103) — predicate — name_starts(['karamja gloves'])
+  - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, melee_strength=1, members=true, equipable=true
+### Diary - Lumbridge
+
+- **Explorer's ring 1** (ID: 13125) — predicate — name_starts(["explorer's ring"])
+  - prayer=1, members=true, equipable=true
+- **Explorer's ring 2** (ID: 13126) — predicate — name_starts(["explorer's ring"])
+  - prayer=1, members=true, equipable=true
+- **Explorer's ring 3** (ID: 13127) — predicate — name_starts(["explorer's ring"])
+  - prayer=1, members=true, equipable=true
+- **Explorer's ring 4** (ID: 13128) — predicate — name_starts(["explorer's ring"])
+  - prayer=1, members=true, equipable=true
+### Diary - Morytania
+
+- **Morytania legs 1** (ID: 13112) — predicate — name_starts(['morytania legs'])
+  - attack_magic=-21, attack_ranged=-7, defence_stab=11, defence_slash=10, defence_crush=10, defence_magic=-4, defence_ranged=10, members=true, equipable=true
+- **Morytania legs 2** (ID: 13113) — predicate — name_starts(['morytania legs'])
+  - attack_magic=-21, attack_ranged=-7, defence_stab=17, defence_slash=16, defence_crush=15, defence_magic=-4, defence_ranged=16, members=true, equipable=true
+- **Morytania legs 3** (ID: 13114) — predicate — name_starts(['morytania legs'])
+  - attack_magic=-21, attack_ranged=-7, defence_stab=24, defence_slash=22, defence_crush=20, defence_magic=-4, defence_ranged=22, members=true, equipable=true
+- **Morytania legs 4** (ID: 13115) — predicate — name_starts(['morytania legs'])
+  - attack_magic=-21, attack_ranged=-7, defence_stab=33, defence_slash=31, defence_crush=29, defence_magic=-4, defence_ranged=31, members=true, equipable=true
+### Diary - Varrock
+
+- **Varrock armour 1** (ID: 13104) — predicate — name_starts(['varrock armour'])
+  - attack_magic=-30, attack_ranged=-10, defence_stab=32, defence_slash=31, defence_crush=24, defence_magic=-6, defence_ranged=31, members=true, equipable=true
+- **Varrock armour 2** (ID: 13105) — predicate — name_starts(['varrock armour'])
+  - attack_magic=-30, attack_ranged=-10, defence_stab=41, defence_slash=40, defence_crush=30, defence_magic=-6, defence_ranged=40, members=true, equipable=true
+- **Varrock armour 3** (ID: 13106) — predicate — name_starts(['varrock armour'])
+  - attack_magic=-30, attack_ranged=-10, defence_stab=46, defence_slash=44, defence_crush=38, defence_magic=-6, defence_ranged=44, members=true, equipable=true
+- **Varrock armour 4** (ID: 13107) — predicate — name_starts(['varrock armour'])
+  - attack_magic=-30, attack_ranged=-10, defence_stab=65, defence_slash=63, defence_crush=55, defence_magic=-6, defence_ranged=63, members=true, equipable=true
+### Diary - Western
+
+- **Western banner 1** (ID: 13141) — predicate — name_starts(['western banner'])
+  - attack_stab=12, attack_slash=12, attack_crush=12, defence_stab=1, defence_slash=1, melee_strength=12, members=true, equipable=true, equipable_weapon=true
+- **Western banner 2** (ID: 13142) — predicate — name_starts(['western banner'])
+  - attack_stab=15, attack_slash=15, attack_crush=15, defence_stab=1, defence_slash=1, melee_strength=16, members=true, equipable=true, equipable_weapon=true
+- **Western banner 3** (ID: 13143) — predicate — name_starts(['western banner'])
+  - attack_stab=17, attack_slash=17, attack_crush=17, defence_stab=1, defence_slash=1, melee_strength=18, members=true, equipable=true, equipable_weapon=true
+- **Western banner 4** (ID: 13144) — predicate — name_starts(['western banner'])
+  - attack_stab=24, attack_slash=24, attack_crush=24, defence_stab=1, defence_slash=1, melee_strength=28, members=true, equipable=true, equipable_weapon=true
+### Diary - Wilderness
+
+- **Wilderness sword 1** (ID: 13108) — predicate — name_starts(['wilderness sword'])
+  - attack_stab=6, attack_slash=4, attack_crush=-2, defence_slash=2, defence_crush=1, melee_strength=7, members=true, equipable=true, equipable_weapon=true
+- **Wilderness sword 2** (ID: 13109) — predicate — name_starts(['wilderness sword'])
+  - attack_stab=11, attack_slash=8, attack_crush=-2, defence_slash=2, defence_crush=1, melee_strength=12, members=true, equipable=true, equipable_weapon=true
+- **Wilderness sword 3** (ID: 13110) — predicate — name_starts(['wilderness sword'])
+  - attack_stab=16, attack_slash=11, attack_crush=-2, defence_slash=2, defence_crush=1, melee_strength=17, members=true, equipable=true, equipable_weapon=true
+- **Wilderness sword 4** (ID: 13111) — predicate — name_starts(['wilderness sword'])
+  - attack_stab=23, attack_slash=18, attack_crush=-2, defence_slash=2, defence_crush=1, melee_strength=24, members=true, equipable=true, equipable_weapon=true
+### Diary consumables
+
+- **Rada's blessing 1** (ID: 22941) — predicate — name_starts(["rada's blessing"])
+  - members=true, equipable=true
+- **Rada's blessing 2** (ID: 22943) — predicate — name_starts(["rada's blessing"])
+  - prayer=1, members=true, equipable=true
+- **Rada's blessing 3** (ID: 22945) — predicate — name_starts(["rada's blessing"])
+  - prayer=1, members=true, equipable=true
+- **Rada's blessing 4** (ID: 22947) — predicate — name_starts(["rada's blessing"])
+  - prayer=2, members=true, equipable=true
+### Fighter Torso et al.
+
+- **Fighter hat** (ID: 10548) — predicate — name_in (n=7, e.g. ['Fighter hat', 'Fighter torso', 'Healer hat', 'Penance gloves', 'Penance shield'])
+  - attack_stab=5, attack_slash=5, attack_crush=5, attack_magic=-7, attack_ranged=-7, defence_stab=27, defence_slash=29, defence_crush=26, defence_magic=-3, defence_ranged=28, members=true, equipable=true
+- **Fighter torso** (ID: 10551) — predicate — name_in (n=7, e.g. ['Fighter hat', 'Fighter torso', 'Healer hat', 'Penance gloves', 'Penance shield'])
+  - attack_magic=-40, defence_stab=62, defence_slash=85, defence_crush=62, defence_magic=-10, defence_ranged=67, melee_strength=4, members=true, equipable=true
+- **Healer hat** (ID: 10547) — predicate — name_in (n=7, e.g. ['Fighter hat', 'Fighter torso', 'Healer hat', 'Penance gloves', 'Penance shield'])
+  - attack_stab=-5, attack_slash=-5, attack_crush=-5, attack_magic=6, attack_ranged=-5, defence_stab=6, defence_slash=8, defence_crush=10, defence_magic=7, members=true, equipable=true
+- **Penance gloves** (ID: 10553) — predicate — name_in (n=7, e.g. ['Fighter hat', 'Fighter torso', 'Healer hat', 'Penance gloves', 'Penance shield'])
+  - members=true, equipable=true
+- **Penance skirt** (ID: 10555) — predicate — name_in (n=7, e.g. ['Fighter hat', 'Fighter torso', 'Healer hat', 'Penance gloves', 'Penance shield'])
+  - attack_magic=-10, attack_ranged=15, defence_stab=26, defence_slash=21, defence_crush=28, defence_magic=19, defence_ranged=26, members=true, equipable=true
+- **Runner hat** (ID: 10549) — predicate — name_in (n=7, e.g. ['Fighter hat', 'Fighter torso', 'Healer hat', 'Penance gloves', 'Penance shield'])
+  - defence_stab=30, defence_slash=32, defence_crush=27, defence_magic=1, defence_ranged=30, members=true, equipable=true
+### Max hood variants
+
+- **Accumulator max hood** (ID: 13338) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Ardougne max hood** (ID: 20764) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Assembler max hood** (ID: 21900) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Fire max hood** (ID: 13330) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Guthix max hood** (ID: 13336) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Imbued guthix max hood** (ID: 21786) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Imbued saradomin max hood** (ID: 21778) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Imbued zamorak max hood** (ID: 21782) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Infernal max hood** (ID: 21282) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Mythical max hood** (ID: 24857) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Saradomin max hood** (ID: 13332) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+- **Zamorak max hood** (ID: 13334) — predicate — name_in (n=13, e.g. ['Accumulator max hood', 'Ardougne max hood', 'Assembler max hood', 'Fire max hood', 'Guthix max hood'])
+  - members=true, equipable=true
+### Quest & achievement capes
+
+- **Achievement diary cape** (ID: 19476) — predicate — _is_quest_cape
+  - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, prayer=4, members=true, equipable=true
+- **Achievement diary hood** (ID: 13070) — predicate — _is_quest_cape
+  - members=true, equipable=true
+- **Max cape** (ID: 13280) — predicate — _is_quest_cape
+  - members=true, equipable=true
+- **Max hood** (ID: 13281) — predicate — _is_quest_cape
+  - members=true, equipable=true
+- **Music cape** (ID: 13221) — predicate — _is_quest_cape
+  - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
+- **Music hood** (ID: 13223) — predicate — _is_quest_cape
+  - members=true, equipable=true
+- **Quest point cape** (ID: 9813) — predicate — _is_quest_cape
+  - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
+- **Quest point hood** (ID: 9814) — predicate — _is_quest_cape
+  - members=true, equipable=true
+- **Soul cape** (ID: 25344) — predicate — _is_quest_cape
+  - prayer=8, members=true, equipable=true
+### Quest cosmetic gear
+
+- **Beads of the dead** (ID: 616) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - attack_stab=1, attack_slash=1, attack_crush=1, attack_magic=1, attack_ranged=1, defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, melee_strength=1, prayer=1, members=true, equipable=true, quest_item=true
+- **Bearhead** (ID: 4502) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - attack_magic=-3, attack_ranged=-3, defence_stab=12, defence_slash=14, defence_crush=10, defence_magic=7, defence_ranged=9, members=true, equipable=true, quest_item=true
+- **Cape of legends** (ID: 1052) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - defence_stab=7, defence_slash=7, defence_crush=7, defence_magic=7, defence_ranged=7, members=true, equipable=true
+- **Carnillean armour** (ID: 2405) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - defence_stab=20, defence_slash=14, defence_crush=8, members=true, equipable=true, quest_item=true
+- **Cattleprod** (ID: 278) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - attack_stab=4, attack_slash=2, attack_crush=-4, attack_magic=1, defence_magic=1, melee_strength=3, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Dark dagger** (ID: 746) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - attack_stab=5, attack_slash=3, attack_crush=-4, attack_magic=1, defence_magic=1, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Fishing trophy** (ID: 26) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - members=true, quest_item=true
+- **Giant carp** (ID: 337) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - members=true, quest_item=true
+- **Glowing dagger** (ID: 747) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - attack_stab=5, attack_slash=3, attack_crush=-4, attack_magic=1, defence_magic=1, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Gnome amulet** (ID: 589) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - defence_stab=13, defence_slash=13, defence_crush=13, members=true, equipable=true, quest_item=true
+- **Khazard armour** (ID: 75) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - defence_stab=9, defence_slash=11, defence_crush=10, members=true, equipable=true, quest_item=true
+- **Khazard helmet** (ID: 74) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - defence_stab=4, defence_slash=5, defence_crush=3, members=true, equipable=true, quest_item=true
+- **Mourner boots** (ID: 6069) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - defence_slash=1, defence_crush=1, members=true, equipable=true, quest_item=true
+- **Mourner cloak** (ID: 6070) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - members=true, equipable=true, quest_item=true
+- **Mourner gloves** (ID: 6068) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - defence_slash=1, defence_crush=2, members=true, equipable=true, quest_item=true
+- **Mourner top** (ID: 6065) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - members=true, equipable=true, quest_item=true
+- **Mourner trousers** (ID: 6067) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - members=true, equipable=true, quest_item=true
+- **Rat pole** (ID: 6773) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - attack_slash=-1, attack_crush=7, attack_magic=4, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=4, melee_strength=3, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Shade robe** (ID: 548) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - prayer=4, equipable=true
+- **Shade robe top** (ID: 546) — predicate — name_in (n=20, e.g. ['Beads of the dead', 'Bearhead', 'Cape of legends', 'Carnillean armour', 'Cattleprod'])
+  - prayer=5, equipable=true
+### Quest unlock weapons
+
+- **Blisterwood flail** (ID: 24699) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=30, attack_slash=44, attack_crush=68, attack_magic=8, defence_stab=4, defence_slash=4, defence_crush=2, defence_magic=8, melee_strength=46, prayer=5, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Dramen staff** (ID: 772) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=-1, attack_slash=-1, attack_crush=10, attack_magic=10, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=10, melee_strength=10, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Ectophial** (ID: 4251) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - members=true, quest_item=true
+- **Excalibur** (ID: 35) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=20, attack_slash=29, attack_crush=-2, defence_slash=3, defence_crush=2, defence_magic=1, melee_strength=25, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Ivandis flail** (ID: 22398) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=24, attack_slash=38, attack_crush=62, attack_magic=8, defence_stab=4, defence_slash=4, defence_crush=2, defence_magic=8, melee_strength=42, prayer=5, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Keris** (ID: 10581) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=40, attack_slash=20, attack_crush=-10, attack_magic=2, defence_magic=2, melee_strength=30, prayer=2, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Keris partisan** (ID: 25979) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=58, attack_slash=-2, attack_crush=57, attack_magic=2, melee_strength=45, prayer=3, members=true, equipable=true, equipable_weapon=true
+- **Lunar staff** (ID: 9084) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=3, attack_slash=2, attack_crush=16, attack_magic=13, defence_stab=2, defence_slash=3, defence_crush=2, defence_magic=13, defence_ranged=1, melee_strength=15, prayer=3, members=true, equipable=true, equipable_weapon=true, quest_item=true
+- **Silverlight** (ID: 2402) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=9, attack_slash=14, attack_crush=-2, defence_slash=3, defence_crush=2, defence_magic=1, melee_strength=12, equipable=true, equipable_weapon=true, quest_item=true
+- **Slayer's staff** (ID: 4170) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=7, attack_slash=-1, attack_crush=25, attack_magic=12, defence_stab=2, defence_slash=3, defence_crush=1, defence_magic=10, melee_strength=35, members=true, equipable=true, equipable_weapon=true
+- **Wolfbane** (ID: 2952) — predicate — name_in (n=12, e.g. ['Blisterwood flail', 'Dramen staff', 'Ectophial', 'Enhanced excalibur', 'Excalibur'])
+  - attack_stab=11, attack_slash=5, attack_crush=-4, attack_magic=1, defence_magic=1, melee_strength=10, prayer=5, members=true, equipable=true, equipable_weapon=true, quest_item=true
+### Void Knight set
+
+- **Elite void robe (or)** (ID: 26471) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=30, defence_slash=30, defence_crush=30, defence_magic=30, defence_ranged=30, prayer=3, members=true, equipable=true
+- **Elite void top (or)** (ID: 26469) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=45, defence_slash=45, defence_crush=45, defence_magic=45, defence_ranged=45, prayer=3, members=true, equipable=true
+- **Void knight gloves** (ID: 8842) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=4, defence_ranged=6, members=true, equipable=true
+- **Void knight gloves (or)** (ID: 26467) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=4, defence_ranged=6, members=true, equipable=true
+- **Void knight mace** (ID: 8841) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - attack_stab=22, attack_crush=41, attack_magic=8, defence_stab=2, defence_slash=2, defence_crush=2, defence_magic=2, defence_ranged=2, melee_strength=38, prayer=6, members=true, equipable=true, equipable_weapon=true
+- **Void knight robe** (ID: 8840) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=30, defence_slash=30, defence_crush=30, defence_magic=30, defence_ranged=30, members=true, equipable=true
+- **Void knight robe (or)** (ID: 26465) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=30, defence_slash=30, defence_crush=30, defence_magic=30, defence_ranged=30, members=true, equipable=true
+- **Void knight top** (ID: 8839) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=45, defence_slash=45, defence_crush=45, defence_magic=45, defence_ranged=45, members=true, equipable=true
+- **Void knight top (or)** (ID: 26463) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=45, defence_slash=45, defence_crush=45, defence_magic=45, defence_ranged=45, members=true, equipable=true
+- **Void mage helm** (ID: 11663) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=6, defence_ranged=6, members=true, equipable=true
+- **Void mage helm (or)** (ID: 26473) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=6, defence_ranged=6, members=true, equipable=true
+- **Void melee helm** (ID: 11665) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=6, defence_ranged=6, members=true, equipable=true
+- **Void melee helm (or)** (ID: 26477) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=6, defence_ranged=6, members=true, equipable=true
+- **Void orb** (ID: 32433) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - members=true
+- **Void ranger helm** (ID: 11664) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=6, defence_ranged=6, members=true, equipable=true
+- **Void ranger helm (or)** (ID: 26475) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=6, defence_slash=6, defence_crush=6, defence_magic=6, defence_ranged=6, members=true, equipable=true
+- **Void seal(1)** (ID: 11673) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, members=true, equipable=true
+- **Void seal(2)** (ID: 11672) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, members=true, equipable=true
+- **Void seal(3)** (ID: 11671) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, members=true, equipable=true
+- **Void seal(5)** (ID: 11669) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, members=true, equipable=true
+- **Void seal(6)** (ID: 11668) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, members=true, equipable=true
+- **Void seal(7)** (ID: 11667) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, members=true, equipable=true
+- **Void seal(8)** (ID: 11666) — predicate — or([name_starts(['void ']) | name_in (n=2, e.g. ['Elite void robe (or)', 'Elite void top (or)'])])
+  - defence_stab=1, defence_slash=1, defence_crush=1, defence_magic=1, defence_ranged=1, members=true, equipable=true
+
+## sailing (47 items)
+
+### Cape & pet
+
+- **Sailing cape** (ID: 31288) — predicate — <lambda>
+  - defence_stab=9, defence_slash=9, defence_crush=9, defence_magic=9, defence_ranged=9, members=true, equipable=true
+- **Sailing hood** (ID: 31292) — predicate — <lambda>
+  - members=true, equipable=true
+### Cooked sailing fish
+
+- **Bluefin** (ID: 32344) — predicate — _is_sailing_fish
+  - members=true
+- **Burnt bluefin** (ID: 32347) — predicate — _is_sailing_fish
+  - members=true
+- **Burnt giant krill** (ID: 32315) — predicate — _is_sailing_fish
+  - members=true
+- **Burnt halibut** (ID: 32339) — predicate — _is_sailing_fish
+  - members=true
+- **Burnt marlin** (ID: 32355) — predicate — _is_sailing_fish
+  - members=true
+- **Burnt yellowfin** (ID: 32331) — predicate — _is_sailing_fish
+  - members=true
+- **Fish crate (bluefin)** (ID: 32380) — predicate — _is_sailing_fish
+  - members=true
+- **Fish crate (giant krill)** (ID: 32368) — predicate — _is_sailing_fish
+  - members=true
+- **Fish crate (halibut)** (ID: 32377) — predicate — _is_sailing_fish
+  - members=true
+- **Fish crate (marlin)** (ID: 32383) — predicate — _is_sailing_fish
+  - members=true
+- **Fish crate (yellowfin)** (ID: 32374) — predicate — _is_sailing_fish
+  - members=true
+- **Giant krill** (ID: 32312) — predicate — _is_sailing_fish
+  - members=true
+- **Halibut** (ID: 32336) — predicate — _is_sailing_fish
+  - members=true
+- **Huge halibut** (ID: 31420) — predicate — _is_sailing_fish
+  - members=true
+- **Marlin** (ID: 32352) — predicate — _is_sailing_fish
+  - members=true
+- **Marlin scales** (ID: 32362) — predicate — _is_sailing_fish
+  - members=true
+- **Stuffed huge halibut** (ID: 31422) — predicate — _is_sailing_fish
+  - members=true
+- **Stuffed swift marlin** (ID: 31430) — predicate — _is_sailing_fish
+  - members=true
+- **Swift marlin** (ID: 31428) — predicate — _is_sailing_fish
+  - members=true
+- **Yellowfin** (ID: 32328) — predicate — _is_sailing_fish
+  - members=true
+### Navigation tools
+
+- **Barracuda salvage** (ID: 32851) — predicate — <lambda>
+  - members=true
+- **Camphor repair kit** (ID: 31976) — predicate — <lambda>
+  - members=true
+- **Captain's log** (ID: 31985) — predicate — <lambda>
+  - members=true
+- **Dragon salvaging hook schematic** (ID: 32404) — predicate — <lambda>
+  - members=true
+- **Fishy salvage** (ID: 32849) — predicate — <lambda>
+  - members=true
+- **Fremennik salvage** (ID: 32859) — predicate — <lambda>
+  - members=true
+- **Ironwood repair kit** (ID: 31979) — predicate — <lambda>
+  - members=true
+- **Large salvage** (ID: 32853) — predicate — <lambda>
+  - members=true
+- **Mahogany repair kit** (ID: 31973) — predicate — <lambda>
+  - members=true
+- **Martial salvage** (ID: 32857) — predicate — <lambda>
+  - members=true
+- **Oak repair kit** (ID: 31967) — predicate — <lambda>
+  - members=true
+- **Opulent salvage** (ID: 32861) — predicate — <lambda>
+  - members=true
+- **Plundered salvage** (ID: 32855) — predicate — <lambda>
+  - members=true
+- **Repair kit** (ID: 31964) — predicate — <lambda>
+  - members=true
+- **Rosewood repair kit** (ID: 31982) — predicate — <lambda>
+  - members=true
+- **Salvaging station schematic** (ID: 32401) — predicate — <lambda>
+  - members=true
+- **Small salvage** (ID: 32847) — predicate — <lambda>
+  - members=true
+- **Spyglass** (ID: 31803) — predicate — <lambda>
+  - members=true
+- **Teak repair kit** (ID: 31970) — predicate — <lambda>
+  - members=true
+- **Trawler's trust** (ID: 31820) — predicate — <lambda>
+  - members=true
+### Raw sailing fish
+
+- **Raw bluefin** (ID: 32341) — predicate — _is_sailing_fish
+  - members=true
+- **Raw giant krill** (ID: 32309) — predicate — _is_sailing_fish
+  - members=true
+- **Raw halibut** (ID: 32333) — predicate — _is_sailing_fish
+  - members=true
+- **Raw marlin** (ID: 32349) — predicate — _is_sailing_fish
+  - members=true
+- **Raw yellowfin** (ID: 32325) — predicate — _is_sailing_fish
+  - members=true
