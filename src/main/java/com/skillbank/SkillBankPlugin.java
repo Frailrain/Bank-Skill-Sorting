@@ -234,16 +234,22 @@ public class SkillBankPlugin extends Plugin
 	}
 
 	/**
-	 * Seed every enabled skill tab. For each item ID in each enabled tag bucket,
-	 * adds our tag via {@link TagManager#addTag(int, String, boolean)} (idempotent
-	 * — Bank Tags appends to the existing CSV without duplicating). Also writes
-	 * the tab icon and registers the tag name in {@code banktags.tagtabs} so the
-	 * tab appears in the bank UI strip. Must run on the client thread.
+	 * Sync every enabled skill tab to match {@link SkillBankData} exactly:
+	 * remove any items currently tagged but no longer in the bucket, then add
+	 * any bucket items not yet tagged. Non-additive — {@code SkillBankData}
+	 * is the sole source of truth, so legacy items left over from earlier
+	 * heuristic builds are evicted. Disabled tabs are skipped entirely (the
+	 * user's tab toggle is respected; their content is not modified).
+	 * <p>
+	 * Add/remove pairs are interleaved per-tab inside one client-thread
+	 * invocation, with {@link TabInterface#reloadActiveTab()} called once at
+	 * the end, so the bank UI does not redraw mid-sync.
 	 */
 	private SeedResult doSeedMissing()
 	{
 		Map<String, List<Integer>> tags = SkillBankData.tags();
 		int itemsTagged = 0;
+		int itemsRemoved = 0;
 		int itemsAlready = 0;
 		List<String> tagsSeeded = new ArrayList<>();
 		List<String> tagsDisabled = new ArrayList<>();
@@ -260,20 +266,33 @@ public class SkillBankPlugin extends Plugin
 				continue;
 			}
 
-			Set<Integer> alreadyTagged = new HashSet<>(tagManager.getItemsForTag(tagName));
-			int newForThisTag = 0;
-			for (Integer itemId : entry.getValue())
+			Set<Integer> desired = new LinkedHashSet<>(entry.getValue());
+			Set<Integer> currentlyTagged = new HashSet<>(tagManager.getItemsForTag(tagName));
+			boolean anyChange = false;
+
+			for (Integer itemId : currentlyTagged)
 			{
-				if (alreadyTagged.contains(itemId))
+				if (!desired.contains(itemId))
+				{
+					tagManager.removeTag(itemId, tagName);
+					itemsRemoved++;
+					anyChange = true;
+				}
+			}
+
+			for (Integer itemId : desired)
+			{
+				if (currentlyTagged.contains(itemId))
 				{
 					itemsAlready++;
 					continue;
 				}
 				tagManager.addTag(itemId, tagName, false);
 				itemsTagged++;
-				newForThisTag++;
+				anyChange = true;
 			}
-			if (newForThisTag > 0)
+
+			if (anyChange)
 			{
 				tagsSeeded.add(tagName);
 			}
@@ -298,7 +317,7 @@ public class SkillBankPlugin extends Plugin
 
 		tabInterface.reloadActiveTab();
 
-		return new SeedResult(itemsTagged, itemsAlready, tagsSeeded, tagsDisabled);
+		return new SeedResult(itemsTagged, itemsRemoved, itemsAlready, tagsSeeded, tagsDisabled);
 	}
 
 	/**
@@ -520,13 +539,16 @@ public class SkillBankPlugin extends Plugin
 	static final class SeedResult
 	{
 		final int itemsTagged;
+		final int itemsRemoved;
 		final int itemsAlready;
 		final List<String> tagsSeeded;
 		final List<String> tagsDisabled;
 
-		SeedResult(int itemsTagged, int itemsAlready, List<String> tagsSeeded, List<String> tagsDisabled)
+		SeedResult(int itemsTagged, int itemsRemoved, int itemsAlready,
+			List<String> tagsSeeded, List<String> tagsDisabled)
 		{
 			this.itemsTagged = itemsTagged;
+			this.itemsRemoved = itemsRemoved;
 			this.itemsAlready = itemsAlready;
 			this.tagsSeeded = tagsSeeded;
 			this.tagsDisabled = tagsDisabled;
@@ -534,8 +556,9 @@ public class SkillBankPlugin extends Plugin
 
 		String summary()
 		{
-			return "tagged " + itemsTagged + " new item(s) across " + tagsSeeded.size() + " tab(s); "
-				+ itemsAlready + " already tagged; " + tagsDisabled.size() + " disabled.";
+			return "synced " + tagsSeeded.size() + " tab(s): +" + itemsTagged + " added, -"
+				+ itemsRemoved + " removed, " + itemsAlready + " unchanged; "
+				+ tagsDisabled.size() + " disabled.";
 		}
 	}
 }
