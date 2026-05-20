@@ -3,7 +3,7 @@ Use this to decide whether each item is genuinely deprecated (drop), needs a cla
 or should be added to force_include / variant_allowlist before flipping --additive=false.
 
 
-=== melee (776 items not in wiki output) ===
+=== melee (764 items not in wiki output) ===
      131  Restore potion(1)
      187  Weapon poison
      325  Sardine
@@ -28,7 +28,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     1357  Adamant axe
     1359  Rune axe
     1361  Black axe
-    1393  Fire battlestaff
     1885  Ugthanki kebab
     1891  Cake
     1897  Chocolate cake
@@ -83,7 +82,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     3801  Keg of beer
     3803  Beer tankard
     4070  Decorative armour
-    4207  Crystal weapon seed
     4224  New crystal shield
     4235  New crystal shield
     4291  Cooked chicken
@@ -140,7 +138,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     6418  Maple blackjack(o)
     6420  Maple blackjack(d)
     6524  Toktz-ket-xil
-    6526  Toktz-mej-tal
     6703  Potato with butter
     6705  Potato with cheese
     6721  Rusty scimitar
@@ -227,7 +224,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     8772  Steel kiteshield
     8774  Steel kiteshield
     8776  Steel kiteshield
-    8841  Void knight mace
     8851  Warrior guild token
     9666  Proselyte harness m
     9668  Initiate harness m
@@ -239,7 +235,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10146  Orange salamander
    10147  Red salamander
    10148  Black salamander
-   10149  Swamp lizard
    10476  Purple sweets
    10491  Blessed axe
    10553  Penance gloves
@@ -395,7 +390,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    21282  Infernal max hood
    21730  Black tourmaline core
    21739  Granite ring
-   21752  Granite ring (i)
    21817  Bracelet of ethereum (uncharged)
    21820  Revenant ether
    21978  Super antifire potion(4)
@@ -447,7 +441,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    22326  Justiciar faceguard
    22327  Justiciar chestguard
    22328  Justiciar legguards
-   22368  Bryophyta's staff (uncharged)
    22398  Ivandis flail
    22430  Bloody bracer
    22433  Emerald sickle (b)
@@ -568,7 +561,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26153  Combat potion(1)
    26370  Ancient hilt
    26394  Bandosian components
-   26469  Elite void top (or)
    26477  Void melee helm (or)
    26494  Book of war (or)
    26547  Unidentified fragment (combat)
@@ -677,11 +669,8 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28508  Sigil of the lightbearer
    28684  Trailblazer reloaded bulwark ornament kit
    28813  Broken zombie axe
-   28834  Tecu salamander
    28896  Rum
    28942  Echo crystal
-   29000  Eclipse atlatl
-   29016  Blue moon tassets
    29080  Moonlight potion(4)
    29081  Moonlight potion(3)
    29082  Moonlight potion(2)
@@ -767,7 +756,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    32328  Yellowfin
    32336  Halibut
    32352  Marlin
-   33035  Toxic staff (uncharged)
    33038  The dogsword
    33041  Thunder khopesh
    33109  Cooked t-bone steak
@@ -781,7 +769,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    33200  Burning claws
    33305  Demonic axe ornament kit
 
-=== range (386 items not in wiki output) ===
+=== range (383 items not in wiki output) ===
       39  Bronze arrowtips
       40  Iron arrowtips
       41  Steel arrowtips
@@ -821,7 +809,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     2864  Ogre arrow shaft
     2865  Flighted ogre arrow
     3749  Archer helm
-    3842  Unholy book
     4207  Crystal weapon seed
     4213  New crystal bow
     5937  Weapon poison(+)
@@ -1030,7 +1017,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    25892  Bow of faerdhinen (c)
    25894  Bow of faerdhinen (c)
    25896  Bow of faerdhinen (c)
-   25975  Lightbearer
    26000  Sigil of the rigorous ranger
    26012  Sigil of deft strikes
    26072  Sigil of the ruthless ranger
@@ -1120,7 +1106,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    29286  Mixed hide boots
    29289  Mixed hide cape
    29580  Tormented synapse
-   29583  Smouldering heart
    29631  Blighted overload (4)
    29634  Blighted overload (3)
    29637  Blighted overload (2)
@@ -1169,13 +1154,12 @@ or should be added to force_include / variant_allowlist before flipping --additi
    33192  Masori chaps (f)
    33202  Aranea boots
 
-=== mage (364 items not in wiki output) ===
+=== mage (355 items not in wiki output) ===
      131  Restore potion(1)
     1645  Dragonstone ring
     1664  Dragon necklace
     1907  Wizard's mind bomb
     2396  Spell scroll
-    2550  Ring of recoil
     3239  Bark
     3470  Fine cloth
     5741  Mature wmb
@@ -1209,7 +1193,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    10146  Orange salamander
    10147  Red salamander
    10148  Black salamander
-   10149  Swamp lizard
    11088  Inoculation bracelet
    11095  Abyssal bracelet(5)
    11099  Abyssal bracelet(3)
@@ -1399,7 +1382,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    25517  Volatile nightmare staff
    25518  Ancestral hat
    25578  Soaked page
-   25975  Lightbearer
    26003  Sigil of the meticulous mage
    26012  Sigil of deft strikes
    26066  Sigil of binding
@@ -1407,7 +1389,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    26135  Sigil of rampage
    26350  Ancient mix(2)
    26353  Ancient mix(1)
-   26469  Elite void top (or)
    26471  Elite void robe (or)
    26473  Void mage helm (or)
    26490  Book of darkness (or)
@@ -1477,14 +1458,11 @@ or should be added to force_include / variant_allowlist before flipping --additi
    28583  Warped sceptre (uncharged)
    28585  Warped sceptre
    28796  Bone staff
-   28834  Tecu salamander
-   28924  Sunfire splinters
    28931  Searing page
    28988  Blue moon spear
    29412  Steamforge brew
    29486  Cursed amulet of magic
    29580  Tormented synapse
-   29583  Smouldering heart
    29628  Armageddon cape fabric
    29631  Blighted overload (4)
    29634  Blighted overload (3)
@@ -1507,7 +1485,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    30631  Fire element staff crown
    30640  Desiccated page
    30692  Rune pouch
-   30759  Soulflame horn
    30806  Rite of vile transference
    30813  Contract of sensory clouding
    30843  Aether rune
@@ -1529,7 +1506,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    33196  Virtus robe top
    33198  Virtus robe bottom
    33202  Aranea boots
-   33251  King's barrage
    33308  Demonic staff ornament kit
    33311  Demonic trident ornament kit
    33320  Uncharged toxic trident (e)

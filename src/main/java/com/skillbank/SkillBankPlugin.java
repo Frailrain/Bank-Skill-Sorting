@@ -83,6 +83,9 @@ public class SkillBankPlugin extends Plugin
 	@Inject
 	private ItemManager itemManager;
 
+	@Inject
+	private SkillBankLayoutBuilder layoutBuilder;
+
 	private SkillBankPanel panel;
 	private NavigationButton navButton;
 	private boolean seedAttempted;
@@ -342,20 +345,15 @@ public class SkillBankPlugin extends Plugin
 	}
 
 	/**
-	 * Build and save a sorted Layout for {@code tagName}, containing only the
-	 * canonical item IDs the player currently has in their bank, placed at
-	 * sequential grid positions in the order declared by {@link SkillBankData}.
-	 * No-op if the bank container isn't loaded yet or the tag is unknown.
-	 * Must run on the client thread.
+	 * Build and save a sorted {@link Layout} for {@code tagName}, containing
+	 * only the canonical item IDs the player currently has in their bank.
+	 * Sort is two-zone (loadout / chaff) for combat + skilling tabs, single-
+	 * zone for the rest — see {@link SkillBankLayoutBuilder}. No-op if the
+	 * bank isn't loaded yet or the tag is unknown. Must run on the client
+	 * thread.
 	 */
 	private void buildAndSaveLayout(String tagName)
 	{
-		List<Integer> sorted = SkillBankData.itemsFor(tagName);
-		if (sorted == null || sorted.isEmpty())
-		{
-			return;
-		}
-
 		ItemContainer bank = client.getItemContainer(InventoryID.BANK);
 		if (bank == null)
 		{
@@ -376,22 +374,7 @@ public class SkillBankPlugin extends Plugin
 			}
 		}
 
-		Layout layout = new Layout(tagName);
-		int pos = 0;
-		for (Integer iid : sorted)
-		{
-			if (iid == null || iid < 0)
-			{
-				continue;
-			}
-			int canonical = itemManager.canonicalize(iid);
-			if (!ownedCanonical.contains(canonical))
-			{
-				continue;
-			}
-			layout.setItemAtPos(canonical, pos++);
-		}
-
+		Layout layout = layoutBuilder.buildLayout(tagName, ownedCanonical);
 		layoutManager.saveLayout(layout);
 	}
 

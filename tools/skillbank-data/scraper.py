@@ -1661,6 +1661,15 @@ def main():
             DATA_JAVA.write_text(llm_proposed)
             print(f"\nPROMOTED → {DATA_JAVA}")
 
+        # Brief #58: emit per-item metadata for the Java runtime layout
+        # builder. Always written on render or promote so the JSON tracks the
+        # SkillBankData state.
+        meta_path = REPO_ROOT / "src/main/resources/com/skillbank/item-meta.json"
+        meta = llm_promote.emit_item_metadata(
+            report["_by_tab"], items_by_id, mapping.TABS, meta_path,
+        )
+        print(f"Wrote {meta_path} ({len(meta)} item meta entries)")
+
     if args.delta:
         print("Computing delta against live data...", file=sys.stderr)
         delta = compute_delta(current, classified, tabs, items_by_id)

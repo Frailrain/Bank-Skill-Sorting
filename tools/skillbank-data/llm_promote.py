@@ -16,7 +16,13 @@ The LLM returns one primary_tab + zero-or-more cross_tags per item. We:
      the same thing is one entry).
   3. Build a single-section TabSpec per tab so the rest of the renderer
      (which expects multiple sections) still works.
-  4. Sort each tab's items alphabetically by lowercase name, then by ID.
+
+Brief #55 added section structures + composite sort keys (Python-side).
+Brief #58 moves the runtime sort to Java; Python's job here is now mostly
+to drive section assignment and emit per-item metadata that the Java
+SkillBankLayoutBuilder reads from /com/skillbank/item-meta.json. The
+emit_item_metadata() function at the bottom of this file produces that
+artifact.
 """
 from __future__ import annotations
 
@@ -283,4 +289,166 @@ def build_synthetic_tabs(
             tab: preserved[tab][:5] for tab in ALL_TAB_NAMES if preserved[tab]
         },
     }
+    # Attach the by_tab + items map to the report so the caller can also
+    # emit per-item metadata (item-meta.json) without re-walking everything.
+    report["_by_tab"] = by_tab
+    report["_items_by_id"] = items_by_id
+    report["_origin"] = origin
     return synthetic_tabs, classified, report
+
+
+# ── Brief #58: per-item metadata for the Java runtime layout builder ──────
+
+# Extended tier table. Keys are LOWER-CASE substrings searched in item names.
+# Order is longest-token-first so "dragon hunter" beats "dragon", "blue moon"
+# beats "rune", etc. Endgame items get tier values above dragon so the
+# two-zone "top N tiers" logic picks them up correctly.
+_TIER_TOKENS: list[tuple[str, int]] = [
+    # Newer endgame meta-defining items get the highest ranks.
+    ("scythe of vitur", 115),
+    ("tumeken's shadow", 115),
+    ("ancestral", 110),
+    ("masori", 110),
+    ("justiciar", 110),
+    ("torva ", 110), ("torva", 110),
+    ("virtus ", 110), ("virtus", 110),
+    ("twisted bow", 110),
+    ("ghrazi rapier", 110),
+    ("sanguine ", 110),
+    ("dragon hunter crossbow", 108),
+    ("dragon hunter lance", 108),
+    ("inquisitor", 105),
+    ("kodai", 105),
+    ("elder maul", 100),
+    # God Wars second-age.
+    ("bandos", 95),
+    ("armadyl", 95),
+    ("zamorakian", 95),
+    ("staff of the dead", 95),
+    ("ancient godsword", 95),
+    ("saradomin sword", 95),
+    ("saradomin's tear", 95),
+    # Third age cosmetic/PvM hybrid.
+    ("3rd age", 92), ("third age", 92),
+    # Abyssal-tier weapons.
+    ("abyssal whip", 87),
+    ("abyssal tentacle", 87),
+    ("abyssal bludgeon", 87),
+    ("abyssal dagger", 87),
+    # Crystal & moons sit just below abyssal / above dragon.
+    ("blue moon", 84),
+    ("blood moon", 84),
+    ("eclipse moon", 84),
+    ("crystal", 86),
+    # Barrows brothers.
+    ("ahrim's", 85), ("dharok's", 85), ("guthan's", 85),
+    ("karil's", 85), ("torag's", 85), ("verac's", 85),
+    ("barrows", 85),
+    # Vanilla metal tiers.
+    ("dragon", 80),
+    ("granite", 75),
+    ("rune", 70),
+    ("adamant", 60),
+    ("mithril", 50),
+    ("white", 45),
+    ("black", 40),
+    ("steel", 30),
+    ("iron", 20),
+    ("bronze", 10),
+]
+
+
+def _infer_item_tier(name: str) -> int:
+    """Return a numeric tier rank (higher = stronger). Zero means 'unknown'
+    — those items land in the chaff zone since the loadout zone picks
+    items at the top N known tier values."""
+    n = name.lower()
+    for token, tier in _TIER_TOKENS:
+        if token in n:
+            return tier
+    return 0
+
+
+def _infer_category(item: dict, primary_tab: str) -> str:
+    """Coarse role bucket. The Java layout builder uses this mostly for
+    consumables vs gear within a section; section assignment itself is
+    already decided by sort_tables.assign_section()."""
+    name = (item.get("name") or "").lower()
+    eq = item.get("equipment") or {}
+    slot = (eq.get("slot") or "").lower()
+    if primary_tab in ("melee", "range", "mage") and slot:
+        return "combat"
+    if primary_tab in ("cooking",) or "potion" in name or " brew" in name \
+            or " serum" in name or " mix(" in name or name.startswith("cooked "):
+        return "consumable"
+    if any(n in name for n in ("pickaxe", "axe", "fishing rod", "harpoon",
+                                "tinderbox", "secateurs", "watering can",
+                                "spade", "rake", "knife", "chisel", "needle",
+                                "hammer", "saw")) and slot in ("weapon", "2h", ""):
+        return "skill_tool"
+    if primary_tab in ("cosmetics", "quests"):
+        return "cosmetic"
+    if primary_tab in ("herblore", "crafting", "mining_smithing", "wc_fletching",
+                        "farming", "runecraft"):
+        return "material"
+    return "misc"
+
+
+def emit_item_metadata(
+    by_tab: dict[str, dict[int, str]],
+    items_by_id: dict[int, dict],
+    mapping_tabs: list,
+    output_json_path: Path,
+) -> dict:
+    """Build per-item metadata + section map, write JSON to disk for the
+    Java runtime layout builder. Returns the dict for inspection.
+
+    Schema (per item id, keyed by id-as-string for JSON compatibility):
+      {
+        "t": int tier,
+        "wc": str|null weapon_class,
+        "sl": str|null slot,
+        "ct": str category,
+        "s": {tab_name: section_name, ...}
+      }
+    """
+    import sort_tables  # type: ignore
+
+    # Reverse by_tab: id -> set of tab names the item lives in (post-bleed-filter).
+    item_tabs: dict[int, set[str]] = {}
+    for tab_name, tab_items in by_tab.items():
+        for iid in tab_items:
+            item_tabs.setdefault(iid, set()).add(tab_name)
+
+    meta: dict[str, dict] = {}
+    for iid, tabs in item_tabs.items():
+        it = items_by_id.get(iid)
+        if not it:
+            continue
+        name = it.get("name") or ""
+        eq = it.get("equipment") or {}
+        wp = it.get("weapon") or {}
+
+        tier = _infer_item_tier(name)
+        slot = eq.get("slot") or None
+        weapon_class = wp.get("weapon_type") or None
+        # Pick the most reliable primary signal for category — actual primary
+        # is in LLM data; fall back to any tab the item is in.
+        primary_tab = next(iter(tabs), "misc")
+        category = _infer_category(it, primary_tab)
+
+        sections: dict[str, str] = {}
+        for tab in sorted(tabs):
+            sections[tab] = sort_tables.assign_section(it, tab)
+
+        entry: dict = {"t": tier, "ct": category, "s": sections}
+        # Omit null weaponClass / slot from the JSON to keep file size down.
+        if weapon_class:
+            entry["wc"] = weapon_class
+        if slot:
+            entry["sl"] = slot
+        meta[str(iid)] = entry
+
+    output_json_path.parent.mkdir(parents=True, exist_ok=True)
+    output_json_path.write_text(json.dumps(meta, separators=(",", ":")))
+    return meta
