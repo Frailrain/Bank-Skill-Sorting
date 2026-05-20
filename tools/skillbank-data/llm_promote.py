@@ -86,6 +86,11 @@ def build_synthetic_tabs(
     """
     # Late import to avoid circular dep when scraper imports this module.
     import scraper as scr  # type: ignore
+    import sort_tables  # type: ignore
+
+    # Brief #60: build the ID sets that drive data-driven section assignment.
+    # Must run before any sort_tables.assign_section() call below.
+    sort_tables.init_id_sets(items_by_id, verbose=True)
 
     llm_data = json.loads(llm_json_path.read_text())
     llm_items = llm_data["items"]
@@ -196,6 +201,26 @@ def build_synthetic_tabs(
                 by_tab[tab_name][iid] = name
                 origin[tab_name][iid] = "override"
                 preserved[tab_name].append((iid, name))
+
+    # Brief #60: hard tab-exclude pass — items the LLM cross-tagged into a tab
+    # they don't belong in (bird nests in prayer, sailing pieces in
+    # construction, etc.). Names + IDs come from sort_tables.tab_exclude_ids,
+    # populated by init_id_sets above.
+    excluded_counts: dict[str, int] = {t: 0 for t in ALL_TAB_NAMES}
+    for tab_name in ALL_TAB_NAMES:
+        excl = sort_tables.tab_exclude_ids(tab_name)
+        if not excl:
+            continue
+        for iid in list(by_tab[tab_name].keys()):
+            if iid in excl:
+                del by_tab[tab_name][iid]
+                origin[tab_name].pop(iid, None)
+                excluded_counts[tab_name] += 1
+        if excluded_counts[tab_name]:
+            print(
+                f"  tab_exclude[{tab_name}]: removed {excluded_counts[tab_name]} items",
+                file=__import__("sys").stderr,
+            )
 
     # Build synthetic TabSpecs and the classified dict.
     classified: dict[str, list[list[tuple[object, int, str]]]] = {}

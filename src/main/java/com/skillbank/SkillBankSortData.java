@@ -163,8 +163,9 @@ public final class SkillBankSortData
 			"Teleport tablets & spell utility", "Enchanting & skilling magic"
 		));
 		m.put("prayer", List.of(
-			"Bones & ashes", "Ensouled heads", "Prayer-restoring consumables",
-			"Prayer equipment & robes", "Holy symbols, books & blessings",
+			// Brief #60: equipment leads the tab now.
+			"Prayer equipment & robes", "Bones & ashes", "Ensouled heads",
+			"Prayer-restoring consumables", "Holy symbols, books & blessings",
 			"Bone-processing utility"
 		));
 		m.put("cooking", List.of(

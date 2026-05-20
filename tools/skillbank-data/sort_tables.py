@@ -82,8 +82,10 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Teleport tablets & spell utility", "Enchanting & skilling magic",
     ],
     "prayer": [
-        "Bones & ashes", "Ensouled heads", "Prayer-restoring consumables",
-        "Prayer equipment & robes", "Holy symbols, books & blessings",
+        # Brief #60: equipment first so the prayer tab leads with gear rather
+        # than bones-pile chaff.
+        "Prayer equipment & robes", "Bones & ashes", "Ensouled heads",
+        "Prayer-restoring consumables", "Holy symbols, books & blessings",
         "Bone-processing utility",
     ],
     "cooking": [
@@ -179,6 +181,354 @@ TAB_SECTIONS: dict[str, list[str]] = {
 
 # Group-rank: primary items first within each section, then cross-tags, then overrides.
 GROUP_RANK = {"primary": 0, "cross": 1, "override": 2}
+
+
+# ══ Brief #60: data-driven section classification ═══════════════════════════
+#
+# Pre-Brief-#60, sections were assigned by name-pattern matching. Brief #59
+# diagnosed the herb scattering bug — clean herbs don't carry "Clean " in
+# their canonical names, so startswith("clean ") matched zero items. Same
+# class of bug existed for cooked food, logs, fishing, etc.
+#
+# Fix: canonical *names* are authored here; the actual ID sets are built at
+# import time by intersecting those names with the merged item dataset
+# (see init_id_sets). assign_section then prefers ID-set membership over
+# name patterns. Name patterns remain as a last-resort fallback for items
+# the canonical lists don't cover.
+
+# Canonical herb base names (each maps to BOTH grimy and clean variants).
+HERB_BASE_NAMES = [
+    "Guam leaf", "Marrentill", "Tarromin", "Harralander", "Ranarr weed",
+    "Toadflax", "Irit leaf", "Avantoe", "Kwuarm", "Snapdragon",
+    "Cadantine", "Lantadyme", "Dwarf weed", "Torstol", "Huasca",
+    # Quest / leagues herbs
+    "Snake weed", "Ardrigal", "Sito foil", "Volencia moss",
+    "Rogue's purse", "Noxifer", "Golpar", "Buchu leaf",
+]
+
+# Canonical log names.
+LOG_NAMES = [
+    "Logs", "Oak logs", "Willow logs", "Maple logs", "Yew logs",
+    "Magic logs", "Mahogany logs", "Teak logs", "Redwood logs",
+    "Arctic pine logs", "Achey tree logs", "Juniper logs",
+    "Mystic logs", "Blisterwood logs",
+]
+PYRE_LOG_NAMES = [
+    "Pyre logs", "Oak pyre logs", "Willow pyre logs", "Maple pyre logs",
+    "Yew pyre logs", "Magic pyre logs", "Redwood pyre logs",
+    "Mahogany pyre logs", "Teak pyre logs",
+]
+
+# Cooked mainstream-PvM food (highest heal / common usage first).
+COOKED_FOOD_NAMES = [
+    "Anglerfish", "Cooked karambwan", "Dark crab", "Shark",
+    "Manta ray", "Sea turtle", "Monkfish", "Tuna potato",
+    "Swordfish", "Lobster", "Bass",
+    "Salmon", "Tuna", "Trout", "Pike", "Cod", "Mackerel",
+    "Herring", "Sardine", "Anchovies", "Shrimps",
+    # Other cooked items
+    "Cooked chicken", "Cooked meat", "Stew", "Curry",
+    "Cooked rabbit", "Roast bird meat", "Roast beast meat",
+    "Roast rabbit", "Roast chompy", "Roast jubbly", "Roast oomlie",
+    "Roast frog legs", "Cooked sweetcorn", "Cooked oomlie wrap",
+    "Spider on stick", "Spider on shaft",
+    "Baked potato", "Egg potato", "Mushroom potato", "Potato with butter",
+    "Potato with cheese", "Chilli potato",
+    "Cave eel", "Cooked eel", "Slimy eel", "Rocktail",
+]
+
+# Pies / pizzas / cakes — "Special & combo" food (cooked but multi-step).
+SPECIAL_FOOD_NAMES = [
+    "Plain pizza", "Anchovy pizza", "Meat pizza", "Pineapple pizza",
+    "Apple pie", "Redberry pie", "Meat pie", "Mud pie", "Garden pie",
+    "Fish pie", "Admiral pie", "Wild pie", "Summer pie",
+    "Steak and kidney pie", "Botanical pie", "Mushroom & onion pie",
+    "Cake", "Chocolate cake", "Sliced cake",
+    "Cheese+tom batta", "Toad batta", "Worm batta", "Vegetable batta",
+    "Fruit batta", "Toad crunchies", "Spicy crunchies", "Worm crunchies",
+    "Chocchip crunchies", "Toad gnomebowl", "Worm gnomebowl",
+    "Salmon gnomebowl", "Tangled toads' legs gnomebowl",
+    "Veg ball", "Worm hole", "Choc bomb",
+    "Premade dirty blast", "Premade fr'y blurberry", "Premade fr't blast",
+    "Premade veg ball", "Premade choc bomb",
+    "Kebab", "Ugthanki kebab", "Super kebab",
+    "Fishcake", "Cooked fishcake",
+]
+
+# Raw cookables (everything that becomes cooked food). Used to populate the
+# Raw cookables section AND drive raw-fish detection in fishing.
+RAW_COOKABLE_NAMES = [
+    "Raw shrimps", "Raw sardine", "Raw anchovies", "Raw herring",
+    "Raw mackerel", "Raw trout", "Raw cod", "Raw pike", "Raw salmon",
+    "Raw tuna", "Raw lobster", "Raw bass", "Raw swordfish",
+    "Raw monkfish", "Raw shark", "Raw sea turtle", "Raw manta ray",
+    "Raw karambwan", "Raw karambwanji", "Raw dark crab", "Raw anglerfish",
+    "Raw rocktail", "Raw cave eel", "Raw lava eel", "Raw slimy eel",
+    "Raw beef", "Raw rat meat", "Raw bear meat", "Raw chicken",
+    "Raw bird meat", "Raw rabbit", "Raw frog legs",
+    "Raw chompy", "Raw jubbly", "Raw oomlie",
+    # Some items in the fishing world are caught raw and DO NOT carry the
+    # "Raw " prefix in OSRS — they're fish. Include here so they show in
+    # Raw cookables too.
+    "Karambwanji",
+]
+RAW_FISH_NAMES = [
+    "Raw shrimps", "Raw sardine", "Raw anchovies", "Raw herring",
+    "Raw mackerel", "Raw trout", "Raw cod", "Raw pike", "Raw salmon",
+    "Raw tuna", "Raw lobster", "Raw bass", "Raw swordfish",
+    "Raw monkfish", "Raw shark", "Raw sea turtle", "Raw manta ray",
+    "Raw karambwan", "Raw karambwanji", "Raw dark crab", "Raw anglerfish",
+    "Raw rocktail", "Raw cave eel", "Raw lava eel", "Raw slimy eel",
+    "Karambwanji",
+]
+
+# Cooking ingredients (non-cooked items consumed in cooking recipes).
+INGREDIENT_NAMES = [
+    "Pot of flour", "Flour", "Egg", "Bucket of milk", "Bucket of water",
+    "Bucket of sand", "Bucket of compost", "Bucket of slime",
+    "Bucket of wax", "Bucket", "Chocolate bar", "Chocolate dust",
+    "Ashes", "Pat of butter", "Cooking apple", "Cake tin",
+    "Wheat", "Yeast", "Pot of yeast", "Pot", "Empty pot",
+    "Bowl", "Empty bowl", "Bowl of water",
+    "Tomato", "Onion", "Cabbage", "Potato",
+    "Banana", "Orange", "Pineapple", "Lemon", "Lime", "Watermelon",
+    "Pear", "Apple", "Strawberry",
+    "Pot of cream", "Pot of pulp",
+    "Sliced banana", "Sliced lemon", "Sliced lime", "Sliced orange",
+    "Pineapple chunks", "Pineapple ring",
+    "Salt", "Sandstone (1kg)",
+    "Garlic", "Spice", "Gnome spice", "Curry leaf", "Tomato",
+    "Sweetcorn", "Raw sweetcorn",
+    "Cheese", "Equa leaves", "Lime chunks", "Orange chunks",
+    "Lemon chunks", "Pineapple chunks", "Pineapple ring",
+]
+
+# Fishing tools / bait / outfit.
+FISHING_TOOL_NAMES = [
+    "Small fishing net", "Fishing rod", "Fly fishing rod",
+    "Oily fishing rod", "Barbarian rod", "Pearl rod",
+    "Pearl fly rod", "Pearl barbarian rod",
+    "Fishing net", "Big fishing net",
+    "Harpoon", "Barbed harpoon", "Dragon harpoon", "Crystal harpoon",
+    "Infernal harpoon", "Trailblazer harpoon",
+    "Lobster pot", "Karambwan vessel", "Karambwan vessel (loaded)",
+    "Fish sack", "Fish sack barrel",
+    "Fishbowl", "Fishing explosive", "Cormorant's glove",
+]
+FISHING_BAIT_NAMES = [
+    "Fishing bait", "Feather", "Fishing feather",
+    "Stripy feather", "Yellow feather", "Red feather", "Blue feather",
+    "Orange feather", "Raw karambwanji",  # Karambwanji is bait for karambwan
+    "Fish food", "Fish offcuts", "Sashimi",
+]
+
+# Herblore secondaries (a chunk of these — not exhaustive but the common ones).
+SECONDARY_NAMES = [
+    "Eye of newt", "Limpwurt root", "Snape grass", "White berries",
+    "Red spiders' eggs", "Chocolate dust", "Goat horn dust",
+    "Wine of zamorak", "Jangerberries", "Potato cactus",
+    "Kebbit teeth dust", "Mort myre fungus", "Pirate's hook",
+    "Magic roots", "Mahogany roots", "Yew roots",
+    "Phoenix feather", "Blue dragon scale",
+    "Crushed bird's nest", "Bird nest", "Bird's nest",
+    "Bird's egg", "Crushed bird egg",
+    "Amylase crystal", "Morchella mushroom",
+    "Crushed nest", "Crushed superior dragon bones",
+    "Bee", "Anchovies", "Charcoal", "Olive oil",
+    "Pyrophosphite", "Volcanic sulphur", "Cactus spine",
+    "Swamp tar", "Frog spawn", "Toad's legs", "Cave nightshade",
+    "Aremum",  # quest
+    "Sliced red banana",  # gnome cooking
+    "Snake's tongue",
+]
+
+# Seed sub-category canonical names.
+SEED_NAMES_ALLOTMENT = [
+    "Potato seed", "Onion seed", "Cabbage seed", "Tomato seed",
+    "Sweetcorn seed", "Strawberry seed", "Watermelon seed",
+    "Snape grass seed",
+]
+SEED_NAMES_HOPS = [
+    "Barley seed", "Hammerstone seed", "Asgarnian seed", "Yanillian seed",
+    "Krandorian seed", "Wildblood seed", "Jute seed",
+]
+SEED_NAMES_HERB = [
+    "Guam seed", "Marrentill seed", "Tarromin seed", "Harralander seed",
+    "Ranarr seed", "Toadflax seed", "Irit seed", "Avantoe seed",
+    "Kwuarm seed", "Snapdragon seed", "Cadantine seed", "Lantadyme seed",
+    "Dwarf weed seed", "Torstol seed", "Huasca seed",
+]
+SEED_NAMES_FLOWER = [
+    "Marigold seed", "Rosemary seed", "Nasturtium seed", "Woad seed",
+    "Limpwurt seed", "White lily seed",
+]
+SEED_NAMES_BUSH = [
+    "Redberry seed", "Cadavaberry seed", "Dwellberry seed",
+    "Jangerberry seed", "Whiteberry seed", "Poison ivy seed",
+]
+SEED_NAMES_TREE = [
+    "Acorn", "Willow seed", "Maple seed", "Yew seed", "Magic seed",
+    "Redwood tree seed", "Blisterwood seed",
+]
+SEED_NAMES_FRUIT_TREE = [
+    "Apple tree seed", "Banana tree seed", "Orange tree seed",
+    "Curry tree seed", "Pineapple seed", "Papaya tree seed",
+    "Palm tree seed", "Calquat tree seed", "Dragonfruit tree seed",
+    "Celastrus seed",
+]
+SEED_NAMES_SPECIAL = [
+    "Mushroom spore", "Belladonna seed", "Cactus seed",
+    "Potato cactus seed", "Hespori seed",
+    "Mahogany seed", "Teak seed",
+    "Crystal acorn", "Spirit seed",
+    "Attas seed", "Kronos seed", "Iasor seed",
+    "Anima seed",
+]
+
+# Items the LLM cross-tag classifier keeps misplacing. Brief #60 hard-removes
+# these from the specified tabs after the build_synthetic_tabs assembly.
+PRAYER_EXCLUDE_NAMES = [
+    "Bird nest", "Bird's nest", "Bird's nest (empty)",
+    "Bird's nest (red egg)", "Bird's nest (green egg)",
+    "Bird's nest (blue egg)", "Bird's nest (seeds)",
+    "Bird's nest (mushroom)", "Bird's nest (wyson)",
+]
+CONSTRUCTION_EXCLUDE_NAMES = [
+    # Sailing repair kits, paints, and ship parts shouldn't be in construction.
+    # These are caught by name pattern at filter time; the actual ID set is
+    # built from items whose name contains any of these tokens.
+]
+_CONSTRUCTION_EXCLUDE_TOKENS = [
+    "ship paint", "sailing paint", "ship plank", "ship repair kit",
+    "rope coil", "ship rope", "ship sail", "hull plate",
+    "rudder", "mast", "anchor",
+]
+
+
+# ── Build-time ID set construction ─────────────────────────────────────────
+
+_ID_SETS: dict[str, set[int]] = {}
+
+
+def _index_by_name(items_by_id: dict[int, dict]) -> dict[str, set[int]]:
+    """name (lowercased) → set of IDs in the merged dataset that match exactly,
+    excluding noted/placeholder/duplicate variants."""
+    out: dict[str, set[int]] = {}
+    for iid, it in items_by_id.items():
+        if it.get("noted") or it.get("placeholder") or it.get("duplicate"):
+            continue
+        nm = (it.get("name") or "").strip().lower()
+        if nm:
+            out.setdefault(nm, set()).add(int(iid))
+    return out
+
+
+def _ids_for_names(names: list[str], by_name: dict[str, set[int]]) -> set[int]:
+    """Resolve a list of canonical names to the union of all matching IDs."""
+    out: set[int] = set()
+    for n in names:
+        out |= by_name.get(n.strip().lower(), set())
+    return out
+
+
+def _ids_for_token_match(
+    tokens: list[str], items_by_id: dict[int, dict],
+) -> set[int]:
+    """Wider net: any item whose lowercased name contains any of the tokens.
+    Used for exclude sets where the variant space is large (sailing items)."""
+    out: set[int] = set()
+    for iid, it in items_by_id.items():
+        if it.get("noted") or it.get("placeholder") or it.get("duplicate"):
+            continue
+        nm = (it.get("name") or "").lower()
+        for tok in tokens:
+            if tok in nm:
+                out.add(int(iid))
+                break
+    return out
+
+
+def init_id_sets(items_by_id: dict[int, dict], *, verbose: bool = True) -> None:
+    """Populate the module-level _ID_SETS from the merged item dataset.
+    Must be called before assign_section() / classifier-driven downstream code.
+
+    With verbose=True, prints per-set counts + samples to stderr — Brief #60
+    requires this for build-log verification.
+    """
+    import sys as _sys
+    by_name = _index_by_name(items_by_id)
+
+    def build(name: str, canonical_names: list[str]) -> set[int]:
+        s = _ids_for_names(canonical_names, by_name)
+        _ID_SETS[name] = s
+        if verbose:
+            sample = list(s)[:3]
+            sample_names = ", ".join(
+                (items_by_id.get(i, {}).get("name") or str(i)) for i in sample
+            )
+            print(
+                f"  id_set[{name}]: {len(s):>4} items "
+                f"(e.g. {sample_names})",
+                file=_sys.stderr,
+            )
+        return s
+
+    if verbose:
+        print("Building ID sets for section assignment...", file=_sys.stderr)
+
+    # OSRS canonical grimy names lowercase the base name's first char
+    # (e.g. "Guam leaf" → "Grimy guam leaf"). The "weed" / "leaf" suffix
+    # stays as-is.
+    grimy = ["Grimy " + n[0].lower() + n[1:] for n in HERB_BASE_NAMES]
+    build("grimy_herbs", grimy)
+    build("clean_herbs", HERB_BASE_NAMES)
+    build("logs", LOG_NAMES)
+    build("pyre_logs", PYRE_LOG_NAMES)
+    build("cooked_food", COOKED_FOOD_NAMES)
+    build("special_food", SPECIAL_FOOD_NAMES)
+    build("raw_cookables", RAW_COOKABLE_NAMES)
+    build("raw_fish", RAW_FISH_NAMES)
+    build("ingredients", INGREDIENT_NAMES)
+    build("fishing_tools", FISHING_TOOL_NAMES)
+    build("fishing_bait", FISHING_BAIT_NAMES)
+    build("herblore_secondaries", SECONDARY_NAMES)
+    build("seeds_allotment", SEED_NAMES_ALLOTMENT)
+    build("seeds_hops", SEED_NAMES_HOPS)
+    build("seeds_herb", SEED_NAMES_HERB)
+    build("seeds_flower", SEED_NAMES_FLOWER)
+    build("seeds_bush", SEED_NAMES_BUSH)
+    build("seeds_tree", SEED_NAMES_TREE)
+    build("seeds_fruit_tree", SEED_NAMES_FRUIT_TREE)
+    build("seeds_special", SEED_NAMES_SPECIAL)
+    build("prayer_exclude", PRAYER_EXCLUDE_NAMES)
+
+    # Token-based exclude for construction (sailing pollution).
+    construction_exclude = _ids_for_token_match(_CONSTRUCTION_EXCLUDE_TOKENS, items_by_id)
+    _ID_SETS["construction_exclude"] = construction_exclude
+    if verbose:
+        print(f"  id_set[construction_exclude]: {len(construction_exclude):>4} items "
+              f"(token match: {', '.join(_CONSTRUCTION_EXCLUDE_TOKENS[:3])}...)",
+              file=_sys.stderr)
+
+
+def _is(item: dict, set_name: str) -> bool:
+    """ID-set membership check. False if init_id_sets hasn't been called."""
+    iid = item.get("id")
+    s = _ID_SETS.get(set_name)
+    return s is not None and iid in s
+
+
+# ── Tab exclude IDs (post-section-assignment hard filter) ──────────────────
+
+
+def tab_exclude_ids(tab: str) -> set[int]:
+    """Items hard-excluded from a tab regardless of LLM placement. Applied by
+    llm_promote.build_synthetic_tabs as a post-filter."""
+    if tab == "prayer":
+        return _ID_SETS.get("prayer_exclude", set())
+    if tab == "construction":
+        return _ID_SETS.get("construction_exclude", set())
+    return set()
 
 # ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -299,6 +649,15 @@ def _section_combat(item: dict, tab: str) -> str:
 def _section_prayer(item: dict) -> str:
     name = _name(item)
     nlow = name.lower()
+    slot = _slot(item)
+    # Equipment FIRST (Brief #60 reorder: prayer tab leads with gear).
+    if slot in ("body", "legs", "head", "feet", "hands", "cape", "neck", "ring",
+                "shield"):
+        # But blessed-only / book-only shields belong with the holy items.
+        if slot == "shield" and any(k in nlow for k in (
+                "holy book", "book of", "unholy book", "blessed")):
+            return "Holy symbols, books & blessings"
+        return "Prayer equipment & robes"
     if nlow.endswith(" bones") or nlow == "bones" or "bones (" in nlow:
         return "Bones & ashes"
     if nlow.endswith(" ashes") or nlow == "ashes":
@@ -314,43 +673,42 @@ def _section_prayer(item: dict) -> str:
         "bonecrusher", "ash sanctifier", "dragonbone necklace",
     )):
         return "Bone-processing utility"
-    if any(k in nlow for k in (
-        "holy", "unholy", "blessed", "saradomin", "zamorak", "guthix", "armadyl",
-        "bandos", "ancient", "book of",
-    )) and _slot(item) in ("body", "legs", "head", "feet", "hands", "shield"):
-        return "Prayer equipment & robes"
     if any(k in nlow for k in ("holy symbol", "unholy symbol", "holy book",
                                "blessed", "page", "blessing")):
         return "Holy symbols, books & blessings"
-    if _slot(item) in ("body", "legs", "head", "feet", "hands", "cape", "neck", "ring"):
-        return "Prayer equipment & robes"
     return "Bone-processing utility"
 
 
 def _section_cooking(item: dict) -> str:
     name = _name(item)
     nlow = name.lower()
+    # Burnt detection works fine via name prefix; nothing else uses it.
     if nlow.startswith("burnt "):
         return "Burnt food"
-    if nlow.startswith("raw "):
+    # ID-set lookups (Brief #60): authoritative for everything we curated.
+    if _is(item, "cooked_food"):
+        return "Cooked food"
+    if _is(item, "special_food"):
+        return "Special & combo food"
+    if _is(item, "raw_cookables"):
         return "Raw cookables"
-    if nlow.startswith("uncooked "):
-        return "Raw cookables"
+    if _is(item, "ingredients"):
+        return "Ingredients"
+    # Cooking tools — still name-driven because the set is small and the
+    # tokens are distinctive.
     if any(k in nlow for k in ("knife", "rolling pin", "pestle and mortar",
                                "mixing bowl", "skewer", "cooking gauntlets",
                                "cook's outfit", "cook's hat", "cook's apron",
                                "cooks' assistant")):
         return "Cooking tools & utensils"
-    if any(k in nlow for k in (
-        "flour", "egg", "milk", "sugar", "pot of ", "bucket of ", "chocolate bar",
-        "wheat", "potato seed", "barley", "yeast", "salt", "spice", "cooking apple",
-        "tomato", "onion", "cabbage",
-    )):
-        return "Ingredients"
+    # Name-pattern fallback for variants the canonical lists don't carry.
+    if nlow.startswith("raw "):
+        return "Raw cookables"
     if any(k in nlow for k in ("pie", "pizza", "stew", "cake",
                                "kebab", "curry", "gnomebowl", "gnome batta",
                                "gnome crunchies", "fishcake")):
         return "Special & combo food"
+    # Default to Cooked food (most cross-tagged-into-cooking items are food).
     return "Cooked food"
 
 
@@ -361,9 +719,10 @@ def _section_wc_fletching(item: dict) -> str:
     if "axe" in nlow and "pickaxe" not in nlow and slot in ("weapon", "2h", ""):
         # Felling axes + standard axes
         return "Axes"
-    if nlow.endswith(" logs") or nlow == "logs":
+    # Brief #60: ID-set lookup catches "Logs" (no prefix), which name-pattern missed.
+    if _is(item, "logs"):
         return "Logs"
-    if nlow.endswith(" log"):
+    if nlow.endswith(" logs") or nlow.endswith(" log"):
         return "Logs"
     if any(k in nlow for k in ("lumberjack", "forester", "forestry",
                                "fletching cape", "fletching hood",
@@ -390,15 +749,12 @@ def _section_wc_fletching(item: dict) -> str:
 
 def _section_fishing(item: dict) -> str:
     nlow = _name(item).lower()
-    if nlow.startswith("raw "):
+    # Brief #60: ID-set lookups first.
+    if _is(item, "raw_fish"):
         return "Raw fish"
-    if any(k in nlow for k in ("fishing rod", "fly fishing rod", "barbarian rod",
-                               "fishing net", "harpoon", "lobster pot",
-                               "fishing explosive", "oily fishing rod",
-                               "pearl rod")):
+    if _is(item, "fishing_tools"):
         return "Fishing tools"
-    if any(k in nlow for k in ("fishing bait", "fishing feather", "feathers",
-                               "bait", "stripy feather", "fish food")):
+    if _is(item, "fishing_bait"):
         return "Bait & consumables"
     if any(k in nlow for k in ("angler", "spirit angler", "fish barrel",
                                "fishing cape", "fishing hood")):
@@ -406,16 +762,23 @@ def _section_fishing(item: dict) -> str:
     if any(k in nlow for k in ("tempoross", "fishing rod-o-matic", "spirit flake",
                                "soaked page")):
         return "Fishing minigame items"
-    # Fishbowl items, raw fish without "Raw" prefix
-    return "Raw fish"
+    # Name-pattern fallback ONLY for raw items not in the canonical fish list.
+    # We deliberately do NOT use startswith("raw ") as a catch-all anymore —
+    # raw fox furs etc. were being mis-classified as fish.
+    return "Fishing minigame items"
 
 
 def _section_firemaking(item: dict) -> str:
     nlow = _name(item).lower()
-    if "pyre logs" in nlow or nlow.endswith(" pyre logs"):
+    # Brief #60: ID-set lookups for logs / pyre logs.
+    if _is(item, "pyre_logs"):
         return "Pyre logs"
+    if _is(item, "logs"):
+        return "Logs"
     if "tinderbox" in nlow or "firelighter" in nlow or "bruma torch" in nlow:
         return "Tinderboxes & firelighting tools"
+    if "pyre logs" in nlow:
+        return "Pyre logs"
     if nlow.endswith(" logs"):
         return "Logs"
     if any(k in nlow for k in ("shade", "fiyr", "loar", "phrin", "riyl", "asyn")):
@@ -491,7 +854,12 @@ def _section_herblore(item: dict) -> str:
     if any(k in nlow for k in ("vial", "pestle and mortar", "herblore cape",
                                "herblore hood", "botanist")):
         return "Vials & herblore tools"
-    if nlow.startswith("grimy ") or nlow.startswith("clean "):
+    # Brief #60: ID-set lookups for herbs (was the Brief #59 bug — clean
+    # herbs in OSRS have no "Clean " prefix; startswith("clean ") matched 0).
+    if _is(item, "grimy_herbs") or _is(item, "clean_herbs"):
+        return "Herbs"
+    # Name-pattern fallback for any "Grimy X" variant not in the canonical list.
+    if nlow.startswith("grimy "):
         return "Herbs"
     if "(unf)" in nlow or " unf " in nlow or nlow.endswith(" unf"):
         return "Unfinished potions"
@@ -503,13 +871,12 @@ def _section_herblore(item: dict) -> str:
         if "mix(" in nlow or "mix (" in nlow or "barbarian" in nlow:
             return "Barbarian mixes"
         return "Finished potions"
-    if any(k in nlow for k in (
-        "limpwurt root", "white berries", "red spider", "wine of zamorak",
-        "snape grass", "kebbit teeth", "newt", "potato cactus",
-        "phoenix feather", "kebbit", "blue dragon scale", "swamp tar",
-        "amylase crystal", "morchella mushroom",
-    )):
+    # Curated secondaries set.
+    if _is(item, "herblore_secondaries"):
         return "Secondaries"
+    # Last-resort name-pattern fallback for the long tail of secondaries we
+    # haven't enumerated. Anything that lands here is just "Secondaries" by
+    # default since the LLM already routed it to the herblore tab.
     return "Secondaries"
 
 
@@ -542,46 +909,28 @@ def _section_farming(item: dict) -> str:
         return "Compost & soil treatment"
     if "sapling" in nlow:
         return "Saplings"
-    if nlow.endswith(" seed") or nlow.endswith(" seeds"):
-        # Heuristic seed family routing — fall back to allotment.
-        if any(k in nlow for k in ("potato seed", "onion seed", "cabbage seed",
-                                   "tomato seed", "sweetcorn seed", "strawberry seed",
-                                   "watermelon seed", "snape grass seed", "raw beetroot seed",
-                                   "barley seed", "hammerstone seed", "asgarnian seed",
-                                   "yanillian seed", "krandorian seed", "wildblood seed",
-                                   "jute seed")):
-            return "Allotment seeds" if "barley" not in nlow and "hammerstone" not in nlow and "asgarnian" not in nlow and "yanillian" not in nlow and "krandorian" not in nlow and "wildblood" not in nlow and "jute" not in nlow else "Hops seeds"
-        if any(k in nlow for k in ("guam seed", "marrentill seed", "tarromin seed",
-                                   "harralander seed", "ranarr seed", "toadflax seed",
-                                   "irit seed", "avantoe seed", "kwuarm seed",
-                                   "snapdragon seed", "cadantine seed", "lantadyme seed",
-                                   "dwarf weed seed", "torstol seed", "huasca seed")):
-            return "Herb seeds"
-        if any(k in nlow for k in ("rosemary seed", "marigold seed", "nasturtium seed",
-                                   "woad seed", "limpwurt seed", "white lily seed",
-                                   "scarecrow")):
-            return "Flower seeds"
-        if any(k in nlow for k in ("redberry seed", "cadavaberry seed",
-                                   "dwellberry seed", "jangerberry seed",
-                                   "whiteberry seed", "poison ivy seed")):
-            return "Bush seeds"
-        if any(k in nlow for k in ("oak seed", "willow seed", "maple seed",
-                                   "yew seed", "magic seed", "redwood tree seed",
-                                   "acorn", "blisterwood seed")):
-            return "Tree seeds"
-        if any(k in nlow for k in ("apple tree seed", "banana tree seed",
-                                   "orange tree seed", "curry tree seed",
-                                   "pineapple seed", "papaya tree seed",
-                                   "palm tree seed", "calquat tree seed",
-                                   "dragonfruit tree seed", "celastrus seed",
-                                   "spirit seed", "crystal acorn")):
-            return "Fruit tree seeds"
-        if any(k in nlow for k in ("mahogany seed", "teak seed", "hespori seed",
-                                   "anima seed", "attas seed", "kronos seed",
-                                   "iasor seed", "mushroom spore", "cactus seed",
-                                   "potato cactus seed", "belladonna seed")):
-            return "Special seeds"
-        return "Allotment seeds"  # Fallback
+    # Brief #60: data-driven seed sub-categorization. Each set was built from
+    # canonical OSRS seed names; the test happens BEFORE name fallback so
+    # mushroom spores (which don't end in "seed") still land correctly.
+    if _is(item, "seeds_allotment"):
+        return "Allotment seeds"
+    if _is(item, "seeds_hops"):
+        return "Hops seeds"
+    if _is(item, "seeds_herb"):
+        return "Herb seeds"
+    if _is(item, "seeds_flower"):
+        return "Flower seeds"
+    if _is(item, "seeds_bush"):
+        return "Bush seeds"
+    if _is(item, "seeds_tree"):
+        return "Tree seeds"
+    if _is(item, "seeds_fruit_tree"):
+        return "Fruit tree seeds"
+    if _is(item, "seeds_special"):
+        return "Special seeds"
+    # Name-pattern fallback for any seed/sapling/spore not in the curated sets.
+    if nlow.endswith(" seed") or nlow.endswith(" seeds") or nlow.endswith(" spore"):
+        return "Special seeds"
     return "Farmer outfit & contracts"
 
 

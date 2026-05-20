@@ -1511,7 +1511,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    33320  Uncharged toxic trident (e)
    33330  Iban's staff
 
-=== prayer (295 items not in wiki output) ===
+=== prayer (294 items not in wiki output) ===
      251  Marrentill
      426  Priest gown
      428  Priest gown
@@ -1538,7 +1538,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
     4755  Verac's flail
     4757  Verac's brassard
     4759  Verac's plateskirt
-    5070  Bird nest
     5076  Bird's egg
     6211  Teak pyre logs
     6213  Mahogany pyre logs
@@ -3937,7 +3936,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    31901  Bottle of impling surprise
    33120  Perfected quetzal whistle(i)
 
-=== construction (232 items not in wiki output) ===
+=== construction (230 items not in wiki output) ===
      434  Clay
      964  Skull
      970  Papyrus
@@ -4121,8 +4120,6 @@ or should be added to force_include / variant_allowlist before flipping --additi
    31024  Greenman carving
    31027  Greenman statue
    31032  Ent branch
-   31205  Grid master altar icon scroll
-   31208  Grid master torch scroll
    31406  Dragon nails
    31410  Stuffed giant blue krill
    31412  Golden haddock
