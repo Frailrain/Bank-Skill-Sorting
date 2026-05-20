@@ -105,11 +105,26 @@ def build_synthetic_tabs(
     override_adds: dict[str, list[tuple[int, str]]] = {t: [] for t in ALL_TAB_NAMES}
     override_drops: dict[str, list[tuple[int, str]]] = {t: [] for t in ALL_TAB_NAMES}
 
+    # Brief #56: combat cross-tag bleed filter. Combat gear should appear in
+    # one combat tab only — Eclipse moon + Bandos chestplate + dragon bolts
+    # kept cross-bleeding between melee/range/mage because the LLM lists the
+    # adjacent styles as "useful for combat". Filter cross-tags between combat
+    # tabs entirely; primary placement still governs which combat tab the item
+    # lives in.
+    _COMBAT_BLEED_BLOCK: dict[str, set[str]] = {
+        "melee": {"range", "mage"},
+        "range": {"melee", "mage"},
+        "mage":  {"melee", "range"},
+    }
+
     for r in llm_items:
         iid = r["id"]
         name = r["name"]
         primary = r["primary_tab"]
         cross = r.get("cross_tags") or []
+        blocked = _COMBAT_BLEED_BLOCK.get(primary, set())
+        if blocked:
+            cross = [c for c in cross if c not in blocked]
         tabs_for_item: set[str] = {primary, *cross}
 
         # Per-item origin map; primary wins over cross when the LLM lists the

@@ -27,6 +27,7 @@ import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.banktags.BankTagsPlugin;
 import net.runelite.client.plugins.banktags.TagManager;
+import net.runelite.client.plugins.banktags.tabs.LayoutManager;
 import net.runelite.client.plugins.banktags.tabs.TabInterface;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
@@ -68,6 +69,14 @@ public class SkillBankPlugin extends Plugin
 	@Inject
 	private TabInterface tabInterface;
 
+	@Inject
+	private LayoutManager layoutManager;
+
+	@Inject
+	private SkillBankAutoLayout autoLayout;
+
+	static final String AUTO_LAYOUT_NAME = "Skill Bank";
+
 	private SkillBankPanel panel;
 	private NavigationButton navButton;
 	private boolean seedAttempted;
@@ -103,6 +112,17 @@ public class SkillBankPlugin extends Plugin
 		clientToolbar.addNavigation(navButton);
 
 		cleanupLegacyTaggedItemsKeys();
+
+		try
+		{
+			layoutManager.registerAutoLayout(this, AUTO_LAYOUT_NAME, autoLayout);
+			log.debug("Registered Skill Bank auto-layout with Bank Tags LayoutManager");
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Already registered (e.g. plugin re-enable without a clean unregister).
+			log.warn("Skill Bank auto-layout already registered: {}", e.getMessage());
+		}
 	}
 
 	@Override
@@ -114,6 +134,15 @@ public class SkillBankPlugin extends Plugin
 			navButton = null;
 		}
 		panel = null;
+
+		try
+		{
+			layoutManager.unregisterAutoLayout(AUTO_LAYOUT_NAME);
+		}
+		catch (Exception e)
+		{
+			log.warn("Failed to unregister Skill Bank auto-layout", e);
+		}
 	}
 
 	@Subscribe
