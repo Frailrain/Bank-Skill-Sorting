@@ -17,16 +17,24 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
+import net.runelite.api.Item;
+import net.runelite.api.ItemContainer;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.ItemContainerChanged;
+import net.runelite.api.events.WidgetClosed;
+import net.runelite.api.gameval.InterfaceID;
+import net.runelite.api.gameval.InventoryID;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
+import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.banktags.BankTagsPlugin;
 import net.runelite.client.plugins.banktags.TagManager;
+import net.runelite.client.plugins.banktags.tabs.Layout;
 import net.runelite.client.plugins.banktags.tabs.LayoutManager;
 import net.runelite.client.plugins.banktags.tabs.TabInterface;
 import net.runelite.client.ui.ClientToolbar;
@@ -73,9 +81,7 @@ public class SkillBankPlugin extends Plugin
 	private LayoutManager layoutManager;
 
 	@Inject
-	private SkillBankAutoLayout autoLayout;
-
-	static final String AUTO_LAYOUT_NAME = "Skill Bank";
+	private ItemManager itemManager;
 
 	private SkillBankPanel panel;
 	private NavigationButton navButton;
@@ -112,17 +118,6 @@ public class SkillBankPlugin extends Plugin
 		clientToolbar.addNavigation(navButton);
 
 		cleanupLegacyTaggedItemsKeys();
-
-		try
-		{
-			layoutManager.registerAutoLayout(this, AUTO_LAYOUT_NAME, autoLayout);
-			log.debug("Registered Skill Bank auto-layout with Bank Tags LayoutManager");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Already registered (e.g. plugin re-enable without a clean unregister).
-			log.warn("Skill Bank auto-layout already registered: {}", e.getMessage());
-		}
 	}
 
 	@Override
@@ -134,15 +129,6 @@ public class SkillBankPlugin extends Plugin
 			navButton = null;
 		}
 		panel = null;
-
-		try
-		{
-			layoutManager.unregisterAutoLayout(AUTO_LAYOUT_NAME);
-		}
-		catch (Exception e)
-		{
-			log.warn("Failed to unregister Skill Bank auto-layout", e);
-		}
 	}
 
 	@Subscribe
@@ -337,6 +323,12 @@ public class SkillBankPlugin extends Plugin
 			}
 
 			tabsCsvUpdated.add(tagName);
+
+			// Brief #57: persist a Layout per tab so bank items render in the
+			// sort order produced by sort_tables.py. No-ops if the bank isn't
+			// loaded (seed-on-startup before bank-open); the bank-open /
+			// bank-change / bank-close subscribers below will rebuild.
+			buildAndSaveLayout(tagName);
 		}
 
 		if (!tabsCsvUpdated.equals(tabsCsv))
@@ -347,6 +339,114 @@ public class SkillBankPlugin extends Plugin
 		tabInterface.reloadActiveTab();
 
 		return new SeedResult(itemsTagged, itemsRemoved, itemsAlready, tagsSeeded, tagsDisabled);
+	}
+
+	/**
+	 * Build and save a sorted Layout for {@code tagName}, containing only the
+	 * canonical item IDs the player currently has in their bank, placed at
+	 * sequential grid positions in the order declared by {@link SkillBankData}.
+	 * No-op if the bank container isn't loaded yet or the tag is unknown.
+	 * Must run on the client thread.
+	 */
+	private void buildAndSaveLayout(String tagName)
+	{
+		List<Integer> sorted = SkillBankData.itemsFor(tagName);
+		if (sorted == null || sorted.isEmpty())
+		{
+			return;
+		}
+
+		ItemContainer bank = client.getItemContainer(InventoryID.BANK);
+		if (bank == null)
+		{
+			return;
+		}
+
+		Set<Integer> ownedCanonical = new HashSet<>();
+		for (Item it : bank.getItems())
+		{
+			if (it == null)
+			{
+				continue;
+			}
+			int id = it.getId();
+			if (id > 0)
+			{
+				ownedCanonical.add(itemManager.canonicalize(id));
+			}
+		}
+
+		Layout layout = new Layout(tagName);
+		int pos = 0;
+		for (Integer iid : sorted)
+		{
+			if (iid == null || iid < 0)
+			{
+				continue;
+			}
+			int canonical = itemManager.canonicalize(iid);
+			if (!ownedCanonical.contains(canonical))
+			{
+				continue;
+			}
+			layout.setItemAtPos(canonical, pos++);
+		}
+
+		layoutManager.saveLayout(layout);
+	}
+
+	/** Rebuild + save Layouts for every enabled Skill Bank tab. Client thread only. */
+	private void rebuildAllLayouts()
+	{
+		for (String tagName : SkillBankData.tags().keySet())
+		{
+			if (!isTabEnabled(tagName))
+			{
+				continue;
+			}
+			buildAndSaveLayout(tagName);
+		}
+	}
+
+	/**
+	 * Watch for bank changes. When a Skill Bank tag tab is the active tab,
+	 * rebuild its layout against the current bank contents and tell Bank Tags
+	 * to redraw so newly-deposited items pop into their sorted position.
+	 */
+	@Subscribe
+	public void onItemContainerChanged(ItemContainerChanged event)
+	{
+		if (event.getContainerId() != InventoryID.BANK)
+		{
+			return;
+		}
+		if (!tabInterface.isTagTabActive())
+		{
+			return;
+		}
+		String activeTag = tabInterface.getActiveTag();
+		if (activeTag == null || !SkillBankData.tags().containsKey(activeTag))
+		{
+			return;
+		}
+		buildAndSaveLayout(activeTag);
+		tabInterface.reloadActiveTab();
+	}
+
+	/**
+	 * When the bank closes, refresh layouts for every enabled Skill Bank tab.
+	 * The active tab is already refreshed by {@link #onItemContainerChanged};
+	 * this catches the other 20 so a tab switch on next bank-open uses the
+	 * latest sorted order.
+	 */
+	@Subscribe
+	public void onWidgetClosed(WidgetClosed event)
+	{
+		if (event.getGroupId() != InterfaceID.BANKMAIN)
+		{
+			return;
+		}
+		rebuildAllLayouts();
 	}
 
 	/**
@@ -377,6 +477,8 @@ public class SkillBankPlugin extends Plugin
 				cleared++;
 			}
 			configManager.unsetConfiguration(BANKTAGS_GROUP, ICON_PREFIX + tagName);
+			// Brief #57: also wipe the saved Layout so a re-seed starts clean.
+			layoutManager.removeLayout(tagName);
 		}
 
 		Set<String> tabsCsv = readTagTabs();
