@@ -74,11 +74,27 @@ public class SkillBankLayoutBuilder
 
 	public Layout buildLayout(String tagName, Set<Integer> ownedCanonical)
 	{
+		return buildLayoutImpl(tagName, ownedCanonical, null);
+	}
+
+	/** Trace-producing variant. Same logic as {@link #buildLayout} but writes
+	 *  a per-section / per-item dump into {@link LayoutTrace}. Used by the
+	 *  side-panel "Dump layout trace" button (Brief #59). */
+	public LayoutTrace traceLayout(String tagName, Set<Integer> ownedCanonical)
+	{
+		LayoutTrace trace = new LayoutTrace(tagName);
+		buildLayoutImpl(tagName, ownedCanonical, trace);
+		return trace;
+	}
+
+	private Layout buildLayoutImpl(String tagName, Set<Integer> ownedCanonical, LayoutTrace trace)
+	{
 		Layout layout = new Layout(tagName);
 
 		List<Integer> tabItems = SkillBankData.itemsFor(tagName);
 		if (tabItems == null || tabItems.isEmpty())
 		{
+			if (trace != null) trace.note("no items declared for tag");
 			return layout;
 		}
 
@@ -102,6 +118,11 @@ public class SkillBankLayoutBuilder
 			ownedInTab.add(canonical);
 		}
 
+		if (trace != null)
+		{
+			trace.header(ownedInTab.size());
+		}
+
 		if (ownedInTab.isEmpty())
 		{
 			return layout;
@@ -111,6 +132,7 @@ public class SkillBankLayoutBuilder
 		// production since TAB_SECTIONS covers every tab in SkillBankData.tags().
 		if (sectionOrder == null)
 		{
+			if (trace != null) trace.note("unknown tag — falling back to alpha sort");
 			ownedInTab.sort(Comparator.comparing(this::nameOf));
 			int pos = 0;
 			for (Integer iid : ownedInTab)
@@ -141,9 +163,10 @@ public class SkillBankLayoutBuilder
 		}
 
 		boolean twoZone = SkillBankSortData.TWO_ZONE_TABS.contains(tagName);
-		List<Integer> zone1 = new ArrayList<>();
-		List<Integer> zone2 = new ArrayList<>();
 
+		// Per-section results so we can render the trace by zone after
+		// partitioning, while still emitting the layout in zone1 → zone2 order.
+		List<SectionResult> results = new ArrayList<>();
 		for (String section : sectionOrder)
 		{
 			List<Integer> items = bySection.get(section);
@@ -151,40 +174,65 @@ public class SkillBankLayoutBuilder
 			{
 				continue;
 			}
-			sortSection(items, section, tagName);
+			String sortMethod = sortSection(items, section, tagName);
+			List<Integer> sec1 = new ArrayList<>();
+			List<Integer> sec2 = new ArrayList<>();
 			if (twoZone)
 			{
-				partitionTopTiers(items, section, tagName, zone1, zone2);
+				partitionTopTiers(items, section, tagName, sec1, sec2);
 			}
 			else
 			{
-				zone1.addAll(items);
+				sec1.addAll(items);
 			}
+			results.add(new SectionResult(section, sortMethod, sec1, sec2));
 		}
 
 		int pos = 0;
-		for (Integer iid : zone1)
+		// Zone 1 first, in section order.
+		for (SectionResult r : results)
 		{
-			layout.setItemAtPos(iid, pos++);
+			if (r.zone1.isEmpty()) continue;
+			if (trace != null) trace.section(r.section, 1, r.zone1.size(), r.sortMethod);
+			for (Integer iid : r.zone1)
+			{
+				if (trace != null) trace.item(pos, iid, nameOf(iid), meta.get(iid), 1);
+				layout.setItemAtPos(iid, pos++);
+			}
 		}
-		for (Integer iid : zone2)
+		// Zone 2 next.
+		for (SectionResult r : results)
 		{
-			layout.setItemAtPos(iid, pos++);
+			if (r.zone2.isEmpty()) continue;
+			if (trace != null) trace.section(r.section, 2, r.zone2.size(), r.sortMethod);
+			for (Integer iid : r.zone2)
+			{
+				if (trace != null) trace.item(pos, iid, nameOf(iid), meta.get(iid), 2);
+				layout.setItemAtPos(iid, pos++);
+			}
 		}
 
+		int z1 = 0, z2 = 0;
+		for (SectionResult r : results)
+		{
+			z1 += r.zone1.size();
+			z2 += r.zone2.size();
+		}
 		log.debug("Layout for '{}': {} owned items → zone1={}, zone2={}",
-			tagName, ownedInTab.size(), zone1.size(), zone2.size());
+			tagName, ownedInTab.size(), z1, z2);
 		return layout;
 	}
 
 	// ── Sorting helpers ────────────────────────────────────────────────────
 
-	private void sortSection(List<Integer> items, String section, String tagName)
+	/** Sorts items in place. Returns the name of the comparator used so the
+	 *  trace can show which sort domain fired for each section. */
+	private String sortSection(List<Integer> items, String section, String tagName)
 	{
 		if ("herblore".equals(tagName) && "Herbs".equals(section))
 		{
 			items.sort(this::compareHerbs);
-			return;
+			return "HERB_ORDER";
 		}
 		if ("Finished potions".equals(section)
 			|| "Barbarian mixes".equals(section)
@@ -195,36 +243,54 @@ public class SkillBankLayoutBuilder
 			|| "Run-energy consumables".equals(section))
 		{
 			items.sort(this::comparePotions);
-			return;
+			return "POTION_ORDER";
 		}
 		if (("cooking".equals(tagName) && "Cooked food".equals(section))
 			|| "Food".equals(section))
 		{
 			items.sort(this::compareFood);
-			return;
+			return "FOOD_ORDER";
 		}
 		if ("Runes".equals(section) || "Core runes".equals(section))
 		{
 			items.sort(this::compareRunes);
-			return;
+			return "RUNE_ORDER";
 		}
 		if ("Combination runes".equals(section))
 		{
 			items.sort(this::compareComboRunes);
-			return;
+			return "COMBO_RUNE_ORDER";
 		}
 		if ("Gems".equals(section))
 		{
 			items.sort(this::compareGems);
-			return;
+			return "GEM_ORDER";
 		}
 		if ("Weapons".equals(section))
 		{
 			items.sort(this::compareWeapons);
-			return;
+			return "WEAPON_CLASS_ORDER+tier_desc";
 		}
-		// Default: tier descending → name
 		items.sort(this::compareByTierDescThenName);
+		return "tier_desc+name";
+	}
+
+	/** Per-section sort + zone partition output. Used by buildLayoutImpl to
+	 *  emit zone 1 (all sections in order) then zone 2 (all sections in order). */
+	private static final class SectionResult
+	{
+		final String section;
+		final String sortMethod;
+		final List<Integer> zone1;
+		final List<Integer> zone2;
+
+		SectionResult(String section, String sortMethod, List<Integer> zone1, List<Integer> zone2)
+		{
+			this.section = section;
+			this.sortMethod = sortMethod;
+			this.zone1 = zone1;
+			this.zone2 = zone2;
+		}
 	}
 
 	/** Compute the top-N tier set per group within a section and split items. */

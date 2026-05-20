@@ -537,6 +537,69 @@ public class SkillBankPlugin extends Plugin
 		configManager.setConfiguration(SkillBankConfig.GROUP, "resetAll", true);
 	}
 
+	/**
+	 * Brief #59 diagnostic: dump a per-tab layout trace to disk so we can
+	 * compare the algorithm's intended ordering against what shows up in
+	 * the bank UI. Writes ~/.runelite/skillbank-layout-trace.log. Must run
+	 * on the client thread because it touches the bank container and
+	 * ItemManager.
+	 */
+	void triggerLayoutTraceDump()
+	{
+		clientThread.invokeLater(this::doDumpLayoutTrace);
+	}
+
+	private void doDumpLayoutTrace()
+	{
+		if (client.getGameState() != GameState.LOGGED_IN)
+		{
+			postChat("Skill Bank: trace dump requires being logged in.");
+			return;
+		}
+		ItemContainer bank = client.getItemContainer(InventoryID.BANK);
+		if (bank == null)
+		{
+			postChat("Skill Bank: open the bank at least once before dumping a trace.");
+			return;
+		}
+		Set<Integer> owned = new HashSet<>();
+		for (Item it : bank.getItems())
+		{
+			if (it == null) continue;
+			int id = it.getId();
+			if (id > 0) owned.add(itemManager.canonicalize(id));
+		}
+
+		StringBuilder out = new StringBuilder();
+		out.append("Skill Bank layout trace\n")
+			.append("Generated: ").append(java.time.Instant.now()).append("\n")
+			.append("Bank owned (canonical) item count: ").append(owned.size()).append("\n\n");
+
+		for (String tag : SkillBankData.tags().keySet())
+		{
+			LayoutTrace trace = layoutBuilder.traceLayout(tag, owned);
+			out.append(trace.render());
+			out.append("\n");
+		}
+
+		try
+		{
+			java.nio.file.Path target = java.nio.file.Paths.get(
+				System.getProperty("user.home"),
+				".runelite", "skillbank-layout-trace.log"
+			);
+			java.nio.file.Files.createDirectories(target.getParent());
+			java.nio.file.Files.writeString(target, out.toString());
+			postChat("Skill Bank: wrote layout trace to " + target);
+			log.info("Wrote layout trace to {}", target);
+		}
+		catch (Exception e)
+		{
+			log.error("Failed to write layout trace", e);
+			postChat("Skill Bank: failed to write trace — see console.");
+		}
+	}
+
 	void setResetConfirm(boolean value)
 	{
 		configManager.setConfiguration(SkillBankConfig.GROUP, "resetConfirm", value);

@@ -78,6 +78,13 @@ class SkillBankPanel extends PluginPanel
 		resetButton.addActionListener(e -> plugin.triggerReset());
 		content.add(resetButton);
 
+		content.add(createSpacer(6));
+
+		JButton traceButton = new JButton("Dump layout trace");
+		traceButton.setAlignmentX(LEFT_ALIGNMENT);
+		traceButton.addActionListener(e -> plugin.triggerLayoutTraceDump());
+		content.add(traceButton);
+
 		content.add(createSpacer(12));
 
 		statusLabel = new JLabel("Ready.");
