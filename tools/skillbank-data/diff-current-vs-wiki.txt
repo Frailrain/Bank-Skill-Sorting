@@ -9162,7 +9162,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
    33144  Veiled kraken tentacle
    33145  Veiled kraken ink sac
 
-=== cosmetics (2114 items not in wiki output) ===
+=== cosmetics (2115 items not in wiki output) ===
      626  Pink boots
      628  Green boots
      630  Blue boots
@@ -9178,6 +9178,7 @@ or should be added to force_include / variant_allowlist before flipping --additi
      650  Blue robe bottoms
      652  Cream robe bottoms
      654  Turquoise robe bottoms
+     740  Blue hat
      795  War ship
     1005  White apron
     1007  Red cape

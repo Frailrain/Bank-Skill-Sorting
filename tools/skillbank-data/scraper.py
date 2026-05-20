@@ -1612,13 +1612,8 @@ def main():
         import llm_promote  # type: ignore
 
         print(f"Building LLM-driven Java from {llm_json}...", file=sys.stderr)
-        # Preserve the slayer cross-tag loadout from Brief #50: every item
-        # currently in slayer (prayer pots, combat pots, top food, cannonballs,
-        # salve amulet, etc.) stays in slayer regardless of LLM placement.
         syn_tabs, llm_classified, report = llm_promote.build_synthetic_tabs(
             llm_json, mapping.TABS, items_by_id,
-            current_membership=current,
-            preserve_tabs=["slayer"],
         )
         # Render without legacy carry-over: LLM run is the new source of truth.
         llm_proposed = render_proposed(
@@ -1630,12 +1625,12 @@ def main():
 
         # Per-tab report
         print("\nLLM tab summary:")
-        print(f"  {'tab':<18} {'count':>6}  {'ovr_add':>7}  {'ovr_drop':>8}  {'extra':>5}  {'preserved':>9}")
+        print(f"  {'tab':<18} {'count':>6}  {'ovr_add':>7}  {'ovr_drop':>8}  {'extra':>5}")
         for tn in llm_promote.ALL_TAB_NAMES:
             r = report["tabs"][tn]
             print(
                 f"  {tn:<18} {r['count']:>6}  {r['override_added']:>7}  "
-                f"{r['override_dropped']:>8}  {r['extra_items_added']:>5}  {r['preserved']:>9}"
+                f"{r['override_dropped']:>8}  {r['extra_items_added']:>5}"
             )
 
         # Show a few override examples so it's obvious what came from mapping.py.
