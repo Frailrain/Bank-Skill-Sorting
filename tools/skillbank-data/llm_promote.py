@@ -203,34 +203,38 @@ def build_synthetic_tabs(
         "cosmetics":        "TAG_COSMETICS",
     }
 
+    # Brief #55: multi-section TabSpecs with deterministic section assignment
+    # and composite within-section sort keys. Section structure + per-tab
+    # assignment rules live in sort_tables.py.
+    import sort_tables  # type: ignore
+
     for tab_name in ALL_TAB_NAMES:
-        sec = scr.Section(
-            label="LLM classified",
-            classifier=lambda _it: False,  # unused in render path
-        )
+        section_names = sort_tables.TAB_SECTIONS[tab_name]
+        sec_objs = [
+            scr.Section(label=s, classifier=lambda _it: False)
+            for s in section_names
+        ]
         tab_spec = scr.TabSpec(
             name=tab_name,
             const_name=const_name_lookup[tab_name],
-            sections=[sec],
+            sections=sec_objs,
         )
         synthetic_tabs.append(tab_spec)
 
-        # Brief #54: sort primary items first, then cross-tagged items, then
-        # overrides. Items in Bank Tag Layouts display in tag insertion order,
-        # so this places the "real" tab content above the cross-tag overflow.
-        # Within each group, items are sorted alphabetically by name (a
-        # follow-up brief will replace this with tier-based ordering).
-        GROUP_RANK = {"primary": 0, "cross": 1, "override": 2}
-        items = [
-            (
-                (GROUP_RANK.get(origin[tab_name].get(iid, "override"), 2), name.lower()),
-                iid,
-                name,
-            )
-            for iid, name in by_tab[tab_name].items()
-        ]
-        items.sort(key=lambda t: (t[0], t[1]))
-        classified[tab_name] = [items]
+        # Bucket items into per-section lists with composite sort keys.
+        items_by_section: list[list[tuple[object, int, str]]] = [[] for _ in section_names]
+        for iid, name in by_tab[tab_name].items():
+            it = items_by_id.get(iid, {"id": iid, "name": name})
+            section = sort_tables.assign_section(it, tab_name)
+            sec_idx = section_names.index(section)
+            orig = origin[tab_name].get(iid, "override")
+            sort_key = sort_tables.composite_sort_key(it, tab_name, section, orig)
+            items_by_section[sec_idx].append((sort_key, iid, name))
+
+        for s_items in items_by_section:
+            s_items.sort(key=lambda t: t[0])
+
+        classified[tab_name] = items_by_section
 
     # Per-tab group counts driven by `origin` map (Brief #54).
     group_counts: dict[str, dict[str, int]] = {}

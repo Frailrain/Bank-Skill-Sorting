@@ -199,6 +199,10 @@ def merge_wiki_osrsbox(
             osb_weapon = osb.get("weapon") or {}
             if osb_weapon.get("weapon_type"):
                 weapon["weapon_type"] = osb_weapon["weapon_type"]
+            # Pull skill-level requirements through for the sort engine (Brief #55).
+            osb_eq = osb.get("equipment") or {}
+            if osb_eq.get("requirements"):
+                equipment["requirements"] = osb_eq["requirements"]
             quest_item = osb.get("quest_item", False)
             noted = osb.get("noted", False)
             placeholder = osb.get("placeholder", False)
