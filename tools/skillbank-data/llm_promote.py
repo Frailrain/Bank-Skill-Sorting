@@ -62,6 +62,9 @@ def build_synthetic_tabs(
     llm_json_path: Path,
     mapping_tabs: list,
     items_by_id: dict[int, dict],
+    *,
+    current_membership: dict[str, list[int]] | None = None,
+    preserve_tabs: list[str] | None = None,
 ):
     """Return (synthetic_tabs, classified_dict, report_dict).
 
@@ -94,6 +97,10 @@ def build_synthetic_tabs(
 
     # tab -> {id: name} so we can dedup and re-emit sorted.
     by_tab: dict[str, dict[int, str]] = {t: {} for t in ALL_TAB_NAMES}
+    # tab -> {id: origin} where origin ∈ {"primary","cross","override"}.
+    # Brief #54: drives primary-first sort order within each tab. "override"
+    # covers force_include + extra_items + preserve_tabs.
+    origin: dict[str, dict[int, str]] = {t: {} for t in ALL_TAB_NAMES}
 
     override_adds: dict[str, list[tuple[int, str]]] = {t: [] for t in ALL_TAB_NAMES}
     override_drops: dict[str, list[tuple[int, str]]] = {t: [] for t in ALL_TAB_NAMES}
@@ -102,10 +109,15 @@ def build_synthetic_tabs(
         iid = r["id"]
         name = r["name"]
         primary = r["primary_tab"]
-        # Brief #53: drop LLM cross-tags entirely — primary_tab is the only
-        # automatic signal. Intentional cross-tab overlaps (slayer loadout,
-        # etc.) are declared as explicit TabSpec.extra_items in mapping.py.
-        tabs_for_item: set[str] = {primary}
+        cross = r.get("cross_tags") or []
+        tabs_for_item: set[str] = {primary, *cross}
+
+        # Per-item origin map; primary wins over cross when the LLM lists the
+        # primary tab in its own cross_tags (shouldn't happen, but defend).
+        item_origins: dict[str, str] = {primary: "primary"}
+        for c in cross:
+            if c != primary:
+                item_origins[c] = "cross"
 
         # Apply force_include: any tab where this name is forced in.
         for tab_name in ALL_TAB_NAMES:
@@ -113,11 +125,16 @@ def build_synthetic_tabs(
                 if tab_name not in tabs_for_item:
                     override_adds[tab_name].append((iid, name))
                 tabs_for_item.add(tab_name)
+                # force_include only sets origin if not already primary/cross,
+                # so a force_include that confirms the LLM choice doesn't
+                # demote the item from "primary" to "override".
+                item_origins.setdefault(tab_name, "override")
 
         # Apply force_exclude: drop any tab where this name is forbidden.
         for tab_name in list(tabs_for_item):
             if name in forbidden_from.get(tab_name, ()):
                 tabs_for_item.discard(tab_name)
+                item_origins.pop(tab_name, None)
                 override_drops[tab_name].append((iid, name))
 
         for tab_name in tabs_for_item:
@@ -127,16 +144,37 @@ def build_synthetic_tabs(
                 # but defend anyway.
                 continue
             by_tab[tab_name][iid] = name
+            origin[tab_name][iid] = item_origins.get(tab_name, "override")
 
-    # Apply mapping.py extra_items — explicit (id, name, tab) overrides for
-    # items the LLM didn't auto-place where we want them (e.g. Brief #50 slayer
-    # loadout: prayer pots, top food, cannonballs, etc.) plus items missing from
-    # the wiki/osrsbox dump (e.g. post-cutoff Sailing IDs).
+    # Apply mapping.py extra_items (items the wiki/osrsbox dump didn't carry).
     extra_count: dict[str, int] = {t: 0 for t in ALL_TAB_NAMES}
     for iid, name, tab_name in _collect_extra_items(mapping_tabs):
         if tab_name in by_tab and iid not in by_tab[tab_name]:
             by_tab[tab_name][iid] = name
+            origin[tab_name][iid] = "override"
             extra_count[tab_name] += 1
+
+    # Preserve membership for designated tabs (additive): every item currently
+    # in tab X stays in tab X regardless of LLM. Built for the Brief #50 slayer
+    # loadout cross-tag design — the LLM doesn't know "this is a slayer task
+    # food/potion/cannonball", so we keep manual curation as truth.
+    preserved: dict[str, list[tuple[int, str]]] = {t: [] for t in ALL_TAB_NAMES}
+    if current_membership and preserve_tabs:
+        for tab_name in preserve_tabs:
+            if tab_name not in by_tab:
+                continue
+            for iid in current_membership.get(tab_name, []):
+                if iid in by_tab[tab_name]:
+                    continue
+                it = items_by_id.get(iid)
+                if it is None or it.get("noted") or it.get("placeholder") or it.get("duplicate"):
+                    continue
+                name = it.get("name") or ""
+                if not name:
+                    continue
+                by_tab[tab_name][iid] = name
+                origin[tab_name][iid] = "override"
+                preserved[tab_name].append((iid, name))
 
     # Build synthetic TabSpecs and the classified dict.
     classified: dict[str, list[list[tuple[object, int, str]]]] = {}
@@ -177,20 +215,42 @@ def build_synthetic_tabs(
         )
         synthetic_tabs.append(tab_spec)
 
+        # Brief #54: sort primary items first, then cross-tagged items, then
+        # overrides. Items in Bank Tag Layouts display in tag insertion order,
+        # so this places the "real" tab content above the cross-tag overflow.
+        # Within each group, items are sorted alphabetically by name (a
+        # follow-up brief will replace this with tier-based ordering).
+        GROUP_RANK = {"primary": 0, "cross": 1, "override": 2}
         items = [
-            (name.lower(), iid, name)
+            (
+                (GROUP_RANK.get(origin[tab_name].get(iid, "override"), 2), name.lower()),
+                iid,
+                name,
+            )
             for iid, name in by_tab[tab_name].items()
         ]
         items.sort(key=lambda t: (t[0], t[1]))
         classified[tab_name] = [items]
 
+    # Per-tab group counts driven by `origin` map (Brief #54).
+    group_counts: dict[str, dict[str, int]] = {}
+    for tab_name in ALL_TAB_NAMES:
+        counts = {"primary": 0, "cross": 0, "override": 0}
+        for iid in by_tab[tab_name]:
+            counts[origin[tab_name].get(iid, "override")] += 1
+        group_counts[tab_name] = counts
+
     report = {
         "tabs": {
             tab_name: {
                 "count": len(by_tab[tab_name]),
+                "primary": group_counts[tab_name]["primary"],
+                "cross": group_counts[tab_name]["cross"],
+                "override": group_counts[tab_name]["override"],
                 "override_added": len(override_adds[tab_name]),
                 "override_dropped": len(override_drops[tab_name]),
                 "extra_items_added": extra_count[tab_name],
+                "preserved": len(preserved[tab_name]),
             }
             for tab_name in ALL_TAB_NAMES
         },
@@ -199,6 +259,9 @@ def build_synthetic_tabs(
         },
         "override_drops_sample": {
             tab: override_drops[tab][:5] for tab in ALL_TAB_NAMES if override_drops[tab]
+        },
+        "preserved_sample": {
+            tab: preserved[tab][:5] for tab in ALL_TAB_NAMES if preserved[tab]
         },
     }
     return synthetic_tabs, classified, report

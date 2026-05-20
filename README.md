@@ -19,6 +19,10 @@ Items live in **every tab where you'd want them visible** — raw fish appear un
 
 - The **Bank Tags** plugin must be installed and active. This plugin writes to Bank Tags' configuration; without it, the seeded data has nothing to render.
 
+## Recommended companion plugin
+
+For the best in-game experience, also install **Bank Tag Layouts** from the Plugin Hub and turn on its *Enable layout by default* setting. Without it, items in each skill tab are grouped by which real bank tab they came from, broken up by separator lines — items inside each group still render in the order this plugin emits them (primary items first, then cross-tagged items), but the separator lines fragment the view. With Bank Tag Layouts on, the whole tab renders as a single contiguous grid.
+
 ## Usage
 
 1. Make sure the **Bank Tags** plugin is enabled in your RuneLite plugin list.

@@ -47,7 +47,12 @@ class SkillBankPanel extends PluginPanel
 
 		JLabel help = new JLabel(
 			"<html>Seeds missing Bank Tags groups.<br>"
-				+ "Existing tags are never overwritten.</html>");
+				+ "Existing tags are never overwritten.<br><br>"
+				+ "<b>Recommended:</b> install <i>Bank Tag Layouts</i> from<br>"
+				+ "the Plugin Hub and enable<br>"
+				+ "<i>Enable layout by default</i>. Without it, tabs are<br>"
+				+ "grouped by source bank with separator lines, not a<br>"
+				+ "flat grid.</html>");
 		help.setForeground(Color.LIGHT_GRAY);
 		help.setAlignmentX(LEFT_ALIGNMENT);
 		content.add(help);
