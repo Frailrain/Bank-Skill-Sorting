@@ -181,18 +181,6 @@ public interface SkillBankConfig extends Config
 	}
 
 	@ConfigItem(
-		keyName = "tabFiremaking",
-		name = "firemaking",
-		description = "Seed the firemaking tag (tinderbox, pyromancer outfit, firelighters)",
-		section = tabsSection,
-		position = 8
-	)
-	default boolean tabFiremaking()
-	{
-		return true;
-	}
-
-	@ConfigItem(
 		keyName = "tabCrafting",
 		name = "crafting",
 		description = "Seed the crafting tag (gems, moulds, leather, dragonhide, glass)",

@@ -27,7 +27,7 @@ id,name,old_tabs,new_tabs,changed,rationale,confidence
 30,Bucket of wax,Quests,Quests,no,"Quest item used in Merlin's Crystal and Troll Romance. No ongoing use, so quests only.",high
 34,Lit candle,Misc,Misc,no,"Discontinued, unobtainable variant of the candle with no function. Fits no skill tab, so misc.",medium
 35,Excalibur,"Melee,Quests",Melee,yes,"Equippable one-handed slash sword requiring 20 Attack, comparable to an adamant longsword. Classified by function as melee; dropped quests per the quest-tool policy.",high
-36,Candle,Firemaking,Firemaking,no,A basic light source lit with a tinderbox. Kept in firemaking as the home for tinderbox-lit light sources.,medium
+36,Candle,Woodcutting + Firemaking,Woodcutting + Firemaking,no,A basic light source lit with a tinderbox. Kept in firemaking as the home for tinderbox-lit light sources.,medium
 38,Black candle,Quests,Quests,no,"Quest-specific candle used only in Merlin's Crystal, with no use outside that quest, so quests only.",high
 39,Bronze arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from a bronze bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
 40,Iron arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from an iron bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high

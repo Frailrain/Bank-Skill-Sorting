@@ -1,4 +1,10 @@
-# Cowork audit prompt — v2 (post Brief #63)
+# Cowork audit prompt — v2 (post Brief #63 + #64)
+
+> **Brief #64 (post-pause amendment)**: the standalone `Firemaking` tab is
+> gone. All firemaking items belong in `Woodcutting + Firemaking`. The
+> 23-tab list below has been trimmed to 22 — `Firemaking` is no longer
+> a destination. Any earlier decision listing `Firemaking` has been
+> migrated automatically to `Woodcutting + Firemaking`.
 
 This replaces v1. Two structural changes you need to absorb before resuming
 the per-item audit:
@@ -18,7 +24,7 @@ the per-item audit:
    | `mining_smithing`     | `Mining + Smithing`             |
    | `agility_thieving`    | `Agility + Thieving`            |
 
-   The tab count is now **23**.
+   The tab count is now **22** (Brief #64 dropped standalone `Firemaking`).
 
 Your earlier decisions (`audit/decisions.jsonl`, `audit/log-batch-001.csv`)
 have been mechanically migrated to the new names. Items previously in
@@ -27,7 +33,7 @@ using a name-pattern rule (axes/logs/firemaking outfit → W+F; bows / arrows /
 bolts / darts / strings / tips → Fletching). Audit those items again if the
 split is wrong for any specific case.
 
-## The 23 tabs
+## The 22 tabs
 
 For each tab below: name, item categories, sample items.
 
@@ -41,7 +47,6 @@ For each tab below: name, item categories, sample items.
 | Woodcutting + Firemaking | Axes, logs, pyre logs, tinderbox, firelighters, shade items, Wintertodt items, lumberjack/pyromancer outfits, Forestry items | Bronze axe, Magic logs, Tinderbox, Pyromancer top, Bruma kindling |
 | Fletching | Bow strings, unstrung bows, strung bows (when not yet wielded), arrow shafts, headless arrows, dart tips, bolt tips, feathers (for fletching), finished arrows/darts/bolts/javelins, fletching cape | Bow string, Magic shortbow (u), Bronze arrowtips, Dragon arrow, Fletching cape |
 | Fishing | Raw fish, fishing rods/nets/cages/harpoons, bait, fishing outfit | Raw shark, Fishing rod, Karambwan vessel, Angler hat |
-| Firemaking | Tinderbox-and-log content (also appears in Woodcutting + Firemaking — items can be in both); for items where firemaking is the dominant use, list both tabs | Tinderbox, Logs, Pyromancer outfit, Firemaking cape |
 | Crafting | Gems, moulds, leather, dragonhide pre-craft, glass, ball of wool, needle, chisel, gauntlets | Sapphire, Molten glass, Soft leather, Needle |
 | Mining + Smithing | Ores, bars, pickaxes, prospector outfit, smiths/foundry outfit, hammer | Iron ore, Steel bar, Rune pickaxe, Prospector helm |
 | Herblore | Herbs (clean + grimy), vials, secondaries, all potion doses, pestle and mortar | Ranarr weed, Grimy ranarr weed, Vial, Snape grass, Super combat potion (4) |
@@ -92,7 +97,7 @@ Per-item decision JSON line in `audit/decisions.jsonl`:
 {"id": 4151, "name": "Abyssal whip", "tabs": ["Melee", "Slayer"], "rationale": "<one sentence>", "confidence": "high|medium|low"}
 ```
 
-Tabs must be from the 23-name list above (exact spelling, exact case, `+`
+Tabs must be from the 22-name list above (exact spelling, exact case, `+`
 with spaces in the combined names). Each item should appear in at least one
 tab — if you truly believe it belongs in none, set `tabs: []` and explain
 in the rationale.

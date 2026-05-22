@@ -43,7 +43,6 @@ public final class SkillBankData
 	public static final String TAG_WOODCUTTING_FIREMAKING = "woodcutting_firemaking";
 	public static final String TAG_FLETCHING = "fletching";
 	public static final String TAG_FISHING = "fishing";
-	public static final String TAG_FIREMAKING = "firemaking";
 	public static final String TAG_CRAFTING = "crafting";
 	public static final String TAG_MINING_SMITHING = "mining_smithing";
 	public static final String TAG_HERBLORE = "herblore";
@@ -73,7 +72,6 @@ public final class SkillBankData
 		i.put(TAG_WOODCUTTING_FIREMAKING, 1513); // magic logs
 		i.put(TAG_FLETCHING, 1777);          // bow string
 		i.put(TAG_FISHING, 307);             // fishing rod
-		i.put(TAG_FIREMAKING, 590);          // tinderbox
 		i.put(TAG_CRAFTING, 1733);           // needle
 		i.put(TAG_MINING_SMITHING, 1275);    // rune pickaxe
 		i.put(TAG_HERBLORE, 2428);           // attack potion (4)
@@ -222,17 +220,9 @@ public final class SkillBankData
 		//   pet (3), Legacy (25)
 		addFishing(m);
 
-		// ---------------------------------------------------------------------
-		// FIREMAKING — Firemaking skill.
-		// Cross-tags: all logs (dup WC), tinderbox (dup cooking).
-		// ---------------------------------------------------------------------
-		// FIREMAKING — 82 items
-		//   Tinderbox (2), Logs (30), Firelighters (6), Lanterns (7), Wintertodt
-		//   (9), Cape (3), Legacy (25)
-		// FIREMAKING — 96 items
-		//   Tinderbox (2), Logs (42), Firelighters (6), Lanterns (7), Wintertodt
-		//   (9), Cape (2), Legacy (28)
-		addFiremaking(m);
+		// Brief #64: standalone firemaking tab removed. Its items were merged
+		// into addWoodcuttingFiremaking() (see new === Merged from firemaking
+		// (Brief #64) === block in that method).
 
 		// ---------------------------------------------------------------------
 		// CRAFTING — Crafting skill.
@@ -1304,7 +1294,24 @@ public final class SkillBankData
 
 			// === Woodcutting & Fletching outfits ===
 			28157, 28143, 28175, 28173, 28136, 28171, 28169, 10933,
-			10941, 10940, 10939, 9783, 9785, 9807, 9809
+			10941, 10940, 10939, 9783, 9785, 9807, 9809,
+
+			// === Merged from firemaking (Brief #64) ===
+			// 85 IDs unique to the old standalone firemaking tab. Covers
+			// tinderboxes, firelighters, pyre logs, shade items, Wintertodt
+			// rewards, pyromancer outfit, firemaking cape, lanterns. The
+			// audit pass will redistribute these across the W+F sections.
+			10327, 7331, 20720, 29777, 4073, 20275, 7330, 10326,
+			7329, 590, 7156, 10328, 7406, 10329, 7404, 31386,
+			10808, 31383, 6213, 3444, 3440, 3438, 31389, 6211,
+			3442, 3402, 3404, 3396, 3398, 3400, 20710, 20704,
+			20708, 20706, 24554, 20702, 20701, 20700, 20699, 4548,
+			4546, 36, 4529, 29947, 27426, 4527, 4535, 20791,
+			7794, 21869, 4522, 4537, 3436, 3434, 3432, 3430,
+			22593, 596, 22597, 20712, 9804, 9806, 26822, 592,
+			20698, 4544, 20718, 1468, 13573, 22595, 20722, 10980,
+			4525, 10973, 11337, 5014, 4540, 3428, 3422, 9934,
+			4700, 6448, 25419, 7053, 13329
 		));
 	}
 
@@ -1353,44 +1360,6 @@ public final class SkillBankData
 			22945, 22947, 2876, 338, 25, 11324, 33062, 28502,
 			25578, 7990, 25561, 7994, 7992, 31410, 31414, 31422,
 			31418, 31426, 31430, 31428, 25567, 31820, 32328, 13280
-		));
-	}
-
-	private static void addFiremaking(Map<String, List<Integer>> m)
-	{
-		// FIREMAKING — 113 items
-		//   Tinderboxes & firelighting tools (11), Logs (22), Pyre logs (13),
-		//   Shade items (5), Wintertodt & minigame items (10), Firemaking outfit &
-		//   rewards (52)
-		m.put(TAG_FIREMAKING, Arrays.asList(
-			// === Tinderboxes & firelighting tools ===
-			10327, 7331, 20720, 29777, 4073, 20275, 7330, 10326,
-			7329, 590, 7156,
-
-			// === Logs ===
-			10328, 7406, 7405, 10329, 7404, 32907, 2862, 10810,
-			24691, 32904, 32902, 1511, 2511, 1513, 6332, 1517,
-			1521, 19669, 32910, 6333, 1519, 1515,
-
-			// === Pyre logs ===
-			31386, 10808, 31383, 3448, 6213, 3444, 3440, 3438,
-			19672, 31389, 6211, 3442, 3446,
-
-			// === Shade items ===
-			3402, 3404, 3396, 3398, 3400,
-
-			// === Wintertodt & minigame items ===
-			20696, 20710, 20704, 20708, 20706, 24554, 20702, 20701,
-			20700, 20699,
-
-			// === Firemaking outfit & rewards ===
-			20695, 4548, 4546, 36, 4529, 29947, 27426, 4527,
-			4535, 20791, 7794, 20799, 21869, 4522, 4537, 3436,
-			3434, 3432, 3430, 22593, 596, 22597, 20712, 9804,
-			9806, 26822, 592, 20698, 4544, 20718, 1468, 13573,
-			25110, 22595, 20722, 10980, 4525, 10973, 11337, 5014,
-			4540, 3428, 3422, 9934, 4700, 6448, 25419, 7053,
-			13241, 13242, 13329, 13280
 		));
 	}
 

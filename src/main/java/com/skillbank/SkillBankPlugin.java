@@ -419,7 +419,7 @@ public class SkillBankPlugin extends Plugin
 	/**
 	 * When the bank closes, refresh layouts for every enabled Skill Bank tab.
 	 * The active tab is already refreshed by {@link #onItemContainerChanged};
-	 * this catches the other 22 so a tab switch on next bank-open uses the
+	 * this catches the other 21 so a tab switch on next bank-open uses the
 	 * latest sorted order.
 	 */
 	@Subscribe
@@ -621,7 +621,6 @@ public class SkillBankPlugin extends Plugin
 		toggles.put(SkillBankData.TAG_WOODCUTTING_FIREMAKING, config::tabWoodcuttingFiremaking);
 		toggles.put(SkillBankData.TAG_FLETCHING, config::tabFletching);
 		toggles.put(SkillBankData.TAG_FISHING, config::tabFishing);
-		toggles.put(SkillBankData.TAG_FIREMAKING, config::tabFiremaking);
 		toggles.put(SkillBankData.TAG_CRAFTING, config::tabCrafting);
 		toggles.put(SkillBankData.TAG_MINING_SMITHING, config::tabMiningSmithing);
 		toggles.put(SkillBankData.TAG_HERBLORE, config::tabHerblore);

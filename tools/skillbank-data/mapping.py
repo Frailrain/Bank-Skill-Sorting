@@ -1821,38 +1821,10 @@ FISHING = TabSpec(
     ],
 )
 
-# === FIREMAKING ===
-FIREMAKING = TabSpec(
-    name="firemaking", const_name="TAG_FIREMAKING",
-    sections=[
-        Section("Tinderbox", _name_in({"Tinderbox", "Bruma torch"})),
-        Section("Logs", _is_log, sort_key=_log_sort_key),
-        Section("Firelighters", _name_ends(" firelighter")),
-        Section("Lanterns", _name_in({
-            "Bullseye lantern", "Bullseye lantern (unf)", "Bullseye lantern (empty)",
-            "Mining helmet", "Oil lantern", "Empty oil lantern", "Oil lantern frame",
-            "Sapphire lantern", "Emerald lantern", "Lit bug lantern",
-            "Candle lantern", "Empty candle lantern",
-            "Lantern lens", "Oil lamp", "Empty oil lamp",
-            "Torch", "Unlit torch", "Lit torch",
-        })),
-        Section("Wintertodt", _name_in({
-            "Bruma kindling", "Bruma root", "Burnt page",
-            "Pyromancer hood", "Pyromancer garb",
-            "Pyromancer robe", "Pyromancer boots",
-            "Warm gloves", "Warm cloak",
-            "Phoenix", "Phoenix pet",
-            # session 48 — Wintertodt rejuvenation herb
-            "Bruma herb",
-            # session 60 — Wintertodt GE convenience set
-            "Pyromancer set",
-        })),
-        Section("Lovakengj charcoal", _name_in({
-            "Juniper charcoal",
-        })),
-        Section("Cape", _name_in({"Firemaking cape", "Firemaking cape(t)", "Firemaking hood"})),
-    ],
-)
+# Brief #64: standalone FIREMAKING TabSpec removed. Its content now lives
+# entirely inside WOODCUTTING_FIREMAKING (Brief #63). Promote uses LLM
+# output rather than these predicates for tab membership, so removing the
+# predicates here doesn't change classification behavior.
 
 # === CRAFTING ===
 CRAFTING = TabSpec(
@@ -3007,7 +2979,7 @@ TELEPORTS = TabSpec(
 TABS: list[TabSpec] = [
     MELEE, RANGE, MAGE, PRAYER, COOKING,
     WOODCUTTING_FIREMAKING, FLETCHING,
-    FISHING, FIREMAKING,
+    FISHING,
     CRAFTING, MINING_SMITHING, HERBLORE, AGILITY_THIEVING, SLAYER, FARMING,
     RUNECRAFT, HUNTER, CONSTRUCTION, MISC, QUESTS, SAILING, COSMETICS,
     TELEPORTS,

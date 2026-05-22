@@ -126,11 +126,9 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Fishing tools", "Bait & consumables", "Fishing outfit",
         "Raw fish", "Fishing minigame items",
     ],
-    "firemaking": [
-        "Tinderboxes & firelighting tools", "Logs", "Pyre logs",
-        "Shade items", "Wintertodt & minigame items",
-        "Firemaking outfit & rewards",
-    ],
+    # Brief #64: standalone firemaking tab removed. All firemaking content
+    # lives in "woodcutting_firemaking" (Woodcutting + Firemaking) which
+    # was created in Brief #63.
     "crafting": [
         "Crafting tools & moulds", "Gems", "Hides & leather",
         "Spinning materials", "Glassmaking", "Pottery & clay",
@@ -230,7 +228,6 @@ TAB_DISPLAY_NAMES: dict[str, str] = {
     "woodcutting_firemaking": "Woodcutting + Firemaking",
     "fletching": "Fletching",
     "fishing": "Fishing",
-    "firemaking": "Firemaking",
     "crafting": "Crafting",
     "mining_smithing": "Mining + Smithing",
     "herblore": "Herblore",
@@ -902,25 +899,8 @@ def _section_fishing(item: dict) -> str:
     return "Fishing minigame items"
 
 
-def _section_firemaking(item: dict) -> str:
-    nlow = _name(item).lower()
-    # Brief #60: ID-set lookups for logs / pyre logs.
-    if _is(item, "pyre_logs"):
-        return "Pyre logs"
-    if _is(item, "logs"):
-        return "Logs"
-    if "tinderbox" in nlow or "firelighter" in nlow or "bruma torch" in nlow:
-        return "Tinderboxes & firelighting tools"
-    if "pyre logs" in nlow:
-        return "Pyre logs"
-    if nlow.endswith(" logs"):
-        return "Logs"
-    if any(k in nlow for k in ("shade", "fiyr", "loar", "phrin", "riyl", "asyn")):
-        return "Shade items"
-    if any(k in nlow for k in ("wintertodt", "pyromancer", "bruma kindling",
-                               "rejuvenation potion")):
-        return "Wintertodt & minigame items"
-    return "Firemaking outfit & rewards"
+# Brief #64 removed _section_firemaking — its logic moved into
+# _section_woodcutting_firemaking() in Brief #63.
 
 
 def _section_crafting(item: dict) -> str:
@@ -1316,7 +1296,6 @@ _TAB_TO_FN = {
     "woodcutting_firemaking": _section_woodcutting_firemaking,
     "fletching": _section_fletching,
     "fishing": _section_fishing,
-    "firemaking": _section_firemaking,
     "crafting": _section_crafting,
     "mining_smithing": _section_mining_smithing,
     "herblore": _section_herblore,
@@ -1393,7 +1372,7 @@ def _rune_rank(name_lower: str) -> int:
 
 _COMBAT_TABS = {"melee", "range", "mage"}
 _SKILL_PRODUCTION_TABS = {"cooking", "woodcutting_firemaking", "fletching",
-                          "fishing", "firemaking",
+                          "fishing",
                           "crafting", "mining_smithing", "herblore", "runecraft",
                           "farming", "hunter", "construction"}
 

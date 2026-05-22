@@ -2,7 +2,7 @@
 
 Replaces (eventually) the heuristic predicate stack in mapping.py. Each
 item is presented with its osrsbox/wiki metadata + trimmed wikitext, plus
-the 23 tab definitions, and the model returns a JSON object specifying a
+the 22 tab definitions, and the model returns a JSON object specifying a
 flat list of every tab the item belongs in.
 
 Brief #62 flattened the schema. Earlier versions split the answer into a
@@ -51,7 +51,6 @@ TAB_DEFS: list[tuple[str, str]] = [
     ("woodcutting_firemaking", "Axes, logs, pyre logs, tinderbox, firelighters, bruma torch, shade keys/remains, Wintertodt items (bruma kindling, rejuvenation potion, supply crates), pyromancer/lumberjack/forester outfits, woodcutting/firemaking cape, Forestry items (sturdy/anima/log basket/secateurs), Beaver pet."),
     ("fletching",         "Knife (when used as a fletching tool), chisel (for stocks), bow strings, unstrung & strung bows, crossbow stocks, finished crossbows, arrow shafts, headless arrows, dart tips, bolt tips, feathers (cross-tag with fishing), finished arrows/darts/bolts/javelins, fletching cape/hood."),
     ("fishing",           "Raw fish, fishing rods/nets/cages/harpoons, bait, feathers (as fishing bait), angler outfit, fish barrel, spirit anglers, heron."),
-    ("firemaking",        "Tinderbox, pyromancer outfit, firelighters, bruma torch, bonfire/forester's items, firemaking cape."),
     ("crafting",          "Gems (cut + uncut), moulds, leather/tanned hide pre-craft, glass, ball of wool, threads, needle, chisel, crafting cape, dragonhide bodies/chaps/vamb (post-craft)."),
     ("mining_smithing",   "Ores, bars, pickaxes, prospector outfit, smiths/foundry outfit, hammer, mining/smithing cape, gold/silver bars when used as material, varrock armour."),
     ("herblore",          "Herbs (clean + grimy), vials, secondary ingredients, all potion doses (1/2/3/4), pestle and mortar, herblore cape."),
@@ -93,7 +92,7 @@ def _build_system_prompt() -> str:
 Given an item's name, metadata, and wiki page content, decide:
 1. **tabs** — the complete list of tabs this item belongs in. A player should
    expect to find this item in every listed tab. Must be a non-empty list of
-   tab names drawn from the 23 below. Order is irrelevant; duplicates are not
+   tab names drawn from the 22 below. Order is irrelevant; duplicates are not
    allowed. An item with no skill-specific use should land in a single utility
    tab (misc, quests, or cosmetics as appropriate).
 2. **rationale** — one sentence explaining the choice (used for human review).

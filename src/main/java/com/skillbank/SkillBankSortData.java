@@ -206,11 +206,8 @@ public final class SkillBankSortData
 			"Fishing tools", "Bait & consumables", "Fishing outfit",
 			"Raw fish", "Fishing minigame items"
 		));
-		m.put("firemaking", List.of(
-			"Tinderboxes & firelighting tools", "Logs", "Pyre logs",
-			"Shade items", "Wintertodt & minigame items",
-			"Firemaking outfit & rewards"
-		));
+		// Brief #64: standalone firemaking tab removed. Its content lives
+		// in "woodcutting_firemaking" (Woodcutting + Firemaking).
 		m.put("crafting", List.of(
 			"Crafting tools & moulds", "Gems", "Hides & leather",
 			"Spinning materials", "Glassmaking", "Pottery & clay",
@@ -302,7 +299,7 @@ public final class SkillBankSortData
 		"melee", "range", "mage",
 		"cooking", "herblore",
 		"prayer", "woodcutting_firemaking", "fletching",
-		"fishing", "firemaking",
+		"fishing",
 		"crafting", "mining_smithing",
 		"agility_thieving", "farming", "runecraft", "hunter", "construction"
 	);

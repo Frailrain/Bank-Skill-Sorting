@@ -32,7 +32,7 @@ from pathlib import Path
 ALL_TAB_NAMES = [
     "melee", "range", "mage", "prayer", "cooking",
     "woodcutting_firemaking", "fletching",
-    "fishing", "firemaking", "crafting", "mining_smithing",
+    "fishing", "crafting", "mining_smithing",
     "herblore", "agility_thieving",
     "slayer", "farming", "runecraft", "hunter", "construction", "misc",
     "quests", "sailing", "cosmetics", "teleports",
@@ -229,7 +229,6 @@ def build_synthetic_tabs(
         "woodcutting_firemaking": "TAG_WOODCUTTING_FIREMAKING",
         "fletching":        "TAG_FLETCHING",
         "fishing":          "TAG_FISHING",
-        "firemaking":       "TAG_FIREMAKING",
         "crafting":         "TAG_CRAFTING",
         "mining_smithing":  "TAG_MINING_SMITHING",
         "herblore":         "TAG_HERBLORE",
