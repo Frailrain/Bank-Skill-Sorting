@@ -172,10 +172,35 @@ public final class SkillBankSortData
 			"Cooking tools & utensils", "Raw cookables", "Ingredients",
 			"Cooked food", "Special & combo food", "Burnt food"
 		));
-		m.put("wc_fletching", List.of(
-			"Axes", "Logs", "Fletching tools", "Bow & ammo materials",
-			"Unstrung bows", "Strung bows", "Finished arrows, darts & bolts",
-			"Woodcutting & Fletching outfits"
+		// Brief #63: wc_fletching split into a combined Woodcutting + Firemaking
+		// tab and a standalone Fletching tab. Display names live in the
+		// Python TAB_DISPLAY_NAMES map; tag IDs stay snake_case so existing
+		// banktags config keys keep parsing.
+		m.put("woodcutting_firemaking", List.of(
+			"Axes",
+			"Logs",
+			"Pyre logs",
+			"Tinderboxes & firelighting tools",
+			"Shade items",
+			"Wintertodt & minigame items",
+			"Woodcutting outfit",
+			"Firemaking outfit",
+			"Forestry items",
+			"Misc utility"
+		));
+		m.put("fletching", List.of(
+			"Fletching tools",
+			"Bow materials",
+			"Unstrung bows",
+			"Strung bows",
+			"Crossbow stocks",
+			"Crossbows",
+			"Arrow & dart components",
+			"Finished arrows",
+			"Finished darts",
+			"Finished bolts",
+			"Finished javelins",
+			"Fletching outfit & rewards"
 		));
 		m.put("fishing", List.of(
 			"Fishing tools", "Bait & consumables", "Fishing outfit",
@@ -276,7 +301,8 @@ public final class SkillBankSortData
 	public static final Set<String> TWO_ZONE_TABS = Set.of(
 		"melee", "range", "mage",
 		"cooking", "herblore",
-		"prayer", "wc_fletching", "fishing", "firemaking",
+		"prayer", "woodcutting_firemaking", "fletching",
+		"fishing", "firemaking",
 		"crafting", "mining_smithing",
 		"agility_thieving", "farming", "runecraft", "hunter", "construction"
 	);

@@ -1,0 +1,51 @@
+id,name,old_tabs,new_tabs,changed,rationale,confidence
+0,Dwarf remains,Quests,Quests,no,"Pure quest item used only in Dwarf Cannon, with no skill or combat function. A player would only look for it in the quests tab.",high
+1,Toolkit,Quests,Quests,no,"Quest item used only in Dwarf Cannon to repair the broken cannon during the quest. No ongoing skill use, so quests only.",high
+2,Steel cannonball,"Mining + Smithing,Range,Slayer","Mining + Smithing,Range,Slayer",no,"Cannon ammunition cast from steel bars via Smithing, fired from the dwarf multicannon during ranged combat and used as a slayer-task accelerator. Per the cannon rule it belongs in Mining + Smithing, range, and slayer.",high
+3,Nulodion's notes,Quests,Quests,no,"Quest item used only in Dwarf Cannon. The examine text mentions construction of cannon ammo, but it is not a Construction-skill item, so it stays in quests only.",high
+4,Ammo mould,"Mining + Smithing,Quests",Mining + Smithing,yes,"The reusable tool that casts steel bars into cannonballs, which is a Smithing activity, so it belongs in Mining + Smithing. Dropped the quests tag because it is a permanent skilling tool kept for its function rather than a quest keepsake.",high
+5,Instruction manual,Misc,Misc,no,"The dwarf multicannon reference book with no skill or combat function and not a deployable part, so it stays in misc.",medium
+6,Cannon base,"Quests,Range,Slayer","Range,Slayer",yes,"Deployable dwarf multicannon part, so range and slayer per the cannon rule. Dropped quests because it is a functional combat tool.",high
+8,Cannon stand,"Misc,Quests,Slayer","Range,Slayer",yes,"Deployable dwarf multicannon part, so range and slayer per the cannon rule. Dropped misc and quests; added range.",high
+10,Cannon barrels,"Misc,Quests,Range,Slayer","Range,Slayer",yes,"Deployable dwarf multicannon part that fires the cannonballs, so range and slayer. Dropped misc and quests as noise.",high
+12,Cannon furnace,"Misc,Quests,Slayer","Range,Slayer",yes,"Final deployable dwarf multicannon part, so range and slayer. Dropped misc and quests; added range.",high
+14,Railing,Quests,Quests,no,"Quest item used only in Dwarf Cannon to repair a fence. No ongoing use, so quests only.",high
+15,Holy table napkin,Quests,Quests,no,"Quest item used only in Holy Grail. No ongoing use, so quests only.",high
+16,Magic whistle,Quests,Quests,no,"Quest item used only in Holy Grail. No ongoing use, so quests only.",high
+17,Grail bell,Quests,Quests,no,"Quest item used only in Holy Grail. No ongoing use, so quests only.",high
+18,Magic gold feather,Quests,Quests,no,"Quest item used only in Holy Grail. No ongoing use, so quests only.",high
+19,Holy grail,Quests,Quests,no,"Quest item used in Holy Grail and King's Ransom. No skill or combat use, so quests only.",high
+20,White cog,Quests,Quests,no,"Quest item used only in Clock Tower. No ongoing use, so quests only.",high
+21,Black cog,Quests,Quests,no,"Quest item used only in Clock Tower. No ongoing use, so quests only.",high
+22,Blue cog,Quests,Quests,no,"Quest item used only in Clock Tower. No ongoing use, so quests only.",high
+23,Red cog,Quests,Quests,no,"Quest item used only in Clock Tower. No ongoing use, so quests only.",high
+24,Rat poison,Quests,Quests,no,"Quest item used in Clock Tower and Ratcatchers. No general skill use, so quests only.",high
+25,Red vine worm,"Fishing,Quests",Quests,yes,"Quest-only bait for the giant carp in Fishing Contest, with no role in normal Fishing. Removed the fishing tag.",medium
+26,Fishing trophy,Quests,Quests,no,"Quest reward from Fishing Contest with no ongoing use, so quests only.",high
+27,Fishing pass,Quests,Quests,no,"Quest item used only to enter the Fishing Contest. No ongoing use, so quests only.",high
+28,Insect repellent,Quests,Quests,no,"Consumable used in quest steps such as collecting beehive wax. No general skill use, so quests.",medium
+30,Bucket of wax,Quests,Quests,no,"Quest item used in Merlin's Crystal and Troll Romance. No ongoing use, so quests only.",high
+34,Lit candle,Misc,Misc,no,"Discontinued, unobtainable variant of the candle with no function. Fits no skill tab, so misc.",medium
+35,Excalibur,"Melee,Quests",Melee,yes,"Equippable one-handed slash sword requiring 20 Attack, comparable to an adamant longsword. Classified by function as melee; dropped quests per the quest-tool policy.",high
+36,Candle,Firemaking,Firemaking,no,A basic light source lit with a tinderbox. Kept in firemaking as the home for tinderbox-lit light sources.,medium
+38,Black candle,Quests,Quests,no,"Quest-specific candle used only in Merlin's Crystal, with no use outside that quest, so quests only.",high
+39,Bronze arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from a bronze bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
+40,Iron arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from an iron bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
+41,Steel arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from a steel bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
+42,Mithril arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from a mithril bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
+43,Adamant arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from an adamant bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
+44,Rune arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from a runite bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
+45,Opal bolt tips,"Fletching,Range",Fletching,yes,"Cut from an opal with a chisel as a Fletching material for bolts. Intermediate component, not usable ammunition, so not range.",high
+46,Pearl bolt tips,"Fletching,Range",Fletching,yes,"Cut from oyster pearls with a chisel as a Fletching material for bolts. Intermediate component, not usable ammunition, so not range.",high
+47,Barb bolttips,"Fletching,Range",Fletching,yes,"A Fletching material attached to bronze bolts to make barbed bolts. Intermediate component, not usable ammunition, so not range.",high
+48,Longbow (u),Fletching,Fletching,no,"An unstrung bow, a Fletching product not wieldable until strung. Woodcutting + Firemaking / Fletching only.",high
+50,Shortbow (u),Fletching,Fletching,no,"An unstrung bow, a Fletching product not wieldable until strung. Woodcutting + Firemaking / Fletching only.",high
+52,Arrow shaft,Fletching,Fletching,no,A basic Fletching material cut from logs. Woodcutting + Firemaking / Fletching only.,high
+53,Headless arrow,Fletching,Fletching,no,A Fletching intermediate made from shafts and feathers. Woodcutting + Firemaking / Fletching only.,high
+54,Oak shortbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
+56,Oak longbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
+58,Willow longbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
+60,Willow shortbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
+62,Maple longbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
+64,Maple shortbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
+66,Yew longbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high

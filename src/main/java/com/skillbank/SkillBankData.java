@@ -40,7 +40,8 @@ public final class SkillBankData
 	public static final String TAG_MAGE = "mage";
 	public static final String TAG_PRAYER = "prayer";
 	public static final String TAG_COOKING = "cooking";
-	public static final String TAG_WC_FLETCHING = "wc_fletching";
+	public static final String TAG_WOODCUTTING_FIREMAKING = "woodcutting_firemaking";
+	public static final String TAG_FLETCHING = "fletching";
 	public static final String TAG_FISHING = "fishing";
 	public static final String TAG_FIREMAKING = "firemaking";
 	public static final String TAG_CRAFTING = "crafting";
@@ -69,7 +70,8 @@ public final class SkillBankData
 		i.put(TAG_MAGE, 1387);               // staff of fire
 		i.put(TAG_PRAYER, 1718);             // holy symbol
 		i.put(TAG_COOKING, 1949);            // chef's hat
-		i.put(TAG_WC_FLETCHING, 1513);       // magic logs
+		i.put(TAG_WOODCUTTING_FIREMAKING, 1513); // magic logs
+		i.put(TAG_FLETCHING, 1777);          // bow string
 		i.put(TAG_FISHING, 307);             // fishing rod
 		i.put(TAG_FIREMAKING, 590);          // tinderbox
 		i.put(TAG_CRAFTING, 1733);           // needle
@@ -199,7 +201,12 @@ public final class SkillBankData
 		//   with fishing) (6), Flax & secondary fletching materials (2), Tools
 		//   (2), Forestry items (post-Sept 2023) (15), Capes & pet (6), Legacy
 		//   (78)
-		addWcFletching(m);
+		// Brief #63: wc_fletching split. The existing item list lives in
+		// addWoodcuttingFiremaking() unchanged — the audit pass will
+		// re-evaluate each id and migrate the fletching subset into the new
+		// Fletching tab.
+		addWoodcuttingFiremaking(m);
+		addFletching(m);
 
 		// ---------------------------------------------------------------------
 		// FISHING — Fishing skill.
@@ -1218,13 +1225,16 @@ public final class SkillBankData
 		));
 	}
 
-	private static void addWcFletching(Map<String, List<Integer>> m)
+	private static void addWoodcuttingFiremaking(Map<String, List<Integer>> m)
 	{
-		// WC_FLETCHING — 404 items
-		//   Axes (49), Logs (26), Fletching tools (3), Bow & ammo materials (263),
-		//   Unstrung bows (3), Strung bows (10), Finished arrows, darts & bolts
-		//   (35), Woodcutting & Fletching outfits (15)
-		m.put(TAG_WC_FLETCHING, Arrays.asList(
+		// WOODCUTTING + FIREMAKING — Brief #63. Carries the full pre-split
+		// wc_fletching item list verbatim; the audit pass will migrate the
+		// fletching subset (bows, arrows, bolts, darts, javelins, fletching
+		// tools and bow materials) into the new Fletching tab. Until the
+		// audit lands these items show up in this tab — which is acceptable
+		// because fletching items historically lived alongside woodcutting
+		// in the old wc_fletching tab anyway.
+		m.put(TAG_WOODCUTTING_FIREMAKING, Arrays.asList(
 			// === Axes ===
 			28196, 1351, 510, 28199, 1349, 512, 28202, 1353,
 			514, 28205, 1361, 516, 28208, 1355, 518, 28211,
@@ -3164,6 +3174,21 @@ public final class SkillBankData
 
 			// === Decorative weapons & armour ===
 			26809, 26811, 4069, 4504
+		));
+	}
+
+	private static void addFletching(Map<String, List<Integer>> m)
+	{
+		// FLETCHING — Brief #63 smoke-test seed (5 items). Bow strings,
+		// unstrung magic shortbow, magic shortbow, dragon arrows, fletching
+		// cape. The audit pass migrates the full fletching inventory out of
+		// addWoodcuttingFiremaking() and into this list.
+		m.put(TAG_FLETCHING, Arrays.asList(
+			1777,  // Bow string
+			859,   // Magic shortbow (strung)
+			861,   // Magic shortbow
+			11212, // Dragon arrow
+			9783   // Fletching cape
 		));
 	}
 

@@ -1704,91 +1704,53 @@ _WC_AXE_FORCE_EXCLUDE = {
 }
 
 
-WC_FLETCHING = TabSpec(
-    name="wc_fletching", const_name="TAG_WC_FLETCHING",
+# Brief #63 split: wc_fletching → Woodcutting + Firemaking (combined skilling
+# tab for chopping/burning) and Fletching (standalone). After Brief #62 the
+# predicates here aren't consulted for tab membership — promote uses LLM
+# output for that — so these TabSpecs exist only to carry per-section
+# force_include / force_exclude name lists. Predicates are _never to make
+# that contract explicit. Section labels must match TAB_SECTIONS in
+# sort_tables.py.
+WOODCUTTING_FIREMAKING = TabSpec(
+    name="woodcutting_firemaking", const_name="TAG_WOODCUTTING_FIREMAKING",
     sections=[
-        Section("Axes", _is_wc_axe),
-        Section("Axe ornament variants", _name_in({
-            "Infernal axe (or)", "3rd age axe", "Dragon axe (or)",
-        })),
-        Section("Logs", _is_log, sort_key=_log_sort_key),
-        Section("Bowstrings", _name_in({"Bow string", "Crossbow string", "Magic string"})),
-        Section("Unstrung bows", _or(
-            _name_contains("(u)"),
-            _name_in({"Unstrung comp bow", "Unstrung lyre"}),
-        ), force_exclude=[]),
-        Section("Bows & shortbows (strung)", _and(
-            _is_range_weapon_type("bow"),
-            _not(_name_contains("(u)")),
-        )),
-        Section("Crossbow parts", _name_in({
-            "Wooden stock", "Oak stock", "Willow stock", "Teak stock",
-            "Maple stock", "Mahogany stock", "Yew stock", "Magic stock",
-            "Bronze limbs", "Blurite limbs", "Iron limbs", "Steel limbs", "Mithril limbs",
-            "Adamantite limbs", "Runite limbs", "Dragon limbs",
-            "Bolt pouch", "Bolt mould",
-        })),
-        Section("Ballista construction (MM2)", _name_in({
-            "Incomplete light ballista", "Incomplete heavy ballista",
-            "Ballista spring", "Unstrung light ballista", "Unstrung heavy ballista",
-        })),
-        Section("Bolt tips", _or(
-            _name_ends(" bolt tips"),
-            _name_in({"Barb bolttips"}),  # historical no-space plural
-        )),
-        Section("Bolts (unfinished)", _or(
-            _name_ends(" bolts (unf)"),
-            _name_ends(" bolts(unf)"),  # historical no-space variant (Adamant bolts(unf))
-        )),
-        Section("Bolts (finished)", _and(_name_ends(" bolts"),
-                                          _not(_name_contains("(unf)")))),
-        Section("Arrow shafts", _or(
-            _name_in({"Arrow shaft", "Headless arrow"}),
-            _name_ends(" arrow shaft"),
-        )),
-        Section("Arrowtips", _or(
-            _name_ends(" arrowtips"),
-            _name_in({"Broad arrowheads"}),
-        )),
-        Section("Arrows", _and(_name_ends(" arrow", " arrows"),
-                               _not(_name_contains("shaft"))),
-                force_exclude=["Broken arrow"]),
-        Section("Darts", _name_ends(" dart", " darts", " dart tip", " dart tips"),
-                force_exclude=["Prototype dart", "Prototype dart tip"]),
-        Section("Javelin parts", _name_ends(" javelin heads", " javelin shaft")),
-        Section("Javelins (cross-tag with range)", _name_ends(" javelin")),
-        Section("Bird nests", _or(
-            _name_starts("Bird nest"), _name_starts("Bird's nest"),
-            _name_in({"Nest box (empty)", "Nest box (seeds)"}),
-        )),
-        Section("Feathers (cross-tag with fishing)", _name_in({
-            "Feather", "Stripy feather", "Red feather", "Blue feather",
-            "Yellow feather", "Orange feather",
-        })),
-        Section("Flax & secondary fletching materials", _name_in({
-            "Flax", "Bow string", "Crossbow string", "Magic string",
-            "Sinew",
-        })),
-        Section("Tools", _name_in({"Knife", "Hatchet", "Crystal hatchet", "Bruma torch"})),
-        Section("Forestry items (post-Sept 2023)",
-                lambda it: (
-                    "forestry" in (it.get("name") or "").lower()
-                    or "anima " in (it.get("name") or "").lower()  # "Anima " (Forestry items use Anima/anima as a prefix-word, not anywhere)
-                    or (it.get("name") or "").startswith("Sturdy ")
-                    or "felling axe" in (it.get("name") or "").lower()
-                ),
-                force_exclude=["Animal skull"]),
-        Section("Capes & pet", _name_in({
-            "Woodcutting cape", "Woodcutting cape(t)", "Woodcutting hood",
-            "Fletching cape", "Fletching cape(t)", "Fletching hood",
-            "Beaver", "Imcando hammer",
-        })),
-        Section("Lumberjack outfit", _name_in({
-            "Lumberjack boots", "Lumberjack top", "Lumberjack legs", "Lumberjack hat",
-        })),
-        Section("Sulliuscep + exotic wood", _name_in({
-            "Sulliuscep cap",
-        })),
+        Section("Axes", _never),
+        Section("Logs", _never),
+        Section("Pyre logs", _never),
+        Section("Tinderboxes & firelighting tools", _never),
+        Section("Shade items", _never),
+        Section("Wintertodt & minigame items", _never),
+        Section("Woodcutting outfit", _never),
+        Section("Firemaking outfit", _never),
+        Section(
+            "Forestry items", _never,
+            force_exclude=["Animal skull"],
+        ),
+        Section("Misc utility", _never),
+    ],
+)
+
+FLETCHING = TabSpec(
+    name="fletching", const_name="TAG_FLETCHING",
+    sections=[
+        Section("Fletching tools", _never),
+        Section("Bow materials", _never),
+        Section("Unstrung bows", _never),
+        Section("Strung bows", _never),
+        Section("Crossbow stocks", _never),
+        Section("Crossbows", _never),
+        Section("Arrow & dart components", _never),
+        Section(
+            "Finished arrows", _never,
+            force_exclude=["Broken arrow"],
+        ),
+        Section(
+            "Finished darts", _never,
+            force_exclude=["Prototype dart", "Prototype dart tip"],
+        ),
+        Section("Finished bolts", _never),
+        Section("Finished javelins", _never),
+        Section("Fletching outfit & rewards", _never),
     ],
 )
 
@@ -3043,7 +3005,9 @@ TELEPORTS = TabSpec(
 
 
 TABS: list[TabSpec] = [
-    MELEE, RANGE, MAGE, PRAYER, COOKING, WC_FLETCHING, FISHING, FIREMAKING,
+    MELEE, RANGE, MAGE, PRAYER, COOKING,
+    WOODCUTTING_FIREMAKING, FLETCHING,
+    FISHING, FIREMAKING,
     CRAFTING, MINING_SMITHING, HERBLORE, AGILITY_THIEVING, SLAYER, FARMING,
     RUNECRAFT, HUNTER, CONSTRUCTION, MISC, QUESTS, SAILING, COSMETICS,
     TELEPORTS,

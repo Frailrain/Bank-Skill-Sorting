@@ -145,13 +145,25 @@ public interface SkillBankConfig extends Config
 	}
 
 	@ConfigItem(
-		keyName = "tabWcFletching",
-		name = "wc_fletching",
-		description = "Seed the woodcutting/fletching tag (logs, axes, bows, bolts, darts)",
+		keyName = "tabWoodcuttingFiremaking",
+		name = "Woodcutting + Firemaking",
+		description = "Seed the woodcutting/firemaking tag (logs, axes, tinderbox, pyre logs, shade items, Wintertodt, lumberjack/pyromancer outfits)",
 		section = tabsSection,
 		position = 5
 	)
-	default boolean tabWcFletching()
+	default boolean tabWoodcuttingFiremaking()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+		keyName = "tabFletching",
+		name = "Fletching",
+		description = "Seed the fletching tag (bow strings, unstrung/strung bows, arrows, bolts, darts, javelins, fletching cape)",
+		section = tabsSection,
+		position = 6
+	)
+	default boolean tabFletching()
 	{
 		return true;
 	}
@@ -161,7 +173,7 @@ public interface SkillBankConfig extends Config
 		name = "fishing",
 		description = "Seed the fishing tag (raw fish, rods, bait, angler outfit, heron)",
 		section = tabsSection,
-		position = 6
+		position = 7
 	)
 	default boolean tabFishing()
 	{
@@ -173,7 +185,7 @@ public interface SkillBankConfig extends Config
 		name = "firemaking",
 		description = "Seed the firemaking tag (tinderbox, pyromancer outfit, firelighters)",
 		section = tabsSection,
-		position = 7
+		position = 8
 	)
 	default boolean tabFiremaking()
 	{
@@ -185,7 +197,7 @@ public interface SkillBankConfig extends Config
 		name = "crafting",
 		description = "Seed the crafting tag (gems, moulds, leather, dragonhide, glass)",
 		section = tabsSection,
-		position = 8
+		position = 9
 	)
 	default boolean tabCrafting()
 	{
@@ -194,10 +206,10 @@ public interface SkillBankConfig extends Config
 
 	@ConfigItem(
 		keyName = "tabMiningSmithing",
-		name = "mining_smithing",
+		name = "Mining + Smithing",
 		description = "Seed the mining/smithing tag (ores, bars, pickaxes, prospector, foundry)",
 		section = tabsSection,
-		position = 9
+		position = 10
 	)
 	default boolean tabMiningSmithing()
 	{
@@ -209,7 +221,7 @@ public interface SkillBankConfig extends Config
 		name = "herblore",
 		description = "Seed the herblore tag (herbs, secondaries, all potion doses)",
 		section = tabsSection,
-		position = 10
+		position = 11
 	)
 	default boolean tabHerblore()
 	{
@@ -218,10 +230,10 @@ public interface SkillBankConfig extends Config
 
 	@ConfigItem(
 		keyName = "tabAgilityThieving",
-		name = "agility_thieving",
+		name = "Agility + Thieving",
 		description = "Seed the agility/thieving tag (graceful, marks, rogue set, blackjacks)",
 		section = tabsSection,
-		position = 11
+		position = 12
 	)
 	default boolean tabAgilityThieving()
 	{
@@ -233,7 +245,7 @@ public interface SkillBankConfig extends Config
 		name = "slayer",
 		description = "Seed the slayer tag (task gear, slayer helms, enchanted gems, rings)",
 		section = tabsSection,
-		position = 12
+		position = 13
 	)
 	default boolean tabSlayer()
 	{
@@ -245,7 +257,7 @@ public interface SkillBankConfig extends Config
 		name = "farming",
 		description = "Seed the farming tag (seeds, tools, compost, farmer outfit)",
 		section = tabsSection,
-		position = 13
+		position = 14
 	)
 	default boolean tabFarming()
 	{
@@ -257,7 +269,7 @@ public interface SkillBankConfig extends Config
 		name = "runecraft",
 		description = "Seed the runecraft tag (essences, talismans, tiaras, pouches, wicked hood)",
 		section = tabsSection,
-		position = 14
+		position = 15
 	)
 	default boolean tabRunecraft()
 	{
@@ -269,7 +281,7 @@ public interface SkillBankConfig extends Config
 		name = "hunter",
 		description = "Seed the hunter tag (traps, impling jars, camo outfits, salamanders)",
 		section = tabsSection,
-		position = 15
+		position = 16
 	)
 	default boolean tabHunter()
 	{
@@ -281,7 +293,7 @@ public interface SkillBankConfig extends Config
 		name = "construction",
 		description = "Seed the construction tag (planks, nails, saw, limestone, stones)",
 		section = tabsSection,
-		position = 16
+		position = 17
 	)
 	default boolean tabConstruction()
 	{
@@ -293,7 +305,7 @@ public interface SkillBankConfig extends Config
 		name = "misc",
 		description = "Seed the misc tag (teleports, keys, clue scrolls, storage bags, utility)",
 		section = tabsSection,
-		position = 17
+		position = 18
 	)
 	default boolean tabMisc()
 	{
@@ -305,7 +317,7 @@ public interface SkillBankConfig extends Config
 		name = "quests",
 		description = "Seed the quests tag (quest rewards, diary gear, minigame gear, boss uniques)",
 		section = tabsSection,
-		position = 18
+		position = 19
 	)
 	default boolean tabQuests()
 	{
@@ -317,7 +329,7 @@ public interface SkillBankConfig extends Config
 		name = "sailing",
 		description = "Seed the sailing tag (Sailing skill — fish, navigation tools, ship parts, cape)",
 		section = tabsSection,
-		position = 19
+		position = 20
 	)
 	default boolean tabSailing()
 	{
@@ -329,7 +341,7 @@ public interface SkillBankConfig extends Config
 		name = "cosmetics",
 		description = "Seed the cosmetics tag (Treasure trail/holiday cosmetic outfits, ornament kits, purely-visual items)",
 		section = tabsSection,
-		position = 20
+		position = 21
 	)
 	default boolean tabCosmetics()
 	{
@@ -341,7 +353,7 @@ public interface SkillBankConfig extends Config
 		name = "teleports",
 		description = "Seed the teleports tag (teleport tablets, jewellery teleports, ectophial, royal seed pod, etc.)",
 		section = tabsSection,
-		position = 21
+		position = 22
 	)
 	default boolean tabTeleports()
 	{

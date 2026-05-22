@@ -92,10 +92,35 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Cooking tools & utensils", "Raw cookables", "Ingredients",
         "Cooked food", "Special & combo food", "Burnt food",
     ],
-    "wc_fletching": [
-        "Axes", "Logs", "Fletching tools", "Bow & ammo materials",
-        "Unstrung bows", "Strung bows", "Finished arrows, darts & bolts",
-        "Woodcutting & Fletching outfits",
+    # Brief #63: wc_fletching split. Fletching is now its own tab; the
+    # woodcutting bits live alongside firemaking content in a combined tab.
+    # Both tabs continue to overlap with the existing `firemaking` tab
+    # (items can live in multiple tabs).
+    "woodcutting_firemaking": [
+        "Axes",
+        "Logs",
+        "Pyre logs",
+        "Tinderboxes & firelighting tools",
+        "Shade items",
+        "Wintertodt & minigame items",
+        "Woodcutting outfit",
+        "Firemaking outfit",
+        "Forestry items",
+        "Misc utility",
+    ],
+    "fletching": [
+        "Fletching tools",
+        "Bow materials",
+        "Unstrung bows",
+        "Strung bows",
+        "Crossbow stocks",
+        "Crossbows",
+        "Arrow & dart components",
+        "Finished arrows",
+        "Finished darts",
+        "Finished bolts",
+        "Finished javelins",
+        "Fletching outfit & rewards",
     ],
     "fishing": [
         "Fishing tools", "Bait & consumables", "Fishing outfit",
@@ -190,6 +215,63 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Special & one-time",
     ],
 }
+
+
+# Brief #63: display names. Tab IDs stay snake_case (so existing
+# RuneLite banktags storage keeps working and config keys built from
+# tag names like "icon_<tag>" don't pick up spaces or + chars). The
+# UI / Cowork audit boundary translates through this map.
+TAB_DISPLAY_NAMES: dict[str, str] = {
+    "melee": "Melee",
+    "range": "Range",
+    "mage": "Mage",
+    "prayer": "Prayer",
+    "cooking": "Cooking",
+    "woodcutting_firemaking": "Woodcutting + Firemaking",
+    "fletching": "Fletching",
+    "fishing": "Fishing",
+    "firemaking": "Firemaking",
+    "crafting": "Crafting",
+    "mining_smithing": "Mining + Smithing",
+    "herblore": "Herblore",
+    "agility_thieving": "Agility + Thieving",
+    "slayer": "Slayer",
+    "farming": "Farming",
+    "runecraft": "Runecraft",
+    "hunter": "Hunter",
+    "construction": "Construction",
+    "misc": "Misc",
+    "quests": "Quests",
+    "sailing": "Sailing",
+    "cosmetics": "Cosmetics",
+    "teleports": "Teleports",
+}
+
+
+def display_name(tab_id: str) -> str:
+    """Return the human-facing label for a tab id. Falls back to the
+    raw id when no mapping is defined (defensive — every known tab
+    should be in TAB_DISPLAY_NAMES)."""
+    return TAB_DISPLAY_NAMES.get(tab_id, tab_id)
+
+
+# Reverse map for converting audit-supplied display names back to internal
+# IDs. Used by the audit-decision ingest path.
+_DISPLAY_TO_ID: dict[str, str] = {v: k for k, v in TAB_DISPLAY_NAMES.items()}
+
+
+def tab_id_from_display(name: str) -> str:
+    """Inverse of display_name(). Raises KeyError on an unknown label so a
+    typo in audit output surfaces loudly rather than silently dropping the
+    tab assignment."""
+    if name in _DISPLAY_TO_ID:
+        return _DISPLAY_TO_ID[name]
+    # Fall through: if `name` is already an internal id, accept it. Cowork
+    # may emit either form during the migration.
+    if name in TAB_SECTIONS:
+        return name
+    raise KeyError(f"unknown tab label: {name!r}")
+
 
 
 # ══ Brief #60: data-driven section classification ═══════════════════════════
@@ -721,39 +803,82 @@ def _section_cooking(item: dict) -> str:
     return "Cooked food"
 
 
-def _section_wc_fletching(item: dict) -> str:
+def _section_woodcutting_firemaking(item: dict) -> str:
+    """Brief #63: combined Woodcutting + Firemaking section assignment.
+    The fletching-specific items that used to share this tab now live in
+    the `fletching` tab and are routed by _section_fletching()."""
     name = _name(item)
     nlow = name.lower()
     slot = _slot(item)
     if "axe" in nlow and "pickaxe" not in nlow and slot in ("weapon", "2h", ""):
-        # Felling axes + standard axes
         return "Axes"
-    # Brief #60: ID-set lookup catches "Logs" (no prefix), which name-pattern missed.
-    if _is(item, "logs"):
+    if _is(item, "pyre_logs") or "pyre logs" in nlow:
+        return "Pyre logs"
+    if _is(item, "logs") or nlow.endswith(" logs") or nlow.endswith(" log"):
         return "Logs"
-    if nlow.endswith(" logs") or nlow.endswith(" log"):
-        return "Logs"
-    if any(k in nlow for k in ("lumberjack", "forester", "forestry",
-                               "fletching cape", "fletching hood",
-                               "woodcutting cape", "woodcutting hood",
-                               "woodcutting outfit")):
-        return "Woodcutting & Fletching outfits"
+    if any(k in nlow for k in ("tinderbox", "firelighter", "bruma torch")):
+        return "Tinderboxes & firelighting tools"
+    if any(k in nlow for k in ("shade key", "fiyr remains", "loar remains",
+                                "phrin remains", "riyl remains", "asyn remains",
+                                "shade remains")):
+        return "Shade items"
+    if any(k in nlow for k in ("wintertodt", "bruma kindling",
+                                "rejuvenation potion", "burnt page", "supply crate")):
+        return "Wintertodt & minigame items"
+    if any(k in nlow for k in ("pyromancer", "firemaking cape", "firemaking hood")):
+        return "Firemaking outfit"
+    if any(k in nlow for k in ("lumberjack", "forester ", "woodcutting cape",
+                                "woodcutting hood")):
+        return "Woodcutting outfit"
+    if any(k in nlow for k in ("forestry", "secateurs", "anti-poaching",
+                                "felling axe", "fox whistle", "log basket",
+                                "pheasant", "bird egg")):
+        return "Forestry items"
+    return "Misc utility"
+
+
+def _section_fletching(item: dict) -> str:
+    """Brief #63: standalone Fletching tab section assignment. Pulled out
+    of the old wc_fletching classifier; only fletching-specific routing
+    lives here."""
+    nlow = _name(item).lower()
+    slot = _slot(item)
+    # Tools first — knife/chisel may be shared with crafting/cooking but
+    # land here when they're in the fletching tab.
+    if any(k in nlow for k in ("chisel", "knife", "fletching kit")) and slot != "weapon":
+        return "Fletching tools"
+    # Materials (strings, feathers, dart/bolt tips, headless arrows, shafts).
+    if "bow string" in nlow or "magic string" in nlow:
+        return "Bow materials"
     if "unstrung" in nlow:
         return "Unstrung bows"
+    if "crossbow stock" in nlow or nlow.endswith(" stock"):
+        return "Crossbow stocks"
+    if "crossbow" in nlow and not any(k in nlow for k in ("string", "stock", "limb")):
+        return "Crossbows"
+    if any(k in nlow for k in ("arrow shaft", "headless arrow", "dart tip",
+                                "bolt tip", "feather", "javelin shaft",
+                                "unfinished bolt", "unfinished broad")):
+        return "Arrow & dart components"
+    if nlow.endswith(" arrows") or nlow.endswith(" arrow"):
+        return "Finished arrows"
+    if nlow.endswith(" darts") or nlow.endswith(" dart"):
+        return "Finished darts"
+    if nlow.endswith(" bolts") or nlow.endswith(" bolt") \
+            or nlow.endswith(" bolts (p)") or nlow.endswith(" bolts (p+)") \
+            or nlow.endswith(" bolts (p++)"):
+        return "Finished bolts"
+    if nlow.endswith(" javelins") or nlow.endswith(" javelin") \
+            or nlow.endswith(" javelin heads"):
+        return "Finished javelins"
     if any(nlow.endswith(s) for s in (" bow", " shortbow", " longbow",
                                        " comp bow", " composite bow")):
         return "Strung bows"
-    if any(nlow.endswith(s) for s in (" arrows", " bolts", " darts",
-                                       " javelins", " javelin heads")):
-        return "Finished arrows, darts & bolts"
-    if any(k in nlow for k in (" feather", "bow string", "arrow shaft",
-                               "headless arrow", "dart tip", "bolt tip",
-                               "unfinished bolt", "unfinished broad")):
-        return "Bow & ammo materials"
-    if any(k in nlow for k in ("chisel", "knife")) and slot != "weapon":
-        return "Fletching tools"
-    # Forestry pet, secateurs, etc.
-    return "Bow & ammo materials"
+    if any(k in nlow for k in ("fletching cape", "fletching hood",
+                                "fletching outfit")):
+        return "Fletching outfit & rewards"
+    # Default — most uncategorised fletching items are component materials.
+    return "Arrow & dart components"
 
 
 def _section_fishing(item: dict) -> str:
@@ -1188,7 +1313,8 @@ _TAB_TO_FN = {
     "mage":  lambda it: _section_combat(it, "mage"),
     "prayer": _section_prayer,
     "cooking": _section_cooking,
-    "wc_fletching": _section_wc_fletching,
+    "woodcutting_firemaking": _section_woodcutting_firemaking,
+    "fletching": _section_fletching,
     "fishing": _section_fishing,
     "firemaking": _section_firemaking,
     "crafting": _section_crafting,
@@ -1266,7 +1392,8 @@ def _rune_rank(name_lower: str) -> int:
 
 
 _COMBAT_TABS = {"melee", "range", "mage"}
-_SKILL_PRODUCTION_TABS = {"cooking", "wc_fletching", "fishing", "firemaking",
+_SKILL_PRODUCTION_TABS = {"cooking", "woodcutting_firemaking", "fletching",
+                          "fishing", "firemaking",
                           "crafting", "mining_smithing", "herblore", "runecraft",
                           "farming", "hunter", "construction"}
 

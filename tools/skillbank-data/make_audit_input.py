@@ -33,6 +33,7 @@ import mapping  # type: ignore
 import wiki  # type: ignore
 import wiki_page  # type: ignore
 import llm_promote  # type: ignore
+import sort_tables  # type: ignore
 from scraper import (
     fetch_osrsbox, merge_wiki_osrsbox, parse_current_data,
     OUT_DIR, WIKI_CACHE_DIR, WIKI_PAGE_CACHE_DIR, REPO_ROOT,
@@ -167,11 +168,15 @@ def main() -> int:
         preserve_tabs=["slayer"],
     )
 
-    # Reverse map: id -> sorted list of tab names.
+    # Reverse map: id -> sorted list of DISPLAY tab names. Brief #63 routes
+    # audit boundary data through display names so Cowork sees the human
+    # form ("Mining + Smithing", "Woodcutting + Firemaking") rather than
+    # the snake_case internal ids.
     item_tabs: dict[int, list[str]] = {}
     for tab_name, tab_items in report["_by_tab"].items():
+        display = sort_tables.display_name(tab_name)
         for iid in tab_items:
-            item_tabs.setdefault(iid, []).append(tab_name)
+            item_tabs.setdefault(iid, []).append(display)
     for iid in item_tabs:
         item_tabs[iid].sort()
 

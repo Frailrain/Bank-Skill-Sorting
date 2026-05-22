@@ -30,8 +30,10 @@ from pathlib import Path
 # Tabs that should ALWAYS exist in the output even if the LLM gave them
 # zero items (keeps the SkillBankData.java structure stable across runs).
 ALL_TAB_NAMES = [
-    "melee", "range", "mage", "prayer", "cooking", "wc_fletching", "fishing",
-    "firemaking", "crafting", "mining_smithing", "herblore", "agility_thieving",
+    "melee", "range", "mage", "prayer", "cooking",
+    "woodcutting_firemaking", "fletching",
+    "fishing", "firemaking", "crafting", "mining_smithing",
+    "herblore", "agility_thieving",
     "slayer", "farming", "runecraft", "hunter", "construction", "misc",
     "quests", "sailing", "cosmetics", "teleports",
 ]
@@ -224,7 +226,8 @@ def build_synthetic_tabs(
         "mage":             "TAG_MAGE",
         "prayer":           "TAG_PRAYER",
         "cooking":          "TAG_COOKING",
-        "wc_fletching":     "TAG_WC_FLETCHING",
+        "woodcutting_firemaking": "TAG_WOODCUTTING_FIREMAKING",
+        "fletching":        "TAG_FLETCHING",
         "fishing":          "TAG_FISHING",
         "firemaking":       "TAG_FIREMAKING",
         "crafting":         "TAG_CRAFTING",
@@ -399,7 +402,8 @@ def _infer_category(item: dict, sample_tab: str) -> str:
         return "skill_tool"
     if sample_tab in ("cosmetics", "quests"):
         return "cosmetic"
-    if sample_tab in ("herblore", "crafting", "mining_smithing", "wc_fletching",
+    if sample_tab in ("herblore", "crafting", "mining_smithing",
+                        "woodcutting_firemaking", "fletching",
                         "farming", "runecraft"):
         return "material"
     return "misc"
