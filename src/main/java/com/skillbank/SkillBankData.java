@@ -56,6 +56,7 @@ public final class SkillBankData
 	public static final String TAG_QUESTS = "quests";
 	public static final String TAG_SAILING = "sailing";
 	public static final String TAG_COSMETICS = "cosmetics";
+	public static final String TAG_TELEPORTS = "teleports";
 
 	private static final Map<String, List<Integer>> TAGS;
 	private static final Map<String, Integer> TAG_ICONS;
@@ -84,6 +85,7 @@ public final class SkillBankData
 		i.put(TAG_QUESTS, 9813);             // quest point cape
 		i.put(TAG_SAILING, 31288);           // sailing cape
 		i.put(TAG_COSMETICS, 1037);          // bunny ears
+		i.put(TAG_TELEPORTS, 1712);          // amulet of glory(4)
 		TAG_ICONS = Collections.unmodifiableMap(i);
 	}
 
@@ -424,6 +426,9 @@ public final class SkillBankData
 		//   Cape & pet (2), Legacy (2)
 		addSailing(m);
 		addCosmetics(m);
+		// Brief #62: Teleports tab. Smoke-test seed only — the upcoming
+		// audit pass will populate this list properly.
+		addTeleports(m);
 
 		// Freeze lists to prevent accidental mutation.
 		Map<String, List<Integer>> locked = new LinkedHashMap<>();
@@ -3159,6 +3164,22 @@ public final class SkillBankData
 
 			// === Decorative weapons & armour ===
 			26809, 26811, 4069, 4504
+		));
+	}
+
+	private static void addTeleports(Map<String, List<Integer>> m)
+	{
+		// TELEPORTS — Brief #62 smoke-test seed (5 items). The audit pass
+		// will replace this list with the full teleport inventory: tablets,
+		// jewellery teleports, ectophial, royal seed pod, Kharedst's memoirs,
+		// etc. Items keep their other tab memberships — Teleports is additive.
+		m.put(TAG_TELEPORTS, Arrays.asList(
+			// === Special & one-time ===
+			1712,   // Amulet of glory(4)
+			8013,   // Teleport to house
+			4251,   // Ectophial
+			22400,  // Drakan's medallion
+			11970   // Skills necklace(5)
 		));
 	}
 }

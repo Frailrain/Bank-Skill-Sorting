@@ -177,10 +177,19 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Holiday items", "Ornament kits",
         "Skill & event cosmetics", "Decorative weapons & armour",
     ],
+    # Brief #62: Teleports tab. Starts empty; audit pass populates it.
+    "teleports": [
+        "Mounted & charged jewellery",
+        "Spellbook tablets",
+        "Skill destinations",
+        "City teleports",
+        "Boss & PvM destinations",
+        "Minigame teleports",
+        "Wilderness teleports",
+        "Quest-locked teleports",
+        "Special & one-time",
+    ],
 }
-
-# Group-rank: primary items first within each section, then cross-tags, then overrides.
-GROUP_RANK = {"primary": 0, "cross": 1, "override": 2}
 
 
 # ══ Brief #60: data-driven section classification ═══════════════════════════
@@ -1146,6 +1155,33 @@ def _section_cosmetics(item: dict) -> str:
     return "Treasure trail cosmetics"
 
 
+def _section_teleports(item: dict) -> str:
+    """Coarse routing for the Teleports tab. Brief #62 added the tab as an
+    empty container; the audit pass owns final section assignment per item.
+    Until then we make a low-effort guess from the item name so the smoke-
+    test seed items land somewhere sensible rather than the fallback."""
+    nlow = _name(item).lower()
+    if any(k in nlow for k in (
+        "amulet of glory", "skills necklace", "ring of dueling",
+        "ring of wealth", "combat bracelet", "games necklace",
+        "digsite pendant", "necklace of passage", "burning amulet",
+        "slayer ring", "drakan's medallion", "ring of the elements",
+    )):
+        return "Mounted & charged jewellery"
+    if "tablet" in nlow or " teleport (tab)" in nlow:
+        return "Spellbook tablets"
+    if any(k in nlow for k in (
+        "ectophial", "royal seed pod", "kharedst's memoirs",
+        "enchanted lyre", "pharaoh's sceptre",
+    )):
+        return "Special & one-time"
+    if any(k in nlow for k in ("scroll of redirection",)):
+        return "Special & one-time"
+    if "wilderness" in nlow:
+        return "Wilderness teleports"
+    return "Special & one-time"
+
+
 _TAB_TO_FN = {
     "melee": lambda it: _section_combat(it, "melee"),
     "range": lambda it: _section_combat(it, "range"),
@@ -1168,6 +1204,7 @@ _TAB_TO_FN = {
     "quests": _section_quests,
     "sailing": _section_sailing,
     "cosmetics": _section_cosmetics,
+    "teleports": _section_teleports,
 }
 
 
@@ -1235,22 +1272,23 @@ _SKILL_PRODUCTION_TABS = {"cooking", "wc_fletching", "fishing", "firemaking",
 
 
 def composite_sort_key(
-    item: dict, tab_name: str, section: str, origin: str,
+    item: dict, tab_name: str, section: str,
 ) -> tuple:
     """Return a sortable tuple positioning the item within its section.
     The caller has already bucketed by section_rank, so this key only
     needs to handle within-section ordering.
 
-    Universal head: (group_rank, ...). primary < cross < override.
+    Brief #62: the primary/cross/override origin head was dropped along with
+    the flat tabs schema. Items now sort purely by their item attributes
+    (tier, weapon class, name).
     """
     name = _name(item)
     nlow = name.lower()
-    group = GROUP_RANK.get(origin, 2)
 
     # Tab-specific within-section sort.
     if tab_name in _COMBAT_TABS:
         if tab_name == "mage" and section == "Runes":
-            return (group, _rune_rank(nlow), nlow, item.get("id", 0))
+            return (_rune_rank(nlow), nlow, item.get("id", 0))
         if section in ("Weapons", "Shields & defenders", "Shields & off-hands",
                        "Off-hands, books & tomes",
                        "Head", "Body", "Legs", "Hands", "Feet", "Capes",
@@ -1261,27 +1299,27 @@ def composite_sort_key(
             # used as a tiebreaker for same-tier items.
             tier = _name_tier(name)
             req = _req_max_level(item)
-            return (group, tier, req, nlow, item.get("id", 0))
+            return (tier, req, nlow, item.get("id", 0))
         if section == "Ammunition":
-            return (group, _name_tier(name), nlow, item.get("id", 0))
-        return (group, nlow, item.get("id", 0))
+            return (_name_tier(name), nlow, item.get("id", 0))
+        return (nlow, item.get("id", 0))
 
     if tab_name == "herblore" and section in (
         "Finished potions", "Barbarian mixes",
         "Divine, extended & upgraded variants", "Unfinished potions",
     ):
-        return (group, _potion_family_rank(nlow), -_potion_dose(nlow),
+        return (_potion_family_rank(nlow), -_potion_dose(nlow),
                 nlow, item.get("id", 0))
 
     if tab_name in _SKILL_PRODUCTION_TABS:
         # Same tier-first reasoning as combat tabs.
         tier = _name_tier(name)
         req = _req_max_level(item)
-        return (group, tier, req, nlow, item.get("id", 0))
+        return (tier, req, nlow, item.get("id", 0))
 
     if tab_name == "slayer":
         # Packing-priority via section_rank (caller); within section alpha.
-        return (group, nlow, item.get("id", 0))
+        return (nlow, item.get("id", 0))
 
     # Default: alpha.
-    return (group, nlow, item.get("id", 0))
+    return (nlow, item.get("id", 0))

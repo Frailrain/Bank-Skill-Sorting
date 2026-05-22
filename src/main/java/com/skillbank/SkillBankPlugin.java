@@ -419,7 +419,7 @@ public class SkillBankPlugin extends Plugin
 	/**
 	 * When the bank closes, refresh layouts for every enabled Skill Bank tab.
 	 * The active tab is already refreshed by {@link #onItemContainerChanged};
-	 * this catches the other 20 so a tab switch on next bank-open uses the
+	 * this catches the other 21 so a tab switch on next bank-open uses the
 	 * latest sorted order.
 	 */
 	@Subscribe
@@ -634,6 +634,7 @@ public class SkillBankPlugin extends Plugin
 		toggles.put(SkillBankData.TAG_QUESTS, config::tabQuests);
 		toggles.put(SkillBankData.TAG_SAILING, config::tabSailing);
 		toggles.put(SkillBankData.TAG_COSMETICS, config::tabCosmetics);
+		toggles.put(SkillBankData.TAG_TELEPORTS, config::tabTeleports);
 		BooleanSupplier s = toggles.get(tagName);
 		return s != null && s.getAsBoolean();
 	}

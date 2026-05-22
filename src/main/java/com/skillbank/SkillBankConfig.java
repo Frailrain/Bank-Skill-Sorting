@@ -335,4 +335,16 @@ public interface SkillBankConfig extends Config
 	{
 		return true;
 	}
+
+	@ConfigItem(
+		keyName = "tabTeleports",
+		name = "teleports",
+		description = "Seed the teleports tag (teleport tablets, jewellery teleports, ectophial, royal seed pod, etc.)",
+		section = tabsSection,
+		position = 21
+	)
+	default boolean tabTeleports()
+	{
+		return true;
+	}
 }

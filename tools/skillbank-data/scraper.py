@@ -1268,8 +1268,7 @@ def run_llm_classification(
         results[it["id"]] = {
             "id": it["id"],
             "name": name,
-            "primary_tab": result["primary_tab"],
-            "cross_tags": result["cross_tags"],
+            "tabs": result["tabs"],
             "rationale": result["rationale"],
         }
         if result.get("_cached"):
@@ -1336,7 +1335,7 @@ def write_classification_diff(
     items_by_id: dict[int, dict],
     out_path: Path,
 ) -> None:
-    """Diff LLM-assigned primary tab vs live SkillBankData.java placement."""
+    """Diff LLM-assigned tab set vs live SkillBankData.java placement."""
     from datetime import datetime, timezone
 
     # Build current placement map: id -> set[tab]
@@ -1345,22 +1344,22 @@ def write_classification_diff(
         for iid in ids:
             current_tabs.setdefault(iid, set()).add(tab)
 
-    agree: list[tuple[int, str, str, list[str]]] = []
-    disagree: list[tuple[int, str, set[str], str, list[str]]] = []
-    new_assignments: list[tuple[int, str, str, list[str], str]] = []
+    agree: list[tuple[int, str, list[str]]] = []
+    disagree: list[tuple[int, str, set[str], list[str]]] = []
+    new_assignments: list[tuple[int, str, list[str], str]] = []
 
     for iid, r in sorted(llm_results.items()):
         name = r["name"]
-        primary = r["primary_tab"]
-        cross = r["cross_tags"]
+        tabs = r["tabs"]
         rationale = r["rationale"]
         cur = current_tabs.get(iid, set())
+        tab_set = set(tabs)
         if not cur:
-            new_assignments.append((iid, name, primary, cross, rationale))
-        elif primary in cur:
-            agree.append((iid, name, primary, cross))
+            new_assignments.append((iid, name, tabs, rationale))
+        elif cur & tab_set:
+            agree.append((iid, name, tabs))
         else:
-            disagree.append((iid, name, cur, primary, cross))
+            disagree.append((iid, name, cur, tabs))
 
     lines: list[str] = []
     lines.append("# LLM classification diff vs live SkillBankData.java")
@@ -1369,8 +1368,8 @@ def write_classification_diff(
     lines.append("")
     lines.append(
         f"- **Total classified**: {len(llm_results)}\n"
-        f"- **Agreement** (LLM primary matches a current tab): {len(agree)}\n"
-        f"- **Disagreement** (LLM primary not in current tabs): {len(disagree)}\n"
+        f"- **Agreement** (LLM tabs intersect current tabs): {len(agree)}\n"
+        f"- **Disagreement** (LLM tabs disjoint from current tabs): {len(disagree)}\n"
         f"- **New** (item not in any current tab): {len(new_assignments)}"
     )
     lines.append("")
@@ -1378,14 +1377,13 @@ def write_classification_diff(
     if disagree:
         lines.append("## Disagreements")
         lines.append("")
-        lines.append("LLM proposes a different primary tab than where the item currently lives.")
+        lines.append("LLM proposes tabs that don't intersect where the item currently lives.")
         lines.append("Use this to decide whether the heuristic was wrong or the LLM is wrong.")
         lines.append("")
-        for iid, name, cur, primary, cross in disagree:
-            cross_s = f", cross={cross}" if cross else ""
+        for iid, name, cur, tabs in disagree:
             it = items_by_id.get(iid, {})
             ex = it.get("examine") or ""
-            lines.append(f"- **{name}** (ID {iid}) — current: `{sorted(cur)}` → LLM: `{primary}`{cross_s}")
+            lines.append(f"- **{name}** (ID {iid}) — current: `{sorted(cur)}` → LLM: `{tabs}`")
             if ex:
                 lines.append(f"  - _examine: {ex}_")
         lines.append("")
@@ -1393,18 +1391,16 @@ def write_classification_diff(
     if new_assignments:
         lines.append("## New (not in any current tab)")
         lines.append("")
-        for iid, name, primary, cross, rat in new_assignments:
-            cross_s = f", cross={cross}" if cross else ""
-            lines.append(f"- **{name}** (ID {iid}) → `{primary}`{cross_s}")
+        for iid, name, tabs, rat in new_assignments:
+            lines.append(f"- **{name}** (ID {iid}) → `{tabs}`")
             lines.append(f"  - _{rat}_")
         lines.append("")
 
     if agree:
         lines.append("## Agreements (collapsed)")
         lines.append("")
-        for iid, name, primary, cross in agree:
-            cross_s = f", cross={cross}" if cross else ""
-            lines.append(f"- {name} (ID {iid}): `{primary}`{cross_s}")
+        for iid, name, tabs in agree:
+            lines.append(f"- {name} (ID {iid}): `{tabs}`")
         lines.append("")
 
     out_path.write_text("\n".join(lines))
@@ -1635,14 +1631,20 @@ def main():
         # Per-tab report
         print("\nLLM tab summary:")
         print(
-            f"  {'tab':<18} {'count':>6}  {'primary':>7}  {'cross':>5}  "
-            f"{'override':>8}  {'ovr_drop':>8}  {'preserved':>9}"
+            f"  {'tab':<18} {'count':>6}  {'ovr_add':>7}  {'ovr_drop':>8}  "
+            f"{'extra':>5}  {'preserved':>9}"
         )
         for tn in llm_promote.ALL_TAB_NAMES:
             r = report["tabs"][tn]
             print(
-                f"  {tn:<18} {r['count']:>6}  {r['primary']:>7}  {r['cross']:>5}  "
-                f"{r['override']:>8}  {r['override_dropped']:>8}  {r['preserved']:>9}"
+                f"  {tn:<18} {r['count']:>6}  {r['override_added']:>7}  "
+                f"{r['override_dropped']:>8}  {r['extra_items_added']:>5}  "
+                f"{r['preserved']:>9}"
+            )
+        if report.get("combat_bleed_safety_hits"):
+            print(
+                f"\nCombat-bleed safety filter triggered for "
+                f"{report['combat_bleed_safety_hits']} item(s)."
             )
 
         # Show a few override examples so it's obvious what came from mapping.py.

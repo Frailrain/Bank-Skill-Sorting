@@ -3009,8 +3009,42 @@ COSMETICS = TabSpec(
 )
 
 
+# Brief #62: Teleports tab. Starts as an empty container. The audit pass
+# will populate it with teleport tablets, jewellery teleports, ectophial,
+# royal seed pod, Kharedst's memoirs, etc. Items keep their other tab
+# memberships — Teleports is additive.
+TELEPORTS = TabSpec(
+    name="teleports", const_name="TAG_TELEPORTS",
+    sections=[
+        Section("Mounted & charged jewellery", _never),
+        Section("Spellbook tablets", _never),
+        Section("Skill destinations", _never),
+        Section("City teleports", _never),
+        Section("Boss & PvM destinations", _never),
+        Section("Minigame teleports", _never),
+        Section("Wilderness teleports", _never),
+        Section("Quest-locked teleports", _never),
+        Section(
+            "Special & one-time",
+            _never,
+            # Smoke-test seed: a handful of obvious teleports so the tab
+            # renders something while the audit pass is pending. Audit will
+            # re-evaluate each of these.
+            force_include=[
+                "Amulet of glory(4)",
+                "Teleport to house",
+                "Ectophial",
+                "Drakan's medallion",
+                "Skills necklace(5)",
+            ],
+        ),
+    ],
+)
+
+
 TABS: list[TabSpec] = [
     MELEE, RANGE, MAGE, PRAYER, COOKING, WC_FLETCHING, FISHING, FIREMAKING,
     CRAFTING, MINING_SMITHING, HERBLORE, AGILITY_THIEVING, SLAYER, FARMING,
     RUNECRAFT, HUNTER, CONSTRUCTION, MISC, QUESTS, SAILING, COSMETICS,
+    TELEPORTS,
 ]

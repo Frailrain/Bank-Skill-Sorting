@@ -257,6 +257,18 @@ public final class SkillBankSortData
 			"Holiday items", "Ornament kits",
 			"Skill & event cosmetics", "Decorative weapons & armour"
 		));
+		// Brief #62: Teleports tab. Starts empty pending audit.
+		m.put("teleports", List.of(
+			"Mounted & charged jewellery",
+			"Spellbook tablets",
+			"Skill destinations",
+			"City teleports",
+			"Boss & PvM destinations",
+			"Minigame teleports",
+			"Wilderness teleports",
+			"Quest-locked teleports",
+			"Special & one-time"
+		));
 		TAB_SECTIONS = Collections.unmodifiableMap(m);
 	}
 

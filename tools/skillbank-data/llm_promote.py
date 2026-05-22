@@ -9,17 +9,14 @@ Pipeline:
                                                                    ▼
                                                           scraper.render_proposed()
 
-The LLM returns one primary_tab + zero-or-more cross_tags per item. We:
-  1. Apply mapping.py's force_include / force_exclude as hard overrides
-     (name-based, applies to every ID sharing that name).
-  2. Dedup items per-tab (an item from cross_tags + a force_include that says
-     the same thing is one entry).
-  3. Build a single-section TabSpec per tab so the rest of the renderer
-     (which expects multiple sections) still works.
+Brief #62 flattened the LLM schema. Each item now carries a `tabs: [list]`
+field — a single flat set of tab memberships. The old primary_tab /
+cross_tags distinction is gone. mapping.py force_include / force_exclude
+still apply as name-based add / remove operations on each item's tab set.
 
-Brief #55 added section structures + composite sort keys (Python-side).
-Brief #58 moves the runtime sort to Java; Python's job here is now mostly
-to drive section assignment and emit per-item metadata that the Java
+Brief #55 introduced section structures + composite sort keys. Brief #58
+moved runtime sort to Java; Python's job here is now mostly to drive
+section assignment and emit per-item metadata that the Java
 SkillBankLayoutBuilder reads from /com/skillbank/item-meta.json. The
 emit_item_metadata() function at the bottom of this file produces that
 artifact.
@@ -36,7 +33,7 @@ ALL_TAB_NAMES = [
     "melee", "range", "mage", "prayer", "cooking", "wc_fletching", "fishing",
     "firemaking", "crafting", "mining_smithing", "herblore", "agility_thieving",
     "slayer", "farming", "runecraft", "hunter", "construction", "misc",
-    "quests", "sailing", "cosmetics",
+    "quests", "sailing", "cosmetics", "teleports",
 ]
 
 
@@ -62,6 +59,26 @@ def _collect_extra_items(tabs) -> list[tuple[int, str, str]]:
         for iid, name, _section_label in getattr(t, "extra_items", ()) or ():
             out.append((iid, name, t.name))
     return out
+
+
+# Combat-bleed safety net (Brief #56 + #62): a single item must not appear in
+# more than one of melee/range/mage simultaneously. The flatten in Brief #62
+# already de-bled the cached data; this filter catches anything that slips
+# through future audit results. When triggered we keep the first combat tab in
+# canonical order (melee → range → mage) and drop the others.
+_COMBAT_TABS_ORDER = ("melee", "range", "mage")
+_COMBAT_TABS_SET = set(_COMBAT_TABS_ORDER)
+
+
+def _apply_combat_bleed_safety(tabs: set[str]) -> tuple[set[str], list[str]]:
+    """If `tabs` contains more than one combat tab, keep the first per
+    _COMBAT_TABS_ORDER and drop the rest. Returns (filtered_set, dropped_list)."""
+    combat_present = [c for c in _COMBAT_TABS_ORDER if c in tabs]
+    if len(combat_present) <= 1:
+        return tabs, []
+    keep = combat_present[0]
+    drop = combat_present[1:]
+    return tabs - set(drop), drop
 
 
 def build_synthetic_tabs(
@@ -108,42 +125,15 @@ def build_synthetic_tabs(
 
     # tab -> {id: name} so we can dedup and re-emit sorted.
     by_tab: dict[str, dict[int, str]] = {t: {} for t in ALL_TAB_NAMES}
-    # tab -> {id: origin} where origin ∈ {"primary","cross","override"}.
-    # Brief #54: drives primary-first sort order within each tab. "override"
-    # covers force_include + extra_items + preserve_tabs.
-    origin: dict[str, dict[int, str]] = {t: {} for t in ALL_TAB_NAMES}
 
     override_adds: dict[str, list[tuple[int, str]]] = {t: [] for t in ALL_TAB_NAMES}
     override_drops: dict[str, list[tuple[int, str]]] = {t: [] for t in ALL_TAB_NAMES}
-
-    # Brief #56: combat cross-tag bleed filter. Combat gear should appear in
-    # one combat tab only — Eclipse moon + Bandos chestplate + dragon bolts
-    # kept cross-bleeding between melee/range/mage because the LLM lists the
-    # adjacent styles as "useful for combat". Filter cross-tags between combat
-    # tabs entirely; primary placement still governs which combat tab the item
-    # lives in.
-    _COMBAT_BLEED_BLOCK: dict[str, set[str]] = {
-        "melee": {"range", "mage"},
-        "range": {"melee", "mage"},
-        "mage":  {"melee", "range"},
-    }
+    combat_bleed_safety_hits = 0
 
     for r in llm_items:
         iid = r["id"]
         name = r["name"]
-        primary = r["primary_tab"]
-        cross = r.get("cross_tags") or []
-        blocked = _COMBAT_BLEED_BLOCK.get(primary, set())
-        if blocked:
-            cross = [c for c in cross if c not in blocked]
-        tabs_for_item: set[str] = {primary, *cross}
-
-        # Per-item origin map; primary wins over cross when the LLM lists the
-        # primary tab in its own cross_tags (shouldn't happen, but defend).
-        item_origins: dict[str, str] = {primary: "primary"}
-        for c in cross:
-            if c != primary:
-                item_origins[c] = "cross"
+        tabs_for_item: set[str] = set(r.get("tabs") or [])
 
         # Apply force_include: any tab where this name is forced in.
         for tab_name in ALL_TAB_NAMES:
@@ -151,17 +141,17 @@ def build_synthetic_tabs(
                 if tab_name not in tabs_for_item:
                     override_adds[tab_name].append((iid, name))
                 tabs_for_item.add(tab_name)
-                # force_include only sets origin if not already primary/cross,
-                # so a force_include that confirms the LLM choice doesn't
-                # demote the item from "primary" to "override".
-                item_origins.setdefault(tab_name, "override")
 
         # Apply force_exclude: drop any tab where this name is forbidden.
         for tab_name in list(tabs_for_item):
             if name in forbidden_from.get(tab_name, ()):
                 tabs_for_item.discard(tab_name)
-                item_origins.pop(tab_name, None)
                 override_drops[tab_name].append((iid, name))
+
+        # Safety net: an item cannot belong to more than one combat tab.
+        tabs_for_item, dropped_combat = _apply_combat_bleed_safety(tabs_for_item)
+        if dropped_combat:
+            combat_bleed_safety_hits += 1
 
         for tab_name in tabs_for_item:
             if tab_name not in by_tab:
@@ -170,14 +160,12 @@ def build_synthetic_tabs(
                 # but defend anyway.
                 continue
             by_tab[tab_name][iid] = name
-            origin[tab_name][iid] = item_origins.get(tab_name, "override")
 
     # Apply mapping.py extra_items (items the wiki/osrsbox dump didn't carry).
     extra_count: dict[str, int] = {t: 0 for t in ALL_TAB_NAMES}
     for iid, name, tab_name in _collect_extra_items(mapping_tabs):
         if tab_name in by_tab and iid not in by_tab[tab_name]:
             by_tab[tab_name][iid] = name
-            origin[tab_name][iid] = "override"
             extra_count[tab_name] += 1
 
     # Preserve membership for designated tabs (additive): every item currently
@@ -199,7 +187,6 @@ def build_synthetic_tabs(
                 if not name:
                     continue
                 by_tab[tab_name][iid] = name
-                origin[tab_name][iid] = "override"
                 preserved[tab_name].append((iid, name))
 
     # Brief #60: hard tab-exclude pass — items the LLM cross-tagged into a tab
@@ -214,13 +201,19 @@ def build_synthetic_tabs(
         for iid in list(by_tab[tab_name].keys()):
             if iid in excl:
                 del by_tab[tab_name][iid]
-                origin[tab_name].pop(iid, None)
                 excluded_counts[tab_name] += 1
         if excluded_counts[tab_name]:
             print(
                 f"  tab_exclude[{tab_name}]: removed {excluded_counts[tab_name]} items",
                 file=__import__("sys").stderr,
             )
+
+    if combat_bleed_safety_hits:
+        print(
+            f"  combat-bleed safety: filtered {combat_bleed_safety_hits} items "
+            f"that listed multiple combat tabs",
+            file=__import__("sys").stderr,
+        )
 
     # Build synthetic TabSpecs and the classified dict.
     classified: dict[str, list[list[tuple[object, int, str]]]] = {}
@@ -247,6 +240,7 @@ def build_synthetic_tabs(
         "quests":           "TAG_QUESTS",
         "sailing":          "TAG_SAILING",
         "cosmetics":        "TAG_COSMETICS",
+        "teleports":        "TAG_TELEPORTS",
     }
 
     # Brief #55: multi-section TabSpecs with deterministic section assignment
@@ -273,8 +267,7 @@ def build_synthetic_tabs(
             it = items_by_id.get(iid, {"id": iid, "name": name})
             section = sort_tables.assign_section(it, tab_name)
             sec_idx = section_names.index(section)
-            orig = origin[tab_name].get(iid, "override")
-            sort_key = sort_tables.composite_sort_key(it, tab_name, section, orig)
+            sort_key = sort_tables.composite_sort_key(it, tab_name, section)
             items_by_section[sec_idx].append((sort_key, iid, name))
 
         for s_items in items_by_section:
@@ -282,21 +275,10 @@ def build_synthetic_tabs(
 
         classified[tab_name] = items_by_section
 
-    # Per-tab group counts driven by `origin` map (Brief #54).
-    group_counts: dict[str, dict[str, int]] = {}
-    for tab_name in ALL_TAB_NAMES:
-        counts = {"primary": 0, "cross": 0, "override": 0}
-        for iid in by_tab[tab_name]:
-            counts[origin[tab_name].get(iid, "override")] += 1
-        group_counts[tab_name] = counts
-
     report = {
         "tabs": {
             tab_name: {
                 "count": len(by_tab[tab_name]),
-                "primary": group_counts[tab_name]["primary"],
-                "cross": group_counts[tab_name]["cross"],
-                "override": group_counts[tab_name]["override"],
                 "override_added": len(override_adds[tab_name]),
                 "override_dropped": len(override_drops[tab_name]),
                 "extra_items_added": extra_count[tab_name],
@@ -313,12 +295,12 @@ def build_synthetic_tabs(
         "preserved_sample": {
             tab: preserved[tab][:5] for tab in ALL_TAB_NAMES if preserved[tab]
         },
+        "combat_bleed_safety_hits": combat_bleed_safety_hits,
     }
     # Attach the by_tab + items map to the report so the caller can also
     # emit per-item metadata (item-meta.json) without re-walking everything.
     report["_by_tab"] = by_tab
     report["_items_by_id"] = items_by_id
-    report["_origin"] = origin
     return synthetic_tabs, classified, report
 
 
@@ -394,16 +376,20 @@ def _infer_item_tier(name: str) -> int:
     return 0
 
 
-def _infer_category(item: dict, primary_tab: str) -> str:
+def _infer_category(item: dict, sample_tab: str) -> str:
     """Coarse role bucket. The Java layout builder uses this mostly for
     consumables vs gear within a section; section assignment itself is
-    already decided by sort_tables.assign_section()."""
+    already decided by sort_tables.assign_section().
+
+    `sample_tab` is any one of the tabs the item belongs to — used as a hint
+    for the category heuristic. Items in multiple tabs get a deterministic
+    pick from sorted(tabs) at the caller."""
     name = (item.get("name") or "").lower()
     eq = item.get("equipment") or {}
     slot = (eq.get("slot") or "").lower()
-    if primary_tab in ("melee", "range", "mage") and slot:
+    if sample_tab in ("melee", "range", "mage") and slot:
         return "combat"
-    if primary_tab in ("cooking",) or "potion" in name or " brew" in name \
+    if sample_tab in ("cooking",) or "potion" in name or " brew" in name \
             or " serum" in name or " mix(" in name or name.startswith("cooked "):
         return "consumable"
     if any(n in name for n in ("pickaxe", "axe", "fishing rod", "harpoon",
@@ -411,9 +397,9 @@ def _infer_category(item: dict, primary_tab: str) -> str:
                                 "spade", "rake", "knife", "chisel", "needle",
                                 "hammer", "saw")) and slot in ("weapon", "2h", ""):
         return "skill_tool"
-    if primary_tab in ("cosmetics", "quests"):
+    if sample_tab in ("cosmetics", "quests"):
         return "cosmetic"
-    if primary_tab in ("herblore", "crafting", "mining_smithing", "wc_fletching",
+    if sample_tab in ("herblore", "crafting", "mining_smithing", "wc_fletching",
                         "farming", "runecraft"):
         return "material"
     return "misc"
@@ -457,10 +443,12 @@ def emit_item_metadata(
         tier = _infer_item_tier(name)
         slot = eq.get("slot") or None
         weapon_class = wp.get("weapon_type") or None
-        # Pick the most reliable primary signal for category — actual primary
-        # is in LLM data; fall back to any tab the item is in.
-        primary_tab = next(iter(tabs), "misc")
-        category = _infer_category(it, primary_tab)
+        # Deterministic category hint: pick the alphabetically first tab the
+        # item belongs to. Category is a coarse role bucket so the exact
+        # choice rarely matters — picking by sorted order keeps the artifact
+        # stable across runs.
+        sample_tab = sorted(tabs)[0] if tabs else "misc"
+        category = _infer_category(it, sample_tab)
 
         sections: dict[str, str] = {}
         for tab in sorted(tabs):

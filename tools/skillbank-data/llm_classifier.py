@@ -2,8 +2,14 @@
 
 Replaces (eventually) the heuristic predicate stack in mapping.py. Each
 item is presented with its osrsbox/wiki metadata + trimmed wikitext, plus
-the 21 tab definitions, and the model returns a JSON object specifying a
-primary tab + optional cross-tag tabs.
+the 22 tab definitions, and the model returns a JSON object specifying a
+flat list of every tab the item belongs in.
+
+Brief #62 flattened the schema. Earlier versions split the answer into a
+primary_tab + cross_tags pair so we could enforce primary-first sort
+ordering. That distinction is gone; each item carries a flat set of tab
+memberships and the audit pass is the single source of ground truth on
+"should this item appear in this tab?".
 
 Design notes:
 - Uses urllib (no `anthropic` SDK dep needed). The Messages API is a thin
@@ -58,6 +64,7 @@ TAB_DEFS: list[tuple[str, str]] = [
     ("quests",            "Quest-only reward gear, diary-locked gear (graceful colour kits aside), minigame gear (LMS/CW), boss uniques (DKS rings, Zulrah scales). If primarily obtained through a quest reward."),
     ("sailing",           "Sailing skill content — newer Sailing skill: navigation tools, ship parts, sailing-specific fish, sailing cape, dock items."),
     ("cosmetics",         "Pure cosmetic outfits (Treasure Trail third-age, holiday rares, partyhats, h'ween masks), ornament kits, purely-visual items with no stat or training utility."),
+    ("teleports",         "Teleport tablets, jewellery teleports (glory, skills necklace, ring of dueling), Ectophial, Royal seed pod, Kharedst's memoirs, Drakan's medallion, Pharaoh's sceptre, scrolls of redirection — items used primarily as a teleport. Items keep their other tab memberships (tablets stay in mage, jewellery stays in crafting); this tab is additive."),
 ]
 VALID_TABS = {n for n, _ in TAB_DEFS}
 
@@ -83,9 +90,12 @@ def _build_system_prompt() -> str:
     return f"""You are an OSRS item classifier for a RuneLite bank-sorting plugin.
 
 Given an item's name, metadata, and wiki page content, decide:
-1. **primary_tab** — the single best tab for this item (the tab a player would expect to find it in when sorting their bank). Must be one of the 21 listed below.
-2. **cross_tags** — additional tabs the item legitimately belongs in (e.g. a slayer helm goes primary=melee, cross=[slayer]; a salve amulet goes primary=slayer, cross=[melee, mage]). Empty list if there are no good cross-tags.
-3. **rationale** — one sentence explaining the choice (used for human review).
+1. **tabs** — the complete list of tabs this item belongs in. A player should
+   expect to find this item in every listed tab. Must be a non-empty list of
+   tab names drawn from the 22 below. Order is irrelevant; duplicates are not
+   allowed. An item with no skill-specific use should land in a single utility
+   tab (misc, quests, or cosmetics as appropriate).
+2. **rationale** — one sentence explaining the choice (used for human review).
 
 # Tabs
 
@@ -93,24 +103,25 @@ Given an item's name, metadata, and wiki page content, decide:
 
 # Guidelines
 
-- Prefer the **training/use context** over the source. A dragon mace is melee (used for combat), not slayer (even if slayer-task-locked).
-- For PVM gear at the top of the meta (Torva/Masori/Ancestral/Bandos/Armadyl etc.), assign to the combat style they are USED FOR, not the boss that drops them. Torva is melee, Masori is range, Ancestral is mage, Bandos is melee, Armadyl is range.
-- Quest-reward gear should go to **quests** ONLY if it's primarily defined by being a quest reward with no broader training/combat utility (e.g. quest cape, quest-only cosmetics). Quest-locked gear used in normal training/combat (e.g. Barrows gloves, Recipe-for-Disaster gloves, Verac's armor) goes to its functional tab with cross-tag to quests if you want.
-- Cosmetics tab is for **purely visual** items — third-age sets (full sets, not the offensive d'hide which goes to range), partyhats, h'ween masks, holiday rares. If an item has actual stats and is competitive, prefer its stat tab.
-- **Ornament-kitted variants** (item names ending in `(or)`, `(or 1)`, `(or 2)`, `(or 3)`, `(cr)`, `(t)`, `(g)`, etc.) keep the **same stats** as their base item — classify them in their **base item's tab** (e.g. Berserker necklace (or) → `melee`), with `cosmetics` as a cross-tag. Do NOT make ornament-kitted variants primary cosmetics.
-- **LMS / Last Man Standing variants**: items obtainable only inside the Last Man Standing minigame (often named identically to their stat counterpart but with a separate item ID) should be classified primary=`misc` cross=[functional stat tab], because they cannot be used outside the minigame. Apply the same rule to other minigame-exclusive item variants (Castle Wars-locked variants etc.).
-- Slayer cross-tags: items that are not slayer-mandatory but are part of slayer task loadouts (broad ammo, slayer helms, salve amulet, ferocious gloves) should appear in slayer alongside their primary functional tab.
-- Misc is the fallback for utility items that don't fit a skill (teleport tabs, keys, clue items, storage, minigame-exclusive variants). Don't dump items in misc if they have a clear skill tab AND can be used outside any minigame.
+- Prefer the **training/use context** over the source. A dragon mace belongs in melee (used for combat), not slayer (even if slayer-task-locked).
+- For PVM gear at the top of the meta (Torva/Masori/Ancestral/Bandos/Armadyl etc.), put it in the combat style it is USED FOR, not the boss that drops it. Torva is melee, Masori is range, Ancestral is mage, Bandos is melee, Armadyl is range.
+- Quest-reward gear belongs in **quests** ONLY if it's primarily defined by being a quest reward with no broader training/combat utility (e.g. quest cape, quest-only cosmetics). Quest-locked gear used in normal training/combat (e.g. Barrows gloves, Recipe-for-Disaster gloves, Verac's armor) goes to its functional tab AND optionally quests.
+- Cosmetics tab is for **purely visual** items — third-age sets (full sets, not the offensive d'hide which is range), partyhats, h'ween masks, holiday rares. If an item has actual stats and is competitive, list its stat tab.
+- **Ornament-kitted variants** (item names ending in `(or)`, `(or 1)`, `(or 2)`, `(or 3)`, `(cr)`, `(t)`, `(g)`, etc.) keep the **same stats** as their base item — list the **base item's tab** (e.g. Berserker necklace (or) → `melee`) together with `cosmetics`. Do NOT classify ornament-kitted variants as cosmetics-only.
+- **LMS / Last Man Standing variants**: items obtainable only inside Last Man Standing (often named identically to their stat counterpart but with a separate item ID) should be classified as `misc` plus the functional stat tab, because they cannot be used outside the minigame. Apply the same rule to other minigame-exclusive item variants.
+- Slayer items that are not slayer-mandatory but are part of slayer task loadouts (broad ammo, slayer helms, salve amulet, ferocious gloves) should list slayer alongside their primary functional tab.
+- Misc is the fallback for utility items that don't fit a skill (keys, clue items, storage, minigame-exclusive variants). Don't dump items in misc if they have a clear skill tab AND can be used outside a minigame.
 - Cosmetic/holiday items with no combat/training role go to **cosmetics** alone, NOT misc.
 - **Pets** (boss/skilling pets like Rocky, Heron, Beaver, Olmlet, etc.) go to `cosmetics` since they have no in-bank training/combat utility.
+- **Teleports** is additive: a teleport tablet keeps `mage`; a jewellery teleport keeps `crafting`. Add `teleports` whenever the item's primary purpose is to teleport the player.
+- An item must not appear in more than one of `melee` / `range` / `mage` — pick the combat style it's actually used for.
 
 # Output format
 
 Respond with ONLY a JSON object, no preamble or trailing text:
 
 {{
-  "primary_tab": "<one of the 21 tab names>",
-  "cross_tags": ["<zero or more other tab names>"],
+  "tabs": ["<one or more tab names>"],
   "rationale": "<one sentence>"
 }}
 """
@@ -166,20 +177,17 @@ def _parse_response(text: str) -> dict:
 
 
 def _validate(parsed: dict, item_name: str) -> dict:
-    primary = parsed.get("primary_tab")
-    cross = parsed.get("cross_tags") or []
+    tabs = parsed.get("tabs")
     rationale = parsed.get("rationale") or ""
-    if primary not in VALID_TABS:
-        raise ValueError(f"{item_name}: invalid primary_tab {primary!r}")
-    if not isinstance(cross, list):
-        raise ValueError(f"{item_name}: cross_tags must be a list, got {type(cross).__name__}")
-    cross = [c for c in cross if isinstance(c, str)]
-    bad = [c for c in cross if c not in VALID_TABS]
+    if not isinstance(tabs, list) or not tabs:
+        raise ValueError(f"{item_name}: tabs must be a non-empty list, got {tabs!r}")
+    tabs = [t for t in tabs if isinstance(t, str)]
+    bad = [t for t in tabs if t not in VALID_TABS]
     if bad:
-        raise ValueError(f"{item_name}: invalid cross_tags {bad}")
-    # primary should never duplicate into cross
-    cross = [c for c in cross if c != primary]
-    return {"primary_tab": primary, "cross_tags": cross, "rationale": rationale}
+        raise ValueError(f"{item_name}: invalid tabs {bad}")
+    # Deduplicate while preserving alphabetical order (canonical form on disk).
+    tabs = sorted(set(tabs))
+    return {"tabs": tabs, "rationale": rationale}
 
 
 def _api_call(model: str, system: str, user: str, api_key: str) -> dict:
@@ -244,7 +252,7 @@ def classify_item(
     use_cache: bool = True,
     refresh: bool = False,
 ) -> dict:
-    """Classify a single item. Returns dict with primary_tab/cross_tags/rationale/_cached."""
+    """Classify a single item. Returns dict with tabs/rationale/_cached."""
     cache_dir.mkdir(parents=True, exist_ok=True)
     key = _key(model, it, wikitext or "")
     cache_file = cache_dir / f"{key}.json"
