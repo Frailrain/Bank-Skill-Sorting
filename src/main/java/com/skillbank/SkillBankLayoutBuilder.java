@@ -41,6 +41,12 @@ import net.runelite.client.plugins.banktags.tabs.Layout;
 @Singleton
 public class SkillBankLayoutBuilder
 {
+	/** OSRS bank grid width. Brief #65 aligns each section's first item to a
+	 *  multiple of this value so sections start on fresh rows. RuneLite's
+	 *  upstream Layout class doesn't expose the width as a constant, so it
+	 *  lives here. */
+	private static final int ITEMS_PER_ROW = 8;
+
 	private final ItemManager itemManager;
 
 	private final Map<String, Integer> herbOrderIndex;
@@ -188,28 +194,46 @@ public class SkillBankLayoutBuilder
 			results.add(new SectionResult(section, sortMethod, sec1, sec2));
 		}
 
+		// Brief #65: each non-empty (section, zone) block starts on a fresh
+		// bank row. Trailing slots in a partial row stay unset — Layout
+		// auto-fills the gap with -1 in setItemAtPos, which renders as empty
+		// in Bank Tags + Bank Tag Layouts. (Confirmed against the upstream
+		// Layout.setItemAtPos implementation.) The `firstBlock` flag spans
+		// both zone loops so the first zone-2 block also aligns to the next
+		// row after zone 1 ends, giving an implicit zone separator.
 		int pos = 0;
+		boolean firstBlock = true;
 		// Zone 1 first, in section order.
 		for (SectionResult r : results)
 		{
 			if (r.zone1.isEmpty()) continue;
+			if (!firstBlock && pos % ITEMS_PER_ROW != 0)
+			{
+				pos = ((pos / ITEMS_PER_ROW) + 1) * ITEMS_PER_ROW;
+			}
 			if (trace != null) trace.section(r.section, 1, r.zone1.size(), r.sortMethod);
 			for (Integer iid : r.zone1)
 			{
 				if (trace != null) trace.item(pos, iid, nameOf(iid), meta.get(iid), 1);
 				layout.setItemAtPos(iid, pos++);
 			}
+			firstBlock = false;
 		}
 		// Zone 2 next.
 		for (SectionResult r : results)
 		{
 			if (r.zone2.isEmpty()) continue;
+			if (!firstBlock && pos % ITEMS_PER_ROW != 0)
+			{
+				pos = ((pos / ITEMS_PER_ROW) + 1) * ITEMS_PER_ROW;
+			}
 			if (trace != null) trace.section(r.section, 2, r.zone2.size(), r.sortMethod);
 			for (Integer iid : r.zone2)
 			{
 				if (trace != null) trace.item(pos, iid, nameOf(iid), meta.get(iid), 2);
 				layout.setItemAtPos(iid, pos++);
 			}
+			firstBlock = false;
 		}
 
 		int z1 = 0, z2 = 0;
