@@ -48,6 +48,7 @@ public class SkillBankLayoutBuilder
 	private static final int ITEMS_PER_ROW = 8;
 
 	private final ItemManager itemManager;
+	private final SkillBankConfig config;
 
 	private final Map<String, Integer> herbOrderIndex;
 	private final Map<String, Integer> potionOrderIndex;
@@ -57,15 +58,29 @@ public class SkillBankLayoutBuilder
 	private final Map<String, Integer> gemOrderIndex;
 
 	@Inject
-	SkillBankLayoutBuilder(ItemManager itemManager)
+	SkillBankLayoutBuilder(ItemManager itemManager, SkillBankConfig config)
 	{
 		this.itemManager = itemManager;
+		this.config = config;
 		this.herbOrderIndex = lowercaseIndex(SkillBankSortData.HERB_ORDER);
 		this.potionOrderIndex = lowercaseIndex(SkillBankSortData.POTION_ORDER);
 		this.foodOrderIndex = lowercaseIndex(SkillBankSortData.FOOD_ORDER);
 		this.runeOrderIndex = lowercaseIndex(SkillBankSortData.RUNE_ORDER);
 		this.comboRuneOrderIndex = lowercaseIndex(SkillBankSortData.COMBO_RUNE_ORDER);
 		this.gemOrderIndex = lowercaseIndex(SkillBankSortData.GEM_ORDER);
+	}
+
+	/** Brief #66: simple-mode is a per-combat-tab config toggle. Returns true
+	 *  when the corresponding flag is on for melee / range / mage. */
+	private boolean isSimpleMode(String tagName)
+	{
+		switch (tagName)
+		{
+			case "melee": return config.simpleMelee();
+			case "range": return config.simpleRange();
+			case "mage":  return config.simpleMage();
+			default: return false;
+		}
 	}
 
 	private static Map<String, Integer> lowercaseIndex(List<String> order)
@@ -104,7 +119,13 @@ public class SkillBankLayoutBuilder
 			return layout;
 		}
 
-		List<String> sectionOrder = SkillBankSortData.TAB_SECTIONS.get(tagName);
+		// Brief #66: per-combat-tab simple-mode toggle picks an alternate
+		// section structure where Head/Body/Legs/Hands/Feet collapse into
+		// a single "Armor" section. Lookups go through the "<tag>_simple"
+		// variant defined in SkillBankSortData.TAB_SECTIONS.
+		boolean simpleMode = isSimpleMode(tagName);
+		String sectionLookupKey = simpleMode ? tagName + "_simple" : tagName;
+		List<String> sectionOrder = SkillBankSortData.TAB_SECTIONS.get(sectionLookupKey);
 		Map<Integer, ItemMeta> meta = SkillBankSortData.itemMeta();
 
 		// Canonicalize tab ids once and filter to ownership.
@@ -160,7 +181,17 @@ public class SkillBankLayoutBuilder
 		for (Integer iid : ownedInTab)
 		{
 			ItemMeta m = meta.get(iid);
+			// ItemMeta carries the expanded-mode section name. Look up by
+			// the tab's canonical id, not the _simple variant.
 			String section = (m != null && m.sections != null) ? m.sections.get(tagName) : null;
+			// Brief #66: in simple-mode, remap any armor-slot section
+			// (Head/Body/Legs/Hands/Feet) into the collapsed "Armor"
+			// section before the bucket lookup.
+			if (simpleMode && section != null
+				&& SkillBankSortData.SIMPLE_ARMOR_SECTIONS.contains(section))
+			{
+				section = "Armor";
+			}
 			if (section == null || !bySection.containsKey(section))
 			{
 				section = fallbackSection;
@@ -258,6 +289,13 @@ public class SkillBankLayoutBuilder
 			items.sort(this::compareHerbs);
 			return "HERB_ORDER";
 		}
+		// Brief #66: simple-mode Armor section sorts head → body → legs →
+		// hands → feet, then by tier within slot.
+		if ("Armor".equals(section))
+		{
+			items.sort(this::compareArmorSlotThenTier);
+			return "ARMOR_SLOT+tier_desc";
+		}
 		if ("Finished potions".equals(section)
 			|| "Barbarian mixes".equals(section)
 			|| "Divine, extended & upgraded variants".equals(section)
@@ -269,7 +307,14 @@ public class SkillBankLayoutBuilder
 			items.sort(this::comparePotions);
 			return "POTION_ORDER";
 		}
-		if (("cooking".equals(tagName) && "Cooked food".equals(section))
+		// Brief #66: cooking section names changed. "Cooked fish" / "Cooked
+		// meat" / "Combo food" / "Baked & cooked goods" should all use the
+		// FOOD_ORDER comparator so canonical heal order is preserved.
+		if (("cooking".equals(tagName) &&
+				("Cooked fish".equals(section)
+					|| "Cooked meat".equals(section)
+					|| "Combo food".equals(section)
+					|| "Baked & cooked goods".equals(section)))
 			|| "Food".equals(section))
 		{
 			items.sort(this::compareFood);
@@ -578,6 +623,30 @@ public class SkillBankLayoutBuilder
 			return Integer.compare(ra, rb);
 		}
 		// Same class → tier descending.
+		int ta = ma != null ? ma.tier : 0;
+		int tb = mb != null ? mb.tier : 0;
+		if (ta != tb)
+		{
+			return Integer.compare(tb, ta);
+		}
+		return nameOf(a).compareTo(nameOf(b));
+	}
+
+	/** Brief #66: simple-mode Armor section ordering. Sort by slot rank
+	 *  (head → body → legs → hands → feet), then by tier descending, then
+	 *  by name as a final tiebreaker. Items without slot metadata bucket
+	 *  at the end. */
+	private int compareArmorSlotThenTier(int a, int b)
+	{
+		Map<Integer, ItemMeta> meta = SkillBankSortData.itemMeta();
+		ItemMeta ma = meta.get(a);
+		ItemMeta mb = meta.get(b);
+		int sa = ma != null ? SkillBankSortData.armorSlotRank(ma.slot) : 99;
+		int sb = mb != null ? SkillBankSortData.armorSlotRank(mb.slot) : 99;
+		if (sa != sb)
+		{
+			return Integer.compare(sa, sb);
+		}
 		int ta = ma != null ? ma.tier : 0;
 		int tb = mb != null ? mb.tier : 0;
 		if (ta != tb)

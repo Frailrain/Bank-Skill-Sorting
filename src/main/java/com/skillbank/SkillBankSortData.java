@@ -141,6 +141,27 @@ public final class SkillBankSortData
 		return r != null ? r : Integer.MAX_VALUE - 1;
 	}
 
+	/** Brief #66: slot ordering inside the simple-mode "Armor" section.
+	 *  Items group head → body → legs → hands → feet, then sort by tier. */
+	private static final Map<String, Integer> ARMOR_SLOT_RANK = Map.of(
+		"head", 0, "body", 1, "legs", 2, "hands", 3, "feet", 4
+	);
+
+	public static int armorSlotRank(String slot)
+	{
+		if (slot == null)
+		{
+			return 99;
+		}
+		Integer r = ARMOR_SLOT_RANK.get(slot.toLowerCase());
+		return r != null ? r : 99;
+	}
+
+	/** Section names that collapse into "Armor" under simple-mode combat. */
+	public static final Set<String> SIMPLE_ARMOR_SECTIONS = Set.of(
+		"Head", "Body", "Legs", "Hands", "Feet"
+	);
+
 	// ── Per-tab section structures (display order matters) ────────────────
 
 	public static final Map<String, List<String>> TAB_SECTIONS;
@@ -157,9 +178,25 @@ public final class SkillBankSortData
 			"Hands", "Feet", "Capes", "Shields & off-hands", "Neck",
 			"Rings", "Training & utility"
 		));
+		// Brief #66: Weapons before Runes in the mage tab.
 		m.put("mage", List.of(
-			"Runes", "Weapons", "Off-hands, books & tomes", "Head", "Body",
+			"Weapons", "Runes", "Off-hands, books & tomes", "Head", "Body",
 			"Legs", "Hands", "Feet", "Capes", "Neck", "Rings",
+			"Teleport tablets & spell utility", "Enchanting & skilling magic"
+		));
+		// Brief #66: simple-mode combat tab variants. The layout builder
+		// picks these keys when the per-tab simple-mode config flag is on.
+		m.put("melee_simple", List.of(
+			"Weapons", "Shields & defenders", "Armor", "Capes", "Neck",
+			"Rings", "Ammunition", "Training & utility"
+		));
+		m.put("range_simple", List.of(
+			"Weapons", "Ammunition", "Armor", "Capes",
+			"Shields & off-hands", "Neck", "Rings", "Training & utility"
+		));
+		m.put("mage_simple", List.of(
+			"Weapons", "Runes", "Off-hands, books & tomes", "Armor",
+			"Capes", "Neck", "Rings",
 			"Teleport tablets & spell utility", "Enchanting & skilling magic"
 		));
 		m.put("prayer", List.of(
@@ -168,37 +205,47 @@ public final class SkillBankSortData
 			"Prayer-restoring consumables", "Holy symbols, books & blessings",
 			"Bone-processing utility"
 		));
+		// Brief #66: cooking restructure. Tools first; granular raw/cooked
+		// fish vs meat sections; fruits/vegetables broken out from ingredients;
+		// "Special & combo food" split into "Combo food" (fast-eat mechanic)
+		// and "Baked & cooked goods" (pies, cakes, stews, kebabs, bread).
 		m.put("cooking", List.of(
-			"Cooking tools & utensils", "Raw cookables", "Ingredients",
-			"Cooked food", "Special & combo food", "Burnt food"
+			"Cooking tools & utensils", "Raw fish", "Cooked fish",
+			"Raw meat", "Cooked meat", "Fruits", "Vegetables", "Ingredients",
+			"Combo food", "Baked & cooked goods", "Burnt food"
 		));
 		// Brief #63: wc_fletching split into a combined Woodcutting + Firemaking
 		// tab and a standalone Fletching tab. Display names live in the
 		// Python TAB_DISPLAY_NAMES map; tag IDs stay snake_case so existing
 		// banktags config keys keep parsing.
+		// Brief #66: tools first, outfits second, materials after.
 		m.put("woodcutting_firemaking", List.of(
 			"Axes",
-			"Logs",
-			"Pyre logs",
 			"Tinderboxes & firelighting tools",
-			"Shade items",
-			"Wintertodt & minigame items",
+			"Forestry items",
 			"Woodcutting outfit",
 			"Firemaking outfit",
-			"Forestry items",
+			"Logs",
+			"Pyre logs",
+			"Shade items",
+			"Wintertodt & minigame items",
 			"Misc utility"
 		));
+		// Brief #66: arrow workflow first, crossbow workflow next, darts &
+		// javelins last. "Arrow & dart components" split into "Arrow
+		// components" + "Bolt components".
 		m.put("fletching", List.of(
 			"Fletching tools",
 			"Bow materials",
 			"Unstrung bows",
 			"Strung bows",
+			"Arrow components",
+			"Finished arrows",
 			"Crossbow stocks",
 			"Crossbows",
-			"Arrow & dart components",
-			"Finished arrows",
-			"Finished darts",
+			"Bolt components",
 			"Finished bolts",
+			"Finished darts",
 			"Finished javelins",
 			"Fletching outfit & rewards"
 		));
@@ -279,8 +326,10 @@ public final class SkillBankSortData
 			"Holiday items", "Ornament kits",
 			"Skill & event cosmetics", "Decorative weapons & armour"
 		));
-		// Brief #62: Teleports tab. Starts empty pending audit.
+		// Brief #62 / #66: Teleports tab. Brief #66 added "Teleport runes"
+		// at the top — runes used in spellbook teleports.
 		m.put("teleports", List.of(
+			"Teleport runes",
 			"Mounted & charged jewellery",
 			"Spellbook tablets",
 			"Skill destinations",

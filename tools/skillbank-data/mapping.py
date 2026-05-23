@@ -2950,6 +2950,16 @@ COSMETICS = TabSpec(
 TELEPORTS = TabSpec(
     name="teleports", const_name="TAG_TELEPORTS",
     sections=[
+        Section(
+            "Teleport runes", _never,
+            # Brief #66: runes used in teleport spells. These keep their
+            # Mage tab membership too — Teleports is additive.
+            force_include=[
+                "Law rune", "Air rune", "Water rune", "Earth rune",
+                "Fire rune", "Mind rune", "Body rune", "Soul rune",
+                "Astral rune",
+            ],
+        ),
         Section("Mounted & charged jewellery", _never),
         Section("Spellbook tablets", _never),
         Section("Skill destinations", _never),

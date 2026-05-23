@@ -347,4 +347,44 @@ public interface SkillBankConfig extends Config
 	{
 		return true;
 	}
+
+	// Brief #66: per-combat-tab simple-vs-expanded layout toggles. When on,
+	// the tab's Head / Body / Legs / Hands / Feet sections collapse into a
+	// single "Armor" section.
+
+	@ConfigItem(
+		keyName = "simpleMelee",
+		name = "Simple melee layout",
+		description = "Collapse Head/Body/Legs/Hands/Feet into one Armor section in the melee tab",
+		section = tabsSection,
+		position = 23
+	)
+	default boolean simpleMelee()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "simpleRange",
+		name = "Simple range layout",
+		description = "Collapse Head/Body/Legs/Hands/Feet into one Armor section in the range tab",
+		section = tabsSection,
+		position = 24
+	)
+	default boolean simpleRange()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "simpleMage",
+		name = "Simple mage layout",
+		description = "Collapse Head/Body/Legs/Hands/Feet into one Armor section in the mage tab",
+		section = tabsSection,
+		position = 25
+	)
+	default boolean simpleMage()
+	{
+		return false;
+	}
 }

@@ -41,6 +41,17 @@ RUNE_ORDER: list[str] = [
 ]
 _RUNE_NAMES = {f"{r} rune" for r in RUNE_ORDER} | {f"{r}rune" for r in RUNE_ORDER}
 
+# Brief #66: runes used in teleport spells. These appear in both the Mage
+# tab (Runes section) and the Teleports tab (Teleport runes section). Order
+# inside the section follows _RUNE_INDEX so it matches the canonical rune
+# ordering players already see in their rune pouch.
+TELEPORT_RUNE_NAMES = [
+    "Law rune",
+    "Air rune", "Water rune", "Earth rune", "Fire rune",
+    "Mind rune", "Body rune",
+    "Soul rune", "Astral rune",
+]
+
 GEM_TIER: dict[str, int] = {
     "opal": 10, "jade": 20, "red topaz": 30, "sapphire": 40,
     "emerald": 50, "ruby": 60, "diamond": 70, "dragonstone": 80,
@@ -76,8 +87,10 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Hands", "Feet", "Capes", "Shields & off-hands", "Neck",
         "Rings", "Training & utility",
     ],
+    # Brief #66: Weapons leads, then Runes. Players reach for a staff/wand
+    # before runes when laying out a mage loadout.
     "mage": [
-        "Runes", "Weapons", "Off-hands, books & tomes", "Head", "Body",
+        "Weapons", "Runes", "Off-hands, books & tomes", "Head", "Body",
         "Legs", "Hands", "Feet", "Capes", "Neck", "Rings",
         "Teleport tablets & spell utility", "Enchanting & skilling magic",
     ],
@@ -88,37 +101,48 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Prayer-restoring consumables", "Holy symbols, books & blessings",
         "Bone-processing utility",
     ],
+    # Brief #66: tools-first; "Special & combo food" split into two clearer
+    # buckets. "Combo food" is the fast-eating mechanic (karambwan, gnome
+    # cookery, pizzas, halibut, guthix rest doses). "Baked & cooked goods"
+    # is composite recipes that aren't combo food (pies, cakes, stews, kebabs).
     "cooking": [
-        "Cooking tools & utensils", "Raw cookables", "Ingredients",
-        "Cooked food", "Special & combo food", "Burnt food",
+        "Cooking tools & utensils", "Raw fish", "Cooked fish",
+        "Raw meat", "Cooked meat", "Fruits", "Vegetables", "Ingredients",
+        "Combo food", "Baked & cooked goods", "Burnt food",
     ],
     # Brief #63: wc_fletching split. Fletching is now its own tab; the
     # woodcutting bits live alongside firemaking content in a combined tab.
     # Both tabs continue to overlap with the existing `firemaking` tab
     # (items can live in multiple tabs).
+    # Brief #66: tools first, outfits second, materials after.
     "woodcutting_firemaking": [
         "Axes",
-        "Logs",
-        "Pyre logs",
         "Tinderboxes & firelighting tools",
-        "Shade items",
-        "Wintertodt & minigame items",
+        "Forestry items",
         "Woodcutting outfit",
         "Firemaking outfit",
-        "Forestry items",
+        "Logs",
+        "Pyre logs",
+        "Shade items",
+        "Wintertodt & minigame items",
         "Misc utility",
     ],
+    # Brief #66: arrow workflow first (components → finished), then crossbow
+    # workflow (stocks → crossbows → bolt components → finished bolts),
+    # then darts/javelins at the end. "Arrow & dart components" split into
+    # "Arrow components" and "Bolt components" for clarity.
     "fletching": [
         "Fletching tools",
         "Bow materials",
         "Unstrung bows",
         "Strung bows",
+        "Arrow components",
+        "Finished arrows",
         "Crossbow stocks",
         "Crossbows",
-        "Arrow & dart components",
-        "Finished arrows",
-        "Finished darts",
+        "Bolt components",
         "Finished bolts",
+        "Finished darts",
         "Finished javelins",
         "Fletching outfit & rewards",
     ],
@@ -200,8 +224,27 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Holiday items", "Ornament kits",
         "Skill & event cosmetics", "Decorative weapons & armour",
     ],
-    # Brief #62: Teleports tab. Starts empty; audit pass populates it.
+    # Brief #66: simple-mode combat tab variants. The Java layout builder
+    # picks _simple keys when the per-tab config flag is on. The "Armor"
+    # section collapses Head / Body / Legs / Hands / Feet into one row
+    # block; within-section sort routes by slot rank then tier.
+    "melee_simple": [
+        "Weapons", "Shields & defenders", "Armor", "Capes", "Neck",
+        "Rings", "Ammunition", "Training & utility",
+    ],
+    "range_simple": [
+        "Weapons", "Ammunition", "Armor", "Capes",
+        "Shields & off-hands", "Neck", "Rings", "Training & utility",
+    ],
+    "mage_simple": [
+        "Weapons", "Runes", "Off-hands, books & tomes", "Armor",
+        "Capes", "Neck", "Rings",
+        "Teleport tablets & spell utility", "Enchanting & skilling magic",
+    ],
+    # Brief #62: Teleports tab. Brief #66 added Teleport runes at the top
+    # as the foundational requirement for any spellbook teleport.
     "teleports": [
+        "Teleport runes",
         "Mounted & charged jewellery",
         "Spellbook tablets",
         "Skill destinations",
@@ -307,40 +350,99 @@ PYRE_LOG_NAMES = [
     "Mahogany pyre logs", "Teak pyre logs",
 ]
 
-# Cooked mainstream-PvM food (highest heal / common usage first).
-COOKED_FOOD_NAMES = [
-    "Anglerfish", "Cooked karambwan", "Dark crab", "Shark",
-    "Manta ray", "Sea turtle", "Monkfish", "Tuna potato",
-    "Swordfish", "Lobster", "Bass",
-    "Salmon", "Tuna", "Trout", "Pike", "Cod", "Mackerel",
-    "Herring", "Sardine", "Anchovies", "Shrimps",
-    # Other cooked items
-    "Cooked chicken", "Cooked meat", "Stew", "Curry",
-    "Cooked rabbit", "Roast bird meat", "Roast beast meat",
-    "Roast rabbit", "Roast chompy", "Roast jubbly", "Roast oomlie",
-    "Roast frog legs", "Cooked sweetcorn", "Cooked oomlie wrap",
-    "Spider on stick", "Spider on shaft",
-    "Baked potato", "Egg potato", "Mushroom potato", "Potato with butter",
-    "Potato with cheese", "Chilli potato",
-    "Cave eel", "Cooked eel", "Slimy eel", "Rocktail",
+# Brief #66: granular cooked-food / ingredient buckets. The cooking tab
+# now has separate sections for raw vs cooked fish, raw vs cooked meat,
+# fruits, vegetables, combo food (fast-eat mechanic), and baked & cooked
+# goods (composite recipes).
+
+# Cooked fish — every cooked entry where the source is a fish.
+COOKED_FISH_NAMES = [
+    "Shrimps", "Sardine", "Anchovies", "Herring", "Mackerel",
+    "Trout", "Cod", "Pike", "Salmon", "Tuna", "Lobster",
+    "Bass", "Swordfish", "Monkfish", "Shark",
+    "Sea turtle", "Manta ray", "Dark crab", "Anglerfish",
+    "Cooked karambwan", "Karambwanji", "Cooked karambwanji",
+    "Tuna potato", "Cave eel", "Cooked eel", "Slimy eel", "Rocktail",
+    "Cooked oomlie wrap", "Cooked sweetcorn",
+    "Fishcake", "Cooked fishcake", "Cooked oomlie", "Cooked octopus",
+    "Cooked yak meat", "Cooked snake", "Halibut",
 ]
 
-# Pies / pizzas / cakes — "Special & combo" food (cooked but multi-step).
-SPECIAL_FOOD_NAMES = [
-    "Plain pizza", "Anchovy pizza", "Meat pizza", "Pineapple pizza",
-    "Apple pie", "Redberry pie", "Meat pie", "Mud pie", "Garden pie",
-    "Fish pie", "Admiral pie", "Wild pie", "Summer pie",
-    "Steak and kidney pie", "Botanical pie", "Mushroom & onion pie",
-    "Cake", "Chocolate cake", "Sliced cake",
+# Cooked meat & game.
+COOKED_MEAT_NAMES = [
+    "Cooked chicken", "Cooked meat", "Cooked rabbit",
+    "Roast bird meat", "Roast beast meat", "Roast rabbit",
+    "Roast chompy", "Roast jubbly", "Roast oomlie", "Roast frog legs",
+    "Spider on stick", "Spider on shaft",
+    "Cooked crab meat", "Roast bird thigh", "Cooked sandworm",
+]
+
+# Combo food — fast-eat / gnome cookery mechanic. Cooked karambwan and
+# Guthix rest are the canonical examples.
+COMBO_FOOD_NAMES = [
+    "Cooked karambwan",
+    "Guthix rest", "Guthix rest(1)", "Guthix rest(2)", "Guthix rest(3)",
+    "Guthix rest(4)",
+    "Halibut",
+    # Pizzas
+    "Plain pizza", "Meat pizza", "Anchovy pizza", "Pineapple pizza",
+    # Gnome cookery — battas, crunchies, gnomebowls, etc.
     "Cheese+tom batta", "Toad batta", "Worm batta", "Vegetable batta",
-    "Fruit batta", "Toad crunchies", "Spicy crunchies", "Worm crunchies",
-    "Chocchip crunchies", "Toad gnomebowl", "Worm gnomebowl",
-    "Salmon gnomebowl", "Tangled toads' legs gnomebowl",
+    "Fruit batta",
+    "Toad crunchies", "Spicy crunchies", "Worm crunchies", "Chocchip crunchies",
+    "Toad gnomebowl", "Worm gnomebowl", "Salmon gnomebowl",
+    "Tangled toad's legs gnomebowl", "Tangled toads' legs gnomebowl",
+    "Tangled toad's legs", "Tangled toads' legs",
     "Veg ball", "Worm hole", "Choc bomb",
     "Premade dirty blast", "Premade fr'y blurberry", "Premade fr't blast",
     "Premade veg ball", "Premade choc bomb",
+]
+
+# Baked & cooked goods — composite recipes that aren't combo food. Pies,
+# cakes, stews, kebabs, bread, fishcakes go here.
+BAKED_GOODS_NAMES = [
+    # Pies
+    "Apple pie", "Redberry pie", "Meat pie", "Mud pie", "Garden pie",
+    "Fish pie", "Admiral pie", "Wild pie", "Summer pie",
+    "Steak and kidney pie", "Botanical pie", "Mushroom & onion pie",
+    "Mushroom pie",
+    "Half a pie", "Half a redberry pie", "Half a meat pie",
+    "Half a fish pie", "Half a summer pie", "Half an apple pie",
+    "Half a garden pie", "Half a wild pie", "Half an admiral pie",
+    "Half a mushroom pie", "Half a botanical pie",
+    # Cakes
+    "Cake", "Chocolate cake", "Sliced cake", "Slice of cake",
+    "Chocolate slice", "2/3 cake", "2/3 chocolate cake",
+    # Stews & curries
+    "Stew", "Spicy stew", "Curry",
+    # Kebabs
     "Kebab", "Ugthanki kebab", "Super kebab",
-    "Fishcake", "Cooked fishcake",
+    # Bread & rolls
+    "Bread", "Bread roll",
+]
+
+# Fruits — raw fruit items for the cooking tab's fruits section.
+FRUIT_NAMES = [
+    "Banana", "Sliced banana", "Mashed banana",
+    "Orange", "Sliced orange", "Orange chunks", "Orange slices",
+    "Pineapple", "Pineapple chunks", "Pineapple ring",
+    "Lemon", "Sliced lemon", "Lemon chunks", "Lemon slices",
+    "Lime", "Sliced lime", "Lime chunks", "Lime slices",
+    "Watermelon", "Watermelon slice",
+    "Pear", "Pear half", "Apple", "Cooking apple", "Sliced apple",
+    "Strawberry", "Strawberry half",
+    "Papaya fruit", "Dragonfruit", "Coconut", "Half coconut",
+    "Coconut shell", "Coconut milk",
+]
+
+# Vegetables — raw veg items.
+VEGETABLE_NAMES = [
+    "Tomato", "Chopped tomato", "Onion", "Chopped onion",
+    "Cabbage", "Potato", "Baked potato", "Egg potato", "Mushroom potato",
+    "Potato with butter", "Potato with cheese", "Chilli potato",
+    "Sweetcorn", "Raw sweetcorn",
+    "Garlic", "Spring onion", "Cooked spring onion",
+    "Cooked mushroom", "Cooked white tree mushroom",
 ]
 
 # Raw cookables (everything that becomes cooked food). Used to populate the
@@ -572,8 +674,16 @@ def init_id_sets(items_by_id: dict[int, dict], *, verbose: bool = True) -> None:
     build("clean_herbs", HERB_BASE_NAMES)
     build("logs", LOG_NAMES)
     build("pyre_logs", PYRE_LOG_NAMES)
-    build("cooked_food", COOKED_FOOD_NAMES)
-    build("special_food", SPECIAL_FOOD_NAMES)
+    # Brief #66: granular cooked-food buckets replace the old cooked_food /
+    # special_food monolith. Combo food and baked goods are checked first
+    # in _section_cooking() so an item that's both a cooked fish AND a
+    # combo food (Cooked karambwan) lands in Combo food.
+    build("cooked_fish", COOKED_FISH_NAMES)
+    build("cooked_meat", COOKED_MEAT_NAMES)
+    build("combo_food", COMBO_FOOD_NAMES)
+    build("baked_goods", BAKED_GOODS_NAMES)
+    build("fruits", FRUIT_NAMES)
+    build("vegetables", VEGETABLE_NAMES)
     build("raw_cookables", RAW_COOKABLE_NAMES)
     build("raw_fish", RAW_FISH_NAMES)
     build("ingredients", INGREDIENT_NAMES)
@@ -589,6 +699,7 @@ def init_id_sets(items_by_id: dict[int, dict], *, verbose: bool = True) -> None:
     build("seeds_fruit_tree", SEED_NAMES_FRUIT_TREE)
     build("seeds_special", SEED_NAMES_SPECIAL)
     build("prayer_exclude", PRAYER_EXCLUDE_NAMES)
+    build("teleport_runes", TELEPORT_RUNE_NAMES)
 
     # Token-based exclude for construction (sailing pollution).
     construction_exclude = _ids_for_token_match(_CONSTRUCTION_EXCLUDE_TOKENS, items_by_id)
@@ -734,6 +845,30 @@ def _section_combat(item: dict, tab: str) -> str:
     return "Training & utility"
 
 
+def _section_combat_simple(item: dict, tab: str) -> str:
+    """Brief #66: simple-mode combat routing. Identical to _section_combat
+    except Head / Body / Legs / Hands / Feet all collapse into "Armor"."""
+    s = _section_combat(item, tab)
+    if s in ("Head", "Body", "Legs", "Hands", "Feet"):
+        return "Armor"
+    return s
+
+
+# Slot rank for ordering items inside the simple-mode Armor section.
+_SIMPLE_ARMOR_SLOT_RANK = {
+    "head": 0, "body": 1, "legs": 2, "hands": 3, "feet": 4,
+}
+
+
+def armor_slot_rank(slot: str) -> int:
+    """Return the simple-mode Armor section's within-section slot rank.
+    Used by the Java layout builder to keep head→body→legs→hands→feet
+    visually adjacent inside the collapsed Armor block."""
+    if slot is None:
+        return 99
+    return _SIMPLE_ARMOR_SLOT_RANK.get(slot.lower(), 99)
+
+
 def _section_prayer(item: dict) -> str:
     name = _name(item)
     nlow = name.lower()
@@ -768,36 +903,64 @@ def _section_prayer(item: dict) -> str:
 
 
 def _section_cooking(item: dict) -> str:
+    """Brief #66: granular cooking section routing.
+
+    Priority is: cooking tools → combo food → baked goods → cooked fish →
+    cooked meat → raw fish → raw meat → fruits → vegetables → ingredients
+    → burnt → fallback. Combo food beats cooked-fish so Cooked karambwan
+    routes to Combo food (its combo-eating role wins over its fish role).
+    """
     name = _name(item)
     nlow = name.lower()
-    # Burnt detection works fine via name prefix; nothing else uses it.
+
+    # Burnt always wins — name prefix is reliable.
     if nlow.startswith("burnt "):
         return "Burnt food"
-    # ID-set lookups (Brief #60): authoritative for everything we curated.
-    if _is(item, "cooked_food"):
-        return "Cooked food"
-    if _is(item, "special_food"):
-        return "Special & combo food"
-    if _is(item, "raw_cookables"):
-        return "Raw cookables"
-    if _is(item, "ingredients"):
-        return "Ingredients"
-    # Cooking tools — still name-driven because the set is small and the
-    # tokens are distinctive.
+
+    # Cooking tools (small canonical set, distinctive tokens).
     if any(k in nlow for k in ("knife", "rolling pin", "pestle and mortar",
                                "mixing bowl", "skewer", "cooking gauntlets",
                                "cook's outfit", "cook's hat", "cook's apron",
                                "cooks' assistant")):
         return "Cooking tools & utensils"
-    # Name-pattern fallback for variants the canonical lists don't carry.
+
+    # Combo food before cooked_fish so Cooked karambwan lands here.
+    if _is(item, "combo_food"):
+        return "Combo food"
+    if _is(item, "baked_goods"):
+        return "Baked & cooked goods"
+    if _is(item, "cooked_fish"):
+        return "Cooked fish"
+    if _is(item, "cooked_meat"):
+        return "Cooked meat"
+
+    # Raw items — raw_fish wins over raw_cookables because raw_cookables
+    # is a superset.
+    if _is(item, "raw_fish"):
+        return "Raw fish"
+    if _is(item, "raw_cookables"):
+        return "Raw meat"
+
+    if _is(item, "fruits"):
+        return "Fruits"
+    if _is(item, "vegetables"):
+        return "Vegetables"
+    if _is(item, "ingredients"):
+        return "Ingredients"
+
+    # Name-pattern fallbacks for items the canonical lists don't carry.
     if nlow.startswith("raw "):
-        return "Raw cookables"
-    if any(k in nlow for k in ("pie", "pizza", "stew", "cake",
-                               "kebab", "curry", "gnomebowl", "gnome batta",
-                               "gnome crunchies", "fishcake")):
-        return "Special & combo food"
-    # Default to Cooked food (most cross-tagged-into-cooking items are food).
-    return "Cooked food"
+        # Best guess: any unrecognized raw item is raw meat.
+        return "Raw meat"
+    if any(k in nlow for k in ("pie", "cake", "stew", "kebab", "curry",
+                                "bread", "fishcake")):
+        return "Baked & cooked goods"
+    if any(k in nlow for k in ("pizza", "gnomebowl", "gnome batta",
+                                "gnome crunchies", "guthix rest", "halibut")):
+        return "Combo food"
+    # Default — cooked-something we couldn't classify. Use Cooked fish as
+    # the fallback because most untyped cooked items in the tab are fish.
+    return "Cooked fish"
 
 
 def _section_woodcutting_firemaking(item: dict) -> str:
@@ -835,16 +998,21 @@ def _section_woodcutting_firemaking(item: dict) -> str:
 
 
 def _section_fletching(item: dict) -> str:
-    """Brief #63: standalone Fletching tab section assignment. Pulled out
-    of the old wc_fletching classifier; only fletching-specific routing
-    lives here."""
+    """Brief #63 + #66: standalone Fletching tab section assignment.
+
+    Brief #66 split "Arrow & dart components" into "Arrow components"
+    (arrow shafts, headless arrows, arrowheads, feathers) and "Bolt
+    components" (unfinished bolts, bolt tips, broad bolt material). Dart
+    tips classify alongside finished darts since they share the same row
+    block visually.
+    """
     nlow = _name(item).lower()
     slot = _slot(item)
     # Tools first — knife/chisel may be shared with crafting/cooking but
     # land here when they're in the fletching tab.
     if any(k in nlow for k in ("chisel", "knife", "fletching kit")) and slot != "weapon":
         return "Fletching tools"
-    # Materials (strings, feathers, dart/bolt tips, headless arrows, shafts).
+    # Materials (strings).
     if "bow string" in nlow or "magic string" in nlow:
         return "Bow materials"
     if "unstrung" in nlow:
@@ -853,10 +1021,20 @@ def _section_fletching(item: dict) -> str:
         return "Crossbow stocks"
     if "crossbow" in nlow and not any(k in nlow for k in ("string", "stock", "limb")):
         return "Crossbows"
-    if any(k in nlow for k in ("arrow shaft", "headless arrow", "dart tip",
-                                "bolt tip", "feather", "javelin shaft",
-                                "unfinished bolt", "unfinished broad")):
-        return "Arrow & dart components"
+    # Bolt-side components: unfinished bolts, bolt tips.
+    if any(k in nlow for k in ("bolt tip", "unfinished bolt",
+                                "unfinished broad", "bolt tips")):
+        return "Bolt components"
+    # Arrow-side components: arrow shafts, headless arrows, arrowheads,
+    # arrowtips, feathers. Javelin parts (heads/shafts) also bucket here.
+    if any(k in nlow for k in ("arrow shaft", "headless arrow", "arrowhead",
+                                "arrowtip", "feather", "javelin shaft",
+                                "javelin head")):
+        return "Arrow components"
+    # Dart tips classify with finished darts so the dart block visually
+    # groups material + finished together.
+    if nlow.endswith(" dart tip") or nlow.endswith(" dart tips"):
+        return "Finished darts"
     if nlow.endswith(" arrows") or nlow.endswith(" arrow"):
         return "Finished arrows"
     if nlow.endswith(" darts") or nlow.endswith(" dart"):
@@ -865,8 +1043,7 @@ def _section_fletching(item: dict) -> str:
             or nlow.endswith(" bolts (p)") or nlow.endswith(" bolts (p+)") \
             or nlow.endswith(" bolts (p++)"):
         return "Finished bolts"
-    if nlow.endswith(" javelins") or nlow.endswith(" javelin") \
-            or nlow.endswith(" javelin heads"):
+    if nlow.endswith(" javelins") or nlow.endswith(" javelin"):
         return "Finished javelins"
     if any(nlow.endswith(s) for s in (" bow", " shortbow", " longbow",
                                        " comp bow", " composite bow")):
@@ -874,8 +1051,8 @@ def _section_fletching(item: dict) -> str:
     if any(k in nlow for k in ("fletching cape", "fletching hood",
                                 "fletching outfit")):
         return "Fletching outfit & rewards"
-    # Default — most uncategorised fletching items are component materials.
-    return "Arrow & dart components"
+    # Default — most uncategorised fletching items are arrow components.
+    return "Arrow components"
 
 
 def _section_fishing(item: dict) -> str:
@@ -1264,7 +1441,13 @@ def _section_teleports(item: dict) -> str:
     """Coarse routing for the Teleports tab. Brief #62 added the tab as an
     empty container; the audit pass owns final section assignment per item.
     Until then we make a low-effort guess from the item name so the smoke-
-    test seed items land somewhere sensible rather than the fallback."""
+    test seed items land somewhere sensible rather than the fallback.
+
+    Brief #66 added the Teleport runes section at the top — checked first
+    via the canonical TELEPORT_RUNE_NAMES id set.
+    """
+    if _is(item, "teleport_runes"):
+        return "Teleport runes"
     nlow = _name(item).lower()
     if any(k in nlow for k in (
         "amulet of glory", "skills necklace", "ring of dueling",
@@ -1291,6 +1474,12 @@ _TAB_TO_FN = {
     "melee": lambda it: _section_combat(it, "melee"),
     "range": lambda it: _section_combat(it, "range"),
     "mage":  lambda it: _section_combat(it, "mage"),
+    # Brief #66: simple-mode variants share the same item universe but
+    # collapse armor slots into "Armor". Looked up by tab id when the
+    # per-tab simple-mode config flag is on.
+    "melee_simple": lambda it: _section_combat_simple(it, "melee"),
+    "range_simple": lambda it: _section_combat_simple(it, "range"),
+    "mage_simple":  lambda it: _section_combat_simple(it, "mage"),
     "prayer": _section_prayer,
     "cooking": _section_cooking,
     "woodcutting_firemaking": _section_woodcutting_firemaking,
