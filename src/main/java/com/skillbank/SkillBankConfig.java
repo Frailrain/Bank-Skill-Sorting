@@ -137,12 +137,13 @@ public interface SkillBankConfig extends Config
 		return true;
 	}
 
+	// Brief #74 fix #15: Teleports moved up to position 3 (after melee/range/mage).
 	@ConfigItem(
 		keyName = "tabPrayer",
 		name = "prayer",
 		description = "Seed the prayer tag (bones, ashes, prayer potions)",
 		section = tabsSection,
-		position = 3
+		position = 4
 	)
 	default boolean tabPrayer()
 	{
@@ -154,7 +155,7 @@ public interface SkillBankConfig extends Config
 		name = "cooking",
 		description = "Seed the cooking tag (cooked food, ingredients, cook's outfit)",
 		section = tabsSection,
-		position = 4
+		position = 5
 	)
 	default boolean tabCooking()
 	{
@@ -166,7 +167,7 @@ public interface SkillBankConfig extends Config
 		name = "Woodcutting + Firemaking",
 		description = "Seed the woodcutting/firemaking tag (logs, axes, tinderbox, pyre logs, shade items, Wintertodt, lumberjack/pyromancer outfits)",
 		section = tabsSection,
-		position = 5
+		position = 6
 	)
 	default boolean tabWoodcuttingFiremaking()
 	{
@@ -178,7 +179,7 @@ public interface SkillBankConfig extends Config
 		name = "Fletching",
 		description = "Seed the fletching tag (bow strings, unstrung/strung bows, arrows, bolts, darts, javelins, fletching cape)",
 		section = tabsSection,
-		position = 6
+		position = 7
 	)
 	default boolean tabFletching()
 	{
@@ -190,7 +191,7 @@ public interface SkillBankConfig extends Config
 		name = "fishing",
 		description = "Seed the fishing tag (raw fish, rods, bait, angler outfit, heron)",
 		section = tabsSection,
-		position = 7
+		position = 8
 	)
 	default boolean tabFishing()
 	{
@@ -353,12 +354,13 @@ public interface SkillBankConfig extends Config
 		return true;
 	}
 
+	// Brief #74 fix #15: Teleports tab promoted to position 3 (after mage).
 	@ConfigItem(
 		keyName = "tabTeleports",
 		name = "teleports",
 		description = "Seed the teleports tag (teleport tablets, jewellery teleports, ectophial, royal seed pod, etc.)",
 		section = tabsSection,
-		position = 22
+		position = 3
 	)
 	default boolean tabTeleports()
 	{

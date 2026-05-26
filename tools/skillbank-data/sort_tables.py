@@ -87,10 +87,9 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Hands", "Feet", "Capes", "Shields & off-hands", "Neck",
         "Rings", "Training & utility",
     ],
-    # Brief #66: Weapons leads, then Runes. Players reach for a staff/wand
-    # before runes when laying out a mage loadout.
+    # Brief #74: Runes lead the mage tab (reverts Brief #66's Weapons-first swap).
     "mage": [
-        "Weapons", "Runes", "Off-hands, books & tomes", "Head", "Body",
+        "Runes", "Weapons", "Off-hands, books & tomes", "Head", "Body",
         "Legs", "Hands", "Feet", "Capes", "Neck", "Rings",
         "Teleport tablets & spell utility", "Enchanting & skilling magic",
     ],
@@ -101,13 +100,13 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Prayer-restoring consumables", "Holy symbols, books & blessings",
         "Bone-processing utility",
     ],
-    # Brief #66: tools-first; "Special & combo food" split into two clearer
-    # buckets. "Combo food" is the fast-eating mechanic (karambwan, gnome
-    # cookery, pizzas, halibut, guthix rest doses). "Baked & cooked goods"
-    # is composite recipes that aren't combo food (pies, cakes, stews, kebabs).
+    # Brief #74: raw-before-cooked. All raw categories at the top, all
+    # cooked categories after. Ingredients / fruits / vegetables follow.
     "cooking": [
-        "Cooking tools & utensils", "Raw fish", "Cooked fish",
-        "Raw meat", "Cooked meat", "Fruits", "Vegetables", "Ingredients",
+        "Cooking tools & utensils",
+        "Raw fish", "Raw meat",
+        "Cooked fish", "Cooked meat",
+        "Fruits", "Vegetables", "Ingredients",
         "Combo food", "Baked & cooked goods", "Burnt food",
     ],
     # Brief #63: wc_fletching split. Fletching is now its own tab; the
@@ -164,8 +163,10 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Smithing tools", "Smithed weapons", "Smithed armour",
         "Cannonballs & ammo outputs", "Giants' Foundry & minigame items",
     ],
+    # Brief #74: merged "Vials & herblore tools" into "Herbs & tools" so
+    # the 2-item tools row doesn't waste a row break.
     "herblore": [
-        "Vials & herblore tools", "Herbs", "Secondaries",
+        "Herbs & tools", "Secondaries",
         "Unfinished potions", "Finished potions", "Barbarian mixes",
         "Divine, extended & upgraded variants",
         "Herblore outfit & utility",
@@ -1142,16 +1143,18 @@ def _section_mining_smithing(item: dict) -> str:
 def _section_herblore(item: dict) -> str:
     name = _name(item)
     nlow = name.lower()
+    # Brief #74: vials + herblore tools merged into "Herbs & tools" so the
+    # 2-item tools row doesn't waste a row break.
     if any(k in nlow for k in ("vial", "pestle and mortar", "herblore cape",
                                "herblore hood", "botanist")):
-        return "Vials & herblore tools"
+        return "Herbs & tools"
     # Brief #60: ID-set lookups for herbs (was the Brief #59 bug — clean
     # herbs in OSRS have no "Clean " prefix; startswith("clean ") matched 0).
     if _is(item, "grimy_herbs") or _is(item, "clean_herbs"):
-        return "Herbs"
+        return "Herbs & tools"
     # Name-pattern fallback for any "Grimy X" variant not in the canonical list.
     if nlow.startswith("grimy "):
-        return "Herbs"
+        return "Herbs & tools"
     if "(unf)" in nlow or " unf " in nlow or nlow.endswith(" unf"):
         return "Unfinished potions"
     # Dose suffix indicates a finished potion.
@@ -1258,6 +1261,10 @@ def _section_runecraft(item: dict) -> str:
 
 def _section_hunter(item: dict) -> str:
     nlow = _name(item).lower()
+    # Brief #74 fix #11: Huntsman's pack belongs with Hunter tools so it
+    # surfaces at the top of the tab next to traps/snares.
+    if "huntsman" in nlow:
+        return "Hunter tools & traps"
     if "trap" in nlow or "snare" in nlow or "noose wand" in nlow:
         return "Hunter tools & traps"
     if "impling" in nlow:
@@ -1278,6 +1285,10 @@ def _section_hunter(item: dict) -> str:
 
 def _section_construction(item: dict) -> str:
     nlow = _name(item).lower()
+    # Brief #74 fix #12: Sawmill coupons/vouchers have "plank" in their name
+    # but are Forestry vouchers, not actual planks. Route them out of Planks.
+    if "sawmill" in nlow or "voucher" in nlow or "coupon" in nlow:
+        return "Mahogany Homes & contract items"
     if "plank" in nlow:
         return "Planks"
     if "nail" in nlow:

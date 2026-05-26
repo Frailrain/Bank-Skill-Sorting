@@ -2385,7 +2385,10 @@ FARMING = TabSpec(
             "Watering can(5)", "Watering can(4)", "Watering can(3)",
             "Watering can(2)", "Watering can(1)",
             "Gricoller's can", "Plant pot", "Empty plant pot",
-        })),
+        }),
+            # Brief #74 fix #10: LLM classified Bronze spear into farming because
+            # it's a scarecrow component. It's a melee weapon — drop from farming.
+            force_exclude=["Bronze spear"]),
         Section("Compost", _name_in({
             "Compost", "Supercompost", "Ultracompost",
             "Compost potion(4)", "Compost potion(3)",

@@ -202,9 +202,9 @@ public final class SkillBankSortData
 			"Hands", "Feet", "Capes", "Shields & off-hands", "Neck",
 			"Rings", "Training & utility"
 		));
-		// Brief #66: Weapons before Runes in the mage tab.
+		// Brief #74: Runes back on top of the mage tab (reverts Brief #66's swap).
 		m.put("mage", List.of(
-			"Weapons", "Runes", "Off-hands, books & tomes", "Head", "Body",
+			"Runes", "Weapons", "Off-hands, books & tomes", "Head", "Body",
 			"Legs", "Hands", "Feet", "Capes", "Neck", "Rings",
 			"Teleport tablets & spell utility", "Enchanting & skilling magic"
 		));
@@ -219,7 +219,7 @@ public final class SkillBankSortData
 			"Shields & off-hands", "Neck", "Rings", "Training & utility"
 		));
 		m.put("mage_simple", List.of(
-			"Weapons", "Runes", "Off-hands, books & tomes", "Armor",
+			"Runes", "Weapons", "Off-hands, books & tomes", "Armor",
 			"Capes", "Neck", "Rings",
 			"Teleport tablets & spell utility", "Enchanting & skilling magic"
 		));
@@ -229,13 +229,13 @@ public final class SkillBankSortData
 			"Prayer-restoring consumables", "Holy symbols, books & blessings",
 			"Bone-processing utility"
 		));
-		// Brief #66: cooking restructure. Tools first; granular raw/cooked
-		// fish vs meat sections; fruits/vegetables broken out from ingredients;
-		// "Special & combo food" split into "Combo food" (fast-eat mechanic)
-		// and "Baked & cooked goods" (pies, cakes, stews, kebabs, bread).
+		// Brief #74: raw-before-cooked. All raw categories grouped together
+		// at the top; all cooked categories follow.
 		m.put("cooking", List.of(
-			"Cooking tools & utensils", "Raw fish", "Cooked fish",
-			"Raw meat", "Cooked meat", "Fruits", "Vegetables", "Ingredients",
+			"Cooking tools & utensils",
+			"Raw fish", "Raw meat",
+			"Cooked fish", "Cooked meat",
+			"Fruits", "Vegetables", "Ingredients",
 			"Combo food", "Baked & cooked goods", "Burnt food"
 		));
 		// Brief #63: wc_fletching split into a combined Woodcutting + Firemaking
@@ -290,8 +290,10 @@ public final class SkillBankSortData
 			"Smithing tools", "Smithed weapons", "Smithed armour",
 			"Cannonballs & ammo outputs", "Giants' Foundry & minigame items"
 		));
+		// Brief #74: merged "Vials & herblore tools" into "Herbs & tools"
+		// so the 2-item tools row doesn't waste a row break.
 		m.put("herblore", List.of(
-			"Vials & herblore tools", "Herbs", "Secondaries",
+			"Herbs & tools", "Secondaries",
 			"Unfinished potions", "Finished potions", "Barbarian mixes",
 			"Divine, extended & upgraded variants",
 			"Herblore outfit & utility"
@@ -368,13 +370,12 @@ public final class SkillBankSortData
 	}
 
 	/** Tabs that use the two-zone (loadout / chaff) split. */
+	// Brief #74: two-zone partitioning restricted to combat tabs only.
+	// Skill tabs use single-zone layout with section row breaks (Brief #65)
+	// — the previous loadout/chaff split was producing unnecessary double
+	// rows of pickaxes, axes, ores, etc.
 	public static final Set<String> TWO_ZONE_TABS = Set.of(
-		"melee", "range", "mage",
-		"cooking", "herblore",
-		"prayer", "woodcutting_firemaking", "fletching",
-		"fishing",
-		"crafting", "mining_smithing",
-		"agility_thieving", "farming", "runecraft", "hunter", "construction"
+		"melee", "range", "mage"
 	);
 
 	// ── Item metadata (lazy-loaded from bundled JSON) ──────────────────────
