@@ -133,20 +133,24 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Wintertodt & minigame items",
         "Misc utility",
     ],
-    # Brief #75: materials-first redesign. Tools (knife + cape/hood) → all
-    # consumed materials → bows by type → crossbow workflow → finished
-    # ammo by type. No "outfit" section (no fletching XP outfit in OSRS).
+    # Brief #75 (revised): materials-first with per-type sections. Tools
+    # at top, then Logs (cross-tag from WC) → universal consumables
+    # (Feathers/strings) → Arrows (shafts/headless/finished bundled) →
+    # Arrowheads as their own materials row → Bows (paired u+strung per
+    # tier) → Crossbows (stock+unstrung+finished per tier) → Bolts
+    # (tips+unf+finished) → Darts → Javelins → Misc safety net.
     "fletching": [
         "Tools",
-        "Materials",
-        "Shortbows",
-        "Longbows",
-        "Crossbow stocks",
+        "Logs",
+        "Feathers",
+        "Arrows",
+        "Arrowheads",
+        "Bows",
         "Crossbows",
-        "Finished arrows",
-        "Finished bolts",
-        "Finished darts",
-        "Finished javelins",
+        "Bolts",
+        "Darts",
+        "Javelins",
+        "Misc fletching",
     ],
     "fishing": [
         "Fishing tools", "Bait & consumables", "Fishing outfit",
@@ -1016,64 +1020,101 @@ def _section_woodcutting_firemaking(item: dict) -> str:
 
 
 def _section_fletching(item: dict) -> str:
-    """Brief #75: materials-first redesign.
+    """Brief #75 (revised): per-product-type sections so a player can scan
+    the tab by intent.
 
-    Tools: knife + fletching cape/hood only. Materials: every input to
-    a fletching recipe (feathers, strings, tips, shafts, javelin heads).
-    Bows split into Shortbows / Longbows (each holds both unstrung and
-    strung variants — the Java sort interleaves them by tier). Crossbow
-    stocks and finished crossbows in their own sections. Finished ammo
-    by type (arrows, bolts, darts, javelins).
+    Routing order matters — checks proceed from most specific to least.
+
+      Tools         knife + fletching cape/hood
+      Logs          all log types (cross-tag from Woodcutting + Firemaking)
+      Feathers      feathers + every kind of bowstring
+      Arrows        arrow shafts, headless arrows, finished arrows (all tiers)
+      Arrowheads    arrowhead/arrowtip materials only
+      Bows          unstrung + strung shortbows/longbows (paired by tier in sort)
+      Crossbows     crossbow stocks + unstrung + finished crossbows (paired by tier)
+      Bolts         bolt tips + unfinished bolts + finished bolts (incl. gem-tipped)
+      Darts         dart tips + finished darts
+      Javelins      javelin heads + finished javelins
+      Misc fletching   anything else (safety net)
     """
     nlow = _name(item).lower()
     slot = _slot(item)
 
-    # Tools: knife (+ fletching cape/hood). Chisel is a crafting tool,
-    # not a fletching one — exclude.
+    # 1. Tools — knife + fletching cape/hood. Chisel is a crafting tool.
     if "knife" in nlow and slot != "weapon":
         return "Tools"
     if "fletching cape" in nlow or "fletching hood" in nlow:
         return "Tools"
 
-    # Finished products — must come before "Materials" fallthrough so the
-    # ending-suffix tests trigger first.
+    # 2. Logs — cross-tagged from WC, used to fletch bows.
+    if _is(item, "logs") or nlow.endswith(" logs") or nlow.endswith(" log") \
+            or nlow == "logs":
+        return "Logs"
 
-    # Crossbow stocks: distinct section. Match both "wooden stock" etc.
-    # and the rare "crossbow stock" naming.
+    # 3. Feathers + bowstrings (universal consumables).
+    if "feather" in nlow:
+        return "Feathers"
+    if "bow string" in nlow or "magic string" in nlow \
+            or "crossbow string" in nlow:
+        return "Feathers"
+
+    # 4. Arrow chain — shafts → headless → finished arrows (incl. broad).
+    if "arrow shaft" in nlow or "headless arrow" in nlow:
+        return "Arrows"
+    if nlow.endswith(" arrows") or nlow.endswith(" arrow"):
+        return "Arrows"
+
+    # 5. Arrowheads — material-only row before Bows.
+    if "arrowhead" in nlow or "arrowtip" in nlow \
+            or nlow.endswith(" arrow tip") or nlow.endswith(" arrow tips") \
+            or nlow.endswith(" arrowtips"):
+        return "Arrowheads"
+
+    # 6. Bows — unstrung + strung shortbows/longbows, comp bows.
+    if "shortbow" in nlow or "longbow" in nlow \
+            or "comp bow" in nlow or "composite bow" in nlow:
+        return "Bows"
+
+    # 7. Crossbows — stocks + unstrung + finished. "Stock" check must
+    # come before bolt checks because Wooden/Oak/etc stocks have no
+    # "crossbow" token in their names.
     if "crossbow stock" in nlow or nlow.endswith(" stock"):
-        return "Crossbow stocks"
-
-    # Finished crossbows: contains "crossbow" but isn't a stock/string/limb.
-    if "crossbow" in nlow and not any(k in nlow for k in ("string", "stock", "limb")):
+        return "Crossbows"
+    if "crossbow" in nlow and not any(k in nlow for k in ("string", "limb")):
+        return "Crossbows"
+    if " limb" in nlow or nlow.endswith(" limbs"):
         return "Crossbows"
 
-    # Shortbows / Longbows — both unstrung and strung variants land here.
-    if "shortbow" in nlow:
-        return "Shortbows"
-    if "longbow" in nlow:
-        return "Longbows"
-    # "Comp bow" / "Composite bow" are longbow-style — group with longbows.
-    if "comp bow" in nlow or "composite bow" in nlow:
-        return "Longbows"
-
-    # Finished ammo — endswith checks. Dart tips are MATERIAL even though
-    # the old classifier grouped them with darts (brief #75 cleanup).
-    if nlow.endswith(" arrows") or nlow.endswith(" arrow"):
-        return "Finished arrows"
+    # 8. Bolts — tips, unfinished, finished (incl. gem-tipped + (p) poisons).
+    # Note: merged names include "Barb bolttips" (no space) and "Bronze
+    # bolts (unf)" / "Adamant bolts(unf)" — match both shapes.
+    if ("bolt tip" in nlow or "bolttip" in nlow
+            or nlow.endswith(" bolt tips")
+            or "unfinished bolt" in nlow or "unfinished broad" in nlow
+            or "bolts (unf)" in nlow or "bolts(unf)" in nlow):
+        return "Bolts"
     if (nlow.endswith(" bolts") or nlow.endswith(" bolt")
             or nlow.endswith(" bolts (p)") or nlow.endswith(" bolts (p+)")
             or nlow.endswith(" bolts (p++)")):
-        return "Finished bolts"
-    if nlow.endswith(" darts") or nlow.endswith(" dart"):
-        return "Finished darts"
-    if nlow.endswith(" javelins") or nlow.endswith(" javelin"):
-        return "Finished javelins"
+        return "Bolts"
 
-    # Everything else in the fletching tab is consumed during fletching:
-    # feathers, bowstrings, magic strings, crossbow strings, arrow shafts,
-    # headless arrows, arrowheads, arrowtips, bolt tips, unfinished bolts,
-    # dart tips, javelin heads, javelin shafts.
-    return "Materials"
+    # 9. Darts — tips + finished. Atlatl darts are Forestry-era fletching
+    # ammo that share the dart workflow.
+    if "dart tip" in nlow or nlow.endswith(" dart tips") or "atlatl dart" in nlow:
+        return "Darts"
+    if nlow.endswith(" darts") or nlow.endswith(" dart"):
+        return "Darts"
+
+    # 10. Javelins — heads/tips/shafts + finished. Note: merged wiki names
+    # use "javelin tips" where osrsbox said "javelin heads".
+    if ("javelin head" in nlow or "javelin tip" in nlow
+            or "javelin shaft" in nlow
+            or nlow.endswith(" javelin tips")):
+        return "Javelins"
+    if nlow.endswith(" javelins") or nlow.endswith(" javelin"):
+        return "Javelins"
+
+    return "Misc fletching"
 
 
 def _section_fishing(item: dict) -> str:

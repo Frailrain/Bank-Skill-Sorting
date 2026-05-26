@@ -262,20 +262,21 @@ public final class SkillBankSortData
 			"Wintertodt & minigame items",
 			"Misc utility"
 		));
-		// Brief #75: materials-first redesign. Tools (knife + cape/hood) →
-		// all consumed materials → bows by type → crossbow workflow →
-		// finished ammo by type. No fletching outfit (RS3-only in OSRS).
+		// Brief #75 (revised): materials-first with per-type sections.
+		// Tools / Logs / Feathers / Arrows / Arrowheads / Bows / Crossbows
+		// / Bolts / Darts / Javelins / Misc fletching.
 		m.put("fletching", List.of(
 			"Tools",
-			"Materials",
-			"Shortbows",
-			"Longbows",
-			"Crossbow stocks",
+			"Logs",
+			"Feathers",
+			"Arrows",
+			"Arrowheads",
+			"Bows",
 			"Crossbows",
-			"Finished arrows",
-			"Finished bolts",
-			"Finished darts",
-			"Finished javelins"
+			"Bolts",
+			"Darts",
+			"Javelins",
+			"Misc fletching"
 		));
 		m.put("fishing", List.of(
 			"Fishing tools", "Bait & consumables", "Fishing outfit",

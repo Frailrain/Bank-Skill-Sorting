@@ -310,12 +310,12 @@ public class SkillBankLayoutBuilder
 	 *  trace can show which sort domain fired for each section. */
 	private String sortSection(List<Integer> items, String section, String tagName)
 	{
-		// Brief #75: fletching uses tier ASC + unstrung-first across all
-		// sections except Tools (which has 2-3 items, name sort is fine).
-		if ("fletching".equals(tagName) && !"Tools".equals(section))
+		// Brief #75 (revised): fletching uses a per-section comparator with
+		// tier ASC + sub-rank groupings (shafts/tips/unstrung etc.).
+		if ("fletching".equals(tagName))
 		{
 			items.sort((a, b) -> compareFletching(a, b, section));
-			return "FLETCHING_TIER_ASC";
+			return "FLETCHING_PER_SECTION";
 		}
 		// Brief #75: cosmetics sorts by set rank → set name → slot rank →
 		// item name so items in the same set cluster contiguously. The
@@ -916,7 +916,7 @@ public class SkillBankLayoutBuilder
 		}
 	}
 
-	// ── Brief #75: fletching tier sort ─────────────────────────────────────
+	// ── Brief #75: fletching per-section sort ──────────────────────────────
 
 	/** Fletching tier resolver. Combines wood-tier ranks (for bows, stocks,
 	 *  arrow shafts) and metal-tier ranks (for finished ammo, tips). Higher
@@ -926,12 +926,16 @@ public class SkillBankLayoutBuilder
 	{
 		String n = name.toLowerCase(Locale.ROOT);
 		// Wood tiers first — bow / stock / shaft names lead with wood token.
+		if (n.contains("redwood")) return 60;
 		if (n.contains("magic ") || n.startsWith("magic")) return 50;
 		if (n.contains("yew ")   || n.startsWith("yew"))   return 40;
 		if (n.contains("maple ") || n.startsWith("maple")) return 30;
 		if (n.contains("willow ") || n.startsWith("willow")) return 20;
 		if (n.contains("oak ")   || n.startsWith("oak"))   return 10;
-		// Metal tiers for ammo, tips, etc.
+		// Metal tiers for ammo, tips, etc. Specials get a sentinel above
+		// dragon so they sort to the end of crossbow/dart progressions.
+		if (n.contains("zaryte"))   return 95;
+		if (n.contains("armadyl"))  return 90;
 		if (n.contains("dragon "))  return 80;
 		if (n.contains("amethyst")) return 75;
 		if (n.contains("rune ") || n.contains("runite "))   return 70;
@@ -944,56 +948,128 @@ public class SkillBankLayoutBuilder
 		return 0;
 	}
 
-	/** Materials sub-grouping: keeps feathers / strings / arrow components
-	 *  / bolt tips / dart tips / javelin heads adjacent within the
-	 *  Materials section. Lower rank = appears earlier in the section. */
-	private static int fletchingMaterialGroup(String name)
+	/** Per-section sub-rank — keeps related items adjacent inside a
+	 *  fletching section in the order players think about them. Lower
+	 *  rank = earlier in the section. The combination of section + this
+	 *  sub-rank + tier ASC produces the brief #75 layout. */
+	private static int fletchingSubRank(String name, String section)
 	{
 		String n = name.toLowerCase(Locale.ROOT);
-		if (n.contains("feather")) return 0;
-		if (n.contains("bow string") || n.contains("magic string")
-			|| n.contains("crossbow string")) return 1;
-		if (n.contains("arrow shaft") || n.contains("headless arrow")) return 2;
-		if (n.contains("arrowhead") || n.contains("arrowtip")
-			|| n.contains("arrow tip") || n.contains("arrow tips")) return 3;
-		if (n.contains("bolt tip") || n.contains("unfinished bolt")
-			|| n.contains("unfinished broad")) return 4;
-		if (n.contains("dart tip")) return 5;
-		if (n.contains("javelin head") || n.contains("javelin shaft")) return 6;
-		return 9;
+		switch (section)
+		{
+			case "Tools":
+				if (n.contains("knife")) return 0;
+				if (n.contains("fletching cape")) return 1;
+				if (n.contains("fletching hood")) return 2;
+				return 9;
+			case "Feathers":
+				if (n.contains("feather") && !n.contains("string")) return 0;
+				if (n.contains("crossbow string")) return 3;
+				if (n.contains("magic string")) return 2;
+				if (n.contains("bow string")) return 1;
+				return 9;
+			case "Arrows":
+				if (n.contains("arrow shaft")) return 0;
+				if (n.contains("headless arrow")) return 1;
+				return 2;   // finished arrows
+			case "Bows":
+				// Brief #75: within each wood tier, sort
+				//   shortbow (u) → shortbow → longbow (u) → longbow
+				{
+					boolean lb = n.contains("longbow") || n.contains("comp bow")
+						|| n.contains("composite bow");
+					boolean u = n.contains("(u)") || n.contains("unstrung");
+					int base = lb ? 2 : 0;
+					return base + (u ? 0 : 1);
+				}
+			case "Crossbows":
+				// Brief #75: within tier, stock → unstrung crossbow → finished.
+				if (n.contains("stock")) return 0;
+				if (n.contains("(u)") || n.contains("unstrung")) return 1;
+				return 2;
+			case "Bolts":
+				// tip → unfinished → finished plain → gem-tipped variant.
+				if (n.contains("bolt tip") || n.endsWith(" bolt tips")) return 0;
+				if (n.contains("unfinished bolt") || n.contains("unfinished broad")) return 1;
+				// Gem-tipped bolts contain a gem keyword (sapphire/ruby/etc.)
+				// AND the word "bolts". Group them after plain finished bolts.
+				if (n.contains("sapphire") || n.contains("emerald")
+					|| n.contains("ruby") || n.contains("diamond")
+					|| n.contains("dragonstone") || n.contains("onyx")
+					|| n.contains("opal") || n.contains("jade")
+					|| n.contains("pearl") || n.contains("topaz"))
+				{
+					return 3;
+				}
+				return 2;
+			case "Darts":
+				if (n.contains("dart tip")) return 0;
+				return 1;
+			case "Javelins":
+				if (n.contains("javelin head") || n.contains("javelin tip")
+					|| n.contains("javelin shaft")) return 0;
+				return 1;
+			default:
+				return 0;
+		}
 	}
 
-	/** Brief #75: fletching within-section comparator. Tier ASC primary;
-	 *  for bow sections, unstrung "(u)" sorts before its strung counterpart
-	 *  within the same tier; Materials section adds a sub-group key
-	 *  (feathers → strings → arrow parts → bolt tips → dart tips →
-	 *  javelin parts). Name is the final tiebreaker. */
+	/** Brief #75 (revised): fletching within-section comparator.
+	 *
+	 *  Bows: primary = wood tier ASC, secondary = sub-rank
+	 *    (shortbow-u → shortbow → longbow-u → longbow), tertiary = name.
+	 *  Crossbows: primary = tier ASC (specials at the end via tier sentinel),
+	 *    secondary = sub-rank (stock → unstrung xbow → finished), name.
+	 *  Arrows: primary = sub-rank (shaft → headless → finished), then within
+	 *    finished by tier ASC, name.
+	 *  Darts / Javelins: primary = tier ASC, secondary = sub-rank
+	 *    (tip → finished / head → finished), name.
+	 *  Bolts: primary = sub-rank (tip → unf → finished → gem-tipped),
+	 *    secondary = tier ASC within sub-rank, name.
+	 *  Feathers: primary = sub-rank (feathers → bowstring → magic string →
+	 *    crossbow string), name.
+	 *  Tools / Logs / Arrowheads / Misc: tier ASC, name.
+	 */
 	private int compareFletching(int a, int b, String section)
 	{
 		String na = nameOf(a);
 		String nb = nameOf(b);
-		if ("Materials".equals(section))
-		{
-			int ga = fletchingMaterialGroup(na);
-			int gb = fletchingMaterialGroup(nb);
-			if (ga != gb)
-			{
-				return Integer.compare(ga, gb);
-			}
-		}
+
+		int sra = fletchingSubRank(na, section);
+		int srb = fletchingSubRank(nb, section);
 		int ta = fletchingTier(na);
 		int tb = fletchingTier(nb);
-		if (ta != tb)
+
+		// Bows + Crossbows + Darts + Javelins: tier-first within section.
+		boolean tierFirst = "Bows".equals(section)
+			|| "Crossbows".equals(section)
+			|| "Darts".equals(section)
+			|| "Javelins".equals(section);
+
+		if (tierFirst)
 		{
-			return Integer.compare(ta, tb);
+			if (ta != tb) return Integer.compare(ta, tb);
+			if (sra != srb) return Integer.compare(sra, srb);
+			return na.compareToIgnoreCase(nb);
 		}
-		// Unstrung first (only relevant for bow sections, harmless elsewhere).
-		boolean ua = na.toLowerCase(Locale.ROOT).contains("(u)");
-		boolean ub = nb.toLowerCase(Locale.ROOT).contains("(u)");
-		if (ua != ub)
+
+		// Arrows + Bolts + Feathers: sub-rank-first (shaft/tip/feather before
+		// finished etc.), then tier ASC within sub-rank.
+		boolean subRankFirst = "Arrows".equals(section)
+			|| "Bolts".equals(section)
+			|| "Feathers".equals(section);
+
+		if (subRankFirst)
 		{
-			return ua ? -1 : 1;
+			if (sra != srb) return Integer.compare(sra, srb);
+			if (ta != tb) return Integer.compare(ta, tb);
+			return na.compareToIgnoreCase(nb);
 		}
+
+		// Tools (3 items, fixed order via sub-rank), Logs / Arrowheads /
+		// Misc fletching: sub-rank then tier ASC then name.
+		if (sra != srb) return Integer.compare(sra, srb);
+		if (ta != tb) return Integer.compare(ta, tb);
 		return na.compareToIgnoreCase(nb);
 	}
 
