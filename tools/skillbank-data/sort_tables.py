@@ -126,24 +126,20 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Wintertodt & minigame items",
         "Misc utility",
     ],
-    # Brief #66: arrow workflow first (components → finished), then crossbow
-    # workflow (stocks → crossbows → bolt components → finished bolts),
-    # then darts/javelins at the end. "Arrow & dart components" split into
-    # "Arrow components" and "Bolt components" for clarity.
+    # Brief #75: materials-first redesign. Tools (knife + cape/hood) → all
+    # consumed materials → bows by type → crossbow workflow → finished
+    # ammo by type. No "outfit" section (no fletching XP outfit in OSRS).
     "fletching": [
-        "Fletching tools",
-        "Bow materials",
-        "Unstrung bows",
-        "Strung bows",
-        "Arrow components",
-        "Finished arrows",
+        "Tools",
+        "Materials",
+        "Shortbows",
+        "Longbows",
         "Crossbow stocks",
         "Crossbows",
-        "Bolt components",
+        "Finished arrows",
         "Finished bolts",
         "Finished darts",
         "Finished javelins",
-        "Fletching outfit & rewards",
     ],
     "fishing": [
         "Fishing tools", "Bait & consumables", "Fishing outfit",
@@ -220,10 +216,16 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Shipbuilding materials", "Cargo & contracts",
         "Sailing outfit & rewards",
     ],
+    # Brief #75: set-per-row redesign. Sections group by source/category;
+    # within each section, items with the same set_name (sn meta field)
+    # cluster on a single row.
     "cosmetics": [
-        "Cosmetic sets", "Treasure trail cosmetics",
-        "Holiday items", "Ornament kits",
-        "Skill & event cosmetics", "Decorative weapons & armour",
+        "Treasure trail sets",
+        "Minigame sets",
+        "Holiday items",
+        "Random event sets",
+        "Ornament kits",
+        "Miscellaneous cosmetics",
     ],
     # Brief #66: simple-mode combat tab variants. The Java layout builder
     # picks _simple keys when the per-tab config flag is on. The "Armor"
@@ -999,61 +1001,64 @@ def _section_woodcutting_firemaking(item: dict) -> str:
 
 
 def _section_fletching(item: dict) -> str:
-    """Brief #63 + #66: standalone Fletching tab section assignment.
+    """Brief #75: materials-first redesign.
 
-    Brief #66 split "Arrow & dart components" into "Arrow components"
-    (arrow shafts, headless arrows, arrowheads, feathers) and "Bolt
-    components" (unfinished bolts, bolt tips, broad bolt material). Dart
-    tips classify alongside finished darts since they share the same row
-    block visually.
+    Tools: knife + fletching cape/hood only. Materials: every input to
+    a fletching recipe (feathers, strings, tips, shafts, javelin heads).
+    Bows split into Shortbows / Longbows (each holds both unstrung and
+    strung variants — the Java sort interleaves them by tier). Crossbow
+    stocks and finished crossbows in their own sections. Finished ammo
+    by type (arrows, bolts, darts, javelins).
     """
     nlow = _name(item).lower()
     slot = _slot(item)
-    # Tools first — knife/chisel may be shared with crafting/cooking but
-    # land here when they're in the fletching tab.
-    if any(k in nlow for k in ("chisel", "knife", "fletching kit")) and slot != "weapon":
-        return "Fletching tools"
-    # Materials (strings).
-    if "bow string" in nlow or "magic string" in nlow:
-        return "Bow materials"
-    if "unstrung" in nlow:
-        return "Unstrung bows"
+
+    # Tools: knife (+ fletching cape/hood). Chisel is a crafting tool,
+    # not a fletching one — exclude.
+    if "knife" in nlow and slot != "weapon":
+        return "Tools"
+    if "fletching cape" in nlow or "fletching hood" in nlow:
+        return "Tools"
+
+    # Finished products — must come before "Materials" fallthrough so the
+    # ending-suffix tests trigger first.
+
+    # Crossbow stocks: distinct section. Match both "wooden stock" etc.
+    # and the rare "crossbow stock" naming.
     if "crossbow stock" in nlow or nlow.endswith(" stock"):
         return "Crossbow stocks"
+
+    # Finished crossbows: contains "crossbow" but isn't a stock/string/limb.
     if "crossbow" in nlow and not any(k in nlow for k in ("string", "stock", "limb")):
         return "Crossbows"
-    # Bolt-side components: unfinished bolts, bolt tips.
-    if any(k in nlow for k in ("bolt tip", "unfinished bolt",
-                                "unfinished broad", "bolt tips")):
-        return "Bolt components"
-    # Arrow-side components: arrow shafts, headless arrows, arrowheads,
-    # arrowtips, feathers. Javelin parts (heads/shafts) also bucket here.
-    if any(k in nlow for k in ("arrow shaft", "headless arrow", "arrowhead",
-                                "arrowtip", "feather", "javelin shaft",
-                                "javelin head")):
-        return "Arrow components"
-    # Dart tips classify with finished darts so the dart block visually
-    # groups material + finished together.
-    if nlow.endswith(" dart tip") or nlow.endswith(" dart tips"):
-        return "Finished darts"
+
+    # Shortbows / Longbows — both unstrung and strung variants land here.
+    if "shortbow" in nlow:
+        return "Shortbows"
+    if "longbow" in nlow:
+        return "Longbows"
+    # "Comp bow" / "Composite bow" are longbow-style — group with longbows.
+    if "comp bow" in nlow or "composite bow" in nlow:
+        return "Longbows"
+
+    # Finished ammo — endswith checks. Dart tips are MATERIAL even though
+    # the old classifier grouped them with darts (brief #75 cleanup).
     if nlow.endswith(" arrows") or nlow.endswith(" arrow"):
         return "Finished arrows"
+    if (nlow.endswith(" bolts") or nlow.endswith(" bolt")
+            or nlow.endswith(" bolts (p)") or nlow.endswith(" bolts (p+)")
+            or nlow.endswith(" bolts (p++)")):
+        return "Finished bolts"
     if nlow.endswith(" darts") or nlow.endswith(" dart"):
         return "Finished darts"
-    if nlow.endswith(" bolts") or nlow.endswith(" bolt") \
-            or nlow.endswith(" bolts (p)") or nlow.endswith(" bolts (p+)") \
-            or nlow.endswith(" bolts (p++)"):
-        return "Finished bolts"
     if nlow.endswith(" javelins") or nlow.endswith(" javelin"):
         return "Finished javelins"
-    if any(nlow.endswith(s) for s in (" bow", " shortbow", " longbow",
-                                       " comp bow", " composite bow")):
-        return "Strung bows"
-    if any(k in nlow for k in ("fletching cape", "fletching hood",
-                                "fletching outfit")):
-        return "Fletching outfit & rewards"
-    # Default — most uncategorised fletching items are arrow components.
-    return "Arrow components"
+
+    # Everything else in the fletching tab is consumed during fletching:
+    # feathers, bowstrings, magic strings, crossbow strings, arrow shafts,
+    # headless arrows, arrowheads, arrowtips, bolt tips, unfinished bolts,
+    # dart tips, javelin heads, javelin shafts.
+    return "Materials"
 
 
 def _section_fishing(item: dict) -> str:
@@ -1418,34 +1423,223 @@ def _section_sailing(item: dict) -> str:
 
 
 def _section_cosmetics(item: dict) -> str:
+    """Brief #75: route by source/category. Sets (Treasure trails / minigames /
+    random events / holidays) get their own sections so each set can claim
+    its own row in the layout builder. Ornament kits are upgrade items.
+    Anything that doesn't fit a known set source falls to Miscellaneous.
+    """
     nlow = _name(item).lower()
-    if nlow.endswith(" ornament kit") or nlow.endswith(" colour kit") or "upgrade kit" in nlow:
+
+    # Ornament/upgrade kits — distinct row family, never part of a set.
+    if (nlow.endswith(" ornament kit") or nlow.endswith(" colour kit")
+            or "ornament kit" in nlow or "upgrade kit" in nlow):
         return "Ornament kits"
+
+    # Holiday items — fixed event keyword list.
     if any(k in nlow for k in (
         "partyhat", "h'ween mask", "halloween mask", "santa", "easter",
-        "midsummer", "diwali", "thanksgiving", "christmas", "scythe of vitur (",
-        "festive", "valentine", "gingerbread", "trick", "jack lantern",
-        "pumpkin", "bunny", "ham", "cracker", "snowman", "spectator",
+        "midsummer", "diwali", "thanksgiving", "christmas", "festive",
+        "valentine", "gingerbread", "jack lantern", "pumpkin", "bunny",
+        "ham joint", "cracker", "snowman", "spectator",
+        "yo-yo", "rubber chicken", "rubber duck",
     )):
         return "Holiday items"
+
+    # Random event sets — characters/themes from random events.
     if any(k in nlow for k in (
-        "trailblazer", "shattered relic", "twisted relics", "leagues",
+        "mime ", "frog ", "zombie ", "gravedigger", "lederhosen",
+        "camo top", "camo legs", "camo helmet", "mime mask", "mime top",
+        "mime legs", "mime boots", "mime gloves",
+        "zombie head", "zombie hands", "zombie shirt", "zombie trousers",
+        "zombie boots",
+        "frog mask",
     )):
-        return "Skill & event cosmetics"
+        return "Random event sets"
+
+    # Minigame sets — keyword anchors per minigame.
     if any(k in nlow for k in (
-        "3rd age", "third age", "trimmed", "(g)", "(t)", "(h1)", "(h2)",
-        "(h3)", "(h4)", "(h5)", "(sk)", "(lg)", "(or)", "(or 1)", "(or 2)",
-        "elegant", "musketeer", "dragon mask", "leprechaun hat",
-        "robin hood hat", "pith helmet", "deerstalker",
+        "castle wars ", "barbarian assault ",
+        "fight pits", "fight arena",
+        "soul wars", "stealing creation",
+        "trouble brewing", "shades of mort'ton",
+        "lms ", "last man standing",
     )):
-        return "Treasure trail cosmetics"
-    if any(k in nlow for k in ("decorative sword", "decorative", "magic dye",
+        return "Minigame sets"
+
+    # Treasure trail sets — Gilded, 3rd age, (g)/(t)/(h1-5) suffixes,
+    # elegant, musketeer, themed clue rewards.
+    if any(k in nlow for k in (
+        "gilded ", "3rd age", "third age", "trimmed",
+        "(g)", "(t)", "(h1)", "(h2)", "(h3)", "(h4)", "(h5)",
+        "(sk)", "(lg)", "(or)", "(or 1)", "(or 2)",
+        "elegant", "musketeer", "dragon mask",
+        "robin hood hat", "ranger boots", "ranger gloves",
+        "pith helmet", "deerstalker", "katana",
+        "wizard boots", "splitbark", "lunar ", "ahrim",
+        "leprechaun hat", "samurai ", "highwayman",
+        "carnillean", "khazard", "bearhead",
+    )):
+        return "Treasure trail sets"
+
+    # Skill / Leagues / event cosmetics — Trailblazer outfits etc.
+    if any(k in nlow for k in (
+        "trailblazer", "shattered relic", "twisted relic",
+        "leagues", "raging echoes",
+    )):
+        return "Miscellaneous cosmetics"
+
+    # Decorative weapons/dyes — bin into Miscellaneous now that the
+    # dedicated section is gone.
+    if any(k in nlow for k in ("decorative ", "magic dye",
                                "white dye", "red dye", "blue dye", "yellow dye",
                                "purple dye", "orange dye", "pink dye")):
-        return "Decorative weapons & armour"
-    if "set" in nlow and "_(" not in nlow:
-        return "Cosmetic sets"
-    return "Treasure trail cosmetics"
+        return "Miscellaneous cosmetics"
+
+    return "Miscellaneous cosmetics"
+
+
+# ── Brief #75: set_name resolver for cosmetics row-per-set layout ──────────
+#
+# Items with the same set_name cluster together with a row break between
+# different sets. Items returning None sort normally (no row break).
+#
+# This is intentionally conservative — the brief flags set_name generation
+# for 500+ items as a Cowork task. Here we cover the obvious name-pattern
+# cases; everything else falls through to None.
+
+_HOLIDAY_KEYWORDS = (
+    ("christmas",  "Christmas"),
+    ("santa",      "Christmas"),
+    ("snowman",    "Christmas"),
+    ("gingerbread", "Christmas"),
+    ("cracker",    "Christmas"),
+    ("h'ween",     "Halloween"),
+    ("halloween",  "Halloween"),
+    ("jack lantern", "Halloween"),
+    ("pumpkin",    "Halloween"),
+    ("easter",     "Easter"),
+    ("bunny",      "Easter"),
+    ("midsummer",  "Midsummer"),
+    ("diwali",     "Diwali"),
+    ("thanksgiving", "Thanksgiving"),
+    ("valentine",  "Valentine"),
+    ("festive",    "Festive"),
+)
+
+_RANDOM_EVENT_KEYWORDS = (
+    ("mime ",       "Mime"),
+    ("mime mask",   "Mime"),
+    ("mime top",    "Mime"),
+    ("mime legs",   "Mime"),
+    ("mime boots",  "Mime"),
+    ("mime gloves", "Mime"),
+    ("frog ",       "Frog"),
+    ("frog mask",   "Frog"),
+    ("zombie ",     "Zombie"),
+    ("zombie head", "Zombie"),
+    ("zombie hands","Zombie"),
+    ("zombie shirt","Zombie"),
+    ("zombie trousers", "Zombie"),
+    ("zombie boots","Zombie"),
+    ("gravedigger", "Gravedigger"),
+    ("lederhosen",  "Lederhosen"),
+    ("camo",        "Camo"),
+)
+
+_MINIGAME_KEYWORDS = (
+    ("castle wars",      "Castle Wars"),
+    ("barbarian assault","Barbarian Assault"),
+    ("fight pits",       "Fight Pits"),
+    ("fight arena",      "Fight Arena"),
+    ("soul wars",        "Soul Wars"),
+    ("stealing creation","Stealing Creation"),
+    ("trouble brewing",  "Trouble Brewing"),
+    ("shades of mort",   "Shades of Mort'ton"),
+    ("last man standing","LMS"),
+    ("lms ",             "LMS"),
+)
+
+
+def _set_name(item: dict) -> str | None:
+    """Brief #75: return a set_name string for cosmetic items that
+    visibly cluster as a set, or None otherwise. Used by the Java
+    layout builder to insert a row break between different sets and
+    keep set members adjacent on the same row.
+    """
+    name = _name(item)
+    nlow = name.lower()
+
+    # Treasure trail "Gilded" set.
+    if nlow.startswith("gilded "):
+        return "Gilded"
+
+    # 3rd age — grouped by combat style based on item keywords.
+    if "3rd age" in nlow or "third age" in nlow:
+        if any(k in nlow for k in ("range", "bow", "vamb", "coif", "leather")):
+            return "3rd age range"
+        if any(k in nlow for k in ("mage", "robe", "wand", "hat", "amulet")):
+            return "3rd age mage"
+        if "druid" in nlow:
+            return "3rd age druidic"
+        # Default 3rd age bucket — melee plate / longsword / kiteshield.
+        return "3rd age melee"
+
+    # (g) / (t) trim sets — group by armor metal prefix.
+    if nlow.endswith("(g)") or nlow.endswith(" (g)"):
+        base = name.rsplit("(g)", 1)[0].strip()
+        first = base.split()[0] if base else ""
+        if first:
+            return f"{first.capitalize()} (g)"
+        return "(g)"
+    if nlow.endswith("(t)") or nlow.endswith(" (t)"):
+        base = name.rsplit("(t)", 1)[0].strip()
+        first = base.split()[0] if base else ""
+        if first:
+            return f"{first.capitalize()} (t)"
+        return "(t)"
+
+    # Heraldic sets — (h1) through (h5).
+    for n in range(1, 6):
+        marker = f"(h{n})"
+        if marker in nlow:
+            return f"Heraldic {n}"
+
+    # Elegant set (colour suffix groups each as their own set).
+    if "elegant" in nlow:
+        # "Black elegant shirt", "Black elegant legs", "Pink elegant blouse" ...
+        for color in ("black", "white", "red", "purple", "pink", "green",
+                      "gold", "blue"):
+            if nlow.startswith(color + " elegant") or f" {color} elegant" in nlow:
+                return f"Elegant {color}"
+        return "Elegant"
+
+    # Musketeer set.
+    if "musketeer" in nlow:
+        return "Musketeer"
+
+    # Pith helmet + explorer set.
+    if "pith helmet" in nlow or "explorer" in nlow:
+        return "Explorer"
+
+    # Robin hood hat lives alone — no set, return None.
+
+    # Holiday items.
+    for kw, label in _HOLIDAY_KEYWORDS:
+        if kw in nlow:
+            return label
+
+    # Random events.
+    for kw, label in _RANDOM_EVENT_KEYWORDS:
+        if kw in nlow:
+            return label
+
+    # Minigames.
+    for kw, label in _MINIGAME_KEYWORDS:
+        if kw in nlow:
+            return label
+
+    # No pattern matched — item sorts on its own with no row break.
+    return None
 
 
 def _section_teleports(item: dict) -> str:

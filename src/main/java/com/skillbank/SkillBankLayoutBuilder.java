@@ -243,6 +243,9 @@ public class SkillBankLayoutBuilder
 		// row after zone 1 ends, giving an implicit zone separator.
 		int pos = 0;
 		boolean firstBlock = true;
+		// Brief #75: cosmetics tab adds a row break whenever the set_name
+		// changes within a section, so each set lives on its own row.
+		boolean cosmeticsRowBreak = "cosmetics".equals(tagName);
 		// Zone 1 first, in section order.
 		for (SectionResult r : results)
 		{
@@ -252,8 +255,22 @@ public class SkillBankLayoutBuilder
 				pos = ((pos / ITEMS_PER_ROW) + 1) * ITEMS_PER_ROW;
 			}
 			if (trace != null) trace.section(r.section, 1, r.zone1.size(), r.sortMethod);
+			String lastSetName = null;
 			for (Integer iid : r.zone1)
 			{
+				if (cosmeticsRowBreak)
+				{
+					ItemMeta im = meta.get(iid);
+					String setName = im != null ? im.setName : null;
+					if (lastSetName != null && !lastSetName.equals(setName))
+					{
+						if (pos % ITEMS_PER_ROW != 0)
+						{
+							pos = ((pos / ITEMS_PER_ROW) + 1) * ITEMS_PER_ROW;
+						}
+					}
+					lastSetName = setName;
+				}
 				if (trace != null) trace.item(pos, iid, nameOf(iid), meta.get(iid), 1);
 				layout.setItemAtPos(iid, pos++);
 			}
@@ -293,6 +310,21 @@ public class SkillBankLayoutBuilder
 	 *  trace can show which sort domain fired for each section. */
 	private String sortSection(List<Integer> items, String section, String tagName)
 	{
+		// Brief #75: fletching uses tier ASC + unstrung-first across all
+		// sections except Tools (which has 2-3 items, name sort is fine).
+		if ("fletching".equals(tagName) && !"Tools".equals(section))
+		{
+			items.sort((a, b) -> compareFletching(a, b, section));
+			return "FLETCHING_TIER_ASC";
+		}
+		// Brief #75: cosmetics sorts by set rank → set name → slot rank →
+		// item name so items in the same set cluster contiguously. The
+		// layout builder then injects a row break between sets.
+		if ("cosmetics".equals(tagName))
+		{
+			items.sort((a, b) -> compareCosmetics(a, b, section));
+			return "COSMETICS_SET+SLOT";
+		}
 		if ("herblore".equals(tagName) && "Herbs".equals(section))
 		{
 			items.sort(this::compareHerbs);
@@ -880,5 +912,204 @@ public class SkillBankLayoutBuilder
 		{
 			return "";
 		}
+	}
+
+	// ── Brief #75: fletching tier sort ─────────────────────────────────────
+
+	/** Fletching tier resolver. Combines wood-tier ranks (for bows, stocks,
+	 *  arrow shafts) and metal-tier ranks (for finished ammo, tips). Higher
+	 *  number = higher tier. Returns 0 if no token matches — those items
+	 *  sort to the front under the ASC ordering. */
+	private static int fletchingTier(String name)
+	{
+		String n = name.toLowerCase(Locale.ROOT);
+		// Wood tiers first — bow / stock / shaft names lead with wood token.
+		if (n.contains("magic ") || n.startsWith("magic")) return 50;
+		if (n.contains("yew ")   || n.startsWith("yew"))   return 40;
+		if (n.contains("maple ") || n.startsWith("maple")) return 30;
+		if (n.contains("willow ") || n.startsWith("willow")) return 20;
+		if (n.contains("oak ")   || n.startsWith("oak"))   return 10;
+		// Metal tiers for ammo, tips, etc.
+		if (n.contains("dragon "))  return 80;
+		if (n.contains("amethyst")) return 75;
+		if (n.contains("rune ") || n.contains("runite "))   return 70;
+		if (n.contains("adamant ")) return 60;
+		if (n.contains("mithril "))  return 50;
+		if (n.contains("broad"))    return 45;
+		if (n.contains("steel "))   return 30;
+		if (n.contains("iron "))    return 20;
+		if (n.contains("bronze "))  return 10;
+		return 0;
+	}
+
+	/** Materials sub-grouping: keeps feathers / strings / arrow components
+	 *  / bolt tips / dart tips / javelin heads adjacent within the
+	 *  Materials section. Lower rank = appears earlier in the section. */
+	private static int fletchingMaterialGroup(String name)
+	{
+		String n = name.toLowerCase(Locale.ROOT);
+		if (n.contains("feather")) return 0;
+		if (n.contains("bow string") || n.contains("magic string")
+			|| n.contains("crossbow string")) return 1;
+		if (n.contains("arrow shaft") || n.contains("headless arrow")) return 2;
+		if (n.contains("arrowhead") || n.contains("arrowtip")
+			|| n.contains("arrow tip") || n.contains("arrow tips")) return 3;
+		if (n.contains("bolt tip") || n.contains("unfinished bolt")
+			|| n.contains("unfinished broad")) return 4;
+		if (n.contains("dart tip")) return 5;
+		if (n.contains("javelin head") || n.contains("javelin shaft")) return 6;
+		return 9;
+	}
+
+	/** Brief #75: fletching within-section comparator. Tier ASC primary;
+	 *  for bow sections, unstrung "(u)" sorts before its strung counterpart
+	 *  within the same tier; Materials section adds a sub-group key
+	 *  (feathers → strings → arrow parts → bolt tips → dart tips →
+	 *  javelin parts). Name is the final tiebreaker. */
+	private int compareFletching(int a, int b, String section)
+	{
+		String na = nameOf(a);
+		String nb = nameOf(b);
+		if ("Materials".equals(section))
+		{
+			int ga = fletchingMaterialGroup(na);
+			int gb = fletchingMaterialGroup(nb);
+			if (ga != gb)
+			{
+				return Integer.compare(ga, gb);
+			}
+		}
+		int ta = fletchingTier(na);
+		int tb = fletchingTier(nb);
+		if (ta != tb)
+		{
+			return Integer.compare(ta, tb);
+		}
+		// Unstrung first (only relevant for bow sections, harmless elsewhere).
+		boolean ua = na.toLowerCase(Locale.ROOT).contains("(u)");
+		boolean ub = nb.toLowerCase(Locale.ROOT).contains("(u)");
+		if (ua != ub)
+		{
+			return ua ? -1 : 1;
+		}
+		return na.compareToIgnoreCase(nb);
+	}
+
+	// ── Brief #75: cosmetics set-then-slot sort ───────────────────────────
+
+	private static final Map<String, Integer> SLOT_ORDER_COSMETICS = Map.ofEntries(
+		Map.entry("head", 1),
+		Map.entry("body", 2),
+		Map.entry("legs", 3),
+		Map.entry("hands", 4),
+		Map.entry("feet", 5),
+		Map.entry("cape", 6),
+		Map.entry("neck", 7),
+		Map.entry("ring", 8),
+		Map.entry("weapon", 9),
+		Map.entry("2h", 9),
+		Map.entry("shield", 10),
+		Map.entry("ammo", 11)
+	);
+
+	/** Treasure-trail clue-tier rank per set_name. Lower = earlier (easy
+	 *  clues first → master clues last). Sets that don't appear here get a
+	 *  default rank so they sort after the explicit list. */
+	private static final Map<String, Integer> TREASURE_SET_TIER = Map.ofEntries(
+		Map.entry("Explorer", 1),
+		Map.entry("Black (g)", 2),  Map.entry("Black (t)", 2),
+		Map.entry("Adamant (g)", 3), Map.entry("Adamant (t)", 3),
+		Map.entry("Heraldic 1", 4),  Map.entry("Heraldic 2", 4),
+		Map.entry("Heraldic 3", 4),  Map.entry("Heraldic 4", 4),
+		Map.entry("Heraldic 5", 4),
+		Map.entry("Rune (g)", 5),    Map.entry("Rune (t)", 5),
+		Map.entry("Elegant", 5),
+		Map.entry("Elegant black", 5), Map.entry("Elegant white", 5),
+		Map.entry("Elegant red", 5), Map.entry("Elegant purple", 5),
+		Map.entry("Elegant pink", 5), Map.entry("Elegant green", 5),
+		Map.entry("Elegant gold", 5), Map.entry("Elegant blue", 5),
+		Map.entry("Musketeer", 5),
+		Map.entry("Gilded", 6),
+		Map.entry("3rd age melee", 7),
+		Map.entry("3rd age range", 7),
+		Map.entry("3rd age mage", 7),
+		Map.entry("3rd age druidic", 7)
+	);
+
+	private static final Map<String, Integer> HOLIDAY_SET_TIER = Map.ofEntries(
+		Map.entry("Christmas", 1),
+		Map.entry("Halloween", 2),
+		Map.entry("Easter", 3),
+		Map.entry("Midsummer", 4),
+		Map.entry("Diwali", 5),
+		Map.entry("Thanksgiving", 6),
+		Map.entry("Valentine", 7),
+		Map.entry("Festive", 8)
+	);
+
+	private static int cosmeticsSlotRank(String slot)
+	{
+		if (slot == null) return 99;
+		Integer r = SLOT_ORDER_COSMETICS.get(slot.toLowerCase(Locale.ROOT));
+		return r != null ? r : 99;
+	}
+
+	/** Set-rank for a (section, set_name) pair. Used as the primary cosmetics
+	 *  sort key so items in the same set cluster contiguously. Items with
+	 *  set_name == null get a sentinel rank that places them after all
+	 *  recognised sets. */
+	private static int cosmeticsSetRank(String section, String setName)
+	{
+		if (setName == null) return 9999;
+		if ("Treasure trail sets".equals(section))
+		{
+			Integer r = TREASURE_SET_TIER.get(setName);
+			return r != null ? r : 50;
+		}
+		if ("Holiday items".equals(section))
+		{
+			Integer r = HOLIDAY_SET_TIER.get(setName);
+			return r != null ? r : 50;
+		}
+		// Minigame / Random event / Miscellaneous: alpha by set name
+		// (the secondary key in compareCosmetics handles that).
+		return 0;
+	}
+
+	/** Brief #75: cosmetics comparator. Primary key is the set's clue tier
+	 *  / holiday rank, secondary is set_name alphabetical (groups by set),
+	 *  tertiary is slot rank (head → body → legs → hands → feet → cape →
+	 *  neck → ring → weapon → shield), final tiebreaker is name. Items
+	 *  with no set_name sort after items with a set, in alpha order. */
+	private int compareCosmetics(int a, int b, String section)
+	{
+		Map<Integer, ItemMeta> meta = SkillBankSortData.itemMeta();
+		ItemMeta ma = meta.get(a);
+		ItemMeta mb = meta.get(b);
+		String sna = ma != null ? ma.setName : null;
+		String snb = mb != null ? mb.setName : null;
+
+		int ra = cosmeticsSetRank(section, sna);
+		int rb = cosmeticsSetRank(section, snb);
+		if (ra != rb)
+		{
+			return Integer.compare(ra, rb);
+		}
+
+		String keyA = sna != null ? sna : "";
+		String keyB = snb != null ? snb : "";
+		int byName = keyA.compareToIgnoreCase(keyB);
+		if (byName != 0)
+		{
+			return byName;
+		}
+
+		int slA = cosmeticsSlotRank(ma != null ? ma.slot : null);
+		int slB = cosmeticsSlotRank(mb != null ? mb.slot : null);
+		if (slA != slB)
+		{
+			return Integer.compare(slA, slB);
+		}
+		return nameOf(a).compareToIgnoreCase(nameOf(b));
 	}
 }

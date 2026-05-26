@@ -517,7 +517,8 @@ def emit_item_metadata(
         "sl": str|null slot,
         "ct": str category,
         "s": {tab_name: section_name, ...},
-        "rq": {skill: level, ...}  # only when known; {} means confirmed no-req
+        "rq": {skill: level, ...},  # only when known; {} means confirmed no-req
+        "sn": str  # Brief #75: cosmetics set_name (omitted when null)
       }
     """
     import sort_tables  # type: ignore
@@ -564,6 +565,14 @@ def emit_item_metadata(
             entry["wc"] = weapon_class
         if slot:
             entry["sl"] = slot
+
+        # Brief #75: emit set_name only for cosmetic items (the only tab
+        # that consumes it today) and only when the resolver returned
+        # something. Keeps the JSON footprint flat for the other 11k items.
+        if "cosmetics" in tabs:
+            sn = sort_tables._set_name(it)
+            if sn:
+                entry["sn"] = sn
 
         # Brief #72: merge wiki + osrsbox requirements. The wiki record
         # (Brief #71 output) is preferred when high-confidence; medium

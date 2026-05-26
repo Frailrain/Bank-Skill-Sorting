@@ -43,8 +43,16 @@ public final class ItemMeta
 	@com.google.gson.annotations.SerializedName("rq")
 	public final Map<String, Integer> requirements;
 
+	/** Brief #75: cosmetic set name. Items sharing the same {@code setName}
+	 *  cluster on a single row in the cosmetics tab, with row breaks between
+	 *  different sets. Null when the item doesn't belong to a recognised set
+	 *  (or for non-cosmetics items, where the field isn't emitted). */
+	@com.google.gson.annotations.SerializedName("sn")
+	public final String setName;
+
 	public ItemMeta(int tier, String weaponClass, String slot, String category,
-		Map<String, String> sections, Map<String, Integer> requirements)
+		Map<String, String> sections, Map<String, Integer> requirements,
+		String setName)
 	{
 		this.tier = tier;
 		this.weaponClass = weaponClass;
@@ -52,6 +60,7 @@ public final class ItemMeta
 		this.category = category;
 		this.sections = sections;
 		this.requirements = requirements;
+		this.setName = setName;
 	}
 
 	/** Look up a skill requirement (e.g. "attack", "defence", "ranged",

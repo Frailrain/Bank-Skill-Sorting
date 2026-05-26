@@ -255,23 +255,20 @@ public final class SkillBankSortData
 			"Wintertodt & minigame items",
 			"Misc utility"
 		));
-		// Brief #66: arrow workflow first, crossbow workflow next, darts &
-		// javelins last. "Arrow & dart components" split into "Arrow
-		// components" + "Bolt components".
+		// Brief #75: materials-first redesign. Tools (knife + cape/hood) →
+		// all consumed materials → bows by type → crossbow workflow →
+		// finished ammo by type. No fletching outfit (RS3-only in OSRS).
 		m.put("fletching", List.of(
-			"Fletching tools",
-			"Bow materials",
-			"Unstrung bows",
-			"Strung bows",
-			"Arrow components",
-			"Finished arrows",
+			"Tools",
+			"Materials",
+			"Shortbows",
+			"Longbows",
 			"Crossbow stocks",
 			"Crossbows",
-			"Bolt components",
+			"Finished arrows",
 			"Finished bolts",
 			"Finished darts",
-			"Finished javelins",
-			"Fletching outfit & rewards"
+			"Finished javelins"
 		));
 		m.put("fishing", List.of(
 			"Fishing tools", "Bait & consumables", "Fishing outfit",
@@ -347,10 +344,16 @@ public final class SkillBankSortData
 			"Shipbuilding materials", "Cargo & contracts",
 			"Sailing outfit & rewards"
 		));
+		// Brief #75: set-per-row redesign. Within each section, items
+		// sharing a set_name cluster on a single row, with row breaks
+		// between sets. See SkillBankLayoutBuilder cosmetics path.
 		m.put("cosmetics", List.of(
-			"Cosmetic sets", "Treasure trail cosmetics",
-			"Holiday items", "Ornament kits",
-			"Skill & event cosmetics", "Decorative weapons & armour"
+			"Treasure trail sets",
+			"Minigame sets",
+			"Holiday items",
+			"Random event sets",
+			"Ornament kits",
+			"Miscellaneous cosmetics"
 		));
 		// Brief #62 / #66: Teleports tab. Brief #66 added "Teleport runes"
 		// at the top — runes used in spellbook teleports.

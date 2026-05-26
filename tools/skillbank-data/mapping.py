@@ -1730,27 +1730,62 @@ WOODCUTTING_FIREMAKING = TabSpec(
     ],
 )
 
+# Brief #75: finished fletching products also live in `range` (they're
+# weapons / ammo). force_include cross-tags them into `fletching` so the
+# tab shows the full materials-to-output workflow on one screen.
+_FLETCHING_STRUNG_BOWS = [
+    "Shortbow", "Oak shortbow", "Willow shortbow", "Maple shortbow",
+    "Yew shortbow", "Magic shortbow",
+    "Longbow", "Oak longbow", "Willow longbow", "Maple longbow",
+    "Yew longbow", "Magic longbow",
+]
+_FLETCHING_FINISHED_ARROWS = [
+    "Bronze arrow", "Iron arrow", "Steel arrow", "Mithril arrow",
+    "Adamant arrow", "Rune arrow", "Broad arrow",
+]
+_FLETCHING_FINISHED_BOLTS = [
+    "Bronze bolts",
+]
+_FLETCHING_FINISHED_DARTS = [
+    "Bronze dart", "Iron dart", "Steel dart", "Mithril dart",
+    "Adamant dart", "Rune dart",
+]
+_FLETCHING_FINISHED_JAVELINS = [
+    "Bronze javelin", "Iron javelin", "Steel javelin", "Mithril javelin",
+    "Adamant javelin", "Rune javelin", "Dragon javelin",
+]
+
 FLETCHING = TabSpec(
     name="fletching", const_name="TAG_FLETCHING",
     sections=[
-        Section("Fletching tools", _never),
-        Section("Bow materials", _never),
-        Section("Unstrung bows", _never),
-        Section("Strung bows", _never),
+        # Brief #75: section list now matches the new TAB_SECTIONS layout
+        # (Tools / Materials / Shortbows / Longbows / Crossbow stocks /
+        # Crossbows / Finished {arrows,bolts,darts,javelins}). All
+        # predicates are _never — LLM owns membership; sort_tables
+        # assigns the section name at promote time. force_include here
+        # cross-tags finished bows/ammo (which live in `range`) into
+        # `fletching` so the materials-to-output workflow is visible.
+        Section(
+            "Tools", _never,
+            force_include=_FLETCHING_STRUNG_BOWS + _FLETCHING_FINISHED_ARROWS
+                          + _FLETCHING_FINISHED_BOLTS + _FLETCHING_FINISHED_DARTS
+                          + _FLETCHING_FINISHED_JAVELINS,
+        ),
+        Section("Materials", _never),
+        Section("Shortbows", _never),
+        Section("Longbows", _never),
         Section("Crossbow stocks", _never),
         Section("Crossbows", _never),
-        Section("Arrow & dart components", _never),
         Section(
             "Finished arrows", _never,
             force_exclude=["Broken arrow"],
         ),
+        Section("Finished bolts", _never),
         Section(
             "Finished darts", _never,
             force_exclude=["Prototype dart", "Prototype dart tip"],
         ),
-        Section("Finished bolts", _never),
         Section("Finished javelins", _never),
-        Section("Fletching outfit & rewards", _never),
     ],
 )
 
