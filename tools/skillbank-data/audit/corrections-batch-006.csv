@@ -1,0 +1,27 @@
+id,name,from_tabs,to_tabs,reason,source
+13448,"Ensouled goblin head","Mage,Prayer","Prayer","Ensouled heads are a Prayer-training input only; reanimation Magic XP is incidental (like alch XP) and does not warrant Mage.",matt-audit-batch-006
+13451,"Ensouled monkey head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13454,"Ensouled imp head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13457,"Ensouled minotaur head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13460,"Ensouled scorpion head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13463,"Ensouled bear head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13466,"Ensouled unicorn head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13469,"Ensouled dog head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13472,"Ensouled chaos druid head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13475,"Ensouled giant head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13478,"Ensouled ogre head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13481,"Ensouled elf head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13484,"Ensouled troll head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13487,"Ensouled horror head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental. (Also dropped earlier Slayer.)",matt-audit-batch-006
+13490,"Ensouled kalphite head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13493,"Ensouled dagannoth head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13496,"Ensouled bloodveld head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental. (Also dropped earlier Slayer.)",matt-audit-batch-006
+13499,"Ensouled tzhaar head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13502,"Ensouled demon head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13505,"Ensouled aviansie head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+13508,"Ensouled abyssal head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental. (Also dropped earlier Slayer.)",matt-audit-batch-006
+13511,"Ensouled dragon head","Mage,Prayer","Prayer","Ensouled heads are Prayer-only; reanimation Magic XP incidental.",matt-audit-batch-006
+21028,"Dragon harpoon","Fishing,Melee","Fishing","Harpoons are Fishing tools, not weapons; nobody fights with them. Dropped Melee.",matt-audit-batch-006
+21031,"Infernal harpoon","Cooking,Fishing,Melee","Fishing","Fishing tool only: not a weapon (drop Melee); auto-cook is a passive fishing function, not cooking-with-it (drop Cooking).",matt-audit-batch-006
+21033,"Infernal harpoon (uncharged)","Cooking,Fishing,Melee","Fishing","Fishing tool only: not a weapon (drop Melee); auto-cook is a passive fishing function (drop Cooking).",matt-audit-batch-006
+10129,"Barb-tail harpoon","Fishing,Hunter,Melee","Fishing,Hunter","Propagated harpoon ruling to a batch-4 item: harpoons are Fishing tools, not weapons (drop Melee). Hunter drop retained. Also flipped in log-batch-004.csv.",matt-audit-batch-006-propagated

@@ -114,6 +114,19 @@ def build_synthetic_tabs(
     llm_data = json.loads(llm_json_path.read_text())
     llm_items = llm_data["items"]
 
+    # Brief #67: the Cowork audit explicitly assigns multi-combat-style tabs to
+    # all-style items (overloads, salve amulet (i)/(ei), amulet of avarice,
+    # void, Castlewars brew, etc.). The Brief #56 combat-bleed safety net was a
+    # filter against unaudited raw LLM noise — applying it to audit output
+    # silently drops legitimate decisions. Skip it when the upstream source
+    # declares itself as the audit.
+    bleed_filter_enabled = llm_data.get("model") != "cowork-audit"
+    if not bleed_filter_enabled:
+        print(
+            "  combat-bleed safety filter: DISABLED (source is cowork-audit)",
+            file=__import__("sys").stderr,
+        )
+
     forced_into, forbidden_from = _collect_overrides(mapping_tabs)
 
     # name -> set[id], so name-based overrides reach every variant.
@@ -150,10 +163,11 @@ def build_synthetic_tabs(
                 tabs_for_item.discard(tab_name)
                 override_drops[tab_name].append((iid, name))
 
-        # Safety net: an item cannot belong to more than one combat tab.
-        tabs_for_item, dropped_combat = _apply_combat_bleed_safety(tabs_for_item)
-        if dropped_combat:
-            combat_bleed_safety_hits += 1
+        # Safety net (Brief #56): only applied when source is not the audit.
+        if bleed_filter_enabled:
+            tabs_for_item, dropped_combat = _apply_combat_bleed_safety(tabs_for_item)
+            if dropped_combat:
+                combat_bleed_safety_hits += 1
 
         for tab_name in tabs_for_item:
             if tab_name not in by_tab:

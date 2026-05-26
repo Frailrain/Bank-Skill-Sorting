@@ -1,0 +1,32 @@
+id,name,from_tabs,to_tabs,reason,source
+10976,"Long bone","Construction,Prayer","Construction","One-off: never buried when sold to Barlak for construction materials; Prayer tab confuses players.",matt-audit-batch-005
+10977,"Curved bone","Construction,Prayer","Construction","Same one-off ruling as long bone.",matt-audit-batch-005
+10370,"Zamorak d'hide body","Range,Prayer","Cosmetics,Range,Prayer","Functional prestige/Treasure-Trail gear keeps Cosmetics (resolved rule).",matt-audit-batch-005
+10372,"Zamorak chaps","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10374,"Zamorak coif","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10376,"Guthix bracers","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10378,"Guthix d'hide body","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10380,"Guthix chaps","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10382,"Guthix coif","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10384,"Saradomin bracers","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10386,"Saradomin d'hide body","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10388,"Saradomin chaps","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10390,"Saradomin coif","Range,Prayer","Cosmetics,Range,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10440,"Saradomin crozier","Mage,Prayer","Cosmetics,Mage,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10442,"Guthix crozier","Mage,Prayer","Cosmetics,Mage,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10444,"Zamorak crozier","Mage,Prayer","Cosmetics,Mage,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10446,"Saradomin cloak","Prayer","Cosmetics,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10448,"Guthix cloak","Prayer","Cosmetics,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10450,"Zamorak cloak","Prayer","Cosmetics,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10452,"Saradomin mitre","Mage,Prayer","Cosmetics,Mage,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10454,"Guthix mitre","Mage,Prayer","Cosmetics,Mage,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10456,"Zamorak mitre","Mage,Prayer","Cosmetics,Mage,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10458,"Saradomin robe top","Mage,Prayer","Cosmetics,Prayer","Cosmetics restored; Mage dropped (incidental, no magic req) to match other vestment robe tops.",matt-audit-batch-005
+10460,"Zamorak robe top","Mage,Prayer","Cosmetics,Prayer","Cosmetics restored; Mage dropped (incidental).",matt-audit-batch-005
+10462,"Guthix robe top","Mage,Prayer","Cosmetics,Prayer","Cosmetics restored; Mage dropped (incidental).",matt-audit-batch-005
+10464,"Saradomin robe legs","Mage,Prayer","Cosmetics,Prayer","Cosmetics restored; Mage dropped (incidental).",matt-audit-batch-005
+10466,"Guthix robe legs","Mage,Prayer","Cosmetics,Prayer","Cosmetics restored; Mage dropped (incidental).",matt-audit-batch-005
+10468,"Zamorak robe legs","Mage,Prayer","Cosmetics,Prayer","Cosmetics restored; Mage dropped (incidental).",matt-audit-batch-005
+10470,"Saradomin stole","Prayer","Cosmetics,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10472,"Guthix stole","Prayer","Cosmetics,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005
+10474,"Zamorak stole","Prayer","Cosmetics,Prayer","Prestige gear keeps Cosmetics.",matt-audit-batch-005

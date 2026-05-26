@@ -1,0 +1,1189 @@
+id,name,old_tabs,new_tabs,changed,rationale,confidence
+24003,"Elven boots","Cosmetics","Cosmetics",no,"Elven outfit cosmetic.",high
+24006,"Elven gloves","Cosmetics","Cosmetics",no,"Elven outfit cosmetic.",high
+24009,"Elven top","Cosmetics","Cosmetics",no,"Elven outfit cosmetic.",high
+24012,"Elven skirt","Cosmetics","Cosmetics",no,"Elven outfit cosmetic.",high
+24015,"Elven top","Cosmetics","Cosmetics",no,"Elven outfit cosmetic.",high
+24018,"Elven skirt","Cosmetics","Cosmetics",no,"Elven outfit cosmetic.",high
+24021,"Elven top","Cosmetics","Cosmetics",no,"Elven outfit cosmetic.",high
+24024,"Elven legwear","Cosmetics","Cosmetics",no,"Elven outfit cosmetic.",high
+24027,"Elven top","Cosmetics","Cosmetics",no,"Elven outfit cosmetic.",high
+24030,"Memoriam crystal (1)","Quests","Quests",no,"SOTE memory quest item.",high
+24031,"Memoriam crystal (2)","Quests","Quests",no,"SOTE memory quest item.",high
+24032,"Memoriam crystal (3)","Quests","Quests",no,"SOTE memory quest item.",high
+24033,"Memoriam crystal (4)","Quests","Quests",no,"SOTE memory quest item.",high
+24034,"Dragonstone full helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune-tier melee helm -> Cosmetics + Melee.",high
+24037,"Dragonstone platebody","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune-tier melee armour -> Cosmetics + Melee.",high
+24040,"Dragonstone platelegs","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune-tier melee armour -> Cosmetics + Melee.",high
+24043,"Dragonstone boots","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune-tier melee boots -> Cosmetics + Melee.",high
+24046,"Dragonstone gauntlets","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune-tier melee gauntlets -> Cosmetics + Melee.",high
+24049,"Crazed scribbles","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24051,"A dear friend","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24053,"On leprechauns","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24055,"Bloody diary","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24057,"The eight clans","Misc","Misc",no,"Prifddinas library hymn -> Misc.",high
+24059,"Gollwyn's final statement","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24061,"Niff & harry","Misc","Misc",no,"Prifddinas library poem -> Misc.",high
+24063,"Soggy journal","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24065,"Ebrill's journal","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24067,"Stained journal","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24069,"The truth behind the myth (excerpt)","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24071,"The living statues","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24073,"The spurned demon","Quests","Misc",yes,"Prifddinas library lore book -> Misc; drop Quests.",high
+24075,"Legends of the mountain","Quests","Misc",yes,"Prifddinas library lore book -> Misc; drop Quests.",high
+24130,"Combat path starter kit","Misc","Misc",no,"Adventure Paths combat crate -> Misc.",high
+24131,"Combat path voucher","Misc","Misc",no,"Adventure Paths reward voucher -> Misc.",high
+24144,"Staff of balance","Mage","Mage,Melee",yes,"Bladed staff (real melee + magic) -> Mage + Melee (matches staff of light/dead).",medium
+24187,"Trouver parchment","Misc","Misc",no,"Item-protection consumable scroll -> Misc.",high
+24189,"Deadman's chest","Cosmetics","Cosmetics",no,"LMS-shop cosmetic platebody -> Cosmetics.",high
+24190,"Deadman's legs","Cosmetics,Misc","Cosmetics",yes,"LMS-shop cosmetic leggings -> Cosmetics; drop Misc.",high
+24191,"Deadman's cape","Cosmetics","Cosmetics",no,"LMS-shop cosmetic cape -> Cosmetics.",high
+24192,"Armadyl halo","Misc,Prayer","Prayer",yes,"Prayer-bonus halo -> Prayer; drop Misc. (halo family flagged)",medium
+24195,"Bandos halo","Melee,Misc,Prayer","Prayer",yes,"Prayer-bonus halo -> Prayer; drop Melee/Misc.",medium
+24198,"Seren halo","Melee,Misc,Prayer","Prayer",yes,"Prayer-bonus halo -> Prayer; drop Melee/Misc.",medium
+24201,"Ancient halo","Melee,Misc,Prayer","Prayer",yes,"Prayer-bonus halo -> Prayer; drop Melee/Misc.",medium
+24204,"Brassica halo","Misc,Prayer","Prayer",yes,"Prayer-bonus halo -> Prayer; drop Misc.",medium
+24207,"Victor's cape (1)","Cosmetics","Cosmetics",no,"LMS victory cosmetic cape -> Cosmetics.",high
+24209,"Victor's cape (10)","Cosmetics","Cosmetics",no,"LMS victory cosmetic cape -> Cosmetics.",high
+24211,"Victor's cape (50)","Cosmetics","Cosmetics",no,"LMS victory cosmetic cape -> Cosmetics.",high
+24213,"Victor's cape (100)","Cosmetics","Cosmetics",no,"LMS victory cosmetic cape -> Cosmetics.",high
+24215,"Victor's cape (500)","Cosmetics","Cosmetics",no,"LMS victory cosmetic cape -> Cosmetics.",high
+24217,"Guthixian icon","Mage,Misc","Mage",yes,"Component for staff of balance (magic weapon) -> Mage; drop Misc.",medium
+24219,"Swift blade","Melee,Misc","Melee",yes,"LMS-shop melee weapon -> Melee; drop Misc.",high
+24225,"Granite maul","Cosmetics,Melee","Cosmetics,Melee",no,"Ornate granite maul -> Cosmetics + Melee.",high
+24229,"Ornate maul handle","Melee,Misc","Melee",yes,"Granite maul upgrade component -> Melee; drop Misc.",high
+24251,"Wilderness crabs teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc.",high
+24253,"Clue scroll (elite)","Misc","Misc",no,"Treasure Trail clue -> Misc.",high
+24254,"Fang","Quests","Quests",no,"Fremennik Exiles quest item.",high
+24255,"Venom gland","Quests","Quests",no,"Fremennik Exiles quest item.",high
+24256,"Unsealed letter","Quests","Quests",no,"Fremennik Exiles quest item.",high
+24258,"V sigil","Quests,Slayer","Quests",yes,"Fremennik Exiles quest-internal component -> Quests; drop Slayer.",medium
+24259,"V sigil (e)","Quests,Slayer","Quests",yes,"Fremennik Exiles quest-internal component -> Quests; drop Slayer.",medium
+24260,"Molten glass (i)","Quests,Slayer","Quests",yes,"Fremennik Exiles quest-internal component -> Quests; drop Slayer.",medium
+24261,"Lunar glass","Quests,Slayer","Quests",yes,"Fremennik Exiles quest-internal component -> Quests; drop Slayer.",medium
+24262,"Polishing rock","Quests,Slayer","Quests",yes,"Fremennik Exiles quest-internal item -> Quests; drop Slayer.",medium
+24263,"Ballad of the basilisk","Misc","Misc",no,"Fremennik song scroll -> Misc.",high
+24266,"V's shield","Melee,Quests,Slayer","Melee,Slayer",yes,"Melee shield, 60 Slayer to wield (slayer-locked) -> Melee + Slayer; drop Quests.",medium
+24268,"Basilisk jaw","Melee,Slayer","Slayer",yes,"Slayer-monster drop component (Neitiznot faceguard) -> Slayer; drop Melee.",medium
+24271,"Neitiznot faceguard","Melee,Slayer","Melee",yes,"Upgraded melee helm (not slayer-locked) -> Melee; drop spurious Slayer.",high
+24277,"Mysterious emblem (tier 1)","Misc","Misc",no,"Bounty Hunter emblem currency -> Misc.",high
+24287,"Decorative emblem","Construction,Misc","Construction",yes,"POH Achievement Gallery build item -> Construction; drop Misc.",high
+24288,"Dagon'hai hat","Mage","Mage",no,"Dagon'hai magic armour.",high
+24291,"Dagon'hai robe top","Mage","Mage",no,"Dagon'hai magic armour.",high
+24294,"Dagon'hai robe bottom","Mage","Mage",no,"Dagon'hai magic armour.",high
+24297,"White bed sheets","Cosmetics","Cosmetics",no,"2019 Halloween event item -> Cosmetics.",high
+24298,"Smoke powder","Cosmetics","Cosmetics",no,"2019 Halloween event item -> Cosmetics.",medium
+24299,"Shiny glass","Misc","Misc",no,"2019 Halloween event fetch item -> Misc.",medium
+24305,"Spooky hood","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24307,"Spooky robe","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24309,"Spooky skirt","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24311,"Spooky gloves","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24313,"Spooky boots","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24315,"Spookier hood","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24317,"Spookier robe","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24319,"Spookier skirt","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24321,"Spookier gloves","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24323,"Spookier boots","Cosmetics","Cosmetics",no,"Halloween cosmetic outfit -> Cosmetics.",high
+24325,"Pumpkin lantern","Cosmetics","Cosmetics",no,"Halloween cosmetic -> Cosmetics.",high
+24327,"Skeleton lantern","Cosmetics","Cosmetics",no,"Halloween novelty fun weapon -> Cosmetics.",high
+24329,"Bounty crate","Misc","Misc",no,"Bounty Hunter PvP supply crate -> Misc.",high
+24331,"Birthday cake","Cosmetics","Cosmetics",no,"OSRS Mobile anniversary novelty -> Cosmetics.",medium
+24333,"Dagon'hai robes set","Mage","Mage",no,"GE boxed Dagon'hai magic set -> Mage.",high
+24336,"Target teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc.",high
+24338,"Bounty hunter hat (tier 1)","Cosmetics","Cosmetics",no,"Bounty Hunter cosmetic hat -> Cosmetics.",high
+24340,"Bounty hunter hat (tier 2)","Cosmetics","Cosmetics",no,"Bounty Hunter cosmetic hat -> Cosmetics.",high
+24342,"Bounty hunter hat (tier 3)","Cosmetics","Cosmetics",no,"Bounty Hunter cosmetic hat -> Cosmetics.",high
+24344,"Bounty hunter hat (tier 4)","Cosmetics","Cosmetics",no,"Bounty Hunter cosmetic hat -> Cosmetics.",high
+24346,"Bounty hunter hat (tier 5)","Cosmetics","Cosmetics",no,"Bounty Hunter cosmetic hat -> Cosmetics.",high
+24348,"Bounty hunter hat (tier 6)","Cosmetics","Cosmetics",no,"Bounty Hunter cosmetic hat -> Cosmetics.",high
+24361,"Scroll box (beginner)","Misc","Misc",no,"Clue scroll container -> Misc.",high
+24362,"Scroll box (easy)","Misc","Misc",no,"Clue scroll container -> Misc.",high
+24363,"Scroll box (medium)","Misc","Misc",no,"Clue scroll container -> Misc.",high
+24364,"Scroll box (hard)","Misc","Misc",no,"Clue scroll container -> Misc.",high
+24365,"Scroll box (elite)","Misc","Misc",no,"Clue scroll container -> Misc.",high
+24366,"Scroll box (master)","Misc","Misc",no,"Clue scroll container -> Misc.",high
+24370,"Twisted slayer helmet","Cosmetics,Slayer","Cosmetics,Melee,Slayer",yes,"Cosmetic slayer helm upgrade -> Cosmetics + Melee + Slayer.",high
+24372,"Twisted dragon trophy","Cosmetics","Cosmetics",no,"Leagues cosmetic trophy -> Cosmetics.",high
+24374,"Twisted rune trophy","Cosmetics","Cosmetics",no,"Leagues cosmetic trophy -> Cosmetics.",high
+24376,"Twisted adamant trophy","Cosmetics","Cosmetics",no,"Leagues cosmetic trophy -> Cosmetics.",high
+24378,"Twisted mithril trophy","Cosmetics","Cosmetics",no,"Leagues cosmetic trophy -> Cosmetics.",high
+24380,"Twisted steel trophy","Cosmetics","Cosmetics",no,"Leagues cosmetic trophy -> Cosmetics.",high
+24382,"Twisted iron trophy","Cosmetics","Cosmetics",no,"Leagues cosmetic trophy -> Cosmetics.",high
+24384,"Twisted bronze trophy","Cosmetics","Cosmetics",no,"Leagues cosmetic trophy -> Cosmetics.",high
+24387,"Twisted hat (t3)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24389,"Twisted coat (t3)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24391,"Twisted trousers (t3)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24393,"Twisted boots (t3)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24395,"Twisted cane","Cosmetics","Cosmetics",no,"Leagues cosmetic -> Cosmetics.",high
+24397,"Twisted hat (t2)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24399,"Twisted coat (t2)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24401,"Twisted trousers (t2)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24403,"Twisted boots (t2)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24405,"Twisted hat (t1)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24407,"Twisted coat (t1)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24409,"Twisted trousers (t1)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24411,"Twisted boots (t1)","Cosmetics","Cosmetics",no,"Leagues cosmetic outfit -> Cosmetics.",high
+24413,"Twisted banner","Cosmetics","Cosmetics",no,"Leagues cosmetic banner -> Cosmetics.",high
+24417,"Inquisitor's mace","Melee,Prayer","Melee",yes,"Crush melee weapon; incidental +2 prayer dropped -> Melee.",medium
+24418,"Gravestone","Misc","Misc",no,"Unobtainable display item -> Misc.",high
+24419,"Inquisitor's great helm","Melee","Melee",no,"Inquisitor's melee armour.",high
+24420,"Inquisitor's hauberk","Melee","Melee",no,"Inquisitor's melee armour.",high
+24421,"Inquisitor's plateskirt","Melee","Melee",no,"Inquisitor's melee armour.",high
+24422,"Nightmare staff","Mage","Mage",no,"Autocast magic staff -> Mage.",high
+24423,"Harmonised nightmare staff","Mage","Mage",no,"Magic staff -> Mage.",high
+24424,"Volatile nightmare staff","Mage","Mage",no,"Magic staff -> Mage.",high
+24425,"Eldritch nightmare staff","Mage,Prayer","Mage,Prayer",no,"Magic staff with prayer-restore special (defining) -> Mage + Prayer.",high
+24428,"Green gingerbread shield","Cosmetics","Cosmetics",no,"Christmas event cosmetic shield -> Cosmetics.",high
+24430,"Red gingerbread shield","Cosmetics","Cosmetics",no,"Christmas event cosmetic shield -> Cosmetics.",high
+24431,"Blue gingerbread shield","Cosmetics","Cosmetics",no,"Christmas event cosmetic shield -> Cosmetics.",high
+24432,"Festive cinnamon stick","Cosmetics","Cosmetics",no,"Christmas event item -> Cosmetics.",high
+24433,"Festive ginger powder","Cosmetics","Cosmetics",no,"Christmas event item -> Cosmetics.",high
+24434,"Festive egg","Cosmetics","Cosmetics",no,"Christmas event item -> Cosmetics.",high
+24435,"Festive pot","Cosmetics","Cosmetics",no,"Christmas event item -> Cosmetics.",high
+24436,"Festive flour","Cosmetics","Cosmetics",no,"Christmas event item -> Cosmetics.",high
+24437,"Gingerbread shield","Cosmetics","Cosmetics",no,"Christmas event cosmetic shield -> Cosmetics.",high
+24438,"Iced gingerbread shield","Cosmetics","Cosmetics",no,"Christmas event cosmetic shield -> Cosmetics.",high
+24441,"Scaperune teleport","Misc","Misc",no,"Christmas event-internal single-use teleport -> Misc.",medium
+24442,"Bakery storage key","Misc","Misc",no,"Christmas event-internal key -> Misc.",high
+24443,"Gingerbread gnome","Cosmetics","Cosmetics",no,"Christmas event novelty food -> Cosmetics.",high
+24444,"Twisted slayer helmet (i)","Melee,Slayer","Cosmetics,Mage,Melee,Range,Slayer",yes,"Imbued cosmetic slayer helm (all styles) -> +Cosmetics/Range/Mage.",high
+24460,"Twisted teleport scroll","Cosmetics","Cosmetics",no,"Cosmetic home-teleport animation unlock -> Cosmetics.",high
+24463,"Twisted blueprints","Construction,Cosmetics","Construction,Cosmetics",no,"POH house-style cosmetic unlock -> Construction + Cosmetics.",high
+24466,"Twisted horns","Cosmetics,Slayer","Cosmetics",yes,"Cosmetic slayer-helm attachment kit -> Cosmetics; drop Slayer.",medium
+24469,"Twisted relic hunter (t1) armour set","Cosmetics","Cosmetics",no,"GE boxed Leagues cosmetic set -> Cosmetics.",high
+24472,"Twisted relic hunter (t2) armour set","Cosmetics","Cosmetics",no,"GE boxed Leagues cosmetic set -> Cosmetics.",high
+24475,"Twisted relic hunter (t3) armour set","Cosmetics","Cosmetics",no,"GE boxed Leagues cosmetic set -> Cosmetics.",high
+24488,"Inquisitor's armour set","Melee","Melee",no,"GE boxed Inquisitor's melee set -> Melee.",high
+24491,"Little nightmare","Cosmetics","Cosmetics",no,"Nightmare (combat boss) pet -> Cosmetics.",high
+24493,"Clue scroll (hard)","Misc","Misc",no,"Treasure Trail clue -> Misc.",high
+24495,"Jar of dreams","Cosmetics","Construction",yes,"Boss Jar-of-X collectible -> Construction only. Matt batch-8 jar rule.",high
+24511,"Harmonised orb","Mage","Mage",no,"Nightmare-staff upgrade component -> Mage.",high
+24514,"Volatile orb","Mage","Mage",no,"Nightmare-staff upgrade component -> Mage.",high
+24517,"Eldritch orb","Mage","Mage",no,"Nightmare-staff upgrade component -> Mage.",high
+24520,"Victor's cape (1000)","Cosmetics","Cosmetics",no,"LMS victory cosmetic cape -> Cosmetics.",high
+24523,"Death's coffer","Misc","Misc",no,"Unobtainable Death's Office item -> Misc.",high
+24525,"Cat ears","Cosmetics","Cosmetics",no,"2020 Birthday cosmetic -> Cosmetics.",high
+24527,"Hell cat ears","Cosmetics","Cosmetics",no,"2020 Birthday cosmetic -> Cosmetics.",high
+24528,"Lamp of the gatherer","Misc","Misc",no,"Adventure Paths gathering XP lamp -> Misc.",high
+24529,"Harmony","Misc","Misc",no,"Prifddinas library lore book -> Misc.",high
+24534,"Mithril seeds","Misc","Misc",no,"LMS flower-planting novelty seeds -> Misc.",high
+24535,"Magic egg ball","Cosmetics","Cosmetics",no,"2020 Easter novelty -> Cosmetics.",high
+24537,"Carrot sword","Cosmetics","Cosmetics",no,"Easter novelty fun weapon -> Cosmetics.",high
+24539,"'24-carat' sword","Cosmetics","Cosmetics",no,"Easter novelty fun weapon -> Cosmetics.",high
+24541,"Painted fake magic egg","Cosmetics","Cosmetics",no,"2020 Easter event item -> Cosmetics.",high
+24542,"Unpainted fake magic egg","Cosmetics","Cosmetics",no,"2020 Easter event item -> Cosmetics.",high
+24543,"Conch shell","Cosmetics","Cosmetics",no,"2020 Easter event item -> Cosmetics.",high
+24544,"Broken egg","Cosmetics","Cosmetics",no,"2020 Easter event item -> Cosmetics.",high
+24545,"Dummy portal","Misc","Misc",no,"Unobtainable display item -> Misc.",high
+24546,"Carrot","Cosmetics","Cosmetics",no,"2020 Easter event item -> Cosmetics.",high
+24547,"Broken goat horn","Cosmetics","Cosmetics",no,"2020 Easter event item -> Cosmetics.",high
+24549,"Cake","Cosmetics","Cosmetics",no,"2020 Easter event item -> Cosmetics.",high
+24551,"Blade of saeldor (c)","Melee","Melee",no,"Corrupted blade of Saeldor melee sword -> Melee.",high
+24554,"Pyromancer set","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Unobtainable pyromancer-set placeholder -> Woodcutting + Firemaking.",medium
+24565,"Antique emblem (tier 1)","Misc","Misc",no,"Bounty Hunter emblem currency -> Misc.",high
+24585,"Looting bag note","Misc","Misc",no,"Bank-exchange note for a looting bag -> Misc.",high
+24587,"Rune pouch note","Mage,Misc","Misc",yes,"Bank-exchange voucher for a rune pouch -> Misc; drop Mage.",medium
+24589,"Blighted manta ray","Melee,Misc","Mage,Melee,Range",yes,"Wilderness high-heal combat food -> Melee+Range+Mage; drop Misc. (blighted-food flagged)",medium
+24592,"Blighted anglerfish","Melee,Misc","Mage,Melee,Range",yes,"Wilderness high-heal combat food -> Melee+Range+Mage; drop Misc.",medium
+24595,"Blighted karambwan","Cooking,Misc","Mage,Melee,Range",yes,"Wilderness combo-eat combat food -> Melee+Range+Mage; drop Cooking/Misc.",medium
+24598,"Blighted super restore(4)","Misc,Prayer,Slayer","Prayer",yes,"Wilderness prayer/stat restore -> Prayer; drop Misc/Slayer.",medium
+24601,"Blighted super restore(3)","Misc,Prayer,Slayer","Prayer",yes,"Wilderness prayer/stat restore -> Prayer; drop Misc/Slayer.",medium
+24603,"Blighted super restore(2)","Misc,Prayer,Slayer","Prayer",yes,"Wilderness prayer/stat restore -> Prayer; drop Misc/Slayer.",medium
+24605,"Blighted super restore(1)","Misc,Prayer,Slayer","Prayer",yes,"Wilderness prayer/stat restore -> Prayer; drop Misc/Slayer.",medium
+24607,"Blighted ancient ice sack","Mage,Misc","Mage",yes,"Runeless ice-spell cast consumable -> Mage; drop Misc.",high
+24609,"Blighted bind sack","Mage,Misc","Mage",yes,"Runeless Bind cast consumable -> Mage; drop Misc.",high
+24611,"Blighted snare sack","Mage,Misc","Mage",yes,"Runeless Snare cast consumable -> Mage; drop Misc.",high
+24613,"Blighted entangle sack","Mage,Misc","Mage",yes,"Runeless Entangle cast consumable -> Mage; drop Misc.",high
+24615,"Blighted teleport spell sack","Mage,Misc","Mage",yes,"Runeless Tele Block / Teleport to Target consumable -> Mage; drop Misc.",medium
+24617,"Vesta's blighted longsword","Melee,Misc","Melee",yes,"Wilderness melee weapon -> Melee; drop Misc.",high
+24621,"Blighted vengeance sack","Mage,Misc","Mage",yes,"Runeless Vengeance cast consumable -> Mage; drop Misc.",high
+24623,"Divine battlemage potion(4)","Herblore,Mage","Herblore,Mage",no,"Magic + defence boost potion -> Herblore + Mage.",high
+24626,"Divine battlemage potion(3)","Herblore,Mage","Herblore,Mage",no,"Magic + defence boost potion -> Herblore + Mage.",high
+24629,"Divine battlemage potion(2)","Herblore,Mage","Herblore,Mage",no,"Magic + defence boost potion -> Herblore + Mage.",high
+24632,"Divine battlemage potion(1)","Herblore,Mage","Herblore,Mage",no,"Magic + defence boost potion -> Herblore + Mage.",high
+24635,"Divine bastion potion(4)","Herblore,Range","Herblore,Range",no,"Ranging + super defence boost potion -> Herblore + Range.",high
+24638,"Divine bastion potion(3)","Herblore,Range","Herblore,Range",no,"Ranging + super defence boost potion -> Herblore + Range.",high
+24641,"Divine bastion potion(2)","Herblore,Range","Herblore,Range",no,"Ranging + super defence boost potion -> Herblore + Range.",high
+24644,"Divine bastion potion(1)","Herblore,Range","Herblore,Range",no,"Ranging + super defence boost potion -> Herblore + Range.",high
+24664,"Twisted ancestral hat","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured ancestral hat retaining full Magic stats -> Mage; prestige recolour -> Cosmetics.",high
+24666,"Twisted ancestral robe top","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured ancestral robe top retaining full Magic stats -> Mage; prestige recolour -> Cosmetics.",high
+24668,"Twisted ancestral robe bottom","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured ancestral robe bottom retaining full Magic stats -> Mage; prestige recolour -> Cosmetics.",high
+24670,"Twisted ancestral colour kit","Cosmetics,Mage","Cosmetics",yes,"Recolour kit, grants no bonuses, purely aesthetic -> Cosmetics only; drop Mage.",high
+24672,"Haemalchemy volume 2","Quests","Quests",no,"Sins of the Father quest book -> Quests.",high
+24673,"Vyre noble top (unscented)","Quests","Quests",no,"Quest disguise piece (unscented) -> Quests.",high
+24674,"Vyre noble legs (unscented)","Quests","Quests",no,"Quest disguise piece (unscented) -> Quests.",high
+24675,"Vyre noble shoes (unscented)","Quests","Quests",no,"Quest disguise piece (unscented) -> Quests.",high
+24676,"Vyre noble top","Cosmetics,Quests","Cosmetics,Quests",no,"Scented wearable vampyre disguise -> Cosmetics; quest item -> Quests.",high
+24678,"Vyre noble legs","Cosmetics,Quests","Cosmetics,Quests",no,"Scented wearable vampyre disguise -> Cosmetics; quest item -> Quests.",high
+24680,"Vyre noble shoes","Cosmetics,Quests","Cosmetics,Quests",no,"Scented wearable vampyre disguise -> Cosmetics; quest item -> Quests.",high
+24682,"Old note","Quests","Quests",no,"Sins of the Father quest note -> Quests.",high
+24684,"Tatty note","Quests","Quests",no,"Sins of the Father quest note -> Quests.",high
+24686,"Journal page","Quests","Quests",no,"Sins of the Father quest item -> Quests.",high
+24688,"Ancient armour","Quests","Quests",no,"Sins of the Father quest item, no use -> Quests.",high
+24690,"Tome of experience","Quests","Quests",no,"Quest reward granting XP to a chosen skill (not a skilling input) -> Quests only.",high
+24691,"Blisterwood logs","Quests,Woodcutting + Firemaking","Quests,Woodcutting + Firemaking",no,"Logs chopped from the Blisterwood tree -> Woodcutting + Firemaking; quest-gated -> Quests.",high
+24693,"Ruby sickle (b)","Melee,Quests","Melee,Quests",no,"Quest melee weapon -> Melee, Quests.",high
+24695,"Enchanted ruby sickle (b)","Melee,Quests","Melee,Quests",no,"Quest melee weapon -> Melee, Quests.",high
+24697,"Blisterwood sickle","Melee,Quests,Slayer","Melee,Quests,Slayer",no,"Quest melee weapon, blessed silver vs vampyres (slayer task gear) -> Melee, Quests, Slayer.",medium
+24699,"Blisterwood flail","Melee,Quests,Slayer","Melee,Quests,Slayer",no,"Canonical vampyre-killing weapon for vampyre slayer tasks -> Melee, Quests, Slayer.",high
+24704,"Daeyalt essence","Runecraft","Runecraft",no,"High-yield Runecraft essence -> Runecraft.",high
+24706,"Daeyalt shard","Mining + Smithing,Runecraft","Mining + Smithing,Runecraft",no,"Mined shard (Mining) traded into daeyalt essence for Runecraft -> both.",high
+24709,"Hallowed crystal shard","Misc","Teleports",yes,"Teleport item to the Hallowed Sepulchre lobby -> Teleports; drop Misc.",medium
+24711,"Hallowed mark","Agility + Thieving,Misc","Agility + Thieving,Misc",no,"Hallowed Sepulchre (Agility) reward currency -> Agility + Thieving; currency catch-all -> Misc.",medium
+24719,"Hallowed token","Agility + Thieving","Agility + Thieving",no,"Adds time to a Sepulchre (Agility) run -> Agility + Thieving.",high
+24721,"Hallowed grapple","Agility + Thieving","Agility + Thieving",no,"Guarantees a Sepulchre grapple shortcut -> Agility + Thieving.",high
+24723,"Hallowed focus","Agility + Thieving,Mage","Agility + Thieving",yes,"Sepulchre portal-challenge tool; minigame-internal, treated like grapple/hammer -> Agility + Thieving; drop Mage.",medium
+24725,"Hallowed symbol","Agility + Thieving,Prayer","Agility + Thieving",yes,"Sepulchre Prayer-barrier-challenge tool; minigame-internal -> Agility + Thieving; drop Prayer.",medium
+24727,"Hallowed hammer","Agility + Thieving","Agility + Thieving",no,"Sepulchre nails-challenge tool -> Agility + Thieving.",high
+24729,"Dark dye","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Sepulchre reward that recolours graceful (the Agility outfit) -> Agility + Thieving, Cosmetics.",high
+24731,"Hallowed ring","Agility + Thieving","Agility + Thieving",no,"Negates Sepulchre trap damage -> Agility + Thieving.",high
+24733,"Dark acorn","Cosmetics","Agility + Thieving,Cosmetics",yes,"Sepulchre (Agility) reward that recolours the giant squirrel pet -> Agility + Thieving, Cosmetics.",medium
+24735,"Ring of endurance (uncharged)","Agility + Thieving,Misc","Agility + Thieving,Misc",no,"Sepulchre reward, run-energy ring precursor -> Agility + Thieving; discontinued/special-state -> Misc.",medium
+24740,"Strange old lockpick (full)","Agility + Thieving","Agility + Thieving",no,"Sepulchre reward, lockpicking utility (opens Barrows doors) -> Agility + Thieving.",high
+24743,"Graceful hood","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Graceful (Agility outfit) recoloured variant -> Agility + Thieving, Cosmetics.",high
+24746,"Graceful cape","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Graceful (Agility outfit) recoloured variant -> Agility + Thieving, Cosmetics.",high
+24749,"Graceful top","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Graceful (Agility outfit) recoloured variant -> Agility + Thieving, Cosmetics.",high
+24752,"Graceful legs","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Graceful (Agility outfit) recoloured variant -> Agility + Thieving, Cosmetics.",high
+24755,"Graceful gloves","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Graceful (Agility outfit) recoloured variant -> Agility + Thieving, Cosmetics.",high
+24758,"Graceful boots","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Graceful (Agility outfit) recoloured variant -> Agility + Thieving, Cosmetics.",high
+24761,"Strange hallowed tome","Misc","Misc",no,"Sepulchre lore tome / collectible -> Misc.",high
+24763,"Mysterious page","Misc","Misc",no,"Sepulchre lore-tome page collectible -> Misc.",high
+24765,"Mysterious page","Misc","Misc",no,"Sepulchre lore-tome page collectible -> Misc.",high
+24767,"Mysterious page","Misc","Misc",no,"Sepulchre lore-tome page collectible -> Misc.",high
+24771,"Mysterious page","Misc","Misc",no,"Sepulchre lore-tome page collectible -> Misc.",high
+24773,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue scroll -> Misc.",high
+24774,"Blood pint","Melee","Melee",no,"Ale that boosts Attack/Strength (drains Magic/Prayer) -> Melee combat boost.",high
+24777,"Blood shard","Agility + Thieving,Melee,Slayer","Agility + Thieving,Melee",yes,"Pickpocket-vampyre drop (Thieving) used to charge amulet of blood fury (melee). Slayer dropped: rare slayer-monster drops deferred.",medium
+24780,"Amulet of blood fury","Melee","Melee",no,"Melee neck with on-hit lifesteal -> Melee.",high
+24782,"Raw mystery meat","Cooking","Cooking",no,"Raw food cooked into cooked mystery meat -> Cooking.",high
+24785,"Cooked mystery meat","Cooking,Melee","Cooking,Melee",no,"Cooking product; healing food eaten in combat -> Cooking, Melee.",medium
+24788,"Pat of not garlic butter","Cooking","Cooking",no,"Cooking ingredient (potato with butter / churn into cheese) -> Cooking.",high
+24790,"Long rope","Agility + Thieving","Agility + Thieving",no,"Creates permanent Agility shortcuts -> Agility + Thieving.",high
+24792,"Severed leg","Cosmetics","Cosmetics",no,"Joke/fun weapon with negative stats -> Cosmetics.",high
+24794,"Vyre noble blazer","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (red) -> Cosmetics.",high
+24796,"Vyre noble coat tails","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (red) -> Cosmetics.",high
+24798,"Vyre noble vest","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (red) -> Cosmetics.",high
+24800,"Vyre noble pants","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (red) -> Cosmetics.",high
+24802,"Vyre noble corset","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (red) -> Cosmetics.",high
+24804,"Vyre noble skirt","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (red) -> Cosmetics.",high
+24806,"Vyre noble dress top","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (red) -> Cosmetics.",high
+24808,"Vyre noble dress bottom","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (red) -> Cosmetics.",high
+24810,"Vyre noble blazer","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (purple) -> Cosmetics.",high
+24812,"Vyre noble coat tails","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (purple) -> Cosmetics.",high
+24814,"Vyre noble vest","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (purple) -> Cosmetics.",high
+24816,"Vyre noble pants","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (purple) -> Cosmetics.",high
+24818,"Vyre noble corset","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (purple) -> Cosmetics.",high
+24820,"Vyre noble skirt","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (purple) -> Cosmetics.",high
+24822,"Vyre noble dress top","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (purple) -> Cosmetics.",high
+24824,"Vyre noble dress bottom","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (purple) -> Cosmetics.",high
+24826,"Vyre noble blazer","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (grey) -> Cosmetics.",high
+24828,"Vyre noble coat tails","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (grey) -> Cosmetics.",high
+24830,"Vyre noble vest","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (grey) -> Cosmetics.",high
+24832,"Vyre noble pants","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (grey) -> Cosmetics.",high
+24834,"Vyre noble corset","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (grey) -> Cosmetics.",high
+24836,"Vyre noble skirt","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (grey) -> Cosmetics.",high
+24838,"Vyre noble dress top","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (grey) -> Cosmetics.",high
+24840,"Vyre noble dress bottom","Cosmetics","Cosmetics",no,"Vyre noble disguise cosmetic (grey) -> Cosmetics.",high
+24842,"A taste of hope","Quests","Quests",no,"Sins of the Father quest book -> Quests.",high
+24844,"Ring of endurance (uncharged)","Agility + Thieving","Agility + Thieving",no,"Grand Hallowed Coffin reward (Agility 70), run-energy ring charged with stamina potions -> Agility + Thieving.",high
+24855,"Mythical max cape","Cosmetics,Misc","Cosmetics,Quests",yes,"Prestige max-cape recolour gated behind Dragon Slayer II -> Cosmetics, Quests; aligns with mythical max hood.",medium
+24857,"Mythical max hood","Cosmetics,Quests","Cosmetics,Quests",no,"Prestige max-hood recolour gated behind Dragon Slayer II -> Cosmetics, Quests.",medium
+24859,"Warrior path starter kit","Melee,Misc","Melee,Misc",no,"Adventure Paths starter crate of melee gear -> Melee; container -> Misc.",medium
+24860,"Wizard path starter kit","Mage","Mage,Misc",yes,"Adventure Paths starter crate of runes -> Mage; container -> Misc (align with warrior/ranger kits).",medium
+24861,"Ranger path starter kit","Misc,Range","Misc,Range",no,"Adventure Paths starter crate of ranged gear -> Range; container -> Misc.",high
+24862,"Karamjan monkey","Agility + Thieving,Cosmetics","Cosmetics",yes,"Cosmetic monkey transformation (cape slot novelty) -> Cosmetics; drop Agility + Thieving (no skilling link).",medium
+24863,"Zombie monkey","Agility + Thieving,Cosmetics","Cosmetics",yes,"Cosmetic monkey transformation (cape slot novelty) -> Cosmetics; drop Agility + Thieving.",medium
+24864,"Maniacal monkey","Agility + Thieving,Cosmetics","Cosmetics",yes,"Cosmetic monkey transformation (cape slot novelty) -> Cosmetics; drop Agility + Thieving.",medium
+24865,"Skeleton monkey","Agility + Thieving,Cosmetics","Cosmetics",yes,"Cosmetic monkey transformation (cape slot novelty) -> Cosmetics; drop Agility + Thieving.",medium
+24866,"Kruk jr","Agility + Thieving,Cosmetics","Cosmetics",yes,"Cosmetic monkey transformation (cape slot novelty) -> Cosmetics; drop Agility + Thieving.",medium
+24867,"Princely monkey","Agility + Thieving,Cosmetics","Cosmetics",yes,"Cosmetic monkey transformation (cape slot novelty) -> Cosmetics; drop Agility + Thieving.",medium
+24872,"Carpenter's helmet","Construction","Construction",no,"Mahogany Homes XP outfit piece -> Construction.",high
+24874,"Carpenter's shirt","Construction","Construction",no,"Mahogany Homes XP outfit piece -> Construction.",high
+24876,"Carpenter's trousers","Construction","Construction",no,"Mahogany Homes XP outfit piece -> Construction.",high
+24878,"Carpenter's boots","Construction","Construction",no,"Mahogany Homes XP outfit piece -> Construction.",high
+24880,"Amy's saw","Construction,Misc","Construction",yes,"Equipable saw usable for building -> Construction; drop Misc.",medium
+24882,"Plank sack","Construction,Misc","Construction",yes,"Holds extra planks for Construction -> Construction; drop Misc.",medium
+24884,"Supply crate","Construction","Construction",no,"Mahogany Homes crate of Construction materials -> Construction.",high
+24885,"Hosidius blueprints","Construction,Cosmetics","Construction,Cosmetics",no,"Unlocks a POH wall-kit house style -> Construction; cosmetic styling -> Cosmetics.",high
+24938,"Waxwood log","Quests","Quests",no,"Daddy's Home miniquest item -> Quests.",high
+24939,"Waxwood plank","Quests","Quests",no,"Daddy's Home miniquest item -> Quests.",high
+24940,"Marlo's crate","Construction,Quests","Construction,Quests",no,"Daddy's Home (Construction miniquest) reward crate -> Construction, Quests.",high
+24941,"Bp obj","Misc","Misc",no,"Unobtainable internal Bank PIN object (junk) -> Misc.",high
+24942,"Reinforced goggles","Quests,Slayer","Quests,Slayer",no,"Slayer task gear (required vs sourhogs), quest item -> Quests, Slayer.",high
+24944,"Sourhog foot","Quests","Quests",no,"A Porcine of Interest quest item -> Quests.",high
+24946,"Hallowed sack","Misc","Agility + Thieving,Misc",yes,"Hallowed Sepulchre (Agility) loot sack bought with hallowed marks -> Agility + Thieving; loot container -> Misc.",medium
+24949,"Moonclan teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc.",high
+24951,"Ourania teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc.",high
+24953,"Waterbirth teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc.",high
+24955,"Barbarian teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc.",high
+24957,"Khazard teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc.",high
+24959,"Fishing guild teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc (destination is not an input to Fishing).",high
+24961,"Catherby teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc.",high
+24963,"Ice plateau teleport","Misc","Teleports",yes,"Magic teleport tablet -> Teleports; drop Misc.",high
+24975,"Headless head","Cosmetics","Cosmetics",no,"Halloween holiday cosmetic head item -> Cosmetics.",high
+24977,"Magical pumpkin","Construction,Cosmetics","Construction,Cosmetics",no,"Holiday item placed in POH garden -> Construction; novelty/cosmetic -> Cosmetics.",medium
+24980,"Brown candy","Cosmetics","Cosmetics",no,"Holiday novelty candy (no heal) -> Cosmetics.",high
+24981,"Blue candy","Cosmetics","Cosmetics",no,"Holiday novelty candy (no heal) -> Cosmetics.",high
+24982,"White candy","Cosmetics","Cosmetics",no,"Holiday novelty candy (no heal) -> Cosmetics.",high
+24983,"Purple candy","Cosmetics","Cosmetics",no,"Holiday novelty candy (no heal) -> Cosmetics.",high
+24984,"Red candy","Cosmetics","Cosmetics",no,"Holiday novelty candy (no heal) -> Cosmetics.",high
+24985,"Green candy","Cosmetics","Cosmetics",no,"Holiday novelty candy (no heal) -> Cosmetics.",high
+24986,"Black candy","Cosmetics","Cosmetics",no,"Holiday novelty candy (no heal) -> Cosmetics.",high
+24987,"Orange candy","Cosmetics","Cosmetics",no,"Holiday novelty candy (no heal) -> Cosmetics.",high
+24988,"Pink candy","Cosmetics","Cosmetics",no,"Holiday novelty candy (no heal) -> Cosmetics.",high
+24989,"Rick's box","Cosmetics","Cosmetics",no,"2020 Halloween event item -> Cosmetics.",high
+24990,"Rick's head","Cosmetics","Cosmetics",no,"2020 Halloween event item -> Cosmetics.",high
+24991,"Witch's brew","Cosmetics","Cosmetics",no,"2020 Halloween event item -> Cosmetics.",high
+24992,"Spider snack","Cosmetics","Cosmetics",no,"2020 Halloween event item (no heal) -> Cosmetics.",high
+24993,"Incantation","Cosmetics","Cosmetics",no,"2020 Halloween event item -> Cosmetics.",high
+25001,"Trailblazer hood (t3)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25004,"Trailblazer top (t3)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25007,"Trailblazer trousers (t3)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25010,"Trailblazer boots (t3)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25013,"Trailblazer cane","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic weapon-slot novelty -> Cosmetics.",high
+25016,"Trailblazer hood (t2)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25019,"Trailblazer top (t2)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25022,"Trailblazer trousers (t2)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25025,"Trailblazer boots (t2)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25028,"Trailblazer hood (t1)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25031,"Trailblazer top (t1)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25034,"Trailblazer trousers (t1)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25037,"Trailblazer boots (t1)","Cosmetics","Cosmetics",no,"Leagues Reward Shop cosmetic -> Cosmetics.",high
+25042,"Trailblazer dragon trophy","Cosmetics","Cosmetics",no,"Leagues Hiscores cosmetic trophy -> Cosmetics.",high
+25044,"Trailblazer rune trophy","Cosmetics","Cosmetics",no,"Leagues Hiscores cosmetic trophy -> Cosmetics.",high
+25046,"Trailblazer adamant trophy","Cosmetics","Cosmetics",no,"Leagues Hiscores cosmetic trophy -> Cosmetics.",high
+25048,"Trailblazer mithril trophy","Cosmetics","Cosmetics",no,"Leagues Hiscores cosmetic trophy -> Cosmetics.",high
+25050,"Trailblazer steel trophy","Cosmetics","Cosmetics",no,"Leagues Hiscores cosmetic trophy -> Cosmetics.",high
+25052,"Trailblazer iron trophy","Cosmetics","Cosmetics",no,"Leagues Hiscores cosmetic trophy -> Cosmetics.",high
+25054,"Trailblazer bronze trophy","Cosmetics","Cosmetics",no,"Leagues Hiscores cosmetic trophy -> Cosmetics.",high
+25056,"Trailblazer banner","Cosmetics","Cosmetics",no,"Leagues cosmetic banner -> Cosmetics.",high
+25059,"Infernal harpoon (or)","Cosmetics,Fishing","Cosmetics,Fishing",no,"Infernal harpoon (Fishing tool) with cosmetic ornament kit -> Fishing, Cosmetics.",high
+25063,"Infernal pickaxe (or)","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"Infernal pickaxe (Mining tool) with cosmetic ornament kit -> Mining + Smithing, Cosmetics.",high
+25066,"Infernal axe (or)","Cosmetics,Melee,Woodcutting + Firemaking","Cosmetics,Woodcutting + Firemaking",yes,"Infernal axe (Woodcutting tool) with cosmetic ornament kit; drop Melee to match harpoon/pickaxe (or) skilling-tool treatment.",medium
+25069,"Graceful hood","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Trailblazer graceful (Agility outfit) recolour -> Agility + Thieving, Cosmetics.",high
+25072,"Graceful cape","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Trailblazer graceful (Agility outfit) recolour -> Agility + Thieving, Cosmetics.",high
+25075,"Graceful top","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Trailblazer graceful (Agility outfit) recolour -> Agility + Thieving, Cosmetics.",high
+25078,"Graceful legs","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Trailblazer graceful (Agility outfit) recolour -> Agility + Thieving, Cosmetics.",high
+25081,"Graceful gloves","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Trailblazer graceful (Agility outfit) recolour -> Agility + Thieving, Cosmetics.",high
+25084,"Graceful boots","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Trailblazer graceful (Agility outfit) recolour -> Agility + Thieving, Cosmetics.",high
+25087,"Trailblazer teleport scroll","Cosmetics","Cosmetics",no,"Unlocks a Home Teleport animation override (cosmetic, not a functional teleport) -> Cosmetics.",high
+25090,"Trailblazer tool ornament kit","Cosmetics","Cosmetics",no,"Cosmetic recolour kit for dragon/infernal tools -> Cosmetics.",high
+25093,"Trailblazer globe","Construction","Construction,Cosmetics",yes,"Built in the POH League Hall (Construction); decorative trophy -> Cosmetics (align with Trailblazer rug).",medium
+25096,"Trailblazer rug","Construction,Cosmetics","Construction,Cosmetics",no,"Built in the POH League Hall (Construction); decorative -> Cosmetics.",high
+25099,"Trailblazer graceful ornament kit","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"Recolours the graceful (Agility) outfit -> Agility + Thieving, Cosmetics (matches dark dye).",high
+25102,"Fairy mushroom","Farming,Misc","Cosmetics",yes,"Leagues relic reward, shield-slot novelty -> Cosmetics; drop Farming/Misc (no skilling consumption).",medium
+25104,"Crystal of echoes","Misc","Misc",no,"Grid Master event relic item; possibly a teleport-flavoured novelty -> Misc pending clarification.",medium
+25106,"Extradimensional bag","Misc","Misc",no,"Scrapped/unobtainable Trailblazer item -> Misc.",high
+25110,"Echo axe","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Grid Master event Woodcutting tool -> Woodcutting + Firemaking.",high
+25112,"Echo pickaxe","Mining + Smithing,Misc","Mining + Smithing",yes,"Grid Master event Mining tool -> Mining + Smithing; drop Misc (match Echo axe treatment).",medium
+25114,"Echo harpoon","Fishing,Misc","Fishing",yes,"Grid Master event Fishing tool -> Fishing; drop Misc (match Echo axe treatment).",medium
+25117,"League tomato","Misc","Misc",no,"Jmod debug/test item -> Misc.",high
+25129,"Beekeeper's hat","Cosmetics","Cosmetics",no,"Random-event cosmetic outfit piece (no bonuses) -> Cosmetics.",high
+25131,"Beekeeper's top","Cosmetics","Cosmetics",no,"Random-event cosmetic outfit piece (no bonuses) -> Cosmetics.",high
+25133,"Beekeeper's legs","Cosmetics","Cosmetics",no,"Random-event cosmetic outfit piece (no bonuses) -> Cosmetics.",high
+25135,"Beekeeper's gloves","Cosmetics","Cosmetics",no,"Random-event cosmetic outfit piece (no bonuses) -> Cosmetics.",high
+25137,"Beekeeper's boots","Cosmetics","Cosmetics",no,"Random-event cosmetic outfit piece (no bonuses) -> Cosmetics.",high
+25139,"Bone fragments","Misc","Misc",no,"Charge consumable for the imbued skull sceptre (made by chiselling sceptre parts) -> Misc.",medium
+25145,"Clay head","Quests","Quests",no,"Getting Ahead quest item -> Quests.",high
+25146,"Fur head","Quests","Quests",no,"Getting Ahead quest item -> Quests.",high
+25147,"Bloody head","Quests","Quests",no,"Getting Ahead quest item -> Quests.",high
+25152,"Neilan's journal","Quests","Quests",no,"Quest lore book -> Quests.",high
+25159,"Castlewars brew(4)","Melee,Misc","Mage,Melee,Range",yes,"Castle Wars all-styles combat boost (super combat + ranging + imbued heart) -> Mage, Melee, Range; drop Misc.",medium
+25160,"Castlewars brew(3)","Melee,Misc","Mage,Melee,Range",yes,"Castle Wars all-styles combat boost -> Mage, Melee, Range; drop Misc.",medium
+25161,"Castlewars brew(2)","Melee,Misc","Mage,Melee,Range",yes,"Castle Wars all-styles combat boost -> Mage, Melee, Range; drop Misc.",medium
+25162,"Castlewars brew(1)","Melee,Misc","Mage,Melee,Range",yes,"Castle Wars all-styles combat boost -> Mage, Melee, Range; drop Misc.",medium
+25163,"Decorative boots","Melee,Misc","Melee,Misc",no,"Castle Wars reward defensive boots (real armour stats) -> Melee; minigame reward -> Misc.",medium
+25165,"Decorative full helm","Melee,Misc","Melee,Misc",no,"Castle Wars reward defensive helm (red) -> Melee; minigame reward -> Misc.",medium
+25167,"Decorative boots","Melee,Misc","Melee,Misc",no,"Castle Wars reward defensive boots -> Melee; minigame reward -> Misc.",medium
+25169,"Decorative full helm","Melee,Misc","Melee,Misc",no,"Castle Wars reward defensive helm (white) -> Melee; minigame reward -> Misc.",medium
+25171,"Decorative boots","Melee,Misc","Melee,Misc",no,"Castle Wars reward defensive boots -> Melee; minigame reward -> Misc.",medium
+25174,"Decorative full helm","Melee,Misc","Melee,Misc",no,"Castle Wars reward defensive helm -> Melee; minigame reward -> Misc.",medium
+25195,"Blue cape","Misc","Misc",no,"Soul Wars team cape, auto-equipped and non-bankable minigame-state item -> Misc.",medium
+25197,"Soul wars guide","Misc","Misc",no,"Soul Wars minigame info book -> Misc.",high
+25199,"Bones","Misc","Misc",no,"Soul Wars bones (destroy-only, cannot be buried for Prayer) -> Misc.",high
+25201,"Soul fragment","Misc","Misc",no,"Soul Wars minigame drop -> Misc.",high
+25202,"Bandages","Misc","Misc",no,"Soul Wars-only temporary healing item (not bankable) -> Misc.",high
+25203,"Potion of power(4)","Melee,Misc","Mage,Melee,Range",yes,"Soul Wars all-styles boost (super combat + ranging + magic) -> Mage, Melee, Range; drop Misc.",medium
+25204,"Potion of power(3)","Melee,Misc","Mage,Melee,Range",yes,"Soul Wars all-styles boost -> Mage, Melee, Range; drop Misc.",medium
+25205,"Potion of power(2)","Herblore,Misc","Mage,Melee,Range",yes,"Soul Wars all-styles boost -> Mage, Melee, Range; drop Herblore/Misc (not Herblore-made).",medium
+25206,"Potion of power(1)","Melee,Misc","Mage,Melee,Range",yes,"Soul Wars all-styles boost -> Mage, Melee, Range; drop Misc.",medium
+25207,"Red cape","Misc","Misc",no,"Soul Wars team cape, auto-equipped and non-bankable -> Misc (matches blue cape).",medium
+25209,"Barricade","Misc","Misc",no,"Soul Wars portable obstacle -> Misc.",high
+25211,"Explosive potion","Misc","Misc",no,"Soul Wars utility (destroys barricades) -> Misc.",high
+25212,"Blue icon","Misc","Misc",no,"Soul Wars team icon (non-bankable) -> Misc.",high
+25228,"Red icon","Misc","Misc",no,"Soul Wars team icon (non-bankable) -> Misc.",high
+25244,"Dark key","Agility + Thieving,Misc","Agility + Thieving,Misc",no,"Thieving-looted dungeon chest key -> Agility + Thieving; key -> Misc.",high
+25280,"Essence pack","Runecraft,Slayer","Runecraft",yes,"Pack of 100 pure essence (Runecraft supply) -> Runecraft; drop Slayer (no slayer link).",medium
+25282,"Sled","Cosmetics","Cosmetics",no,"2020 Christmas event item -> Cosmetics.",high
+25283,"Red fireflies","Cosmetics","Cosmetics",no,"2020 Christmas event item -> Cosmetics.",high
+25284,"Green fireflies","Cosmetics","Cosmetics",no,"2020 Christmas event item -> Cosmetics.",high
+25285,"Stick","Cosmetics","Cosmetics",no,"2020 Christmas event item -> Cosmetics.",high
+25286,"Mouldy sawdust","Cosmetics","Cosmetics",no,"2020 Christmas event ingredient -> Cosmetics.",high
+25287,"Rotten meat","Cosmetics","Cosmetics",no,"2020 Christmas event ingredient -> Cosmetics.",high
+25288,"Stale bread","Cosmetics","Cosmetics",no,"2020 Christmas event ingredient -> Cosmetics.",high
+25289,"Goblin stew","Cosmetics","Cosmetics",no,"2020 Christmas event item -> Cosmetics.",high
+25290,"Goblin gifts","Cosmetics","Cosmetics",no,"2020 Christmas event item -> Cosmetics.",high
+25314,"Giant boulder","Cosmetics","Cosmetics",no,"Christmas holiday reward (emote item) -> Cosmetics.",high
+25316,"Goblin decorations","Construction,Cosmetics","Construction,Cosmetics",no,"Holiday reward applied to POH furniture -> Construction; cosmetic theming -> Cosmetics.",high
+25322,"20th anniversary hat","Cosmetics","Cosmetics",no,"Birthday event cosmetic -> Cosmetics.",high
+25324,"20th anniversary top","Cosmetics","Cosmetics",no,"Birthday event cosmetic -> Cosmetics.",high
+25326,"20th anniversary bottom","Cosmetics","Cosmetics",no,"Birthday event cosmetic -> Cosmetics.",high
+25328,"20th anniversary boots","Cosmetics","Cosmetics",no,"Birthday event cosmetic -> Cosmetics.",high
+25330,"20th anniversary gloves","Cosmetics","Cosmetics",no,"Birthday event cosmetic -> Cosmetics.",high
+25332,"20th anniversary necklace","Cosmetics","Cosmetics",no,"Birthday event cosmetic -> Cosmetics.",high
+25334,"20th anniversary cape","Cosmetics","Cosmetics",no,"Birthday event cosmetic -> Cosmetics.",high
+25336,"Gnome child mask","Cosmetics","Cosmetics",no,"Birthday event cosmetic -> Cosmetics.",high
+25340,"Ectoplasmator","Prayer,Slayer","Prayer,Slayer",no,"Auto-converts spectral remains into Prayer XP; Matt ruling: a slayer tool too -> Prayer, Slayer.",high
+25342,"Spoils of war","Misc","Misc",no,"Soul Wars reward mystery box -> Misc.",high
+25344,"Soul cape","Prayer","Prayer",no,"Soul Wars reward cape with top Prayer bonus (70 Prayer) -> Prayer.",high
+25348,"Lil' creator","Cosmetics","Cosmetics",no,"Soul Wars (combat minigame) pet -> Cosmetics (combat pets get no skill tab).",high
+25367,"Infernal harpoon (uncharged)","Cosmetics,Fishing,Melee","Cosmetics,Fishing",yes,"Infernal harpoon (Fishing tool), Trailblazer recolour; drop Melee (skilling-tool treatment).",medium
+25369,"Infernal pickaxe (uncharged)","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"Infernal pickaxe (Mining tool), Trailblazer recolour -> Mining + Smithing, Cosmetics.",high
+25371,"Infernal axe (uncharged)","Cosmetics,Melee,Woodcutting + Firemaking","Cosmetics,Woodcutting + Firemaking",yes,"Infernal axe (Woodcutting tool), Trailblazer recolour; drop Melee.",medium
+25373,"Dragon harpoon (or)","Cosmetics,Fishing,Melee","Cosmetics,Fishing",yes,"Dragon harpoon (Fishing tool) with ornament kit; drop Melee.",medium
+25376,"Dragon pickaxe (or)","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"Dragon pickaxe (Mining tool) with ornament kit -> Mining + Smithing, Cosmetics.",high
+25378,"Dragon axe (or)","Cosmetics,Melee,Woodcutting + Firemaking","Cosmetics,Woodcutting + Firemaking",yes,"Dragon axe (Woodcutting tool) with ornament kit; drop Melee.",medium
+25380,"Trailblazer relic hunter (t1) armour set","Cosmetics","Cosmetics",no,"GE cosmetic set placeholder -> Cosmetics.",high
+25383,"Trailblazer relic hunter (t2) armour set","Cosmetics","Cosmetics",no,"GE cosmetic set placeholder -> Cosmetics.",high
+25386,"Trailblazer relic hunter (t3) armour set","Cosmetics","Cosmetics",no,"GE cosmetic set placeholder -> Cosmetics.",high
+25389,"Swampbark body","Mage,Runecraft","Mage,Runecraft",no,"Magic armour infused at the Nature Altar with Runecraft -> Mage, Runecraft.",high
+25392,"Swampbark gauntlets","Mage,Runecraft","Mage,Runecraft",no,"Magic armour infused at the Nature Altar with Runecraft -> Mage, Runecraft.",high
+25395,"Swampbark boots","Mage","Mage,Runecraft",yes,"Magic armour infused at the Nature Altar with Runecraft; add Runecraft for consistency with body/gauntlets.",medium
+25398,"Swampbark helm","Mage,Runecraft","Mage,Runecraft",no,"Magic armour infused at the Nature Altar with Runecraft -> Mage, Runecraft.",high
+25401,"Swampbark legs","Mage,Runecraft","Mage,Runecraft",no,"Magic armour infused at the Nature Altar with Runecraft -> Mage, Runecraft.",high
+25404,"Bloodbark body","Mage,Runecraft","Mage,Runecraft",no,"Magic armour infused at the Blood Altar with Runecraft -> Mage, Runecraft.",high
+25407,"Bloodbark gauntlets","Mage,Runecraft","Mage,Runecraft",no,"Magic armour infused at the Blood Altar with Runecraft -> Mage, Runecraft.",high
+25410,"Bloodbark boots","Mage,Runecraft","Mage,Runecraft",no,"Magic armour infused at the Blood Altar with Runecraft -> Mage, Runecraft.",high
+25413,"Bloodbark helm","Mage,Runecraft","Mage,Runecraft",no,"Magic armour infused at the Blood Altar with Runecraft -> Mage, Runecraft.",high
+25416,"Bloodbark legs","Mage,Runecraft","Mage,Runecraft",no,"Magic armour infused at the Blood Altar with Runecraft -> Mage, Runecraft.",high
+25419,"Urium remains","Prayer,Woodcutting + Firemaking","Prayer,Woodcutting + Firemaking",no,"Shade remains burned on a pyre (Firemaking) for Prayer XP -> Prayer, Woodcutting + Firemaking.",high
+25422,"Bleached bones","Prayer","Prayer",no,"Offered at the Altar of the Damned to recharge prayer -> Prayer.",high
+25424,"Gold key red","Misc","Misc",no,"Shades of Mort'ton catacomb chest key -> Misc.",high
+25426,"Gold key brown","Misc","Misc",no,"Shades of Mort'ton catacomb chest key -> Misc.",high
+25428,"Gold key crimson","Misc","Misc",no,"Shades of Mort'ton catacomb chest key -> Misc.",high
+25430,"Gold key black","Misc","Misc",no,"Shades of Mort'ton catacomb chest key -> Misc.",high
+25432,"Gold key purple","Misc","Misc",no,"Shades of Mort'ton catacomb chest key -> Misc.",high
+25434,"Zealot's robe top","Prayer","Prayer",no,"Prayer-bonus robe (Zealot's set) -> Prayer.",high
+25436,"Zealot's robe bottom","Prayer","Prayer",no,"Prayer-bonus robe (Zealot's set) -> Prayer.",high
+25438,"Zealot's helm","Prayer","Prayer",no,"Prayer-bonus helm (Zealot's set) -> Prayer.",high
+25440,"Zealot's boots","Prayer","Prayer",no,"Prayer-bonus boots (Zealot's set) -> Prayer.",high
+25442,"Bronze locks","Misc","Misc",no,"Shades of Mort'ton coffin upgrade material -> Misc.",high
+25445,"Steel locks","Misc","Misc",no,"Shades of Mort'ton coffin upgrade material -> Misc.",high
+25448,"Black locks","Misc","Misc",no,"Shades of Mort'ton coffin upgrade material -> Misc.",high
+25451,"Silver locks","Misc","Misc",no,"Shades of Mort'ton coffin upgrade material -> Misc.",high
+25454,"Gold locks","Misc","Misc",no,"Shades of Mort'ton coffin upgrade material -> Misc.",high
+25457,"Broken coffin","Misc","Misc",no,"Shades of Mort'ton coffin precursor -> Misc.",high
+25459,"Bronze coffin","Misc,Prayer","Misc,Prayer",no,"Stores shade remains for the Prayer/pyre activity -> Misc, Prayer (coffin family flagged for a unifying rule).",medium
+25461,"Steel coffin","Misc,Prayer","Misc,Prayer",no,"Stores shade remains for the Prayer/pyre activity -> Misc, Prayer.",medium
+25463,"Black coffin","Misc,Prayer","Misc,Prayer",no,"Stores shade remains for the Prayer/pyre activity -> Misc, Prayer.",medium
+25465,"Silver coffin","Misc,Prayer","Misc,Prayer",no,"Stores shade remains for the Prayer/pyre activity -> Misc, Prayer.",medium
+25467,"Gold coffin","Misc,Prayer","Misc,Prayer",no,"Stores shade remains for the Prayer/pyre activity -> Misc, Prayer.",medium
+25474,"Tree wizards' journal","Misc","Misc",no,"Shade-chest lore journal that grants the swampbark runescroll -> Misc.",high
+25476,"Bloody notes","Misc","Misc",no,"Shade-chest lore diary that grants the bloodbark runescroll -> Misc.",high
+25478,"Runescroll of swampbark","Mage,Misc","Mage,Runecraft",yes,"Unlocks the Runecraft recipe for swampbark (Magic) armour -> Mage, Runecraft; drop Misc.",medium
+25481,"Runescroll of bloodbark","Crafting,Mage","Mage,Runecraft",yes,"Unlocks the Runecraft recipe for bloodbark (Magic) armour; correct Crafting -> Runecraft.",medium
+25493,"Black d'hide chaps (beta)","Misc,Range","Misc,Range",no,"Equipment-rebalancing beta variant of Ranged armour -> Range; beta/unobtainable -> Misc.",medium
+25494,"Black d'hide vambraces (beta)","Misc,Range","Misc,Range",no,"Equipment-rebalancing beta variant of Ranged armour -> Range; beta/unobtainable -> Misc.",medium
+25495,"Crystal helm (beta)","Misc,Range","Misc,Range",no,"Equipment-rebalancing beta variant of crystal (Ranged) armour -> Range; beta -> Misc.",medium
+25496,"Crystal body (beta)","Misc,Range","Misc,Range",no,"Equipment-rebalancing beta variant of crystal (Ranged) armour -> Range; beta -> Misc.",medium
+25497,"Crystal legs (beta)","Misc,Range","Misc,Range",no,"Equipment-rebalancing beta variant of crystal (Ranged) armour -> Range; beta -> Misc.",medium
+25498,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue scroll -> Misc.",high
+25499,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue scroll -> Misc.",high
+25500,"Cursed banana","Cosmetics","Cosmetics",no,"Birthday event novelty (monkey-walk) -> Cosmetics.",high
+25502,"Banana cape","Cosmetics","Cosmetics",no,"Birthday event cosmetic cape -> Cosmetics.",high
+25515,"Dharok's platebody","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee armour (minigame-locked) -> Melee, Misc.",medium
+25516,"Dharok's greataxe","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee weapon (minigame-locked) -> Melee, Misc.",medium
+25517,"Volatile nightmare staff","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic weapon (minigame-locked) -> Mage, Misc.",medium
+25518,"Ancestral hat","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic armour (minigame-locked) -> Mage, Misc.",medium
+25521,"Jar of spirits","Construction,Cosmetics","Construction",yes,"Boss Jar-of-X collectible -> Construction only. Matt batch-8 jar rule (dropped Cosmetics).",high
+25524,"Jar of smoke","Cosmetics","Construction",yes,"Boss Jar-of-X collectible -> Construction only. Matt batch-8 jar rule.",high
+25527,"Stardust","Mining + Smithing","Mining + Smithing",no,"Mined during Shooting Stars; star-shop currency / celestial-ring charges -> Mining + Smithing.",high
+25539,"Celestial ring (uncharged)","Mining + Smithing","Mining + Smithing",no,"Shooting Stars Mining-enhancer ring -> Mining + Smithing.",high
+25543,"Celestial signet (uncharged)","Mining + Smithing","Mining + Smithing",no,"Shooting Stars Mining-enhancer ring (celestial ring + elven signet) -> Mining + Smithing.",medium
+25547,"Star fragment","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"Shooting Stars reward that gold-recolours the prospector (Mining) kit -> Mining + Smithing, Cosmetics.",high
+25549,"Golden prospector helmet","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"Mining XP outfit piece, gold recolour -> Mining + Smithing, Cosmetics.",high
+25551,"Golden prospector jacket","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"Mining XP outfit piece, gold recolour -> Mining + Smithing, Cosmetics.",high
+25553,"Golden prospector legs","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"Mining XP outfit piece, gold recolour -> Mining + Smithing, Cosmetics.",high
+25555,"Golden prospector boots","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"Mining XP outfit piece, gold recolour -> Mining + Smithing, Cosmetics.",high
+25557,"Dark flippers","Cosmetics","Cosmetics",no,"Novelty footwear (dark claw + flippers) -> Cosmetics.",high
+25559,"Big harpoonfish","Construction,Fishing","Construction,Fishing",no,"Tempoross reward trophy fish, can be stuffed and mounted in POH -> Fishing, Construction.",high
+25561,"Stuffed big harpoonfish","Construction,Fishing","Construction,Fishing",no,"Mounted trophy fish (POH) -> Fishing, Construction.",high
+25564,"Raw harpoonfish","Fishing","Fishing",no,"Fished at Tempoross Cove (Tempoross cannon ammo) -> Fishing.",high
+25565,"Harpoonfish","Cooking,Fishing","Cooking,Fishing",no,"Cooked harpoonfish (from raw) -> Cooking, Fishing.",high
+25566,"Crystallised harpoonfish","Fishing","Fishing",no,"Caught with a crystal harpoon at Tempoross -> Fishing.",high
+25567,"The desert trout - ship's log","Fishing,Misc","Fishing,Misc",no,"Tempoross-area (Ruins of Unkah) lore book -> Fishing; book -> Misc.",medium
+25569,"Spirit anglers research notes","Fishing","Fishing",no,"Tempoross lore book -> Fishing.",medium
+25571,"Damp egg","Misc","Misc",no,"Ruins of Unkah novelty (unusable in Cooking) -> Misc.",high
+25574,"Tome of water","Mage","Mage",no,"Tempoross reward Magic shield (book) -> Mage.",high
+25578,"Soaked page","Fishing,Mage","Fishing,Mage,Runecraft",yes,"Charges the tome of water (Mage); caught at Tempoross (Fishing) or made at the Book of Storms (Runecraft) -> add Runecraft.",medium
+25580,"Tackle box","Fishing,Misc","Fishing,Misc",no,"Stores Fishing tackle -> Fishing; storage -> Misc.",high
+25582,"Fish barrel","Fishing,Misc","Fishing,Misc",no,"Stores raw fish (Tempoross reward) -> Fishing; storage -> Misc.",high
+25585,"Fish sack barrel","Fishing","Fishing",no,"Equipable fish-storage barrel -> Fishing.",high
+25588,"Spirit flakes","Fishing","Fishing",no,"Fishing enhancer (attracts extra fish), Tempoross reward -> Fishing.",high
+25590,"Casket","Fishing,Misc","Fishing,Misc",no,"Caught at the Tempoross reward pool -> Fishing; loot casket -> Misc.",high
+25592,"Spirit angler headband","Fishing","Fishing",no,"Fishing XP outfit upgrade (Tempoross) -> Fishing.",high
+25594,"Spirit angler top","Fishing","Fishing",no,"Fishing XP outfit upgrade (Tempoross) -> Fishing.",high
+25596,"Spirit angler waders","Fishing","Fishing",no,"Fishing XP outfit upgrade (Tempoross) -> Fishing.",high
+25598,"Spirit angler boots","Fishing","Fishing",no,"Fishing XP outfit upgrade (Tempoross) -> Fishing.",high
+25602,"Tiny tempor","Cosmetics","Cosmetics,Fishing",yes,"Tempoross (Fishing skilling boss) pet -> Fishing, Cosmetics (skilling-boss pet keeps its skill tab).",medium
+25604,"Gregg's eastdoor","Cosmetics","Cosmetics",no,"Easter event fun weapon -> Cosmetics.",high
+25606,"Propeller hat","Cosmetics","Cosmetics",no,"Easter event cosmetic -> Cosmetics.",high
+25608,"Gregg's iou","Quests","Cosmetics",yes,"Easter event process item -> Cosmetics (holiday events route to Cosmetics); aligns with pastel flowers/thick dye.",medium
+25609,"Pastel flowers","Cosmetics","Cosmetics",no,"Easter event item -> Cosmetics.",high
+25610,"Thick dye","Cosmetics","Cosmetics",no,"Easter event item -> Cosmetics.",high
+25612,"S.t.a.s.h blueprint","Construction","Construction",no,"Builds a STASH chart in the POH study -> Construction.",high
+25631,"Steak sandwich","Cooking,Quests","Cooking,Quests",no,"Quest-recipe food (Below Ice Mountain) that heals -> Cooking, Quests.",high
+25635,"Barronite head","Mining + Smithing","Mining + Smithing",no,"Barronite mace part obtained by smashing deposits (Mining) -> Mining + Smithing.",high
+25637,"Barronite handle","Fishing,Misc","Fishing",yes,"Barronite mace part caught while Fishing at Camdozaal -> Fishing; drop Misc.",medium
+25639,"Barronite guard","Melee","Melee",no,"Barronite mace part (golem drop), component of a melee weapon -> Melee.",high
+25641,"Barronite mace","Melee","Melee",no,"Crush melee weapon (golembane) -> Melee.",high
+25644,"Imcando hammer","Construction,Mining + Smithing,Misc","Construction,Crafting,Mining + Smithing",yes,"Wieldable hammer used for Smithing, Crafting and Construction -> all three; drop Misc.",medium
+25646,"Simple lockbox","Misc","Misc",no,"Camdozaal Vault loot box -> Misc.",high
+25648,"Elaborate lockbox","Misc","Misc",no,"Camdozaal Vault loot box -> Misc.",high
+25650,"Ornate lockbox","Misc","Misc",no,"Camdozaal Vault loot box -> Misc.",high
+25652,"Raw guppy","Cooking,Fishing","Cooking,Fishing",no,"Camdozaal fish (Fishing), prepared on the preparation table (Cooking) -> Cooking, Fishing.",high
+25654,"Guppy","Cooking,Prayer","Cooking,Prayer",no,"Prepared via Cooking, offered at the altar for Prayer XP -> Cooking, Prayer.",high
+25656,"Ruined guppy","Cooking","Cooking",no,"Failed Cooking preparation result -> Cooking.",high
+25658,"Raw cavefish","Cooking,Fishing","Cooking,Fishing",no,"Camdozaal fish (Fishing), prepared on the preparation table (Cooking) -> Cooking, Fishing.",high
+25660,"Cavefish","Cooking,Prayer","Cooking,Prayer",no,"Prepared via Cooking, offered at the altar for Prayer XP -> Cooking, Prayer.",high
+25662,"Ruined cavefish","Cooking","Cooking",no,"Failed Cooking preparation result -> Cooking.",high
+25664,"Raw tetra","Cooking,Fishing","Cooking,Fishing",no,"Camdozaal fish (Fishing), prepared on the preparation table (Cooking) -> Cooking, Fishing.",high
+25666,"Tetra","Cooking,Prayer","Cooking,Prayer",no,"Prepared via Cooking, offered at the altar for Prayer XP -> Cooking, Prayer.",high
+25668,"Ruined tetra","Cooking","Cooking",no,"Failed Cooking preparation result -> Cooking.",high
+25670,"Raw catfish","Cooking,Fishing,Prayer","Cooking,Fishing",yes,"Camdozaal fish (Fishing), prepared via Cooking; drop Prayer (the prepared catfish is the offering, not the raw).",medium
+25672,"Catfish","Cooking,Prayer","Cooking,Prayer",no,"Prepared via Cooking, offered at the altar for Prayer XP -> Cooking, Prayer.",high
+25674,"Ruined catfish","Cooking","Cooking",no,"Failed Cooking preparation result -> Cooking.",high
+25676,"Barronite shards","Mining + Smithing","Mining + Smithing",no,"Camdozaal Mining currency / Sacred Forge fuel -> Mining + Smithing.",high
+25684,"Barronite deposit","Mining + Smithing","Mining + Smithing",no,"Mineable barronite deposit -> Mining + Smithing.",high
+25686,"Ancient globe","Misc","Misc",no,"Barronite-deposit museum relic -> Misc.",high
+25688,"Ancient ledger","Misc","Misc",no,"Barronite-deposit museum relic -> Misc.",high
+25690,"Ancient astroscope","Misc","Misc",no,"Barronite-deposit museum relic -> Misc.",high
+25692,"Ancient treatise","Misc","Misc",no,"Barronite-deposit museum relic -> Misc.",high
+25694,"Ancient carcanet","Misc","Misc",no,"Barronite-deposit museum relic -> Misc.",high
+25696,"Mind core","Runecraft","Runecraft",no,"Used in place of essence to craft mind runes -> Runecraft.",high
+25698,"Body core","Runecraft","Runecraft",no,"Used in place of essence to craft body runes -> Runecraft.",high
+25700,"Chaos core","Runecraft","Runecraft",no,"Used in place of essence to craft chaos runes -> Runecraft.",high
+25702,"Ungael lab notes","Quests","Quests",no,"Combined quest notes (Ungael) -> Quests.",high
+25704,"Lithkren vault notes","Quests","Quests",no,"Combined quest notes (Lithkren, DS2-gated) -> Quests.",high
+25706,"Dusty note","Quests","Quests",no,"Tale of the Righteous quest hint note -> Quests.",high
+25712,"Clan cloak","Cosmetics","Cosmetics",no,"Clan colours cape (cosmetic) -> Cosmetics.",high
+25721,"Clan vexillum","Misc","Misc",no,"Clan banner with a recruiting utility (non-cosmetic function) -> Misc.",medium
+25730,"Bandages","Misc,Quests","Misc",yes,"Theatre of Blood entry-mode raid consumable (non-bankable) -> Misc; drop Quests.",medium
+25731,"Holy sanguinesti staff","Cosmetics,Mage","Cosmetics,Mage",no,"Sanguinesti staff (Magic weapon) with holy ornament kit -> Mage, Cosmetics.",high
+25733,"Holy sanguinesti staff (uncharged)","Cosmetics,Mage","Cosmetics,Mage",no,"Sanguinesti staff (Magic weapon) with holy ornament kit -> Mage, Cosmetics.",high
+25734,"Holy ghrazi rapier","Cosmetics,Melee","Cosmetics,Melee",no,"Ghrazi rapier (melee weapon) with holy ornament kit -> Melee, Cosmetics.",high
+25736,"Holy scythe of vitur","Cosmetics,Melee","Cosmetics,Melee",no,"Scythe of Vitur (melee weapon) with holy ornament kit -> Melee, Cosmetics.",high
+25738,"Holy scythe of vitur (uncharged)","Cosmetics,Melee","Cosmetics,Melee",no,"Scythe of Vitur (melee weapon) with holy ornament kit -> Melee, Cosmetics.",high
+25739,"Sanguine scythe of vitur","Cosmetics,Melee","Cosmetics,Melee",no,"Scythe of Vitur (melee weapon) with sanguine ornament kit -> Melee, Cosmetics.",high
+25741,"Sanguine scythe of vitur (uncharged)","Cosmetics,Melee","Cosmetics,Melee",no,"Scythe of Vitur (melee weapon) with sanguine ornament kit -> Melee, Cosmetics.",high
+25742,"Holy ornament kit","Cosmetics","Cosmetics",no,"Cosmetic recolour kit for ToB weapons -> Cosmetics.",high
+25744,"Sanguine ornament kit","Cosmetics,Melee","Cosmetics",yes,"Cosmetic recolour kit for the scythe -> Cosmetics; drop Melee (matches holy ornament kit).",medium
+25746,"Sanguine dust","Cosmetics,Slayer","Cosmetics",yes,"Metamorphoses the ToB pet (Lil' Zik) -> Cosmetics; drop Slayer (no slayer link).",medium
+25753,"Antique lamp","Quests","Quests",no,"A Night at the Theatre quest reward XP lamp -> Quests.",high
+25754,"Antipoison (-)(1)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25755,"Antipoison (-)(2)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25756,"Antipoison (-)(3)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25757,"Antipoison (-)(4)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25758,"Antipoison potion (1)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25759,"Antipoison potion (2)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25760,"Antipoison potion (3)","Herblore,Misc","Herblore",yes,"Herblore antipoison potion -> Herblore; drop Misc (dose-tag inconsistency).",medium
+25761,"Antipoison potion (4)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25762,"Antipoison (+)(1)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25763,"Antipoison (+)(2)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25764,"Antipoison (+)(3)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25765,"Antipoison (+)(4)","Herblore","Herblore",no,"Herblore antipoison potion -> Herblore.",high
+25766,"Fiendish ashes","Prayer","Prayer",no,"Demonic ashes scattered/offered for Prayer XP -> Prayer.",high
+25769,"Vile ashes","Prayer","Prayer",no,"Demonic ashes scattered/offered for Prayer XP -> Prayer.",high
+25772,"Malicious ashes","Prayer","Prayer",no,"Demonic ashes scattered/offered for Prayer XP -> Prayer.",high
+25775,"Abyssal ashes","Prayer","Prayer",no,"Demonic ashes scattered/offered for Prayer XP -> Prayer.",high
+25778,"Infernal ashes","Prayer","Prayer",no,"Demonic ashes scattered/offered for Prayer XP -> Prayer.",high
+25781,"Ash sanctifier","Prayer,Slayer","Prayer,Slayer",no,"Auto-scatters ashes for Prayer XP; Matt ruling: a slayer tool too -> Prayer, Slayer.",high
+25783,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue scroll -> Misc.",high
+25784,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue scroll -> Misc.",high
+25786,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue scroll -> Misc.",high
+25787,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue scroll -> Misc.",high
+25788,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue scroll -> Misc.",high
+25789,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue scroll -> Misc.",high
+25790,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue scroll -> Misc.",high
+25791,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue scroll -> Misc.",high
+25792,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue scroll -> Misc.",high
+25793,"Receipt","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25794,"Bone","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25795,"Rose","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25796,"Delivery confirmation","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25797,"Order form","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25798,"Demonic incantations","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25799,"Bloody knife","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25800,"Cultist robe","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25801,"Kourend map","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25802,"Rose's diary","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25803,"Bluish key","Quests","Quests",no,"A Kingdom Divided quest key -> Quests.",high
+25804,"Cold key","Quests","Quests",no,"A Kingdom Divided quest key -> Quests.",high
+25805,"Rose's note","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25809,"Lizardman egg","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25810,"Damp key","Quests","Quests",no,"A Kingdom Divided quest key -> Quests.",high
+25811,"Broken redirector","Quests","Quests",no,"The Ascent of Arceuus quest item -> Quests.",high
+25812,"Sulphur potion","Quests","Quests",no,"A Kingdom Divided quest potion -> Quests.",high
+25813,"Shielding potion","Quests","Quests",no,"A Kingdom Divided quest potion -> Quests.",high
+25814,"Declaration","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25815,"Dark nullifier","Quests","Quests",no,"A Kingdom Divided quest item -> Quests.",high
+25816,"Shayzien journal","Quests","Quests",no,"Tale of the Righteous quest journal -> Quests.",high
+25818,"Book of the dead","Mage,Prayer,Quests","Mage,Prayer,Quests",no,"Quest reward book required for resurrection (Magic) spells, with prayer bonus -> Mage, Prayer, Quests.",high
+25820,"Antique lamp","Quests","Quests",no,"A Kingdom Divided quest reward XP lamp -> Quests.",high
+25822,"Protest banner","Quests","Quests",no,"A Kingdom Divided quest-area novelty banner -> Quests.",medium
+25824,"Research notes","Quests","Quests",no,"A Kingdom Divided quest item (Xamphur's lab) -> Quests.",high
+25826,"Lizardkicker","Range","Range",no,"Ale that boosts Ranged (drains Strength/Magic) -> Range combat boost.",high
+25829,"Old note","Misc","Misc",no,"World-spawn lore note -> Misc.",high
+25831,"Shayzia military orders","Misc","Misc",no,"World lore letter -> Misc.",high
+25833,"Raw boar meat","Cooking","Cooking",no,"Raw meat cooked (or made into sinew) via Cooking -> Cooking.",high
+25837,"Slepey tablet","Misc","Teleports",yes,"Adds the Slepe teleport to Drakan's medallion -> Teleports; drop Misc.",medium
+25838,"Parasitic egg","Cosmetics","Cosmetics",no,"Metamorphoses the Little Nightmare pet -> Cosmetics.",high
+25840,"Banana hat","Cosmetics","Cosmetics",no,"Diango cosmetic hat (Design A Hat winner) -> Cosmetics.",high
+25844,"Orange egg sac","Cosmetics","Cosmetics",no,"Metamorphoses the Sraracha pet -> Cosmetics.",high
+25846,"Blue egg sac","Cosmetics","Cosmetics",no,"Metamorphoses the Sraracha pet -> Cosmetics.",high
+25849,"Amethyst dart","Fletching,Range","Fletching,Range",no,"Ranged thrown weapon fletched from amethyst dart tips + feathers -> Fletching, Range.",high
+25853,"Amethyst dart tip","Crafting,Fletching","Crafting,Fletching",no,"Crafted dart tip (chisel on amethyst), fletched into darts -> Crafting, Fletching.",high
+25859,"Enhanced crystal weapon seed","Crafting,Melee,Misc","Crafting,Melee,Range",yes,"Gauntlet seed sung into Blade of Saeldor (Melee) or Bow of Faerdhinen (Range) -> Crafting, Melee, Range; drop Misc.",medium
+25865,"Bow of faerdhinen","Range","Range",no,"Crystal Ranged bow -> Range.",high
+25867,"Bow of faerdhinen (c)","Range","Range",no,"Corrupted non-degrading crystal Ranged bow -> Range.",high
+25870,"Blade of saeldor (c)","Cosmetics,Melee","Cosmetics,Melee",no,"Crystal melee sword, Ithell cosmetic recolour -> Melee, Cosmetics.",high
+25872,"Blade of saeldor (c)","Cosmetics,Melee","Cosmetics,Melee",no,"Crystal melee sword, Iorwerth cosmetic recolour -> Melee, Cosmetics.",high
+25874,"Blade of saeldor (c)","Cosmetics,Melee","Cosmetics,Melee",no,"Crystal melee sword, Trahaearn cosmetic recolour -> Melee, Cosmetics.",high
+25876,"Blade of saeldor (c)","Cosmetics,Melee","Cosmetics,Melee",no,"Crystal melee sword, Cadarn cosmetic recolour -> Melee, Cosmetics.",high
+25878,"Blade of saeldor (c)","Cosmetics,Melee","Cosmetics,Melee",no,"Crystal melee sword, Crwys cosmetic recolour -> Melee, Cosmetics.",high
+25880,"Blade of saeldor (c)","Cosmetics,Melee","Cosmetics,Melee",no,"Crystal melee sword, Meilyr cosmetic recolour -> Melee, Cosmetics.",high
+25882,"Blade of saeldor (c)","Cosmetics,Melee","Cosmetics,Melee",no,"Crystal melee sword, Amlodd cosmetic recolour -> Melee, Cosmetics.",high
+25884,"Bow of faerdhinen (c)","Cosmetics,Range","Cosmetics,Range",no,"Crystal Ranged bow, Ithell cosmetic recolour -> Range, Cosmetics.",high
+25886,"Bow of faerdhinen (c)","Cosmetics,Range","Cosmetics,Range",no,"Crystal Ranged bow, Iorwerth cosmetic recolour -> Range, Cosmetics.",high
+25888,"Bow of faerdhinen (c)","Cosmetics,Range","Cosmetics,Range",no,"Crystal Ranged bow, Trahaearn cosmetic recolour -> Range, Cosmetics.",high
+25890,"Bow of faerdhinen (c)","Cosmetics,Range","Cosmetics,Range",no,"Crystal Ranged bow, Cadarn cosmetic recolour -> Range, Cosmetics.",high
+25892,"Bow of faerdhinen (c)","Cosmetics,Range","Cosmetics,Range",no,"Crystal Ranged bow, Crwys cosmetic recolour -> Range, Cosmetics.",high
+25894,"Bow of faerdhinen (c)","Cosmetics,Range","Cosmetics,Range",no,"Crystal Ranged bow, Meilyr cosmetic recolour -> Range, Cosmetics.",high
+25896,"Bow of faerdhinen (c)","Cosmetics,Range","Cosmetics,Range",no,"Crystal Ranged bow, Amlodd cosmetic recolour -> Range, Cosmetics.",high
+25898,"Tztok slayer helmet","Cosmetics,Slayer","Cosmetics,Slayer",no,"Cosmetic slayer-helmet variant (Combat Achievements) -> Slayer, Cosmetics (family flagged for consistency).",medium
+25900,"Tztok slayer helmet (i)","Cosmetics,Melee,Slayer","Cosmetics,Melee,Slayer",no,"Cosmetic imbued slayer-helmet variant -> Slayer, Melee, Cosmetics (family flagged).",medium
+25904,"Vampyric slayer helmet","Cosmetics,Melee,Slayer","Cosmetics,Melee,Slayer",no,"Cosmetic slayer-helmet variant -> Slayer, Melee, Cosmetics (family flagged).",medium
+25906,"Vampyric slayer helmet (i)","Cosmetics,Melee,Slayer","Cosmetics,Melee,Slayer",no,"Cosmetic imbued slayer-helmet variant -> Slayer, Melee, Cosmetics (family flagged).",medium
+25910,"Tzkal slayer helmet","Cosmetics,Melee,Slayer","Cosmetics,Melee,Slayer",no,"Cosmetic slayer-helmet variant -> Slayer, Melee, Cosmetics (family flagged).",medium
+25912,"Tzkal slayer helmet (i)","Cosmetics,Melee,Slayer","Cosmetics,Melee,Slayer",no,"Cosmetic imbued slayer-helmet variant -> Slayer, Melee, Cosmetics (family flagged).",medium
+25916,"Dragon hunter crossbow (t)","Cosmetics,Range","Cosmetics,Range",no,"Cosmetic dragon hunter crossbow (turquoise) -> Range, Cosmetics.",high
+25918,"Dragon hunter crossbow (b)","Cosmetics,Range","Cosmetics,Range",no,"Cosmetic dragon hunter crossbow (black) -> Range, Cosmetics.",high
+25920,"Antique lamp","Misc","Misc",no,"Combat Achievements (easy) XP lamp, any skill -> Misc.",high
+25921,"Antique lamp","Misc","Misc",no,"Combat Achievements (medium) XP lamp, any skill -> Misc.",high
+25922,"Antique lamp","Misc","Misc",no,"Combat Achievements (hard) XP lamp, any skill -> Misc.",high
+25923,"Antique lamp","Misc","Misc",no,"Combat Achievements (elite) XP lamp, any skill -> Misc.",high
+25924,"Antique lamp","Misc","Misc",no,"Combat Achievements (master) XP lamp, any skill -> Misc.",high
+25925,"Antique lamp","Misc","Misc",no,"Combat Achievements (grandmaster) XP lamp, any skill -> Misc.",high
+25926,"Ghommal's hilt 1","Misc,Slayer","Teleports",yes,"Combat Achievements teleportation item -> Teleports; drop Misc/Slayer (hilt family flagged).",medium
+25928,"Ghommal's hilt 2","Misc,Slayer","Teleports",yes,"Combat Achievements teleportation item -> Teleports; drop Misc/Slayer.",medium
+25930,"Ghommal's hilt 3","Misc","Teleports",yes,"Combat Achievements teleportation item -> Teleports; drop Misc.",medium
+25932,"Ghommal's hilt 4","Misc,Slayer","Teleports",yes,"Combat Achievements teleportation item -> Teleports; drop Misc/Slayer.",medium
+25934,"Ghommal's hilt 5","Melee,Misc,Slayer","Melee,Teleports",yes,"Teleportation item that attaches to the Avernic defender (Melee) -> Melee, Teleports; drop Misc/Slayer.",medium
+25936,"Ghommal's hilt 6","Melee,Misc,Slayer","Melee,Teleports",yes,"Teleportation item that attaches to the Avernic defender (Melee) -> Melee, Teleports; drop Misc/Slayer.",medium
+25938,"Anim offhand","Misc","Misc",no,"Unobtainable teleport-animation item -> Misc.",high
+25941,"Anim offhand","Misc","Misc",no,"Unobtainable teleport-animation item -> Misc.",high
+25944,"Anim offhand","Misc","Misc",no,"Unobtainable teleport-animation item -> Misc.",high
+25950,"Anim offhand","Misc","Misc",no,"Unobtainable teleport-animation item -> Misc.",high
+25953,"Anim offhand","Misc","Misc",no,"Unobtainable teleport-animation item -> Misc.",high
+25956,"Combat achievements","Misc","Misc",no,"Combat Achievements interface item -> Misc.",high
+25958,"Corrupted paddlefish","Cooking,Misc","Cooking,Melee",yes,"Corrupted Gauntlet healing food (cooked) -> Cooking, Melee (align with crystal paddlefish); drop Misc.",medium
+25959,"Corrupted escape crystal","Misc","Misc",no,"Corrupted Gauntlet internal escape utility -> Misc.",medium
+25960,"Crystal paddlefish","Cooking,Melee","Cooking,Melee",no,"Gauntlet healing food (cooked) -> Cooking, Melee.",medium
+25961,"Escape crystal","Misc","Misc",no,"Gauntlet internal escape utility -> Misc.",medium
+25963,"Crypt key","Quests","Quests",no,"A Night at the Theatre quest key -> Quests.",high
+25964,"Ranis' head","Quests","Quests",no,"A Night at the Theatre quest item -> Quests.",high
+25965,"Strange spider eggs","Quests","Quests",no,"A Night at the Theatre quest item -> Quests.",high
+25966,"Sulphuric acid","Quests","Quests",no,"A Night at the Theatre quest item -> Quests.",high
+25967,"Sticky note","Quests","Quests",no,"A Night at the Theatre quest item -> Quests.",high
+25968,"Hespori bark","Quests","Quests",no,"A Night at the Theatre quest item -> Quests.",high
+25975,"Lightbearer","Melee,Misc","Melee,Misc",no,"ToA spec-regen ring (no stats), used broadly in combat -> Melee, Misc (could expand to all combat styles).",medium
+25979,"Keris partisan","Melee,Quests,Slayer","Melee,Quests,Slayer",no,"Quest melee partisan with a Kalphite/scarab damage bonus (slayer-task enhancing) -> Melee, Quests, Slayer.",high
+25981,"Keris partisan of breaching","Melee,Slayer","Melee,Slayer",no,"Melee partisan with +33% accuracy vs Kalphites/Scabarites (slayer-task gear) -> Melee, Slayer.",high
+25985,"Elidinis' ward","Mage","Mage",no,"ToA Magic shield -> Mage (prayer requirement/bonus incidental).",high
+25991,"Sigil of resilience","Misc","Misc",no,"Deadman Mode combat sigil (generic) -> Misc (Deadman sigil family flagged).",medium
+25994,"Sigil of consistency","Misc","Misc",no,"Deadman Mode combat sigil (+1 damage) -> Misc.",medium
+25997,"Sigil of the formidable fighter","Melee,Misc","Melee,Misc",no,"Deadman Mode basic Melee sigil -> Melee, Misc.",high
+26000,"Sigil of the rigorous ranger","Misc,Range","Misc,Range",no,"Deadman Mode Ranged sigil (accuracy + ammo save) -> Range, Misc.",high
+26003,"Sigil of the meticulous mage","Mage,Misc","Mage,Misc",no,"Deadman Mode Magic sigil (accuracy + rune save) -> Mage, Misc.",high
+26006,"Sigil of fortification","Melee,Misc","Melee,Misc",no,"Deadman Mode defence sigil -> Melee, Misc.",medium
+26009,"Sigil of barrows","Melee,Misc","Melee,Misc",no,"Deadman Mode Barrows-gear sigil (predominantly melee) -> Melee, Misc.",medium
+26012,"Sigil of deft strikes","Melee,Misc","Melee,Misc",no,"Deadman Mode accuracy sigil (all styles vs NPCs) -> Melee, Misc.",medium
+26015,"Sigil of freedom","Misc","Misc",no,"Deadman Mode sigil (generic/utility) -> Misc.",medium
+26018,"Sigil of enhanced harvest","Misc","Misc",no,"Deadman Mode multi-skill gathering sigil -> Misc (broad utility).",medium
+26021,"Sigil of storage","Misc","Misc",no,"Deadman Mode utility sigil -> Misc.",medium
+26024,"Sigil of the smith","Mining + Smithing","Mining + Smithing",no,"Deadman Mode Smithing sigil -> Mining + Smithing.",high
+26027,"Sigil of the alchemist","Herblore","Herblore",no,"Deadman Mode Herblore sigil -> Herblore.",high
+26030,"Sigil of the fletcher","Fletching","Fletching",no,"Deadman Mode Fletching sigil -> Fletching.",high
+26033,"Sigil of the chef","Cooking","Cooking",no,"Deadman Mode Cooking sigil -> Cooking.",high
+26036,"Sigil of the craftsman","Crafting,Misc","Crafting",yes,"Deadman Mode Crafting sigil -> Crafting; drop Misc (align with other skilling sigils).",medium
+26039,"Sigil of the abyss","Misc,Runecraft","Runecraft",yes,"Deadman Mode Runecraft sigil -> Runecraft; drop Misc (align with other skilling sigils).",medium
+26042,"Sigil of stamina","Misc","Misc",no,"Deadman Mode utility sigil -> Misc.",medium
+26045,"Sigil of the potion master","Herblore,Misc","Herblore,Misc",no,"Deadman Mode potion-conservation sigil -> Herblore (potions), Misc (utility).",medium
+26048,"Sigil of the eternal jeweller","Misc","Misc",no,"Deadman Mode utility sigil (generic) -> Misc.",medium
+26051,"Sigil of the treasure hunter","Misc","Misc",no,"Deadman Mode clue-rate utility sigil -> Misc.",high
+26054,"Sigil of mobility","Misc","Misc",no,"Deadman Mode utility sigil -> Misc.",medium
+26057,"Sigil of exaggeration","Misc","Misc",no,"Deadman Mode utility sigil (generic) -> Misc.",medium
+26060,"Sigil of specialised strikes","Melee,Misc","Melee,Misc",no,"Deadman Mode special-attack-cost combat sigil -> Melee, Misc.",medium
+26063,"Sigil of the porcupine","Misc","Misc",no,"Deadman Mode recoil combat sigil -> Misc.",medium
+26066,"Sigil of binding","Mage,Misc","Mage,Misc",no,"Deadman Mode combat sigil (binding/Magic-flavoured) -> Mage, Misc.",medium
+26069,"Sigil of escaping","Misc","Misc",no,"Deadman Mode utility sigil (generic) -> Misc.",medium
+26072,"Sigil of the ruthless ranger","Misc,Range","Misc,Range",no,"Deadman Mode Ranged combat sigil -> Range, Misc.",high
+26075,"Sigil of the feral fighter","Melee,Misc","Melee,Misc",no,"Deadman Mode Melee combat sigil -> Melee, Misc.",medium
+26078,"Sigil of the menacing mage","Mage,Misc","Mage,Misc",no,"Deadman Mode Magic combat sigil -> Mage, Misc.",high
+26081,"Sigil of prosperity","Misc","Misc",no,"Deadman Mode utility sigil -> Misc.",medium
+26084,"Sigil of the dwarves","Misc","Misc",no,"Deadman Mode sigil (generic) -> Misc.",medium
+26087,"Sigil of the elves","Misc","Misc",no,"Deadman Mode sigil (generic) -> Misc.",medium
+26090,"Sigil of the barbarians","Misc","Misc",no,"Deadman Mode sigil (generic) -> Misc.",medium
+26093,"Sigil of the gnomes","Misc","Misc",no,"Deadman Mode sigil (generic) -> Misc.",medium
+26096,"Sigil of nature","Farming,Misc","Farming,Misc",no,"Deadman Mode Farming utility sigil -> Farming, Misc.",medium
+26099,"Sigil of devotion","Misc,Prayer","Misc,Prayer",no,"Deadman Mode auto-bury/scatter Prayer sigil -> Prayer, Misc.",high
+26102,"Sigil of the forager","Misc","Misc",no,"Deadman Mode skilling sigil (generic) -> Misc.",medium
+26105,"Sigil of garments","Misc","Misc",no,"Deadman Mode utility sigil (generic) -> Misc.",medium
+26108,"Sigil of slaughter","Misc,Slayer","Misc,Slayer",no,"Deadman Mode Slayer utility sigil (choose task, superior chance) -> Slayer, Misc.",high
+26111,"Sigil of the fortune farmer","Misc","Misc",no,"Deadman Mode sigil (generic) -> Misc.",medium
+26114,"Sigil of versatility","Misc","Misc",no,"Deadman Mode utility sigil -> Misc.",medium
+26117,"Sigil of the serpent","Misc","Misc",no,"Deadman Mode utility sigil (generic) -> Misc.",medium
+26120,"Sigil of supreme stamina","Misc","Misc",no,"Deadman Mode utility sigil -> Misc.",medium
+26123,"Sigil of preservation","Misc","Misc",no,"Deadman Mode utility sigil (generic) -> Misc.",medium
+26126,"Sigil of finality","Melee,Misc","Melee,Misc",no,"Deadman Mode special-attack combat sigil -> Melee, Misc.",medium
+26129,"Sigil of pious protection","Misc,Prayer","Misc,Prayer",no,"Deadman Mode protection-prayer combat sigil -> Prayer, Misc.",medium
+26132,"Sigil of aggression","Melee,Misc","Melee,Misc",no,"Deadman Mode +damage combat sigil -> Melee, Misc.",medium
+26135,"Sigil of rampage","Melee,Misc","Melee,Misc",no,"Deadman Mode style-switching combat sigil -> Melee, Misc.",medium
+26138,"Sigil of the skiller","Misc","Misc",no,"Deadman Mode skilling sigil (generic) -> Misc.",medium
+26141,"Sigil of remote storage","Misc","Misc",no,"Deadman Mode auto-note skilling utility sigil -> Misc.",medium
+26144,"Sigil of last recall","Misc","Misc",no,"Deadman Mode utility sigil -> Misc.",medium
+26147,"Sigil of the guardian angel","Misc","Misc",no,"Deadman Mode utility sigil -> Misc.",medium
+26149,"Tuna","Melee","Melee",no,"Deadman starter-pack healing food -> Melee (combat heal).",medium
+26150,"Combat potion(4)","Melee","Melee",no,"Deadman starter-pack combat boost (not Herblore-made) -> Melee.",medium
+26151,"Combat potion(3)","Herblore,Melee","Melee",yes,"Deadman starter-pack combat boost (not Herblore-made) -> Melee; drop Herblore.",medium
+26152,"Combat potion(2)","Herblore,Melee","Melee",yes,"Deadman starter-pack combat boost (not Herblore-made) -> Melee; drop Herblore.",medium
+26153,"Combat potion(1)","Herblore,Melee","Melee",yes,"Deadman starter-pack combat boost (not Herblore-made) -> Melee; drop Herblore.",medium
+26154,"Mount karuulm diary","Misc","Misc",no,"Combined lore notes from the Karuulm dungeon -> Misc.",high
+26156,"Group ironman helm","Cosmetics,Melee","Cosmetics,Melee",no,"Group Ironman starter helm (iron-tier melee defence) -> Melee, Cosmetics.",high
+26158,"Group ironman platebody","Cosmetics,Melee","Cosmetics,Melee",no,"Group Ironman starter platebody (iron-tier melee defence) -> Melee, Cosmetics.",high
+26166,"Group ironman platelegs","Cosmetics,Melee","Cosmetics,Melee",no,"Group Ironman starter platelegs (iron-tier melee defence) -> Melee, Cosmetics.",high
+26168,"Group ironman bracers","Cosmetics","Cosmetics",no,"Group Ironman starter bracers (negligible stats, mode-exclusive) -> Cosmetics.",medium
+26170,"Hardcore group ironman helm","Cosmetics,Melee","Cosmetics,Melee",no,"Hardcore GIM starter helm (iron-tier melee defence) -> Melee, Cosmetics.",high
+26172,"Hardcore group ironman platebody","Cosmetics,Melee","Cosmetics,Melee",no,"Hardcore GIM starter platebody (iron-tier melee defence) -> Melee, Cosmetics.",high
+26180,"Hardcore group ironman platelegs","Cosmetics,Melee","Cosmetics,Melee",no,"Hardcore GIM starter platelegs (iron-tier melee defence) -> Melee, Cosmetics.",high
+26182,"Hardcore group ironman bracers","Cosmetics","Cosmetics",no,"Hardcore GIM starter bracers (negligible stats, mode-exclusive) -> Cosmetics.",medium
+26219,"Osmumten's fang","Melee","Melee",no,"ToA stab melee weapon -> Melee.",high
+26221,"Ancient ceremonial top","Cosmetics,Prayer,Slayer","Cosmetics,Prayer",yes,"Nex-area prayer-bonus ceremonial robe -> Prayer, Cosmetics; drop Slayer (Nex is not slayer).",medium
+26223,"Ancient ceremonial legs","Cosmetics,Prayer,Slayer","Cosmetics,Prayer",yes,"Nex-area prayer-bonus ceremonial robe -> Prayer, Cosmetics; drop Slayer.",medium
+26225,"Ancient ceremonial mask","Cosmetics,Prayer,Slayer","Cosmetics,Prayer",yes,"Nex-area prayer-bonus ceremonial robe -> Prayer, Cosmetics; drop Slayer.",medium
+26227,"Ancient ceremonial gloves","Cosmetics,Prayer,Slayer","Cosmetics,Prayer",yes,"Nex-area prayer-bonus ceremonial robe -> Prayer, Cosmetics; drop Slayer.",medium
+26229,"Ancient ceremonial boots","Cosmetics,Prayer,Slayer","Cosmetics,Prayer",yes,"Nex-area prayer-bonus ceremonial robe -> Prayer, Cosmetics; drop Slayer.",medium
+26231,"Nihil shard","Herblore,Range,Slayer","Range",yes,"Nex-area drop used to charge the Zaryte bow (Ranged) -> Range; drop Herblore/Slayer.",medium
+26233,"Ancient godsword","Melee","Melee",no,"Godsword variant (ancient hilt + blade) -> Melee.",high
+26235,"Zaryte vambraces","Range","Range",no,"Best-in-slot offensive Ranged gloves (Nex drop) -> Range.",high
+26237,"Zaryte bow (uncharged)","Range","Range",no,"Ranged 2h bow -> Range.",high
+26239,"Zaryte bow","Range","Range",no,"Ranged 2h bow -> Range.",high
+26241,"Virtus mask","Mage","Mage",no,"Virtus (Magic) armour, DT2 boss drop -> Mage.",high
+26243,"Virtus robe top","Mage","Mage",no,"Virtus (Magic) armour, DT2 boss drop -> Mage.",high
+26245,"Virtus robe bottom","Mage","Mage",no,"Virtus (Magic) armour, DT2 boss drop -> Mage.",high
+26247,"Pumpkin pie","Misc","Cosmetics",yes,"2021 Halloween event item -> Cosmetics (holiday-event family); drop Misc.",medium
+26250,"Jered's empty wine bottle","Cosmetics","Cosmetics",no,"2021 Halloween event item -> Cosmetics.",high
+26252,"Ad coupon","Misc","Cosmetics",yes,"2021 Halloween event item -> Cosmetics (holiday-event family); drop Misc.",medium
+26254,"Saucepan","Cosmetics","Cosmetics",no,"Halloween holiday reward (head cosmetic) -> Cosmetics.",high
+26256,"Ugly halloween jumper (orange)","Cosmetics","Cosmetics",no,"Halloween holiday reward (body cosmetic) -> Cosmetics.",high
+26260,"Haunted wine bottle","Cosmetics","Cosmetics",no,"Halloween holiday reward (emote item) -> Cosmetics.",high
+26262,"Rune scimitar","Cosmetics","Cosmetics",no,"Unobtainable 2021 Halloween cutscene item -> Cosmetics.",high
+26264,"Studded body","Cosmetics","Cosmetics",no,"Unobtainable 2021 Halloween cutscene item -> Cosmetics.",high
+26266,"Condensed gold","Construction","Construction",no,"Construction material (builds a POH gold sink) -> Construction.",high
+26270,"Festive cinnamon","Cosmetics","Cosmetics",no,"2021 Christmas event ingredient -> Cosmetics.",high
+26272,"Festive holly","Cosmetics","Cosmetics",no,"2021 Christmas event ingredient -> Cosmetics.",high
+26274,"Festive white wine","Cosmetics","Cosmetics",no,"2021 Christmas event ingredient -> Cosmetics.",high
+26276,"Notes","Cosmetics","Cosmetics",no,"2021 Christmas event tracking item -> Cosmetics.",high
+26278,"Magical cleaning potion","Cosmetics","Cosmetics",no,"2021 Christmas event item -> Cosmetics.",high
+26280,"Pink stained platebody","Quests","Cosmetics",yes,"2021 Christmas event item -> Cosmetics (holiday-event family); drop Quests.",medium
+26282,"Pink stained platelegs","Quests","Cosmetics",yes,"2021 Christmas event item -> Cosmetics; drop Quests.",medium
+26284,"Pink stained full helm","Quests","Cosmetics",yes,"2021 Christmas event item -> Cosmetics; drop Quests.",medium
+26286,"Clean platebody","Quests","Cosmetics",yes,"2021 Christmas event item -> Cosmetics; drop Quests.",medium
+26288,"Clean platelegs","Cosmetics","Cosmetics",no,"2021 Christmas event item -> Cosmetics.",high
+26290,"Clean full helm","Cosmetics","Cosmetics",no,"2021 Christmas event item -> Cosmetics.",high
+26292,"Festive gingerbread gnomes","Cosmetics","Cosmetics",no,"Christmas festival novelty food -> Cosmetics.",high
+26294,"Festive mulled wine","Cosmetics","Cosmetics",no,"Christmas festival novelty drink -> Cosmetics.",high
+26298,"Secret santa present","Cosmetics","Cosmetics",no,"2021 Christmas event item -> Cosmetics.",high
+26304,"Chocolate chips","Cosmetics","Cosmetics",no,"2021 Christmas event item -> Cosmetics.",high
+26308,"A big present","Cosmetics","Cosmetics",no,"2021 Christmas event reward box -> Cosmetics.",high
+26310,"Festive elf slippers","Cosmetics","Cosmetics",no,"Christmas holiday cosmetic footwear -> Cosmetics.",high
+26312,"Festive elf hat","Cosmetics","Cosmetics",no,"Christmas holiday cosmetic hat -> Cosmetics.",high
+26314,"Snowman ring","Cosmetics","Cosmetics",no,"Christmas holiday cosmetic transform ring -> Cosmetics.",high
+26316,"Secret santa present (red)","Cosmetics","Cosmetics",no,"Christmas holiday cosmetic item -> Cosmetics.",high
+26326,"Little snowball","Cosmetics","Cosmetics",no,"2021 Christmas event snowman item -> Cosmetics.",high
+26328,"Small snowball","Cosmetics","Cosmetics",no,"2021 Christmas event snowman item -> Cosmetics.",high
+26330,"Normal snowball","Cosmetics","Cosmetics",no,"2021 Christmas event snowman item -> Cosmetics.",high
+26332,"Big snowball","Cosmetics","Cosmetics",no,"2021 Christmas event snowman item -> Cosmetics.",high
+26334,"Large snowball","Cosmetics","Cosmetics",no,"2021 Christmas event snowman item -> Cosmetics.",high
+26336,"Huge snowball","Cosmetics","Cosmetics",no,"2021 Christmas event snowman item -> Cosmetics.",high
+26338,"Humongous snowball","Cosmetics","Cosmetics",no,"2021 Christmas event snowman item -> Cosmetics.",high
+26340,"Ancient brew(4)","Herblore,Mage,Prayer","Herblore,Mage,Prayer",no,"Herblore potion: boosts Magic, restores Prayer -> Herblore, Mage, Prayer.",high
+26342,"Ancient brew(3)","Herblore,Mage,Prayer","Herblore,Mage,Prayer",no,"Herblore potion: boosts Magic, restores Prayer -> Herblore, Mage, Prayer.",high
+26344,"Ancient brew(2)","Herblore,Mage,Prayer","Herblore,Mage,Prayer",no,"Herblore potion: boosts Magic, restores Prayer -> Herblore, Mage, Prayer.",high
+26346,"Ancient brew(1)","Herblore,Mage,Prayer","Herblore,Mage,Prayer",no,"Herblore potion: boosts Magic, restores Prayer -> Herblore, Mage, Prayer.",high
+26348,"Nexling","Cosmetics","Cosmetics",no,"Nex (combat boss) pet -> Cosmetics (combat-boss pets get no skill tab).",high
+26350,"Ancient mix(2)","Herblore,Mage,Prayer","Herblore,Mage,Prayer",no,"Barbarian ancient mix: boosts Magic, restores Prayer, heals -> Herblore, Mage, Prayer.",high
+26353,"Ancient mix(1)","Herblore,Mage,Prayer","Herblore,Mage,Prayer",no,"Barbarian ancient mix: boosts Magic, restores Prayer, heals -> Herblore, Mage, Prayer.",high
+26356,"Frozen key","Misc,Quests","Misc,Quests",no,"The Frozen Door miniquest key (opens Nex prison) -> Quests; key -> Misc.",medium
+26358,"Frozen key piece (armadyl)","Quests,Slayer","Quests",yes,"The Frozen Door miniquest key piece (GWD general drop) -> Quests; drop Slayer.",medium
+26360,"Frozen key piece (bandos)","Quests,Slayer","Quests",yes,"The Frozen Door miniquest key piece (GWD general drop) -> Quests; drop Slayer.",medium
+26362,"Frozen key piece (zamorak)","Quests,Slayer","Quests",yes,"The Frozen Door miniquest key piece (GWD general drop) -> Quests; drop Slayer.",medium
+26364,"Frozen key piece (saradomin)","Quests,Slayer","Quests",yes,"The Frozen Door miniquest key piece (GWD general drop) -> Quests; drop Slayer.",medium
+26366,"Important letter","Quests","Quests",no,"Starts The Frozen Door miniquest -> Quests.",high
+26368,"Nihil dust","Herblore,Slayer","Herblore",yes,"Crushed nihil shard, ingredient for ancient brew (85 Herblore) -> Herblore; drop Slayer.",medium
+26370,"Ancient hilt","Melee,Slayer","Melee",yes,"Nex drop used to make the ancient godsword (Melee) -> Melee; drop Slayer.",medium
+26372,"Nihil horn","Range,Slayer","Range",yes,"Nex drop used to upgrade the Armadyl crossbow to Zaryte crossbow (Ranged) -> Range; drop Slayer.",medium
+26374,"Zaryte crossbow","Range","Range",no,"Ranged crossbow -> Range.",high
+26382,"Torva full helm","Melee","Melee",no,"Top-tier melee strength helm (Nex drop) -> Melee.",high
+26384,"Torva platebody","Melee","Melee",no,"Top-tier melee strength platebody (Nex drop) -> Melee.",high
+26386,"Torva platelegs","Melee","Melee",no,"Top-tier melee strength platelegs (Nex drop) -> Melee.",high
+26388,"Ecumenical key shard","Misc","Misc",no,"Nex drop; 50 combine into an ecumenical key (GWD boss access) -> Misc.",high
+26390,"Blood essence","Runecraft","Runecraft",no,"Grants bonus blood runes when crafting -> Runecraft.",high
+26394,"Bandosian components","Melee","Melee",no,"Repair material for Torva (melee) armour -> Melee.",high
+26421,"Shattered relics variety ornament kit","Cosmetics","Cosmetics",no,"Leagues III cosmetic recolour kit -> Cosmetics.",high
+26424,"Shattered banner","Cosmetics","Cosmetics",no,"Leagues III cosmetic banner -> Cosmetics.",high
+26427,"Shattered hood (t1)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26430,"Shattered top (t1)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26433,"Shattered trousers (t1)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26436,"Shattered boots (t1)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26439,"Shattered hood (t2)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26442,"Shattered top (t2)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26445,"Shattered trousers (t2)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26448,"Shattered boots (t2)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26451,"Shattered hood (t3)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26454,"Shattered top (t3)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26457,"Shattered trousers (t3)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26460,"Shattered boots (t3)","Cosmetics","Cosmetics",no,"Leagues III Reward Shop cosmetic -> Cosmetics.",high
+26463,"Void knight top (or)","Cosmetics,Misc","Cosmetics,Mage,Melee,Range",yes,"Void body worn across all combat styles -> Mage, Melee, Range, Cosmetics; drop Misc (void family flagged).",medium
+26465,"Void knight robe (or)","Cosmetics,Misc","Cosmetics,Mage,Melee,Range",yes,"Void legs worn across all combat styles -> Mage, Melee, Range, Cosmetics; drop Misc.",medium
+26467,"Void knight gloves (or)","Cosmetics,Misc","Cosmetics,Mage,Melee,Range",yes,"Void gloves worn across all combat styles -> Mage, Melee, Range, Cosmetics; drop Misc.",medium
+26469,"Elite void top (or)","Cosmetics,Range","Cosmetics,Mage,Melee,Range",yes,"Elite void body worn across all combat styles -> Mage, Melee, Range, Cosmetics.",medium
+26471,"Elite void robe (or)","Cosmetics,Misc,Range","Cosmetics,Mage,Melee,Range",yes,"Elite void legs worn across all combat styles -> Mage, Melee, Range, Cosmetics; drop Misc.",medium
+26473,"Void mage helm (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Void Magic helm (style-specific) -> Mage, Cosmetics.",high
+26475,"Void ranger helm (or)","Cosmetics,Range","Cosmetics,Range",no,"Void Ranged helm (style-specific) -> Range, Cosmetics.",high
+26477,"Void melee helm (or)","Cosmetics,Melee","Cosmetics,Melee",no,"Void Melee helm (style-specific) -> Melee, Cosmetics.",high
+26479,"Shattered relics void ornament kit","Cosmetics","Cosmetics",no,"Cosmetic recolour kit for void armour -> Cosmetics.",high
+26482,"Abyssal whip (or)","Cosmetics,Melee,Slayer","Cosmetics,Melee",yes,"Abyssal whip (melee weapon) with ornament kit -> Melee, Cosmetics; drop Slayer (rare drops deferred).",medium
+26484,"Abyssal tentacle (or)","Cosmetics,Melee","Cosmetics,Melee",no,"Abyssal tentacle (melee weapon) with ornament kit -> Melee, Cosmetics.",high
+26486,"Rune crossbow (or)","Cosmetics,Range","Cosmetics,Range",no,"Rune crossbow (Ranged weapon) with ornament kit -> Range, Cosmetics.",high
+26488,"Book of balance (or)","Cosmetics,Prayer","Cosmetics,Prayer",no,"Guthix god book (prayer bonus) with ornament kit -> Prayer, Cosmetics.",high
+26490,"Book of darkness (or)","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"God book with magic + prayer bonus -> Mage, Prayer, Cosmetics.",high
+26492,"Book of law (or)","Cosmetics,Prayer,Range","Cosmetics,Prayer,Range",no,"Armadyl god book with ranged + prayer bonus -> Range, Prayer, Cosmetics.",high
+26494,"Book of war (or)","Cosmetics,Melee,Prayer","Cosmetics,Melee,Prayer",no,"Bandos god book with melee + prayer bonus -> Melee, Prayer, Cosmetics.",high
+26496,"Holy book (or)","Cosmetics,Prayer","Cosmetics,Prayer",no,"Saradomin god book (prayer bonus) with ornament kit -> Prayer, Cosmetics.",high
+26498,"Unholy book (or)","Cosmetics,Prayer","Cosmetics,Prayer",no,"Zamorak god book (prayer bonus) with ornament kit -> Prayer, Cosmetics.",high
+26500,"Shattered teleport scroll","Cosmetics","Cosmetics",no,"Unlocks a Home Teleport animation override (cosmetic) -> Cosmetics.",high
+26503,"Shattered relics bronze trophy","Cosmetics","Cosmetics",no,"Leagues III cosmetic trophy -> Cosmetics.",high
+26505,"Shattered relics iron trophy","Cosmetics","Cosmetics",no,"Leagues III cosmetic trophy -> Cosmetics.",high
+26507,"Shattered relics steel trophy","Cosmetics","Cosmetics",no,"Leagues III cosmetic trophy -> Cosmetics.",high
+26509,"Shattered relics mithril trophy","Cosmetics","Cosmetics",no,"Leagues III cosmetic trophy -> Cosmetics.",high
+26511,"Shattered relics adamant trophy","Cosmetics","Cosmetics",no,"Leagues III cosmetic trophy -> Cosmetics.",high
+26513,"Shattered relics rune trophy","Cosmetics","Cosmetics",no,"Leagues III cosmetic trophy -> Cosmetics.",high
+26515,"Shattered relics dragon trophy","Cosmetics","Cosmetics",no,"Leagues III cosmetic trophy -> Cosmetics.",high
+26517,"Shattered cane","Cosmetics","Cosmetics",no,"Leagues III cosmetic cane -> Cosmetics.",high
+26520,"Cannon base (or)","Cosmetics,Range,Slayer","Cosmetics,Range,Slayer",no,"Recoloured dwarf multicannon part; cannon is a slayer-loadout item -> Range, Slayer, Cosmetics.",medium
+26522,"Cannon stand (or)","Cosmetics,Range,Slayer","Cosmetics,Range,Slayer",no,"Recoloured dwarf multicannon part -> Range, Slayer, Cosmetics.",medium
+26524,"Cannon barrels (or)","Cosmetics,Range,Slayer","Cosmetics,Range,Slayer",no,"Recoloured dwarf multicannon part -> Range, Slayer, Cosmetics.",medium
+26526,"Cannon furnace (or)","Cosmetics,Range,Slayer","Cosmetics,Range,Slayer",no,"Recoloured dwarf multicannon part -> Range, Slayer, Cosmetics.",medium
+26528,"Shattered cannon ornament kit","Cosmetics,Range","Cosmetics",yes,"Cosmetic recolour kit for the cannon -> Cosmetics; drop Range (kit is not the gear).",medium
+26531,"Mystic hat (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Mystic (Magic) hat with ornament kit -> Mage, Cosmetics.",high
+26533,"Mystic robe top (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Mystic (Magic) robe top with ornament kit -> Mage, Cosmetics.",high
+26535,"Mystic robe bottom (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Mystic (Magic) robe bottom with ornament kit -> Mage, Cosmetics.",high
+26537,"Mystic gloves (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Mystic (Magic) gloves with ornament kit -> Mage, Cosmetics.",high
+26539,"Mystic boots (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Mystic (Magic) boots with ornament kit -> Mage, Cosmetics.",high
+26541,"Shattered relics mystic ornament kit","Cosmetics,Mage","Cosmetics",yes,"Cosmetic recolour kit for mystic robes -> Cosmetics; drop Mage (kit is not the gear).",medium
+26544,"Unidentified fragment (harvesting)","Misc","Misc",no,"Leagues III relic-power fragment -> Misc.",medium
+26545,"Unidentified fragment (production)","Misc","Misc",no,"Leagues III relic-power fragment -> Misc.",medium
+26546,"Unidentified fragment (skilling)","Misc","Misc",no,"Leagues III relic-power fragment -> Misc.",medium
+26547,"Unidentified fragment (combat)","Melee,Misc","Misc",yes,"Leagues III relic-power fragment -> Misc; drop Melee (align with sibling fragments).",medium
+26548,"Unidentified fragment (misc)","Misc","Misc",no,"Leagues III relic-power fragment -> Misc.",medium
+26549,"Portable waystone","Misc","Teleports",yes,"Leagues III item that whisks the player to locations -> Teleports; drop Misc.",medium
+26551,"Arcane grimoire","Mage","Mage",no,"Magic offhand book (magic + prayer bonus), Leagues relic reward -> Mage.",high
+26554,"Shattered relic hunter (t1) armour set","Cosmetics","Cosmetics",no,"GE cosmetic set placeholder -> Cosmetics.",high
+26557,"Shattered relic hunter (t2) armour set","Cosmetics","Cosmetics",no,"GE cosmetic set placeholder -> Cosmetics.",high
+26560,"Shattered relic hunter (t3) armour set","Cosmetics","Cosmetics",no,"GE cosmetic set placeholder -> Cosmetics.",high
+26566,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue scroll -> Misc.",high
+26567,"White goblin mail","Quests","Quests",no,"Land of the Goblins quest item -> Quests.",high
+26569,"Pharmakos berries","Herblore,Quests","Herblore,Quests",no,"Ingredient for goblin (transmog) potions via Herblore, quest item -> Herblore, Quests.",high
+26571,"Ekeleshuun key","Misc,Quests","Quests",yes,"Land of the Goblins temple key -> Quests; drop Misc (align with other temple keys).",medium
+26572,"Narogoshuun key","Quests","Quests",no,"Land of the Goblins temple key -> Quests.",high
+26573,"Huzamogaarb key","Quests","Quests",no,"Land of the Goblins temple key -> Quests.",high
+26574,"Saragorgak key","Quests","Quests",no,"Land of the Goblins temple key -> Quests.",high
+26575,"Horogothgar key","Quests","Quests",no,"Land of the Goblins temple key -> Quests.",high
+26576,"Yurkolgokh key","Misc,Quests","Quests",yes,"Land of the Goblins temple key -> Quests; drop Misc (align with other temple keys).",medium
+26577,"Plain of mud sphere","Misc,Quests","Teleports",yes,"Teleport sphere to the Goblin Cave -> Teleports; drop Misc/Quests.",medium
+26579,"Whitefish","Fishing,Quests","Fishing,Quests",no,"Fished in the Fishing Contest (Land of the Goblins) -> Fishing, Quests.",high
+26581,"Goblin potion(4)","Herblore,Quests","Herblore,Quests",no,"Herblore transmogrification potion (quest) -> Herblore, Quests.",high
+26583,"Goblin potion(3)","Herblore,Quests","Herblore,Quests",no,"Herblore transmogrification potion (quest) -> Herblore, Quests.",high
+26585,"Goblin potion(2)","Herblore,Quests","Herblore,Quests",no,"Herblore transmogrification potion (quest) -> Herblore, Quests.",high
+26587,"Goblin potion(1)","Herblore,Quests","Herblore,Quests",no,"Herblore transmogrification potion (quest) -> Herblore, Quests.",high
+26589,"Snothead's bone","Prayer,Quests","Quests",yes,"Hopespear's Will miniquest collectible -> Quests; drop Prayer (quest item, not a buryable Prayer bone).",medium
+26590,"Snailfeet's bone","Prayer,Quests","Quests",yes,"Hopespear's Will miniquest collectible -> Quests; drop Prayer.",medium
+26591,"Mosschin's bone","Prayer,Quests","Quests",yes,"Hopespear's Will miniquest collectible -> Quests; drop Prayer.",medium
+26592,"Redeyes' bone","Prayer,Quests","Quests",yes,"Hopespear's Will miniquest collectible -> Quests; drop Prayer.",medium
+26593,"Strongbones' bone","Prayer,Quests","Quests",yes,"Hopespear's Will miniquest collectible -> Quests; drop Prayer.",medium
+26594,"Grubfoot","Quests","Quests",no,"Land of the Goblins quest follower item -> Quests.",high
+26596,"Notes","Cosmetics","Cosmetics",no,"2022 Birthday event tracking item -> Cosmetics.",high
+26598,"Desert bait","Fishing","Cosmetics",yes,"2022 Birthday event item (one-time event bait) -> Cosmetics; drop Fishing (event-only).",medium
+26600,"Tiny fish","Cosmetics","Cosmetics",no,"2022 Birthday event fish -> Cosmetics.",high
+26602,"Osman's report","Misc","Cosmetics",yes,"2022 Birthday event item -> Cosmetics; drop Misc.",medium
+26605,"Treasure clue one","Misc","Cosmetics",yes,"2022 Birthday event treasure-hunt item -> Cosmetics; drop Misc.",medium
+26607,"Treasure clue two","Misc","Cosmetics",yes,"2022 Birthday event treasure-hunt item -> Cosmetics; drop Misc.",medium
+26609,"Treasure clue three","Misc","Cosmetics",yes,"2022 Birthday event treasure-hunt item -> Cosmetics; drop Misc.",medium
+26611,"Zeke's challenge scroll","Cosmetics","Cosmetics",no,"2022 Birthday event item -> Cosmetics.",high
+26613,"Capt' arnav's chest","Cosmetics","Cosmetics",no,"2022 Birthday event item -> Cosmetics.",high
+26615,"Bucket (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26617,"Bucket of water (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26619,"Pot (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26621,"Pot of flour (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26623,"Tomato (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26625,"Cheese (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26627,"Banana (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26629,"Pizza base (cookout)","Misc","Cosmetics",yes,"2022 Birthday event cookout item -> Cosmetics; drop Misc.",medium
+26631,"Incomplete pizza (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26633,"Uncooked pizza (cookout)","Quests","Cosmetics",yes,"2022 Birthday event cookout item -> Cosmetics; drop Quests.",medium
+26635,"Plain pizza (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26637,"Burnt pizza (cookout)","Cooking","Cosmetics",yes,"2022 Birthday event cookout item -> Cosmetics; drop Cooking (event-only).",medium
+26639,"Bread dough (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26641,"Bread (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26643,"Burnt bread (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26645,"Banana pizza (cookout)","Cosmetics","Cosmetics",no,"2022 Birthday event cookout item -> Cosmetics.",high
+26647,"Burnt banana pizza (cookout)","Cooking","Cosmetics",yes,"2022 Birthday event cookout item -> Cosmetics; drop Cooking (event-only).",medium
+26649,"Skis","Cosmetics","Cosmetics",no,"Birthday event fun movement item -> Cosmetics.",high
+26651,"Loot key","Misc","Misc",no,"PvP loot-chest retrieval key -> Misc.",high
+26704,"Blighted wave sack","Mage","Mage",no,"Runeless Wave-spell cast consumable -> Mage.",high
+26705,"Blighted surge sack","Mage,Misc","Mage",yes,"Runeless Surge/Wave-spell cast consumable -> Mage; drop Misc (match wave sack).",medium
+26706,"Scroll of imbuing","Misc","Misc",no,"Imbue utility scroll (Emir's Arena reward) -> Misc.",high
+26707,"Dragon claws ornament kit","Cosmetics,Melee","Cosmetics",yes,"Cosmetic recolour kit for dragon claws -> Cosmetics; drop Melee (kit is not the gear).",medium
+26708,"Dragon claws (or)","Cosmetics,Melee","Cosmetics,Melee",no,"Dragon claws (melee weapon) with ornament kit -> Melee, Cosmetics.",high
+26709,"Dragon warhammer ornament kit","Cosmetics,Melee","Cosmetics",yes,"Cosmetic recolour kit for the dragon warhammer -> Cosmetics; drop Melee.",medium
+26710,"Dragon warhammer (or)","Cosmetics,Melee","Cosmetics,Melee",no,"Dragon warhammer (melee weapon) with ornament kit -> Melee, Cosmetics.",high
+26711,"Heavy ballista ornament kit","Cosmetics,Range","Cosmetics",yes,"Cosmetic recolour kit for the heavy ballista -> Cosmetics; drop Range.",medium
+26712,"Heavy ballista (or)","Cosmetics,Range","Cosmetics,Range",no,"Heavy ballista (Ranged weapon) with ornament kit -> Range, Cosmetics.",high
+26713,"Armadyl armour ornament kit","Cosmetics,Range","Cosmetics",yes,"Cosmetic recolour kit for Armadyl armour -> Cosmetics; drop Range.",medium
+26714,"Armadyl helmet (or)","Cosmetics,Range","Cosmetics,Range",no,"Armadyl (Ranged) helmet with ornament kit -> Range, Cosmetics.",high
+26715,"Armadyl chestplate (or)","Cosmetics,Range","Cosmetics,Range",no,"Armadyl (Ranged) chestplate with ornament kit -> Range, Cosmetics.",high
+26716,"Armadyl chainskirt (or)","Cosmetics,Range","Cosmetics,Range",no,"Armadyl (Ranged) chainskirt with ornament kit -> Range, Cosmetics.",high
+26717,"Bandos armour ornament kit","Cosmetics,Melee","Cosmetics",yes,"Cosmetic recolour kit for Bandos armour -> Cosmetics; drop Melee.",medium
+26718,"Bandos chestplate (or)","Cosmetics,Melee","Cosmetics,Melee",no,"Bandos (melee) chestplate with ornament kit -> Melee, Cosmetics.",high
+26719,"Bandos tassets (or)","Cosmetics,Melee","Cosmetics,Melee",no,"Bandos (melee) tassets with ornament kit -> Melee, Cosmetics.",high
+26720,"Bandos boots (or)","Cosmetics,Melee","Cosmetics,Melee",no,"Bandos (melee) boots with ornament kit -> Melee, Cosmetics.",high
+26721,"Centurion cuirass","Melee,Misc","Melee,Misc",no,"PvP-arena-only melee body armour (test item) -> Melee, Misc.",medium
+26723,"Wristbands of the arena","Melee,Misc","Melee,Misc",no,"PvP-arena-only combat gloves (Barrows-glove equivalent) -> Melee, Misc.",medium
+26727,"Wristbands of the arena (i)","Melee,Misc","Melee,Misc",no,"PvP-arena-only imbued combat gloves -> Melee, Misc.",medium
+26731,"Saika's hood","Mage,Misc","Mage,Misc",no,"Calamity (Magic) arena-loadout helm -> Mage, Misc.",medium
+26733,"Saika's veil","Mage,Misc","Mage,Misc",no,"Calamity (Magic) arena-loadout helm -> Mage, Misc.",medium
+26735,"Saika's shroud","Mage,Misc","Mage,Misc",no,"Calamity (Magic) arena-loadout helm -> Mage, Misc.",medium
+26737,"Koriff's headband","Misc,Range","Misc,Range",no,"Calamity (Ranged) arena-loadout helm -> Range, Misc.",medium
+26739,"Koriff's cowl","Misc,Range","Misc,Range",no,"Calamity (Ranged) arena-loadout helm -> Range, Misc.",medium
+26741,"Koriff's coif","Misc,Range","Misc,Range",no,"Calamity (Ranged) arena-loadout helm -> Range, Misc.",medium
+26743,"Maoma's med helm","Melee,Misc","Melee,Misc",no,"Calamity (melee) arena-loadout helm -> Melee, Misc.",medium
+26745,"Maoma's full helm","Melee,Misc","Melee,Misc",no,"Calamity (melee) arena-loadout helm -> Melee, Misc.",medium
+26747,"Maoma's great helm","Melee,Misc","Melee,Misc",no,"Calamity (melee) arena-loadout helm -> Melee, Misc.",medium
+26749,"Calamity chest","Melee,Misc","Melee,Misc",no,"Calamity hybrid arena-loadout body -> Melee, Misc (Calamity family flagged; could be all combat styles).",medium
+26751,"Superior calamity chest","Melee,Misc","Melee,Misc",no,"Calamity hybrid arena-loadout body -> Melee, Misc.",medium
+26753,"Elite calamity chest","Melee,Misc","Melee,Misc",no,"Calamity hybrid arena-loadout body -> Melee, Misc.",medium
+26755,"Calamity breeches","Melee,Misc","Melee,Misc",no,"Calamity hybrid arena-loadout legs -> Melee, Misc.",medium
+26757,"Superior calamity breeches","Melee,Misc","Melee,Misc",no,"Calamity hybrid arena-loadout legs -> Melee, Misc.",medium
+26759,"Elite calamity breeches","Melee,Misc","Melee,Misc",no,"Calamity hybrid arena-loadout legs -> Melee, Misc.",medium
+26784,"Colossal pouch","Runecraft","Runecraft",no,"Largest essence pouch for Runecraft -> Runecraft.",high
+26788,"Gold tiara","Crafting,Runecraft","Crafting,Runecraft",no,"Crafted at a furnace (Crafting), made into elemental/catalytic tiaras for Runecraft -> Crafting, Runecraft.",high
+26792,"Abyssal pearls","Runecraft","Runecraft",no,"Guardians of the Rift (Runecraft) reward currency -> Runecraft.",high
+26798,"Catalytic talisman","Runecraft","Runecraft",no,"Grants access to catalytic runic altars -> Runecraft.",high
+26801,"Catalytic tiara","Runecraft","Runecraft",no,"Runecraft tiara (catalytic altars) -> Runecraft.",high
+26804,"Elemental tiara","Runecraft","Runecraft",no,"Runecraft tiara (elemental altars) -> Runecraft.",high
+26807,"Abyssal green dye","Cosmetics,Runecraft","Cosmetics,Runecraft",no,"Recolours the Raiments of the Eye (Runecraft outfit), GotR reward -> Runecraft, Cosmetics.",high
+26809,"Abyssal blue dye","Cosmetics,Runecraft","Cosmetics,Runecraft",no,"Recolours the Raiments of the Eye (Runecraft outfit), GotR reward -> Runecraft, Cosmetics.",high
+26811,"Abyssal red dye","Cosmetics,Runecraft","Cosmetics,Runecraft",no,"Recolours the Raiments of the Eye (Runecraft outfit), GotR reward -> Runecraft, Cosmetics.",high
+26813,"Abyssal needle","Crafting,Runecraft","Crafting,Runecraft",no,"GotR reward used to stitch the colossal pouch (Crafting) -> Crafting, Runecraft.",high
+26815,"Ring of the elements","Misc,Runecraft","Runecraft,Teleports",yes,"Teleports to elemental runic altars -> Teleports; Runecraft-altar utility -> Runecraft; drop Misc.",medium
+26820,"Guardian's eye","Cosmetics,Runecraft","Cosmetics,Runecraft",no,"Transforms the rift guardian (Runecraft) pet, GotR reward -> Runecraft, Cosmetics.",high
+26822,"Abyssal lantern","Runecraft,Woodcutting + Firemaking","Runecraft,Woodcutting + Firemaking",no,"GotR (Runecraft) shield lit with logs (Firemaking) -> Runecraft, Woodcutting + Firemaking.",high
+26850,"Hat of the eye","Runecraft","Runecraft",no,"Raiments of the Eye Runecraft XP outfit -> Runecraft.",high
+26852,"Robe top of the eye","Runecraft","Runecraft",no,"Raiments of the Eye Runecraft XP outfit -> Runecraft.",high
+26854,"Robe bottoms of the eye","Runecraft","Runecraft",no,"Raiments of the Eye Runecraft XP outfit -> Runecraft.",high
+26856,"Boots of the eye","Runecraft","Runecraft",no,"Raiments of the Eye Runecraft XP outfit -> Runecraft.",high
+26876,"Atlax's diary","Runecraft","Runecraft",no,"Guardians of the Rift (Runecraft) lore diary -> Runecraft.",medium
+26878,"Guardian fragments","Runecraft","Runecraft",no,"Mined in GotR, made into guardian essence -> Runecraft.",high
+26879,"Guardian essence","Runecraft","Runecraft",no,"GotR essence used at runic altars -> Runecraft.",high
+26880,"Catalytic guardian stone","Runecraft","Runecraft",no,"GotR item powering the Great Guardian -> Runecraft.",high
+26881,"Elemental guardian stone","Runecraft","Runecraft",no,"GotR item powering the Great Guardian -> Runecraft.",high
+26882,"Uncharged cell","Misc,Runecraft","Misc,Runecraft",no,"GotR-internal cell (charged at altars) -> Runecraft, Misc.",medium
+26883,"Weak cell","Misc,Runecraft","Misc,Runecraft",no,"GotR-internal charged cell -> Runecraft, Misc.",medium
+26884,"Medium cell","Misc,Runecraft","Misc,Runecraft",no,"GotR-internal charged cell -> Runecraft, Misc.",medium
+26885,"Strong cell","Misc,Runecraft","Misc,Runecraft",no,"GotR-internal charged cell -> Runecraft, Misc.",medium
+26886,"Overcharged cell","Misc,Runecraft","Misc,Runecraft",no,"GotR-internal charged cell -> Runecraft, Misc.",medium
+26887,"Portal talisman (air)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26888,"Portal talisman (water)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26889,"Portal talisman (earth)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26890,"Portal talisman (fire)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26891,"Portal talisman (mind)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26892,"Portal talisman (chaos)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26893,"Portal talisman (death)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26894,"Portal talisman (blood)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26895,"Portal talisman (body)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26896,"Portal talisman (cosmic)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26897,"Portal talisman (nature)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26898,"Portal talisman (law)","Misc,Runecraft","Misc,Runecraft",no,"GotR portal talisman -> Runecraft, Misc.",medium
+26901,"Abyssal protector","Cosmetics","Cosmetics,Runecraft",yes,"Guardians of the Rift (Runecraft minigame) pet -> Runecraft, Cosmetics (skilling pet keeps its skill tab).",medium
+26903,"Eye amulet","Quests","Quests",no,"Temple of the Eye quest item -> Quests.",high
+26904,"Strong cup of tea","Quests","Quests",no,"Temple of the Eye quest item -> Quests.",high
+26905,"Abyssal incantation","Quests","Quests",no,"Temple of the Eye quest item -> Quests.",high
+26906,"Colossal pouch","Quests,Runecraft","Quests,Runecraft",no,"Devious Minds quest essence pouch (teleport beacon) -> Quests, Runecraft.",high
+26908,"Intricate pouch","Misc,Runecraft","Misc,Runecraft",no,"GotR reward mystery pouch -> Runecraft, Misc.",medium
+26910,"Tarnished locket","Quests,Runecraft","Quests,Runecraft",no,"GotR reward exchanged for the Amulet of the Eye -> Runecraft, Quests.",medium
+26912,"Lost bag","Cosmetics,Runecraft","Cosmetics,Runecraft",no,"Cosmetic cape from a GotR intricate pouch -> Runecraft, Cosmetics.",high
+26914,"Amulet of the eye","Misc,Runecraft","Runecraft,Teleports",yes,"Unlimited teleport to the Temple of the Eye (Runecraft hub) -> Teleports, Runecraft; drop Misc.",medium
+26916,"Special hot sauce","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26917,"Special super hot kebab","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26918,"Secret report","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26919,"Big bucket","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26920,"Big bucket of camel milk","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26921,"Big bucket of frozen camel milk","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26924,"Magical cleaning potion","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26925,"Cooler","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26926,"Easter egg","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26927,"Melted easter egg","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26928,"Ice cream easter egg","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26929,"Blunt scimitars","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26930,"Washing line","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26931,"Tanning wheel","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26932,"Vat (dirty)","Misc","Cosmetics",yes,"2022 Easter event item -> Cosmetics; drop Misc.",medium
+26933,"Vat (cleaned)","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26934,"Wooden pole","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26935,"Churning machine","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26936,"Frozen churning machine","Cosmetics","Cosmetics",no,"2022 Easter event item -> Cosmetics.",high
+26937,"Easter hat","Cosmetics","Cosmetics",no,"Easter holiday cosmetic hat -> Cosmetics.",high
+26939,"Crate ring","Cosmetics","Cosmetics",no,"Easter holiday cosmetic transform ring -> Cosmetics.",high
+26941,"Polyelemental guardian stone","Runecraft","Runecraft",no,"GotR item powering the Great Guardian -> Runecraft.",high
+26942,"Message","Quests","Quests",no,"Beneath Cursed Sands quest start item -> Quests.",high
+26943,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue scroll -> Misc.",high
+26944,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue scroll -> Misc.",high
+26945,"Pharaoh's sceptre (uncharged)","Melee,Misc","Agility + Thieving,Teleports",yes,"Pyramid Plunder (Thieving) reward, primarily a teleport sceptre; drop Melee/Misc.",medium
+26948,"Pharaoh's sceptre","Melee,Misc","Agility + Thieving,Teleports",yes,"Pyramid Plunder (Thieving) reward, primarily a teleport sceptre; drop Melee/Misc.",medium
+26952,"Scarab mould","Quests","Quests",no,"Beneath Cursed Sands quest item -> Quests.",high
+26954,"Stone tablet","Quests","Quests",no,"Beneath Cursed Sands quest item -> Quests.",high
+26955,"Chest","Quests","Quests",no,"Beneath Cursed Sands quest item -> Quests.",high
+26956,"Scarab emblem","Quests","Quests",no,"Beneath Cursed Sands quest item -> Quests.",high
+26957,"Human emblem","Quests","Quests",no,"Beneath Cursed Sands quest item -> Quests.",high
+26958,"Baboon emblem","Quests","Quests",no,"Beneath Cursed Sands quest item -> Quests.",high
+26959,"Crocodile emblem","Quests","Quests",no,"Beneath Cursed Sands quest item -> Quests.",high
+26960,"Rusty key","Misc,Quests","Quests",yes,"Beneath Cursed Sands quest key -> Quests; drop Misc (align with other quest keys).",medium
+26961,"Lily of the elid","Quests","Quests",no,"Beneath Cursed Sands quest item -> Quests.",high
+26962,"Cure crate","Quests","Quests",no,"Beneath Cursed Sands quest item -> Quests.",high
+26963,"Odd spectacles","Cosmetics,Quests","Cosmetics,Quests",no,"Cosmetic quest item (head) -> Cosmetics, Quests.",high
+26965,"Bottle of 'tonic'","Quests","Quests",no,"Beneath Cursed Sands quest item (no use) -> Quests.",high
+26967,"Circlet of water (uncharged)","Mage,Quests","Quests",yes,"Beneath Cursed Sands reward, desert-heat utility head item -> Quests; drop Mage.",medium
+26969,"Circlet of water","Misc,Quests","Quests",yes,"Beneath Cursed Sands reward, desert-heat utility head item -> Quests; drop Misc.",medium
+26997,"Ensouled hellhound head","Prayer","Prayer",no,"Reanimated for Prayer XP -> Prayer (matches ensouled-head family).",high
+27010,"Preform","Mining + Smithing,Quests","Mining + Smithing,Quests",no,"Unfinished giant's sword (Giants' Foundry / Sleeping Giants quest) -> Mining + Smithing, Quests.",high
+27012,"Double ammo mould","Mining + Smithing,Range","Mining + Smithing,Range",no,"Smiths cannonballs (Smithing) for the cannon (Range) -> Mining + Smithing, Range.",high
+27014,"Kovac's grog","Mining + Smithing","Mining + Smithing",no,"Ale that boosts Smithing -> Mining + Smithing.",high
+27017,"Smithing catalyst","Mining + Smithing","Mining + Smithing",no,"Giants' Foundry consumable that aids Smithing -> Mining + Smithing.",high
+27019,"Ore pack","Mining + Smithing","Mining + Smithing",no,"Giants' Foundry reward pack of noted ores -> Mining + Smithing.",high
+27021,"Colossal blade","Melee,Mining + Smithing","Melee,Mining + Smithing",no,"Giants' Foundry (Smithing) reward 2h melee sword -> Melee, Mining + Smithing.",high
+27023,"Smiths tunic","Mining + Smithing","Mining + Smithing",no,"Giants' Foundry Smithing outfit piece -> Mining + Smithing.",high
+27025,"Smiths trousers","Mining + Smithing","Mining + Smithing",no,"Giants' Foundry Smithing outfit piece -> Mining + Smithing.",high
+27027,"Smiths boots","Mining + Smithing","Mining + Smithing",no,"Giants' Foundry Smithing outfit piece -> Mining + Smithing.",high
+27029,"Smiths gloves","Mining + Smithing","Mining + Smithing",no,"Giants' Foundry Smithing outfit piece -> Mining + Smithing.",high
+27031,"Smiths gloves (i)","Mining + Smithing","Mining + Smithing",no,"Giants' Foundry Smithing gloves combined with ice gloves -> Mining + Smithing.",high
+27035,"Flower crown","Cosmetics","Cosmetics",no,"2022 Pride event cosmetic -> Cosmetics.",high
+27037,"Legendary red rose seed","Cosmetics","Cosmetics",no,"2022 Pride event item (novelty seed) -> Cosmetics.",high
+27038,"Gorgeous orange lily seed","Cosmetics","Cosmetics",no,"2022 Pride event item (novelty seed) -> Cosmetics.",high
+27039,"Beautiful yellow pansy seed","Cosmetics","Cosmetics",no,"2022 Pride event item (novelty seed) -> Cosmetics.",high
+27040,"Tenacious indigo iris seed","Cosmetics","Cosmetics",no,"2022 Pride event item (novelty seed) -> Cosmetics.",high
+27041,"Quality violet tulip seed","Cosmetics","Cosmetics",no,"2022 Pride event item (novelty seed) -> Cosmetics.",high
+27042,"Group ironman helm (unranked)","Melee,Misc","Cosmetics,Melee",yes,"Unranked GIM starter helm (iron-tier melee defence) -> Melee, Cosmetics; align with ranked GIM helm.",medium
+27044,"Group ironman platelegs (unranked)","Cosmetics,Melee","Cosmetics,Melee",no,"Unranked GIM starter platelegs (iron-tier melee defence) -> Melee, Cosmetics.",high
+27046,"Group ironman bracers (unranked)","Cosmetics","Cosmetics",no,"Unranked GIM starter bracers (negligible stats) -> Cosmetics.",medium
+27048,"Group ironman platebody (unranked)","Cosmetics,Melee","Cosmetics,Melee",no,"Unranked GIM starter platebody (iron-tier melee defence) -> Melee, Cosmetics.",high
+27086,"Rune pouch","Mage,Misc","Mage,Misc",no,"Emir's Arena rune pouch (holds runes for spellcasting) -> Mage; arena-only -> Misc.",medium
+27098,"Elder maul ornament kit","Cosmetics,Melee","Cosmetics",yes,"Cosmetic recolour kit for the elder maul -> Cosmetics; drop Melee (kit is not the gear).",medium
+27100,"Elder maul (or)","Cosmetics,Melee","Cosmetics,Melee",no,"Elder maul (melee 2h crush weapon) with ornament kit -> Melee, Cosmetics.",high
+27110,"Mithril gloves (wrapped)","Melee,Misc","Melee,Misc",no,"Emir's Arena Culinaromancer's gloves (combat) -> Melee, Misc.",medium
+27111,"Rune gloves (wrapped)","Melee,Misc","Melee,Misc",no,"Emir's Arena Culinaromancer's gloves (combat) -> Melee, Misc.",medium
+27112,"Barrows gloves (wrapped)","Melee,Misc","Melee,Misc",no,"Emir's Arena Culinaromancer's gloves (combat) -> Melee, Misc.",medium
+27113,"Elder chaos robes ornament kit","Cosmetics,Mage","Cosmetics",yes,"Cosmetic recolour kit for elder chaos robes -> Cosmetics; drop Mage.",medium
+27115,"Elder chaos top (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Elder chaos (Magic) top with ornament kit -> Mage, Cosmetics.",high
+27117,"Elder chaos robe (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Elder chaos (Magic) robe with ornament kit -> Mage, Cosmetics.",high
+27119,"Elder chaos hood (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Elder chaos (Magic) hood with ornament kit -> Mage, Cosmetics.",high
+27121,"Dagon'hai robes ornament kit","Cosmetics,Mage","Cosmetics",yes,"Cosmetic recolour kit for Dagon'hai robes -> Cosmetics; drop Mage.",medium
+27123,"Dagon'hai hat (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Dagon'hai (Magic) hat with ornament kit -> Mage, Cosmetics.",high
+27125,"Dagon'hai robe top (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Dagon'hai (Magic) robe top with ornament kit -> Mage, Cosmetics.",high
+27127,"Dagon'hai robe bottom (or)","Cosmetics,Mage","Cosmetics,Mage",no,"Dagon'hai (Magic) robe bottom with ornament kit -> Mage, Cosmetics.",high
+27157,"Dragon knife","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged thrown knife -> Range, Misc.",medium
+27158,"Mystic robe top (dark)","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe -> Mage, Misc.",medium
+27159,"Mystic robe bottom (dark)","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe -> Mage, Misc.",medium
+27160,"Mystic robe top (light)","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe -> Mage, Misc.",medium
+27161,"Mystic robe bottom (light)","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe -> Mage, Misc.",medium
+27162,"Wizard boots","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic boots -> Mage, Misc.",medium
+27163,"Guthix halo","Misc,Prayer","Misc,Prayer",no,"LMS-exclusive prayer-bonus halo -> Prayer, Misc.",medium
+27164,"Zamorak halo","Misc,Prayer","Misc,Prayer",no,"LMS-exclusive prayer-bonus halo -> Prayer, Misc.",medium
+27165,"Saradomin halo","Melee,Misc,Prayer","Misc,Prayer",yes,"LMS-exclusive prayer-bonus halo -> Prayer, Misc; drop Melee (align with Guthix/Zamorak halos).",medium
+27166,"Ghostly hood","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic hood -> Mage, Misc.",medium
+27167,"Ghostly robe","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe top -> Mage, Misc.",medium
+27168,"Ghostly robe","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe bottom -> Mage, Misc.",medium
+27169,"Berserker helm","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee helm -> Melee, Misc.",medium
+27170,"Infinity boots","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic boots -> Mage, Misc.",medium
+27171,"Tormented bracelet","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic-damage bracelet -> Mage, Misc.",medium
+27172,"Necklace of anguish","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged necklace -> Range, Misc.",medium
+27173,"Amulet of torture","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee amulet -> Melee, Misc.",medium
+27174,"Elder chaos top","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe top -> Mage, Misc.",medium
+27175,"Elder chaos robe","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe -> Mage, Misc.",medium
+27176,"Elder chaos hood","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic hood -> Mage, Misc.",medium
+27177,"Fremennik kilt","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee legs -> Melee, Misc.",medium
+27178,"Spiked manacles","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee-strength boots -> Melee, Misc.",medium
+27179,"Rangers' tunic","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged body -> Range, Misc.",medium
+27180,"Guthix chaps","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged legs -> Range, Misc.",medium
+27181,"Zamorak chaps","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged legs -> Range, Misc.",medium
+27182,"Saradomin chaps","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged legs -> Range, Misc.",medium
+27183,"3rd age mage hat","Cosmetics,Mage,Misc","Cosmetics,Mage,Misc",no,"LMS-exclusive 3rd age (prestige Magic) hat -> Mage, Cosmetics, Misc.",medium
+27184,"Ancient godsword","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee 2h godsword -> Melee, Misc.",medium
+27185,"Rune defender","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee offhand defender -> Melee, Misc.",medium
+27186,"Zaryte crossbow","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged crossbow -> Range, Misc.",medium
+27187,"Bow of faerdhinen (c)","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged bow -> Range, Misc.",medium
+27188,"Light ballista","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged ballista -> Range, Misc.",medium
+27189,"Verac's flail","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee flail -> Melee, Misc.",medium
+27190,"Verac's brassard","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee body -> Melee, Misc.",medium
+27191,"Unholy book","Misc,Prayer","Misc,Prayer",no,"LMS-exclusive prayer-bonus offhand book -> Prayer, Misc.",medium
+27192,"Opal dragon bolts (e)","Misc,Range","Misc,Range",no,"LMS-exclusive Ranged ammo (bolts) -> Range, Misc.",medium
+27193,"Ancestral robe top","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe top -> Mage, Misc.",medium
+27194,"Ancestral robe bottom","Mage,Misc","Mage,Misc",no,"LMS-exclusive Magic robe bottom -> Mage, Misc.",medium
+27195,"Inquisitor's great helm","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee helm -> Melee, Misc.",medium
+27196,"Inquisitor's hauberk","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee body -> Melee, Misc.",medium
+27197,"Inquisitor's plateskirt","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee legs -> Melee, Misc.",medium
+27198,"Inquisitor's mace","Melee,Misc","Melee,Misc",no,"LMS-exclusive melee mace -> Melee, Misc.",medium
+27199,"3rd age range top","Cosmetics,Misc,Range","Cosmetics,Misc,Range",no,"LMS-exclusive 3rd age (prestige Ranged) body -> Range, Cosmetics, Misc.",medium
+27200,"3rd age range legs","Cosmetics,Misc,Range","Cosmetics,Misc,Range",no,"LMS-exclusive 3rd age (prestige Ranged) legs -> Range, Cosmetics, Misc.",medium
+27201,"3rd age range coif","Cosmetics,Misc,Range","Cosmetics,Misc,Range",no,"LMS-exclusive 3rd age (prestige Ranged) coif -> Range, Cosmetics, Misc.",medium
+27202,"Menaphite remedy(4)","Herblore,Melee","Herblore,Melee",no,"Herblore combat-stat renewal potion -> Herblore, Melee.",medium
+27205,"Menaphite remedy(3)","Herblore,Melee","Herblore,Melee",no,"Herblore combat-stat renewal potion -> Herblore, Melee.",medium
+27208,"Menaphite remedy(2)","Herblore,Melee","Herblore,Melee",no,"Herblore combat-stat renewal potion -> Herblore, Melee.",medium
+27211,"Menaphite remedy(1)","Herblore,Melee","Herblore,Melee",no,"Herblore combat-stat renewal potion -> Herblore, Melee.",medium
+27214,"Scarab dung","Misc","Misc",no,"ToA Kephri MVP trophy drop -> Misc.",high
+27216,"Fossilised dung","Misc","Misc",no,"ToA low-points consolation reward -> Misc.",high
+27219,"Fang","Misc,Quests","Misc",yes,"ToA Zebak MVP trophy drop -> Misc; drop Quests (not a quest item).",medium
+27221,"Big banana","Misc","Misc",no,"ToA Ba-Ba MVP trophy drop -> Misc.",high
+27223,"Eldritch ashes","Quests","Misc",yes,"ToA Akkha MVP trophy drop -> Misc; drop Quests (not a quest item; not a Prayer ash).",medium
+27225,"Grain","Misc","Misc",no,"ToA lobby novelty item -> Misc.",high
+27226,"Masori mask","Range","Range",no,"ToA top-tier Ranged armour -> Range.",high
+27229,"Masori body","Range","Range",no,"ToA top-tier Ranged armour -> Range.",high
+27232,"Masori chaps","Range","Range",no,"ToA top-tier Ranged armour -> Range.",high
+27235,"Masori mask (f)","Range","Range",no,"Fortified Masori (Ranged) armour -> Range.",high
+27238,"Masori body (f)","Range","Range",no,"Fortified Masori (Ranged) armour -> Range.",high
+27241,"Masori chaps (f)","Range","Range",no,"Fortified Masori (Ranged) armour -> Range.",high
+27246,"Osmumten's fang (or)","Cosmetics,Melee","Cosmetics,Melee",no,"Osmumten's fang (melee weapon) with cosmetic phalanx -> Melee, Cosmetics.",high
+27248,"Cursed phalanx","Cosmetics,Melee","Cosmetics",yes,"Cosmetic recolour kit for Osmumten's fang -> Cosmetics; drop Melee (kit is not the gear).",medium
+27251,"Elidinis' ward (f)","Mage,Prayer","Mage,Prayer",no,"Fortified Magic shield with prayer bonus -> Mage, Prayer.",high
+27253,"Elidinis' ward (or)","Cosmetics,Mage","Cosmetics,Mage,Prayer",yes,"Cosmetic Elidinis' ward (f) retaining magic + prayer bonus -> Mage, Prayer, Cosmetics; add Prayer.",medium
+27255,"Menaphite ornament kit","Cosmetics,Mage","Cosmetics",yes,"Cosmetic recolour kit for Elidinis' ward -> Cosmetics; drop Mage (kit is not the gear).",medium
+27257,"Icthlarin's shroud (tier 1)","Cosmetics","Cosmetics",no,"ToA cosmetic cape -> Cosmetics.",high
+27259,"Icthlarin's shroud (tier 2)","Cosmetics","Cosmetics",no,"ToA cosmetic cape -> Cosmetics.",high
+27261,"Icthlarin's shroud (tier 3)","Cosmetics","Cosmetics",no,"ToA cosmetic cape -> Cosmetics.",high
+27263,"Icthlarin's shroud (tier 4)","Cosmetics","Cosmetics",no,"ToA cosmetic cape -> Cosmetics.",high
+27265,"Icthlarin's shroud (tier 5)","Cosmetics","Cosmetics",no,"ToA cosmetic cape -> Cosmetics.",high
+27267,"Icthlarin's hood (tier 5)","Cosmetics","Cosmetics",no,"ToA cosmetic hood -> Cosmetics.",high
+27269,"Armadylean plate","Crafting,Range","Crafting,Range",no,"Crafted from Armadyl armour (Crafting) to fortify Masori (Ranged) gear -> Crafting, Range.",high
+27272,"Lily of the sands","Herblore","Herblore",no,"ToA reward used to make Menaphite remedies (Herblore) -> Herblore.",high
+27275,"Tumeken's shadow","Mage","Mage",no,"ToA Magic powered staff -> Mage.",high
+27277,"Tumeken's shadow (uncharged)","Mage","Mage",no,"ToA Magic powered staff -> Mage.",high

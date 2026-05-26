@@ -1,0 +1,5 @@
+id,name,from_tabs,to_tabs,reason,source
+22838,"Fish sack","Cosmetics","Cosmetics,Fishing","Matt audit: feels wrong to not have it in fishing; skilling-activity reward keeps its skill tab.",audit-slice-batch-007
+22840,"Golden tench","Cosmetics","Cosmetics,Fishing","Matt audit: keep in fishing (skilling-activity reward).",audit-slice-batch-007
+23908,"Zalcano shard","Cosmetics","Cosmetics,Mining + Smithing","Matt audit: feels wrong outside mining+smithing; skilling-boss collection-log item keeps its skill tab.",audit-slice-batch-007
+22209,"Extended super antifire(4)","Herblore","DEFERRED - pending Slayer-tab definition","Matt audit: No. Antifires/super antifires may belong in a Slayer loadout (dragons often assigned). NOT changed yet; pending decision on what defines a Slayer item. Applies to the whole antifire family (all doses + barbarian mixes).",audit-slice-batch-007

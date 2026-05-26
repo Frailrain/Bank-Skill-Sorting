@@ -1,0 +1,51 @@
+id,name,old_tabs,new_tabs,changed,rationale,confidence
+7842,"Ogre ribs","Prayer,Quests","Quests",yes,"Rag and Bone Man II quest bone (polished in vinegar for the Odd Old Man) -> Quests; dropped Prayer (not buryable, quest-only item; flagged).",medium
+7845,"Jogre bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7848,"Zogre bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7851,"Mogre bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7854,"Monkey paw","Quests","Quests",no,"Rag and Bone Man I quest bone -> Quests.",high
+7857,"Dagannoth ribs","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7860,"Snake spine","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7863,"Zombie bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7866,"Werewolf bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7869,"Moss giant bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7872,"Fire giant bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7875,"Ice giant ribs","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7878,"Terrorbird wing","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7881,"Ghoul bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7884,"Troll bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7887,"Seagull wing","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7890,"Undead cow ribs","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7893,"Experiment bone","Prayer,Quests","Quests",yes,"Rag and Bone Man II quest bone -> Quests; dropped Prayer (not buryable, quest-only item; flagged).",medium
+7896,"Rabbit bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7899,"Basilisk bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7902,"Desert lizard bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7905,"Cave goblin skull","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7908,"Big frog leg","Quests","Quests",no,"Rag and Bone Man I quest bone -> Quests.",high
+7911,"Vulture wing","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7914,"Jackal bone","Quests","Quests",no,"Rag and Bone Man II quest bone -> Quests.",high
+7917,"Ram skull helm","Melee,Quests","Melee,Quests",no,"Rag and Bone Man II quest-reward defensive helm (melee/ranged defence) -> Melee, Quests.",medium
+7918,"Bonesack","Quests","Quests",no,"Rag and Bone Man II quest-reward defensive cape (+4 all-style defence) -> Quests; combat-cape (Melee/all-style) candidate flagged.",medium
+7919,"Bottle of wine","Agility + Thieving,Cooking","Agility + Thieving,Cooking",no,"Wine-stall thieving food (heals 14 but drains Attack, so not combat food) -> Agility + Thieving, Cooking (wine-family convention).",medium
+7921,"Empty wine bottle","Misc","Misc",no,"Useless drink by-product -> Misc.",high
+7922,"Al kharid flyer","Misc","Misc",no,"Expired-voucher novelty leaflet -> Misc.",high
+7927,"Easter ring","Cosmetics","Cosmetics",no,"Holiday-event transform ring -> Cosmetics.",high
+7928,"Easter egg","Cosmetics","Cosmetics",no,"Holiday-event novelty food -> Cosmetics.",high
+7934,"Field ration","Cooking","Cooking",no,"Bought healing food (heals 10, below the 12 combat-food threshold) -> Cooking only.",high
+7936,"Pure essence","Runecraft","Runecraft",no,"Raw Runecraft essence -> Runecraft (matches Rune/Daeyalt/Guardian essence convention; mining tab omitted by convention).",high
+7938,"Dark essence fragments","Crafting,Runecraft","Crafting,Runecraft",no,"Chiselled from dark essence blocks (Crafting) and used to craft blood/soul runes (Runecraft) -> Crafting, Runecraft.",high
+7939,"Tortoise shell","Crafting","Crafting",no,"Sold to Barlak for Crafting XP -> Crafting.",medium
+7941,"Iron sheet","Quests","Mining + Smithing,Quests",yes,"Smithed (20 Smithing) iron sheet to repair the Piscatoris wall in Swan Song -> Mining + Smithing, Quests (matches fresh-monkfish quest-skill precedent; flagged).",medium
+7942,"Fresh monkfish","Fishing,Quests","Fishing,Quests",no,"Monkfish caught during Swan Song -> Fishing, Quests.",high
+7944,"Raw monkfish","Cooking,Fishing","Cooking,Fishing",no,"Fished (62 Fishing) and cooked into monkfish -> Cooking, Fishing.",high
+7946,"Monkfish","Melee,Slayer","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked high-heal combat food (heals 16, >=12 threshold) eaten in any combat style -> Cooking + all four combat tabs; corrected the erroneous Melee,Slayer tag (matches Swordfish/Lobster/Shark; flagged).",high
+7948,"Burnt monkfish","Cooking","Cooking",no,"Burnt Cooking by-product -> Cooking.",high
+7950,"Bone seeds","Quests","Quests",no,"Swan Song quest item (skeleton-mage army) -> Quests.",high
+7951,"Herman's book","Quests","Quests",no,"Swan Song quest book -> Quests.",high
+7954,"Burnt shrimp","Cooking","Cooking",no,"Burnt Cooking by-product -> Cooking.",high
+7956,"Casket","Quests","Quests",no,"Pirate's Treasure quest reward chest -> Quests.",high
+7957,"White apron","Quests","Quests",no,"Unobtainable display apron (quest item flag) -> Quests; Cosmetics/Misc candidate flagged.",medium
+7958,"Mining prop","Quests","Quests",no,"Royal Trouble quest prop (despite the name, no Mining use) -> Quests.",high
+7959,"Heavy box","Quests","Quests",no,"Royal Trouble quest item -> Quests.",high
+7960,"Empty box","Misc","Misc",no,"Post-quest useless empty box -> Misc.",high
+7961,"Burnt diary","Quests","Quests",no,"Royal Trouble quest book -> Quests.",high

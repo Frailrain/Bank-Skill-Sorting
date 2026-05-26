@@ -1,0 +1,1189 @@
+id,name,old_tabs,new_tabs,changed,rationale,confidence
+10308,"Black helm (h2)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic black full helm (melee defence head-slot).",high
+10310,"Black helm (h3)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic black full helm (melee defence head-slot).",high
+10312,"Black helm (h4)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic black full helm (melee defence head-slot).",high
+10314,"Black helm (h5)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic black full helm (melee defence head-slot).",high
+10316,"Bob's red shirt","Cosmetics","Cosmetics",no,"A no-bonus cosmetic shirt (Treasure Trail reward).",high
+10318,"Bob's blue shirt","Cosmetics","Cosmetics",no,"A no-bonus cosmetic shirt (Treasure Trail reward).",high
+10320,"Bob's green shirt","Cosmetics","Cosmetics",no,"A no-bonus cosmetic shirt (Treasure Trail reward).",high
+10322,"Bob's black shirt","Cosmetics","Cosmetics",no,"A no-bonus cosmetic shirt (Treasure Trail reward).",high
+10324,"Bob's purple shirt","Cosmetics","Cosmetics",no,"A no-bonus cosmetic shirt (Treasure Trail reward).",high
+10326,"Purple firelighter","Cosmetics,Woodcutting + Firemaking","Cosmetics,Woodcutting + Firemaking",no,"A Firemaking consumable that makes purple (cosmetic) fires.",medium
+10327,"White firelighter","Cosmetics,Woodcutting + Firemaking","Cosmetics,Woodcutting + Firemaking",no,"A Firemaking consumable that makes white (cosmetic) fires.",medium
+10328,"White logs","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Logs burnt for Firemaking XP (white fire).",high
+10329,"Purple logs","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Logs burnt for Firemaking XP (purple fire).",high
+10330,"3rd age range top","Cosmetics,Range","Cosmetics,Range",no,"High-tier Ranged body armour and a prestige rare.",high
+10332,"3rd age range legs","Cosmetics,Range","Cosmetics,Range",no,"High-tier Ranged leg armour and a prestige rare.",high
+10334,"3rd age range coif","Cosmetics,Range","Cosmetics,Range",no,"High-tier Ranged head armour and a prestige rare.",high
+10336,"3rd age vambraces","Cosmetics,Range","Cosmetics,Range",no,"High-tier Ranged hand armour and a prestige rare.",high
+10338,"3rd age robe top","Cosmetics,Mage","Cosmetics,Mage",no,"High-tier Magic body armour and a prestige rare.",high
+10340,"3rd age robe","Cosmetics,Mage","Cosmetics,Mage",no,"High-tier Magic leg armour and a prestige rare.",high
+10342,"3rd age mage hat","Cosmetics,Mage","Cosmetics,Mage",no,"High-tier Magic head armour and a prestige rare.",high
+10344,"3rd age amulet","Cosmetics,Mage","Cosmetics,Mage",no,"High-tier Magic neck item and a prestige rare.",high
+10346,"3rd age platelegs","Cosmetics,Melee","Cosmetics,Melee",no,"High-tier melee leg armour and a prestige rare.",high
+10348,"3rd age platebody","Cosmetics,Melee","Cosmetics,Melee",no,"High-tier melee body armour and a prestige rare.",high
+10350,"3rd age full helmet","Cosmetics,Melee","Cosmetics,Melee",no,"High-tier melee head armour and a prestige rare.",high
+10352,"3rd age kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"High-tier melee shield and a prestige rare.",high
+10354,"Amulet of glory (t4)","Cosmetics,Melee,Misc","Melee,Range,Mage,Teleports,Cosmetics",yes,"Trimmed glory: all-style combat amulet + teleport, trimmed cosmetic variant. Dropped Misc, added Range/Mage/Teleports.",medium
+10362,"Amulet of glory (t)","Cosmetics,Melee","Melee,Range,Mage,Teleports,Cosmetics",yes,"Trimmed glory: all-style combat amulet + teleport, trimmed cosmetic variant. Added Range/Mage/Teleports.",medium
+10364,"Strength amulet (t)","Cosmetics,Melee","Melee,Cosmetics",no,"Trimmed amulet of strength (+10 melee strength).",high
+10366,"Amulet of magic (t)","Cosmetics,Mage","Mage,Cosmetics",no,"Trimmed amulet of magic (+10 magic attack).",high
+10368,"Zamorak bracers","Cosmetics,Range","Range,Prayer",yes,"God blessed d'hide vambraces (Ranged armour, +1 prayer). Normalized god-d'hide family. Dropped Cosmetics, added Prayer.",medium
+10370,"Zamorak d'hide body","Cosmetics,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling (prestige gear keeps Cosmetics).",high
+10372,"Zamorak chaps","Cosmetics,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10374,"Zamorak coif","Cosmetics,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10376,"Guthix bracers","Cosmetics,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10378,"Guthix d'hide body","Cosmetics,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10380,"Guthix chaps","Cosmetics,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10382,"Guthix coif","Cosmetics,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10384,"Saradomin bracers","Cosmetics,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10386,"Saradomin d'hide body","Prayer,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10388,"Saradomin chaps","Cosmetics,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10390,"Saradomin coif","Prayer,Range","Cosmetics,Range,Prayer",yes,"God blessed d'hide; Cosmetics restored per Matt batch-5 ruling.",high
+10392,"A powdered wig","Cosmetics","Cosmetics",no,"A purely cosmetic head item (emote enhancer).",high
+10394,"Flared trousers","Cosmetics","Cosmetics",no,"A purely cosmetic legs item (emote enhancer).",high
+10396,"Pantaloons","Cosmetics","Cosmetics",no,"A purely cosmetic legs item (emote enhancer).",high
+10398,"Sleeping cap","Cosmetics","Cosmetics",no,"A purely cosmetic head item (emote enhancer).",high
+10400,"Black elegant shirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10402,"Black elegant legs","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10404,"Red elegant shirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10406,"Red elegant legs","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10408,"Blue elegant shirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10410,"Blue elegant legs","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10412,"Green elegant shirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10414,"Green elegant legs","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10416,"Purple elegant shirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10418,"Purple elegant legs","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10420,"White elegant blouse","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10422,"White elegant skirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10424,"Red elegant blouse","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10426,"Red elegant skirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10428,"Blue elegant blouse","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10430,"Blue elegant skirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10432,"Green elegant blouse","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10434,"Green elegant skirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10436,"Purple elegant blouse","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing body item.",high
+10438,"Purple elegant skirt","Cosmetics","Cosmetics",no,"A cosmetic elegant-clothing legs item.",high
+10440,"Saradomin crozier","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"God-vestment crozier; Cosmetics restored per Matt batch-5 ruling (reverts to source).",high
+10442,"Guthix crozier","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"God-vestment crozier; Cosmetics restored per Matt batch-5 ruling.",high
+10444,"Zamorak crozier","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"God-vestment crozier; Cosmetics restored per Matt batch-5 ruling.",high
+10446,"Saradomin cloak","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment cloak; Cosmetics restored per Matt batch-5 ruling.",high
+10448,"Guthix cloak","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment cloak; Cosmetics restored per Matt batch-5 ruling.",high
+10450,"Zamorak cloak","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment cloak; Cosmetics restored per Matt batch-5 ruling.",high
+10452,"Saradomin mitre","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"God-vestment mitre; Cosmetics restored per Matt batch-5 ruling.",high
+10454,"Guthix mitre","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"God-vestment mitre; Cosmetics restored per Matt batch-5 ruling.",high
+10456,"Zamorak mitre","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"God-vestment mitre; Cosmetics restored per Matt batch-5 ruling.",high
+10458,"Saradomin robe top","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment robe top; Cosmetics restored per Matt batch-5 ruling.",high
+10460,"Zamorak robe top","Cosmetics,Mage,Prayer","Cosmetics,Prayer",yes,"God-vestment robe top; Cosmetics restored + Mage dropped (incidental) per Matt batch-5 ruling.",high
+10462,"Guthix robe top","Cosmetics,Mage,Prayer","Cosmetics,Prayer",yes,"God-vestment robe top; Cosmetics restored + Mage dropped (incidental) per Matt batch-5 ruling.",high
+10464,"Saradomin robe legs","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment robe legs; Cosmetics restored per Matt batch-5 ruling.",high
+10466,"Guthix robe legs","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment robe legs; Cosmetics restored per Matt batch-5 ruling.",high
+10468,"Zamorak robe legs","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment robe legs; Cosmetics restored per Matt batch-5 ruling.",high
+10470,"Saradomin stole","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment stole; Cosmetics restored per Matt batch-5 ruling.",high
+10472,"Guthix stole","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment stole; Cosmetics restored per Matt batch-5 ruling.",high
+10474,"Zamorak stole","Cosmetics,Prayer","Cosmetics,Prayer",no,"God-vestment stole; Cosmetics restored per Matt batch-5 ruling.",high
+10476,"Purple sweets","Melee,Misc","Misc",yes,"Stackable Treasure Trail consumable (heals 1-3 + run energy), not player-cooked. Dropped Melee (matches mint cake).",medium
+10485,"Scroll","Quests","Quests",no,"A Watchtower quest animation item.",high
+10486,"Empty sack","Quests","Quests",no,"An Animal Magnetism quest animation item.",high
+10487,"Undead chicken","Cosmetics,Quests","Cosmetics",yes,"A reobtainable joke/fun weapon worn for fun. Dropped Quests.",medium
+10488,"Selected iron","Quests","Quests",no,"An Animal Magnetism quest item.",high
+10489,"Bar magnet","Quests","Quests",no,"An Animal Magnetism quest item.",high
+10490,"Undead twigs","Quests","Quests",no,"An Animal Magnetism quest item (no use outside the quest).",high
+10491,"Blessed axe","Melee,Quests","Woodcutting + Firemaking,Melee",yes,"Reobtainable mithril-tier axe (WC tool + melee weapon). Dropped Quests, added Woodcutting + Firemaking.",medium
+10492,"Research notes","Quests","Quests",no,"An Animal Magnetism quest item.",high
+10493,"Translated notes","Quests","Quests",no,"An Animal Magnetism quest item.",high
+10494,"A pattern","Quests","Quests",no,"An Animal Magnetism quest item.",high
+10495,"A container","Quests","Quests",no,"An Animal Magnetism quest item.",high
+10496,"Polished buttons","Quests","Quests",no,"An Animal Magnetism quest item.",medium
+10498,"Ava's attractor","Quests,Range,Slayer","Range",yes,"Ranged ammo-pickup cape (functional quest reward). Dropped Quests/Slayer.",medium
+10499,"Ava's accumulator","Quests,Range,Slayer","Range",yes,"Ranged ammo-pickup cape (functional quest reward). Dropped Quests/Slayer.",medium
+10500,"Crone-made amulet","Quests","Quests",no,"An Animal Magnetism quest amulet (altered ghostspeak).",high
+10501,"Snowball","Cosmetics","Cosmetics",no,"A Christmas event projectile.",high
+10506,"Gublinch shards","Cosmetics","Cosmetics",no,"A 2013 Christmas event item.",high
+10507,"Reindeer hat","Cosmetics","Cosmetics",no,"A Christmas holiday cosmetic head item.",high
+10508,"Wintumber tree","Construction,Cosmetics","Cosmetics",yes,"A Christmas holiday decoration placed in a POH (no Construction level/XP). Dropped Construction.",medium
+10509,"Snowball","Cosmetics","Cosmetics",no,"A snowball-throwing animation item.",high
+10512,"Scroll","Misc","Misc",no,"A Barbarian Assault recruitment scroll.",high
+10513,"Crackers","Misc","Misc",no,"A Barbarian Assault bait item.",high
+10514,"Tofu","Misc","Misc",no,"A Barbarian Assault bait item.",high
+10515,"Worms","Misc","Misc",no,"A Barbarian Assault bait item.",high
+10516,"Attacker horn","Misc","Misc",no,"A Barbarian Assault communication horn.",high
+10521,"Collection bag","Misc","Misc",no,"A Barbarian Assault collector bag.",high
+10526,"Healer horn","Misc","Misc",no,"A Barbarian Assault communication horn.",high
+10531,"Green egg","Misc","Misc",no,"A Barbarian Assault egg-launcher munition.",high
+10532,"Red egg","Misc","Misc",no,"A Barbarian Assault egg-launcher munition.",high
+10533,"Blue egg","Misc","Misc",no,"A Barbarian Assault egg-launcher munition.",high
+10534,"Yellow egg","Misc","Misc",no,"A Barbarian Assault wave-10 item.",high
+10535,"Poisoned egg","Misc","Misc",no,"A Barbarian Assault wave-10 item.",high
+10536,"Spiked/pois. egg","Misc","Misc",no,"A Barbarian Assault wave-10 item.",high
+10537,"Omega egg","Misc","Misc",no,"A Barbarian Assault wave-10 item.",high
+10538,"Defender horn","Misc","Misc",no,"A Barbarian Assault communication horn.",high
+10539,"Poisoned tofu","Misc","Misc",no,"A Barbarian Assault healer bait item.",high
+10540,"Poisoned worms","Misc","Misc",no,"A Barbarian Assault healer bait item.",high
+10541,"Poisoned meat","Misc","Misc",no,"A Barbarian Assault healer bait item.",high
+10543,"Healing vial(3)","Misc","Misc",no,"A Barbarian Assault healer item.",high
+10544,"Healing vial(2)","Misc","Misc",no,"A Barbarian Assault healer item.",high
+10545,"Healing vial(1)","Misc","Misc",no,"A Barbarian Assault healer item.",high
+10546,"Healing vial","Misc","Misc",no,"A Barbarian Assault healer item.",high
+10547,"Healer hat","Mage","Mage",no,"A penance-set hat with magic attack/defence.",medium
+10548,"Fighter hat","Melee","Melee",no,"A penance-set melee-defence helm.",high
+10549,"Runner hat","Melee,Misc","Melee",yes,"A penance-set melee-defence helm (rune-full-helm-like). Dropped Misc.",medium
+10550,"Ranger hat","Range","Range",no,"A penance-set ranged hat (+ranged attack).",high
+10551,"Fighter torso","Melee","Melee",no,"A penance-set melee body armour (iconic BA reward).",high
+10552,"Runner boots","Cosmetics,Misc","Melee",yes,"Penance boots with melee defence bonuses. Dropped Cosmetics/Misc.",medium
+10553,"Penance gloves","Agility + Thieving,Melee","Agility + Thieving,Melee",no,"Lightweight BA-reward gloves (40 Defence); kept existing tags.",low
+10555,"Penance skirt","Range","Range",no,"A penance-set ranged legs (upgraded red d'hide chaps).",high
+10556,"Attacker icon","Misc","Misc",no,"A Barbarian Assault role icon.",high
+10557,"Collector icon","Misc","Misc",no,"A Barbarian Assault role icon.",high
+10558,"Defender icon","Misc","Misc",no,"A Barbarian Assault role icon.",high
+10559,"Healer icon","Misc","Misc",no,"A Barbarian Assault role icon.",high
+10560,"Collector horn","Misc","Misc",no,"A Barbarian Assault communication horn.",high
+10561,"Spikes","Misc","Misc",no,"A Barbarian Assault wave-10 item.",high
+10562,"Queen help book","Misc","Misc",no,"A Barbarian Assault readable book.",high
+10563,"No eggs","Misc","Misc",no,"An unobtainable Barbarian Assault UI item.",high
+10564,"Granite body","Melee","Melee",no,"Granite melee body armour (50 Str/Def).",high
+10566,"Fire cape","Misc","Misc",no,"A fairy-ring fire-cape animation item (unobtainable).",high
+10581,"Keris","Melee,Quests,Slayer","Melee,Slayer",yes,"Stab dagger with bonus damage vs kalphites/scabarites (slayer-task family). Dropped Quests.",medium
+10585,"Parchment","Quests","Quests",no,"A Contact! quest item.",high
+10586,"Combat lamp","Quests","Quests",no,"A Contact! quest XP-reward lamp.",high
+10587,"Tarn's diary","Quests,Slayer","Quests",yes,"A miniquest book (enchants the salve amulet); the diary itself isn't slayer gear. Dropped Slayer.",medium
+10588,"Salve amulet (e)","Melee,Slayer","Melee,Slayer",no,"Enchanted amulet giving +20% melee att/str vs undead.",high
+10589,"Granite helm","Melee","Melee",no,"A granite melee helmet (50 Str/Def).",high
+10592,"Penguin bongos","Quests","Quests",no,"A Cold War quest item.",high
+10593,"Cowbells","Quests","Quests",no,"A Cold War quest item (Thieving XP on steal is incidental).",high
+10594,"Clockwork book","Quests","Quests",no,"A Cold War quest book.",high
+10595,"Clockwork suit","Crafting,Quests","Cosmetics",yes,"Clockwork penguin disguise with ongoing Penguin Hide and Seek use. Dropped Crafting/Quests.",medium
+10597,"Mission report","Quests","Quests",no,"A Cold War quest item.",high
+10598,"Mission report","Quests","Quests",no,"A Cold War quest item.",high
+10599,"Mission report","Quests","Quests",no,"A Cold War quest item.",high
+10600,"Kgp id card","Quests","Quests",no,"A Cold War quest access card.",high
+10808,"Arctic pyre logs","Prayer,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"Pine logs lit for Firemaking XP to cremate shades. Dropped Prayer.",medium
+10810,"Arctic pine logs","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Logs cut (Woodcutting) and burnt (Firemaking).",high
+10812,"Split log","Quests,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"Made by splitting arctic pine logs for Woodcutting XP. Dropped Quests.",medium
+10814,"Hair","Crafting","Crafting",no,"Yak hair spun into rope on a spinning wheel.",high
+10816,"Raw yak meat","Cooking","Cooking",no,"Raw meat that is cooked.",high
+10818,"Yak-hide","Crafting","Crafting",no,"A hide cured then sewn into yak-hide armour.",high
+10820,"Cured yak-hide","Crafting","Crafting",no,"Cured hide cut and sewn into armour.",high
+10822,"Yak-hide armour","Crafting,Melee","Melee",yes,"Finished yak-hide body armour (melee defence). Dropped Crafting making-step.",medium
+10824,"Yak-hide armour","Crafting,Range","Range",yes,"Finished yak-hide legs (ranged attack bonus). Dropped Crafting making-step.",medium
+10826,"Neitiznot shield","Melee","Melee",no,"A wooden melee shield (Fremennik roundshield).",high
+10828,"Helm of neitiznot","Melee,Prayer,Quests","Melee,Prayer",yes,"A melee helm with +3 prayer bonus (tradeable/usable). Dropped Quests.",medium
+10829,"Documents","Misc","Misc",no,"An unobtainable Fremennik Isles item.",high
+10830,"Royal decree","Quests","Quests",no,"A Fremennik Isles quest item.",high
+10831,"Empty tax bag","Quests","Quests",no,"A Fremennik Isles quest item.",high
+10832,"Light tax bag","Quests","Quests",no,"A Fremennik Isles quest item.",high
+10833,"Normal tax bag","Quests","Quests",no,"A Fremennik Isles quest item.",high
+10834,"Hefty tax bag","Quests","Quests",no,"A Fremennik Isles quest item.",high
+10835,"Bulging taxbag","Misc","Misc",no,"An unobtainable Fremennik Isles item.",high
+10836,"Silly jester hat","Quests","Quests,Cosmetics",yes,"A Fremennik Isles quest costume piece (cosmetic afterward). Added Cosmetics.",medium
+10837,"Silly jester top","Quests","Quests,Cosmetics",yes,"A Fremennik Isles quest costume piece. Added Cosmetics.",medium
+10838,"Silly jester tights","Quests","Quests,Cosmetics",yes,"A Fremennik Isles quest costume piece. Added Cosmetics.",medium
+10839,"Silly jester boots","Mage,Quests","Mage,Quests,Cosmetics",yes,"A Fremennik Isles quest costume piece with notable magic defence. Added Cosmetics.",medium
+10840,"A jester stick","Quests","Quests",no,"An unobtainable Fremennik Isles cutscene item.",high
+10841,"Apricot cream pie","Quests","Quests",no,"A Fremennik Isles cutscene item.",high
+10842,"Decapitated head","Quests","Quests",no,"A Fremennik Isles quest item (Ice Troll King head).",high
+10844,"Spring sq'irk","Agility + Thieving,Farming","Agility + Thieving",yes,"Sorceress's Garden Thieving fruit; Farming XP on picking is incidental. Dropped Farming.",medium
+10845,"Summer sq'irk","Agility + Thieving,Farming","Agility + Thieving",yes,"Sorceress's Garden Thieving fruit; Farming XP on picking is incidental. Dropped Farming.",medium
+10846,"Autumn sq'irk","Agility + Thieving,Farming","Agility + Thieving",yes,"Sorceress's Garden Thieving fruit; Farming XP on picking is incidental. Dropped Farming.",medium
+10847,"Winter sq'irk","Agility + Thieving,Farming","Agility + Thieving",yes,"Sorceress's Garden Thieving fruit; Farming XP on picking is incidental. Dropped Farming.",medium
+10848,"Spring sq'irkjuice","Agility + Thieving","Agility + Thieving",no,"Made from sq'irks for a Thieving XP boost.",medium
+10849,"Summer sq'irkjuice","Agility + Thieving","Agility + Thieving",no,"Made from sq'irks for a Thieving XP boost.",medium
+10850,"Autumn sq'irkjuice","Agility + Thieving","Agility + Thieving",no,"Made from sq'irks for a Thieving XP boost.",medium
+10851,"Winter sq'irkjuice","Agility + Thieving,Misc","Agility + Thieving",yes,"Made from sq'irks for a Thieving XP boost. Dropped Misc.",medium
+10856,"Sin seer's note","Quests","Quests",no,"A The General's Shadow miniquest item.",high
+10857,"Severed leg","Quests","Quests",no,"A The General's Shadow miniquest item.",high
+10858,"Shadow sword","Melee,Quests","Melee",yes,"A 2h melee sword (miniquest reward). Dropped Quests.",medium
+10859,"Tea flask","Cooking,Misc","Cooking,Melee",yes,"A tea container; drinking heals and boosts Attack. Dropped Misc, added Melee.",medium
+10860,"null (tea flask animation)","Misc","Misc",no,"An unobtainable tea-drinking animation item.",high
+10861,"null (tea flask animation)","Misc","Misc",no,"An unobtainable tea-drinking animation item.",high
+10862,"Hard hat","Cosmetics,Quests","Cosmetics,Quests",no,"A Tower of Life quest builder's-costume head item.",medium
+10863,"Builder's shirt","Cosmetics,Quests","Cosmetics,Quests",no,"A Tower of Life quest builder's-costume body item.",medium
+10864,"Builder's trousers","Cosmetics,Quests","Cosmetics,Quests",no,"A Tower of Life quest builder's-costume legs item.",medium
+10865,"Builder's boots","Cosmetics,Quests","Cosmetics,Quests",no,"Tower of Life builder's-costume feet item.",medium
+10866,"Rivets","Quests","Quests",no,"Tower of Life quest item.",high
+10870,"Binding fluid","Quests","Quests",no,"Tower of Life quest item.",high
+10871,"Pipe","Quests","Quests",no,"Tower of Life quest item.",high
+10872,"Pipe ring","Quests","Quests",no,"Tower of Life quest item.",high
+10873,"Metal sheet","Quests","Quests",no,"Tower of Life quest item.",high
+10874,"Coloured ball","Quests","Quests",no,"Tower of Life quest item.",high
+10875,"Valve wheel","Quests","Quests",no,"Tower of Life quest item.",high
+10876,"Metal bar","Quests","Quests",no,"Tower of Life quest item.",high
+10877,"Plain satchel","Cooking,Quests","Cosmetics",yes,"Novelty shield-slot item; cosmetic emote enhancer only, no food role.",medium
+10878,"Green satchel","Cooking,Misc","Cosmetics",yes,"Novelty shield-slot item; cosmetic emote enhancer only.",medium
+10879,"Red satchel","Cooking,Misc","Cosmetics",yes,"Novelty shield-slot item; cosmetic emote enhancer only.",medium
+10880,"Black satchel","Cooking,Quests","Cosmetics",yes,"Novelty shield-slot item; cosmetic emote enhancer only.",medium
+10881,"Gold satchel","Cooking,Misc","Cosmetics",yes,"Novelty shield-slot item; cosmetic emote enhancer only.",medium
+10882,"Rune satchel","Cooking,Misc","Cosmetics",yes,"Novelty shield-slot item; cosmetic emote enhancer only.",medium
+10884,"Fuse","Quests","Quests",no,"Great Brain Robbery quest item.",high
+10885,"Keg","Quests","Quests",no,"Great Brain Robbery dummy quest item.",high
+10886,"Prayer book","Prayer,Quests","Quests",yes,"Unobtainable animation-only item; quest-internal, no real Prayer use. Dropped Prayer.",medium
+10887,"Barrelchest anchor","Melee,Quests","Melee",yes,"Usable 2h crush weapon; quest-locked-but-usable gear by function. Dropped Quests.",high
+10889,"Blessed lamp","Quests","Quests",no,"Reward XP lamp; not an input/output of any one skill (XP given != skill input).",medium
+10890,"Prayer book","Prayer,Quests","Prayer",yes,"Obtainable reward that uses Prayer to cure poison; genuine post-quest utility. Dropped Quests.",high
+10891,"Wooden cat","Crafting,Quests","Crafting,Quests",no,"Crafting-produced toy also used as a quest item.",medium
+10893,"Cranial clamp","Quests","Quests",no,"Great Brain Robbery quest tool.",high
+10894,"Brain tongs","Quests","Quests",no,"Great Brain Robbery quest tool.",high
+10895,"Bell jar","Quests","Quests",no,"Great Brain Robbery quest tool.",high
+10896,"Wolf whistle","Quests","Quests",no,"Great Brain Robbery quest item.",high
+10897,"Shipping order","Quests","Quests",no,"Great Brain Robbery quest item.",high
+10898,"Keg","Quests","Quests",no,"Great Brain Robbery quest item.",high
+10899,"Crate part","Quests","Quests",no,"Great Brain Robbery quest item.",high
+10904,"Skull staple","Quests","Quests",no,"Great Brain Robbery quest tool.",high
+10909,"Mixture - step 1(4)","Herblore","Herblore",no,"Herblore intermediate toward Sanfew serum.",high
+10911,"Mixture - step 1(3)","Herblore","Herblore",no,"Herblore intermediate toward Sanfew serum.",high
+10913,"Mixture - step 1(2)","Herblore","Herblore",no,"Herblore intermediate toward Sanfew serum.",high
+10915,"Mixture - step 1(1)","Herblore","Herblore",no,"Herblore intermediate toward Sanfew serum.",high
+10917,"Mixture - step 2(4)","Herblore","Herblore",no,"Herblore intermediate toward Sanfew serum.",high
+10919,"Mixture - step 2(3)","Herblore","Herblore",no,"Herblore intermediate toward Sanfew serum.",high
+10921,"Mixture - step 2(2)","Herblore","Herblore",no,"Herblore intermediate toward Sanfew serum.",high
+10923,"Mixture - step 2(1)","Herblore","Herblore",no,"Herblore intermediate toward Sanfew serum.",high
+10925,"Sanfew serum(4)","Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,"Herblore potion restoring prayer + poison/disease immunity; Slayer staple.",medium
+10927,"Sanfew serum(3)","Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,"Herblore potion restoring prayer + poison/disease immunity; Slayer staple.",medium
+10929,"Sanfew serum(2)","Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,"Herblore potion restoring prayer + poison/disease immunity; Slayer staple.",medium
+10931,"Sanfew serum(1)","Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,"Herblore potion restoring prayer + poison/disease immunity; Slayer staple.",medium
+10933,"Lumberjack boots","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Lumberjack outfit piece boosting Woodcutting XP.",high
+10934,"Reward token","Misc","Misc",no,"Temple Trekking minigame reward token.",high
+10937,"Nail beast nails","Herblore","Herblore",no,"Herblore ingredient for Sanfew serums.",high
+10939,"Lumberjack top","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Lumberjack outfit piece boosting Woodcutting XP.",high
+10940,"Lumberjack legs","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Lumberjack outfit piece boosting Woodcutting XP.",high
+10941,"Lumberjack hat","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Lumberjack outfit piece; WC XP boost + Wintertodt warm clothing.",high
+10946,"Pushup","Misc","Misc",no,"Drill Demon random-event instruction sign.",high
+10947,"Run","Misc","Misc",no,"Drill Demon random-event instruction sign.",high
+10948,"Situp","Misc","Misc",no,"Drill Demon random-event instruction sign.",high
+10949,"Starjump","Misc","Misc",no,"Drill Demon random-event instruction sign.",high
+10950,"Skull staples","Quests","Quests",no,"Unobtainable dummy item; no real skill use.",low
+10952,"Slayer bell","Slayer","Slayer",no,"Slayer equipment to lure molanisks.",high
+10954,"Frog-leather body","Range","Range",no,"Frog-leather ranged armour.",high
+10956,"Frog-leather chaps","Range","Range",no,"Frog-leather ranged armour.",high
+10958,"Frog-leather boots","Range","Range",no,"Frog-leather ranged armour.",high
+10960,"Green gloop soup","Cooking","Cooking",no,"Food healing 2 HP.",high
+10961,"Frogspawn gumbo","Cooking","Cooking",no,"Food healing 2 HP.",high
+10962,"Frogburger","Cooking","Cooking",no,"Food healing 2 HP.",high
+10963,"Coated frogs' legs","Cooking","Cooking",no,"Food healing 2 HP.",high
+10964,"Bat shish","Cooking","Cooking",no,"Food healing 2 HP.",high
+10965,"Fingers","Cooking","Cooking",no,"Food healing 2 HP.",high
+10966,"Grubs à la mode","Cooking","Cooking",no,"Food healing 2 HP.",high
+10967,"Roast frog","Cooking","Cooking",no,"Food healing 2 HP.",high
+10968,"Mushrooms","Cooking","Cooking",no,"Food healing 2 HP (+1 temp Cooking boost).",high
+10969,"Fillets","Cooking","Cooking",no,"Food healing 2 HP.",high
+10970,"Loach","Cooking","Cooking",no,"Food healing 2 HP.",high
+10971,"Eel sushi","Cooking,Melee","Cooking",yes,"Wiki-verified heals 10 HP (sub-12), Cooking only. Dropped Melee.",high
+10972,"Dorgesh-kaan sphere","Misc","Teleports",yes,"Single-use teleport to a random Dorgesh-Kaan location.",high
+10973,"Light orb","Crafting,Woodcutting + Firemaking","Crafting,Woodcutting + Firemaking",no,"Repairs lamps for Crafting + Firemaking XP.",high
+10975,"Spanner","Agility + Thieving","Agility + Thieving",no,"Dorgesh-Kaan Agility Course tool.",high
+10976,"Long bone","Construction,Prayer","Construction",yes,"Matt batch-5 ruling: drop Prayer (sold to Barlak for construction, never buried; Prayer tab confuses players). One-off.",high
+10977,"Curved bone","Construction,Prayer","Construction",yes,"Matt batch-5 ruling: drop Prayer (same one-off as long bone).",high
+10978,"Swamp weed","Cooking,Fishing","Cooking,Fishing",no,"Cooked on range into soda ash; net-fishing catch.",medium
+10980,"Empty light orb","Crafting,Woodcutting + Firemaking","Crafting",yes,"Crafting intermediate; precursor drops downstream Firemaking. Dropped WC+FM.",medium
+10981,"Cave goblin wire","Agility + Thieving,Crafting","Crafting",yes,"Crafting input for light orb. Dropped A+T (obtained-from artifact).",medium
+10983,"Cog","Agility + Thieving","Agility + Thieving",no,"Dorgesh-Kaan Agility Course repair part.",high
+10985,"Fuse","Agility + Thieving","Agility + Thieving",no,"Dorgesh-Kaan Agility Course repair part.",high
+10987,"Meter","Agility + Thieving","Agility + Thieving",no,"Dorgesh-Kaan Agility Course repair part.",high
+10989,"Capacitor","Agility + Thieving","Agility + Thieving",no,"Dorgesh-Kaan Agility Course repair part.",high
+10991,"Lever","Agility + Thieving","Agility + Thieving",no,"Dorgesh-Kaan Agility Course repair part.",high
+10993,"Powerbox","Agility + Thieving","Agility + Thieving",no,"Dorgesh-Kaan Agility Course repair part.",high
+10995,"Perfect shell","Crafting","Crafting",no,"Tortoise shell sold to Barlak for Crafting XP.",medium
+10996,"Perfect snail shell","Crafting,Misc","Crafting",yes,"Sold to Barlak for Crafting XP; harmonized with perfect shell. Dropped Misc.",medium
+10999,"Goblin book","Misc","Misc",no,"Readable goblin lore/holy book.",high
+11001,"Dagon'hai history","Quests","Quests",no,"What Lies Below quest book.",high
+11002,"Sin'keth's diary","Quests","Quests",no,"What Lies Below quest item.",high
+11003,"An empty folder","Quests","Quests",no,"What Lies Below quest item.",high
+11006,"Used folder","Quests","Quests",no,"What Lies Below quest item.",high
+11007,"Full folder","Quests","Quests",no,"What Lies Below quest item.",high
+11008,"Rat's paper","Quests","Quests",no,"What Lies Below quest item.",high
+11009,"Letter to surok","Quests","Quests",no,"What Lies Below quest item.",high
+11010,"Surok's letter","Quests","Quests",no,"What Lies Below quest item.",high
+11011,"Zaff's instructions","Quests","Quests",no,"What Lies Below quest item.",high
+11012,"Wand","Quests","Quests",no,"What Lies Below quest item.",high
+11013,"Infused wand","Quests","Quests",no,"What Lies Below quest item.",high
+11014,"Beacon ring","Mage,Quests","Quests",yes,"Quest ring; summon function dies post-quest, +2 mage incidental. Dropped Mage.",medium
+11019,"Chicken feet","Cosmetics","Cosmetics",no,"Easter chicken-outfit cosmetic.",high
+11020,"Chicken wings","Cosmetics","Cosmetics",no,"Easter chicken-outfit cosmetic.",high
+11021,"Chicken head","Cosmetics","Cosmetics",no,"Easter chicken-outfit cosmetic.",high
+11022,"Chicken legs","Cosmetics","Cosmetics",no,"Easter chicken-outfit cosmetic.",high
+11023,"Magic egg","Cosmetics","Cosmetics",no,"2013 Easter event novelty (Bunny-hop emote).",high
+11024,"Rabbit mould","Cosmetics","Cosmetics",no,"2013 Easter event item.",high
+11025,"Chocolate chunks","Cosmetics","Cosmetics",no,"2013 Easter event item.",high
+11026,"Chocolate kebbit","Cosmetics","Cosmetics",no,"2013 Easter event item.",high
+11027,"Easter egg","Cosmetics","Cosmetics",no,"2013 Easter event item.",high
+11031,"Damp planks","Quests","Quests",no,"Olaf's Quest item.",high
+11032,"Crude carving","Quests","Quests",no,"Olaf's Quest item.",high
+11033,"Cruder carving","Quests","Quests",no,"Olaf's Quest item.",high
+11034,"Sven's last map","Quests","Quests",no,"Olaf's Quest item.",high
+11035,"Windswept logs","Quests,Woodcutting + Firemaking","Quests",yes,"Quest-internal log that cannot be burned. Dropped WC+FM.",medium
+11036,"Parchment","Quests","Quests",no,"Olaf's Quest reward/lore.",high
+11037,"Brine sabre","Melee","Melee",no,"Tradeable 1h melee weapon from brine rats.",high
+11039,"Key","Misc,Quests","Quests",yes,"Olaf's Quest dungeon key. Dropped Misc.",high
+11044,"Rotten barrel","Quests","Quests",no,"Unobtainable Olaf's Quest item.",high
+11045,"Rotten barrel","Quests","Quests",no,"Olaf's Quest bridge item.",high
+11046,"Rope","Quests","Quests",no,"Unobtainable Olaf's Quest item.",high
+11048,"Armour shard","Quests","Quests",no,"Another Slice of H.A.M. artefact.",high
+11049,"Artefact","Quests","Quests",no,"Another Slice of H.A.M. artefact.",high
+11050,"Axe head","Quests","Quests",no,"Another Slice of H.A.M. artefact.",high
+11052,"Helmet fragment","Quests","Quests",no,"Another Slice of H.A.M. artefact.",high
+11054,"Shield fragment","Quests","Quests",no,"Another Slice of H.A.M. artefact.",high
+11056,"Sword fragment","Quests","Quests",no,"Another Slice of H.A.M. artefact.",high
+11058,"Mace","Quests","Quests",no,"Another Slice of H.A.M. cleaned artefact; unwieldable.",high
+11060,"Goblin village sphere","Misc,Quests","Teleports",yes,"Single-use teleport to Goblin Village. Dropped Misc/Quests.",high
+11061,"Ancient mace","Melee,Prayer,Quests","Melee,Prayer",yes,"Melee weapon with prayer bonus + prayer-drain special; usable post-quest. Dropped Quests.",high
+11065,"Bracelet mould","Crafting","Crafting",no,"Crafting tool for bracelets.",high
+11067,"Black bracelet","Misc","Misc",no,"Unobtainable interface placeholder.",high
+11069,"Gold bracelet","Crafting","Crafting",no,"Unenchanted Crafting jewellery.",high
+11072,"Sapphire bracelet","Crafting","Crafting",no,"Unenchanted gem jewellery (Crafting).",high
+11074,"Bracelet of clay","Crafting,Mining + Smithing","Mining + Smithing",yes,"Enchanted; function = mine soft clay. Crafting belongs to base. Dropped Crafting.",medium
+11076,"Emerald bracelet","Crafting","Crafting",no,"Unenchanted gem jewellery (Crafting).",high
+11079,"Castle wars bracelet(3)","Misc","Misc",no,"Enchanted Castle Wars minigame aid.",high
+11081,"Castle wars bracelet(2)","Misc","Misc",no,"Enchanted Castle Wars minigame aid.",high
+11083,"Castle wars bracelet(1)","Misc","Misc",no,"Enchanted Castle Wars minigame aid.",high
+11085,"Ruby bracelet","Crafting","Crafting",no,"Unenchanted gem jewellery (Crafting).",high
+11088,"Inoculation bracelet","Mage,Misc,Quests","Misc",yes,"Enchanted disease-immunity bracelet (niche utility). Dropped Mage/Quests.",medium
+11090,"Phoenix necklace","Melee","Melee,Range,Mage",yes,"Style-agnostic emergency heal worn in any combat. Added Range/Mage.",medium
+11092,"Diamond bracelet","Crafting","Crafting",no,"Unenchanted gem jewellery (Crafting).",high
+11095,"Abyssal bracelet(5)","Crafting,Mage,Runecraft","Runecraft",yes,"Enchanted; function = Abyss safety (Runecraft). Dropped Crafting/Mage.",medium
+11099,"Abyssal bracelet(3)","Crafting,Mage,Runecraft","Runecraft",yes,"Enchanted Abyss-safety bracelet. Dropped Crafting/Mage.",medium
+11101,"Abyssal bracelet(2)","Crafting,Mage,Runecraft","Runecraft",yes,"Enchanted Abyss-safety bracelet. Dropped Crafting/Mage.",medium
+11103,"Abyssal bracelet(1)","Crafting,Runecraft","Runecraft",yes,"Enchanted Abyss-safety bracelet. Dropped Crafting.",medium
+11107,"Skills necklace(3)","Misc,Slayer","Teleports",yes,"Enchanted teleport necklace to skilling guilds. Dropped Misc/Slayer.",high
+11109,"Skills necklace(2)","Misc,Slayer","Teleports",yes,"Teleport necklace to skilling guilds. Dropped Misc/Slayer.",high
+11111,"Skills necklace(1)","Misc,Slayer","Teleports",yes,"Teleport necklace to skilling guilds. Dropped Misc/Slayer.",high
+11113,"Skills necklace","Misc,Slayer","Teleports",yes,"Teleport necklace to skilling guilds (uncharged). Dropped Misc/Slayer.",high
+11115,"Dragonstone bracelet","Crafting","Crafting",no,"Unenchanted gem jewellery (Crafting).",high
+11118,"Combat bracelet(4)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"Enchanted all-style combat bonuses + teleports to combat guilds. Dropped Misc/Slayer.",medium
+11120,"Combat bracelet(3)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"All-style combat bonuses + teleports. Dropped Misc/Slayer.",medium
+11122,"Combat bracelet(2)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"All-style combat bonuses + teleports. Dropped Misc/Slayer.",medium
+11124,"Combat bracelet(1)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"All-style combat bonuses + teleports. Dropped Misc/Slayer.",medium
+11126,"Combat bracelet","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"All-style combat bonuses + teleports (uncharged). Dropped Misc/Slayer.",medium
+11128,"Berserker necklace","Melee","Melee",no,"Obsidian melee DPS neck; +3 prayer incidental, not Prayer-defining.",high
+11130,"Onyx bracelet","Crafting","Crafting",no,"Unenchanted gem jewellery (Crafting).",high
+11133,"Regen bracelet","Melee","Melee,Range,Mage",yes,"Enchanted onyx bracelet, all-style combat bonuses + HP regen. Added Range/Mage.",medium
+11136,"Karamja gloves 1","Melee,Quests","Misc",yes,"Achievement-diary reward (area utility); diary rewards -> Misc. Dropped Melee/Quests.",medium
+11137,"Antique lamp","Misc","Misc",no,"Karamja Diary reward XP lamp.",high
+11138,"Karamja gloves 2","Agility + Thieving,Melee,Quests","Misc",yes,"Diary reward (area/arena perks); diary rewards -> Misc. Dropped A+T/Melee/Quests.",medium
+11140,"Karamja gloves 3","Melee,Misc","Misc",yes,"Diary reward (gem mine/area perks); diary rewards -> Misc. Dropped Melee.",medium
+11151,"Dream vial (empty)","Quests","Quests",no,"Dream Mentor / DS2 quest item.",high
+11154,"Dream potion","Herblore,Quests","Quests",yes,"Quest potion, no use outside the quests. Dropped Herblore.",medium
+11155,"Ground astral rune","Quests","Quests",no,"Quest item to make the dream potion.",high
+11156,"Astral rune shards","Mage,Quests","Quests",yes,"Quest-internal broken astral rune (uncastable). Dropped Mage.",medium
+11157,"Dreamy lamp","Quests","Quests",no,"Dream Mentor reward XP lamp.",high
+11158,"Cyrisus's chest","Quests","Quests",no,"Dream Mentor quest item.",high
+11159,"Hunter kit","Hunter,Mage","Hunter",yes,"Box of Hunter gear; output of the Lunar spell, not a Mage input. Dropped Mage.",medium
+11164,"Restored shield","Quests","Quests",no,"Unobtainable Shield of Arrav rework item.",high
+11165,"Phoenix crossbow","Quests,Range","Quests",yes,"Unobtainable quest variant, not equipable. Dropped Range.",medium
+11167,"Phoenix crossbow","Quests,Range","Quests",yes,"Unobtainable quest variant, not equipable. Dropped Range.",medium
+11169,"Newspaper","Misc","Misc",no,"Unobtainable readable newspaper variant.",high
+11171,"Newspaper","Misc","Misc",no,"Readable Varrock Herald; diary requirement.",high
+11173,"Half certificate","Quests","Quests",no,"Shield of Arrav quest item.",high
+11175,"Uncleaned find","Misc,Quests","Misc",yes,"Varrock Museum cleaning-activity item; not a quest item. Dropped Quests.",medium
+11176,"Arrowheads","Misc","Misc",no,"Museum cleaning find, no use.",high
+11177,"Jewellery","Misc","Misc",no,"Museum cleaning find, unwearable.",high
+11178,"Pottery","Misc","Misc",no,"Museum cleaning find (lore).",high
+11179,"Old coin","Misc","Misc",no,"Museum cleaning find (kudos).",high
+11180,"Ancient coin","Misc","Misc",no,"Museum cleaning find (kudos).",high
+11181,"Ancient symbol","Quests","Misc",yes,"Museum cleaning find (kudos); harmonized with other finds. Dropped Quests.",medium
+11182,"Old symbol","Misc","Misc",no,"Museum cleaning find (kudos), no other use.",high
+11183,"Old chipped vase","Misc","Misc",no,"Museum cleaning find.",high
+11184,"Museum map","Misc","Misc",no,"Free map of the Varrock Museum.",high
+11189,"Antique lamp","Misc","Misc",no,"Varrock Museum kudos reward XP lamp.",high
+11190,"Digsite pendant (1)","Misc","Teleports",yes,"Teleport jewellery (Digsite/Fossil Island). Dropped Misc.",high
+11191,"Digsite pendant (2)","Misc","Teleports",yes,"Teleport jewellery (Digsite/Fossil Island). Dropped Misc.",high
+11192,"Digsite pendant (3)","Misc","Teleports",yes,"Teleport jewellery (Digsite/Fossil Island). Dropped Misc.",high
+11194,"Digsite pendant (5)","Misc","Teleports",yes,"Teleport jewellery (Digsite/Fossil Island). Dropped Misc.",high
+11195,"Clean necklace","Quests","Misc",yes,"Museum cleaning find; plain ruby necklace novelty, no skill role. Dropped Quests.",medium
+11196,"Griffin feather","Quests","Quests",no,"Grim Tales quest item.",high
+11197,"Miazrqa's pendant","Quests","Quests",no,"Grim Tales quest item.",high
+11198,"Music sheet","Quests","Quests",no,"Grim Tales quest item.",high
+11199,"Rupert's helmet","Quests","Quests",no,"Grim Tales quest item.",high
+11200,"Dwarven helmet","Melee,Quests","Melee",yes,"Tradeable melee helmet (50 Def req), usable gear. Dropped Quests.",high
+11202,"Shrinking recipe","Quests","Quests",no,"Grim Tales quest item.",high
+11203,"To-do list","Quests","Quests",no,"Grim Tales quest item.",high
+11204,"Shrink-me-quick","Herblore,Quests","Quests",yes,"Quest potion (mouse-hole only); not Herblore training. Dropped Herblore.",medium
+11205,"Shrunk ogleroot","Herblore,Quests","Quests",yes,"Quest ingredient for shrink-me-quick. Dropped Herblore.",medium
+11210,"Golden goblin","Quests","Quests",no,"Grim Tales quest item.",high
+11211,"Magic beans","Quests","Quests",no,"Grim Tales quest item (special patch, farming prohibited).",high
+11212,"Dragon arrow","Fletching,Range","Fletching,Range",no,"Fletched finished Range arrow.",high
+11217,"Dragon fire arrow","Quests,Range","Range",yes,"Tradeable Range ammo; rope-burning use incidental. Dropped Quests.",medium
+11230,"Dragon dart","Fletching,Range","Fletching,Range",no,"Fletched thrown Range weapon.",high
+11232,"Dragon dart tip","Fletching,Range","Fletching,Range",no,"Ammo tip (Fletching + Range), like bolt/arrow tips.",high
+11235,"Dark bow","Range","Range",no,"Two-handed Range weapon.",high
+11237,"Dragon arrowtips","Fletching,Range","Fletching,Range",no,"Arrowtip fletched into dragon arrows (Fletching + Range).",high
+11238,"Baby impling jar","Hunter","Hunter",no,"Hunter catch.",high
+11240,"Young impling jar","Hunter","Hunter",no,"Hunter catch.",high
+11242,"Gourmet impling jar","Hunter","Hunter",no,"Hunter catch.",high
+11244,"Earth impling jar","Hunter","Hunter",no,"Hunter catch.",high
+11246,"Essence impling jar","Hunter","Hunter",no,"Hunter catch.",high
+11248,"Eclectic impling jar","Hunter","Hunter",no,"Hunter catch.",high
+11250,"Nature impling jar","Hunter","Hunter",no,"Hunter catch.",high
+11252,"Magpie impling jar","Hunter","Hunter",no,"Hunter catch.",high
+11254,"Ninja impling jar","Hunter","Hunter",no,"Hunter catch.",high
+11256,"Dragon impling jar","Hunter,Misc","Hunter",yes,"Hunter catch; harmonized with impling family. Dropped Misc.",high
+11258,"Jar generator","Hunter","Hunter",no,"Hunter tool (makes jars).",high
+11259,"Magic butterfly net","Hunter","Hunter",no,"Hunter catching tool.",high
+11260,"Impling jar","Hunter","Hunter",no,"Hunter tool (empty jar).",high
+11262,"Imp repellent","Herblore,Hunter","Herblore,Hunter",no,"Mixed consumable used to catch implings.",medium
+11264,"Anchovy oil","Hunter","Hunter",no,"Imp-repellent chain ingredient.",medium
+11266,"Anchovy paste","Hunter","Hunter",no,"Imp-repellent chain ingredient.",medium
+11273,"Impling scroll","Hunter","Hunter",no,"Hunter minigame aid (Puro-Puro).",high
+11279,"Elvarg's head","Quests,Slayer","Quests",yes,"Dragon Slayer I quest trophy; not a Slayer creature. Dropped Slayer.",high
+11280,"Cavalier mask","Cosmetics","Cosmetics",no,"Assembled Treasure Trail cosmetic.",high
+11282,"Beret mask","Cosmetics","Cosmetics",no,"Assembled cosmetic head item.",high
+11283,"Dragonfire shield","Melee","Melee",no,"Melee tank shield (dragonfire protection).",high
+11284,"Dragonfire shield","Melee","Melee",no,"Melee tank shield (tradeable variant).",high
+11286,"Draconic visage","Melee,Mining + Smithing","Mining + Smithing",yes,"Smithing material to make a dragonfire shield; not wearable. Dropped Melee (precursor).",medium
+11323,"Barbarian rod","Fishing,Quests","Fishing",yes,"Barbarian fishing rod; usable post-miniquest. Dropped Quests.",high
+11324,"Roe","Fishing,Herblore","Fishing,Herblore",no,"Fishing bait + Barbarian Herblore mix ingredient.",medium
+11326,"Caviar","Cooking,Fishing,Herblore","Cooking,Fishing,Herblore",no,"Cooking XP from cutting sturgeon, fishing bait, and Barbarian Herblore enhancer.",high
+11328,"Leaping trout","Fishing","Fishing",no,"Barbarian fishing catch (Str/Agility XP incidental).",high
+11330,"Leaping salmon","Fishing","Fishing",no,"Barbarian fishing catch.",high
+11332,"Leaping sturgeon","Fishing","Fishing",no,"Barbarian fishing catch.",high
+11334,"Fish offcuts","Fishing","Fishing",no,"Fishing bait from knifing raw fish.",high
+11335,"Dragon full helm","Melee","Melee",no,"Melee helmet (60 Defence).",high
+11337,"Mangled bones","Prayer,Woodcutting + Firemaking","Prayer,Woodcutting + Firemaking",no,"Pyre-ship bones (Firemaking + Prayer XP); buriable.",high
+11338,"Chewed bones","Prayer","Prayer,Woodcutting + Firemaking",yes,"Pyre-ship bones like mangled bones (Firemaking + Prayer). Added WC+FM.",medium
+11339,"My notes","Misc","Misc",no,"Readable Barbarian Training log book.",high
+11340,"Barbarian skills","Misc","Misc",no,"Removed readable instruction book.",high
+11341,"Ancient page","Misc","Misc",no,"Ancient Cavern lore page.",high
+11342,"Ancient page","Misc","Misc",no,"Ancient Cavern lore page.",high
+11343,"Ancient page","Misc","Misc",no,"Ancient Cavern lore page.",high
+11345,"Ancient page","Misc","Misc",no,"Ancient Cavern lore page.",high
+11346,"Ancient page","Misc","Misc",no,"Ancient Cavern lore page.",high
+11347,"Ancient page","Misc","Misc",no,"Ancient Cavern lore page.",high
+11348,"Ancient page","Misc","Misc",no,"Ancient Cavern lore page.",high
+11367,"Bronze hasta","Melee","Melee",no,"Finished smithed 1h melee weapon (function, not Smithing).",high
+11369,"Iron hasta","Melee","Melee",no,"Finished smithed 1h melee weapon.",high
+11371,"Steel hasta","Melee","Melee",no,"Finished smithed 1h melee weapon.",high
+11373,"Mithril hasta","Melee","Melee",no,"Finished smithed 1h melee weapon.",high
+11375,"Adamant hasta","Melee","Melee",no,"Finished smithed 1h melee weapon.",high
+11377,"Rune hasta","Melee","Melee",no,"Finished smithed 1h melee weapon.",high
+11427,"Fish vial","Herblore","Herblore",no,"Unobtainable item intended for Barbarian Herblore.",low
+11428,"Fish vial","Herblore","Herblore",no,"Unobtainable item intended for Barbarian Herblore.",low
+11429,"Attack mix(2)","Herblore,Melee","Herblore,Melee",no,"Barbarian Attack-boost potion.",high
+11431,"Attack mix(1)","Herblore,Melee","Herblore,Melee",no,"Barbarian Attack-boost potion.",high
+11433,"Antipoison mix(2)","Herblore","Herblore",no,"Barbarian poison-cure potion.",high
+11435,"Antipoison mix(1)","Herblore","Herblore",no,"Barbarian poison-cure potion.",high
+11437,"Relicym's mix(2)","Herblore","Herblore",no,"Barbarian disease-cure potion.",high
+11439,"Relicym's mix(1)","Herblore","Herblore",no,"Barbarian disease-cure potion.",high
+11441,"Strength mix(1)","Herblore,Melee","Herblore,Melee",no,"Barbarian Strength-boost potion.",high
+11443,"Strength mix(2)","Herblore,Melee","Herblore,Melee",no,"Barbarian Strength-boost potion.",high
+11445,"Combat mix(2)","Herblore,Melee","Herblore,Melee",no,"Barbarian Attack+Strength potion.",high
+11447,"Combat mix(1)","Herblore,Melee","Herblore,Melee",no,"Barbarian Attack+Strength potion.",high
+11449,"Restore mix(2)","Herblore","Herblore",no,"Barbarian stat-restore potion (no prayer).",high
+11451,"Restore mix(1)","Herblore","Herblore",no,"Barbarian stat-restore potion.",high
+11453,"Energy mix(2)","Herblore","Herblore",no,"Barbarian run-energy potion.",high
+11455,"Energy mix(1)","Herblore","Herblore",no,"Barbarian run-energy potion.",high
+11457,"Defence mix(2)","Herblore,Melee","Herblore,Melee",no,"Barbarian Defence-boost potion (Melee per convention).",medium
+11459,"Defence mix(1)","Herblore,Melee","Herblore,Melee",no,"Barbarian Defence-boost potion (Melee per convention).",medium
+11461,"Agility mix(2)","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Barbarian Agility-boost potion.",high
+11463,"Agility mix(1)","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Barbarian Agility-boost potion.",high
+11465,"Prayer mix(2)","Herblore,Prayer","Herblore,Prayer",no,"Barbarian prayer-restore potion.",high
+11467,"Prayer mix(1)","Herblore,Prayer","Herblore,Prayer",no,"Barbarian prayer-restore potion.",high
+11469,"Superattack mix(2)","Herblore,Melee","Herblore,Melee",no,"Barbarian super Attack potion.",high
+11471,"Superattack mix(1)","Herblore,Melee","Herblore,Melee",no,"Barbarian super Attack potion.",high
+11473,"Anti-poison supermix(2)","Herblore","Herblore",no,"Barbarian poison-immunity potion.",high
+11475,"Anti-poison supermix(1)","Herblore","Herblore",no,"Barbarian poison-immunity potion.",high
+11477,"Fishing mix(2)","Fishing,Herblore","Fishing,Herblore",no,"Barbarian Fishing-boost potion.",high
+11479,"Fishing mix(1)","Fishing,Herblore","Fishing,Herblore",no,"Barbarian Fishing-boost potion.",high
+11481,"Super energy mix(2)","Herblore","Herblore",no,"Barbarian super run-energy potion.",high
+11483,"Super energy mix(1)","Herblore","Herblore",no,"Barbarian super run-energy potion.",high
+11485,"Super str. mix(2)","Herblore,Melee","Herblore,Melee",no,"Barbarian super Strength potion.",high
+11487,"Super str. mix(1)","Herblore,Melee","Herblore,Melee",no,"Barbarian super Strength potion.",high
+11489,"Magic essence mix(2)","Herblore,Mage","Herblore,Mage",no,"Barbarian Magic-boost potion.",high
+11491,"Magic essence mix(1)","Herblore,Mage","Herblore,Mage",no,"Barbarian Magic-boost potion.",high
+11493,"Super restore mix(2)","Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,"Barbarian super restore (incl. prayer); Slayer staple.",medium
+11495,"Super restore mix(1)","Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,"Barbarian super restore (incl. prayer); Slayer staple.",medium
+11497,"Super def. mix(2)","Herblore,Melee","Herblore,Melee",no,"Barbarian super Defence potion (Melee per convention).",medium
+11499,"Super def. mix(1)","Herblore,Melee","Herblore,Melee",no,"Barbarian super Defence potion (Melee per convention).",medium
+11501,"Antidote+ mix(2)","Herblore","Herblore",no,"Barbarian poison-immunity potion.",high
+11503,"Antidote+ mix(1)","Herblore","Herblore",no,"Barbarian poison-immunity potion.",high
+11505,"Antifire mix(2)","Herblore","Herblore",no,"Barbarian dragonfire-resistance potion.",high
+11507,"Antifire mix(1)","Herblore,Melee","Herblore",yes,"Dragonfire-resistance potion; harmonized with antifire mix(2). Dropped Melee.",high
+11509,"Ranging mix(2)","Herblore,Range","Herblore,Range",no,"Barbarian Ranged-boost potion.",high
+11511,"Ranging mix(1)","Herblore,Range","Herblore,Range",no,"Barbarian Ranged-boost potion.",high
+11513,"Magic mix(2)","Herblore,Mage","Herblore,Mage",no,"Barbarian Magic-boost potion.",high
+11515,"Magic mix(1)","Herblore,Mage","Herblore,Mage",no,"Barbarian Magic-boost potion.",high
+11517,"Hunting mix(2)","Herblore,Hunter","Herblore,Hunter",no,"Barbarian Hunter-boost potion.",high
+11519,"Hunting mix(1)","Herblore,Hunter","Herblore,Hunter",no,"Barbarian Hunter-boost potion.",high
+11521,"Zamorak mix(2)","Herblore,Melee","Herblore,Melee",no,"Barbarian Zamorak brew (Att+Str, melee).",medium
+11523,"Zamorak mix(1)","Herblore,Melee","Herblore,Melee",no,"Barbarian Zamorak brew (Att+Str, melee).",medium
+11525,"Feather","Misc","Misc",no,"Unobtainable scrapped wimpy feather.",high
+11640,"Book of knowledge","Misc","Misc",no,"Random-event reward XP book.",high
+11656,"Glassblowing book","Crafting","Misc",yes,"Readable guide book, not required to glassblow. Dropped Crafting.",medium
+11663,"Void mage helm","Mage","Mage",no,"Void Knight mage helm.",high
+11664,"Void ranger helm","Range","Range",no,"Void Knight ranger helm.",high
+11665,"Void melee helm","Melee","Melee",no,"Void Knight melee helm.",high
+11666,"Void seal(8)","Misc","Misc",no,"Pest Control minigame seal.",high
+11667,"Void seal(7)","Misc","Misc",no,"Pest Control minigame seal.",high
+11668,"Void seal(6)","Misc","Misc",no,"Pest Control minigame seal.",high
+11669,"Void seal(5)","Misc","Misc",no,"Pest Control minigame seal.",high
+11671,"Void seal(3)","Misc","Misc",no,"Pest Control minigame seal.",high
+11672,"Void seal(2)","Misc","Misc",no,"Pest Control minigame seal.",high
+11673,"Void seal(1)","Misc","Misc",no,"Pest Control minigame seal.",high
+11677,"Explorer's notes","Misc","Misc",no,"Readable lore book.",high
+11678,"Black knight helm","Quests","Quests",no,"King's Ransom quest evidence.",high
+11679,"Antique lamp","Quests","Quests",no,"King's Ransom reward XP lamp.",high
+11680,"Address form","Quests","Quests",no,"King's Ransom quest item.",high
+11681,"Scrap paper","Quests","Quests",no,"King's Ransom quest item.",high
+11682,"Hair clip","Agility + Thieving,Quests","Quests",yes,"King's Ransom gate-unlock quest item; not Thieving training. Dropped A+T.",medium
+11686,"Fire rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune. Dropped Misc.",medium
+11687,"Water rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune. Dropped Misc.",medium
+11688,"Air rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune. Dropped Misc.",medium
+11689,"Earth rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune. Dropped Misc.",medium
+11690,"Mind rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune. Dropped Misc.",medium
+11691,"Body rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune (unobtainable). Dropped Misc.",medium
+11692,"Death rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune. Dropped Misc.",medium
+11693,"Nature rune","Mage","Mage",no,"Barbarian Assault casting rune (unobtainable).",medium
+11694,"Chaos rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune. Dropped Misc.",medium
+11695,"Law rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune (unobtainable). Dropped Misc.",medium
+11696,"Cosmic rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune (unobtainable). Dropped Misc.",medium
+11697,"Blood rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune. Dropped Misc.",medium
+11698,"Soul rune","Mage","Mage",no,"Barbarian Assault casting rune (unobtainable).",medium
+11699,"Astral rune","Mage,Misc","Mage",yes,"Barbarian Assault casting rune (unobtainable). Dropped Misc.",medium
+11700,"Bronze arrow","Misc,Range","Range",yes,"Barbarian Assault minigame arrow. Dropped Misc.",medium
+11701,"Iron arrow","Misc,Range","Range",yes,"Barbarian Assault minigame arrow. Dropped Misc.",medium
+11702,"Steel arrow","Misc,Range","Range",yes,"Barbarian Assault minigame arrow. Dropped Misc.",medium
+11703,"Mithril arrow","Misc,Range","Range",yes,"Barbarian Assault minigame arrow. Dropped Misc.",medium
+11704,"Raw pheasant","Misc","Misc",no,"Freaky Forester random-event item.",high
+11705,"Beach boxing gloves","Cosmetics","Cosmetics",no,"Midsummer holiday novelty gloves.",high
+11707,"Cursed goblin hammer","Cosmetics","Cosmetics",no,"Goblin Invasion event fun weapon.",high
+11708,"Cursed goblin bow","Cosmetics,Range","Cosmetics",yes,"Event fun weapon (no stats); harmonized with hammer. Dropped Range.",high
+11709,"Cursed goblin staff","Mage","Cosmetics",yes,"Event fun weapon (no stats); harmonized with hammer. Dropped Mage.",high
+11710,"Anti-dragon shield (nz)","Melee,Misc","Melee",yes,"NZ defensive shield (functional combat gear). Dropped Misc.",medium
+11711,"Magic secateurs (nz)","Farming,Melee,Misc","Melee",yes,"NZ weapon to damage Tanglefoot; no farming in NZ. Dropped Farming/Misc.",medium
+11712,"Chaos rune (nz)","Mage,Misc","Mage",yes,"NZ casting rune (functional). Dropped Misc.",medium
+11713,"Death rune (nz)","Mage,Misc","Mage",yes,"NZ casting rune. Dropped Misc.",medium
+11714,"Blood rune (nz)","Mage,Misc","Mage",yes,"NZ casting rune. Dropped Misc.",medium
+11715,"Air rune (nz)","Mage,Misc","Mage",yes,"NZ casting rune. Dropped Misc.",medium
+11716,"Water rune (nz)","Mage,Misc","Mage",yes,"NZ casting rune. Dropped Misc.",medium
+11717,"Earth rune (nz)","Mage,Misc","Mage",yes,"NZ casting rune. Dropped Misc.",medium
+11718,"Fire rune (nz)","Mage,Misc","Mage",yes,"NZ casting rune. Dropped Misc.",medium
+11719,"Rune pickaxe (nz)","Melee,Misc","Melee",yes,"NZ weapon vs Slagilith; doesn't mine. Dropped Misc.",medium
+11720,"Mithril pickaxe (nz)","Melee,Misc","Melee",yes,"NZ weapon vs Slagilith; doesn't mine. Dropped Misc.",medium
+11721,"Iron pickaxe (nz)","Melee,Misc","Melee",yes,"NZ weapon vs Slagilith; doesn't mine. Dropped Misc.",medium
+11722,"Super ranging (4)","Herblore,Range,Slayer","Range",yes,"NZ-only Ranged-boost potion (not Herblore-brewable). Dropped Herblore/Slayer.",medium
+11723,"Super ranging (3)","Herblore,Range,Slayer","Range",yes,"NZ-only Ranged-boost potion. Dropped Herblore/Slayer.",medium
+11724,"Super ranging (2)","Herblore,Range,Slayer","Range",yes,"NZ-only Ranged-boost potion. Dropped Herblore/Slayer.",medium
+11725,"Super ranging (1)","Range,Slayer","Range",yes,"NZ-only Ranged-boost potion. Dropped Slayer.",medium
+11726,"Super magic potion (4)","Mage,Misc,Slayer","Mage",yes,"NZ-only Magic-boost potion. Dropped Misc/Slayer.",medium
+11727,"Super magic potion (3)","Mage,Misc,Slayer","Mage",yes,"NZ-only Magic-boost potion. Dropped Misc/Slayer.",medium
+11728,"Super magic potion (2)","Mage,Misc,Slayer","Mage",yes,"NZ-only Magic-boost potion. Dropped Misc/Slayer.",medium
+11729,"Super magic potion (1)","Mage,Misc,Slayer","Mage",yes,"NZ-only Magic-boost potion. Dropped Misc/Slayer.",medium
+11730,"Overload (4)","Herblore,Melee,Misc","Melee,Range,Mage",yes,"NZ-only all-combat boost potion. Dropped Herblore/Misc, added Range/Mage.",medium
+11731,"Overload (3)","Melee,Misc","Melee,Range,Mage",yes,"NZ-only all-combat boost potion. Dropped Misc, added Range/Mage.",medium
+11732,"Overload (2)","Herblore,Melee,Misc","Melee,Range,Mage",yes,"NZ-only all-combat boost potion. Dropped Herblore/Misc, added Range/Mage.",medium
+11733,"Overload (1)","Melee,Misc","Melee,Range,Mage",yes,"NZ-only all-combat boost potion. Dropped Misc, added Range/Mage.",medium
+11734,"Absorption (4)","Melee,Misc","Misc",yes,"NZ-only damage-absorption utility (no skill boost). Dropped Melee.",medium
+11735,"Absorption (3)","Melee,Misc","Misc",yes,"NZ-only damage-absorption utility. Dropped Melee.",medium
+11736,"Absorption (2)","Melee,Misc","Misc",yes,"NZ-only damage-absorption utility. Dropped Melee.",medium
+11737,"Absorption (1)","Melee,Misc","Misc",yes,"NZ-only damage-absorption utility. Dropped Melee.",medium
+11738,"Herb box","Herblore,Misc","Herblore",yes,"Reward box of grimy herbs (Herblore supply). Dropped Misc.",medium
+11740,"Scroll of redirection","Construction,Misc","Teleports",yes,"Redirects house teleport tablets; teleport utility. Dropped Construction/Misc.",medium
+11741,"Rimmington teleport","Misc","Teleports",yes,"House-portal teleport tablet. Dropped Misc.",high
+11742,"Taverley teleport","Misc","Teleports",yes,"House-portal teleport tablet. Dropped Misc.",high
+11743,"Pollnivneach teleport","Misc","Teleports",yes,"House-portal teleport tablet. Dropped Misc.",high
+11744,"Rellekka teleport","Misc","Teleports",yes,"House-portal teleport tablet. Dropped Misc.",high
+11745,"Brimhaven teleport","Misc","Teleports",yes,"House-portal teleport tablet. Dropped Misc.",high
+11746,"Yanille teleport","Misc","Teleports",yes,"House-portal teleport tablet. Dropped Misc.",high
+11747,"Trollheim teleport","Misc","Teleports",yes,"Teleport tablet to Trollheim. Dropped Misc.",high
+11748,"New crystal bow (i)","Range,Slayer","Range",yes,"NZ-imbued crystal ranged bow. Dropped spurious Slayer.",high
+11759,"New crystal shield (i)","Melee","Melee",no,"NZ-imbued crystal defensive shield.",high
+11770,"Seers ring (i)","Mage","Mage",no,"Imbued magic ring.",high
+11771,"Archers ring (i)","Range","Range",no,"Imbued ranged ring.",high
+11772,"Warrior ring (i)","Melee","Melee",no,"Imbued melee ring (slash).",high
+11773,"Berserker ring (i)","Melee","Melee",no,"Imbued melee ring (crush/strength).",high
+11776,"Black mask (8) (i)","Melee,Slayer","Melee,Range,Mage,Slayer",yes,"Imbued: slayer bonus extends to Range+Mage. Added Range/Mage.",high
+11777,"Black mask (7) (i)","Melee,Slayer","Melee,Range,Mage,Slayer",yes,"Imbued: slayer bonus all styles. Added Range/Mage.",high
+11778,"Black mask (6) (i)","Melee,Slayer","Melee,Range,Mage,Slayer",yes,"Imbued: slayer bonus all styles. Added Range/Mage.",high
+11779,"Black mask (5) (i)","Melee,Slayer","Melee,Range,Mage,Slayer",yes,"Imbued: slayer bonus all styles. Added Range/Mage.",high
+11781,"Black mask (3) (i)","Melee,Slayer","Melee,Range,Mage,Slayer",yes,"Imbued: slayer bonus all styles. Added Range/Mage.",high
+11782,"Black mask (2) (i)","Melee,Slayer","Melee,Range,Mage,Slayer",yes,"Imbued: slayer bonus all styles. Added Range/Mage.",high
+11783,"Black mask (1) (i)","Melee,Slayer","Melee,Range,Mage,Slayer",yes,"Imbued: slayer bonus all styles. Added Range/Mage.",high
+11784,"Black mask (i)","Melee,Slayer","Melee,Range,Mage,Slayer",yes,"Imbued: slayer bonus all styles. Added Range/Mage.",high
+11785,"Armadyl crossbow","Range","Range",no,"Ranged crossbow; +1 prayer incidental.",high
+11787,"Steam battlestaff","Mage","Mage",no,"Elemental battlestaff (Mage weapon).",high
+11789,"Mystic steam staff","Mage","Mage",no,"Mystic elemental staff (Mage weapon).",high
+11791,"Staff of the dead","Mage","Mage",no,"Bladed magic staff (+15% magic dmg); staff identity. Melee secondary.",medium
+11794,"Godsword shards 1 & 2","Melee,Mining + Smithing","Mining + Smithing",yes,"Smithing intermediate toward godsword blade. Dropped Melee.",medium
+11796,"Godsword shards 1 & 3","Melee,Mining + Smithing","Mining + Smithing",yes,"Smithing intermediate toward godsword blade. Dropped Melee.",medium
+11798,"Godsword blade","Melee,Mining + Smithing","Mining + Smithing",yes,"Smithed from shards (80 Smithing), not wieldable. Dropped Melee.",medium
+11800,"Godsword shards 2 & 3","Melee,Mining + Smithing","Mining + Smithing",yes,"Smithing intermediate toward godsword blade. Dropped Melee.",medium
+11802,"Armadyl godsword","Melee","Melee",no,"Finished godsword; +8 prayer incidental.",high
+11804,"Bandos godsword","Melee","Melee",no,"Finished godsword; +8 prayer incidental.",high
+11806,"Saradomin godsword","Melee,Prayer","Melee,Prayer",no,"Godsword special restores prayer (defining mechanic).",medium
+11808,"Zamorak godsword","Melee","Melee",no,"Finished godsword; +8 prayer incidental.",high
+11810,"Armadyl hilt","Melee","Melee",no,"Godsword component (attached, no smithing).",medium
+11812,"Bandos hilt","Melee","Melee",no,"Godsword component.",medium
+11814,"Saradomin hilt","Melee","Melee",no,"Godsword component.",medium
+11816,"Zamorak hilt","Melee","Melee",no,"Godsword component.",medium
+11818,"Godsword shard 1","Melee,Mining + Smithing","Mining + Smithing",yes,"Smithing material for godsword blade. Dropped Melee.",medium
+11820,"Godsword shard 2","Melee,Mining + Smithing","Mining + Smithing",yes,"Smithing material for godsword blade. Dropped Melee.",medium
+11822,"Godsword shard 3","Melee,Mining + Smithing","Mining + Smithing",yes,"Smithing material for godsword blade. Dropped Melee.",medium
+11824,"Zamorakian spear","Melee","Melee",no,"2h melee spear; +2 prayer incidental.",high
+11826,"Armadyl helmet","Range","Range",no,"Armadyl ranged armour; +1 prayer incidental.",high
+11828,"Armadyl chestplate","Range","Range",no,"Armadyl ranged armour.",high
+11830,"Armadyl chainskirt","Range","Range",no,"Armadyl ranged armour.",high
+11832,"Bandos chestplate","Melee,Slayer","Melee",yes,"Bandos melee strength body; not Slayer-specific. Dropped Slayer.",high
+11834,"Bandos tassets","Melee,Slayer","Melee",yes,"Bandos melee strength legs. Dropped Slayer.",high
+11836,"Bandos boots","Melee","Melee",no,"Bandos melee boots.",high
+11838,"Saradomin sword","Melee","Melee",no,"2h melee sword; +2 prayer incidental.",high
+11840,"Dragon boots","Melee","Melee",no,"Melee boots (60 Defence).",high
+11842,"Knight's notes","Misc","Misc",no,"Readable GWD-history scroll.",high
+11847,"Black h'ween mask","Cosmetics","Cosmetics",no,"Halloween event cosmetic.",high
+11848,"Rancid turkey","Cosmetics","Cosmetics",no,"Discontinued Thanksgiving event item.",high
+11849,"Mark of grace","Agility + Thieving","Agility + Thieving",no,"Agility-course currency.",high
+11850,"Graceful hood","Agility + Thieving","Agility + Thieving",no,"Graceful Agility outfit piece.",high
+11852,"Graceful cape","Agility + Thieving","Agility + Thieving",no,"Graceful Agility outfit piece.",high
+11854,"Graceful top","Agility + Thieving","Agility + Thieving",no,"Graceful Agility outfit piece.",high
+11856,"Graceful legs","Agility + Thieving","Agility + Thieving",no,"Graceful Agility outfit piece.",high
+11858,"Graceful gloves","Agility + Thieving","Agility + Thieving",no,"Graceful Agility outfit piece.",high
+11860,"Graceful boots","Agility + Thieving","Agility + Thieving",no,"Graceful Agility outfit piece.",high
+11862,"Black partyhat","Cosmetics","Cosmetics",no,"Christmas event cosmetic hat.",high
+11863,"Rainbow partyhat","Cosmetics","Cosmetics",no,"Christmas event cosmetic hat.",high
+11864,"Slayer helmet","Melee,Slayer","Melee,Slayer",no,"Non-imbued slayer helm (melee on-task bonus).",high
+11865,"Slayer helmet (i)","Melee,Slayer","Melee,Range,Mage,Slayer",yes,"Imbued: on-task bonus applies to all 3 styles. Added Range/Mage.",high
+11866,"Slayer ring (8)","Slayer","Slayer,Teleports",yes,"Teleports to slayer locations + checks task. Added Teleports.",high
+11867,"Slayer ring (7)","Slayer","Slayer,Teleports",yes,"Slayer teleport/task ring. Added Teleports.",high
+11868,"Slayer ring (6)","Slayer","Slayer,Teleports",yes,"Slayer teleport/task ring. Added Teleports.",high
+11869,"Slayer ring (5)","Slayer","Slayer,Teleports",yes,"Slayer teleport/task ring. Added Teleports.",high
+11871,"Slayer ring (3)","Slayer","Slayer,Teleports",yes,"Slayer teleport/task ring. Added Teleports.",high
+11872,"Slayer ring (2)","Slayer","Slayer,Teleports",yes,"Slayer teleport/task ring. Added Teleports.",high
+11873,"Slayer ring (1)","Slayer","Slayer,Teleports",yes,"Slayer teleport/task ring. Added Teleports.",high
+11874,"Broad arrowheads","Fletching,Range,Slayer","Fletching,Range,Slayer",no,"Slayer-unlocked arrowheads for broad arrows (turoth/kurask).",high
+11875,"Broad bolts","Fletching,Range,Slayer","Fletching,Range,Slayer",no,"Slayer-locked fletched bolts for turoth/kurask.",high
+11876,"Unfinished broad bolts","Fletching,Range,Slayer","Fletching,Range,Slayer",no,"Slayer-locked broad bolt tips (Fletching+Range) + Slayer-lock.",high
+11877,"Empty vial pack","Herblore,Slayer","Herblore",yes,"Pack of empty vials (Herblore). Dropped spurious Slayer.",high
+11879,"Water-filled vial pack","Herblore,Slayer","Herblore",yes,"Pack of water vials (Herblore). Dropped spurious Slayer.",high
+11881,"Feather pack","Fishing,Fletching,Range,Slayer","Fishing,Fletching",yes,"Feathers = fishing bait + fletching input. Dropped Range/Slayer.",medium
+11883,"Bait pack","Fishing,Slayer","Fishing",yes,"Pack of fishing bait. Dropped spurious Slayer.",high
+11885,"Broad arrowhead pack","Fletching,Range,Slayer","Fletching,Range,Slayer",no,"Slayer-locked broad arrowheads pack.",high
+11887,"Unfinished broad bolt pack","Fletching,Range,Slayer","Fletching,Range,Slayer",no,"Slayer-locked unfinished broad bolts pack.",high
+11889,"Zamorakian hasta","Melee","Melee",no,"1h melee spear; +2 prayer incidental.",high
+11893,"Decorative armour","Melee,Misc","Melee,Cosmetics",yes,"CW decorative melee skirt; decorative gear -> Cosmetics+combat. Replaced Misc.",medium
+11894,"Decorative armour","Melee,Misc","Melee,Cosmetics",yes,"CW decorative melee skirt. Replaced Misc with Cosmetics.",medium
+11895,"Decorative armour","Melee,Misc","Melee,Cosmetics",yes,"CW decorative melee skirt. Replaced Misc with Cosmetics.",medium
+11896,"Decorative armour","Mage,Misc","Mage,Cosmetics",yes,"CW decorative magic top. Replaced Misc with Cosmetics.",medium
+11897,"Decorative armour","Mage,Misc","Mage,Cosmetics",yes,"CW decorative magic legs. Replaced Misc with Cosmetics.",medium
+11898,"Decorative armour","Mage,Misc","Mage,Cosmetics",yes,"CW decorative magic hat. Replaced Misc with Cosmetics.",medium
+11899,"Decorative armour","Misc,Range","Range,Cosmetics",yes,"CW decorative range top. Replaced Misc with Cosmetics.",medium
+11900,"Decorative armour","Misc,Range","Range,Cosmetics",yes,"CW decorative range legs. Replaced Misc with Cosmetics.",medium
+11901,"Decorative armour","Misc,Range","Range,Cosmetics",yes,"CW decorative range quiver. Replaced Misc with Cosmetics.",medium
+11902,"Leaf-bladed sword","Melee,Slayer","Melee,Slayer",no,"Slayer-locked melee weapon (turoth/kurask).",high
+11904,"Entomologist's diary","Misc","Misc",no,"Readable lore book.",high
+11905,"Trident of the seas (full)","Mage,Slayer","Mage",yes,"Powered magic staff; not slayer-specific. Dropped Slayer.",high
+11908,"Uncharged trident","Mage,Slayer","Mage",yes,"Uncharged powered magic staff. Dropped Slayer.",high
+11910,"Chocolate strawberry","Cosmetics","Cosmetics",no,"Discontinued Valentine's event item.",high
+11912,"Box of chocolate strawberries","Cosmetics","Cosmetics",no,"Discontinued Valentine's event container.",high
+11916,"Slice of birthday cake","Cosmetics","Cosmetics",no,"Birthday event novelty food.",high
+11919,"Cow mask","Cosmetics","Cosmetics",no,"Birthday event cosmetic.",high
+11920,"Dragon pickaxe","Melee,Mining + Smithing","Melee,Mining + Smithing",no,"Mining tool + wieldable melee weapon.",high
+11922,"Lava dragon bonemeal","Prayer","Prayer",no,"Ectofuntus Prayer worship.",high
+11923,"Broken pickaxe","Mining + Smithing","Mining + Smithing",no,"Broken dragon pickaxe (Mining tool).",medium
+11924,"Malediction ward","Mage","Mage",no,"Magic-class shield.",high
+11926,"Odium ward","Range","Range",no,"Ranged-class shield.",high
+11928,"Odium shard 1","Range","Range",no,"Odium ward component.",medium
+11929,"Odium shard 2","Misc,Range","Range",yes,"Odium ward component. Dropped Misc.",medium
+11930,"Odium shard 3","Range","Range",no,"Odium ward component.",medium
+11931,"Malediction shard 1","Mage","Mage",no,"Malediction ward component.",medium
+11932,"Malediction shard 2","Mage,Misc","Mage",yes,"Malediction ward component. Dropped Misc.",medium
+11933,"Malediction shard 3","Mage,Misc","Mage",yes,"Malediction ward component. Dropped Misc.",medium
+11934,"Raw dark crab","Cooking,Fishing","Cooking,Fishing",no,"Raw fish: Fishing catch + Cooking input.",high
+11936,"Dark crab","Fishing,Melee,Slayer","Cooking,Melee,Range,Mage,Slayer",yes,"Cooked food heals 22 (>=12): high-tier combat food. Fixed Fishing->Cooking, added Range/Mage.",medium
+11938,"Burnt dark crab","Cooking","Cooking",no,"Burnt Cooking byproduct.",high
+11940,"Dark fishing bait","Fishing","Fishing",no,"Bait for dark crabs.",high
+11941,"Looting bag","Misc,Slayer","Misc",yes,"Wilderness storage bag. Dropped Slayer.",high
+11942,"Ecumenical key","Misc","Misc",no,"GWD boss-access key (generic PvM utility).",high
+11943,"Lava dragon bones","Prayer","Prayer",no,"Prayer-training bones.",high
+11951,"Extended antifire(4)","Herblore,Melee","Herblore",yes,"Dragonfire-resistance potion (no combat-stat tab). Dropped Melee.",medium
+11953,"Extended antifire(3)","Herblore,Melee","Herblore",yes,"Dragonfire-resistance potion. Dropped Melee.",medium
+11955,"Extended antifire(2)","Herblore,Melee","Herblore",yes,"Dragonfire-resistance potion. Dropped Melee.",medium
+11957,"Extended antifire(1)","Herblore,Melee","Herblore",yes,"Dragonfire-resistance potion. Dropped Melee.",medium
+11959,"Black chinchompa","Hunter,Range","Hunter,Range",no,"Hunter catch used as thrown Range weapon.",high
+11960,"Extended antifire mix(2)","Herblore,Melee","Herblore",yes,"Barbarian extended antifire mix (resistance). Dropped Melee.",medium
+11962,"Extended antifire mix(1)","Herblore,Melee","Herblore",yes,"Barbarian extended antifire mix. Dropped Melee.",medium
+11968,"Skills necklace(6)","Misc,Slayer","Teleports",yes,"Teleport necklace to skilling guilds. Dropped Misc/Slayer.",high
+11970,"Skills necklace(5)","Misc,Slayer,Teleports","Teleports",yes,"Teleport necklace to skilling guilds. Dropped Misc/Slayer.",high
+11972,"Combat bracelet(6)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"All-style combat + teleports. Dropped Misc/Slayer.",medium
+11974,"Combat bracelet(5)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"All-style combat + teleports. Dropped Misc/Slayer.",medium
+11976,"Amulet of glory(5)","Melee,Misc","Melee,Range,Mage,Teleports",yes,"All-style combat amulet + teleports; +3 prayer incidental. Dropped Misc.",medium
+11978,"Amulet of glory(6)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"All-style combat amulet + teleports. Dropped Misc/Slayer.",medium
+11980,"Ring of wealth (5)","Misc","Teleports,Misc",yes,"Teleport charges + drop-luck utility. Added Teleports.",medium
+11984,"Ring of wealth (3)","Misc","Teleports,Misc",yes,"Teleport charges + drop-luck utility. Added Teleports.",medium
+11986,"Ring of wealth (2)","Misc","Teleports,Misc",yes,"Teleport charges + drop-luck utility. Added Teleports.",medium
+11988,"Ring of wealth (1)","Misc","Teleports,Misc",yes,"Teleport charges + drop-luck utility. Added Teleports.",medium
+11990,"Fedora","Cosmetics","Cosmetics",no,"Cosmetic hat.",high
+11992,"Lava scale","Herblore","Herblore",no,"Herblore ingredient (extended antifire).",high
+11994,"Lava scale shard","Herblore","Herblore",no,"Ground lava scale (Herblore).",high
+11995,"Pet chaos elemental","Cosmetics","Cosmetics",no,"Boss pet (cosmetic).",high
+11996,"Holiday tool","Misc","Misc",no,"JMod event-spawner tool.",high
+11997,"Easter","Cosmetics","Misc",yes,"JMod event-spawner tool; harmonized with holiday tool. Dropped Cosmetics.",medium
+11998,"Smoke battlestaff","Mage","Mage",no,"Elemental battlestaff (Mage weapon).",high
+12000,"Mystic smoke staff","Mage","Mage",no,"Mystic elemental staff (Mage weapon).",high
+12002,"Occult necklace","Mage,Slayer","Mage",yes,"Magic-damage amulet; general use. Dropped Slayer.",high
+12004,"Kraken tentacle","Melee,Slayer","Melee,Mage",yes,"Makes abyssal tentacle (Melee) + enhanced tridents (Mage). Dropped Slayer, added Mage.",medium
+12006,"Abyssal tentacle","Melee,Slayer","Melee",yes,"Melee whip, general use. Dropped Slayer.",high
+12007,"Jar of dirt","Construction","Construction",no,"Kraken boss collectible (POH).",low
+12009,"Soft clay pack","Construction,Crafting,Mining + Smithing","Crafting",yes,"Soft clay = pottery (Crafting). Dropped Construction/Mining+Smithing.",medium
+12010,"Soft clay pack","Construction,Mining + Smithing","Crafting",yes,"Soft clay = pottery (Crafting). Dropped Construction/Mining+Smithing.",medium
+12011,"Pay-dirt","Mining + Smithing","Mining + Smithing",no,"Motherlode Mine ore dirt.",high
+12012,"Golden nugget","Mining + Smithing","Mining + Smithing",no,"Motherlode reward currency.",high
+12013,"Prospector helmet","Mining + Smithing","Mining + Smithing",no,"Prospector Mining-XP outfit.",high
+12014,"Prospector jacket","Mining + Smithing","Mining + Smithing",no,"Prospector Mining-XP outfit.",high
+12015,"Prospector legs","Mining + Smithing","Mining + Smithing",no,"Prospector Mining-XP outfit.",high
+12016,"Prospector boots","Mining + Smithing","Mining + Smithing",no,"Prospector Mining-XP outfit.",high
+12017,"Salve amulet(i)","Melee,Slayer","Melee,Range,Mage",yes,"Anti-undead all-style booster (not slayer-task). Dropped Slayer, added Range/Mage.",high
+12018,"Salve amulet(ei)","Melee,Slayer","Melee,Range,Mage",yes,"Anti-undead all-style booster. Dropped Slayer, added Range/Mage.",high
+12021,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12023,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12025,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12027,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12029,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12031,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12033,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12035,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12037,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12039,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12041,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12043,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12045,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12047,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12049,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12051,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12053,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12055,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12057,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12059,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12061,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12063,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12065,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12067,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12069,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12071,"Clue scroll (medium)","Misc","Misc",no,"Medium Treasure Trail clue.",high
+12073,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12074,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12075,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12076,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12077,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12078,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12079,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12080,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12081,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12082,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12083,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12085,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12086,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12087,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12088,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12089,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12090,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12091,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12092,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12093,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12094,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12095,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12096,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12097,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12098,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12099,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12100,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12101,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12102,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12103,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12104,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12105,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12106,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12107,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12108,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12109,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12110,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12111,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12127,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12130,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12132,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12133,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12134,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12135,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12136,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12137,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12138,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12140,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12141,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12142,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12143,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12144,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12145,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12146,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12147,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12148,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12149,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12150,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12151,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12152,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12153,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12154,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12155,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12156,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12157,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12158,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12159,"Clue scroll (elite)","Misc","Misc",no,"Elite Treasure Trail clue.",high
+12162,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12164,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12166,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12167,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12168,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12169,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12170,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12172,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12173,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12174,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12175,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12176,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12177,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12178,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12179,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12181,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12182,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12183,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12184,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12185,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12186,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12187,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12188,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12189,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12190,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12191,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12192,"Clue scroll (easy)","Misc","Misc",no,"Easy Treasure Trail clue.",high
+12193,"Ancient robe top","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer robe (prestige); magic incidental.",high
+12195,"Ancient robe legs","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer legs (prestige).",high
+12197,"Ancient cloak","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer cloak (prestige).",high
+12199,"Ancient crozier","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"Vestment crozier (staff +magic, prayer).",high
+12201,"Ancient stole","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer stole (prestige).",high
+12203,"Ancient mitre","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"Vestment mitre (40 Magic req, prayer).",high
+12205,"Bronze platebody (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12207,"Bronze platelegs (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12209,"Bronze plateskirt (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12211,"Bronze full helm (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12213,"Bronze kiteshield (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12215,"Bronze platebody (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12217,"Bronze platelegs (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12219,"Bronze plateskirt (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12221,"Bronze full helm (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12223,"Bronze kiteshield (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12225,"Iron platebody (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12227,"Iron platelegs (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12229,"Iron plateskirt (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12231,"Iron full helm (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12233,"Iron kiteshield (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12235,"Iron platebody (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12237,"Iron platelegs (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12239,"Iron plateskirt (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12241,"Iron full helm (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12243,"Iron kiteshield (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12245,"Beanie","Cosmetics","Cosmetics",no,"Cosmetic Treasure Trail hat.",high
+12247,"Red beret","Cosmetics","Cosmetics",no,"Cosmetic Treasure Trail hat.",high
+12249,"Imp mask","Cosmetics","Cosmetics",no,"Cosmetic Treasure Trail mask.",high
+12251,"Goblin mask","Cosmetics","Cosmetics",no,"Cosmetic Treasure Trail mask.",high
+12253,"Armadyl robe top","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer robe (prestige, GWD-aligned).",high
+12255,"Armadyl robe legs","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer legs (prestige).",high
+12257,"Armadyl stole","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer stole (prestige).",high
+12259,"Armadyl mitre","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"Vestment mitre (40 Magic req, prayer).",high
+12261,"Armadyl cloak","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer cloak (prestige).",high
+12263,"Armadyl crozier","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"Vestment crozier (staff +magic, prayer).",high
+12265,"Bandos robe top","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer robe (prestige).",high
+12267,"Bandos robe legs","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer legs (prestige).",high
+12269,"Bandos stole","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer stole (prestige).",high
+12271,"Bandos mitre","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"Vestment mitre (40 Magic req, prayer).",high
+12273,"Bandos cloak","Cosmetics,Prayer","Cosmetics,Prayer",no,"Vestment prayer cloak (prestige).",high
+12275,"Bandos crozier","Cosmetics,Mage,Prayer","Cosmetics,Mage,Prayer",no,"Vestment crozier (staff +magic, prayer).",high
+12277,"Mithril platebody (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12279,"Mithril platelegs (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12281,"Mithril kiteshield (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12283,"Mithril full helm (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12285,"Mithril plateskirt (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Gold-trimmed Treasure Trail armour.",high
+12287,"Mithril platebody (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12289,"Mithril platelegs (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12291,"Mithril kiteshield (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12293,"Mithril full helm (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12295,"Mithril plateskirt (t)","Cosmetics,Melee","Cosmetics,Melee",no,"Trimmed Treasure Trail armour.",high
+12297,"Black pickaxe","Melee,Mining + Smithing","Melee,Mining + Smithing",no,"Functional pickaxe + melee weapon.",high
+12299,"White headband","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12301,"Blue headband","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12303,"Gold headband","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12305,"Pink headband","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12307,"Green headband","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12309,"Pink boater","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12311,"Purple boater","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12313,"White boater","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12315,"Pink elegant shirt","Cosmetics","Cosmetics",no,"Elegant cosmetic clothing.",high
+12317,"Pink elegant legs","Cosmetics","Cosmetics",no,"Elegant cosmetic clothing.",high
+12319,"Crier hat","Cosmetics","Cosmetics",no,"Cosmetic Crier-outfit hat.",high
+12321,"White cavalier","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12323,"Red cavalier","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12325,"Navy cavalier","Cosmetics","Cosmetics",no,"Cosmetic headwear.",high
+12327,"Red d'hide body (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed red dragonhide.",high
+12329,"Red d'hide chaps (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed red dragonhide legs.",high
+12331,"Red d'hide body (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed red dragonhide.",high
+12333,"Red d'hide chaps (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed red dragonhide legs.",high
+12335,"Briefcase","Cosmetics","Cosmetics",no,"Cosmetic shield-slot item.",high
+12337,"Sagacious spectacles","Cosmetics","Cosmetics",no,"Cosmetic head item.",high
+12339,"Pink elegant blouse","Cosmetics","Cosmetics",no,"Elegant cosmetic clothing.",high
+12341,"Pink elegant skirt","Cosmetics","Cosmetics",no,"Elegant cosmetic clothing.",high
+12343,"Gold elegant blouse","Cosmetics","Cosmetics",no,"Elegant cosmetic clothing.",high
+12345,"Gold elegant skirt","Cosmetics","Cosmetics",no,"Elegant cosmetic clothing.",high
+12347,"Gold elegant shirt","Cosmetics","Cosmetics",no,"Elegant cosmetic clothing.",high
+12349,"Gold elegant legs","Cosmetics","Cosmetics",no,"Elegant cosmetic clothing.",high
+12351,"Musketeer hat","Cosmetics","Cosmetics",no,"Cosmetic Musketeer-outfit hat.",high
+12353,"Monocle","Cosmetics","Cosmetics",no,"Cosmetic head item.",high
+12355,"Big pirate hat","Cosmetics","Cosmetics",no,"Cosmetic head item.",high
+12357,"Katana","Cosmetics,Melee","Cosmetics,Melee",no,"Elite-clue prestige sword (real stats).",high
+12359,"Leprechaun hat","Cosmetics","Cosmetics",no,"Cosmetic head item.",high
+12361,"Cat mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12363,"Bronze dragon mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12365,"Iron dragon mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12367,"Steel dragon mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12369,"Mithril dragon mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12371,"Lava dragon mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12373,"Dragon cane","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative cane weapon; +5 prayer incidental.",high
+12375,"Black cane","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative cane weapon; +2 prayer incidental.",high
+12377,"Adamant cane","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative cane weapon; +3 prayer incidental.",high
+12379,"Rune cane","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative cane weapon; +4 prayer incidental.",high
+12381,"Black d'hide body (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed black dragonhide.",high
+12383,"Black d'hide chaps (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed black dragonhide legs.",high
+12385,"Black d'hide body (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed black dragonhide.",high
+12387,"Black d'hide chaps (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed black dragonhide legs.",high
+12389,"Gilded scimitar","Cosmetics,Melee","Cosmetics,Melee",no,"Gilded rune scimitar (real stats).",high
+12391,"Gilded boots","Cosmetics,Melee","Cosmetics,Melee",no,"Gilded rune boots.",high
+12393,"Royal gown top","Cosmetics","Cosmetics",no,"Royal outfit cosmetic.",high
+12395,"Royal gown bottom","Cosmetics","Cosmetics",no,"Royal outfit cosmetic.",high
+12397,"Royal crown","Cosmetics","Cosmetics",no,"Royal outfit cosmetic.",high
+12399,"Partyhat & specs","Cosmetics","Cosmetics",no,"Assembled cosmetic head item.",high
+12402,"Nardah teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12403,"Digsite teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12404,"Feldip hills teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12405,"Lunar isle teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12406,"Mort'ton teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12407,"Pest control teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12408,"Piscatoris teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12409,"Tai bwo wannai teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12410,"Iorwerth camp teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12411,"Mos le'harmless teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12412,"Pirate hat & patch","Cosmetics","Cosmetics",no,"Assembled cosmetic head item.",high
+12414,"Dragon chainbody (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Ornamented dragon chainbody.",high
+12415,"Dragon platelegs (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Ornamented dragon platelegs.",high
+12416,"Dragon plateskirt (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Ornamented dragon plateskirt.",high
+12417,"Dragon full helm (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Ornamented dragon full helm.",high
+12418,"Dragon sq shield (g)","Cosmetics,Melee","Cosmetics,Melee",no,"Ornamented dragon sq shield.",high
+12419,"Light infinity hat","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured infinity magic hat.",high
+12420,"Light infinity top","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured infinity magic top.",high
+12421,"Light infinity bottoms","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured infinity magic bottoms.",high
+12422,"3rd age wand","Cosmetics,Mage","Cosmetics,Mage",no,"3rd age prestige magic wand.",high
+12424,"3rd age bow","Cosmetics,Range","Cosmetics,Range",no,"3rd age prestige ranged bow.",high
+12426,"3rd age longsword","Cosmetics,Melee","Cosmetics,Melee",no,"3rd age prestige melee sword.",high
+12428,"Penguin mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12430,"Afro","Cosmetics","Cosmetics",no,"Cosmetic head item.",high
+12432,"Top hat","Cosmetics","Cosmetics",no,"Cosmetic head item.",high
+12434,"Top hat & monocle","Cosmetics","Cosmetics",no,"Assembled cosmetic head item.",high
+12436,"Amulet of fury (or)","Cosmetics,Melee","Cosmetics,Melee,Range,Mage",yes,"All-style combat amulet; +5 prayer incidental. Added Range/Mage.",high
+12437,"3rd age cloak","Cosmetics,Prayer","Cosmetics,Prayer",no,"3rd age prestige prayer cape.",high
+12439,"Royal sceptre","Cosmetics","Cosmetics",no,"Royal outfit cosmetic weapon (no stats).",high
+12441,"Musketeer tabard","Cosmetics","Cosmetics",no,"Musketeer outfit cosmetic.",high
+12443,"Musketeer pants","Cosmetics","Cosmetics",no,"Musketeer outfit cosmetic.",high
+12445,"Black skirt (g)","Cosmetics,Mage","Cosmetics",yes,"Wizard skirt has no magic stats (purely cosmetic). Dropped Mage.",medium
+12447,"Black skirt (t)","Cosmetics,Mage","Cosmetics",yes,"Wizard skirt has no magic stats. Dropped Mage.",medium
+12449,"Black wizard robe (g)","Cosmetics,Mage","Cosmetics,Mage",no,"Trimmed wizard robe (+3 magic).",high
+12451,"Black wizard robe (t)","Cosmetics,Mage","Cosmetics,Mage",no,"Trimmed wizard robe (+3 magic).",high
+12453,"Black wizard hat (g)","Cosmetics,Mage","Cosmetics,Mage",no,"Trimmed wizard hat (+2 magic).",high
+12455,"Black wizard hat (t)","Cosmetics,Mage","Cosmetics,Mage",no,"Trimmed wizard hat (+2 magic).",high
+12457,"Dark infinity hat","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured infinity magic hat.",high
+12458,"Dark infinity top","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured infinity magic top.",high
+12459,"Dark infinity bottoms","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured infinity magic bottoms.",high
+12460,"Ancient platebody","Cosmetics,Melee","Cosmetics,Melee",no,"Zaros-trimmed rune platebody; +1 prayer incidental.",high
+12462,"Ancient platelegs","Cosmetics,Melee","Cosmetics,Melee",no,"Zaros-trimmed rune platelegs.",high
+12464,"Ancient plateskirt","Cosmetics,Melee","Cosmetics,Melee",no,"Zaros-trimmed rune plateskirt.",high
+12466,"Ancient full helm","Cosmetics,Melee","Cosmetics,Melee",no,"Zaros-trimmed rune full helm.",high
+12468,"Ancient kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Zaros-trimmed rune kiteshield.",high
+12470,"Armadyl platebody","Cosmetics,Melee","Cosmetics,Melee",no,"Armadyl-trimmed rune platebody; +1 prayer incidental.",high
+12472,"Armadyl platelegs","Cosmetics,Melee","Cosmetics,Melee",no,"Armadyl-trimmed rune platelegs.",high
+12474,"Armadyl plateskirt","Cosmetics,Melee","Cosmetics,Melee",no,"Armadyl-trimmed rune plateskirt.",high
+12476,"Armadyl full helm","Cosmetics,Melee","Cosmetics,Melee",no,"Armadyl-trimmed rune full helm.",high
+12478,"Armadyl kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Armadyl-trimmed rune kiteshield.",high
+12480,"Bandos platebody","Cosmetics,Melee","Cosmetics,Melee",no,"Bandos-trimmed rune platebody.",high
+12482,"Bandos platelegs","Cosmetics,Melee","Cosmetics,Melee",no,"Bandos-trimmed rune platelegs.",high
+12484,"Bandos plateskirt","Cosmetics,Melee","Cosmetics,Melee",no,"Bandos-trimmed rune plateskirt.",high
+12486,"Bandos full helm","Cosmetics,Melee","Cosmetics,Melee",no,"Bandos-trimmed rune full helm.",high
+12488,"Bandos kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Bandos-trimmed rune kiteshield.",high
+12490,"Ancient bracers","Cosmetics,Range","Cosmetics,Range",no,"Ancient blessed d'hide vambraces; +1 prayer incidental.",high
+12492,"Ancient d'hide body","Cosmetics,Range","Cosmetics,Range",no,"Ancient blessed d'hide body.",high
+12494,"Ancient chaps","Cosmetics,Range","Cosmetics,Range",no,"Ancient blessed d'hide chaps.",high
+12496,"Ancient coif","Cosmetics,Range","Cosmetics,Range",no,"Ancient blessed d'hide coif.",high
+12498,"Bandos bracers","Cosmetics,Range","Cosmetics,Range",no,"Bandos blessed d'hide vambraces.",high
+12500,"Bandos d'hide body","Cosmetics,Range","Cosmetics,Range",no,"Bandos blessed d'hide body.",high
+12502,"Bandos chaps","Cosmetics,Range","Cosmetics,Range",no,"Bandos blessed d'hide chaps.",high
+12504,"Bandos coif","Cosmetics,Range","Cosmetics,Range",no,"Bandos blessed d'hide coif.",high
+12506,"Armadyl bracers","Cosmetics,Range","Cosmetics,Range",no,"Armadyl blessed d'hide vambraces.",high
+12508,"Armadyl d'hide body","Cosmetics,Range","Cosmetics,Range",no,"Armadyl blessed d'hide body.",high
+12510,"Armadyl chaps","Cosmetics,Range","Cosmetics,Range",no,"Armadyl blessed d'hide chaps.",high
+12512,"Armadyl coif","Cosmetics,Range","Cosmetics,Range",no,"Armadyl blessed d'hide coif.",high
+12514,"Explorer backpack","Cosmetics","Cosmetics",no,"Cosmetic cape-slot item.",high
+12516,"Pith helmet","Cosmetics","Cosmetics",no,"Cosmetic head item.",high
+12518,"Green dragon mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12520,"Blue dragon mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12522,"Red dragon mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12524,"Black dragon mask","Cosmetics","Cosmetics",no,"Cosmetic mask.",high
+12526,"Fury ornament kit","Cosmetics","Cosmetics",no,"Cosmetic ornament kit.",high
+12528,"Dark infinity colour kit","Cosmetics,Mage","Cosmetics",yes,"Cosmetic recolour kit (no function). Dropped Mage.",high
+12530,"Light infinity colour kit","Cosmetics,Mage","Cosmetics",yes,"Cosmetic recolour kit (no function). Dropped Mage.",high
+12532,"Dragon sq shield ornament kit","Cosmetics,Melee","Cosmetics",yes,"Cosmetic ornament kit (no function). Dropped Melee.",high
+12534,"Dragon chainbody ornament kit","Cosmetics,Melee","Cosmetics",yes,"Cosmetic ornament kit (no function). Dropped Melee.",high
+12536,"Dragon legs/skirt ornament kit","Cosmetics,Melee","Cosmetics",yes,"Cosmetic ornament kit (no function). Dropped Melee.",high
+12538,"Dragon full helm ornament kit","Cosmetics,Melee","Cosmetics",yes,"Cosmetic ornament kit (no function). Dropped Melee.",high
+12540,"Deerstalker","Cosmetics","Cosmetics",no,"Cosmetic head item.",high
+12542,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12544,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12546,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12548,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12550,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12552,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12554,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12556,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12558,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12560,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12562,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12564,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12566,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12568,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12570,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12572,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12574,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12576,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12578,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12581,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12584,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12587,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12590,"Clue scroll (hard)","Misc","Misc",no,"Hard Treasure Trail clue.",high
+12592,"Black pick head","Mining + Smithing","Mining + Smithing",no,"Detached black pickaxe head.",medium
+12594,"Broken pickaxe","Mining + Smithing","Mining + Smithing",no,"Broken black pickaxe (Mining tool).",medium
+12596,"Rangers' tunic","Cosmetics,Range","Cosmetics,Range",no,"Ranger-kit body (elite clue prestige).",high
+12598,"Holy sandals","Cosmetics,Prayer","Cosmetics,Prayer",no,"Prayer footwear (clue prestige).",high
+12600,"Druidic wreath","Cosmetics","Cosmetics",no,"Midsummer event cosmetic.",high
+12601,"Ring of the gods","Prayer","Prayer",no,"Prayer ring (+4 prayer).",high
+12603,"Tyrannical ring","Melee","Melee",no,"Crush combat ring.",high
+12605,"Treasonous ring","Melee","Melee",no,"Stab combat ring.",high
+12607,"Damaged book","Melee,Prayer","Melee,Prayer",no,"Incomplete Bandos god book (+5 prayer).",medium
+12608,"Book of war","Melee,Prayer,Quests","Melee,Prayer",yes,"Bandos god book (melee str + prayer); usable. Dropped Quests.",medium
+12609,"Damaged book","Prayer,Range","Prayer,Range",no,"Incomplete Armadyl god book.",medium
+12610,"Book of law","Prayer,Quests,Range","Prayer,Range",yes,"Armadyl god book (+10 ranged + prayer); usable. Dropped Quests.",medium
+12611,"Damaged book","Prayer,Quests","Mage,Prayer",yes,"Incomplete Zaros god book; aligned to Mage. Dropped Quests.",medium
+12612,"Book of darkness","Mage,Prayer,Quests","Mage,Prayer",yes,"Zaros god book (+10 magic + prayer); usable. Dropped Quests.",medium
+12613,"Bandos page 1","Melee,Misc","Melee",yes,"Torn page for Bandos (melee) book. Dropped Misc.",medium
+12614,"Bandos page 2","Melee,Misc","Melee",yes,"Torn page for Bandos (melee) book. Dropped Misc.",medium
+12615,"Bandos page 3","Misc,Quests","Melee",yes,"Torn page for Bandos (melee) book. Dropped Misc/Quests.",medium
+12616,"Bandos page 4","Melee,Misc","Melee",yes,"Torn page for Bandos (melee) book. Dropped Misc.",medium
+12617,"Armadyl page 1","Mage,Misc","Range",yes,"Torn page for Armadyl (ranged) book; fixed Mage. Dropped Misc.",medium
+12618,"Armadyl page 2","Mage,Misc","Range",yes,"Torn page for Armadyl (ranged) book; fixed Mage. Dropped Misc.",medium
+12619,"Armadyl page 3","Mage,Misc","Range",yes,"Torn page for Armadyl (ranged) book; fixed Mage. Dropped Misc.",medium
+12620,"Armadyl page 4","Mage,Misc","Range",yes,"Torn page for Armadyl (ranged) book; fixed Mage. Dropped Misc.",medium
+12621,"Ancient page 1","Mage,Misc","Mage",yes,"Torn page for Zaros (magic) book. Dropped Misc.",medium
+12622,"Ancient page 2","Misc,Prayer","Mage",yes,"Torn page for Zaros (magic) book. Dropped Misc/Prayer.",medium
+12623,"Ancient page 3","Mage,Misc","Mage",yes,"Torn page for Zaros (magic) book. Dropped Misc.",medium
+12624,"Ancient page 4","Misc,Prayer","Mage",yes,"Torn page for Zaros (magic) book. Dropped Misc/Prayer.",medium
+12625,"Stamina potion(4)","Agility + Thieving,Herblore,Misc","Agility + Thieving,Herblore",yes,"Herblore run-energy potion (agility staple). Dropped Misc.",medium
+12627,"Stamina potion(3)","Agility + Thieving,Herblore,Misc","Agility + Thieving,Herblore",yes,"Herblore run-energy potion. Dropped Misc.",medium
+12629,"Stamina potion(2)","Agility + Thieving,Herblore,Misc","Agility + Thieving,Herblore",yes,"Herblore run-energy potion. Dropped Misc.",medium
+12631,"Stamina potion(1)","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Herblore run-energy potion.",medium
+12633,"Stamina mix(2)","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Barbarian stamina mix.",medium
+12635,"Stamina mix(1)","Herblore","Agility + Thieving,Herblore",yes,"Barbarian stamina mix; added Agility to match (2).",medium
+12637,"Saradomin halo","Melee,Prayer","Cosmetics,Prayer",yes,"Castle Wars prayer halo; Cosmetics + Prayer. Dropped Melee.",medium
+12638,"Zamorak halo","Melee,Misc,Prayer","Cosmetics,Prayer",yes,"Castle Wars prayer halo. Dropped Melee/Misc.",medium
+12639,"Guthix halo","Melee,Misc,Prayer","Cosmetics,Prayer",yes,"Castle Wars prayer halo. Dropped Melee/Misc.",medium
+12640,"Amylase crystal","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Stamina-potion secondary from marks of grace.",high
+12641,"Amylase pack","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Pack of amylase crystals.",high
+12642,"Lumberyard teleport","Misc","Teleports",yes,"Consumable teleport scroll. Dropped Misc.",high
+12643,"Pet dagannoth supreme","Cosmetics","Cosmetics",no,"Boss pet.",high
+12644,"Pet dagannoth prime","Cosmetics","Cosmetics",no,"Boss pet.",high
+12645,"Pet dagannoth rex","Cosmetics","Cosmetics",no,"Boss pet.",high
+12646,"Baby mole","Cosmetics","Cosmetics",no,"Boss pet.",high
+12647,"Kalphite princess","Cosmetics,Slayer","Cosmetics",yes,"Boss pet, not a slayer item. Dropped Slayer.",high
+12648,"Pet smoke devil","Cosmetics","Cosmetics",no,"Boss pet.",high
+12649,"Pet kree'arra","Cosmetics","Cosmetics",no,"Boss pet.",high
+12650,"Pet general graardor","Cosmetics","Cosmetics",no,"Boss pet.",high
+12651,"Pet zilyana","Cosmetics","Cosmetics",no,"Boss pet.",high
+12652,"Pet k'ril tsutsaroth","Cosmetics","Cosmetics",no,"Boss pet.",high
+12653,"Prince black dragon","Cosmetics","Cosmetics",no,"Boss pet.",high
+12655,"Pet kraken","Cosmetics","Cosmetics",no,"Boss pet.",high
+12656,"Junk","Misc","Misc",no,"Clan Cup skilling-arena placeholder.",high
+12658,"Iban's staff (u)","Mage,Quests","Mage",yes,"Upgraded Iban's staff (magic weapon); usable. Dropped Quests.",high
+12659,"Clan wars cape","Misc","Misc",no,"Unobtainable Clan Wars team cape.",high
+12691,"Tyrannical ring (i)","Melee","Melee",no,"Imbued crush combat ring.",high
+12692,"Treasonous ring (i)","Melee,Slayer","Melee",yes,"Imbued stab combat ring; general use. Dropped Slayer.",high
+12693,"Kree'arra","Misc","Misc",no,"Unobtainable boss-log entry.",high
+12694,"Chaos elemental","Misc","Misc",no,"Unobtainable boss-log entry.",high
+12695,"Super combat potion(4)","Herblore,Melee,Slayer","Herblore,Melee",yes,"Melee-boost potion; not slayer-specific. Dropped Slayer.",medium
+12697,"Super combat potion(3)","Herblore,Melee,Slayer","Herblore,Melee",yes,"Melee-boost potion. Dropped Slayer.",medium
+12699,"Super combat potion(2)","Herblore,Melee,Slayer","Herblore,Melee",yes,"Melee-boost potion. Dropped Slayer.",medium
+12701,"Super combat potion(1)","Herblore,Melee,Slayer","Herblore,Melee",yes,"Melee-boost potion. Dropped Slayer.",medium
+12703,"Pet penance queen","Cosmetics","Cosmetics",no,"Barbarian Assault pet.",high
+12727,"Goblin paint cannon","Cosmetics,Melee","Cosmetics",yes,"Event fun item (no combat stats). Dropped Melee.",high
+12728,"Air rune pack","Mage,Slayer","Mage,Runecraft",yes,"Pack of air runes. Dropped Slayer, added Runecraft.",high
+12730,"Water rune pack","Mage,Slayer","Mage,Runecraft",yes,"Pack of water runes. Dropped Slayer, added Runecraft.",high
+12732,"Earth rune pack","Mage,Slayer","Mage,Runecraft",yes,"Pack of earth runes. Dropped Slayer, added Runecraft.",high
+12734,"Fire rune pack","Mage,Slayer","Mage,Runecraft",yes,"Pack of fire runes. Dropped Slayer, added Runecraft.",high
+12736,"Mind rune pack","Mage,Slayer","Mage,Runecraft",yes,"Pack of mind runes. Dropped Slayer, added Runecraft.",high
+12738,"Chaos rune pack","Mage,Slayer","Mage,Runecraft",yes,"Pack of chaos runes. Dropped Slayer, added Runecraft.",high
+12740,"Bird snare pack","Hunter,Slayer","Hunter",yes,"Hunter tool pack. Dropped spurious Slayer.",high
+12742,"Box trap pack","Hunter,Slayer","Hunter",yes,"Hunter tool pack. Dropped spurious Slayer.",high
+12744,"Magic imp box pack","Hunter,Slayer","Hunter",yes,"Hunter tool pack. Dropped spurious Slayer.",high
+12746,"Archaic emblem (tier 1)","Misc","Misc",no,"Bounty Hunter PvP reward token.",high
+12747,"Archaic emblem (tier 1)","Misc","Misc",no,"Bounty Hunter PvP reward token.",high
+12757,"Blue dark bow paint","Cosmetics","Cosmetics",no,"Cosmetic recolour item.",high
+12759,"Green dark bow paint","Cosmetics","Cosmetics",no,"Cosmetic recolour item.",high
+12761,"Yellow dark bow paint","Cosmetics","Cosmetics",no,"Cosmetic recolour item.",high
+12763,"White dark bow paint","Cosmetics","Cosmetics",no,"Cosmetic recolour item.",high
+12769,"Frozen whip mix","Cosmetics,Melee,Slayer","Cosmetics",yes,"Cosmetic whip recolour (no bonuses). Dropped Melee/Slayer.",high
+12771,"Volcanic whip mix","Cosmetics,Melee,Slayer","Cosmetics",yes,"Cosmetic whip recolour (no bonuses). Dropped Melee/Slayer.",high
+12773,"Volcanic abyssal whip","Cosmetics,Melee","Cosmetics,Melee",no,"Recoloured abyssal whip; warm-clothing doesn't add Firemaking.",high
+12774,"Frozen abyssal whip","Cosmetics,Melee","Cosmetics,Melee",no,"Recoloured abyssal whip.",high
+12775,"Annakarl teleport","Misc","Teleports",yes,"Ancient Magicks teleport tablet. Dropped Misc.",high
+12776,"Carrallanger teleport","Misc","Teleports",yes,"Ancient Magicks teleport tablet. Dropped Misc.",high
+12777,"Dareeyak teleport","Misc","Teleports",yes,"Ancient Magicks teleport tablet. Dropped Misc.",high
+12778,"Ghorrock teleport","Misc","Teleports",yes,"Ancient Magicks teleport tablet. Dropped Misc.",high
+12779,"Kharyrll teleport","Misc","Teleports",yes,"Ancient Magicks teleport tablet. Dropped Misc.",high
+12780,"Lassar teleport","Misc","Teleports",yes,"Ancient Magicks teleport tablet. Dropped Misc.",high
+12781,"Paddewwa teleport","Misc","Teleports",yes,"Ancient Magicks teleport tablet. Dropped Misc.",high
+12782,"Senntisten teleport","Misc","Teleports",yes,"Ancient Magicks teleport tablet. Dropped Misc.",high
+12783,"Ring of wealth scroll","Misc","Misc",no,"Ring-of-wealth imbue scroll (utility).",high
+12785,"Ring of wealth (i)","Misc","Teleports,Misc",yes,"Imbued RoW: teleports + drop-luck. Added Teleports.",medium
+12786,"Magic shortbow scroll","Misc,Range","Misc",yes,"One-use imbue scroll (utility). Dropped Range.",medium
+12788,"Magic shortbow (i)","Range","Range",no,"Imbued magic shortbow (Range).",high
+12789,"Clue box","Misc","Misc",no,"Utility item (protects clue on death).",high
+12791,"Rune pouch","Mage,Slayer","Mage",yes,"Rune storage/casting (Mage). Dropped spurious Slayer.",high
+12792,"Nest box (empty)","Farming","Farming",no,"Bird-nest (seed) container.",medium
+12793,"Nest box (seeds)","Farming","Farming",no,"Opens into a seed bird nest.",medium
+12795,"Steam battlestaff","Cosmetics,Mage","Cosmetics,Mage",no,"Ornamented steam battlestaff (Mage).",high
+12796,"Mystic steam staff","Cosmetics,Mage","Cosmetics,Mage",no,"Ornamented mystic steam staff (Mage).",high
+12797,"Dragon pickaxe","Cosmetics,Melee,Mining + Smithing","Cosmetics,Melee,Mining + Smithing",no,"Ornamented dragon pickaxe (tool + weapon).",high
+12798,"Steam staff upgrade kit","Cosmetics,Mage","Cosmetics",yes,"Cosmetic recolour kit (no function). Dropped Mage.",high
+12800,"Dragon pickaxe upgrade kit","Cosmetics,Mining + Smithing","Cosmetics",yes,"Cosmetic recolour kit (no function). Dropped Mining + Smithing.",high
+12802,"Ward upgrade kit","Cosmetics","Cosmetics",no,"Cosmetic ward recolour kit.",high
+12804,"Saradomin's tear","Melee,Misc","Melee",yes,"Upgrade material for Saradomin's blessed sword (Melee). Dropped Misc.",medium
+12806,"Malediction ward","Cosmetics,Mage","Cosmetics,Mage",no,"Ornamented malediction ward (magic shield).",high
+12807,"Odium ward","Cosmetics,Range","Cosmetics,Range",no,"Ornamented odium ward (ranged shield).",high
+12809,"Saradomin's blessed sword","Melee","Melee",no,"2h melee sword; +2 prayer incidental.",high
+12810,"Ironman helm","Cosmetics","Cosmetics,Melee",yes,"Ironman helm (iron stats); harmonized with set. Added Melee.",medium
+12811,"Ironman platebody","Cosmetics,Melee","Cosmetics,Melee",no,"Ironman body (iron stats).",high
+12812,"Ironman platelegs","Cosmetics,Melee","Cosmetics,Melee",no,"Ironman legs (iron stats).",high
+12813,"Ultimate ironman helm","Cosmetics,Melee","Cosmetics,Melee",no,"Ultimate-ironman helm.",high
+12814,"Ultimate ironman platebody","Cosmetics,Melee","Cosmetics,Melee",no,"Ultimate-ironman body.",high
+12815,"Ultimate ironman platelegs","Cosmetics,Melee","Cosmetics,Melee",no,"Ultimate-ironman legs.",high
+12816,"Pet dark core","Cosmetics","Cosmetics",no,"Corporeal Beast pet.",high
+12817,"Elysian spirit shield","Melee,Prayer","Melee,Prayer",no,"Tank shield (75 Def/Prayer req).",medium
+12819,"Elysian sigil","Melee,Misc,Prayer","Melee,Prayer",yes,"Component for elysian shield; takes shield's tabs. Dropped Misc.",medium
+12821,"Spectral spirit shield","Melee,Prayer","Melee,Prayer",no,"Tank shield (reduces prayer drain).",medium
+12823,"Spectral sigil","Misc,Prayer","Melee,Prayer",yes,"Component for spectral shield. Added Melee, dropped Misc.",medium
+12825,"Arcane spirit shield","Mage,Prayer","Mage,Prayer",no,"Magic tank shield.",medium
+12827,"Arcane sigil","Mage,Prayer","Mage,Prayer",no,"Component for arcane shield.",medium
+12829,"Spirit shield","Melee,Prayer","Melee,Prayer",no,"Budget tank shield (Prayer req).",medium
+12831,"Blessed spirit shield","Melee,Prayer","Melee,Prayer",no,"Tank shield (Prayer req).",medium
+12833,"Holy elixir","Misc,Prayer","Prayer",yes,"Consumed (85 Prayer) to bless a spirit shield. Dropped Misc.",medium
+12835,"Community pumpkin","Cosmetics","Misc",yes,"JMod event-spawner item (like holiday tool). Dropped Cosmetics.",low
+12836,"Grim reaper's diary","Cosmetics","Cosmetics",no,"2014 Halloween event item.",high
+12837,"Grim robe","Cosmetics","Cosmetics",no,"2014 Halloween event item.",high
+12838,"Will and testament","Cosmetics","Cosmetics",no,"2014 Halloween event item.",high
+12839,"Human bones","Cosmetics","Cosmetics",no,"2014 Halloween event item.",high

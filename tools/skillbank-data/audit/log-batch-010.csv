@@ -1,0 +1,1085 @@
+id,name,old_tabs,new_tabs,changed,rationale,confidence
+30384,"Crystal blessing","Melee,Misc","Mage,Melee,Misc",yes,"Ammo-slot blessing extending crystal-armour bonus to all melee + magic powered weapons -> Mage, Melee, Misc; added Mage (flagged).",medium
+30386,"Sunlit bracers","Melee,Misc","Melee,Misc",no,"Grid Master tribrid gloves (double-heal) -> Melee, Misc as tagged (all-style accessory; Mage/Range flagged).",medium
+30388,"Thunder khopesh","Melee","Melee",no,"Grid Master melee sword -> Melee.",high
+30390,"Nature's reprisal","Melee,Misc","Mage,Melee,Misc,Range",yes,"Multi-Style 2h weapon attacking with all three styles -> Mage, Melee, Range, Misc; added Mage/Range (flagged, tri-style weapon).",medium
+30392,"Nature's reprisal (uncharged)","Melee,Misc","Mage,Melee,Misc,Range",yes,"Multi-Style 2h weapon attacking with all three styles -> Mage, Melee, Range, Misc; added Mage/Range (flagged, tri-style weapon).",medium
+30393,"Asgarnia echo orb","Misc","Misc",no,"Leagues boss-challenge unlock orb -> Misc.",high
+30394,"Desert echo orb","Misc","Misc",no,"Leagues boss-challenge unlock orb -> Misc.",high
+30395,"Fremennik echo orb","Misc","Misc",no,"Leagues boss-challenge unlock orb -> Misc.",high
+30396,"Kandarin echo orb","Misc","Misc",no,"Leagues boss-challenge unlock orb -> Misc.",high
+30397,"Morytania echo orb","Misc","Misc",no,"Leagues boss-challenge unlock orb -> Misc.",high
+30398,"Tirannwn echo orb","Misc","Misc",no,"Leagues boss-challenge unlock orb -> Misc.",high
+30399,"Wilderness echo orb","Misc","Misc",no,"Leagues boss-challenge unlock orb -> Misc.",high
+30400,"Kourend echo orb","Misc","Misc",no,"Leagues boss-challenge unlock orb -> Misc.",high
+30401,"Varlamore echo orb","Misc","Misc",no,"Leagues boss-challenge unlock orb -> Misc.",high
+30402,"Raids megarare voucher","Misc","Misc",no,"Leagues raid-megarare redemption voucher -> Misc.",high
+30404,"Raging echoes hat (t1)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30406,"Raging echoes top (t1)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30408,"Raging echoes robeskirt (t1)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30410,"Raging echoes boots (t1)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30412,"Raging echoes hat (t2)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30414,"Raging echoes top (t2)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30416,"Raging echoes robeskirt (t2)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30418,"Raging echoes boots (t2)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30420,"Raging echoes hat (t3)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30422,"Raging echoes top (t3)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30424,"Raging echoes robeskirt (t3)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30426,"Raging echoes boots (t3)","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic outfit -> Cosmetics.",high
+30428,"Raging echoes cane","Cosmetics","Cosmetics",no,"Leagues V Relic Hunter cosmetic cane -> Cosmetics.",high
+30430,"Raging echoes banner","Cosmetics","Cosmetics",no,"Leagues V cosmetic banner -> Cosmetics.",high
+30432,"Echo venator bow ornament kit","Cosmetics,Range","Cosmetics",yes,"Cosmetic recolour kit for the venator bow -> Cosmetics; dropped Range (kit is not the gear).",medium
+30434,"Echo venator bow","Cosmetics,Range","Cosmetics,Range",no,"Recoloured venator bow (Ranged weapon) -> Range, Cosmetics.",high
+30436,"Echo venator bow (uncharged)","Cosmetics,Range","Cosmetics,Range",no,"Recoloured venator bow (Ranged weapon) -> Range, Cosmetics.",high
+30437,"Echo virtus mask","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured Virtus magic mask -> Mage, Cosmetics.",high
+30439,"Echo virtus robe top","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured Virtus magic robe -> Mage, Cosmetics.",high
+30441,"Echo virtus robe bottom","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured Virtus magic robe -> Mage, Cosmetics.",high
+30443,"Echo virtus ornament kit","Cosmetics,Mage","Cosmetics",yes,"Cosmetic recolour kit for Virtus robes -> Cosmetics; dropped Mage (kit is not the gear).",medium
+30445,"Echo ahrim's hood","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured Ahrim's magic hood -> Mage, Cosmetics.",high
+30447,"Echo ahrim's robetop","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured Ahrim's magic robe -> Mage, Cosmetics.",high
+30449,"Echo ahrim's robeskirt","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured Ahrim's magic robe -> Mage, Cosmetics.",high
+30451,"Echo ahrim's ornament kit","Cosmetics,Mage","Cosmetics",yes,"Cosmetic recolour kit for Ahrim's robes -> Cosmetics; dropped Mage (kit is not the gear).",medium
+30453,"Echo home teleport scroll","Cosmetics","Cosmetics",no,"Home Teleport animation override (cosmetic) -> Cosmetics.",high
+30455,"Raging echoes death scroll","Cosmetics","Cosmetics",no,"Death animation override (cosmetic) -> Cosmetics.",high
+30457,"Raging echoes npc contact scroll","Cosmetics","Cosmetics",no,"NPC Contact animation override (cosmetic) -> Cosmetics.",high
+30459,"Raging echoes nexus scroll","Construction,Cosmetics","Cosmetics",yes,"Cosmetic recolour for the POH nexus -> Cosmetics; dropped Construction (skin, not the build) per ornament-kit rule (flagged).",medium
+30461,"Raging echoes portal scroll","Construction,Cosmetics","Cosmetics",yes,"Cosmetic recolour for the POH portal -> Cosmetics; dropped Construction (skin, not the build) per ornament-kit rule (flagged).",medium
+30465,"Raging echoes dragon trophy","Cosmetics","Cosmetics",no,"Leagues V participation trophy (cosmetic) -> Cosmetics.",high
+30467,"Raging echoes rune trophy","Cosmetics","Cosmetics",no,"Leagues V participation trophy (cosmetic) -> Cosmetics.",high
+30469,"Raging echoes adamant trophy","Cosmetics","Cosmetics",no,"Leagues V participation trophy (cosmetic) -> Cosmetics.",high
+30471,"Raging echoes mithril trophy","Cosmetics","Cosmetics",no,"Leagues V participation trophy (cosmetic) -> Cosmetics.",high
+30473,"Raging echoes steel trophy","Cosmetics","Cosmetics",no,"Leagues V participation trophy (cosmetic) -> Cosmetics.",high
+30475,"Raging echoes iron trophy","Cosmetics","Cosmetics",no,"Leagues V participation trophy (cosmetic) -> Cosmetics.",high
+30477,"Raging echoes bronze trophy","Cosmetics","Cosmetics",no,"Leagues V participation trophy (cosmetic) -> Cosmetics.",high
+30479,"Present box hat","Cosmetics","Cosmetics",no,"2024 Christmas event cosmetic -> Cosmetics.",high
+30487,"Dog disguise","Cosmetics","Cosmetics",no,"2024 Christmas event cosmetic -> Cosmetics.",high
+30489,"Festive scarf","Cosmetics","Cosmetics",no,"2024 Christmas event cosmetic -> Cosmetics.",high
+30491,"Dog boots","Cosmetics","Cosmetics",no,"2024 Christmas event cosmetic -> Cosmetics.",high
+30493,"Invitations","Cosmetics","Cosmetics",no,"2024 Christmas event item -> Cosmetics.",high
+30554,"Raging echoes rug","Construction,Cosmetics","Construction,Cosmetics",no,"POH build item (Leagues reward) -> Construction, Cosmetics.",high
+30557,"Raging echoes curtains","Construction,Cosmetics","Construction,Cosmetics",no,"POH build item (Leagues reward) -> Construction, Cosmetics.",high
+30560,"Raging echoes scrying pool scroll","Construction,Cosmetics","Cosmetics",yes,"Cosmetic recolour for the POH scrying pool -> Cosmetics; dropped Construction (skin, not the build) per ornament-kit rule (flagged).",medium
+30563,"Raging echoes spirit tree scroll","Construction,Cosmetics","Cosmetics",yes,"Cosmetic recolour for the POH spirit tree -> Cosmetics; dropped Construction (skin, not the build) per ornament-kit rule (flagged).",medium
+30568,"Echo ahrim's staff","Cosmetics,Mage","Cosmetics,Mage",no,"Recoloured Ahrim's magic staff -> Mage, Cosmetics.",high
+30576,"Bounty supply crate","Misc","Misc",no,"Unobtainable BH supply crate -> Misc.",high
+30579,"Collection log","Cosmetics","Cosmetics",no,"Bronze collection log book (cosmetic display) -> Cosmetics.",high
+30581,"Collection log","Cosmetics","Cosmetics",no,"Iron collection log book (cosmetic display) -> Cosmetics.",high
+30583,"Collection log","Cosmetics","Cosmetics",no,"Steel collection log book (cosmetic display) -> Cosmetics.",high
+30585,"Collection log","Cosmetics","Cosmetics",no,"Black collection log book (cosmetic display) -> Cosmetics.",high
+30587,"Collection log","Cosmetics","Cosmetics",no,"Mithril collection log book (cosmetic display) -> Cosmetics.",high
+30589,"Collection log","Cosmetics","Cosmetics",no,"Adamant collection log book (cosmetic display) -> Cosmetics.",high
+30591,"Collection log","Cosmetics","Cosmetics",no,"Rune collection log book (cosmetic display) -> Cosmetics.",high
+30593,"Collection log","Cosmetics","Cosmetics",no,"Dragon collection log book (cosmetic display) -> Cosmetics.",high
+30595,"Collection log","Cosmetics","Cosmetics",no,"Gilded collection log book (cosmetic display) -> Cosmetics.",high
+30597,"Bronze staff of collection","Cosmetics","Cosmetics",no,"Cosmetic collection-log access staff -> Cosmetics.",high
+30599,"Iron staff of collection","Cosmetics","Cosmetics",no,"Cosmetic collection-log access staff -> Cosmetics.",high
+30601,"Steel staff of collection","Cosmetics","Cosmetics",no,"Cosmetic collection-log access staff -> Cosmetics.",high
+30603,"Black staff of collection","Cosmetics","Cosmetics",no,"Cosmetic collection-log access staff -> Cosmetics.",high
+30605,"Mithril staff of collection","Cosmetics","Cosmetics",no,"Cosmetic collection-log access staff -> Cosmetics.",high
+30607,"Adamant staff of collection","Cosmetics","Cosmetics",no,"Cosmetic collection-log access staff -> Cosmetics.",high
+30609,"Rune staff of collection","Cosmetics","Cosmetics",no,"Cosmetic collection-log access staff -> Cosmetics.",high
+30611,"Dragon staff of collection","Cosmetics","Cosmetics",no,"Cosmetic collection-log access staff -> Cosmetics.",high
+30613,"Gilded staff of collection","Cosmetics","Cosmetics",no,"Cosmetic collection-log access staff -> Cosmetics.",high
+30616,"Bounty supply crate (manta ray)","Misc","Misc",no,"Bounty Hunter supply crate -> Misc.",high
+30619,"Bounty supply crate (anglerfish)","Misc","Misc",no,"Bounty Hunter supply crate -> Misc.",high
+30622,"Bran","Cosmetics","Cosmetics",no,"Royal Titans (combat boss) pet -> Cosmetics.",high
+30626,"Deadeye prayer scroll","Prayer,Range","Prayer,Range",no,"Unlocks the Deadeye prayer (Ranged, replaces Eagle Eye) -> Prayer, Range.",high
+30627,"Mystic vigour prayer scroll","Prayer","Mage,Prayer",yes,"Unlocks the Mystic Vigour prayer (Magic, replaces Mystic Might) -> Mage, Prayer; added Mage to match the deadeye scroll (flagged).",medium
+30628,"Ice element staff crown","Mage,Quests","Mage",yes,"Twinflame (magic) staff component -> Mage; dropped spurious Quests (matches the fire crown).",medium
+30631,"Fire element staff crown","Mage","Mage",no,"Twinflame (magic) staff component -> Mage.",high
+30634,"Twinflame staff","Mage","Mage",no,"Magic staff (infinite fire+water runes) -> Mage.",high
+30637,"Giantsoul amulet (uncharged)","Misc,Slayer","Teleports",yes,"Amulet teleporting to Bryophyta/Obor/Royal Titans lairs -> Teleports; dropped Misc/Slayer (teleport device, not slayer gear; flagged).",medium
+30638,"Giantsoul amulet","Misc,Slayer","Teleports",yes,"Amulet teleporting to Bryophyta/Obor/Royal Titans lairs -> Teleports; dropped Misc/Slayer (teleport device, not slayer gear; flagged).",medium
+30640,"Desiccated page","Mage,Runecraft","Mage,Runecraft",no,"Royal Titans loot; charges the tome of earth and is made into soiled pages via Runecraft -> Mage, Runecraft.",medium
+30644,"Hunters' loot sack (supplies)","Hunter,Misc","Hunter,Misc",no,"Hunters' Rumours supply reward sack -> Hunter, Misc.",high
+30646,"Classic imp tail","Cosmetics","Cosmetics",no,"2025 Birthday event cosmetic -> Cosmetics.",high
+30648,"Classic imp hood","Cosmetics","Cosmetics",no,"2025 Birthday event cosmetic -> Cosmetics.",high
+30676,"Nimbleness charm","Agility + Thieving","Agility + Thieving",no,"Deadman charm boosting run/agility -> Agility + Thieving.",medium
+30679,"Stockpiling charm","Misc","Misc",no,"Deadman utility charm -> Misc.",high
+30682,"Accumulation charm","Misc","Misc",no,"Deadman utility charm -> Misc.",high
+30685,"Vulnerability charm","Misc","Misc",no,"Deadman utility charm -> Misc.",high
+30688,"Broken charm","Misc","Misc",no,"Broken Deadman charm -> Misc.",high
+30689,"Trinket dust","Misc","Misc",no,"Deadman trinket remains -> Misc.",high
+30690,"Castle wars supply crate","Misc","Misc",no,"Castle Wars supply crate -> Misc.",high
+30692,"Rune pouch","Mage,Misc","Mage,Misc",no,"Castle Wars rune pouch (holds spell runes) -> Mage, Misc (minigame item).",medium
+30694,"Castle wars arrow","Misc,Range","Misc,Range",no,"Castle Wars-exclusive Ranged ammo -> Misc, Range (minigame ammo; Misc-vs-Range flagged).",medium
+30696,"Castle wars bolts","Misc,Range","Misc,Range",no,"Castle Wars-exclusive Ranged ammo -> Misc, Range (minigame ammo; Misc-vs-Range flagged).",medium
+30708,"Carrot juice glass","Cosmetics","Cosmetics",no,"2025 Easter event item -> Cosmetics.",high
+30709,"Recipe for easter buns","Cosmetics","Cosmetics",no,"2025 Easter event item -> Cosmetics.",high
+30717,"Raisins","Cosmetics","Cosmetics",no,"2025 Easter event ingredient -> Cosmetics.",high
+30720,"Carrot costume hat","Cosmetics","Cosmetics",no,"2025 Easter cosmetic -> Cosmetics.",high
+30722,"Carrot costume body","Cosmetics","Cosmetics",no,"2025 Easter cosmetic -> Cosmetics.",high
+30724,"Carrot costume tights","Cosmetics","Cosmetics",no,"2025 Easter cosmetic -> Cosmetics.",high
+30726,"Carrot costume gloves","Cosmetics","Cosmetics",no,"2025 Easter cosmetic -> Cosmetics.",high
+30744,"Oathplate armour set","Melee,Misc","Melee,Misc",no,"GE set placeholder for the melee oathplate armour -> Melee, Misc.",medium
+30747,"Demon dung","Farming","Farming",no,"Yama drop usable as ultracompost (Farming) -> Farming.",high
+30750,"Oathplate helm","Melee","Melee",no,"Melee armour (Yama) -> Melee.",high
+30753,"Oathplate chest","Melee","Melee",no,"Melee armour (Yama) -> Melee.",high
+30756,"Oathplate legs","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee armour -> Melee; dropped Mining + Smithing to match helm/chest (finished-gear rule; flagged).",medium
+30759,"Soulflame horn","Melee","Melee",no,"Melee support weapon (empowers melee; Magic level req is not a function) -> Melee.",medium
+30763,"Forgotten lockbox","Misc","Misc",no,"Yama reward box -> Misc.",high
+30765,"Oathplate shards","Melee,Mining + Smithing","Mining + Smithing",yes,"Smithing precursor (83 Smithing) for oathplate armour -> Mining + Smithing; dropped Melee (precursor, not worn; visage rule; flagged).",medium
+30771,"Aether catalyst","Runecraft","Runecraft",no,"Used to make aether runes -> Runecraft.",high
+30773,"Diabolic worms","Fishing","Fishing",no,"Fishing enhancer/bait for anglerfish -> Fishing.",high
+30775,"Chasm teleport scroll","Misc","Teleports",yes,"Consumable teleport scroll to the Chasm of Fire -> Teleports.",high
+30777,"Radiant oathplate helm","Cosmetics,Melee","Cosmetics,Melee",no,"Cosmetically purified oathplate helm (melee armour) -> Melee, Cosmetics.",high
+30779,"Radiant oathplate chest","Cosmetics,Melee","Cosmetics,Melee",no,"Cosmetically purified oathplate chest (melee armour) -> Melee, Cosmetics.",high
+30781,"Radiant oathplate legs","Cosmetics,Melee","Cosmetics,Melee",no,"Cosmetically purified oathplate legs (melee armour) -> Melee, Cosmetics.",high
+30783,"Purifying sigil (left)","Cosmetics","Cosmetics",no,"Cosmetic recolour sigil piece (oathplate purify) -> Cosmetics.",high
+30785,"Purifying sigil (right)","Cosmetics,Melee","Cosmetics",yes,"Cosmetic recolour sigil piece -> Cosmetics; dropped Melee to match the other pieces (flagged).",medium
+30787,"Purifying sigil (middle)","Cosmetics,Melee","Cosmetics",yes,"Cosmetic recolour sigil piece -> Cosmetics; dropped Melee to match the other pieces (flagged).",medium
+30789,"Purifying sigil (top)","Cosmetics","Cosmetics",no,"Cosmetic recolour sigil piece (oathplate purify) -> Cosmetics.",high
+30791,"Purifying sigil (bottom)","Cosmetics,Melee","Cosmetics",yes,"Cosmetic recolour sigil piece -> Cosmetics; dropped Melee to match the other pieces (flagged).",medium
+30793,"Purifying sigil","Cosmetics,Melee","Cosmetics",yes,"Assembled cosmetic recolour applicator for oathplate -> Cosmetics; dropped Melee (applicator, not gear; flagged).",medium
+30795,"Barrel of demonic tallow (full)","Herblore","Herblore",no,"Herblore secondary (surge potions) -> Herblore.",high
+30800,"Demonic tallow","Herblore","Herblore",no,"Herblore secondary (surge potions) -> Herblore.",high
+30803,"Dossier","Misc","Misc",no,"Yama drop opened for contracts/scrolls -> Misc.",high
+30806,"Rite of vile transference","Mage","Mage",no,"Scroll upgrading the Death Charge spell (Magic) -> Mage.",high
+30808,"Jim's wet cloth","Mining + Smithing","Mining + Smithing",no,"Novelty item from the infernal-shale mining area -> Mining + Smithing as tagged.",medium
+30810,"Contract of glyphic attenuation","Melee,Misc","Misc",yes,"Yama challenge-contract token -> Misc; dropped spurious Melee (contract-family normalisation; flagged).",medium
+30813,"Contract of sensory clouding","Mage,Misc","Misc",yes,"Yama challenge-contract token -> Misc; dropped spurious Mage (contract-family normalisation).",medium
+30816,"Contract of bloodied blows","Melee,Misc","Misc",yes,"Yama challenge-contract token -> Misc; dropped spurious Melee (contract-family normalisation).",medium
+30819,"Contract of divine severance","Misc,Quests","Misc",yes,"Yama challenge-contract token -> Misc; dropped spurious Quests (contract-family normalisation).",medium
+30822,"Contract of forfeit breath","Misc,Quests","Misc",yes,"Yama challenge-contract token -> Misc; dropped spurious Quests (contract-family normalisation).",medium
+30825,"Contract of oathplate acquisition","Melee,Misc","Misc",yes,"Yama challenge-contract token -> Misc; dropped spurious Melee (contract-family normalisation).",medium
+30828,"Contract of shard acquisition","Misc","Misc",no,"Yama challenge-contract token -> Misc.",high
+30831,"Contract of catalyst acquisition","Misc","Misc",no,"Yama challenge-contract token -> Misc.",high
+30834,"Contract of worm acquisition","Misc","Misc",no,"Yama challenge-contract token -> Misc.",high
+30837,"Contract of harmony acquisition","Misc","Misc",no,"Yama challenge-contract token -> Misc.",high
+30840,"Contract of familiar acquisition","Misc","Misc",no,"Yama challenge-contract token -> Misc.",high
+30843,"Aether rune","Mage,Runecraft","Mage,Runecraft",no,"Combination cosmic+soul rune (cast in spells, crafted) -> Mage, Runecraft.",high
+30846,"Infernal shale","Mining + Smithing","Mining + Smithing",no,"Mined ore (78 Mining) for oathplate armour -> Mining + Smithing.",high
+30848,"Crushed infernal shale","Mining + Smithing","Mining + Smithing",no,"Smithing material for oathplate armour -> Mining + Smithing.",high
+30854,"Infernal blend","Mining + Smithing","Mining + Smithing",no,"Smithing intermediate for infernal plates -> Mining + Smithing.",high
+30856,"Malformed infernal blend","Mining + Smithing","Mining + Smithing",no,"Failed smithing quench result -> Mining + Smithing.",high
+30858,"Infernal nugget","Mining + Smithing","Mining + Smithing",no,"Smithing intermediate for infernal plates -> Mining + Smithing.",high
+30860,"Cooled infernal chunk","Mining + Smithing","Mining + Smithing",no,"Smithing intermediate (cooled) -> Mining + Smithing.",high
+30862,"Infernal chunk","Mining + Smithing","Mining + Smithing",no,"Smithing intermediate for infernal plates -> Mining + Smithing.",high
+30864,"Infernal plate","Mining + Smithing","Mining + Smithing",no,"Smithed into oathplate armour -> Mining + Smithing.",high
+30875,"Surge potion(4)","Herblore,Melee","Herblore,Melee",no,"Herblore combat potion (torstol base + demonic tallow) -> Herblore, Melee.",medium
+30878,"Surge potion(3)","Herblore,Melee","Herblore,Melee",no,"Herblore combat potion (torstol base + demonic tallow) -> Herblore, Melee.",medium
+30881,"Surge potion(2)","Herblore,Melee","Herblore,Melee",no,"Herblore combat potion (torstol base + demonic tallow) -> Herblore, Melee.",medium
+30884,"Surge potion(1)","Herblore,Melee","Herblore,Melee",no,"Herblore combat potion (torstol base + demonic tallow) -> Herblore, Melee.",medium
+30887,"Polycatalytic guardian stone","Runecraft","Runecraft",no,"Guardians of the Rift Great Guardian power-up stone -> Runecraft.",high
+30888,"Yami","Cosmetics","Cosmetics",no,"Yama (combat boss) pet -> Cosmetics.",high
+30890,"Rotten turnip","Misc","Misc",no,"Dev/plugin tool item (cache-only) -> Misc.",high
+30891,"Keris partisan of amascut","Melee,Slayer","Melee,Slayer",no,"Melee spear with kalphite/scabarite bonus (ToA) -> Melee, Slayer.",medium
+30893,"Jewel of amascut","Melee,Quests","Melee",yes,"ToA jewel upgrading the keris partisan (melee) -> Melee; dropped Quests (not a quest item; ToA-jewel rule).",medium
+30895,"Steel ring","Melee","Melee",no,"Best-in-slot melee defensive ring (deranged archaeologist) -> Melee.",high
+30898,"Giant bones","Prayer","Prayer",no,"Buriable bones for 150 Prayer XP (Obor/Bryophyta) -> Prayer.",high
+30900,"Shark lure","Fishing","Fishing",no,"Fishing bait/enhancer for raw sharks -> Fishing.",high
+30902,"Minor beginner scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30904,"Major beginner scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30906,"Minor easy scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30908,"Major easy scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30910,"Minor medium scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30912,"Major medium scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30914,"Minor hard scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30916,"Major hard scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30918,"Minor elite scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30920,"Major elite scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30922,"Minor master scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30924,"Major master scroll case","Misc","Misc",no,"Clue scroll-case reward -> Misc.",high
+30926,"Mimic scroll case","Misc","Misc",no,"Mimic-boss scroll-case reward -> Misc.",high
+30928,"Clue scroll (easy)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+30929,"Clue scroll (hard)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+30931,"Clue scroll (hard)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+30932,"Clue scroll (elite)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+30933,"Clue scroll (medium)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+30935,"Clue scroll (medium)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+30936,"Wet fabric scrap","Quests","Quests",no,"Shadows of Custodia quest item -> Quests.",high
+30937,"Caerula berries","Farming,Herblore","Farming,Herblore",no,"Picked berries used in Herblore -> Farming, Herblore.",medium
+30939,"Mind mender","Quests","Quests",no,"Unreleased quest item (An Existential Crisis) -> Quests.",high
+30940,"Gus (dog tag)","Quests","Quests",no,"The Final Dawn interface item -> Quests.",high
+30941,"Coin purse","Quests","Quests",no,"The Final Dawn quest item -> Quests.",high
+30944,"Makeshift blackjack","Quests","Quests",no,"The Final Dawn quest item -> Quests.",high
+30945,"Branch","Quests","Quests",no,"The Final Dawn quest item -> Quests.",high
+30946,"null (basement key)","Quests","Quests",no,"The Final Dawn basement key (null-name item) -> Quests.",high
+30947,"Potato sack","Cosmetics,Quests","Cosmetics,Quests",no,"The Final Dawn cosmetic headwear -> Cosmetics, Quests.",high
+30949,"Emissary scroll","Quests","Quests",no,"The Final Dawn quest item -> Quests.",high
+30950,"Canvas piece","Quests","Quests",no,"The Final Dawn quest item -> Quests.",high
+30951,"Key","Misc,Quests","Quests",yes,"The Final Dawn quest key -> Quests; dropped Misc (align with other quest keys).",medium
+30953,"Stone tablet","Misc","Misc",no,"Mokhaiotl lore tablet (non-quest) -> Misc.",high
+30954,"Stone tablet","Quests","Quests",no,"The Final Dawn quest lore tablet -> Quests.",high
+30955,"Arkan blade","Melee,Quests","Melee",yes,"Usable melee sword (The Final Dawn reward) -> Melee; dropped Quests (quest-usable-gear rule; flagged).",medium
+30957,"Earthbound tecpatl","Melee","Melee",no,"Two-handed melee stab weapon (nagua drop) -> Melee.",high
+30960,"Antique lamp","Quests","Quests",no,"The Final Dawn combat-XP lamp reward -> Quests.",high
+30961,"Keystone fragment","Quests","Quests",no,"The Final Dawn quest item -> Quests.",high
+30962,"Kuhu essence","Quests","Quests",no,"The Final Dawn quest puzzle item -> Quests.",high
+30963,"Ancient roots","Quests","Quests",no,"The Final Dawn quest puzzle item -> Quests.",high
+30964,"Root kindling","Quests","Quests",no,"The Final Dawn quest puzzle item -> Quests.",high
+30965,"Knife blade","Quests","Quests",no,"The Final Dawn quest puzzle item -> Quests.",high
+30966,"Ancient teleporter","Misc,Quests","Teleports",yes,"Portable teleporter (post-The Final Dawn) -> Teleports; dropped Misc/Quests (flagged).",medium
+30967,"Large egg","Quests","Quests",no,"Scrambled! quest item -> Quests.",high
+30968,"Dragon egg","Quests","Quests",no,"Scrambled! quest item -> Quests.",high
+30969,"Jaguar egg","Quests","Quests",no,"Scrambled! quest item -> Quests.",high
+30970,"Egg","Cosmetics,Quests","Cosmetics,Quests",no,"Humphrey Dumphrey (Scrambled! quest pet) -> Cosmetics, Quests.",high
+30973,"Alan's bones","Prayer,Quests","Prayer",yes,"Buriable bones for Prayer (Scrambled!) -> Prayer; dropped Quests (Prayer input usable post-quest; flagged).",medium
+30975,"Alan's bonemeal","Prayer","Prayer",no,"Ectofuntus bonemeal for Prayer -> Prayer.",high
+30977,"Damiana leaves","Cooking","Cooking",no,"Picked leaves for damiana tea -> Cooking.",high
+30979,"Damiana water","Cooking","Cooking",no,"Damiana-leaf water for tea -> Cooking.",high
+30981,"Damiana tea","Cooking","Cooking",no,"Boiled damiana tea (food/drink) -> Cooking.",high
+30983,"Damiana tea","Cooking,Herblore","Cooking",yes,"Milky damiana tea (food/drink) -> Cooking; dropped Herblore (tea is not a Herblore product; flagged).",medium
+30985,"Cup of tea","Cooking","Cooking",no,"Cup of damiana tea (food/drink) -> Cooking.",high
+30987,"Cup of tea","Cooking","Cooking",no,"Cup of milky damiana tea (food/drink) -> Cooking.",high
+30989,"Acatzin's axe","Quests","Quests",no,"Scrambled! quest item (repaired) -> Quests.",high
+30997,"Events tool","Misc","Misc",no,"JMod events tool -> Misc.",high
+30998,"Atlatl dart tips","Fletching,Range","Fletching,Range",no,"Fletched ammo precursor for atlatl darts -> Fletching, Range.",high
+31004,"Atlatl dart shaft","Fletching,Range","Fletching,Range",no,"Fletched (74) ammo precursor for atlatl darts -> Fletching, Range.",high
+31010,"Headless atlatl dart","Fletching,Range","Fletching,Range",no,"Fletched ammo precursor for atlatl darts -> Fletching, Range.",high
+31016,"Sacraments of ent folk","Misc","Misc",no,"Vale Totems lore book -> Misc.",high
+31018,"Ent seed","Fletching","Fletching",no,"Rare Woodcutting drop tied to the ent/Vale-Totems fletching content -> Fletching as tagged (use unclear; flagged).",medium
+31024,"Greenman carving","Construction,Fletching","Construction,Fletching",no,"Fletched (79) POH-mountable carving -> Construction, Fletching.",high
+31027,"Greenman statue","Construction,Fletching","Construction,Fletching",no,"Fletched (53) POH-mountable statue -> Construction, Fletching.",high
+31032,"Ent branch","Construction,Fletching","Construction,Fletching",no,"Vale Totems material for fletched greenman mounts -> Construction, Fletching.",high
+31034,"Greenman mask","Cosmetics","Cosmetics",no,"Vale Totems cosmetic mask -> Cosmetics.",high
+31043,"Fletching knife","Fletching","Fletching",no,"Equippable Fletching knife (Vale Totems reward) -> Fletching.",high
+31045,"Bale of flax","Crafting,Fletching","Crafting,Fletching",no,"Vale Totems flax bundle (spun for bow strings) -> Crafting, Fletching.",medium
+31047,"Dirty arrowtips","Fletching,Range","Fletching,Range",no,"Vale Totems reward cleaned into Fletching arrowtips -> Fletching, Range.",high
+31049,"Redwood hiking staff","Cosmetics,Fletching","Cosmetics,Fletching",no,"Fletched decorative totem staff (no magic) -> Cosmetics, Fletching.",medium
+31052,"Bow string spool","Fletching","Fletching",no,"Vale Totems bow-string storage reward -> Fletching.",high
+31054,"Vale offerings","Fletching,Misc","Fletching,Misc",no,"Vale Totems reward loot -> Fletching, Misc.",medium
+31071,"Letter","Misc","Misc",no,"Lore letter (Auburnvale) -> Misc.",high
+31073,"Letter","Misc","Misc",no,"Lore letter (Sunset Coast) -> Misc.",high
+31075,"Alan's blessed bones","Prayer","Prayer",no,"Blessed bones for the Ralos Prayer method -> Prayer.",high
+31077,"On migration patterns","Hunter","Misc",yes,"Lore book on animal migration -> Misc; dropped Hunter (lore-book rule; flagged).",medium
+31079,"Auburn valley ecological reports","Hunter","Misc",yes,"Lore book of hunter reports -> Misc; dropped Hunter (lore-book rule; flagged).",medium
+31081,"Antler guard","Melee,Prayer","Melee,Prayer",no,"Tribrid offensive shield with prayer bonus (custodian stalker) -> Melee, Prayer as tagged (all-style shield; Mage/Range flagged).",medium
+31084,"Alchemist's signet","Herblore,Misc","Herblore,Misc",no,"Opens the Mixology Herblore-supply chest -> Herblore, Misc.",high
+31086,"Broken antler","Fletching","Fletching",no,"Custodian stalker drop chiselled into atlatl dart tips -> Fletching.",high
+31088,"Avernic treads","Melee,Slayer","Melee",yes,"Tribrid boots (Doom of Mokhaiotl) -> Melee; dropped Slayer (not a slayer boss; matches the (pr) variant; tribrid Mage/Range flagged).",medium
+31091,"Avernic treads (pr)","Melee","Melee",no,"Primordial-upgraded tribrid boots -> Melee (tribrid Mage/Range flagged).",medium
+31092,"Avernic treads (pe)","Range,Slayer","Range",yes,"Pegasian-upgraded tribrid boots -> Range; dropped Slayer (Mokhaiotl not a slayer boss; tribrid family flagged).",medium
+31093,"Avernic treads (et)","Melee,Slayer","Melee",yes,"Eternal-upgraded tribrid boots -> Melee as tagged; dropped Slayer (tribrid family flagged).",medium
+31094,"Avernic treads (pr)(pe)","Melee,Slayer","Melee",yes,"Dual-upgraded tribrid boots -> Melee as tagged; dropped Slayer (tribrid family flagged).",medium
+31095,"Avernic treads (pr)(et)","Melee,Slayer","Melee",yes,"Dual-upgraded tribrid boots -> Melee as tagged; dropped Slayer (tribrid family flagged).",medium
+31096,"Avernic treads (pe)(et)","Melee,Slayer","Melee",yes,"Dual-upgraded tribrid boots -> Melee as tagged; dropped Slayer (tribrid family flagged).",medium
+31097,"Avernic treads (max)","Melee,Slayer","Melee",yes,"Fully-upgraded tribrid boots -> Melee as tagged; dropped Slayer (tribrid family flagged).",medium
+31099,"Mokhaiotl waystone","Misc","Teleports",yes,"Consumable teleport to the Ruins of Mokhaiotl -> Teleports.",high
+31106,"Confliction gauntlets","Mage","Mage",no,"Best-in-slot magic gloves (upgraded tormented bracelet) -> Mage.",high
+31109,"Mokhaiotl cloth","Mage","Mage",no,"Upgrade material for the confliction gauntlets (magic gloves) -> Mage.",medium
+31111,"Demon tear","Misc,Quests","Misc",yes,"Multi-use charge/material (Eye of Ayak, treads, gauntlets) -> Misc; dropped spurious Quests (flagged).",medium
+31113,"Eye of ayak","Mage","Mage",no,"Powered Magic staff (Doom of Mokhaiotl) -> Mage.",high
+31115,"Eye of ayak (uncharged)","Mage","Mage",no,"Powered Magic staff (Doom of Mokhaiotl) -> Mage.",high
+31117,"Orange","Cosmetics","Cosmetics",no,"Head-slot novelty cosmetic (balance an orange) -> Cosmetics.",high
+31121,"Old letter","Misc","Misc",no,"Lore letter (Sunrise Palace) -> Misc.",high
+31123,"Token","Misc","Misc",no,"Varlamore purple token (currently unobtainable) -> Misc.",high
+31128,"Blueberry muffin","Cooking","Cooking",no,"Food item (The Final Dawn) -> Cooking.",high
+31130,"Dom","Cosmetics","Cosmetics",no,"Doom of Mokhaiotl (combat boss) pet -> Cosmetics.",high
+31132,"Dinh's blazing bulwark","Misc","Misc",no,"JMod bot-busting tool (unobtainable) -> Misc.",high
+31133,"Venator bow","Cosmetics","Misc",yes,"JMod bot-busting tool (unobtainable) -> Misc; dropped Cosmetics to match the bulwark tool (JMod-tool rule; flagged).",medium
+31136,"Blood moon armour set","Melee","Melee",no,"GE set placeholder for the melee Blood Moon set -> Melee.",high
+31139,"Blue moon armour set","Melee","Mage",yes,"GE set placeholder for the MAGIC Blue Moon set -> Mage; corrected Melee mis-tag (flagged).",medium
+31142,"Eclipse moon armour set","Melee,Misc","Range",yes,"GE set placeholder for the RANGED Eclipse Moon set -> Range; corrected Melee/Misc mis-tag (flagged).",medium
+31145,"Torva armour set","Melee","Melee",no,"GE set placeholder for the melee Torva set -> Melee.",high
+31148,"Virtus armour set","Mage","Mage",no,"GE set placeholder for the magic Virtus set -> Mage.",high
+31151,"Rock-shell armour set","Melee","Melee",no,"GE set placeholder for the melee Rock-shell set -> Melee.",high
+31154,"Skeletal armour set","Mage","Mage",no,"GE set placeholder for the magic Skeletal set -> Mage.",high
+31157,"Spined armour set","Range","Range",no,"GE set placeholder for the ranged Spined set -> Range.",high
+31160,"Swampbark armour set","Mage","Mage",no,"GE set placeholder for the magic Swampbark set -> Mage.",high
+31163,"Bloodbark armour set","Mage","Mage",no,"GE set placeholder for the magic Bloodbark set -> Mage.",high
+31166,"Mixed hide armour set","Range","Range",no,"GE set placeholder for the ranged Mixed hide set -> Range.",medium
+31169,"Hueycoatl hide armour set","Range","Range",no,"GE set placeholder for the ranged Hueycoatl hide set -> Range.",medium
+31172,"Battlehat","Cosmetics,Melee,Slayer","Cosmetics,Melee",yes,"Grid Master all-style hat -> Cosmetics, Melee; dropped Slayer (event reward, not slayer; all-style Mage/Range flagged).",medium
+31174,"Corrupted shark","Cooking,Melee","Cooking,Melee",no,"Grid Master reward food -> Cooking, Melee as tagged (high-heal all-style flagged).",medium
+31181,"Grid master tabard","Cosmetics","Cosmetics",no,"Grid Master cosmetic tabard -> Cosmetics.",high
+31184,"Grid master tabard (b)","Cosmetics","Cosmetics",no,"Grid Master cosmetic tabard -> Cosmetics.",high
+31187,"Grid master tabard (p)","Cosmetics","Cosmetics",no,"Grid Master cosmetic tabard -> Cosmetics.",high
+31190,"Grid master tabard (g)","Cosmetics","Cosmetics",no,"Grid Master cosmetic tabard -> Cosmetics.",high
+31193,"Swords and emblem","Cosmetics","Cosmetics",no,"Grid Master cosmetic cape -> Cosmetics.",high
+31196,"Swords and emblem (b)","Cosmetics","Cosmetics",no,"Grid Master cosmetic cape -> Cosmetics.",high
+31199,"Swords and emblem (p)","Cosmetics","Cosmetics",no,"Grid Master cosmetic cape -> Cosmetics.",high
+31202,"Swords and emblem (g)","Cosmetics","Cosmetics",no,"Grid Master cosmetic cape -> Cosmetics.",high
+31208,"Grid master torch scroll","Cosmetics","Cosmetics",no,"Cosmetic recolour for a POH incense burner -> Cosmetics.",high
+31211,"Event lamp","Misc","Misc",no,"Grid Master XP lamp -> Misc.",high
+31212,"Combatant scroll","Misc","Misc",no,"Grid Master perk-unlock scroll (combat XP sharing) -> Misc.",high
+31214,"Craftsman scroll","Misc","Misc",no,"Grid Master perk-unlock scroll (artisan XP sharing) -> Misc.",high
+31216,"Gatherer scroll","Misc","Misc",no,"Grid Master perk-unlock scroll (gathering XP sharing) -> Misc.",high
+31222,"Spooky picture","Cosmetics","Cosmetics",no,"2025 Halloween event decoration -> Cosmetics.",high
+31223,"Spooky wall lamp","Cosmetics","Cosmetics",no,"2025 Halloween event decoration -> Cosmetics.",high
+31224,"Spooky scarecrow","Cosmetics","Cosmetics",no,"2025 Halloween event decoration -> Cosmetics.",high
+31225,"Spooky chair","Cosmetics","Cosmetics",no,"2025 Halloween event reward (pet-like) -> Cosmetics.",high
+31227,"Spooky pumpkin lantern","Cosmetics","Cosmetics",no,"2025 Halloween novelty 2h weapon (no combat bonuses) -> Cosmetics.",high
+31229,"Grim reaper top","Cosmetics","Cosmetics",no,"2025 Halloween cosmetic outfit -> Cosmetics.",high
+31231,"Grim reaper bottoms","Cosmetics","Cosmetics",no,"2025 Halloween cosmetic outfit -> Cosmetics.",high
+31233,"Grim reaper gloves","Cosmetics","Cosmetics",no,"2025 Halloween cosmetic outfit -> Cosmetics.",high
+31235,"Gryphon feather","Hunter,Range,Sailing","Hunter,Range,Sailing",no,"Gryphon (Sailing creature) drop that charges the horn of plenty (Hunter) -> Hunter, Range, Sailing as tagged (Range flagged).",medium
+31241,"Horn of plenty","Hunter","Hunter",no,"Off-hand Hunter-boost item (gryphon drop) -> Hunter (Sailing-source flagged).",medium
+31245,"Belle's folly (tarnished)","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Broken blade (Shellbane Gryphon) repaired via 70 Smithing -> Mining + Smithing, Sailing.",high
+31248,"Belle's folly","Melee,Sailing","Melee,Sailing",no,"Repaired melee stab weapon (Sailing-content drop) -> Melee, Sailing.",medium
+31251,"Broken hasta","Sailing","Sailing",no,"Summer Shore lore/collectible item (Sailing area) -> Sailing.",medium
+31252,"Spirit angler headband","Fishing,Sailing","Fishing,Sailing",no,"Summer Shore lore item (Elder Krill) -> Fishing, Sailing.",medium
+31253,"Fossilised skull","Sailing","Sailing",no,"Summer Shore lore item (Elder Coco) -> Sailing.",medium
+31254,"Tankard","Sailing","Sailing",no,"Summer Shore lore item -> Sailing.",medium
+31255,"Barnacle blaster","Fishing,Sailing","Fishing,Sailing",no,"Ship drink boosting Fishing -> Fishing, Sailing (skill-boost brew flagged).",medium
+31258,"Kraken colada","Sailing,Slayer","Sailing,Slayer",no,"Ship drink boosting Slayer -> Sailing, Slayer (skill-boost brew flagged).",medium
+31261,"Sailor's mirage","Hunter,Sailing","Hunter,Sailing",no,"Ship drink boosting Hunter -> Hunter, Sailing (skill-boost brew flagged).",medium
+31264,"Blessed strykewyrm bones","Prayer","Prayer",no,"Blessed bones for the Ralos Prayer method -> Prayer.",high
+31266,"Blessed frost dragon bones","Prayer","Prayer",no,"Blessed bones for the Ralos Prayer method -> Prayer.",high
+31268,"Clue scroll (easy)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+31269,"Clue scroll (elite)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+31270,"Clue scroll (elite)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+31271,"Clue scroll (elite)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+31272,"Clue scroll (hard)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+31273,"Clue scroll (hard)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+31274,"Clue scroll (medium)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+31275,"Clue scroll (medium)","Misc","Misc",no,"Treasure Trails clue scroll -> Misc.",high
+31283,"Soup","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing skilling pet -> Cosmetics, Sailing (skilling-pet rule).",high
+31285,"Gull","Cosmetics","Cosmetics",no,"Shellbane Gryphon (combat boss) pet -> Cosmetics.",medium
+31288,"Sailing cape","Sailing","Cosmetics,Sailing",yes,"Sailing skillcape -> Sailing, Cosmetics; added Cosmetics (skillcape rule; matches the hood).",medium
+31292,"Sailing hood","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing skillcape hood -> Sailing, Cosmetics.",high
+31297,"Pirate medallion","Quests,Sailing","Quests,Sailing",no,"Burial at Sea (unreleased) Sailing-quest item -> Quests, Sailing.",medium
+31298,"Deep sea helmet","Sailing","Sailing",no,"Burial at Sea diving gear (Sailing) -> Sailing.",medium
+31300,"Deep sea apparatus","Sailing","Sailing",no,"Burial at Sea diving gear (Sailing) -> Sailing.",medium
+31327,"Form cr-4p","Quests","Quests",no,"Current Affairs quest item -> Quests.",high
+31328,"Form 7r4-5h","Quests","Quests",no,"Current Affairs quest item -> Quests.",high
+31330,"Mayoral fishbowl","Quests","Quests",no,"Current Affairs quest item -> Quests.",high
+31331,"Mayor of catherby","Cosmetics","Cosmetics",no,"Current Affairs fish pet -> Cosmetics.",high
+31333,"Strykewyrm bonemeal","Prayer","Prayer",no,"Ectofuntus bonemeal for Prayer -> Prayer.",high
+31335,"Frost dragon bonemeal","Prayer","Prayer",no,"Ectofuntus bonemeal for Prayer -> Prayer.",high
+31337,"null (mysterious medallion)","Quests","Quests",no,"Pandemonium quest medallion (null-name item) -> Quests.",high
+31338,"Old cup","Quests","Quests",no,"Pandemonium quest item -> Quests.",high
+31341,"Confession","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31343,"Note","Misc","Misc",no,"Rocking Out (unreleased) quest-flavour note -> Misc as tagged.",medium
+31345,"Ink bottle","Misc","Misc",no,"Rocking Out (unreleased) quest-flavour item -> Misc as tagged.",medium
+31347,"Inky paper","Misc","Misc",no,"Rocking Out (unreleased) quest-flavour item -> Misc as tagged.",medium
+31351,"Smashed bottle","Misc","Misc",no,"Rocking Out (unreleased) quest-flavour item -> Misc as tagged.",medium
+31353,"Prison uniform top","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31355,"Prison uniform trousers","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31357,"Fishy prison uniform top","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31359,"Tin cup","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31363,"Pipe","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31365,"Accordion","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31371,"Vacuum pump","Sailing","Sailing",no,"Rocking Out (unreleased) quest item -> Sailing as tagged.",medium
+31373,"Vacuum pump and gull","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31375,"Quill","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31377,"Inky quill","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31379,"File","Quests","Quests",no,"Rocking Out (unreleased) quest item -> Quests.",high
+31383,"Camphor pyre logs","Prayer,Woodcutting + Firemaking","Prayer,Woodcutting + Firemaking",no,"Shades of Mort'ton cremation logs (Firemaking-lit, Prayer cremation) -> Prayer, Woodcutting + Firemaking.",high
+31386,"Ironwood pyre logs","Prayer,Sailing,Woodcutting + Firemaking","Prayer,Woodcutting + Firemaking",yes,"Shades of Mort'ton cremation logs -> Prayer, Woodcutting + Firemaking; dropped Sailing (ironwood source incidental; matches camphor/rosewood; flagged).",medium
+31389,"Rosewood pyre logs","Prayer,Woodcutting + Firemaking","Prayer,Woodcutting + Firemaking",no,"Shades of Mort'ton cremation logs -> Prayer, Woodcutting + Firemaking.",high
+31392,"Makeshift bandages","Quests","Quests",no,"Troubled Tortugans quest item -> Quests.",high
+31393,"Tortugan scute","Quests,Sailing","Quests,Sailing",no,"Troubled Tortugans / Great Conch (Sailing) quest item -> Quests, Sailing.",medium
+31395,"Sea shell","Quests,Sailing","Quests,Sailing",no,"Troubled Tortugans repair quest item -> Quests, Sailing.",medium
+31397,"List of repairs","Quests,Sailing","Quests,Sailing",no,"Troubled Tortugans quest item -> Quests, Sailing.",medium
+31398,"Tortugan shield","Quests,Sailing","Quests,Sailing",no,"Troubled Tortugans defensive cape (negates gryphon attacks) -> Quests, Sailing.",medium
+31399,"Paper","Misc","Misc",no,"Rocking Out (unreleased) quest-flavour item -> Misc as tagged.",medium
+31400,"Offering bouquet","Quests","Quests",no,"Scrapped Troubled Tortugans quest item -> Quests.",high
+31401,"Deep sea helmet","Sailing","Sailing",no,"Burial at Sea diving gear (Sailing) -> Sailing.",medium
+31403,"Deep sea apparatus","Sailing","Sailing",no,"Burial at Sea diving gear (Sailing) -> Sailing.",medium
+31406,"Dragon nails","Construction,Sailing","Construction,Sailing",no,"Used for boat parts (Sailing) and furniture (Construction) -> Construction, Sailing.",high
+31408,"Giant blue krill","Fishing,Sailing","Fishing,Sailing",no,"Rare fish caught fishing/trawling (Sailing) -> Fishing, Sailing.",high
+31410,"Stuffed giant blue krill","Construction,Fishing","Construction,Fishing",no,"Stuffed rare fish (POH mount) -> Construction, Fishing.",high
+31412,"Golden haddock","Construction,Fishing,Sailing","Fishing,Sailing",yes,"Rare fish caught fishing/trawling -> Fishing, Sailing; dropped Construction to match the unstuffed-fish family (flagged).",medium
+31414,"Stuffed golden haddock","Construction,Fishing","Construction,Fishing",no,"Stuffed rare fish (POH mount) -> Construction, Fishing.",high
+31416,"Orangefin","Fishing,Sailing","Fishing,Sailing",no,"Rare fish caught fishing/trawling -> Fishing, Sailing.",high
+31418,"Stuffed orangefin","Construction,Fishing","Construction,Fishing",no,"Stuffed rare fish (POH mount) -> Construction, Fishing.",high
+31420,"Huge halibut","Fishing,Sailing","Fishing,Sailing",no,"Rare fish caught fishing/trawling -> Fishing, Sailing.",high
+31422,"Stuffed huge halibut","Construction,Fishing,Sailing","Construction,Fishing",yes,"Stuffed rare fish (POH mount) -> Construction, Fishing; dropped Sailing to match the stuffed-fish family (flagged).",medium
+31424,"Purplefin","Fishing,Sailing","Fishing,Sailing",no,"Rare fish caught fishing/trawling -> Fishing, Sailing.",high
+31426,"Stuffed purplefin","Construction,Fishing","Construction,Fishing",no,"Stuffed rare fish (POH mount) -> Construction, Fishing.",high
+31428,"Swift marlin","Fishing,Sailing","Fishing,Sailing",no,"Rare fish caught fishing/trawling -> Fishing, Sailing.",high
+31430,"Stuffed swift marlin","Construction,Fishing","Construction,Fishing",no,"Stuffed rare fish (POH mount) -> Construction, Fishing.",high
+31432,"Camphor plank","Sailing","Sailing",no,"Sailing shipbuilding plank -> Sailing.",high
+31435,"Ironwood plank","Sailing","Sailing",no,"Sailing shipbuilding plank -> Sailing.",high
+31438,"Rosewood plank","Sailing","Sailing",no,"Sailing shipbuilding plank -> Sailing.",high
+31441,"Summon boat","Misc,Sailing","Misc,Sailing",no,"Magic tablet relocating your boat to a dock (Sailing utility, not a player teleport) -> Misc, Sailing.",medium
+31443,"Teleport to boat","Misc,Sailing","Sailing,Teleports",yes,"Magic tablet teleporting the player to their boat -> Sailing, Teleports; dropped Misc (teleport rule; flagged).",medium
+31454,"Ball of cotton","Misc","Misc",no,"Unobtainable GE-listed item -> Misc.",high
+31457,"Hemp","Crafting,Farming,Sailing","Crafting,Farming,Sailing",no,"Farming-grown, spun (Crafting) into yarn for trawling nets/sails (Sailing) -> Crafting, Farming, Sailing.",high
+31460,"Cotton boll","Crafting,Farming,Sailing","Crafting,Farming,Sailing",no,"Farming-grown, spun (Crafting) for nets/sails (Sailing) -> Crafting, Farming, Sailing.",high
+31463,"Linen yarn","Crafting,Sailing","Crafting,Sailing",no,"Flax spun (Crafting) for trawling nets/sails (Sailing) -> Crafting, Sailing.",high
+31466,"Hemp yarn","Construction,Crafting,Sailing","Crafting,Sailing",yes,"Spun (Crafting) for trawling nets/sails (Sailing) -> Crafting, Sailing; dropped Construction to match linen/cotton yarn (flagged).",medium
+31469,"Cotton yarn","Crafting,Sailing","Crafting,Sailing",no,"Spun (Crafting) for nets/sails (Sailing) -> Crafting, Sailing.",high
+31472,"Bolt of linen","Crafting,Sailing","Crafting,Sailing",no,"Crafted (loom) for boat sails (Sailing) -> Crafting, Sailing.",high
+31475,"Bolt of canvas","Crafting,Sailing","Crafting,Sailing",no,"Crafted (loom) for boat sails (Sailing) -> Crafting, Sailing.",high
+31478,"Bolt of cotton","Crafting,Sailing","Crafting,Sailing",no,"Crafted (loom) for boat sails (Sailing) -> Crafting, Sailing.",high
+31481,"Elkhorn coral","Farming,Herblore,Hunter,Sailing","Farming,Herblore,Hunter,Sailing",no,"Coral-nursery harvest (Farming/Sailing) used in Herblore potions -> Farming, Herblore, Hunter, Sailing as tagged (coral family flagged).",medium
+31484,"Pillar coral","Farming,Herblore,Sailing","Farming,Herblore,Sailing",no,"Coral-nursery harvest used in super fishing/hunter potions -> Farming, Herblore, Sailing as tagged (coral family flagged).",medium
+31487,"Umbral coral","Herblore,Sailing","Herblore,Sailing",no,"Coral-nursery harvest used for Armadyl brews -> Herblore, Sailing as tagged (coral family / missing Farming flagged).",medium
+31490,"Camphor seedling","Farming,Sailing","Farming,Sailing",no,"Farming seedling for a camphor (Sailing) tree -> Farming, Sailing.",high
+31492,"Ironwood seedling","Farming,Sailing","Farming,Sailing",no,"Farming seedling for an ironwood (Sailing) tree -> Farming, Sailing.",high
+31494,"Rosewood seedling","Farming,Sailing","Farming,Sailing",no,"Farming seedling for a rosewood (Sailing) tree -> Farming, Sailing.",high
+31502,"Camphor sapling","Farming","Farming,Sailing",yes,"Farming sapling for a camphor (Sailing) tree -> Farming, Sailing; added Sailing to match the seedlings/ironwood sapling (flagged).",medium
+31505,"Ironwood sapling","Farming,Sailing","Farming,Sailing",no,"Farming sapling for an ironwood (Sailing) tree -> Farming, Sailing.",high
+31508,"Rosewood sapling","Farming","Farming,Sailing",yes,"Farming sapling for a rosewood (Sailing) tree -> Farming, Sailing; added Sailing to match the seedlings (flagged).",medium
+31511,"Elkhorn frag","Farming,Sailing","Farming,Sailing",no,"Coral frag propagated in a coral nursery -> Farming, Sailing.",high
+31513,"Pillar frag","Farming,Sailing","Farming,Sailing",no,"Coral frag propagated in a coral nursery -> Farming, Sailing.",high
+31515,"Umbral frag","Farming,Sailing","Farming,Sailing",no,"Coral frag propagated in a coral nursery -> Farming, Sailing.",high
+31541,"Flax seed","Farming","Farming",no,"Flax seed (hops patch) -> Farming (flax's primary use is the older Crafting fibre; Sailing not added).",medium
+31543,"Hemp seed","Farming,Sailing","Farming,Sailing",no,"Hemp seed for sail/net fibre (Sailing) -> Farming, Sailing.",high
+31545,"Cotton seed","Farming,Sailing","Farming,Sailing",no,"Cotton seed for sail/net fibre (Sailing) -> Farming, Sailing.",high
+31547,"Camphor seed","Farming,Fletching","Farming,Sailing",yes,"Tree seed for a camphor (Sailing) tree -> Farming, Sailing; dropped spurious Fletching (seeds-only rule), added Sailing to match the chain (flagged).",medium
+31549,"Ironwood seed","Farming,Fletching","Farming,Sailing",yes,"Tree seed for an ironwood (Sailing) tree -> Farming, Sailing; dropped spurious Fletching (seeds-only rule), added Sailing (flagged).",medium
+31551,"Rosewood seed","Farming,Fletching","Farming,Sailing",yes,"Tree seed for a rosewood (Sailing) tree -> Farming, Sailing; dropped spurious Fletching (seeds-only rule), added Sailing (flagged).",medium
+31553,"Raw swordtip squid","Cooking,Fishing,Sailing","Cooking,Fishing,Sailing",no,"Lantern-harpooned (Fishing/Sailing) cookable squid -> Cooking, Fishing, Sailing.",high
+31556,"Swordtip squid","Cooking,Sailing","Cooking,Sailing",no,"Cooked Sailing-fish food -> Cooking, Sailing.",medium
+31559,"Burnt swordtip squid","Cooking,Sailing","Cooking,Sailing",no,"Burnt cooking result (Sailing fish) -> Cooking, Sailing.",medium
+31561,"Raw jumbo squid","Cooking,Fishing,Sailing","Cooking,Fishing,Sailing",no,"Lantern-harpooned (Fishing/Sailing) cookable squid -> Cooking, Fishing, Sailing.",high
+31564,"Jumbo squid","Cooking,Sailing","Cooking,Sailing",no,"Cooked Sailing-fish food -> Cooking, Sailing.",medium
+31567,"Burnt jumbo squid","Cooking,Sailing","Cooking,Sailing",no,"Burnt cooking result (Sailing fish) -> Cooking, Sailing.",medium
+31569,"Squid paste","Herblore,Sailing","Herblore,Sailing",no,"Crushed squid for haemostatic poultice (Herblore) -> Herblore, Sailing.",medium
+31572,"Squid beak","Sailing","Fletching,Sailing",yes,"Fletching material for wooden blowpipes (Sailing-fish drop) -> Fletching, Sailing; added Fletching (flagged).",medium
+31575,"Camphor blowpipe","Fletching,Range","Fletching,Range",no,"Fletched Ranged blowpipe -> Fletching, Range.",high
+31579,"Ironwood blowpipe","Fletching,Range,Sailing","Fletching,Range",yes,"Fletched Ranged blowpipe -> Fletching, Range; dropped Sailing (ironwood source incidental; matches camphor/rosewood; flagged).",medium
+31583,"Rosewood blowpipe","Fletching,Range","Fletching,Range",no,"Fletched Ranged blowpipe -> Fletching, Range.",high
+31587,"Haemostatic poultice","Herblore","Herblore",no,"Herblore intermediate for haemostatic dressings -> Herblore.",high
+31590,"Haemostatic dressing (4)","Herblore,Sailing","Herblore,Sailing",no,"Herblore bleed-cure item (Sailing combat) -> Herblore, Sailing.",medium
+31593,"Haemostatic dressing (3)","Herblore,Sailing","Herblore,Sailing",no,"Herblore bleed-cure item (Sailing combat) -> Herblore, Sailing.",medium
+31596,"Haemostatic dressing (2)","Herblore,Sailing","Herblore,Sailing",no,"Herblore bleed-cure item (Sailing combat) -> Herblore, Sailing.",medium
+31599,"Haemostatic dressing (1)","Herblore,Sailing","Herblore,Sailing",no,"Herblore bleed-cure item (Sailing combat) -> Herblore, Sailing.",medium
+31602,"Super fishing potion(4)","Fishing,Herblore","Fishing,Herblore",no,"Herblore potion boosting Fishing -> Fishing, Herblore.",high
+31605,"Super fishing potion(3)","Fishing,Herblore","Fishing,Herblore",no,"Herblore potion boosting Fishing -> Fishing, Herblore.",high
+31608,"Super fishing potion(2)","Fishing,Herblore","Fishing,Herblore",no,"Herblore potion boosting Fishing -> Fishing, Herblore.",high
+31611,"Super fishing potion(1)","Fishing,Herblore","Fishing,Herblore",no,"Herblore potion boosting Fishing -> Fishing, Herblore.",high
+31614,"Extreme energy potion(4)","Herblore","Agility + Thieving,Herblore",yes,"Herblore run-energy potion -> Agility + Thieving, Herblore; added Agility + Thieving to match stamina potions (flagged).",medium
+31617,"Extreme energy potion(3)","Herblore","Agility + Thieving,Herblore",yes,"Herblore run-energy potion -> Agility + Thieving, Herblore; added Agility + Thieving to match stamina potions (flagged).",medium
+31620,"Extreme energy potion(2)","Herblore","Agility + Thieving,Herblore",yes,"Herblore run-energy potion -> Agility + Thieving, Herblore; added Agility + Thieving to match stamina potions (flagged).",medium
+31623,"Extreme energy potion(1)","Herblore,Sailing","Agility + Thieving,Herblore",yes,"Herblore run-energy potion -> Agility + Thieving, Herblore; added Agility + Thieving, dropped stray Sailing (flagged).",medium
+31626,"Super hunter potion(4)","Herblore,Hunter","Herblore,Hunter",no,"Herblore potion boosting Hunter -> Herblore, Hunter.",high
+31629,"Super hunter potion(3)","Herblore,Hunter","Herblore,Hunter",no,"Herblore potion boosting Hunter -> Herblore, Hunter.",high
+31632,"Super hunter potion(2)","Herblore,Hunter","Herblore,Hunter",no,"Herblore potion boosting Hunter -> Herblore, Hunter.",high
+31635,"Super hunter potion(1)","Herblore,Hunter","Herblore,Hunter",no,"Herblore potion boosting Hunter -> Herblore, Hunter.",high
+31638,"Extended stamina potion(4)","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Herblore run-energy/stamina potion -> Agility + Thieving, Herblore.",high
+31641,"Extended stamina potion(3)","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Herblore run-energy/stamina potion -> Agility + Thieving, Herblore.",high
+31644,"Extended stamina potion(2)","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Herblore run-energy/stamina potion -> Agility + Thieving, Herblore.",high
+31647,"Extended stamina potion(1)","Agility + Thieving,Herblore","Agility + Thieving,Herblore",no,"Herblore run-energy/stamina potion -> Agility + Thieving, Herblore.",high
+31650,"Armadyl brew(4)","Herblore,Range","Herblore,Range",no,"Herblore Ranged-aligned brew (Armadyl) -> Herblore, Range.",medium
+31653,"Armadyl brew(3)","Herblore,Range","Herblore,Range",no,"Herblore Ranged-aligned brew (Armadyl) -> Herblore, Range.",medium
+31656,"Armadyl brew(2)","Herblore,Range","Herblore,Range",no,"Herblore Ranged-aligned brew (Armadyl) -> Herblore, Range.",medium
+31659,"Armadyl brew(1)","Herblore,Range","Herblore,Range",no,"Herblore Ranged-aligned brew (Armadyl) -> Herblore, Range.",medium
+31662,"Elkhorn potion (unf)","Herblore","Herblore",no,"Unfinished Herblore potion -> Herblore.",high
+31665,"Pillar potion (unf)","Herblore","Herblore",no,"Unfinished Herblore potion -> Herblore.",high
+31668,"Umbral potion (unf)","Herblore","Herblore",no,"Unfinished Herblore potion -> Herblore.",high
+31671,"Red crab","Cooking,Herblore,Hunter","Cooking,Herblore,Hunter",no,"Crab-trapped (Hunter), cut for meat (Cooking) and paste (Herblore) -> Cooking, Herblore, Hunter.",high
+31674,"Blue crab","Cooking,Herblore,Hunter","Cooking,Herblore,Hunter",no,"Crab-trapped (Hunter), cut for meat (Cooking) and paste (Herblore) -> Cooking, Herblore, Hunter.",high
+31677,"Rainbow crab","Cooking,Herblore,Hunter","Cooking,Herblore,Hunter",no,"Crab-trapped (Hunter), cut for meat (Cooking) and paste (Herblore) -> Cooking, Herblore, Hunter.",high
+31686,"Raw red crab meat","Cooking,Fishing","Cooking,Sailing",yes,"Raw crab meat (cut, cookable) -> Cooking, Sailing; corrected Fishing to Sailing to match the other crab meats (flagged).",medium
+31689,"Red crab meat","Cooking,Sailing","Cooking,Sailing",no,"Cooked crab-meat food (Sailing source) -> Cooking, Sailing.",medium
+31692,"Raw blue crab meat","Cooking,Sailing","Cooking,Sailing",no,"Raw crab meat (cut, cookable) -> Cooking, Sailing.",medium
+31695,"Blue crab meat","Cooking,Sailing","Cooking,Sailing",no,"Cooked crab-meat food (Sailing source) -> Cooking, Sailing.",medium
+31698,"Burnt crab meat","Cooking","Cooking",no,"Burnt cooking result -> Cooking.",high
+31700,"Raw rainbow crab meat","Cooking,Sailing","Cooking,Sailing",no,"Raw crab meat (cut, cookable) -> Cooking, Sailing.",medium
+31703,"Rainbow crab meat","Cooking,Sailing","Cooking,Sailing",no,"Cooked crab-meat food (Sailing source) -> Cooking, Sailing.",medium
+31706,"Burnt rainbow crab meat","Cooking","Cooking",no,"Burnt cooking result -> Cooking.",high
+31708,"Crab paste","Herblore,Hunter","Herblore,Hunter",no,"Herblore secondary (anti-odour salt / super hunter potion) -> Herblore, Hunter.",high
+31710,"Rainbow crab paste","Herblore","Herblore",no,"Herblore secondary (Armadyl brew) -> Herblore.",high
+31712,"Anti-odour salt","Herblore,Hunter","Herblore,Hunter",no,"Herblore-made trap-smoking aid (+2% Hunter catch) -> Herblore, Hunter.",high
+31716,"Lead ore","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Mined ore smelted to lead bar (Sailing-content metal) -> Mining + Smithing, Sailing.",medium
+31719,"Nickel ore","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Mined ore smelted to cupronickel bar (Sailing-content metal) -> Mining + Smithing, Sailing.",medium
+31722,"Rubium splinters","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Mined Sailing resource -> Mining + Smithing, Sailing.",medium
+31724,"Rubium geode","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Mined Sailing geode (crushed for splinters) -> Mining + Smithing, Sailing.",medium
+31726,"Strykewyrm bones","Prayer","Prayer",no,"Buriable bones for Prayer XP -> Prayer.",high
+31729,"Frost dragon bones","Prayer","Prayer",no,"Buriable bones for Prayer XP -> Prayer.",high
+31732,"Stormy key","Misc,Sailing","Misc,Sailing",no,"Barracuda Trial reward key (opens cosmetic chest) -> Misc, Sailing.",medium
+31733,"Barrel stand","Sailing","Sailing",no,"Barracuda Trial reward component -> Sailing.",medium
+31734,"Ralph's fabric roll","Sailing","Sailing",no,"Barracuda Trial reward (sail fabric) -> Sailing.",medium
+31736,"Storm cruiser's hat","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31738,"Storm cruiser's coat","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31740,"Storm cruiser's trousers","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31742,"Storm cruiser's shoes","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31744,"Fetid key","Misc,Sailing","Misc,Sailing",no,"Barracuda Trial reward key (opens cosmetic chest) -> Misc, Sailing.",medium
+31745,"Captured wind mote","Sailing","Sailing",no,"Barracuda Trial reward -> Sailing.",medium
+31746,"Gurtob's fabric roll","Sailing","Sailing",no,"Barracuda Trial reward (sail fabric) -> Sailing.",medium
+31748,"Swamp cruiser's hat","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31750,"Swamp cruiser's jacket","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31752,"Swamp cruiser's trousers","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31754,"Swamp cruiser's shoes","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31756,"Serrated key","Misc,Sailing","Misc,Sailing",no,"Barracuda Trial reward key (opens cosmetic chest) -> Misc, Sailing.",medium
+31757,"Heart of ithell","Sailing","Sailing",no,"Barracuda Trial reward (ship seed) -> Sailing.",medium
+31758,"Gwyna's fabric roll","Sailing","Sailing",no,"Barracuda Trial reward (sail fabric) -> Sailing.",medium
+31760,"Crystal glider's hat","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31762,"Crystal glider's jacket","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31764,"Crystal glider's trousers","Agility + Thieving,Cosmetics,Sailing","Cosmetics,Sailing",yes,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing; dropped Agility + Thieving (chest's access requirement, not a function; flagged).",medium
+31766,"Crystal glider's shoes","Cosmetics,Sailing","Cosmetics,Sailing",no,"Sailing-trial cosmetic outfit -> Cosmetics, Sailing.",high
+31768,"Sunken rum","Sailing","Sailing",no,"Scrapped Sailing (Barracuda Trial) item -> Sailing.",medium
+31770,"Tiny pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31773,"Small pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31776,"Shiny pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31779,"Bright pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31782,"Big pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31785,"Huge pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31788,"Enormous pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31791,"Shimmering pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31794,"Glistening pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31797,"Brilliant pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31800,"Radiant pearl","Sailing","Sailing",no,"Giant-clam (Sailing) reward pearl -> Sailing.",medium
+31803,"Spyglass","Sailing","Sailing",no,"Sea-charting tool -> Sailing.",high
+31805,"Current duck","Sailing","Sailing",no,"Sea-charting current-tracking tool -> Sailing.",high
+31807,"Crowbar","Sailing","Sailing",no,"Sea-charting tool (opens sealed crates) -> Sailing.",high
+31809,"Portable weather station","Sailing","Sailing",no,"Sea-charting weather tool -> Sailing.",high
+31811,"Whirlpool surprise","Cooking,Sailing","Cooking,Sailing",no,"Ale boosting Cooking + Sailing -> Cooking, Sailing (skill-boost brew flagged).",medium
+31814,"Kraken ink stout","Mage,Sailing","Mage,Sailing",no,"Ale boosting Magic + Sailing -> Mage, Sailing (skill-boost brew flagged).",medium
+31817,"Perildance bitter","Misc,Sailing","Misc,Sailing",no,"Ale boosting Sailing/Strength/Ranged -> Misc, Sailing as tagged (skill-boost brew flagged).",medium
+31820,"Trawler's trust","Fishing,Sailing","Fishing,Sailing",no,"Ale boosting Fishing + Sailing -> Fishing, Sailing (skill-boost brew flagged).",medium
+31823,"Horizon's lure","Sailing","Sailing",no,"Ale boosting Sailing -> Sailing (skill-boost brew flagged).",medium
+31831,"Bottle of almost smuggled rum","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31832,"Bottle of sorodamin's bru","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31833,"Bottle of fish bladder stout","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31834,"Bottle of potterington's marrow wine","Farming,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Farming (bottle family normalisation; flagged).",medium
+31835,"Bottle of slug's mind balm","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31836,"Bottle of spinner's last gasp","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31837,"Bottle of barracuda brew","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31838,"Bottle of banana daiquiri","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31839,"Bottle of kharazi cooler","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31840,"Bottle of dognose draught","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31841,"Bottle of the way home","Misc,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Misc (bottle family normalisation; flagged).",medium
+31842,"Bottle of platinum rum","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31843,"Bottle of light in the dark","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31844,"Bottle of ogre prayer potion","Prayer,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Prayer (bottle family normalisation; flagged).",medium
+31845,"Bottle of get to the point punch","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31846,"Bottle of oo'glug","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31847,"Bottle of myths mighty mixer","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31848,"Bottle of goldless asgoldian ale","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31849,"Bottle of destructor's cocktail","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31850,"Bottle of zogre's sloppy kisses","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31851,"Bottle of creator's cocktail","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31852,"Bottle of soul","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31853,"Bottle of zul-rye beer","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31854,"Bottle of captain clop's mango gin","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31855,"Bottle of slippery snake skins in possibly gravy","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31856,"Bottle of crystal clear water","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31857,"Bottle of underground passteurised milk","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31858,"Bottle of delicate elven wine","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31859,"Bottle of sea spray","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31860,"Bottle of banker's draught","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31861,"Bottle of headless unicornman's heady beer","Prayer,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Prayer (bottle family normalisation; flagged).",medium
+31862,"Bottle of soul juice","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31863,"Bottle of crocodile tears","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31864,"Bottle of fishier bladderier stout","Sailing","Sailing",no,"Sea-charting (Prying Times) collectible drink -> Sailing.",medium
+31865,"Daddy's special water's special water","Sailing","Sailing",no,"Sailing mini-boss drop (Prying Times) -> Sailing.",medium
+31867,"The melted rocks","Sailing","Sailing",no,"Sailing mini-boss drop (Prying Times) -> Sailing.",medium
+31869,"Chuck up's 'stew'","Sailing","Sailing",no,"Sailing mini-boss drop (Prying Times) -> Sailing.",medium
+31871,"Bottle of tangled toad's legs cider","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31872,"Bottle of waterbirth blue lagoon","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31873,"Bottle of fishtongue tonic","Fishing,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Fishing (bottle family normalisation).",medium
+31874,"Bottle of the endless night","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31875,"Bottle of exile's welcome","Misc,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Misc (bottle family normalisation).",medium
+31876,"Bottle of suqah-free cola","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31877,"Bottle of winter sun","Misc,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Misc (bottle family normalisation).",medium
+31878,"Bottle of black lobster ale","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31879,"Rare black lobster","Cosmetics,Sailing","Cosmetics,Sailing",no,"Novelty shakeable collectible from black lobster ale -> Cosmetics, Sailing.",medium
+31881,"Bottle of dwarvern wizard's stout bomb","Mage,Mining + Smithing,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Mage/Mining + Smithing (bottle family normalisation).",medium
+31882,"Bottle of kgp standard issue martini","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31883,"Bottle of graveyard corpse reviver","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31884,"Bottle of weiss meltwater","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31885,"Bottle of ol' random's reddest rum","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31886,"Bottle of elidinis's life water","Melee,Prayer,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Melee/Prayer (bottle family normalisation).",medium
+31887,"Bottle of possible albumen","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31888,"Bottle of alone at sea","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31889,"Bottle of alco-sol","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31890,"Bottle of portal nexus perry","Misc,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Misc (bottle family normalisation).",medium
+31891,"Bottle of self-congratulation wine","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31892,"Bottle of fish bladder stoutier","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31893,"Bottle of crystal clear vodka","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31894,"Bottle of spinning comp-kvass","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31895,"Bottle of puzzlers poteen","Sailing","Sailing",no,"Sea-charting collectible drink (re-samplable quiz) -> Sailing.",medium
+31896,"Bottle of wild wood whisky","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31897,"Bottle of robert's port","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31898,"Bottle of sea shandy 2","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31899,"Bottle of monkfish bladder stout","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31900,"Bottle of lunarshine","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31901,"Bottle of impling surprise","Hunter,Sailing","Sailing",yes,"Sea-charting collectible drink -> Sailing; dropped flavour-based Hunter (bottle family normalisation).",medium
+31902,"Bottle of mystery fruit cider","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31903,"Mystery fruit","Cooking,Farming,Sailing","Cooking,Farming,Sailing",no,"Mystery farming-patch fruit (edible) -> Cooking, Farming, Sailing as tagged.",medium
+31905,"Bottle of captain cat's black rum","Sailing","Sailing",no,"Sea-charting collectible drink -> Sailing.",medium
+31906,"Bronze cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon ammo (ship combat) -> Mining + Smithing, Sailing.",high
+31908,"Iron cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon ammo (ship combat) -> Mining + Smithing, Sailing.",high
+31910,"Mithril cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon ammo (ship combat) -> Mining + Smithing, Sailing.",high
+31912,"Adamant cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon ammo (ship combat) -> Mining + Smithing, Sailing.",high
+31914,"Rune cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon ammo (ship combat) -> Mining + Smithing, Sailing.",high
+31916,"Dragon cannonball","Sailing","Sailing",no,"Boat-cannon ammo (not smithable) -> Sailing.",medium
+31918,"Bronze chainshot cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon chainshot ammo -> Mining + Smithing, Sailing.",high
+31920,"Iron chainshot cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon chainshot ammo -> Mining + Smithing, Sailing.",high
+31922,"Steel chainshot cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon chainshot ammo -> Mining + Smithing, Sailing.",high
+31924,"Mithril chainshot cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon chainshot ammo -> Mining + Smithing, Sailing.",high
+31926,"Adamant chainshot cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon chainshot ammo -> Mining + Smithing, Sailing.",high
+31928,"Rune chainshot cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon chainshot ammo -> Mining + Smithing, Sailing.",high
+31930,"Dragon chainshot cannonball","Sailing","Sailing",no,"Boat-cannon chainshot ammo (not smithable) -> Sailing.",medium
+31932,"Bronze incendiary cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon incendiary ammo -> Mining + Smithing, Sailing.",high
+31934,"Iron incendiary cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon incendiary ammo -> Mining + Smithing, Sailing.",high
+31936,"Steel incendiary cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon incendiary ammo -> Mining + Smithing, Sailing.",high
+31938,"Mithril incendiary cannonball","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed boat-cannon incendiary ammo -> Mining + Smithing, Sailing.",high
+31940,"Adamant incendiary cannonball","Sailing","Mining + Smithing,Sailing",yes,"Smithed boat-cannon incendiary ammo -> Mining + Smithing, Sailing; added Mining + Smithing to match the lower-tier incendiary balls (flagged).",medium
+31942,"Rune incendiary cannonball","Sailing","Mining + Smithing,Sailing",yes,"Smithed boat-cannon incendiary ammo -> Mining + Smithing, Sailing; added Mining + Smithing to match the lower-tier incendiary balls (flagged).",medium
+31944,"Dragon incendiary cannonball","Sailing","Sailing",no,"Boat-cannon incendiary ammo (not smithable) -> Sailing.",medium
+31946,"Echo pearl","Sailing","Sailing",no,"Dolphin/orca drop, builds a boat fathom pearl -> Sailing.",high
+31949,"Bottled storm","Sailing","Sailing",no,"Kraken drop, builds a boat greater teleport focus -> Sailing.",high
+31952,"Swift albatross feather","Sailing","Sailing",no,"Albatross drop, builds a boat gale catcher -> Sailing.",high
+31954,"Narwhal horn","Crafting,Sailing","Crafting,Sailing",no,"Narwhal drop crafted (51 Crafting) into a knife -> Crafting, Sailing.",high
+31957,"Narwhal horn knife","Crafting,Fletching,Sailing","Crafting,Sailing",yes,"Crafted (51 Crafting) from a narwhal horn, builds a boat chum spreader -> Crafting, Sailing; dropped spurious Fletching (flagged).",medium
+31959,"Ray barbs","Sailing","Sailing",no,"Ray drop, builds boat trawling nets -> Sailing.",high
+31961,"Broken dragon hook","Sailing","Sailing",no,"Great white shark drop, builds a boat salvaging hook -> Sailing.",high
+31964,"Repair kit","Construction,Sailing","Construction,Sailing",no,"Boat repair kit (Construction-made) -> Construction, Sailing.",high
+31967,"Oak repair kit","Construction,Sailing","Construction,Sailing",no,"Boat repair kit (Construction-made) -> Construction, Sailing.",high
+31970,"Teak repair kit","Construction,Sailing","Construction,Sailing",no,"Boat repair kit (Construction-made) -> Construction, Sailing.",high
+31973,"Mahogany repair kit","Construction,Sailing","Construction,Sailing",no,"Boat repair kit (Construction-made) -> Construction, Sailing.",high
+31976,"Camphor repair kit","Sailing","Construction,Sailing",yes,"Boat repair kit (Construction-made) -> Construction, Sailing; added Construction to match the other repair kits (flagged).",medium
+31979,"Ironwood repair kit","Construction,Sailing","Construction,Sailing",no,"Boat repair kit (Construction-made) -> Construction, Sailing.",high
+31982,"Rosewood repair kit","Construction,Sailing","Construction,Sailing",no,"Boat repair kit (Construction-made) -> Construction, Sailing.",high
+31985,"Captain's log","Sailing","Sailing",no,"Sailing task/sea-charting tracker (Pandemonium) -> Sailing.",medium
+31989,"Boat bottle (empty)","Sailing","Sailing",no,"Stores a boat in the inventory for transport -> Sailing.",high
+31996,"Dragon metal sheet","Sailing,Slayer","Sailing,Slayer",no,"High-tier shipbuilding material (strykewyrm/frost-dragon slayer-task drop) -> Sailing, Slayer as tagged (Slayer flagged).",medium
+31999,"Bronze keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (10 Smithing) boat keel part -> Mining + Smithing, Sailing.",high
+32002,"Iron keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (22 Smithing) boat keel part -> Mining + Smithing, Sailing.",high
+32005,"Steel keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (38 Smithing) boat keel part -> Mining + Smithing, Sailing.",high
+32008,"Mithril keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (56 Smithing) boat keel part -> Mining + Smithing, Sailing.",high
+32011,"Adamant keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (74 Smithing) boat keel part -> Mining + Smithing, Sailing.",high
+32014,"Rune keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (86 Smithing) boat keel part -> Mining + Smithing, Sailing.",high
+32017,"Dragon keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (94 Smithing, dragon forge) boat keel part -> Mining + Smithing, Sailing.",high
+32020,"Large bronze keel parts","Sailing","Mining + Smithing,Sailing",yes,"Smithed (anvil) sloop keel part -> Mining + Smithing, Sailing; added Mining + Smithing to match the other large keel parts (flagged).",medium
+32023,"Large iron keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed sloop keel part -> Mining + Smithing, Sailing.",high
+32026,"Large steel keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed sloop keel part -> Mining + Smithing, Sailing.",high
+32029,"Large mithril keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed sloop keel part -> Mining + Smithing, Sailing.",high
+32032,"Large adamant keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed sloop keel part -> Mining + Smithing, Sailing.",high
+32035,"Large rune keel parts","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed sloop keel part -> Mining + Smithing, Sailing.",high
+32038,"Large dragon keel parts","Sailing","Mining + Smithing,Sailing",yes,"Smithed (dragon forge) sloop keel part -> Mining + Smithing, Sailing; added Mining + Smithing to match the dragon keel parts (flagged).",medium
+32041,"Wooden hull parts","Construction,Sailing","Construction,Sailing",no,"Built (Construction, shipwrights' workbench) boat hull part -> Construction, Sailing.",high
+32044,"Oak hull parts","Construction,Sailing","Construction,Sailing",no,"Built (8 Construction) boat hull part -> Construction, Sailing.",high
+32047,"Teak hull parts","Construction,Sailing","Construction,Sailing",no,"Built (23 Construction) boat hull part -> Construction, Sailing.",high
+32050,"Mahogany hull parts","Construction,Sailing","Construction,Sailing",no,"Built (41 Construction) boat hull part -> Construction, Sailing.",high
+32053,"Camphor hull parts","Construction,Sailing","Construction,Sailing",no,"Built (53 Construction) boat hull part -> Construction, Sailing.",high
+32056,"Ironwood hull parts","Construction,Sailing","Construction,Sailing",no,"Built (77 Construction) boat hull part -> Construction, Sailing.",high
+32059,"Rosewood hull parts","Construction,Sailing","Construction,Sailing",no,"Built (84 Construction) boat hull part -> Construction, Sailing.",high
+32062,"Large wooden hull parts","Construction,Sailing","Construction,Sailing",no,"Built (Construction) sloop hull part -> Construction, Sailing.",high
+32065,"Large oak hull parts","Construction,Sailing","Construction,Sailing",no,"Built (Construction) sloop hull part -> Construction, Sailing.",high
+32068,"Large teak hull parts","Construction,Sailing","Construction,Sailing",no,"Built (Construction) sloop hull part -> Construction, Sailing.",high
+32071,"Large mahogany hull parts","Construction,Sailing","Construction,Sailing",no,"Built (Construction) sloop hull part -> Construction, Sailing.",high
+32074,"Large camphor hull parts","Construction,Sailing","Construction,Sailing",no,"Built (Construction) sloop hull part -> Construction, Sailing.",high
+32077,"Large ironwood hull parts","Construction,Sailing","Construction,Sailing",no,"Built (Construction) sloop hull part -> Construction, Sailing.",high
+32080,"Large rosewood hull parts","Construction,Sailing","Construction,Sailing",no,"Built (Construction) sloop hull part -> Construction, Sailing.",high
+32083,"Sawmill coupon (wood plank)","Construction,Quests","Construction,Quests",no,"Plank-making cost coupon (Construction) -> Construction, Quests as tagged (Quests source unclear; flagged).",medium
+32085,"Sawmill coupon (oak plank)","Construction,Sailing","Construction,Sailing",no,"Oak-plank-making cost coupon (Construction) -> Construction, Sailing as tagged.",medium
+32087,"Barracuda paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (20 Construction + 25 Sailing) -> Construction, Sailing.",high
+32090,"Shark paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing.",high
+32093,"Inky paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing.",high
+32096,"Angler's paint","Cosmetics,Sailing","Construction,Sailing",yes,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing; corrected Cosmetics to match the paint family (flagged).",medium
+32099,"Salvor's paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing.",high
+32102,"Armadylean paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing.",high
+32104,"Zamorakian paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing.",high
+32106,"Guthixian paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing.",high
+32108,"Saradominist paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing.",high
+32110,"Merchant's paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing.",high
+32113,"Sandy paint","Construction,Sailing","Construction,Sailing",no,"Boat-trim paint (Construction + Sailing) -> Construction, Sailing.",high
+32115,"Dragon cannon barrel","Sailing","Sailing",no,"Builds a dragon cannon on a boat (salvage/kraken drop) -> Sailing.",high
+32307,"Fine fish offcuts","Fishing,Sailing","Fishing,Sailing",no,"Bait cut from high-level fish (trawling/crab traps) -> Fishing, Sailing.",high
+32309,"Raw giant krill","Cooking,Fishing,Sailing","Cooking,Fishing,Sailing",no,"Deep-sea trawling fish (Fishing/Sailing), cookable -> Cooking, Fishing, Sailing.",high
+32312,"Giant krill","Cooking,Sailing","Cooking,Sailing",no,"Cooked deep-sea fish food -> Cooking, Sailing.",medium
+32315,"Burnt giant krill","Cooking,Sailing","Cooking,Sailing",no,"Burnt deep-sea cooking result -> Cooking, Sailing.",medium
+32317,"Raw haddock","Cooking,Fishing,Sailing","Cooking,Fishing,Sailing",no,"Deep-sea trawling fish (Fishing/Sailing), cookable -> Cooking, Fishing, Sailing.",high
+32320,"Haddock","Cooking,Sailing","Cooking,Sailing",no,"Cooked deep-sea fish food -> Cooking, Sailing.",medium
+32323,"Burnt haddock","Cooking","Cooking,Sailing",yes,"Burnt deep-sea cooking result -> Cooking, Sailing; added Sailing to match the burnt deep-sea fish family (flagged).",medium
+32325,"Raw yellowfin","Cooking,Fishing,Sailing","Cooking,Fishing,Sailing",no,"Deep-sea trawling fish (Fishing/Sailing), cookable -> Cooking, Fishing, Sailing.",high
+32328,"Yellowfin","Cooking,Fishing,Melee","Cooking,Sailing",yes,"Cooked deep-sea fish food -> Cooking, Sailing; dropped spurious Fishing/Melee to match the family (high-heal-food rule flagged).",medium
+32331,"Burnt yellowfin","Cooking,Sailing","Cooking,Sailing",no,"Burnt deep-sea cooking result -> Cooking, Sailing.",medium
+32333,"Raw halibut","Cooking,Fishing,Sailing","Cooking,Fishing,Sailing",no,"Deep-sea trawling fish (Fishing/Sailing), cookable -> Cooking, Fishing, Sailing.",high
+32336,"Halibut","Cooking,Melee,Sailing","Cooking,Sailing",yes,"Cooked deep-sea fish food -> Cooking, Sailing; dropped Melee to match the family (high-heal-food rule flagged).",medium
+32339,"Burnt halibut","Cooking,Sailing","Cooking,Sailing",no,"Burnt deep-sea cooking result -> Cooking, Sailing.",medium
+32341,"Raw bluefin","Cooking,Fishing,Sailing","Cooking,Fishing,Sailing",no,"Deep-sea trawling fish (Fishing/Sailing), cookable -> Cooking, Fishing, Sailing.",high
+32344,"Bluefin","Cooking,Sailing","Cooking,Sailing",no,"Cooked deep-sea fish food (heals + 5 prayer) -> Cooking, Sailing.",medium
+32347,"Burnt bluefin","Cooking,Sailing","Cooking,Sailing",no,"Burnt deep-sea cooking result -> Cooking, Sailing.",medium
+32349,"Raw marlin","Cooking,Fishing,Sailing","Cooking,Fishing,Sailing",no,"Deep-sea trawling fish (Fishing/Sailing), cookable -> Cooking, Fishing, Sailing.",high
+32352,"Marlin","Cooking,Melee","Cooking,Sailing",yes,"Cooked deep-sea fish food (24 heal) -> Cooking, Sailing; dropped Melee to match the family (high-heal-food rule flagged).",medium
+32355,"Burnt marlin","Cooking,Sailing","Cooking,Sailing",no,"Burnt deep-sea cooking result -> Cooking, Sailing.",medium
+32357,"Haddock eye","Cooking,Herblore,Sailing","Cooking,Herblore,Sailing",no,"Herblore secondary (super fishing potion) cut from haddock -> Cooking, Herblore, Sailing.",high
+32360,"Yellow fin","Herblore,Sailing","Cooking,Herblore,Sailing",yes,"Herblore secondary (extreme energy potion) cut from yellowfin -> Cooking, Herblore, Sailing; added Cooking to match haddock eye/marlin scales (flagged).",medium
+32362,"Marlin scales","Cooking,Herblore,Sailing","Cooking,Herblore,Sailing",no,"Herblore secondary (extended stamina potion) cut from marlin -> Cooking, Herblore, Sailing.",high
+32364,"Camphor crate","Crafting,Sailing","Crafting,Sailing",no,"Crafted (62 Crafting) container for the fish crate -> Crafting, Sailing.",high
+32366,"Fish crate (empty)","Fishing,Sailing","Fishing,Sailing",no,"Deep-sea fish storage crate -> Fishing, Sailing.",high
+32368,"Fish crate (giant krill)","Fishing,Sailing","Fishing,Sailing",no,"Deep-sea fish storage crate -> Fishing, Sailing.",high
+32371,"Fish crate (haddock)","Fishing,Sailing","Fishing,Sailing",no,"Deep-sea fish storage crate -> Fishing, Sailing.",high
+32374,"Fish crate (yellowfin)","Fishing,Sailing","Fishing,Sailing",no,"Deep-sea fish storage crate -> Fishing, Sailing.",high
+32377,"Fish crate (halibut)","Fishing,Sailing","Fishing,Sailing",no,"Deep-sea fish storage crate -> Fishing, Sailing.",high
+32380,"Fish crate (bluefin)","Fishing,Sailing","Fishing,Sailing",no,"Deep-sea fish storage crate -> Fishing, Sailing.",high
+32383,"Fish crate (marlin)","Fishing,Sailing","Fishing,Sailing",no,"Deep-sea fish storage crate -> Fishing, Sailing.",high
+32386,"Medallion of the deep","Crafting,Sailing","Crafting,Sailing",no,"Assembled (Crafting + Sailing XP) underwater-breathing amulet -> Crafting, Sailing.",high
+32388,"Medallion fragment","Sailing","Sailing",no,"Sailing-island fragment for the medallion of the deep -> Sailing.",high
+32389,"Medallion fragment","Sailing","Sailing",no,"Sailing-island fragment for the medallion of the deep -> Sailing.",high
+32390,"Medallion fragment","Sailing","Sailing",no,"Sailing-island fragment for the medallion of the deep -> Sailing.",high
+32392,"Medallion fragment","Sailing","Sailing",no,"Sailing-island fragment for the medallion of the deep -> Sailing.",high
+32393,"Medallion fragment","Sailing","Sailing",no,"Sailing-island fragment for the medallion of the deep -> Sailing.",high
+32394,"Medallion fragment","Sailing","Sailing",no,"Sailing-island fragment for the medallion of the deep -> Sailing.",high
+32395,"Medallion fragment","Sailing","Sailing",no,"Sailing-island fragment for the medallion of the deep -> Sailing.",high
+32396,"Waterlogged journal","Sailing","Sailing",no,"Lore book on the Pandemonium (Sailing) -> Sailing.",medium
+32399,"Sailors' amulet","Misc,Sailing","Sailing,Teleports",yes,"Amulet teleporting to Sailing ports -> Sailing, Teleports; dropped Misc (teleport rule; flagged).",medium
+32401,"Salvaging station schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32402,"Gale catcher schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32403,"Eternal brazier schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32404,"Dragon salvaging hook schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32405,"Rosewood cargo hold schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32406,"Dragon cannon schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32407,"Rosewood hull schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32408,"Rosewood & cotton sails schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32409,"Dragon helm schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32410,"Dragon keel schematic","Sailing","Sailing",no,"Boat-part build blueprint -> Sailing.",high
+32411,"Small key (the pandemonium)","Misc,Sailing","Misc,Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Misc, Sailing.",medium
+32412,"Small key (the onyx crest)","Misc,Sailing","Misc,Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Misc, Sailing.",medium
+32413,"Small key (tear of the soul)","Misc,Sailing","Misc,Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Misc, Sailing.",medium
+32414,"Small key (ynysdail)","Misc,Sailing","Misc,Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Misc, Sailing.",medium
+32415,"Small key (minotaurs' rest)","Misc,Sailing","Misc,Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Misc, Sailing.",medium
+32416,"Small key (buccaneers' haven)","Misc,Sailing","Misc,Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Misc, Sailing.",medium
+32417,"Small key (isle of bones)","Sailing","Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Sailing as tagged.",medium
+32418,"Small key (charred island)","Misc,Sailing","Misc,Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Misc, Sailing.",medium
+32419,"Small key (laguna aurorae)","Misc,Sailing","Misc,Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Misc, Sailing.",medium
+32420,"Small key (drumstick isle)","Misc,Sailing","Misc,Sailing",no,"Lockbox-dig key (Sailing puzzle) -> Misc, Sailing.",medium
+32421,"Lockbox directions (chinchompa island)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32422,"Lockbox directions (anglers' retreat)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32423,"Lockbox directions (buccaneers' haven)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32424,"Lockbox directions (lledrith island)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32425,"Lockbox directions (the crown jewel)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32426,"Lockbox directions (deepfin point)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32427,"Lockbox directions (shimmering atoll)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32428,"Lockbox directions (brittle isle)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32429,"Lockbox directions (sunbleak island)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32430,"Lockbox directions (grimstone)","Sailing","Sailing",no,"Sailing lockbox-puzzle directions -> Sailing.",high
+32431,"Book about lighthouses","Sailing","Sailing",no,"Northern Ocean charting reward book -> Sailing.",medium
+32432,"Charred key","Sailing","Sailing",no,"Unquiet Ocean charting reward -> Sailing.",medium
+32433,"Void orb","Sailing","Sailing",no,"Shrouded Ocean charting reward -> Sailing.",medium
+32434,"Holy sheet","Sailing","Sailing",no,"Ardent Ocean charting reward -> Sailing.",medium
+32435,"Crate of adamantite ore","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32436,"Crate of crab paste","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32437,"Crate of crystal seeds","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32438,"Crate of daggers","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32439,"Crate of dyes","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32440,"Crate of furs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32441,"Crate of jewellery","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32442,"Crate of lead ore","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32443,"Crate of monkfish","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32444,"Crate of nickel ore","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32445,"Crate of pest remains","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32446,"Crate of platebodies","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32447,"Crate of spears","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32448,"Crate of arrowtips","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32449,"Crate of bananas","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32451,"Crate of fish","Fishing,Sailing","Sailing",yes,"Sailing courier-task cargo crate -> Sailing; dropped Fishing (cargo contents don't make it a Fishing item; cargo-crate family normalisation; flagged).",medium
+32453,"Crate of gold ore","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32454,"Crate of halberds","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32456,"Crate of poison","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32457,"Crate of rabbit meat","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32458,"Crate of red coral","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32459,"Crate of runes","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32460,"Crate of salamanders","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32461,"Crate of sand","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32462,"Crate of silk","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32463,"Crate of spices","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32464,"Crate of bear meat","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32465,"Crate of beer","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32466,"Crate of cacti","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32467,"Crate of camphor logs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32468,"Crate of compost","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32470,"Crate of gems","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32471,"Crate of iron bars","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32473,"Crate of machinery parts","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32474,"Crate of rum","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32475,"Crate of sandstone","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32476,"Crate of silver ore","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32478,"Crate of vodka","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32479,"Crate of wine","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32480,"Crate of gold bars","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32481,"Crate of secret stuff","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32483,"Crate of bait","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32484,"Crate of feathers","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32486,"Crate of coconuts","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32490,"Crate of grog","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32491,"Crate of javelins","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32493,"Crate of karambwans","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32494,"Crate of pineapples","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32495,"Crate of potatoes","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32496,"Crate of seeds","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32499,"Crate of vials","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32500,"Crate of astral runes","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32501,"Crate of books","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32502,"Crate of coral","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32504,"Crate of fruit","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32506,"Crate of historical artefacts","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32508,"Crate of oranges","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32509,"Crate of ores","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32514,"Crate of ship parts","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32516,"Crate of staffs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32517,"Crate of tokens","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32518,"Crate of vegetables","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32525,"Crate of khali brews","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32526,"Crate of peg legs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32529,"Crate of scimitars","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32531,"Crate of swords","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32532,"Crate of alpaca wool","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32534,"Crate of fabrics","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32537,"Crate of granite","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32539,"Crate of logs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32541,"Crate of mahogany logs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32543,"Crate of pickaxes","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32544,"Crate of planks","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32545,"Crate of suqah hides","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32546,"Crate of warhammers","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32548,"Crate of barley","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32553,"Crate of iron ore","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32555,"Crate of onions","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32559,"Crate of yak hair","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32562,"Crate of rope","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32563,"Crate of xerician fabrics","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32565,"Crate of flax","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32571,"Crate of kebbit fur","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32572,"Crate of meat","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32574,"Crate of secret things","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32578,"Crate of antelope fur","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32579,"Crate of berries","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32580,"Crate of coal","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32586,"Crate of potions","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32589,"Crate of beer glasses","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32590,"Crate of cocktails","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32591,"Crate of eye patches","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32593,"Crate of high importance","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32594,"Crate of honey","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32595,"Crate of lobsters","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32599,"Crate of rotten bananas","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32612,"Crate of angler outfit pieces","Fishing,Sailing","Sailing",yes,"Sailing courier-task cargo crate -> Sailing; dropped Fishing (cargo contents don't make it a Fishing item; cargo-crate family normalisation; flagged).",medium
+32614,"Crate of bows","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32615,"Crate of bread","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32616,"Crate of chainbodies","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32620,"Crate of gunpowder","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32621,"Crate of herbs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32622,"Crate of huasca","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32623,"Crate of kyatt teeth","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32630,"Crate of swamp paste","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32632,"Crate of antelope meat","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32635,"Crate of cannonballs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32640,"Crate of gin","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32671,"Crate of teak logs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32673,"Crate of amulets","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32683,"Crate of kebabs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32685,"Crate of nothing sinister","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32691,"Crate of sunbeam ale","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32694,"Crate of chinchompas","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32701,"Crate of mithril ore","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32705,"Crate of shields","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32706,"Crate of snakeskin","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32711,"Crate of clothes","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32730,"Crate of protective clothing","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32736,"Crate of dragon bitter","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32742,"Crate of pies","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32744,"Crate of redwood logs","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32749,"Crate of calquat","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32753,"Crate of fishing supplies","Fishing,Sailing","Sailing",yes,"Sailing courier-task cargo crate -> Sailing; dropped Fishing (cargo contents; cargo-crate family normalisation; flagged).",medium
+32761,"Crate of maces","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32766,"Crate of battleaxes","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32775,"Crate of sea shells","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32777,"Crate of steel bars","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32779,"Crate of wax","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32785,"Crate of leather","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32795,"Crate of dragonhide","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32806,"Crate of wrath runes","Sailing","Sailing",no,"Sailing courier-task cargo crate -> Sailing.",high
+32807,"Crate of ship parts","Quests,Sailing","Quests,Sailing",no,"Pandemonium quest cargo crate -> Quests, Sailing.",medium
+32808,"Crate of looty","Quests","Quests",no,"Prying Times quest cargo crate -> Quests.",high
+32809,"Bull shark jaw","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32810,"Hammerhead shark jaw","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32811,"Tiger shark jaw","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32812,"Great white shark jaw","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32813,"Narwhal blubber","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32814,"Orca blubber","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32815,"Pygmy kraken tentacle","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32816,"Spined kraken tentacle","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32817,"Armoured kraken tentacle","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32818,"Vampyre kraken tentacle","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32819,"Eagle ray fin","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32820,"Butterfly ray fin","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32821,"Stingray fin","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32822,"Manta ray fin","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32823,"Tern feather","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32824,"Osprey feather","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32825,"Frigatebird feather","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32826,"Albatross feather","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32827,"Mogre mace","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32828,"Bull shark liver","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32829,"Hammerhead shark liver","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32830,"Tiger shark liver","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32831,"Great white shark liver","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32832,"Narwhal tusk","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32833,"Orca teeth","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32834,"Pygmy kraken ink sac","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32835,"Spined kraken ink sac","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32836,"Armoured kraken ink sac","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32837,"Vampyre kraken ink sac","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32838,"Eagle ray skin","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32839,"Butterfly ray skin","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32840,"Stingray skin","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32841,"Manta ray skin","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32842,"Tern beak","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32843,"Osprey beak","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32844,"Frigatebird beak","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32845,"Albatross beak","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32846,"Mogre head","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+32847,"Small salvage","Sailing","Sailing",no,"Shipwreck salvage (Sailing) -> Sailing.",high
+32849,"Fishy salvage","Sailing","Sailing",no,"Shipwreck salvage (Sailing) -> Sailing.",high
+32851,"Barracuda salvage","Sailing","Sailing",no,"Shipwreck salvage (Sailing) -> Sailing.",high
+32853,"Large salvage","Sailing","Sailing",no,"Shipwreck salvage (Sailing) -> Sailing.",high
+32855,"Plundered salvage","Sailing","Sailing",no,"Shipwreck salvage (Sailing) -> Sailing.",high
+32857,"Martial salvage","Sailing","Sailing",no,"Shipwreck salvage (Sailing) -> Sailing.",high
+32859,"Fremennik salvage","Sailing","Sailing",no,"Shipwreck salvage (Sailing) -> Sailing.",high
+32861,"Opulent salvage","Sailing","Sailing",no,"Shipwreck salvage (Sailing) -> Sailing.",high
+32863,"Rusty locket","Misc,Sailing","Misc,Sailing",no,"Salvage relic (museum hand-in) -> Misc, Sailing.",medium
+32864,"Mouldy block","Misc,Sailing","Misc,Sailing",no,"Salvage relic (museum hand-in) -> Misc, Sailing.",medium
+32865,"Dull knife","Misc,Sailing","Misc,Sailing",no,"Salvage relic (museum hand-in) -> Misc, Sailing.",medium
+32866,"Broken compass","Sailing","Sailing",no,"Salvage relic (museum hand-in) -> Sailing as tagged.",medium
+32867,"Rusty coin","Misc,Sailing","Misc,Sailing",no,"Salvage relic (museum hand-in) -> Misc, Sailing.",medium
+32868,"Broken sextant","Sailing","Sailing",no,"Salvage relic (museum hand-in) -> Sailing as tagged.",medium
+32869,"Mouldy doll","Misc,Sailing","Misc,Sailing",no,"Salvage relic (museum hand-in) -> Misc, Sailing.",medium
+32870,"Smashed mirror","Sailing","Sailing",no,"Salvage relic (museum hand-in) -> Sailing as tagged.",medium
+32871,"Antique lamp","Misc,Sailing","Misc,Sailing",no,"XP lamp from a Sailing salvage relic hand-in -> Misc, Sailing.",medium
+32876,"Aquanite tendon","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (60 Smithing) into the aquanite hopper; Ynysdail Cavern (Sailing) -> Mining + Smithing, Sailing.",high
+32879,"Aquanite hopper","Mining + Smithing,Range","Range",yes,"Finished smithed ranged offhand -> Range; dropped Mining + Smithing (finished-gear rule; flagged).",medium
+32882,"Reef snake gland","Sailing","Sailing",no,"Reef snake venom gland (Sailing) -> Sailing as tagged.",medium
+32886,"Chain","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Metal chain component for the Ivandis flail -> Mining + Smithing, Sailing as tagged (Sailing source unclear; flagged).",medium
+32889,"Lead bar","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (25 Smithing) shipbuilding bar -> Mining + Smithing, Sailing.",high
+32892,"Cupronickel bar","Mining + Smithing,Sailing","Mining + Smithing,Sailing",no,"Smithed (74 Smithing) shipbuilding bar -> Mining + Smithing, Sailing.",high
+32902,"Jatoba logs","Sailing,Woodcutting + Firemaking","Sailing,Woodcutting + Firemaking",no,"Chopped/burnable logs (Sailing content) -> Sailing, Woodcutting + Firemaking.",high
+32904,"Camphor logs","Sailing,Woodcutting + Firemaking","Sailing,Woodcutting + Firemaking",no,"Chopped/burnable boat-wood logs -> Sailing, Woodcutting + Firemaking.",high
+32907,"Ironwood logs","Construction,Sailing,Woodcutting + Firemaking","Sailing,Woodcutting + Firemaking",yes,"Chopped/burnable boat-wood logs -> Sailing, Woodcutting + Firemaking; dropped Construction (planks/hulls are the Construction step, not the logs; matches camphor; flagged).",medium
+32910,"Rosewood logs","Construction,Sailing,Woodcutting + Firemaking","Sailing,Woodcutting + Firemaking",yes,"Chopped/burnable boat-wood logs -> Sailing, Woodcutting + Firemaking; dropped Construction (planks/hulls are the Construction step; matches camphor; flagged).",medium
+32921,"Jar of feathers","Cosmetics,Sailing","Construction",yes,"Shellbane Gryphon boss-lair display jar (Achievement Gallery) -> Construction (jar-family rule; dropped Cosmetics/Sailing; flagged).",high
+32926,"Serving platter","Misc","Cosmetics",yes,"2025 Christmas event item -> Cosmetics; corrected Misc (holiday-event rule; flagged).",medium
+32928,"Lovley jubbly bib","Cosmetics","Cosmetics",no,"2025 Christmas event cosmetic -> Cosmetics.",high
+32930,"Beer belly sweater","Cosmetics","Cosmetics",no,"2025 Christmas event cosmetic -> Cosmetics.",high
+32932,"Jad jumper","Cosmetics","Cosmetics",no,"2025 Christmas event cosmetic -> Cosmetics.",high
+32934,"Christmas dinner","Cosmetics","Cosmetics",no,"2025 Christmas event novelty cosmetic -> Cosmetics.",high
+33002,"Holy moleys","Cosmetics,Prayer","Cosmetics,Prayer",no,"Cosmetic holy-sandal/mole-slipper fusion (prayer bonus, 31 Prayer) -> Cosmetics, Prayer.",high
+33004,"Kharidian quest lamp","Quests","Quests",no,"Deadman quest-completion lamp (Kharidian storyline) -> Quests.",high
+33005,"Myreque quest lamp","Misc,Quests","Quests",yes,"Deadman quest-completion lamp (Myreque storyline) -> Quests; dropped Misc (quest-lamp family normalisation; flagged).",medium
+33006,"Dragonkin quest lamp","Quests","Quests",no,"Deadman quest-completion lamp (Dragonkin storyline) -> Quests.",high
+33007,"Mahjarrat 2 quest lamp","Misc,Quests","Quests",yes,"Deadman quest-completion lamp (Mahjarrat storyline) -> Quests; dropped Misc (quest-lamp family normalisation; flagged).",medium
+33008,"Camelot quest lamp","Quests","Quests",no,"Deadman quest-completion lamp (Camelot storyline) -> Quests.",high
+33009,"Recipe for disaster quest lamp","Quests","Quests",no,"Deadman quest-completion lamp (Recipe for Disaster) -> Quests.",high
+33010,"Ruinous powers (Deadman Mode)","Misc,Prayer","Prayer",yes,"Tome unlocking Ruinous Powers prayers -> Prayer; dropped Misc (matches the non-Deadman version; flagged).",medium
+33012,"Annihilation weapon scroll","Cosmetics","Cosmetics",no,"Cosmetic recolour applicator for staff/bow/crystal armour -> Cosmetics.",high
+33015,"Annihilation blueprints","Construction","Construction",no,"POH Wilderness-theme house-style unlock (consumed via estate agent) -> Construction as tagged; Cosmetics-vs-Construction call flagged.",medium
+33018,"Annihilation teleport scroll","Cosmetics","Cosmetics",no,"Unlocks a cosmetic Home Teleport animation override -> Cosmetics (animation only, not a functional teleport).",high
+33021,"Bow of faerdhinen (c)","Cosmetics,Range","Cosmetics,Range",no,"Functional ranged weapon with a Deadman cosmetic theme -> Cosmetics, Range.",high
+33023,"Crystal body","Cosmetics,Range","Cosmetics,Range",no,"Functional crystal (Range) armour with Deadman cosmetic theme -> Cosmetics, Range.",high
+33027,"Crystal legs","Cosmetics,Range","Cosmetics,Range",no,"Functional crystal (Range) armour with Deadman cosmetic theme -> Cosmetics, Range.",high
+33031,"Crystal helm","Cosmetics,Range","Cosmetics,Range",no,"Functional crystal (Range) armour with Deadman cosmetic theme -> Cosmetics, Range.",high
+33035,"Toxic staff (uncharged)","Mage","Cosmetics,Mage",yes,"Deadman cosmetic variant of the toxic staff (uncharged); added Cosmetics to match the charged version -> Cosmetics, Mage (flagged).",medium
+33036,"Toxic staff (deadman)","Cosmetics,Mage","Cosmetics,Mage",no,"Functional Mage staff with Deadman cosmetic theme -> Cosmetics, Mage.",high
+33038,"The dogsword","Melee","Melee",no,"60 Attack 2h melee godsword (Deadman chest loot) -> Melee.",high
+33041,"Thunder khopesh","Melee","Melee",no,"60 Attack melee slash sword (Deadman chest loot) -> Melee.",high
+33044,"Trinket of avarice","Misc","Misc",no,"Deadman loot-automation utility trinket -> Misc.",high
+33047,"Trinket of fortuity (inactive)","Misc","Misc",no,"Deadman drop-rate utility trinket -> Misc.",high
+33054,"Sigil of the gods","Mage,Misc","Mage,Misc",no,"Deadman combat sigil boosting god (Magic) spell damage -> Mage, Misc; sigil-family treatment flagged.",medium
+33056,"Sigil of conclusion","Misc","Misc",no,"Deadman utility sigil (special-attack energy on NPC kill) -> Misc.",high
+33058,"Sigil of automation","Misc","Misc",no,"Deadman utility sigil (auto-reload cannon) -> Misc.",high
+33060,"Sigil of eternal belief","Misc,Prayer","Misc,Prayer",no,"Deadman sigil tied to Prayer drain mechanic -> Misc, Prayer; sigil-family treatment flagged.",medium
+33062,"Sigil of efficiency","Farming,Fishing,Fletching,Misc","Farming,Fishing,Misc,Woodcutting + Firemaking",yes,"Deadman sigil doubling Woodcutting/Fishing/Farming yields; corrected erroneous Fletching tag to Woodcutting + Firemaking (flagged).",medium
+33063,"Starter cape","Melee,Misc","Melee,Misc",no,"Deadman all-style starter cape (minor bonus to every style) -> kept Melee, Misc as tagged; all-style-accessory rule flagged.",medium
+33065,"Deadman's skull","Misc","Misc",no,"Deadman skull-shop interaction object -> Misc.",high
+33066,"Hooded slayer helmet","Cosmetics,Melee,Slayer","Cosmetics,Melee,Slayer",no,"Cosmetic-hood slayer helmet (functional Slayer melee headgear) -> Cosmetics, Melee, Slayer.",high
+33068,"Hooded slayer helmet (i)","Cosmetics,Melee,Slayer","Cosmetics,Melee,Slayer",no,"Imbued cosmetic-hood slayer helmet -> Cosmetics, Melee, Slayer; imbued all-style helm flagged.",medium
+33074,"Facility bottle (empty)","Sailing","Sailing",no,"Boat-facility storage/transfer item (Sailing) -> Sailing.",high
+33080,"25th anniversary helmet","Cosmetics","Cosmetics",no,"Birthday-event cosmetic -> Cosmetics.",high
+33082,"25th anniversary warrior tabard","Cosmetics","Cosmetics",no,"Birthday-event cosmetic -> Cosmetics.",high
+33084,"25th anniversary skeleton tabard","Cosmetics","Cosmetics",no,"Birthday-event cosmetic -> Cosmetics.",high
+33086,"25th anniversary 5x5 hat","Cosmetics","Cosmetics",no,"Birthday-event cosmetic -> Cosmetics.",high
+33091,"Bottomless milk bucket (empty)","Cooking,Misc","Cooking,Misc",no,"Bulk storage for milk (a Cooking ingredient) -> Cooking, Misc.",medium
+33093,"Cow slippers","Cosmetics","Cosmetics",no,"Cosmetic footwear (Brutus drop) -> Cosmetics.",high
+33096,"Cow slippers","Cosmetics","Cosmetics",no,"Cosmetic footwear (Brutus drop) -> Cosmetics.",high
+33097,"Cow slippers","Cosmetics","Cosmetics",no,"Cosmetic footwear (Brutus drop) -> Cosmetics.",high
+33099,"Brutus slippers","Cosmetics","Cosmetics",no,"Cosmetic footwear (Demonic Brutus drop) -> Cosmetics.",high
+33101,"Mooleta","Melee","Melee",no,"Melee defensive off-hand (steel-defender-like) -> Melee.",high
+33103,"Cowbell amulet","Misc,Quests","Misc,Quests",no,"No-stat fashion amulet from completing The Ides of Milk -> Misc, Quests.",medium
+33106,"Raw t-bone steak","Cooking","Cooking",no,"Raw food cooked at 13 Cooking -> Cooking.",high
+33109,"Cooked t-bone steak","Cooking,Melee","Cooking",yes,"Cooked food (Cooking output that heals 9 HP); dropped Melee (cooked-food rule -> Cooking only; flagged).",medium
+33112,"Burnt t-bone steak","Cooking","Cooking",no,"Burnt Cooking by-product -> Cooking.",high
+33115,"Bull bones","Prayer","Prayer",no,"Buryable bones for 40 Prayer XP -> Prayer.",high
+33117,"Magic lamp","Quests","Quests",no,"Quest-completion XP lamp (The Ides of Milk) -> Quests.",high
+33118,"Abyssal potato","Melee,Quests","Melee",yes,"+1 Strength boost food -> Melee; dropped Quests (repeatable harvest, not a quest item; flagged).",medium
+33120,"Perfected quetzal whistle(i)","Hunter,Misc","Teleports",yes,"Quetzal Transport System teleport device -> Teleports; dropped Hunter/Misc (quetzal-whistle family rule; flagged).",medium
+33122,"Annihilation exit portal blueprints","Construction","Construction",no,"Blueprints consumed to build a POH exit portal (Construction) -> Construction.",high
+33124,"Beef","Cosmetics","Cosmetics",no,"Boss pet (Brutus) -> Cosmetics.",high
+33126,"The groats principles","Quests","Quests",no,"Quest-progression book (The Ides of Milk) -> Quests.",high
+33128,"Milk sample","Quests","Quests",no,"Quest item (The Ides of Milk) -> Quests.",high
+33133,"Pristine spider silk","Herblore,Misc","Herblore,Misc",no,"Material consumed to upgrade the herb sack -> Herblore, Misc.",medium
+33135,"Silklined herb sack","Farming,Herblore,Misc","Farming,Herblore,Misc",no,"Upgraded grimy-herb storage sack -> Farming, Herblore, Misc.",medium
+33143,"Ballistic attractor schematic","Sailing","Sailing",no,"Boat-part build schematic (Sailing) -> Sailing.",high
+33144,"Veiled kraken tentacle","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+33145,"Veiled kraken ink sac","Sailing","Sailing",no,"Sailing bounty-task creature drop -> Sailing.",high
+33146,"Scribbled notes","Cosmetics","Cosmetics",no,"2026 Easter event clue note -> Cosmetics (holiday-event item).",high
+33147,"Egg box","Cosmetics","Cosmetics",no,"2026 Easter event puzzle item -> Cosmetics (holiday-event item).",high
+33149,"Archibald","Cosmetics","Cosmetics",no,"2026 Easter event menagerie extra -> Cosmetics.",high
+33166,"Crystal body","Misc,Range","Misc,Range",no,"LMS minigame-exclusive crystal (Range) armour variant -> Misc, Range (LMS-variant pattern).",high
+33168,"Crystal legs","Misc,Range","Misc,Range",no,"LMS minigame-exclusive crystal (Range) armour variant -> Misc, Range (LMS-variant pattern).",high
+33170,"Crystal helm","Misc,Range","Misc,Range",no,"LMS minigame-exclusive crystal (Range) armour variant -> Misc, Range (LMS-variant pattern).",high
+33172,"Avernic treads (max)","Melee,Misc","Melee,Misc",no,"LMS all-style boot (Primordial/Pegasian/Eternal combined) -> kept Melee, Misc as tagged; all-style-accessory rule flagged.",medium
+33174,"Osmumten's fang","Melee,Misc","Melee,Misc",no,"LMS minigame-exclusive melee stab sword -> Melee, Misc (LMS-variant pattern).",high
+33176,"Elidinis' ward (f)","Mage,Misc","Mage,Misc",no,"LMS minigame-exclusive Mage shield -> Mage, Misc (LMS-variant pattern).",high
+33178,"Noxious halberd","Melee,Misc","Melee,Misc",no,"LMS minigame-exclusive melee polearm -> Melee, Misc (LMS-variant pattern).",high
+33180,"Magus ring","Mage,Misc","Mage,Misc",no,"LMS minigame-exclusive Mage ring -> Mage, Misc (LMS-variant pattern).",high
+33182,"Ultor ring","Melee,Misc","Melee,Misc",no,"LMS minigame-exclusive melee strength ring -> Melee, Misc (LMS-variant pattern).",high
+33184,"Purging staff","Mage,Misc","Mage,Misc",no,"LMS minigame-exclusive magic staff (crush/str hybrid) -> Mage, Misc (LMS-variant pattern).",medium
+33186,"Dragonfire shield","Melee,Misc","Melee,Misc",no,"LMS minigame-exclusive melee/anti-dragon shield -> Melee, Misc (LMS-variant pattern).",high
+33188,"Twisted buckler","Misc,Range","Misc,Range",no,"LMS minigame-exclusive ranged off-hand -> Misc, Range (LMS-variant pattern).",high
+33190,"Masori body (f)","Misc,Range","Misc,Range",no,"LMS minigame-exclusive Range armour -> Misc, Range (LMS-variant pattern).",high
+33192,"Masori chaps (f)","Misc,Range","Misc,Range",no,"LMS minigame-exclusive Range armour -> Misc, Range (LMS-variant pattern).",high
+33194,"Torva platelegs","Melee,Misc","Melee,Misc",no,"LMS minigame-exclusive melee armour -> Melee, Misc (LMS-variant pattern).",high
+33196,"Virtus robe top","Mage,Misc","Mage,Misc",no,"LMS minigame-exclusive Mage robe -> Mage, Misc (LMS-variant pattern).",high
+33198,"Virtus robe bottom","Mage,Misc","Mage,Misc",no,"LMS minigame-exclusive Mage robe -> Mage, Misc (LMS-variant pattern).",high
+33200,"Burning claws","Melee,Misc","Melee,Misc",no,"LMS minigame-exclusive melee claw -> Melee, Misc (LMS-variant pattern).",high
+33202,"Aranea boots","Misc,Range","Misc,Range",no,"LMS minigame-exclusive boots -> Misc, Range as tagged (mage/range mix; flagged).",medium
+33218,"Knapsack","Misc","Misc",no,"Demonic Pacts League relic resource bag -> Misc.",high
+33221,"Barbarian arm","Misc","Misc",no,"League relic enabling tool-less gathering -> Misc (League mechanic, not a skill input/output).",high
+33227,"Evil eye","Misc","Misc",no,"League relic boss/raid teleport pendant -> kept Misc (League family); Teleports candidate flagged.",medium
+33229,"Transmutation ledger","Misc","Misc",no,"League Transmute relic item -> Misc.",high
+33231,"Soul shard","Misc,Prayer,Runecraft","Misc,Prayer,Runecraft",no,"League Soul Harvest relic (replaces bones/ashes, used on Libation Bowl) -> kept Misc, Prayer, Runecraft as tagged; flagged.",medium
+33233,"Map of alacrity","Misc","Misc",no,"League relic agility-shortcut teleport map -> kept Misc (League family); Teleports candidate flagged.",medium
+33235,"Clue contract","Misc","Misc",no,"League relic one-use teleport -> kept Misc (League family); Teleports candidate flagged.",medium
+33237,"Butler's bell","Misc","Misc",no,"League relic to summon a POH butler -> Misc.",high
+33239,"Flask of fervour","Misc","Misc",no,"League relic demonic-energy flask -> Misc.",high
+33243,"Infernal tecpatl","Melee","Melee",no,"2h melee echo weapon (Demonic Pacts League) -> Melee.",high
+33245,"Nature's recurve","Range","Range",no,"2h shortbow echo weapon (Demonic Pacts League) -> Range.",high
+33247,"V's helm","Melee,Slayer","Melee,Slayer",no,"Echo Dagannoth Kings all-style helm -> kept Melee, Slayer as tagged; questionable Slayer tag + all-style flagged.",medium
+33249,"Fang of the hound","Melee","Melee",no,"1h melee echo weapon (Echo Cerberus) -> Melee.",high
+33251,"King's barrage","Range","Range",no,"2h crossbow echo weapon (Echo KBD) -> Range.",high
+33253,"Shadowflame quadrant","Mage","Mage",no,"1h magic staff with infinite elemental runes/autocast -> Mage.",high
+33255,"Lithic sceptre","Mage","Mage",no,"1h powered magic sceptre (charged with runes) -> Mage.",high
+33257,"Lithic sceptre (uncharged)","Mage","Mage",no,"Uncharged 1h powered magic sceptre -> Mage.",high
+33260,"Demonic hood (t1)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33263,"Demonic robe top (t1)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33266,"Demonic robe bottom (t1)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33269,"Demonic boots (t1)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33272,"Demonic hood (t2)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33275,"Demonic robe top (t2)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33278,"Demonic robe bottom (t2)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33281,"Demonic boots (t2)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33284,"Demonic hood (t3)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33287,"Demonic robe top (t3)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33290,"Demonic robe bottom (t3)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33293,"Demonic boots (t3)","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic set piece -> Cosmetics.",high
+33296,"Demonic sceptre","Cosmetics","Cosmetics",no,"League Reward Shop cosmetic weapon override -> Cosmetics.",high
+33299,"Demonic pacts banner","Cosmetics","Cosmetics",no,"League cosmetic banner -> Cosmetics.",high
+33302,"Demonic skin contract","Cosmetics","Cosmetics",no,"Cosmetic skin-colour change item -> Cosmetics.",high
+33305,"Demonic axe ornament kit","Cosmetics,Melee","Cosmetics",yes,"Ornament kit for the soulreaper axe -> Cosmetics; dropped Melee (ornament-kit applicator rule; flagged).",high
+33308,"Demonic staff ornament kit","Cosmetics,Mage","Cosmetics",yes,"Ornament kit for Iban's staff -> Cosmetics; dropped Mage (ornament-kit applicator rule; flagged).",high
+33311,"Demonic trident ornament kit","Cosmetics,Mage","Cosmetics",yes,"Ornament kit for tridents -> Cosmetics; dropped Mage (ornament-kit applicator rule; flagged).",high
+33314,"Trident of the swamp (o)","Cosmetics,Mage","Cosmetics,Mage",no,"Functional Mage powered staff with cosmetic ornament -> Cosmetics, Mage (kitted-gear keeps functional tab; flagged).",high
+33316,"Uncharged toxic trident (o)","Cosmetics,Mage","Cosmetics,Mage",no,"Uncharged functional Mage staff with cosmetic ornament -> Cosmetics, Mage.",high
+33318,"Trident of the swamp (e) (o)","Cosmetics,Mage","Cosmetics,Mage",no,"Functional enhanced Mage staff with cosmetic ornament -> Cosmetics, Mage.",high
+33320,"Uncharged toxic trident (e)","Cosmetics,Mage","Cosmetics,Mage",no,"Uncharged enhanced Mage staff with cosmetic ornament -> Cosmetics, Mage.",high
+33323,"Trident of the seas (full) (o)","Cosmetics,Mage","Cosmetics,Mage",no,"Functional Mage staff with cosmetic ornament -> Cosmetics, Mage.",high
+33326,"Trident of the seas (e) (o)","Cosmetics,Mage","Cosmetics,Mage",no,"Functional enhanced Mage staff with cosmetic ornament -> Cosmetics, Mage.",high
+33328,"Uncharged trident (e) (o)","Cosmetics,Mage","Cosmetics,Mage",no,"Uncharged enhanced Mage staff with cosmetic ornament -> Cosmetics, Mage.",high
+33330,"Iban's staff","Cosmetics,Mage","Cosmetics,Mage",no,"Functional Mage staff (Iban's staff (o)) with cosmetic ornament -> Cosmetics, Mage.",high
+33332,"Iban's staff (u) (o)","Cosmetics,Mage","Cosmetics,Mage",no,"Functional upgraded Mage staff with cosmetic ornament -> Cosmetics, Mage.",high
+33335,"Soulreaper axe (o)","Cosmetics,Melee","Cosmetics,Melee",no,"Functional melee axe with cosmetic ornament -> Cosmetics, Melee.",high
+33338,"Demonic slayer helmet","Cosmetics,Melee,Slayer","Cosmetics,Melee,Slayer",no,"Cosmetic upgrade to the Slayer helmet (functional Slayer melee headgear) -> Cosmetics, Melee, Slayer.",high
+33345,"Demonic pacts dragon trophy","Cosmetics","Cosmetics",no,"League ranking cosmetic trophy -> Cosmetics.",high
+33347,"Demonic pacts rune trophy","Cosmetics","Cosmetics",no,"League ranking cosmetic trophy -> Cosmetics.",high
+33349,"Demonic pacts adamant trophy","Cosmetics","Cosmetics",no,"League ranking cosmetic trophy -> Cosmetics.",high
+33351,"Demonic pacts mithril trophy","Cosmetics","Cosmetics",no,"League ranking cosmetic trophy -> Cosmetics.",high
+33353,"Demonic pacts steel trophy","Cosmetics","Cosmetics",no,"League ranking cosmetic trophy -> Cosmetics.",high
+33355,"Demonic pacts iron trophy","Cosmetics","Cosmetics",no,"League ranking cosmetic trophy -> Cosmetics.",high
+33357,"Demonic pacts bronze trophy","Cosmetics","Cosmetics",no,"League ranking cosmetic trophy -> Cosmetics.",high
+33359,"Impish ritual kit","Cosmetics","Cosmetics",no,"Unlocks a cosmetic Home Teleport animation override -> Cosmetics (animation only, not a functional teleport).",high
+33362,"Demonic pacts throne scroll","Construction,Cosmetics","Cosmetics",yes,"POH throne cosmetic recolour scroll -> Cosmetics; dropped Construction (POH-recolour applicator rule; flagged).",high
+33365,"Impish whistle","Cosmetics","Cosmetics",no,"Unlocks a cosmetic override for Arceuus thralls -> Cosmetics.",high
+33368,"Demonic pacts demon butler scroll","Construction,Cosmetics","Cosmetics",yes,"Demon-butler cosmetic recolour scroll -> Cosmetics; dropped Construction (POH-recolour applicator rule; flagged).",high
+33382,"Immaculate mole skin","Crafting","Crafting",no,"Giant Mole tertiary drop crafted (81 Crafting) into the gem sack -> Crafting.",high
+33384,"Gem pouch","Crafting,Misc","Crafting,Mining + Smithing,Misc",yes,"Crafted gem-storage container holding mined uncut gems -> Crafting, Mining + Smithing, Misc; added Mining + Smithing to match the gem sack (gem-container family normalisation; flagged).",medium
+33387,"Gem satchel","Crafting,Misc","Crafting,Mining + Smithing,Misc",yes,"Crafted gem-storage container holding mined uncut gems -> Crafting, Mining + Smithing, Misc; added Mining + Smithing to match the gem sack (gem-container family normalisation; flagged).",medium
+33390,"Gem tote","Crafting,Misc","Crafting,Mining + Smithing,Misc",yes,"Crafted gem-storage container holding mined uncut gems -> Crafting, Mining + Smithing, Misc; added Mining + Smithing to match the gem sack (gem-container family normalisation; flagged).",medium
+33393,"Gem sack","Crafting,Mining + Smithing,Misc","Crafting,Mining + Smithing,Misc",no,"Crafted top-tier gem-storage container holding mined uncut gems -> Crafting, Mining + Smithing, Misc (gem-container family reference).",high

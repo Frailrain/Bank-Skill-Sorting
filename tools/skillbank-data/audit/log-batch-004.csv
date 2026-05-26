@@ -1,0 +1,1189 @@
+id,name,old_tabs,new_tabs,changed,rationale,confidence
+7360,"Rune shield (h5)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic rune kiteshield (clue reward).",high
+7362,"Studded body (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed studded ranged body (clue reward).",high
+7364,"Studded body (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed studded ranged body (clue reward).",high
+7366,"Studded chaps (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed studded ranged legs (clue reward).",high
+7368,"Studded chaps (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed studded ranged legs (clue reward).",high
+7370,"Green d'hide body (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed green dragonhide body (clue reward).",high
+7372,"Green d'hide body (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed green dragonhide body (clue reward).",high
+7374,"Blue d'hide body (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed blue dragonhide body (clue reward).",high
+7376,"Blue d'hide body (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed blue dragonhide body (clue reward).",high
+7378,"Green d'hide chaps (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed green dragonhide legs (clue reward).",high
+7380,"Green d'hide chaps (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed green dragonhide legs (clue reward).",high
+7382,"Blue d'hide chaps (g)","Cosmetics,Range","Cosmetics,Range",no,"Gold-trimmed blue dragonhide legs (clue reward).",high
+7384,"Blue d'hide chaps (t)","Cosmetics,Range","Cosmetics,Range",no,"Trimmed blue dragonhide legs (clue reward).",high
+7386,"Blue skirt (g)","Cosmetics,Mage","Cosmetics,Mage",no,"Gold-trimmed wizard-set skirt (clue reward).",medium
+7388,"Blue skirt (t)","Cosmetics,Mage","Cosmetics,Mage",no,"Trimmed wizard-set skirt (clue reward).",medium
+7390,"Blue wizard robe (g)","Cosmetics,Mage","Cosmetics,Mage",no,"Gold-trimmed wizard robe (+magic, clue reward).",high
+7392,"Blue wizard robe (t)","Cosmetics,Mage","Cosmetics,Mage",no,"Trimmed wizard robe (+magic, clue reward).",high
+7394,"Blue wizard hat (g)","Cosmetics,Mage","Cosmetics,Mage",no,"Gold-trimmed wizard hat (+magic, clue reward).",high
+7396,"Blue wizard hat (t)","Cosmetics,Mage","Cosmetics,Mage",no,"Trimmed wizard hat (+magic, clue reward).",high
+7398,"Enchanted robe","Cosmetics,Mage","Cosmetics,Mage",no,"Enchanted magic leg armour (40 Magic, hard-clue reward).",high
+7399,"Enchanted top","Cosmetics,Mage","Cosmetics,Mage",no,"Enchanted magic body armour (40 Magic, hard-clue reward).",high
+7400,"Enchanted hat","Cosmetics,Mage","Cosmetics,Mage",no,"Enchanted magic head armour (40 Magic, hard-clue reward).",high
+7404,"Red logs","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Firelighter-treated logs burned for Firemaking XP (red fire).",high
+7405,"Green logs","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Firelighter-treated logs burned for Firemaking XP (green fire).",high
+7406,"Blue logs","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Firelighter-treated logs burned for Firemaking XP (blue fire).",high
+7408,"Draynor skull","Quests","Quests",no,"A Fairytale I - Growing Pains quest item.",high
+7409,"Magic secateurs","Farming,Quests,Slayer","Farming",yes,"The herb-yield-boosting Farming tool (quest origin); ongoing Farming use. Dropped Quests/Slayer per skilling-tool/by-function rules.",medium
+7410,"Queen's secateurs","Quests","Quests",no,"A Fairytale I/II quest item (distinct from magic secateurs).",high
+7411,"Symptoms list","Quests","Quests",no,"A Fairytale I quest item.",high
+7413,"Bird nest","Farming,Fletching","Farming",yes,"A discontinued Wyson seed nest (yields Farming seeds). Dropped bogus Fletching per nest-family rule.",medium
+7414,"Paddle","Cosmetics","Cosmetics",no,"A canoe-rowing animation item.",low
+7416,"Mole claw","Farming,Misc","Farming,Misc",no,"A Giant Mole drop traded to Wyson for Farming seed nests (trade good).",medium
+7418,"Mole skin","Farming,Misc","Farming,Misc",no,"A Giant Mole drop traded to Wyson for Farming seed nests (trade good).",medium
+7421,"Fungicide spray 10","Slayer","Slayer",no,"Slayer equipment to finish Mutated Zygomites.",high
+7423,"Fungicide spray 8","Slayer","Slayer",no,"Slayer equipment to finish Mutated Zygomites.",high
+7424,"Fungicide spray 7","Slayer","Slayer",no,"Slayer equipment to finish Mutated Zygomites.",high
+7425,"Fungicide spray 6","Slayer","Slayer",no,"Slayer equipment to finish Mutated Zygomites.",high
+7426,"Fungicide spray 5","Slayer","Slayer",no,"Slayer equipment to finish Mutated Zygomites.",high
+7428,"Fungicide spray 3","Slayer","Slayer",no,"Slayer equipment to finish Mutated Zygomites.",high
+7429,"Fungicide spray 2","Slayer","Slayer",no,"Slayer equipment to finish Mutated Zygomites.",high
+7430,"Fungicide spray 1","Slayer","Slayer",no,"Slayer equipment to finish Mutated Zygomites.",high
+7432,"Fungicide","Slayer","Slayer",no,"A Slayer refill for the fungicide spray.",high
+7433,"Wooden spoon","Melee,Quests","Melee",yes,"RFD kitchen melee weapon (bronze-longsword stats, usable). Dropped Quests per by-function rule.",high
+7435,"Egg whisk","Melee,Quests","Melee",yes,"RFD kitchen melee weapon (iron-dagger stats). Dropped Quests.",high
+7437,"Spork","Melee,Quests","Melee",yes,"RFD kitchen melee weapon (steel-sword stats). Dropped Quests.",high
+7439,"Spatula","Melee,Quests","Melee",yes,"RFD kitchen melee weapon (black-2h stats). Dropped Quests.",high
+7441,"Frying pan","Melee,Quests","Melee",yes,"RFD kitchen melee weapon (mithril-warhammer stats). Dropped Quests.",high
+7443,"Skewer","Melee,Quests","Melee",yes,"RFD kitchen melee weapon. Dropped Quests.",high
+7445,"Rolling pin","Melee,Quests","Melee",yes,"RFD kitchen melee weapon (rune-mace stats; prayer incidental). Dropped Quests.",high
+7447,"Kitchen knife","Melee,Quests","Melee",yes,"RFD kitchen melee weapon (rune-dagger stats, usable). Dropped Quests.",high
+7449,"Meat tenderiser","Melee,Quests","Melee",yes,"RFD kitchen melee weapon (usable). Dropped Quests.",high
+7451,"Cleaver","Melee,Quests","Melee",yes,"RFD kitchen melee weapon (usable). Dropped Quests.",high
+7453,"Hardleather gloves","Melee,Quests","Melee,Range,Mage",yes,"Culinaromancer's gloves (all-style attack/defence). Dropped Quests; non-style-specific. Glove progression flagged.",medium
+7454,"Bronze gloves","Melee,Quests","Melee,Range,Mage",yes,"Culinaromancer's gloves (all-style bonuses). Dropped Quests.",medium
+7455,"Iron gloves","Melee,Quests","Melee,Range,Mage",yes,"Culinaromancer's gloves (all-style bonuses). Dropped Quests.",medium
+7456,"Steel gloves","Melee,Quests","Melee,Range,Mage",yes,"Culinaromancer's gloves (all-style bonuses). Dropped Quests.",medium
+7457,"Black gloves","Melee,Quests","Melee,Range,Mage",yes,"Culinaromancer's gloves (all-style bonuses). Dropped Quests.",medium
+7458,"Mithril gloves","Melee,Quests","Melee,Range,Mage",yes,"Culinaromancer's gloves (all-style bonuses). Dropped Quests.",medium
+7459,"Adamant gloves","Melee,Quests","Melee,Range,Mage",yes,"Culinaromancer's gloves (all-style bonuses). Dropped Quests.",medium
+7460,"Rune gloves","Melee,Quests","Melee,Range,Mage",yes,"Culinaromancer's gloves (all-style bonuses). Dropped Quests.",medium
+7461,"Dragon gloves","Melee,Quests","Melee,Range,Mage",yes,"Culinaromancer's gloves (all-style bonuses). Dropped Quests.",medium
+7462,"Barrows gloves","Melee,Quests","Melee,Range,Mage",yes,"The universal BiS-tier all-style hand slot. Dropped Quests.",high
+7463,"Cornflour","Cooking,Quests","Quests",yes,"Unobtainable RFD-only cooking item. Dropped Cooking (quest-only).",medium
+7464,"Book on chickens","Misc","Misc",no,"A readable Wise Old Man house book.",medium
+7465,"Vanilla pod","Quests","Quests",no,"An RFD brulee quest ingredient.",high
+7468,"Pot of cornflour","Cooking,Quests","Quests",yes,"An RFD-only cooking item (only use is RFD). Dropped Cooking.",medium
+7470,"Cornflour mixture","Quests","Quests",no,"An RFD brulee quest item.",high
+7471,"Milky mixture","Quests","Quests",no,"An RFD brulee quest item.",high
+7472,"Cinnamon","Quests","Quests",no,"An RFD brulee quest item.",high
+7473,"Brulee","Quests","Quests",no,"An RFD brulee quest item.",high
+7474,"Brulee","Quests","Quests",no,"An RFD brulee quest item.",high
+7475,"Brulee","Quests","Quests",no,"An RFD brulee quest item.",high
+7476,"Brulee supreme","Quests","Quests",no,"An RFD brulee-supreme quest dish.",high
+7477,"Evil chicken's egg","Quests","Quests",no,"An RFD brulee quest item.",high
+7478,"Dragon token","Quests","Quests",no,"An RFD K'klik-summon quest item.",high
+7479,"Spicy stew","Cooking,Quests","Cooking",yes,"A cooked skill-boosting stew (farmable post-quest). Dropped Quests. Skill-boost-tab question flagged.",medium
+7480,"Red spice (4)","Cooking,Quests","Cooking",yes,"A spicy-stew spice (general boosting use). Dropped Quests.",medium
+7481,"Red spice (3)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7482,"Red spice (2)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7483,"Red spice (1)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7484,"Orange spice (4)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7485,"Orange spice (3)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7486,"Orange spice (2)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7487,"Orange spice (1)","Cooking,Herblore,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests and stray Herblore.",medium
+7488,"Brown spice (4)","Cooking,Quests","Cooking",yes,"A spicy-stew spice (boosts gathering skills). Dropped Quests.",medium
+7489,"Brown spice (3)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7490,"Brown spice (2)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7491,"Brown spice (1)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7492,"Yellow spice (4)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7493,"Yellow spice (3)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7494,"Yellow spice (2)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7495,"Yellow spice (1)","Cooking,Quests","Cooking",yes,"A spicy-stew spice. Dropped Quests.",medium
+7496,"Empty spice shaker","Quests","Misc",yes,"A spent, useless spice shaker. Dropped Quests -> Misc.",medium
+7497,"Dirty blast","Quests","Quests",no,"An RFD-only fruit-blast-plus-ashes drink.",high
+7498,"Antique lamp","Quests","Quests",no,"An RFD XP-reward lamp.",high
+7508,"Asgoldian ale","Quests","Quests",no,"An RFD Mountain Dwarf quest item.",high
+7509,"Dwarven rock cake","Melee,Quests","Melee",yes,"A self-damage item (iconic Dharok's low-HP melee technique; farmable post-quest). Dropped Quests.",medium
+7511,"Slop of compromise","Quests","Quests",no,"An RFD goblin-generals quest item.",high
+7512,"Soggy bread","Quests","Quests",no,"An RFD goblin-generals quest item.",high
+7513,"Spicy maggots","Quests","Quests",no,"An RFD goblin-generals quest item.",medium
+7514,"Dyed orange","Quests","Quests",no,"An RFD goblin-generals quest item.",high
+7515,"Breadcrumbs","Quests","Quests",no,"An RFD Pirate Pete fishcake quest item.",high
+7516,"Kelp","Quests","Quests",no,"An RFD Pirate Pete quest item.",high
+7517,"Ground kelp","Quests","Quests",no,"An RFD Pirate Pete fishcake ingredient.",high
+7518,"Giant crab meat","Cooking,Quests","Cooking,Quests",no,"An RFD fishcake meat that is cooked (Cooking XP) and edible.",medium
+7519,"Crab meat","Quests","Quests",no,"An unobtainable F2P RFD crab meat copy.",medium
+7520,"Burnt giant crab meat","Cooking,Quests","Cooking,Quests",no,"A burnt RFD crab-meat Cooking byproduct.",medium
+7521,"Cooked giant crab meat","Cooking,Quests","Cooking,Quests",no,"An edible RFD cooked crab meat (heals).",medium
+7527,"Ground giant crab meat","Quests","Quests",no,"An RFD fishcake ingredient paste.",high
+7528,"Ground cod","Quests","Quests",no,"An RFD fishcake ingredient paste.",high
+7529,"Raw fishcake","Cooking,Quests","Cooking,Quests",no,"An RFD Pirate Pete cooking-chain item.",medium
+7530,"Cooked fishcake","Cooking,Quests","Cooking,Quests",no,"An edible RFD cooked fishcake.",medium
+7531,"Burnt fishcake","Cooking,Quests","Cooking,Quests",no,"A burnt RFD fishcake Cooking byproduct.",medium
+7532,"Mudskipper hide","Quests","Quests",no,"An RFD Mogre Camp access quest item.",high
+7533,"Rock","Quests","Quests",no,"An RFD Crab Pen access quest item.",high
+7534,"Fishbowl helmet","Quests,Sailing","Sailing",yes,"Underwater-diving oxygen helmet also used in Sailing sea charting. Dropped Quests; Sailing call flagged.",low
+7535,"Diving apparatus","Fishing,Quests","Sailing",yes,"Underwater-diving partner of the fishbowl helmet (sea charting). Dropped Fishing/Quests; Sailing call flagged.",low
+7536,"Fresh crab claw","Crafting","Crafting",no,"A raw material chiselled into a crab claw (Crafting).",high
+7537,"Crab claw","Crafting,Melee,Quests","Melee",yes,"A crafted melee gauntlet. Dropped Crafting (finished-armour rule) and Quests.",medium
+7538,"Fresh crab shell","Crafting,Quests","Crafting",yes,"A raw material chiselled into a crab helmet. Dropped Quests.",medium
+7539,"Crab helmet","Crafting,Melee","Melee",yes,"A crafted melee head armour. Dropped Crafting (finished-armour rule).",medium
+7540,"Broken crab claw","Crafting,Misc,Quests","Misc",yes,"A failed-craft junk byproduct. Dropped Crafting/Quests per failure-byproduct rule.",high
+7541,"Broken crab shell","Crafting,Misc","Misc",yes,"A failed-craft junk byproduct. Dropped Crafting per failure-byproduct rule.",high
+7542,"Cake of guidance","Quests","Quests",no,"An RFD Lumbridge Guide quest cake.",high
+7543,"Raw guide cake","Cooking,Quests","Cooking,Quests",no,"An RFD cooking-chain guide cake.",medium
+7544,"Enchanted egg","Quests","Quests",no,"An RFD cake-of-guidance quest ingredient.",high
+7545,"Enchanted milk","Quests","Quests",no,"An RFD cake-of-guidance quest ingredient.",high
+7546,"Enchanted flour","Quests","Quests",no,"An RFD cake-of-guidance quest ingredient.",high
+7564,"Balloon toad","Quests","Quests",no,"An RFD Skrach Uglogwee jubbly-hunting bait quest item.",high
+7566,"Raw jubbly","Cooking,Quests","Cooking,Quests",no,"An RFD jubbly-bird meat (cooked on a spitroast).",medium
+7568,"Cooked jubbly","Cooking,Quests","Cooking,Quests",no,"An edible RFD cooked jubbly delicacy.",medium
+7570,"Burnt jubbly","Cooking,Quests","Cooking,Quests",no,"A burnt RFD jubbly Cooking byproduct.",medium
+7572,"Red banana","Quests","Quests",no,"An RFD Awowogei stuffed-snake ingredient.",high
+7573,"Tchiki monkey nuts","Quests","Quests",no,"An RFD Awowogei stuffed-snake ingredient.",high
+7574,"Sliced red banana","Quests","Quests",no,"An RFD Awowogei stuffed-snake ingredient.",high
+7575,"Tchiki nut paste","Quests","Quests",no,"An RFD Awowogei stuffed-snake ingredient.",high
+7576,"Snake corpse","Quests","Quests",no,"An RFD Awowogei stuffed-snake ingredient.",high
+7577,"Raw stuffed snake","Cooking,Quests","Cooking,Quests",no,"An RFD Awowogei cooking-chain dish.",medium
+7578,"Odd stuffed snake","Quests","Quests",no,"An RFD Awowogei mis-made snake quest item.",high
+7579,"Stuffed snake","Cooking,Quests","Cooking,Quests",no,"An RFD Awowogei quest dish (heals 20 but quest-tied, ingredients unobtainable post-quest).",medium
+7580,"Snake over-cooked","Cooking,Quests","Cooking,Quests",no,"A burnt RFD stuffed-snake byproduct.",medium
+7583,"Hell-kitten","Cosmetics","Cosmetics",no,"A cosmetic hell-cat pet variant (RFD Evil Dave).",high
+7587,"Coffin","Misc","Misc",no,"A Gravedigger random-event item.",high
+7588,"Coffin","Misc","Misc",no,"A Gravedigger random-event item.",high
+7589,"Coffin","Misc","Misc",no,"A Gravedigger random-event item.",high
+7591,"Coffin","Misc","Misc",no,"A Gravedigger random-event item.",high
+7592,"Zombie shirt","Cosmetics","Cosmetics",no,"A cosmetic Gravedigger zombie-outfit item.",high
+7593,"Zombie trousers","Cosmetics","Cosmetics",no,"A cosmetic Gravedigger zombie-outfit item.",high
+7594,"Zombie mask","Cosmetics","Cosmetics",no,"A cosmetic Gravedigger zombie-outfit item.",high
+7595,"Zombie gloves","Cosmetics","Cosmetics",no,"A cosmetic Gravedigger zombie-outfit item.",high
+7596,"Zombie boots","Cosmetics","Cosmetics",no,"A cosmetic Gravedigger zombie-outfit item.",high
+7622,"Bucket of rubble","Quests","Quests",no,"An In Aid of the Myreque quest item.",high
+7628,"Plaster fragment","Quests","Quests",no,"An In Aid of the Myreque quest item.",high
+7629,"Dusty scroll","Quests","Quests",no,"An In Aid of the Myreque quest scroll.",high
+7630,"Crate","Quests","Quests",no,"An In Aid of the Myreque restock quest item.",high
+7632,"Temple library key","Quests","Quests",no,"An In Aid of the Myreque quest key.",high
+7633,"The sleeping seven","Quests","Quests",no,"An In Aid of the Myreque quest book.",high
+7634,"Histories of the hallowland","Quests","Quests",no,"An In Aid of the Myreque quest book.",high
+7635,"Modern day morytania","Quests","Quests",no,"An In Aid of the Myreque quest book.",high
+7636,"Rod dust","Misc","Misc",no,"A depleted rod-of-ivandis remnant with no use.",high
+7637,"Silvthrill rod","Quests","Quests",no,"An In Aid of the Myreque item (made into the rod of Ivandis).",medium
+7639,"Rod of ivandis (10)","Melee,Quests","Melee,Slayer",yes,"A silver anti-vampyre crush weapon (ongoing vampyre-combat use). Dropped Quests, added Slayer. Anti-vampyre Slayer flagged.",medium
+7641,"Rod of ivandis (8)","Melee,Quests","Melee,Slayer",yes,"A silver anti-vampyre crush weapon. Dropped Quests, added Slayer.",medium
+7642,"Rod of ivandis (7)","Melee,Quests","Melee,Slayer",yes,"A silver anti-vampyre crush weapon. Dropped Quests, added Slayer.",medium
+7643,"Rod of ivandis (6)","Melee,Quests","Melee,Slayer",yes,"A silver anti-vampyre crush weapon. Dropped Quests, added Slayer.",medium
+7644,"Rod of ivandis (5)","Melee,Quests","Melee,Slayer",yes,"A silver anti-vampyre crush weapon. Dropped Quests, added Slayer.",medium
+7646,"Rod of ivandis (3)","Melee,Quests","Melee,Slayer",yes,"A silver anti-vampyre crush weapon. Dropped Quests, added Slayer.",medium
+7647,"Rod of ivandis (2)","Melee,Quests","Melee,Slayer",yes,"A silver anti-vampyre crush weapon. Dropped Quests, added Slayer.",medium
+7648,"Rod of ivandis (1)","Melee,Quests","Melee,Slayer",yes,"A silver anti-vampyre crush weapon. Dropped Quests, added Slayer.",medium
+7649,"Rod mould","Quests","Quests",no,"An In Aid of the Myreque mould for silvthrill rods.",medium
+7650,"Silver dust","Herblore","Herblore",no,"Ground silver bar, the Guthix balance ingredient (silver-bar decomposition reminder satisfied).",high
+7654,"Guthix balance (unf)","Herblore","Herblore",no,"An unfinished Guthix balance potion.",high
+7656,"Guthix balance (unf)","Herblore","Herblore",no,"An unfinished Guthix balance potion.",high
+7658,"Guthix balance (unf)","Herblore","Herblore",no,"An unfinished Guthix balance potion.",high
+7660,"Guthix balance(4)","Herblore","Herblore,Slayer",yes,"A Herblore anti-vampyre potion (vampyre juveniles/juvinates). Added Slayer (normalized; anti-vampyre Slayer flagged).",medium
+7662,"Guthix balance(3)","Herblore","Herblore,Slayer",yes,"A Herblore anti-vampyre potion. Added Slayer (normalized).",medium
+7664,"Guthix balance(2)","Herblore","Herblore,Slayer",yes,"A Herblore anti-vampyre potion. Added Slayer (normalized).",medium
+7666,"Guthix balance(1)","Herblore,Slayer","Herblore,Slayer",no,"A Herblore anti-vampyre potion.",medium
+7668,"Gadderhammer","Melee,Quests","Melee",yes,"A 2h maul (quest-locked to wield but generally usable). Dropped Quests.",high
+7671,"Boxing gloves","Melee,Misc","Melee",yes,"A POH boxing-ring claw weapon. Dropped Misc.",medium
+7675,"Wooden sword","Melee","Melee",no,"A POH combat-room melee weapon (bronze-sword stats).",high
+7676,"Wooden shield","Construction","Construction",no,"A POH combat-room shield prop (no bonuses).",medium
+7677,"Treasure stone","Misc","Misc",no,"A POH treasure-hunt locator item.",high
+7678,"Prize key","Misc","Misc",no,"A POH games-room prize-chest key.",high
+7679,"Pugel","Construction","Construction",no,"A POH balance-beam games weapon prop.",medium
+7681,"Game book","Construction,Misc","Misc",yes,"A readable POH-games guide book (no function). Dropped Construction per lore-book rule.",medium
+7682,"Hoop","Misc","Misc",no,"An unobtainable POH games animation item.",medium
+7684,"Dart","Misc","Misc",no,"An unobtainable POH dartboard animation item.",medium
+7686,"Bow and arrow","Misc","Misc",no,"A POH indoor ranging-game animation item.",medium
+7688,"Kettle","Construction","Construction",no,"A POH tea-making item (tea boosts Construction).",high
+7690,"Full kettle","Construction","Construction",no,"A POH tea-making item (tea boosts Construction).",high
+7691,"Hot kettle","Construction,Cooking","Construction,Cooking",no,"A POH tea-making item (Cooking XP; Construction boost).",high
+7692,"Pot of tea (4)","Construction","Construction",no,"A POH tea (boosts Construction).",high
+7700,"Teapot with leaves","Construction,Cooking","Construction,Cooking",no,"A POH tea-making item (Cooking XP; Construction boost).",high
+7702,"Teapot","Construction","Construction",no,"A POH tea-making teapot.",high
+7704,"Pot of tea (4)","Construction","Construction",no,"A POH porcelain tea (boosts Construction).",high
+7716,"Pot of tea (4)","Construction","Construction",no,"A POH trimmed-porcelain tea (boosts Construction).",high
+7728,"Empty cup","Construction","Construction",no,"A POH tea cup (tea boosts Construction).",high
+7730,"Cup of tea","Construction,Cooking","Construction,Cooking",no,"A POH cup of tea (made via Cooking; boosts Construction).",high
+7732,"Porcelain cup","Construction","Construction",no,"A POH porcelain tea cup.",high
+7733,"Cup of tea","Construction,Cooking","Construction,Cooking",no,"A POH porcelain cup of tea (Cooking; +2 Construction boost).",high
+7735,"Porcelain cup","Construction","Construction",no,"A POH trimmed-porcelain tea cup.",high
+7736,"Cup of tea","Construction,Cooking","Construction,Cooking",no,"A POH trimmed-porcelain cup of tea (Cooking; +3 Construction boost).",high
+7738,"Tea leaves","Construction","Construction",no,"A POH tea-making ingredient (tea boosts Construction).",high
+7740,"Beer","Cooking","Cooking",no,"A POH beer (heals/drains, no skill boost).",high
+7742,"Beer glass","Construction","Cooking",yes,"An empty drinking vessel filled with beer/ale. Dropped Construction (POH is just a source) -> Cooking.",medium
+7744,"Asgarnian ale","Cooking","Cooking,Melee",yes,"A POH asgarnian ale boosting Strength. Added Melee per ale rule.",high
+7746,"Greenman's ale","Construction,Herblore","Cooking,Herblore",yes,"A POH greenman's ale boosting Herblore. Dropped Construction, added Cooking.",high
+7748,"Dragon bitter","Construction,Cooking","Cooking,Melee",yes,"A POH dragon bitter boosting Strength. Dropped Construction, added Melee.",high
+7750,"Moonlight mead","Construction,Cooking","Cooking",yes,"A POH moonlight mead (heal only). Dropped Construction.",high
+7752,"Cider","Construction,Farming","Cooking,Farming",yes,"A POH cider boosting Farming. Dropped Construction, added Cooking.",high
+7754,"Chef's delight","Cooking","Cooking",no,"A POH chef's delight boosting Cooking.",high
+7756,"Paintbrush","Misc","Misc",no,"An unobtainable cache paintbrush item.",medium
+7758,"Rusty sword","Construction","Construction",no,"A POH-workshop sword-repair animation item.",medium
+7759,"Toy soldier","Construction,Crafting","Construction,Crafting",no,"A clockwork toy made at a POH crafting table (Crafting).",medium
+7763,"Toy doll","Agility + Thieving,Construction","Agility + Thieving,Construction",no,"A clockwork POH-workshop toy (kept; niche).",low
+7767,"Toy mouse","Agility + Thieving,Construction,Crafting","Agility + Thieving,Construction,Crafting",no,"A clockwork toy (caught for Agility XP) crafted at a POH table.",medium
+7771,"Toy cat","Construction,Cosmetics,Crafting","Construction,Cosmetics,Crafting",no,"A clockwork cosmetic toy cat crafted at a POH table.",medium
+7773,"Branch","Misc","Misc",no,"A leafless spiny-bush branch with no use.",high
+7774,"Reward token","Misc","Misc",no,"An unobtainable Temple Trekking reward token.",medium
+7777,"Long vine","Misc","Misc",no,"A Temple Trekking river-crossing rope-swing item.",medium
+7778,"Short vine","Misc","Misc",no,"A Temple Trekking river-crossing vine.",medium
+7779,"Fishing tome","Fishing","Fishing",no,"A Temple Trekking Fishing-XP reward tome.",high
+7782,"Agility tome","Agility + Thieving","Agility + Thieving",no,"A Temple Trekking Agility-XP reward tome.",high
+7785,"Thieving tome","Agility + Thieving","Agility + Thieving",no,"A Temple Trekking Thieving-XP reward tome.",high
+7788,"Slayer tome","Slayer","Slayer",no,"A Temple Trekking Slayer-XP reward tome.",high
+7791,"Mining tome","Mining + Smithing","Mining + Smithing",no,"A Temple Trekking Mining-XP reward tome.",high
+7794,"Firemaking tome","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"A Temple Trekking Firemaking-XP reward tome.",high
+7797,"Woodcutting tome","Fletching","Woodcutting + Firemaking",yes,"A Temple Trekking Woodcutting-XP reward tome. Fixed wrong Fletching -> WC + FM.",high
+7800,"Snail shell","Misc","Misc",no,"A Temple Trekking giant-snail drop.",high
+7801,"Snake hide","Crafting","Crafting",no,"A Temple Trekking swamp-snake hide crafted into snakeskin armour.",high
+7803,"Yin yang amulet","Cosmetics","Cosmetics",no,"A cosmetic Makeover Mage replica amulet (no bonuses).",high
+7804,"Ancient mjolnir","Melee","Melee",no,"An unobtainable mjolnir melee weapon.",medium
+7806,"Anger sword","Melee,Quests","Quests",yes,"An A Soul's Bane room-only weapon (cannot leave the room). Dropped Melee.",medium
+7807,"Anger battleaxe","Melee,Quests","Quests",yes,"An A Soul's Bane room-only weapon. Dropped Melee.",medium
+7808,"Anger mace","Melee,Quests","Quests",yes,"An A Soul's Bane room-only weapon. Dropped Melee.",medium
+7809,"Anger spear","Quests","Quests",no,"An A Soul's Bane room-only weapon.",medium
+7810,"Jug of vinegar","Quests","Quests",no,"A Rag and Bone Man bone-cleaning quest item.",high
+7811,"Pot of vinegar","Quests","Quests",no,"A Rag and Bone Man bone-cleaning quest item.",high
+7812,"Goblin skull","Quests","Quests",no,"A Rag and Bone Man quest bone (polished for the Odd Old Man).",high
+7813,"Bone in vinegar","Quests","Quests",no,"A Rag and Bone Man quest bone-in-vinegar item.",high
+7815,"Bear ribs","Quests","Quests",no,"A Rag and Bone Man quest bone.",high
+7818,"Ram skull","Quests","Quests",no,"A Rag and Bone Man quest bone.",high
+7821,"Unicorn bone","Quests","Quests",no,"A Rag and Bone Man quest bone.",high
+7824,"Giant rat bone","Quests","Quests",no,"A Rag and Bone Man quest bone.",high
+7827,"Giant bat wing","Quests","Quests",no,"A Rag and Bone Man quest bone.",high
+7830,"Wolf bone","Quests","Quests",no,"A Rag and Bone Man II quest bone.",high
+7833,"Bat wing","Quests","Quests",no,"A Rag and Bone Man II quest bone.",high
+7836,"Rat bone","Quests","Quests",no,"A Rag and Bone Man II quest bone.",high
+7839,"Baby dragon bone","Quests","Quests",no,"A Rag and Bone Man II quest bone.",high
+7966,"Letter","Quests","Quests",no,"A Royal Trouble quest item.",high
+7967,"Engine","Quests","Quests",no,"A Royal Trouble lift-repair quest item.",high
+7968,"Scroll","Quests","Quests",no,"A Royal Trouble Regent scroll.",high
+7969,"Pulley beam","Quests","Quests",no,"A Royal Trouble lift-repair quest item.",high
+7970,"Long pulley beam","Quests","Quests",no,"A Royal Trouble lift-repair quest item.",high
+7971,"Longer pulley beam","Quests","Quests",no,"A Royal Trouble lift-repair quest item.",high
+7972,"Lift manual","Quests","Quests",no,"A Royal Trouble lift-guide quest item.",high
+7973,"Beam","Quests","Quests",no,"A Royal Trouble lift-repair quest item.",high
+7974,"Servant bell","Construction","Construction",no,"An unobtainable POH servant-summon bell.",medium
+7975,"Crawling hand","Construction,Prayer,Slayer","Construction,Slayer",yes,"A slayer-monster head trophy mounted in a POH. Dropped erroneous Prayer (matches stuffed version).",medium
+7976,"Cockatrice head","Construction,Prayer,Slayer","Construction,Slayer",yes,"A slayer-monster head trophy mounted in a POH. Dropped Prayer.",medium
+7977,"Basilisk head","Construction,Prayer,Slayer","Construction,Slayer",yes,"A slayer-monster head trophy mounted in a POH. Dropped Prayer.",medium
+7978,"Kurask head","Construction,Prayer,Slayer","Construction,Slayer",yes,"A slayer-monster head trophy mounted in a POH. Dropped Prayer.",medium
+7979,"Abyssal head","Construction,Prayer,Slayer","Construction,Slayer",yes,"An abyssal-demon head trophy mounted in a POH. Dropped Prayer.",medium
+7980,"Kbd heads","Construction,Prayer,Slayer","Construction,Slayer",yes,"A King Black Dragon head trophy mounted in a POH. Dropped Prayer.",medium
+7981,"Kq head","Construction,Prayer,Slayer","Construction,Slayer",yes,"A Kalphite Queen head trophy mounted in a POH. Dropped Prayer.",medium
+7982,"Stuffed crawling hand","Construction,Slayer","Construction,Slayer",no,"A mounted slayer-monster head trophy.",high
+7983,"Stuffed cockatrice head","Construction,Slayer","Construction,Slayer",no,"A mounted slayer-monster head trophy.",high
+7984,"Stuffed basilisk head","Construction,Slayer","Construction,Slayer",no,"A mounted slayer-monster head trophy.",high
+7985,"Stuffed kurask head","Construction,Slayer","Construction,Slayer",no,"A mounted slayer-monster head trophy.",high
+7986,"Stuffed abyssal head","Construction,Slayer","Construction,Slayer",no,"A mounted abyssal-demon head trophy.",high
+7987,"Stuffed kbd heads","Construction,Slayer","Construction,Slayer",no,"A mounted King Black Dragon head trophy.",high
+7988,"Stuffed kq head","Construction,Slayer","Construction,Slayer",no,"A mounted Kalphite Queen head trophy.",high
+7989,"Big bass","Construction,Fishing","Construction,Fishing",no,"A rare big-fish Fishing catch mounted as a POH trophy.",high
+7990,"Stuffed big bass","Construction,Fishing","Construction,Fishing",no,"A mounted big-bass Fishing trophy.",high
+7991,"Big swordfish","Construction,Fishing","Construction,Fishing",no,"A rare big-fish Fishing catch mounted as a POH trophy.",high
+7992,"Stuffed big swordfish","Construction,Fishing","Construction,Fishing",no,"A mounted big-swordfish Fishing trophy.",high
+7993,"Big shark","Construction,Fishing","Construction,Fishing",no,"A rare big-fish Fishing catch mounted as a POH trophy.",high
+7994,"Stuffed big shark","Construction,Fishing","Construction,Fishing",no,"A mounted big-shark Fishing trophy.",high
+7995,"Arthur portrait","Construction,Quests","Construction,Quests",no,"A POH Quest-Hall quest-character portrait (Holy Grail).",high
+7996,"Elena portrait","Construction,Quests","Construction,Quests",no,"A POH Quest-Hall quest-character portrait (Plague City).",high
+7997,"Keldagrim portrait","Construction,Quests","Construction,Quests",no,"A POH Quest-Hall quest portrait (The Giant Dwarf).",high
+7998,"Misc. portrait","Construction,Quests","Construction,Quests",no,"A POH Quest-Hall quest portrait (Throne of Miscellania).",high
+7999,"Desert painting","Construction","Construction",no,"A POH wall-decoration region painting.",high
+8000,"Isafdar painting","Construction","Construction",no,"A POH wall-decoration region painting.",high
+8001,"Karamja painting","Construction","Construction",no,"A POH wall-decoration region painting.",high
+8002,"Lumbridge painting","Construction","Construction",no,"A POH wall-decoration region painting.",high
+8003,"Morytania painting","Construction","Construction",no,"A POH wall-decoration region painting.",high
+8004,"Small map","Construction","Construction",no,"A POH wall-decoration map.",high
+8005,"Medium map","Construction","Construction",no,"A POH wall-decoration map.",high
+8006,"Large map","Construction","Construction",no,"A POH wall-decoration map.",high
+8007,"Varrock teleport","Misc","Teleports",yes,"A break-to-teleport magic tablet. Dropped Misc.",high
+8008,"Lumbridge teleport","Misc","Teleports",yes,"A break-to-teleport magic tablet. Dropped Misc.",high
+8009,"Falador teleport","Misc","Teleports",yes,"A break-to-teleport magic tablet. Dropped Misc.",high
+8010,"Camelot teleport","Misc","Teleports",yes,"A break-to-teleport magic tablet. Dropped Misc.",high
+8011,"Ardougne teleport","Misc","Teleports",yes,"A break-to-teleport magic tablet. Dropped Misc.",high
+8012,"Watchtower teleport","Misc","Teleports",yes,"A break-to-teleport magic tablet. Dropped Misc.",high
+8013,"Teleport to house","Misc,Slayer,Teleports","Teleports",yes,"A break-to-teleport-to-POH tablet. Dropped Misc/Slayer.",high
+8014,"Bones to bananas","Mage,Misc","Mage",yes,"A Magic spell tablet (cast bones-to-bananas). Dropped Misc.",medium
+8015,"Bones to peaches","Mage,Misc,Prayer","Mage",yes,"A Magic spell tablet (cast bones-to-peaches). Dropped Misc/Prayer.",medium
+8016,"Enchant sapphire or opal","Mage,Misc","Mage",yes,"A Magic enchant tablet (Lvl-1 Enchant). Dropped Misc.",medium
+8017,"Enchant emerald or jade","Mage","Mage",no,"A Magic enchant tablet (Lvl-2 Enchant).",medium
+8018,"Enchant ruby or topaz","Crafting,Mage,Misc","Mage",yes,"A Magic enchant tablet (Lvl-3 Enchant). Dropped Crafting/Misc.",medium
+8019,"Enchant diamond","Mage,Misc","Mage",yes,"A Magic enchant tablet (Lvl-4 Enchant). Dropped Misc.",medium
+8020,"Enchant dragonstone","Mage,Misc","Mage",yes,"A Magic enchant tablet (Lvl-5 Enchant). Dropped Misc.",medium
+8021,"Enchant onyx","Mage,Misc","Mage",yes,"A Magic enchant tablet (Lvl-6 Enchant). Dropped Misc.",medium
+8022,"Telekinetic grab","Mage,Misc","Mage",yes,"A Magic spell tablet (cast Telekinetic Grab). Dropped Misc.",medium
+8417,"Bagged dead tree","Construction,Farming","Construction",yes,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8419,"Bagged nice tree","Construction","Construction",no,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8421,"Bagged oak tree","Construction","Construction",no,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8423,"Bagged willow tree","Construction,Farming","Construction",yes,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8425,"Bagged maple tree","Construction,Farming","Construction",yes,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8427,"Bagged yew tree","Construction","Construction",no,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8429,"Bagged magic tree","Construction,Farming","Construction",yes,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8431,"Bagged plant 1","Construction","Construction",no,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8433,"Bagged plant 2","Construction,Farming","Construction",yes,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8435,"Bagged plant 3","Construction","Construction",no,"POH-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8437,"Thorny hedge","Construction","Construction",no,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8439,"Nice hedge","Construction","Construction",no,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8441,"Small box hedge","Construction,Farming","Construction",yes,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8443,"Topiary hedge","Construction,Farming","Construction",yes,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8445,"Fancy hedge","Construction,Farming","Construction",yes,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8447,"Tall fancy hedge","Construction","Construction",no,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8449,"Tall box hedge","Construction,Farming","Construction",yes,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8451,"Bagged flower","Construction","Construction",no,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8453,"Bagged daffodils","Construction,Farming","Construction",yes,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8455,"Bagged bluebells","Construction,Farming","Construction",yes,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8457,"Bagged sunflower","Construction,Farming","Construction",yes,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8459,"Bagged marigolds","Construction","Construction",no,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8461,"Bagged roses","Construction,Farming","Construction",yes,"POH formal-garden decoration; Construction input, not Farming (XP given != input). [Matt batch-4 audit]",high
+8463,"Construction guide","Construction","Misc",yes,"A readable how-to guide book in a POH bookcase, not a skill input. Dropped Construction.",medium
+8464,"Rune heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune full helm (melee defence head-slot).",medium
+8466,"Rune heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune full helm (melee defence head-slot).",medium
+8468,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8470,"Rune heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune full helm (melee defence head-slot).",medium
+8472,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8474,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8476,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8478,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8480,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8482,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8484,"Rune heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune full helm (melee defence head-slot).",medium
+8486,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8488,"Rune heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune full helm (melee defence head-slot).",medium
+8490,"Rune heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune full helm (melee defence head-slot).",medium
+8492,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8494,"Rune heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune full helm (melee defence head-slot). Dropped Construction.",medium
+8496,"Crude chair","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8498,"Wooden chair","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8500,"Rocking chair","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8502,"Oak chair","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8504,"Oak armchair","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8506,"Teak armchair","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8508,"Mahogany armchair","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8510,"Bookcase","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8512,"Oak bookcase","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8514,"Mahogany bookcase","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8516,"Beer barrel","Construction","Construction",no,"POH kitchen barrel furniture flatpack, assembled via Construction.",high
+8518,"Cider barrel","Construction","Construction",no,"POH kitchen barrel furniture flatpack, assembled via Construction.",high
+8520,"Asgarnian ale","Construction","Construction",no,"POH kitchen barrel furniture flatpack (not the drinkable ale), assembled via Construction.",high
+8522,"Greenman's ale","Construction","Construction",no,"POH kitchen barrel furniture flatpack (not the drinkable ale), assembled via Construction.",high
+8524,"Dragon bitter","Construction","Construction",no,"POH kitchen barrel furniture flatpack (not the drinkable ale), assembled via Construction.",high
+8526,"Chef's delight","Construction","Construction",no,"POH kitchen barrel furniture flatpack (not the drinkable ale), assembled via Construction.",high
+8528,"Kitchen table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8530,"Oak kitchen table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8532,"Teak kitchen table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8534,"Oak lectern","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8536,"Eagle lectern","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8538,"Demon lectern","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8540,"Teak eagle lectern","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8542,"Teak demon lectern","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8544,"Mahogany eagle","Construction","Construction",no,"POH furniture flatpack (mahogany eagle lectern), assembled via Construction.",high
+8546,"Mahogany demon","Construction","Construction",no,"POH furniture flatpack (mahogany demon lectern), assembled via Construction.",high
+8548,"Wood dining table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8550,"Oak dining table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8552,"Carved oak table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8554,"Teak table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8556,"Carved teak table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8558,"Mahogany table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8560,"Opulent table","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8562,"Wooden bench","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8564,"Oak bench","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8566,"Carved oak bench","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8568,"Teak dining bench","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8570,"Carved teak bench","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8572,"Mahogany bench","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8574,"Gilded bench","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8576,"Wooden bed","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8578,"Oak bed","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8580,"Large oak bed","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8582,"Teak bed","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8584,"Large teak bed","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8586,"Four-poster bed","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8588,"Gilded four-poster","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8590,"Oak clock","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8592,"Teak clock","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8594,"Gilded clock","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8596,"Shaving stand","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8598,"Oak shaving stand","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8600,"Oak dresser","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8602,"Teak dresser","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8604,"Fancy teak dresser","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8606,"Mahogany dresser","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8608,"Gilded dresser","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8610,"Shoe box","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8612,"Oak drawers","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8614,"Oak wardrobe","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8616,"Teak drawers","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8618,"Teak wardrobe","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8620,"Mahogany wardrobe","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8622,"Gilded wardrobe","Construction","Construction",no,"POH furniture flatpack, assembled via Construction.",high
+8624,"Crystal ball","Construction","Construction",no,"POH study globe-space furniture flatpack, assembled via Construction.",high
+8626,"Elemental sphere","Misc","Construction",yes,"POH study globe-space furniture flatpack. Dropped Misc.",high
+8628,"Crystal of power","Construction,Misc","Construction",yes,"POH study globe-space furniture flatpack. Dropped Misc.",high
+8630,"Globe","Construction","Construction",no,"POH study globe-space furniture flatpack, assembled via Construction.",high
+8632,"Ornamental globe","Construction","Construction",no,"POH study globe-space furniture flatpack, assembled via Construction.",high
+8634,"Lunar globe","Construction","Construction",no,"POH study globe-space furniture flatpack, assembled via Construction.",high
+8636,"Celestial globe","Construction","Construction",no,"POH study globe-space furniture flatpack, assembled via Construction.",high
+8638,"Armillary sphere","Construction","Construction",no,"POH study globe-space furniture flatpack, assembled via Construction.",high
+8640,"Small orrery","Construction","Construction",no,"POH study globe-space furniture flatpack, assembled via Construction.",high
+8642,"Large orrery","Construction","Construction",no,"POH study globe-space furniture flatpack, assembled via Construction.",high
+8644,"Oak telescope","Construction","Construction",no,"POH study telescope-space furniture flatpack, assembled via Construction.",high
+8646,"Teak telescope","Construction","Construction",no,"POH study telescope-space furniture flatpack, assembled via Construction.",high
+8648,"Mahogany telescope","Construction","Construction",no,"POH study telescope-space furniture flatpack, assembled via Construction.",high
+8650,"Banner","Construction,Crafting","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction/Crafting.",medium
+8652,"Banner","Construction,Crafting","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction/Crafting.",medium
+8654,"Banner","Construction,Cosmetics","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction.",medium
+8656,"Banner","Construction,Cosmetics","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction.",medium
+8658,"Banner","Construction,Cosmetics,Crafting","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction/Crafting.",medium
+8660,"Banner","Construction,Cosmetics","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction.",medium
+8662,"Banner","Construction,Crafting","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction/Crafting.",medium
+8664,"Banner","Construction,Cosmetics","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction.",medium
+8666,"Banner","Construction,Crafting","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction/Crafting.",medium
+8668,"Banner","Construction,Crafting","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction/Crafting.",medium
+8670,"Banner","Construction,Crafting","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction/Crafting.",medium
+8672,"Banner","Construction,Cosmetics","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction.",medium
+8674,"Banner","Construction,Cosmetics","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction.",medium
+8676,"Banner","Construction,Cosmetics","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction.",medium
+8678,"Banner","Construction,Crafting","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction/Crafting.",medium
+8680,"Banner","Construction,Cosmetics","Cosmetics",yes,"Decorative held flag (weapon slot, no combat stats). Dropped Construction.",medium
+8682,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8684,"Steel heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel full helm (head-slot melee armour).",medium
+8686,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8688,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8690,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8692,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8694,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8696,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8698,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8700,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8702,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8704,"Steel heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel full helm (head-slot melee armour).",medium
+8706,"Steel heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel full helm (head-slot melee armour).",medium
+8708,"Steel heraldic helm","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Construction.",medium
+8710,"Steel heraldic helm","Cosmetics,Crafting,Melee","Cosmetics,Melee",yes,"Decorative steel full helm (head-slot melee armour). Dropped Crafting.",medium
+8712,"Steel heraldic helm","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel full helm (head-slot melee armour).",medium
+8714,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8716,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8718,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8720,"Rune kiteshield","Construction,Melee","Cosmetics,Melee",yes,"Decorative rune kiteshield (shield-slot melee armour). Dropped Construction, added Cosmetics.",medium
+8722,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8724,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8726,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8728,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8730,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8732,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8734,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8736,"Rune kiteshield","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative rune kiteshield (shield-slot melee armour). Dropped Construction.",medium
+8738,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8740,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8742,"Rune kiteshield","Construction,Melee","Cosmetics,Melee",yes,"Decorative rune kiteshield (shield-slot melee armour). Dropped Construction, added Cosmetics.",medium
+8744,"Rune kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative rune kiteshield (shield-slot melee armour).",medium
+8746,"Steel kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel kiteshield (shield-slot melee armour).",medium
+8748,"Steel kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel kiteshield (shield-slot melee armour).",medium
+8750,"Steel kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel kiteshield (shield-slot melee armour).",medium
+8752,"Steel kiteshield","Construction,Crafting,Melee","Cosmetics,Melee",yes,"Decorative steel kiteshield (shield-slot melee armour). Dropped Construction/Crafting, added Cosmetics.",medium
+8754,"Steel kiteshield","Cosmetics,Crafting,Melee","Cosmetics,Melee",yes,"Decorative steel kiteshield (shield-slot melee armour). Dropped Crafting.",medium
+8756,"Steel kiteshield","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel kiteshield (shield-slot melee armour). Dropped Construction.",medium
+8758,"Steel kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel kiteshield (shield-slot melee armour).",medium
+8760,"Steel kiteshield","Construction,Crafting,Melee","Cosmetics,Melee",yes,"Decorative steel kiteshield (shield-slot melee armour). Dropped Construction/Crafting, added Cosmetics.",medium
+8762,"Steel kiteshield","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel kiteshield (shield-slot melee armour). Dropped Construction.",medium
+8764,"Steel kiteshield","Construction,Crafting,Melee","Cosmetics,Melee",yes,"Decorative steel kiteshield (shield-slot melee armour). Dropped Construction/Crafting, added Cosmetics.",medium
+8766,"Steel kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel kiteshield (shield-slot melee armour).",medium
+8768,"Steel kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel kiteshield (shield-slot melee armour).",medium
+8770,"Steel kiteshield","Cosmetics,Melee","Cosmetics,Melee",no,"Decorative steel kiteshield (shield-slot melee armour).",medium
+8772,"Steel kiteshield","Construction,Crafting,Melee","Cosmetics,Melee",yes,"Decorative steel kiteshield (shield-slot melee armour). Dropped Construction/Crafting, added Cosmetics.",medium
+8774,"Steel kiteshield","Construction,Crafting,Melee","Cosmetics,Melee",yes,"Decorative steel kiteshield (shield-slot melee armour). Dropped Construction/Crafting, added Cosmetics.",medium
+8776,"Steel kiteshield","Construction,Cosmetics,Melee","Cosmetics,Melee",yes,"Decorative steel kiteshield (shield-slot melee armour). Dropped Construction.",medium
+8778,"Oak plank","Construction","Construction",no,"A Construction building material (plank).",high
+8780,"Teak plank","Construction","Construction",no,"A Construction building material (plank).",high
+8782,"Mahogany plank","Construction","Construction",no,"A Construction building material (plank).",high
+8784,"Gold leaf","Construction","Construction",no,"A Construction material for decorative POH builds and STASH units.",high
+8786,"Marble block","Construction","Construction",no,"A Construction material for high-level POH furniture.",high
+8788,"Magic stone","Construction,Sailing","Construction,Sailing",no,"High-level building material for Construction (POH) and Sailing (boats).",high
+8790,"Bolt of cloth","Construction","Construction,Crafting",yes,"A Construction material and a Crafting input for POH banners. Added Crafting.",medium
+8792,"Clockwork","Construction,Crafting","Crafting",yes,"Made at a crafting table and consumed by Crafting to build clockwork toys. Dropped Construction.",medium
+8794,"Saw","Construction","Construction",no,"A Construction tool (used with a hammer to build furniture).",high
+8837,"Timber beam","Construction,Quests","Quests",yes,"A Shades of Mort'ton quest/minigame building consumable with no other use. Dropped Construction.",medium
+8839,"Void knight top","Melee,Misc","Melee,Range,Mage",yes,"Void Knight body armour worn for all three combat styles. Dropped Misc, added Range/Mage.",medium
+8840,"Void knight robe","Melee","Melee,Range,Mage",yes,"Void Knight leg armour worn for all three combat styles. Added Range/Mage.",medium
+8841,"Void knight mace","Mage,Prayer","Melee,Mage,Prayer",yes,"A crush mace that autocasts spells and has a prayer bonus. Added Melee.",medium
+8842,"Void knight gloves","Melee,Misc","Melee,Range,Mage",yes,"Void Knight gloves worn for all three combat styles. Dropped Misc, added Range/Mage.",medium
+8844,"Bronze defender","Melee","Melee",no,"An off-hand melee defender (shield slot).",high
+8845,"Iron defender","Melee","Melee",no,"An off-hand melee defender (shield slot).",high
+8846,"Steel defender","Melee","Melee",no,"An off-hand melee defender (shield slot).",high
+8847,"Black defender","Melee","Melee",no,"An off-hand melee defender (shield slot).",high
+8848,"Mithril defender","Melee","Melee",no,"An off-hand melee defender (shield slot).",high
+8849,"Adamant defender","Melee","Melee",no,"An off-hand melee defender (shield slot).",high
+8850,"Rune defender","Melee","Melee",no,"An off-hand melee defender (shield slot).",high
+8851,"Warrior guild token","Melee,Misc","Misc",yes,"A Warriors' Guild minigame token for room entry, not combat gear. Dropped Melee.",medium
+8856,"Defensive shield","Melee","Misc",yes,"A Warriors' Guild catapult-activity shield usable only on the activity square. Dropped Melee.",medium
+8857,"Shot","Misc","Misc",no,"A Warriors' Guild shot put animation item.",high
+8858,"18lb shot","Misc","Misc",no,"A Warriors' Guild shot put activity item.",high
+8859,"22lb shot","Misc","Misc",no,"A Warriors' Guild shot put activity item.",high
+8860,"One barrel","Misc","Misc",no,"A Warriors' Guild keg-balance activity item.",high
+8861,"Two barrels","Misc","Misc",no,"A Warriors' Guild keg-balance activity item.",high
+8862,"Three barrels","Misc","Misc",no,"A Warriors' Guild keg-balance activity item.",high
+8863,"Four barrels","Misc","Misc",no,"A Warriors' Guild keg-balance activity item.",high
+8864,"Five barrels","Misc","Misc",no,"A Warriors' Guild keg-balance activity item.",high
+8865,"Ground ashes","Misc","Misc",no,"A Warriors' Guild shot put aid item.",high
+8866,"Steel key","Agility + Thieving,Misc","Misc",yes,"A HAM store-room access key (looted, opens a chest), not a skill input. Dropped Agility+Thieving.",medium
+8867,"Bronze key","Misc","Misc",no,"A HAM store-room access key (looted, opens a chest), not a skill input.",medium
+8868,"Silver key","Agility + Thieving,Misc","Misc",yes,"A HAM store-room access key (looted, opens a chest), not a skill input. Dropped Agility+Thieving.",medium
+8869,"Iron key","Agility + Thieving,Misc","Misc",yes,"A HAM store-room access key (looted, opens a chest), not a skill input. Dropped Agility+Thieving.",medium
+8870,"Zanik","Quests","Quests",no,"A Death to the Dorgeshuun quest item.",high
+8871,"Crate with zanik","Quests","Quests",no,"A Death to the Dorgeshuun quest item.",high
+8872,"Bone dagger","Melee","Melee",no,"A melee dagger weapon.",high
+8880,"Dorgeshuun crossbow","Range","Range",no,"A Ranged crossbow weapon.",high
+8882,"Bone bolts","Range","Range",no,"Ranged ammunition for the Dorgeshuun crossbow.",high
+8887,"Zanik","Quests","Quests",no,"A quest pet item (Dorgeshuun quest series).",high
+8890,"Coins","Mage,Misc","Mage",yes,"Mage Training Arena alchemist-room coins (made via alchemy spells). Dropped Misc.",medium
+8905,"Black mask (8)","Melee,Slayer","Melee,Slayer",no,"A melee helm giving an Attack/Strength boost vs Slayer-task monsters.",high
+8907,"Black mask (7)","Melee,Slayer","Melee,Slayer",no,"A melee helm giving an Attack/Strength boost vs Slayer-task monsters.",high
+8909,"Black mask (6)","Melee,Slayer","Melee,Slayer",no,"A melee helm giving an Attack/Strength boost vs Slayer-task monsters.",high
+8911,"Black mask (5)","Melee,Slayer","Melee,Slayer",no,"A melee helm giving an Attack/Strength boost vs Slayer-task monsters.",high
+8915,"Black mask (3)","Melee,Slayer","Melee,Slayer",no,"A melee helm giving an Attack/Strength boost vs Slayer-task monsters.",high
+8917,"Black mask (2)","Melee,Slayer","Melee,Slayer",no,"A melee helm giving an Attack/Strength boost vs Slayer-task monsters.",high
+8919,"Black mask (1)","Melee,Slayer","Melee,Slayer",no,"A melee helm giving an Attack/Strength boost vs Slayer-task monsters.",high
+8921,"Black mask","Melee,Slayer","Melee,Slayer",no,"A melee helm giving an Attack/Strength boost vs Slayer-task monsters.",high
+8923,"Witchwood icon","Slayer","Slayer",no,"Slayer equipment reducing cave-horror scream damage.",high
+8924,"Bandana eyepatch (white)","Cosmetics","Cosmetics",no,"A decorative pirate headwear item (no combat stats).",high
+8925,"Bandana eyepatch (red)","Cosmetics","Cosmetics",no,"A decorative pirate headwear item (no combat stats).",high
+8926,"Bandana eyepatch (blue)","Cosmetics","Cosmetics",no,"A decorative pirate headwear item (no combat stats).",high
+8927,"Bandana eyepatch (brown)","Cosmetics","Cosmetics",no,"A decorative pirate headwear item (no combat stats).",high
+8928,"Hat eyepatch","Cosmetics","Cosmetics",no,"A decorative pirate headwear item (no combat stats).",high
+8929,"Crabclaw hook","Melee","Melee",no,"A glove-slot item with melee defence and strength bonus.",high
+8930,"Pipe section","Misc","Misc",no,"A Trouble Brewing minigame repair item.",high
+8932,"Lumber patch","Misc","Misc",no,"A Trouble Brewing minigame repair item.",high
+8934,"Scrapey tree logs","Misc,Woodcutting + Firemaking","Fletching",yes,"Knifed for 50 Fletching XP to yield scrapey bark in Trouble Brewing. Dropped Misc/Woodcutting + Firemaking.",medium
+8936,"Blue flowers","Misc","Misc",no,"A Trouble Brewing minigame ingredient item.",high
+8938,"Red flowers","Misc","Misc",no,"A Trouble Brewing minigame ingredient item.",high
+8940,"Rum","Misc","Teleports",yes,"A single-use teleport item back to Trouble Brewing. Dropped Misc.",medium
+8941,"Rum","Misc","Teleports",yes,"A single-use teleport item back to Trouble Brewing. Dropped Misc.",medium
+8942,"Monkey","Hunter,Misc","Hunter,Agility + Thieving",yes,"Caught in Trouble Brewing for Hunter and Agility XP. Dropped Misc, added Agility + Thieving.",medium
+8943,"Blue monkey","Misc","Misc",no,"A dyed monkey used to fetch bitternuts (no XP itself).",high
+8946,"Red monkey","Misc","Misc",no,"A dyed monkey used to fetch bitternuts (no XP itself).",high
+8949,"Pirate bandana","Misc","Cosmetics",yes,"A decorative pirate head item (no combat stats). Dropped Misc.",medium
+8950,"Pirate hat","Misc","Cosmetics",yes,"A decorative pirate head item (no combat stats). Dropped Misc.",medium
+8951,"Pieces of eight","Misc","Misc",no,"Trouble Brewing minigame currency.",high
+8952,"Blue naval shirt","Cosmetics","Cosmetics",no,"A decoration-only body item (no combat bonuses).",high
+8953,"Green naval shirt","Cosmetics","Cosmetics",no,"A decoration-only body item (no combat bonuses).",high
+8954,"Red naval shirt","Cosmetics","Cosmetics",no,"A decoration-only body item (no combat bonuses).",high
+8955,"Brown naval shirt","Cosmetics","Cosmetics",no,"A decoration-only body item (no combat bonuses).",high
+8956,"Black naval shirt","Cosmetics","Cosmetics",no,"A decoration-only body item (no combat bonuses).",high
+8957,"Purple naval shirt","Cosmetics","Cosmetics",no,"A decoration-only body item (no combat bonuses).",high
+8958,"Grey naval shirt","Cosmetics","Cosmetics",no,"A decoration-only body item (no combat bonuses).",high
+8959,"Blue tricorn hat","Cosmetics","Cosmetics",no,"A decoration-only head item (no combat bonuses).",high
+8960,"Green tricorn hat","Cosmetics","Cosmetics",no,"A decoration-only head item (no combat bonuses).",high
+8961,"Red tricorn hat","Cosmetics","Cosmetics",no,"A decoration-only head item (no combat bonuses).",high
+8962,"Brown tricorn hat","Cosmetics","Cosmetics",no,"A decoration-only head item (no combat bonuses).",high
+8963,"Black tricorn hat","Cosmetics","Cosmetics",no,"A decoration-only head item (no combat bonuses).",high
+8964,"Purple tricorn hat","Cosmetics","Cosmetics",no,"A decoration-only head item (no combat bonuses).",high
+8965,"Grey tricorn hat","Cosmetics","Cosmetics",no,"A decoration-only head item (no combat bonuses).",high
+8966,"Cutthroat flag","Cosmetics","Cosmetics",no,"A decorative held flag (weapon slot, no combat stats).",high
+8967,"Gilded smile flag","Cosmetics","Cosmetics",no,"A decorative held flag (weapon slot, no combat stats).",high
+8968,"Bronze fist flag","Cosmetics","Cosmetics",no,"A decorative held flag (weapon slot, no combat stats).",high
+8969,"Lucky shot flag","Cosmetics","Cosmetics",no,"A decorative held flag (weapon slot, no combat stats).",high
+8970,"Treasure flag","Cosmetics","Cosmetics",no,"A decorative held flag (weapon slot, no combat stats).",high
+8971,"Phasmatys flag","Cosmetics","Cosmetics",no,"A decorative held flag (weapon slot, no combat stats).",high
+8972,"Bowl of red water","Cooking,Misc","Cooking",yes,"A Trouble Brewing ingredient giving Cooking XP in the hopper. Dropped Misc.",medium
+8974,"Bowl of blue water","Cooking,Misc","Cooking",yes,"A Trouble Brewing ingredient giving Cooking XP in the hopper. Dropped Misc.",medium
+8976,"Bitternut","Misc","Misc",no,"A Trouble Brewing nut gathered by monkeys (no skill XP noted).",medium
+8977,"Scrapey bark","Misc","Cooking",yes,"Knifed from scrapey logs and placed in hopper for Cooking XP. Dropped Misc.",medium
+8979,"Bridge section","Misc","Misc",no,"A Trouble Brewing minigame repair item.",high
+8981,"Sweetgrubs","Misc","Misc",no,"A Trouble Brewing rum ingredient (no skill XP noted).",medium
+8986,"Bucket","Misc","Misc",no,"A Trouble Brewing animation item.",high
+8987,"Torch","Misc","Misc",no,"A Trouble Brewing animation item.",high
+8988,"The stuff","Cooking","Cooking",no,"A rum-brewing ingredient from the Trouble Brewing shop.",medium
+8989,"Brewin' guide","Misc","Misc",no,"A readable how-to guide book.",high
+8990,"Brewin' guide","Misc","Misc",no,"A readable how-to guide book (unobtainable duplicate).",high
+8991,"Blue navy slacks","Cosmetics","Cosmetics",no,"A decoration-only legs item (no combat bonuses).",high
+8992,"Green navy slacks","Cosmetics","Cosmetics",no,"A decoration-only legs item (no combat bonuses).",high
+8993,"Red navy slacks","Cosmetics","Cosmetics",no,"A decoration-only legs item (no combat bonuses).",high
+8994,"Brown navy slacks","Cosmetics","Cosmetics",no,"A decoration-only legs item (no combat bonuses).",high
+8995,"Black navy slacks","Cosmetics","Cosmetics",no,"A decoration-only legs item (no combat bonuses).",high
+8996,"Purple navy slacks","Cosmetics","Cosmetics",no,"A decoration-only legs item (no combat bonuses).",high
+8997,"Grey navy slacks","Cosmetics","Cosmetics",no,"A decoration-only legs item (no combat bonuses).",high
+9003,"Security book","Misc","Misc",no,"A readable account-security book.",high
+9004,"Stronghold notes","Misc","Misc",no,"A readable Stronghold info book.",high
+9005,"Fancy boots","Melee","Melee",no,"Feet-slot boots with melee defence stats (Stronghold reward).",high
+9006,"Fighting boots","Melee","Melee",no,"Feet-slot boots with melee defence stats (Stronghold reward).",high
+9007,"Right skull half","Misc","Misc",no,"A skull-sceptre component drop (precursor, not the finished teleport item).",high
+9008,"Left skull half","Misc","Misc",no,"A skull-sceptre component drop (precursor, not the finished teleport item).",high
+9009,"Strange skull","Misc","Misc",no,"A skull-sceptre component (precursor, not the finished teleport item).",high
+9010,"Top of sceptre","Misc","Misc",no,"A skull-sceptre component drop (precursor, not the finished teleport item).",high
+9011,"Bottom of sceptre","Misc","Misc",no,"A skull-sceptre component drop (precursor, not the finished teleport item).",high
+9012,"Runed sceptre","Misc","Misc",no,"An assembled skull-sceptre precursor (not yet equippable).",high
+9013,"Skull sceptre","Mage,Misc","Mage,Teleports",yes,"Teleports to the Stronghold and autocasts Arceuus combat spells. Dropped Misc, added Teleports.",medium
+9016,"Gorak claws","Herblore,Quests","Herblore",yes,"Ground into gorak claw powder, the secondary for magic essence. Dropped Quests.",medium
+9017,"Star flower","Herblore,Quests","Herblore",yes,"Used on a vial of water to make magic essence (unf). Dropped Quests.",medium
+9018,"Gorak claw powder","Herblore,Quests","Herblore",yes,"The secondary ingredient for magic essence. Dropped Quests.",medium
+9019,"Magic essence (unf)","Herblore,Quests","Herblore",yes,"An unfinished Herblore potion. Dropped Quests.",medium
+9021,"Magic essence(4)","Herblore,Mage,Quests","Herblore,Mage",yes,"An Herblore potion that boosts Magic +3. Dropped Quests.",medium
+9022,"Magic essence(3)","Herblore,Mage,Quests","Herblore,Mage",yes,"An Herblore potion that boosts Magic +3. Dropped Quests.",medium
+9023,"Magic essence(2)","Herblore,Mage,Quests","Herblore,Mage",yes,"An Herblore potion that boosts Magic +3. Dropped Quests.",medium
+9024,"Magic essence(1)","Herblore,Mage,Quests","Herblore,Mage",yes,"An Herblore potion that boosts Magic +3. Dropped Quests.",medium
+9025,"Nuff's certificate","Quests","Quests",no,"A Fairytale II quest lore scroll.",high
+9026,"Ivory comb","Agility + Thieving,Misc","Agility + Thieving",yes,"Unique Pyramid Plunder Thieving output/currency -> Agility + Thieving. [Matt batch-4 audit]",medium
+9028,"Golden scarab","Agility + Thieving,Misc","Agility + Thieving",yes,"Unique Pyramid Plunder Thieving output/currency -> Agility + Thieving. [Matt batch-4 audit]",medium
+9030,"Stone scarab","Agility + Thieving,Misc","Agility + Thieving",yes,"Unique Pyramid Plunder Thieving output/currency -> Agility + Thieving. [Matt batch-4 audit]",medium
+9032,"Pottery scarab","Agility + Thieving,Misc","Agility + Thieving",yes,"Unique Pyramid Plunder Thieving output/currency -> Agility + Thieving. [Matt batch-4 audit]",medium
+9034,"Golden statuette","Agility + Thieving,Misc","Agility + Thieving",yes,"Unique Pyramid Plunder Thieving output/currency -> Agility + Thieving. [Matt batch-4 audit]",medium
+9036,"Pottery statuette","Agility + Thieving,Misc","Agility + Thieving",yes,"Unique Pyramid Plunder Thieving output/currency -> Agility + Thieving. [Matt batch-4 audit]",medium
+9038,"Stone statuette","Agility + Thieving,Misc","Agility + Thieving",yes,"Unique Pyramid Plunder Thieving output/currency -> Agility + Thieving. [Matt batch-4 audit]",medium
+9040,"Gold seal","Agility + Thieving,Misc","Agility + Thieving",yes,"Unique Pyramid Plunder Thieving output/currency -> Agility + Thieving. [Matt batch-4 audit]",medium
+9042,"Stone seal","Misc","Agility + Thieving",yes,"Unique Pyramid Plunder Thieving output/currency -> Agility + Thieving. [Matt batch-4 audit]",medium
+9044,"Pharaoh's sceptre","Misc","Teleports",yes,"A charged teleport sceptre (desert teleports). Dropped Misc.",medium
+9046,"Pharaoh's sceptre","Misc","Teleports",yes,"A charged teleport sceptre (desert teleports). Dropped Misc.",medium
+9048,"Pharaoh's sceptre","Misc","Teleports",yes,"A charged teleport sceptre (desert teleports). Dropped Misc.",medium
+9050,"Pharaoh's sceptre","Misc","Teleports",yes,"A charged teleport sceptre (desert teleports). Dropped Misc.",medium
+9052,"Locust meat","Cooking","Cooking",no,"An edible food item (heals 3, sub-12 like cave eel).",medium
+9054,"Red goblin mail","Misc","Quests",yes,"Dyed goblin armour used in the goblin quest line (unwearable). Dropped Misc.",medium
+9055,"Black goblin mail","Quests","Quests",no,"Dyed goblin armour used in the goblin quest line (unwearable).",medium
+9056,"Yellow goblin mail","Quests","Quests",no,"Dyed goblin armour used in the goblin quest line (unwearable).",medium
+9057,"Green goblin mail","Misc","Quests",yes,"Dyed goblin armour used in the goblin quest line (unwearable). Dropped Misc.",medium
+9058,"Purple goblin mail","Quests","Quests",no,"Dyed goblin armour used in the goblin quest line (unwearable).",medium
+9059,"Pink goblin mail","Quests","Quests",no,"Dyed goblin armour used in the goblin quest line (unwearable).",medium
+9066,"Emerald lens","Quests","Quests",no,"A Lunar Diplomacy quest item.",high
+9067,"Dream log","Quests","Quests",no,"A Lunar Diplomacy quest item (cannot be burned or fletched).",high
+9068,"Moonclan helm","Mage","Mage",no,"Magic robe-set headgear (magic attack/defence bonuses).",high
+9069,"Moonclan hat","Mage","Mage",no,"Magic robe-set headgear (magic attack/defence bonuses).",high
+9070,"Moonclan armour","Mage","Mage",no,"Magic robe-set body (magic attack/defence bonuses).",high
+9071,"Moonclan skirt","Mage","Mage",no,"Magic robe-set legs (magic attack/defence bonuses).",high
+9072,"Moonclan gloves","Mage","Mage",no,"Magic robe-set gloves (magic attack/defence bonuses).",high
+9073,"Moonclan boots","Mage","Mage",no,"Magic robe-set boots (magic attack/defence bonuses).",high
+9074,"Moonclan cape","Mage","Mage",no,"Magic robe-set cape (magic attack/defence bonuses).",high
+9075,"Astral rune","Mage,Runecraft","Mage,Runecraft",no,"A rune used in Lunar spells and crafted at the Astral Altar.",high
+9076,"Lunar ore","Mining + Smithing,Quests","Mining + Smithing",yes,"Mined at 60 Mining and smelted into lunar bar. Dropped Quests.",medium
+9077,"Lunar bar","Mining + Smithing,Quests","Mining + Smithing",yes,"Smelted from lunar ore and smithed into lunar equipment. Dropped Quests.",medium
+9078,"Moonclan manual","Misc","Misc",no,"A readable lore/history book.",high
+9079,"Suqah tooth","Farming,Quests","Farming",yes,"Ground into the tooth used as spirit-tree gardener payment. Dropped Quests.",medium
+9080,"Suqah hide","Crafting,Quests","Crafting",yes,"Tanned into suqah leather for lunar armour. Dropped Quests.",medium
+9081,"Suqah leather","Quests","Crafting",yes,"Sewn with needle and thread into lunar armour pieces. Dropped Quests, added Crafting.",medium
+9082,"Ground tooth","Farming,Quests","Farming",yes,"Used as part of the spirit-tree gardener payment. Dropped Quests.",medium
+9083,"Seal of passage","Quests","Quests",no,"A Lunar Isle access neck item, no skill function.",high
+9084,"Lunar staff","Mage,Quests,Slayer","Mage",yes,"A magic staff (65 Magic) used on the Lunar spellbook. Dropped Quests/Slayer.",medium
+9085,"Empty vial","Quests","Quests",no,"A Lunar Diplomacy quest vial with no use after the quest.",high
+9086,"Vial of water","Herblore,Quests","Quests",yes,"A quest-internal vial for the Waking Sleep Potion (no post-quest use). Dropped Herblore.",medium
+9087,"Waking sleep vial","Quests","Quests",no,"A quest-internal potion for entering the Dream World.",high
+9088,"Guam vial","Herblore,Quests","Quests",yes,"A quest-internal Waking Sleep Potion step (no post-quest use). Dropped Herblore.",medium
+9089,"Marr vial","Herblore,Quests","Quests",yes,"A quest-internal Waking Sleep Potion step (no post-quest use). Dropped Herblore.",medium
+9090,"Guam-marr vial","Herblore,Quests","Quests",yes,"A quest-internal Waking Sleep Potion step (no post-quest use). Dropped Herblore.",medium
+9091,"Lunar staff - pt1","Mage,Quests","Mage",yes,"An in-progress lunar staff that functions as a magic staff. Dropped Quests.",medium
+9092,"Lunar staff - pt2","Mage,Quests","Mage",yes,"An in-progress lunar staff that functions as a magic staff. Dropped Quests.",medium
+9093,"Lunar staff - pt3","Mage,Quests","Mage",yes,"An in-progress lunar staff that functions as a magic staff. Dropped Quests.",medium
+9094,"Kindling","Quests","Quests",no,"A Lunar Diplomacy quest item.",high
+9095,"Soaked kindling","Quests","Quests",no,"A Lunar Diplomacy quest item.",high
+9096,"Lunar helm","Mage,Quests","Mage",yes,"Magic-armour head (65 Magic), buyable post-quest. Dropped Quests.",medium
+9097,"Lunar torso","Mage,Quests","Mage",yes,"Magic-armour body (65 Magic), buyable post-quest. Dropped Quests.",medium
+9098,"Lunar legs","Mage,Quests","Mage",yes,"Magic-armour legs (65 Magic), buyable post-quest. Dropped Quests.",medium
+9099,"Lunar gloves","Mage,Quests","Mage",yes,"Magic-armour gloves (65 Magic), buyable post-quest. Dropped Quests.",medium
+9100,"Lunar boots","Mage,Quests","Mage",yes,"Magic-armour boots (65 Magic), buyable post-quest. Dropped Quests.",medium
+9101,"Lunar cape","Mage,Quests","Mage",yes,"Magic-armour cape (65 Magic), buyable post-quest. Dropped Quests.",medium
+9102,"Lunar amulet","Mage,Quests","Mage",yes,"Magic-armour amulet (magic bonuses), buyable post-quest. Dropped Quests.",medium
+9103,"A special tiara","Quests","Quests",no,"A Lunar Diplomacy quest drop exchanged for the lunar amulet.",high
+9104,"Lunar ring","Mage,Quests","Mage",yes,"Magic-armour ring (magic bonuses), buyable post-quest. Dropped Quests.",medium
+9106,"Astral tiara","Runecraft","Runecraft",no,"A Runecraft tiara for the Astral Altar.",high
+9139,"Blurite bolts","Fletching,Range","Fletching,Range",no,"Fletched crossbow bolts fired as Ranged ammo.",high
+9140,"Iron bolts","Fletching,Range","Fletching,Range",no,"Fletched crossbow bolts fired as Ranged ammo.",high
+9141,"Steel bolts","Range","Fletching,Range",yes,"Fletched crossbow bolts fired as Ranged ammo. Added Fletching.",high
+9142,"Mithril bolts","Fletching,Range","Fletching,Range",no,"Fletched crossbow bolts fired as Ranged ammo.",high
+9143,"Adamant bolts","Fletching,Range","Fletching,Range",no,"Fletched crossbow bolts fired as Ranged ammo.",high
+9144,"Runite bolts","Fletching,Range","Fletching,Range",no,"Fletched crossbow bolts fired as Ranged ammo.",high
+9145,"Silver bolts","Range","Fletching,Range",yes,"Fletched crossbow bolts fired as Ranged ammo. Added Fletching.",medium
+9174,"Bronze crossbow","Fletching,Range","Fletching,Range",no,"A fletched crossbow used as a Ranged weapon.",high
+9176,"Blurite crossbow","Fletching,Range","Fletching,Range",no,"A fletched crossbow used as a Ranged weapon.",high
+9177,"Iron crossbow","Fletching,Range","Fletching,Range",no,"A fletched crossbow used as a Ranged weapon.",high
+9179,"Steel crossbow","Fletching,Range","Fletching,Range",no,"A fletched crossbow used as a Ranged weapon.",high
+9181,"Mithril crossbow","Fletching,Range","Fletching,Range",no,"A fletched crossbow used as a Ranged weapon.",high
+9183,"Adamant crossbow","Fletching,Range","Fletching,Range",no,"A fletched crossbow used as a Ranged weapon.",high
+9185,"Rune crossbow","Fletching,Range,Slayer","Fletching,Range",yes,"A fletched crossbow used as a Ranged weapon. Dropped Slayer.",medium
+9187,"Jade bolt tips","Fletching,Range","Fletching,Range",no,"Chiselled from cut gems (Fletching) and attached to bolts as ammo.",high
+9188,"Topaz bolt tips","Fletching,Range","Fletching,Range",no,"Chiselled from cut gems (Fletching) and attached to bolts as ammo.",high
+9189,"Sapphire bolt tips","Crafting,Fletching,Range","Fletching,Range",yes,"Chiselled from cut gems (Fletching) and attached to bolts as ammo. Dropped Crafting (precursor step).",medium
+9190,"Emerald bolt tips","Fletching,Range","Fletching,Range",no,"Chiselled from cut gems (Fletching) and attached to bolts as ammo.",high
+9191,"Ruby bolt tips","Crafting,Fletching,Range","Fletching,Range",yes,"Chiselled from cut gems (Fletching) and attached to bolts as ammo. Dropped Crafting (precursor step).",medium
+9192,"Diamond bolt tips","Fletching,Range","Fletching,Range",no,"Chiselled from cut gems (Fletching) and attached to bolts as ammo.",high
+9193,"Dragonstone bolt tips","Fletching,Range","Fletching,Range",no,"Chiselled from cut gems (Fletching) and attached to bolts as ammo.",high
+9194,"Onyx bolt tips","Fletching,Range","Fletching,Range",no,"Chiselled from cut gems (Fletching) and attached to bolts as ammo.",high
+9236,"Opal bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9237,"Jade bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9238,"Pearl bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9239,"Topaz bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9240,"Sapphire bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9241,"Emerald bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9242,"Ruby bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9243,"Diamond bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9244,"Dragonstone bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9245,"Onyx bolts (e)","Range","Range",no,"Enchanted crossbow bolts fired as Ranged ammo.",high
+9335,"Jade bolts","Fletching,Range","Fletching,Range",no,"Gem-tipped bolts fletched and fired as Ranged ammo.",high
+9336,"Topaz bolts","Fletching,Range","Fletching,Range",no,"Gem-tipped bolts fletched and fired as Ranged ammo.",high
+9337,"Sapphire bolts","Fletching,Range","Fletching,Range",no,"Gem-tipped bolts fletched and fired as Ranged ammo.",high
+9338,"Emerald bolts","Fletching,Range","Fletching,Range",no,"Gem-tipped bolts fletched and fired as Ranged ammo.",high
+9339,"Ruby bolts","Fletching,Range","Fletching,Range",no,"Gem-tipped bolts fletched and fired as Ranged ammo.",high
+9340,"Diamond bolts","Fletching,Range","Fletching,Range",no,"Gem-tipped bolts fletched and fired as Ranged ammo.",high
+9341,"Dragonstone bolts","Fletching,Range","Fletching,Range",no,"Gem-tipped bolts fletched and fired as Ranged ammo.",high
+9342,"Onyx bolts","Fletching,Range","Fletching,Range",no,"Gem-tipped bolts fletched and fired as Ranged ammo.",high
+9375,"Bronze bolts (unf)","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed from a bar, then feathered into bolts.",high
+9376,"Blurite bolts (unf)","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed from a bar, then feathered into bolts.",high
+9377,"Iron bolts (unf)","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed from a bar, then feathered into bolts.",high
+9378,"Steel bolts (unf)","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed from a bar, then feathered into bolts.",high
+9379,"Mithril bolts (unf)","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed from a bar, then feathered into bolts.",high
+9380,"Adamant bolts(unf)","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed from a bar, then feathered into bolts.",high
+9381,"Runite bolts (unf)","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed from a bar, then feathered into bolts.",high
+9382,"Silver bolts (unf)","Crafting,Fletching","Crafting,Fletching",no,"Cast from a silver bar with a bolt mould (Crafting), then feathered (Fletching).",high
+9415,"Grapple","Misc","Misc",no,"An unused animation item.",high
+9416,"Mith grapple tip","Agility + Thieving,Mining + Smithing,Range","Fletching,Mining + Smithing",yes,"Smithed and attached to a bolt via Fletching (precursor to grapple). Dropped Agility/Range, added Fletching.",medium
+9418,"Mith grapple","Agility + Thieving,Fletching,Range","Fletching",yes,"Unfinished grapple made by attaching the tip to a bolt (needs rope). Dropped Agility/Range.",medium
+9419,"Mith grapple","Agility + Thieving,Fletching,Range","Agility + Thieving,Range",yes,"Finished grapple fired from a crossbow for Agility shortcuts. Dropped Fletching.",medium
+9420,"Bronze limbs","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed crossbow limbs attached to a stock via Fletching.",high
+9422,"Blurite limbs","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed crossbow limbs attached to a stock via Fletching.",high
+9423,"Iron limbs","Fletching,Mining + Smithing,Range","Fletching,Mining + Smithing",yes,"Smithed crossbow limbs attached to a stock via Fletching. Dropped Range.",medium
+9425,"Steel limbs","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed crossbow limbs attached to a stock via Fletching.",high
+9427,"Mithril limbs","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed crossbow limbs attached to a stock via Fletching.",high
+9429,"Adamantite limbs","Fletching,Mining + Smithing","Fletching,Mining + Smithing",no,"Smithed crossbow limbs attached to a stock via Fletching.",high
+9431,"Runite limbs","Fletching,Mining + Smithing,Range","Fletching,Mining + Smithing",yes,"Smithed crossbow limbs attached to a stock via Fletching. Dropped Range.",medium
+9433,"Bolt pouch","Misc,Range","Range",yes,"A Ranged-ammo storage pouch for carrying bolts. Dropped Misc.",medium
+9434,"Bolt mould","Crafting,Range","Crafting",yes,"A Crafting tool for casting silver bolts. Dropped Range.",medium
+9436,"Sinew","Crafting,Fletching","Crafting",yes,"Spun into crossbow string (Crafting); Cooking link is a gut-feel exception, removed. [Matt batch-4 audit]",medium
+9438,"Crossbow string","Fletching","Fletching",no,"Used in Fletching to string crossbows.",high
+9440,"Wooden stock","Fletching","Fletching",no,"Knifed from logs and used to fletch crossbows.",high
+9442,"Oak stock","Fletching","Fletching",no,"Knifed from logs and used to fletch crossbows.",high
+9444,"Willow stock","Fletching","Fletching",no,"Knifed from logs and used to fletch crossbows.",high
+9446,"Teak stock","Fletching","Fletching",no,"Knifed from logs and used to fletch crossbows.",high
+9448,"Maple stock","Fletching","Fletching",no,"Knifed from logs and used to fletch crossbows.",high
+9450,"Mahogany stock","Fletching","Fletching",no,"Knifed from logs and used to fletch crossbows.",high
+9452,"Yew stock","Fletching,Range","Fletching",yes,"Knifed from logs and used to fletch crossbows. Dropped Range.",medium
+9454,"Bronze crossbow (u)","Fletching,Range","Fletching",yes,"Unstrung crossbow (Fletching intermediate). Dropped Range.",medium
+9456,"Blurite crossbow (u)","Fletching","Fletching",no,"Unstrung crossbow (Fletching intermediate).",high
+9457,"Iron crossbow (u)","Fletching,Range","Fletching",yes,"Unstrung crossbow (Fletching intermediate). Dropped Range.",medium
+9459,"Steel crossbow (u)","Fletching,Range","Fletching",yes,"Unstrung crossbow (Fletching intermediate). Dropped Range.",medium
+9461,"Mithril crossbow (u)","Fletching,Range","Fletching",yes,"Unstrung crossbow (Fletching intermediate). Dropped Range.",medium
+9463,"Adamant crossbow (u)","Fletching,Range","Fletching",yes,"Unstrung crossbow (Fletching intermediate). Dropped Range.",medium
+9465,"Runite crossbow (u)","Fletching,Range","Fletching",yes,"Unstrung crossbow (Fletching intermediate). Dropped Range.",medium
+9467,"Blurite bar","Mining + Smithing","Mining + Smithing",no,"A smelted bar used in Smithing.",high
+9468,"Sawdust","Construction","Misc",yes,"A no-use sawmill byproduct. Dropped Construction.",medium
+9469,"Grand seed pod","Farming,Misc","Teleports",yes,"A single-use Grand Tree teleport; XP given != Farming input/output. [Matt batch-4 audit]",medium
+9470,"Gnome scarf","Cosmetics","Cosmetics",no,"A no-stat fashion neck scarf.",high
+9472,"Gnome goggles","Cosmetics","Cosmetics",no,"A no-stat fashion head item (gnome pilot set).",high
+9474,"Reward token","Misc","Misc",no,"A Gnome Restaurant reward token that summons free food.",medium
+9475,"Mint cake","Misc","Misc",no,"A run-energy-restoring utility consumable (not player-cooked).",medium
+9477,"Aluft aloft box","Misc","Misc",no,"A Gnome Restaurant minigame reminder item.",high
+9478,"Half made batta","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9479,"Unfinished batta","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9480,"Half made batta","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9481,"Unfinished batta","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9482,"Half made batta","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9483,"Half made batta","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9484,"Unfinished batta","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9485,"Half made batta","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9486,"Unfinished batta","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9558,"Half made bowl","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9559,"Half made bowl","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9560,"Unfinished bowl","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9561,"Half made bowl","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9562,"Unfinished bowl","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9563,"Half made bowl","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9564,"Unfinished bowl","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9566,"Mixed blizzard","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9567,"Mixed sgg","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9568,"Mixed blast","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9569,"Mixed punch","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9570,"Mixed special","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9571,"Mixed saturday","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9572,"Mixed saturday","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9573,"Mixed saturday","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9574,"Mixed dragon","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9575,"Mixed dragon","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9576,"Mixed dragon","Cooking","Cooking",no,"A gnome cocktail-making intermediate.",high
+9577,"Half made crunchy","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9578,"Unfinished crunchy","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9579,"Half made crunchy","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9580,"Unfinished crunchy","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9581,"Half made crunchy","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9582,"Unfinished crunchy","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9583,"Half made crunchy","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9584,"Unfinished crunchy","Cooking","Cooking",no,"A gnome cooking intermediate.",high
+9589,"Dossier","Quests","Quests",no,"A Black Knights' Fortress quest item.",high
+9590,"Dossier","Quests","Quests",no,"A Black Knights' Fortress quest animation item.",high
+9591,"Broken cauldron","Quests","Quests",no,"A Black Knights' Fortress quest item.",high
+9592,"Magic glue","Quests","Quests",no,"An Eyes of Glouphrie quest item.",high
+9593,"Weird gloop","Quests","Quests",no,"An Eyes of Glouphrie quest item (failed glue).",high
+9594,"Ground mud runes","Quests","Quests",no,"An Eyes of Glouphrie quest item.",high
+9595,"Hazelmere's book","Misc","Misc",no,"An unobtainable book.",high
+9596,"A eyeglo null","Misc","Misc",no,"An unobtainable dummy item.",high
+9597,"Red circle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9598,"Red triangle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9599,"Red square","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9600,"Red pentagon","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9601,"Orange circle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9602,"Orange triangle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9603,"Orange square","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9604,"Orange pentagon","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9605,"Yellow circle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9606,"Yellow triangle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9607,"Yellow square","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9608,"Yellow pentagon","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9609,"Green circle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9610,"Green triangle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9611,"Green square","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9612,"Green pentagon","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9613,"Blue circle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9614,"Blue triangle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9615,"Blue square","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9616,"Blue pentagon","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9617,"Indigo circle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9618,"Indigo triangle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9619,"Indigo square","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9620,"Indigo pentagon","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9621,"Violet circle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9622,"Violet triangle","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9623,"Violet square","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9624,"Violet pentagon","Quests","Quests",no,"An Eyes/Path of Glouphrie machine token.",high
+9625,"Crystal saw","Construction,Quests","Construction",yes,"A permanent Construction tool granting a +3 Construction boost. Dropped Quests.",medium
+9626,"Crystal saw seed","Construction,Quests","Construction",yes,"Sung into the crystal saw (a Construction tool). Dropped Quests.",medium
+9627,"A handwritten book","Quests","Quests",no,"An Eyes of Glouphrie quest book.",high
+9629,"Tyras helm","Melee","Melee",no,"A melee full helm (steel-full-helm stats).",high
+9632,"Daeyalt ore","Mining + Smithing","Mining + Smithing",no,"A mined ore (cannot be smelted).",high
+9633,"Message","Quests","Quests",no,"A Darkness of Hallowvale quest item.",high
+9634,"Vyrewatch top","Cosmetics","Quests,Cosmetics",yes,"Meiyerditch disguise; only real use is quest content, cosmetic afterward -> Quests + Cosmetics. [Matt batch-4 audit]",medium
+9636,"Vyrewatch legs","Cosmetics","Quests,Cosmetics",yes,"Meiyerditch disguise; only real use is quest content, cosmetic afterward -> Quests + Cosmetics. [Matt batch-4 audit]",medium
+9638,"Vyrewatch shoes","Cosmetics","Quests,Cosmetics",yes,"Meiyerditch disguise; only real use is quest content, cosmetic afterward -> Quests + Cosmetics. [Matt batch-4 audit]",medium
+9640,"Citizen top","Quests","Quests,Cosmetics",yes,"Meiyerditch disguise; only real use is quest content, cosmetic afterward -> Quests + Cosmetics. [Matt batch-4 audit]",medium
+9642,"Citizen trousers","Cosmetics,Quests","Quests,Cosmetics",no,"Meiyerditch disguise; only real use is quest content, cosmetic afterward -> Quests + Cosmetics. [Matt batch-4 audit]",medium
+9644,"Citizen shoes","Quests","Quests,Cosmetics",yes,"Meiyerditch disguise; only real use is quest content, cosmetic afterward -> Quests + Cosmetics. [Matt batch-4 audit]",medium
+9646,"Castle sketch 1","Quests","Quests",no,"A Darkness of Hallowvale quest item.",high
+9647,"Castle sketch 2","Quests","Quests",no,"A Darkness of Hallowvale quest item.",high
+9648,"Castle sketch 3","Quests","Quests",no,"A Darkness of Hallowvale quest item.",high
+9649,"Message","Quests","Quests",no,"A Darkness of Hallowvale quest item.",high
+9650,"Blood tithe pouch","Quests","Quests",no,"An unobtainable Darkness of Hallowvale quest item.",high
+9651,"Large ornate key","Misc,Quests","Quests",yes,"A Darkness of Hallowvale quest key. Dropped Misc.",medium
+9652,"Haemalchemy volume 1","Quests","Quests",no,"A Darkness of Hallowvale quest book.",high
+9653,"Sealed message","Quests","Quests",no,"A Darkness of Hallowvale quest item.",high
+9654,"Door key","Misc,Quests","Quests",yes,"A Darkness of Hallowvale quest key. Dropped Misc.",medium
+9655,"Ladder top","Quests","Quests",no,"A Darkness of Hallowvale quest item.",high
+9656,"Tome of experience (3)","Quests","Quests",no,"A Darkness of Hallowvale quest XP-reward tome.",high
+9657,"Tome of experience (2)","Quests","Quests",no,"A Darkness of Hallowvale quest XP-reward tome.",high
+9658,"Tome of experience (1)","Quests","Quests",no,"A Darkness of Hallowvale quest XP-reward tome.",high
+9659,"Bucket of water","Misc","Misc",no,"Unobtainable Meiyerditch scenery.",high
+9660,"Bucket","Misc","Misc",no,"Unobtainable Meiyerditch scenery.",high
+9662,"Useless key","Misc","Misc",no,"An unobtainable placeholder item.",high
+9665,"Torch","Quests","Quests",no,"A Sea Slug quest animation item.",medium
+9666,"Proselyte harness m","Melee,Prayer","Melee,Prayer",no,"An armour pack of prayer-bonus melee Temple Knight armour.",medium
+9668,"Initiate harness m","Melee,Prayer","Melee,Prayer",no,"An armour pack of prayer-bonus melee Temple Knight armour.",medium
+9670,"Proselyte harness f","Melee,Prayer","Melee,Prayer",no,"An armour pack of prayer-bonus melee Temple Knight armour.",medium
+9672,"Proselyte sallet","Melee,Prayer,Quests","Melee,Prayer",yes,"Prayer-bonus melee Temple Knight helm. Dropped Quests.",medium
+9674,"Proselyte hauberk","Melee,Prayer,Quests","Melee,Prayer",yes,"Prayer-bonus melee Temple Knight body. Dropped Quests.",medium
+9676,"Proselyte cuisse","Melee,Prayer,Quests","Melee,Prayer",yes,"Prayer-bonus melee Temple Knight legs. Dropped Quests.",medium
+9678,"Proselyte tasset","Melee,Prayer,Quests","Melee,Prayer",yes,"Prayer-bonus melee Temple Knight legs. Dropped Quests.",medium
+9680,"Sea slug glue","Quests","Quests",no,"A Slug Menace quest item.",high
+9681,"Commorb v2","Quests","Quests",no,"A Slug Menace quest item.",high
+9682,"Door transcription","Quests","Quests",no,"A Slug Menace quest item.",high
+9683,"Dead sea slug","Quests","Quests",no,"A Slug Menace quest item.",high
+9684,"Page 1","Quests","Quests",no,"A Slug Menace quest item.",high
+9685,"Page 2","Quests","Quests",no,"A Slug Menace quest item.",high
+9686,"Page 3","Quests","Quests",no,"A Slug Menace quest item.",high
+9687,"Fragment 1","Quests","Quests",no,"A Slug Menace quest item.",high
+9688,"Fragment 2","Quests","Quests",no,"A Slug Menace quest item.",high
+9689,"Fragment 3","Quests","Quests",no,"A Slug Menace quest item.",high
+9690,"Blank water rune","Quests","Quests",no,"A Slug Menace quest item.",high
+9691,"Water rune","Quests,Runecraft","Quests",yes,"A quest-only rune that cannot cast spells (Slug Menace). Dropped Runecraft.",medium
+9692,"Blank air rune","Quests","Quests",no,"A Slug Menace quest item.",high
+9693,"Air rune","Quests,Runecraft","Quests",yes,"A quest-only rune that cannot cast spells (Slug Menace). Dropped Runecraft.",medium
+9694,"Blank earth rune","Quests","Quests",no,"A Slug Menace quest item.",high
+9695,"Earth rune","Quests,Runecraft","Quests",yes,"A quest-only rune that cannot cast spells (Slug Menace). Dropped Runecraft.",medium
+9696,"Blank mind rune","Quests","Quests",no,"A Slug Menace quest item.",high
+9697,"Mind rune","Quests,Runecraft","Quests",yes,"A quest-only rune that cannot cast spells (Slug Menace). Dropped Runecraft.",medium
+9698,"Blank fire rune","Quests","Quests",no,"A Slug Menace quest item.",high
+9699,"Fire rune","Quests,Runecraft","Quests",yes,"A quest-only rune that cannot cast spells (Slug Menace). Dropped Runecraft.",medium
+9702,"Stick","Cosmetics","Misc",yes,"A teleport-animation item (not obtainable). Dropped Cosmetics.",medium
+9703,"Training sword","Melee","Melee",no,"A beginner melee sword (bronze-sword stats).",high
+9704,"Training shield","Melee","Melee",no,"A beginner melee shield.",high
+9705,"Training bow","Range","Range",no,"A beginner Ranged bow.",high
+9706,"Training arrows","Range","Range",no,"Beginner Ranged arrows.",high
+9715,"Slashed book","Quests","Quests",no,"An Elemental Workshop I quest item.",high
+9716,"Rock","Quests","Quests",no,"An unobtainable Elemental Workshop quest item.",high
+9717,"Beaten book","Quests","Quests",no,"An Elemental Workshop II quest book.",high
+9718,"Crane schematic","Quests","Quests",no,"An Elemental Workshop II quest item.",high
+9719,"Lever schematic","Quests","Quests",no,"An Elemental Workshop II quest item.",high
+9720,"Crane claw","Quests","Quests",no,"An Elemental Workshop II quest item (smithed in-quest, no other use).",medium
+9721,"Scroll","Quests","Quests",no,"An Elemental Workshop II quest item.",high
+9722,"Key","Misc,Quests","Quests",yes,"An Elemental Workshop II quest key. Dropped Misc.",medium
+9723,"Pipe","Quests","Quests",no,"An Elemental Workshop II quest item.",high
+9724,"Large cog","Quests","Quests",no,"An Elemental Workshop II quest item.",high
+9725,"Medium cog","Quests","Quests",no,"An Elemental Workshop II quest item.",high
+9726,"Small cog","Quests","Quests",no,"An Elemental Workshop II quest item.",high
+9727,"Primed bar","Quests","Quests",no,"An Elemental Workshop II quest material.",medium
+9728,"Primed mind bar","Quests","Quests",no,"An Elemental Workshop II quest material.",medium
+9729,"Elemental helmet","Mage,Quests","Mage",yes,"A magic helmet (magic defence), usable post-quest. Dropped Quests.",medium
+9731,"Mind shield","Mage,Slayer","Mage",yes,"A magic shield (magic defence). Dropped Slayer.",medium
+9733,"Mind helmet","Mage,Quests","Mage",yes,"A magic helmet (magic defence), usable post-quest. Dropped Quests.",medium
+9735,"Desert goat horn","Herblore","Herblore",no,"Ground into goat horn dust, an Herblore secondary.",high
+9736,"Goat horn dust","Herblore","Herblore",no,"The Herblore secondary for combat potions.",high
+9739,"Combat potion(4)","Herblore,Melee","Herblore,Melee",no,"An Herblore potion that boosts Attack and Strength.",high
+9741,"Combat potion(3)","Herblore,Melee","Herblore,Melee",no,"An Herblore potion that boosts Attack and Strength.",high
+9743,"Combat potion(2)","Herblore,Melee","Herblore,Melee",no,"An Herblore potion that boosts Attack and Strength.",high
+9745,"Combat potion(1)","Herblore,Melee","Herblore,Melee",no,"An Herblore potion that boosts Attack and Strength.",high
+9747,"Attack cape","Melee","Melee,Cosmetics",yes,"A level-99 Attack prestige cape. Added Cosmetics.",medium
+9749,"Attack hood","Cosmetics,Melee","Cosmetics,Melee",no,"A no-bonus skillcape hood (Attack).",high
+9750,"Strength cape","Melee","Melee,Cosmetics",yes,"A level-99 Strength prestige cape. Added Cosmetics.",medium
+9752,"Strength hood","Cosmetics,Melee","Cosmetics,Melee",no,"A no-bonus skillcape hood (Strength).",high
+9753,"Defence cape","Melee","Melee,Cosmetics",yes,"A level-99 Defence prestige cape. Added Cosmetics.",medium
+9755,"Defence hood","Cosmetics,Melee","Cosmetics,Melee",no,"A no-bonus skillcape hood (Defence).",high
+9756,"Ranging cape","Range","Range,Cosmetics",yes,"A level-99 Ranged prestige cape. Added Cosmetics.",medium
+9758,"Ranging hood","Cosmetics,Range","Cosmetics,Range",no,"A no-bonus skillcape hood (Ranged).",high
+9759,"Prayer cape","Prayer","Prayer,Cosmetics",yes,"A level-99 Prayer prestige cape. Added Cosmetics.",medium
+9761,"Prayer hood","Cosmetics,Prayer","Cosmetics,Prayer",no,"A no-bonus skillcape hood (Prayer).",high
+9762,"Magic cape","Mage","Mage,Cosmetics",yes,"A level-99 Magic prestige cape. Added Cosmetics.",medium
+9764,"Magic hood","Cosmetics,Mage","Cosmetics,Mage",no,"A no-bonus skillcape hood (Magic).",high
+9765,"Runecraft cape","Runecraft","Runecraft,Cosmetics",yes,"A level-99 Runecraft prestige cape (acts as all talismans/tiaras). Added Cosmetics.",medium
+9767,"Runecraft hood","Cosmetics,Runecraft","Cosmetics,Runecraft",no,"A no-bonus skillcape hood (Runecraft).",high
+9768,"Hitpoints cape","Melee","Melee,Cosmetics",yes,"A level-99 Hitpoints prestige cape. Added Cosmetics.",medium
+9770,"Hitpoints hood","Cosmetics,Melee","Cosmetics,Melee",no,"A no-bonus skillcape hood (Hitpoints).",high
+9771,"Agility cape","Agility + Thieving","Agility + Thieving,Cosmetics",yes,"A level-99 Agility prestige cape. Added Cosmetics.",medium
+9773,"Agility hood","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"A no-bonus skillcape hood (Agility).",high
+9774,"Herblore cape","Herblore","Herblore,Cosmetics",yes,"A level-99 Herblore prestige cape. Added Cosmetics.",medium
+9776,"Herblore hood","Cosmetics,Herblore","Cosmetics,Herblore",no,"A no-bonus skillcape hood (Herblore).",high
+9777,"Thieving cape","Agility + Thieving","Agility + Thieving,Cosmetics",yes,"A level-99 Thieving prestige cape. Added Cosmetics.",medium
+9779,"Thieving hood","Agility + Thieving,Cosmetics","Agility + Thieving,Cosmetics",no,"A no-bonus skillcape hood (Thieving).",high
+9780,"Crafting cape","Crafting","Crafting,Cosmetics",yes,"A level-99 Crafting prestige cape (Crafting Guild access). Added Cosmetics.",medium
+9782,"Crafting hood","Cosmetics,Crafting","Cosmetics,Crafting",no,"A no-bonus skillcape hood (Crafting).",high
+9783,"Fletching cape","Fletching","Fletching,Cosmetics",yes,"A level-99 Fletching prestige cape. Added Cosmetics.",medium
+9785,"Fletching hood","Cosmetics,Fletching","Cosmetics,Fletching",no,"A no-bonus skillcape hood (Fletching).",high
+9786,"Slayer cape","Slayer","Slayer,Cosmetics",yes,"A level-99 Slayer prestige cape. Added Cosmetics.",medium
+9788,"Slayer hood","Cosmetics,Slayer","Cosmetics,Slayer",no,"A no-bonus skillcape hood (Slayer).",high
+9789,"Construct. cape","Construction","Construction,Cosmetics",yes,"A level-99 Construction prestige cape. Added Cosmetics.",medium
+9791,"Construct. hood","Construction,Cosmetics","Construction,Cosmetics",no,"A no-bonus skillcape hood (Construction).",high
+9792,"Mining cape","Mining + Smithing","Mining + Smithing,Cosmetics",yes,"A level-99 Mining prestige cape. Added Cosmetics.",medium
+9794,"Mining hood","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"A no-bonus skillcape hood (Mining).",high
+9795,"Smithing cape","Mining + Smithing","Mining + Smithing,Cosmetics",yes,"A level-99 Smithing prestige cape. Added Cosmetics.",medium
+9797,"Smithing hood","Cosmetics,Mining + Smithing","Cosmetics,Mining + Smithing",no,"A no-bonus skillcape hood (Smithing).",high
+9798,"Fishing cape","Fishing","Fishing,Cosmetics",yes,"A level-99 Fishing prestige cape. Added Cosmetics.",medium
+9800,"Fishing hood","Cosmetics,Fishing","Cosmetics,Fishing",no,"A no-bonus skillcape hood (Fishing).",high
+9801,"Cooking cape","Cooking","Cooking,Cosmetics",yes,"A level-99 Cooking prestige cape (Cooks' Guild access). Added Cosmetics.",medium
+9803,"Cooking hood","Cooking,Cosmetics","Cooking,Cosmetics",no,"A no-bonus skillcape hood (Cooking).",high
+9804,"Firemaking cape","Woodcutting + Firemaking","Woodcutting + Firemaking,Cosmetics",yes,"A level-99 Firemaking prestige cape. Added Cosmetics.",medium
+9806,"Firemaking hood","Cosmetics,Woodcutting + Firemaking","Cosmetics,Woodcutting + Firemaking",no,"A no-bonus skillcape hood (Firemaking).",high
+9807,"Woodcutting cape","Woodcutting + Firemaking","Woodcutting + Firemaking,Cosmetics",yes,"A level-99 Woodcutting prestige cape. Added Cosmetics.",medium
+9809,"Woodcutting hood","Cosmetics,Woodcutting + Firemaking","Cosmetics,Woodcutting + Firemaking",no,"A no-bonus skillcape hood (Woodcutting).",high
+9810,"Farming cape","Farming","Farming,Cosmetics",yes,"A level-99 Farming prestige cape. Added Cosmetics.",medium
+9812,"Farming hood","Cosmetics,Farming","Cosmetics,Farming",no,"A no-bonus skillcape hood (Farming).",high
+9813,"Quest point cape","Quests","Quests,Cosmetics",yes,"An all-quests prestige cape. Added Cosmetics.",medium
+9814,"Quest point hood","Cosmetics,Quests","Cosmetics,Quests",no,"A no-bonus quest-cape hood.",high
+9843,"Oak cape rack","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9844,"Teak cape rack","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9845,"Mahogany cape rack","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9846,"Gilded cape rack","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9847,"Marble cape rack","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9848,"Magic cape rack","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9849,"Oak toy box","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9850,"Teak toy box","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9851,"Mahogany toy box","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9852,"Oak magic wardrobe","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9853,"Carved oak magic wardrobe","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9854,"Teak magic wardrobe","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9855,"Carved teak magic wardrobe","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9856,"Mahogany magic wardrobe","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9857,"Gilded magic wardrobe","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9858,"Marble magic wardrobe","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9859,"Oak armour case","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9860,"Teak armour case","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9861,"Mahogany armour case","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9862,"Oak treasure chest","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9863,"Teak treasure chest","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9864,"M. treasure chest","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9865,"Oak fancy dress box","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9866,"Teak fancy dress box","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9867,"Mahogany fancy dress box","Construction","Construction",no,"A POH Costume Room furniture flatpack.",high
+9901,"Goutweedy lump","Quests","Quests",no,"A My Arm's Big Adventure quest item.",high
+9902,"Hardy gout tubers","Quests","Quests",no,"A My Arm's Big Adventure quest item (cannot be planted).",high
+9903,"Farming manual","Farming,Quests","Misc",yes,"A readable Farming guide book (not a Farming input). Dropped Farming/Quests.",medium
+9904,"Sailing book","Quests","Quests",no,"An unobtainable Tourist Trap quest scenery book.",medium
+9906,"Ghost buster 500","Cosmetics","Cosmetics",no,"A 2013 Halloween event item.",high
+9913,"White destabiliser","Cosmetics","Cosmetics",no,"A 2013 Halloween event item.",high
+9914,"Red destabiliser","Cosmetics","Cosmetics",no,"A 2013 Halloween event item.",high
+9915,"Blue destabiliser","Cosmetics","Cosmetics",no,"A 2013 Halloween event item.",high
+9916,"Green destabiliser","Cosmetics","Cosmetics",no,"A 2013 Halloween event item.",high
+9917,"Yellow destabiliser","Cosmetics","Cosmetics",no,"A 2013 Halloween event item.",high
+9918,"Black destabiliser","Cosmetics","Cosmetics",no,"A 2013 Halloween event item.",high
+9919,"Evil root","Cosmetics","Cosmetics",no,"A 2013 Halloween event collectible.",medium
+9920,"Jack lantern mask","Cosmetics","Cosmetics",no,"A Halloween event cosmetic head item.",high
+9921,"Skeleton boots","Cosmetics","Cosmetics",no,"A Halloween skeleton-costume cosmetic.",high
+9922,"Skeleton gloves","Cosmetics","Cosmetics",no,"A Halloween skeleton-costume cosmetic.",high
+9923,"Skeleton leggings","Cosmetics","Cosmetics",no,"A Halloween skeleton-costume cosmetic.",high
+9924,"Skeleton shirt","Cosmetics","Cosmetics",no,"A Halloween skeleton-costume cosmetic.",high
+9925,"Skeleton mask","Cosmetics","Cosmetics",no,"A Halloween skeleton-costume cosmetic.",high
+9932,"Auguste's sapling","Farming,Quests","Farming",yes,"A willow sapling planted in a tree patch (reobtainable). Dropped Quests.",medium
+9933,"Balloon structure","Quests","Quests",no,"An Enlightened Journey origami-balloon test item.",medium
+9934,"Origami balloon","Crafting,Quests,Woodcutting + Firemaking","Quests",yes,"A quest-internal test balloon (made then burnt). Dropped Crafting/Woodcutting + Firemaking.",medium
+9943,"Sandbag","Quests","Quests",no,"An Enlightened Journey quest item (balloon anchor).",high
+9944,"Bomber jacket","Cosmetics,Quests","Cosmetics",yes,"An Enlightened Journey costume-reward body item. Dropped Quests.",medium
+9945,"Bomber cap","Cosmetics,Quests","Cosmetics",yes,"An Enlightened Journey costume-reward head item. Dropped Quests.",medium
+9946,"Cap and goggles","Cosmetics","Cosmetics",no,"A combined bomber cap + gnome goggles costume item.",high
+9947,"Old red disk","Quests","Quests",no,"A Fremennik Trials quest item.",high
+9948,"Hunter cape","Hunter","Hunter,Cosmetics",yes,"A level-99 Hunter prestige cape. Added Cosmetics.",medium
+9950,"Hunter hood","Cosmetics,Hunter","Cosmetics,Hunter",no,"A no-bonus skillcape hood (Hunter).",high
+9951,"Footprint","Hunter","Hunter",no,"An unobtainable Hunter level-up icon.",medium
+9978,"Raw bird meat","Cooking,Hunter","Cooking,Hunter",no,"A Hunter bird/bird-house drop that is cooked.",high
+9980,"Roast bird meat","Cooking","Cooking",no,"A cooked food (sub-12 heal).",high
+9982,"Burnt bird meat","Cooking","Cooking",no,"A burnt cooking result.",high
+9984,"Skewered bird meat","Cooking","Cooking",no,"A cooking intermediate (raw bird on a spit).",high
+9986,"Raw beast meat","Cooking,Hunter","Cooking,Hunter",no,"A Hunter kebbit drop that is cooked.",high
+9988,"Roast beast meat","Cooking,Melee","Cooking",yes,"A cooked food (sub-12 heal). Dropped Melee.",medium
+9990,"Burnt beast meat","Cooking","Cooking",no,"A burnt cooking result.",high
+9992,"Skewered beast","Cooking","Cooking",no,"A cooking intermediate (raw beast on a spit).",high
+9994,"Spicy tomato","Cooking,Hunter","Cooking,Hunter",no,"A spiced food (Cooking) used as Hunter box-trap bait.",high
+9996,"Spicy minced meat","Cooking,Hunter","Cooking,Hunter",no,"A spiced food (Cooking) used as Hunter bait.",high
+9998,"Hunter potion(4)","Herblore,Hunter","Herblore,Hunter",no,"An Herblore potion that boosts Hunter.",high
+10000,"Hunter potion(3)","Herblore,Hunter","Herblore,Hunter",no,"An Herblore potion that boosts Hunter.",high
+10002,"Hunter potion(2)","Herblore,Hunter","Herblore,Hunter",no,"An Herblore potion that boosts Hunter.",high
+10004,"Hunter potion(1)","Herblore,Hunter","Herblore,Hunter",no,"An Herblore potion that boosts Hunter.",high
+10006,"Bird snare","Hunter","Hunter",no,"A Hunter trap.",high
+10008,"Box trap","Hunter","Hunter",no,"A Hunter trap.",high
+10010,"Butterfly net","Hunter","Hunter",no,"A Hunter tool for catching butterflies/implings.",high
+10012,"Butterfly jar","Hunter","Hunter",no,"A Hunter container for caught butterflies.",high
+10014,"Black warlock","Hunter,Melee","Hunter,Melee",no,"A caught Hunter butterfly with a Strength-boost release.",medium
+10016,"Snowy knight","Hunter,Melee","Hunter,Melee",no,"A caught Hunter butterfly with a Defence-boost release.",medium
+10018,"Sapphire glacialis","Hunter","Hunter",no,"A caught Hunter butterfly (non-combat release).",medium
+10020,"Ruby harvest","Hunter,Melee","Hunter,Melee",no,"A caught Hunter butterfly with an Attack-boost release.",medium
+10023,"Falconer's glove","Hunter","Hunter",no,"A Hunter falconry tool.",high
+10025,"Magic box","Hunter","Hunter",no,"A Hunter trap for imps.",high
+10027,"Imp-in-a-box(2)","Hunter,Misc","Hunter,Misc",no,"A caught imp (Hunter) used as a bank-sending utility.",medium
+10028,"Imp-in-a-box(1)","Hunter,Misc","Hunter,Misc",no,"A caught imp (Hunter) used as a bank-sending utility.",medium
+10029,"Teasing stick","Hunter","Hunter",no,"A Hunter tool for luring carnivores into pitfall traps.",high
+10031,"Rabbit snare","Hunter","Hunter",no,"A Hunter trap.",high
+10033,"Chinchompa","Hunter,Range","Hunter,Range",no,"Caught via Hunter and thrown as a Ranged weapon.",high
+10034,"Red chinchompa","Hunter,Range","Hunter,Range",no,"Caught via Hunter and thrown as a Ranged weapon.",high
+10035,"Kyatt legs","Hunter","Hunter",no,"Kyatt Hunter gear (reduces Hunter-creature damage).",high
+10037,"Kyatt top","Hunter","Hunter",no,"Kyatt Hunter gear (reduces Hunter-creature damage).",high
+10039,"Kyatt hat","Hunter","Hunter",no,"Kyatt Hunter gear (reduces Hunter-creature damage).",high
+10041,"Larupia legs","Hunter","Hunter",no,"Larupia Hunter gear (reduces Hunter-creature damage).",high
+10043,"Larupia top","Hunter","Hunter",no,"Larupia Hunter gear (reduces Hunter-creature damage).",high
+10045,"Larupia hat","Hunter","Hunter",no,"Larupia Hunter gear (reduces Hunter-creature damage).",high
+10047,"Graahk legs","Hunter","Hunter",no,"Graahk Hunter gear (reduces Hunter-creature damage).",high
+10049,"Graahk top","Hunter","Hunter",no,"Graahk Hunter gear (reduces Hunter-creature damage).",high
+10051,"Graahk headdress","Hunter","Hunter",no,"Graahk Hunter gear (reduces Hunter-creature damage).",high
+10053,"Wood camo top","Hunter","Hunter",no,"Wood camouflage Hunter gear.",high
+10055,"Wood camo legs","Hunter","Hunter",no,"Wood camouflage Hunter gear.",high
+10057,"Jungle camo top","Hunter","Hunter",no,"Jungle camouflage Hunter gear.",high
+10059,"Jungle camo legs","Cosmetics,Hunter","Hunter",yes,"Jungle camouflage Hunter gear. Dropped Cosmetics for family consistency.",medium
+10061,"Desert camo top","Hunter","Hunter",no,"Desert camouflage Hunter gear.",high
+10063,"Desert camo legs","Hunter","Hunter",no,"Desert camouflage Hunter gear.",high
+10065,"Polar camo top","Hunter","Hunter",no,"Polar camouflage Hunter gear.",high
+10067,"Polar camo legs","Hunter","Hunter",no,"Polar camouflage Hunter gear.",high
+10069,"Spotted cape","Hunter","Agility + Thieving,Hunter",yes,"A weight-reducing cape made from Hunter fur. Added Agility + Thieving to match spottier cape.",medium
+10071,"Spottier cape","Agility + Thieving,Hunter","Agility + Thieving,Hunter",no,"A weight-reducing cape made from Hunter fur.",medium
+10075,"Gloves of silence","Agility + Thieving,Hunter","Agility + Thieving,Hunter",no,"Thieving gloves (+5% pickpocket) made from dark kebbit fur.",high
+10077,"Spiky vambraces","Crafting,Range","Range",yes,"Leather ranger hand armour (kebbit claws attached). Dropped Crafting making-step.",medium
+10079,"Green spiky vambraces","Crafting,Range","Range",yes,"Green dragonhide ranger hand armour. Dropped Crafting making-step.",medium
+10081,"Blue spiky vambraces","Crafting,Range","Range",yes,"Blue dragonhide ranger hand armour. Dropped Crafting making-step.",medium
+10083,"Red spiky vambraces","Crafting,Melee","Range",yes,"Red dragonhide ranger hand armour. Dropped Crafting/Melee.",medium
+10085,"Black spiky vambraces","Hunter,Melee","Range",yes,"Black dragonhide ranger hand armour. Dropped Hunter/Melee.",medium
+10087,"Stripy feather","Fishing,Fletching,Hunter","Fishing,Fletching,Hunter",no,"A Hunter bird drop used as fly-fishing bait and fletching feathers.",high
+10088,"Red feather","Fletching,Hunter","Fletching,Hunter",no,"A Hunter bird drop used as fletching feathers.",medium
+10089,"Blue feather","Fletching,Hunter","Fletching,Hunter",no,"A Hunter bird drop used as fletching feathers.",medium
+10090,"Yellow feather","Fletching,Hunter","Fletching,Hunter",no,"A Hunter bird drop used as fletching feathers.",medium
+10091,"Orange feather","Fletching,Hunter","Fletching,Hunter",no,"A Hunter bird drop used as fletching feathers.",medium
+10092,"Ferret","Hunter","Hunter",no,"A Hunter item used with a rabbit snare.",high
+10093,"Tatty larupia fur","Hunter","Hunter",no,"A Hunter fur used to make larupia gear.",high
+10095,"Larupia fur","Hunter","Hunter",no,"A Hunter fur used to make larupia gear.",high
+10097,"Tatty graahk fur","Hunter","Hunter",no,"A Hunter fur used to make graahk gear.",high
+10099,"Graahk fur","Hunter","Hunter",no,"A Hunter fur used to make graahk gear.",high
+10101,"Tatty kyatt fur","Hunter","Hunter",no,"A Hunter fur used to make kyatt gear.",high
+10103,"Kyatt fur","Hunter","Hunter",no,"A Hunter fur used to make kyatt gear.",high
+10105,"Kebbit spike","Fletching,Hunter,Range","Fletching,Hunter,Range",no,"A Hunter drop chiselled into kebbit bolts (Fletching) used as Ranged ammo.",high
+10107,"Long kebbit spike","Fletching,Hunter,Range","Fletching,Hunter,Range",no,"A Hunter drop chiselled into long kebbit bolts (Fletching) used as Ranged ammo.",high
+10109,"Kebbit teeth","Herblore,Hunter","Herblore,Hunter",no,"A Hunter drop ground into the Hunter-potion secondary.",high
+10111,"Kebbit teeth dust","Herblore,Hunter","Herblore,Hunter",no,"The Hunter-potion secondary (ground kebbit teeth).",high
+10113,"Kebbit claws","Hunter,Range","Hunter,Crafting",yes,"A Hunter drop attached to vambraces via Crafting to make spiky vambraces. Dropped Range, added Crafting.",medium
+10115,"Dark kebbit fur","Agility + Thieving,Hunter","Hunter",yes,"A Hunter fur used to make gloves of silence. Dropped Agility + Thieving for family consistency.",medium
+10117,"Polar kebbit fur","Hunter","Hunter",no,"A Hunter fur used to make polar camo gear.",high
+10119,"Feldip weasel fur","Hunter","Hunter",no,"A Hunter fur used to make jungle camo gear.",high
+10121,"Common kebbit fur","Hunter","Hunter",no,"A Hunter fur used to make wood camo gear.",high
+10123,"Desert devil fur","Hunter","Hunter",no,"A Hunter fur used to make desert camo gear.",high
+10125,"Spotted kebbit fur","Hunter","Hunter",no,"A Hunter fur used to make the spotted cape.",high
+10127,"Dashing kebbit fur","Hunter","Hunter",no,"A Hunter fur (falconry catch).",high
+10129,"Barb-tail harpoon","Fishing,Hunter,Melee","Fishing,Hunter",yes,"Harpoon = Fishing tool; Matt batch-6 harpoon ruling drops Melee. Hunter retained.",high
+10132,"Strung rabbit foot","Crafting,Fletching,Hunter","Crafting,Hunter",yes,"A Hunter rabbit foot strung with wool (Crafting), worn for a birdhouse luck boost. Dropped Fletching.",medium
+10134,"Rabbit foot","Crafting,Hunter","Crafting,Hunter",no,"A Hunter drop strung into a strung rabbit foot via Crafting.",high
+10136,"Rainbow fish","Cooking","Cooking",no,"A cooked fish (heals 11, sub-12).",high
+10138,"Raw rainbow fish","Cooking,Fishing,Hunter","Cooking,Fishing",yes,"A Fishing catch that is cooked (Hunter is only via bait). Dropped Hunter.",medium
+10140,"Burnt rainbow fish","Cooking","Cooking",no,"A burnt cooking result.",high
+10142,"Guam tar","Herblore,Hunter,Range","Herblore,Hunter,Range",no,"Made via Herblore, used as swamp-lizard ammo (Range) and Hunter bait.",high
+10143,"Marrentill tar","Herblore,Hunter,Range","Herblore,Hunter,Range",no,"Made via Herblore, used as salamander ammo (Range) and Hunter bait.",high
+10144,"Tarromin tar","Herblore,Hunter,Range","Herblore,Hunter,Range",no,"Made via Herblore, used as salamander ammo (Range) and Hunter bait.",high
+10145,"Harralander tar","Herblore,Hunter,Range","Herblore,Hunter,Range",no,"Made via Herblore, used as salamander ammo (Range) and Hunter bait.",high
+10146,"Orange salamander","Hunter,Melee","Hunter,Melee,Range,Mage",yes,"A Hunter-caught multi-style weapon (scorch/flare/blaze). Added Range/Mage.",medium
+10147,"Red salamander","Hunter,Melee","Hunter,Melee,Range,Mage",yes,"A Hunter-caught multi-style weapon (scorch/flare/blaze). Added Range/Mage.",medium
+10148,"Black salamander","Hunter,Melee","Hunter,Melee,Range,Mage",yes,"A Hunter-caught multi-style weapon (scorch/flare/blaze). Added Range/Mage.",medium
+10149,"Swamp lizard","Hunter,Range","Hunter,Melee,Range,Mage",yes,"A Hunter-caught multi-style salamander weapon. Added Melee/Mage.",medium
+10150,"Noose wand","Hunter","Hunter",no,"A Hunter tool for catching kebbits while tracking.",high
+10156,"Hunters' crossbow","Hunter,Range","Hunter,Range",no,"A Ranged crossbow firing Hunter-derived kebbit bolts.",medium
+10158,"Kebbit bolts","Fletching,Hunter,Range","Fletching,Hunter,Range",no,"Fletched from a Hunter kebbit spike and fired from the hunters' crossbow.",high
+10159,"Long kebbit bolts","Fletching,Hunter,Range","Fletching,Hunter,Range",no,"Fletched from a Hunter long kebbit spike and fired from the hunters' crossbow.",high
+10167,"Eagle feather","Quests","Quests",no,"An Eagles' Peak quest item (makes the eagle cape disguise).",high
+10171,"Eagle cape","Quests","Quests",no,"An Eagles' Peak quest disguise cape.",high
+10172,"Fake beak","Quests","Quests",no,"An Eagles' Peak quest disguise item.",high
+10173,"Bird book","Hunter,Quests","Quests",yes,"An Eagles' Peak quest book. Dropped Hunter.",medium
+10174,"Metal feather","Quests","Quests",no,"An Eagles' Peak quest item (door key).",high
+10175,"Golden feather","Quests","Quests",no,"An Eagles' Peak quest item.",high
+10176,"Silver feather","Quests","Quests",no,"An Eagles' Peak quest item.",high
+10177,"Bronze feather","Quests","Quests",no,"An Eagles' Peak quest item.",high
+10178,"Odd bird seed","Quests","Quests",no,"An Eagles' Peak quest item.",high
+10179,"Feathered journal","Quests","Quests",no,"An Eagles' Peak quest book.",high
+10180,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10182,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10184,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10186,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10188,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10190,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10192,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10194,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10196,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10198,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10200,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10202,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10204,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10206,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10208,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10210,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10212,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10214,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10216,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10218,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10220,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10222,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10224,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10226,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10228,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10230,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10232,"Clue scroll (easy)","Misc","Misc",no,"An easy Treasure Trails clue scroll.",high
+10234,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10236,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10238,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10240,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10242,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10244,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10246,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10248,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10250,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10252,"Clue scroll (hard)","Misc","Misc",no,"A hard Treasure Trails clue scroll.",high
+10254,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10256,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10258,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10260,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10262,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10264,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10266,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10268,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10270,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10272,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10274,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10276,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10278,"Clue scroll (medium)","Misc","Misc",no,"A medium Treasure Trails clue scroll.",high
+10280,"Willow comp bow","Cosmetics,Range","Range",yes,"A functional Ranged composite bow (Treasure Trail reward). Dropped Cosmetics.",medium
+10282,"Yew comp bow","Range","Range",no,"A functional Ranged composite bow (Treasure Trail reward).",high
+10284,"Magic comp bow","Range","Range",no,"A functional Ranged composite bow (Treasure Trail reward).",high
+10286,"Rune helm (h1)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic rune full helm (melee defence head-slot).",high
+10288,"Rune helm (h2)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic rune full helm (melee defence head-slot).",high
+10290,"Rune helm (h3)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic rune full helm (melee defence head-slot).",high
+10292,"Rune helm (h4)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic rune full helm (melee defence head-slot).",high
+10294,"Rune helm (h5)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic rune full helm (melee defence head-slot).",high
+10296,"Adamant helm (h1)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic adamant full helm (melee defence head-slot).",high
+10298,"Adamant helm (h2)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic adamant full helm (melee defence head-slot).",high
+10300,"Adamant helm (h3)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic adamant full helm (melee defence head-slot).",high
+10302,"Adamant helm (h4)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic adamant full helm (melee defence head-slot).",high
+10304,"Adamant helm (h5)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic adamant full helm (melee defence head-slot).",high
+10306,"Black helm (h1)","Cosmetics,Melee","Cosmetics,Melee",no,"A heraldic black full helm (melee defence head-slot).",high

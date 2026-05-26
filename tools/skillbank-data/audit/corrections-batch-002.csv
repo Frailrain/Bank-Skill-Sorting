@@ -1,0 +1,10 @@
+id,name,from_tabs,to_tabs,reason,source
+2355,"Silver bar","Crafting,Herblore,Mining + Smithing","Crafting,Mining + Smithing","Matt audit: the Herblore use (Guthix balance) goes through silver dust, a separate item; the bar itself is not a Herblore ingredient, so Herblore moves to silver dust.",matt-audit
+3228,"Cooked rabbit","Cooking,Melee,Range,Mage,Slayer","Cooking","Matt audit: cooked-food combat tabs gated at 12+ heal (lobster and up); cooked rabbit heals 5, so Cooking only.",matt-audit-batch-002
+3369,"Thin snail meat","Cooking,Melee,Range,Mage,Slayer","Cooking","Matt audit: 12+ heal threshold; thin snail meat heals 5-7, so Cooking only.",matt-audit-batch-002
+3371,"Lean snail meat","Cooking,Melee,Range,Mage,Slayer","Cooking","Matt audit: 12+ heal threshold; lean snail meat heals 5-8, so Cooking only.",matt-audit-batch-002
+3373,"Fat snail meat","Cooking,Melee,Range,Mage,Slayer","Cooking","Matt audit: 12+ heal threshold; fat snail meat heals 7-9, so Cooking only.",matt-audit-batch-002
+3381,"Cooked slimy eel","Cooking,Melee,Range,Mage,Slayer","Cooking","Matt audit: 12+ heal threshold; cooked slimy eel heals 6-10, so Cooking only.",matt-audit-batch-002
+4291,"Cooked chicken","Cooking,Melee,Range,Mage,Slayer","Cooking","Matt audit: 12+ heal threshold; undead cooked chicken heals 1, so Cooking only.",matt-audit-batch-002
+4293,"Cooked meat","Cooking,Melee,Range,Mage,Slayer","Cooking","Matt audit: 12+ heal threshold; undead cooked meat heals 1-2, so Cooking only.",matt-audit-batch-002
+2878,"Cooked chompy","Cooking,Melee,Range,Mage,Slayer","Cooking","Matt audit: 12+ heal threshold; wiki-confirmed cooked chompy heals 10, so Cooking only.",matt-audit-batch-002

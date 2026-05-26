@@ -1,0 +1,46 @@
+id,name,from_tabs,to_tabs,reason,source
+434,"Clay","Crafting","Construction,Crafting","Matt audit: clay is also a Construction material. Kept out of Mining + Smithing since it is not smelted.",matt-audit-batch-001
+667,"Blurite sword","Melee","Quests","Matt audit: it is a quest item, a low-use curiosity, not a real melee weapon.",matt-audit-batch-001
+598,"Bronze fire arrow","Range","Quests","Matt audit (ice-arrows note): quest fire and ice arrows go to Quests, not Range.",matt-audit-batch-001
+35,"Excalibur","Melee","Quests","Re-scan from the blurite ruling: a quest weapon curiosity belongs in Quests, not by-function Melee. Flagged for Matt to confirm.",re-scan
+948,"Bear fur","Misc","Crafting","Wiki recheck: bear fur is crafted into wooden cats, fur heads, and bear hide armour, so it has a Crafting use after all.",wiki-recheck
+958,"Grey wolf fur","Misc","Crafting","Wiki recheck: grey wolf fur is crafted into wooden cats and quest fur heads, so it has a Crafting use.",wiki-recheck
+1052,"Cape of legends","Melee","Melee,Range,Mage","Matt rule: defensive capes show in all three combat styles.",matt-rule-capes
+1527,"Grimy ardrigal","Herblore","Quests","Litmus re-scan + wiki: ardrigal's only potion (Legends' bravery potion) is quest-only, so it stays in Quests.",matt-audit-litmus
+1528,"Ardrigal","Herblore","Quests","Litmus re-scan + wiki: ardrigal is quest-only (bravery potion), so Quests.",matt-audit-litmus
+1529,"Grimy sito foil","Herblore","Quests","Litmus re-scan + wiki: sito foil is used only in Jungle Potion, so Quests.",matt-audit-litmus
+1530,"Sito foil","Herblore","Quests","Litmus re-scan + wiki: sito foil is used only in Jungle Potion, so Quests.",matt-audit-litmus
+1531,"Grimy volencia moss","Herblore","Quests","Litmus re-scan + wiki: volencia moss is quest-only (Jungle Potion, Fairytale I), so Quests.",matt-audit-litmus
+1532,"Volencia moss","Herblore","Quests","Litmus re-scan + wiki: volencia moss is quest-only, so Quests.",matt-audit-litmus
+1861,"Ugthanki meat","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold (Matt batch-2 audit); heals 3, so Cooking only.",matt-audit-batch-002
+1891,"Cake","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 4 per slice, so Cooking only.",matt-audit-batch-002
+1897,"Chocolate cake","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 5 per slice, so Cooking only.",matt-audit-batch-002
+1969,"Spinach roll","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 2, so Cooking only.",matt-audit-batch-002
+1971,"Kebab","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; small variable heal under 12, so Cooking only.",matt-audit-batch-002
+1977,"Chocolatey milk","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 5, so Cooking only.",matt-audit-batch-002
+1993,"Jug of wine","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 11, so Cooking only.",matt-audit-batch-002
+2003,"Stew","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 11, so Cooking only.",matt-audit-batch-002
+2034,"Premade fr' blast","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 9, so Cooking only.",matt-audit-batch-002
+2036,"Premade p' punch","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 9, so Cooking only.",matt-audit-batch-002
+2048,"Pineapple punch","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 9, so Cooking only.",matt-audit-batch-002
+2084,"Fruit blast","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 9, so Cooking only.",matt-audit-batch-002
+2140,"Cooked chicken","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 3, so Cooking only.",matt-audit-batch-002
+2142,"Cooked meat","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 3, so Cooking only.",matt-audit-batch-002
+2149,"Lava eel","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 11, so Cooking only.",matt-audit-batch-002
+2205,"Worm crunchies","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 8, so Cooking only.",matt-audit-batch-002
+2209,"Chocchip crunchies","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 7, so Cooking only.",matt-audit-batch-002
+2213,"Spicy crunchies","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 7, so Cooking only.",matt-audit-batch-002
+2217,"Toad crunchies","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 8, so Cooking only.",matt-audit-batch-002
+2223,"Premade c+t batta","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 11, so Cooking only.",matt-audit-batch-002
+2225,"Premade fr't batta","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 11, so Cooking only.",matt-audit-batch-002
+2227,"Premade veg batta","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 11, so Cooking only.",matt-audit-batch-002
+2237,"Premade w'm crun'","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 8, so Cooking only.",matt-audit-batch-002
+2239,"Premade ch' crunch","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 7, so Cooking only.",matt-audit-batch-002
+2241,"Premade s'y crunch","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 7, so Cooking only.",matt-audit-batch-002
+2243,"Premade t'd crunch","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 8, so Cooking only.",matt-audit-batch-002
+2259,"Cheese+tom batta","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 11, so Cooking only.",matt-audit-batch-002
+2277,"Fruit batta","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 11, so Cooking only.",matt-audit-batch-002
+2281,"Vegetable batta","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 11, so Cooking only.",matt-audit-batch-002
+2309,"Bread","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 5, so Cooking only.",matt-audit-batch-002
+2325,"Redberry pie","Cooking,Melee,Range,Mage,Slayer","Cooking","12+ heal threshold; heals 10, so Cooking only.",matt-audit-batch-002
+1539,"Steel nails","Construction","Construction,Fletching","Re-scan from batch-3 nails: steel nails also fletch steel brutal arrows, so added Fletching for consistency with the nail family.",re-scan-batch-003

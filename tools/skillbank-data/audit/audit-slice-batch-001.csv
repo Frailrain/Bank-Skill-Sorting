@@ -1,0 +1,25 @@
+id,name,old_tabs,new_tabs,changed,confidence,rationale,approved,comments
+2,Steel cannonball,"Mining + Smithing,Range,Slayer","Range,Slayer",yes,high,Terminal ammo output; under inputs-only it leaves Mining + Smithing and sits in Range and Slayer.,Yes,
+4,Ammo mould,"Mining + Smithing,Quests",Mining + Smithing,yes,high,A reusable Smithing tool; dropped Quests per the quest-tool policy.,Yes,
+25,Red vine worm,"Fishing,Quests",Quests,yes,medium,"Quest-only bait, no role in normal Fishing; removed Fishing.",Yes,Good call with no uses outside of quests
+39,Bronze arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,high,"A smithing output whose only next step is fletching, so Fletching only.",Yes,
+54,Oak shortbow (u),"Fletching,Range",Fletching,yes,high,"An unstrung bow, not wieldable until strung, so Fletching only.",Yes,
+78,Ice arrows,"Quests,Range",Quests,yes,medium,"A Temple of Ikov quest curiosity, not standard ammo; removed Range.",Yes,"This was a tricky one, good call. This will go for the fire arrows from the temple of Ikov quest as well"
+113,Strength potion(4),"Herblore,Melee","Herblore,Melee",no,high,"Boosts Strength for melee, so Herblore and Melee.",Yes,
+139,Prayer potion(3),"Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,high,"Restores Prayer; made in Herblore, a Prayer consumable and a slayer staple.",Yes,
+201,Grimy marrentill,Herblore,"Farming,Herblore",yes,high,A grimy herb is a farmed output and a herblore input; added Farming.,Yes,
+249,Guam leaf,"Farming,Herblore",Herblore,yes,high,"A clean herb comes from cleaning, not harvesting, so Herblore only.",Yes,
+325,Sardine,Melee,"Cooking,Mage,Melee,Range,Slayer",yes,high,"Cooked food eaten in any style, so Cooking plus all four combat tabs.",Yes,
+337,Giant carp,"Cooking,Fishing,Quests",Quests,yes,medium,"A Fishing Contest quest item, not a normal food, so Quests.",Yes,
+403,Edible seaweed,Cooking,"Cooking,Crafting",yes,medium,"Cooked into soda ash for glass; trivial 4 HP, not treated as combat food.",Yes,
+411,Oyster pearl,"Crafting,Fishing,Fletching","Fishing,Fletching",yes,medium,"Fishing loot fletched into bolt tips; not used in jewellery, so removed Crafting.",Yes,
+434,Clay,"Construction,Crafting,Mining + Smithing",Crafting,yes,medium,"Mined then used in pottery, never smelted, so Crafting only.",No,Also used in construction
+442,Silver ore,"Crafting,Mining + Smithing",Mining + Smithing,yes,high,"Smelted into a bar; the bar, not the ore, is the Crafting input.",Yes,Great distinction
+446,'perfect' gold ore,"Mining + Smithing,Quests",Quests,yes,medium,"A quest-only ore used solely in Family Crest, so Quests.",Yes,
+526,Bones,Prayer,Prayer,no,high,"Buried to train Prayer, a Prayer input.",Yes,
+562,Chaos rune,Mage,"Mage,Runecraft",yes,high,"Runecraftable at the Chaos altar; added Runecraft, which the prior pass missed.",Yes,
+569,Fire orb,"Crafting,Mage",Crafting,yes,medium,"A charged orb attached to a battlestaff for Crafting experience, so Crafting.",Yes,
+589,Gnome amulet,Quests,Quests,no,medium,"An obscure quest reward amulet with minor defence, not a real loadout piece, so Quests.",Yes,
+656,Pink hat,Cosmetics,Cosmetics,no,medium,"A Fine Fashions hat with only a trivial magic bonus, sold as fashion, so Cosmetics.",Yes,
+667,Blurite sword,"Melee,Quests",Melee,yes,medium,"An equippable longsword; by function Melee, dropped Quests.",No,This is a quest item
+732,Holy water,"Quests,Range",Range,yes,medium,An equippable thrown demonbane weapon; by function Range.,Yes,

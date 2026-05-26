@@ -1,51 +1,1189 @@
 id,name,old_tabs,new_tabs,changed,rationale,confidence
-0,Dwarf remains,Quests,Quests,no,"Pure quest item used only in Dwarf Cannon, with no skill or combat function. A player would only look for it in the quests tab.",high
-1,Toolkit,Quests,Quests,no,"Quest item used only in Dwarf Cannon to repair the broken cannon during the quest. No ongoing skill use, so quests only.",high
-2,Steel cannonball,"Mining + Smithing,Range,Slayer","Mining + Smithing,Range,Slayer",no,"Cannon ammunition cast from steel bars via Smithing, fired from the dwarf multicannon during ranged combat and used as a slayer-task accelerator. Per the cannon rule it belongs in Mining + Smithing, range, and slayer.",high
-3,Nulodion's notes,Quests,Quests,no,"Quest item used only in Dwarf Cannon. The examine text mentions construction of cannon ammo, but it is not a Construction-skill item, so it stays in quests only.",high
-4,Ammo mould,"Mining + Smithing,Quests",Mining + Smithing,yes,"The reusable tool that casts steel bars into cannonballs, which is a Smithing activity, so it belongs in Mining + Smithing. Dropped the quests tag because it is a permanent skilling tool kept for its function rather than a quest keepsake.",high
-5,Instruction manual,Misc,Misc,no,"The dwarf multicannon reference book with no skill or combat function and not a deployable part, so it stays in misc.",medium
-6,Cannon base,"Quests,Range,Slayer","Range,Slayer",yes,"Deployable dwarf multicannon part, so range and slayer per the cannon rule. Dropped quests because it is a functional combat tool.",high
-8,Cannon stand,"Misc,Quests,Slayer","Range,Slayer",yes,"Deployable dwarf multicannon part, so range and slayer per the cannon rule. Dropped misc and quests; added range.",high
-10,Cannon barrels,"Misc,Quests,Range,Slayer","Range,Slayer",yes,"Deployable dwarf multicannon part that fires the cannonballs, so range and slayer. Dropped misc and quests as noise.",high
-12,Cannon furnace,"Misc,Quests,Slayer","Range,Slayer",yes,"Final deployable dwarf multicannon part, so range and slayer. Dropped misc and quests; added range.",high
-14,Railing,Quests,Quests,no,"Quest item used only in Dwarf Cannon to repair a fence. No ongoing use, so quests only.",high
-15,Holy table napkin,Quests,Quests,no,"Quest item used only in Holy Grail. No ongoing use, so quests only.",high
-16,Magic whistle,Quests,Quests,no,"Quest item used only in Holy Grail. No ongoing use, so quests only.",high
-17,Grail bell,Quests,Quests,no,"Quest item used only in Holy Grail. No ongoing use, so quests only.",high
-18,Magic gold feather,Quests,Quests,no,"Quest item used only in Holy Grail. No ongoing use, so quests only.",high
-19,Holy grail,Quests,Quests,no,"Quest item used in Holy Grail and King's Ransom. No skill or combat use, so quests only.",high
-20,White cog,Quests,Quests,no,"Quest item used only in Clock Tower. No ongoing use, so quests only.",high
-21,Black cog,Quests,Quests,no,"Quest item used only in Clock Tower. No ongoing use, so quests only.",high
-22,Blue cog,Quests,Quests,no,"Quest item used only in Clock Tower. No ongoing use, so quests only.",high
-23,Red cog,Quests,Quests,no,"Quest item used only in Clock Tower. No ongoing use, so quests only.",high
-24,Rat poison,Quests,Quests,no,"Quest item used in Clock Tower and Ratcatchers. No general skill use, so quests only.",high
-25,Red vine worm,"Fishing,Quests",Quests,yes,"Quest-only bait for the giant carp in Fishing Contest, with no role in normal Fishing. Removed the fishing tag.",medium
-26,Fishing trophy,Quests,Quests,no,"Quest reward from Fishing Contest with no ongoing use, so quests only.",high
-27,Fishing pass,Quests,Quests,no,"Quest item used only to enter the Fishing Contest. No ongoing use, so quests only.",high
-28,Insect repellent,Quests,Quests,no,"Consumable used in quest steps such as collecting beehive wax. No general skill use, so quests.",medium
-30,Bucket of wax,Quests,Quests,no,"Quest item used in Merlin's Crystal and Troll Romance. No ongoing use, so quests only.",high
-34,Lit candle,Misc,Misc,no,"Discontinued, unobtainable variant of the candle with no function. Fits no skill tab, so misc.",medium
-35,Excalibur,"Melee,Quests",Melee,yes,"Equippable one-handed slash sword requiring 20 Attack, comparable to an adamant longsword. Classified by function as melee; dropped quests per the quest-tool policy.",high
-36,Candle,Woodcutting + Firemaking,Woodcutting + Firemaking,no,A basic light source lit with a tinderbox. Kept in firemaking as the home for tinderbox-lit light sources.,medium
-38,Black candle,Quests,Quests,no,"Quest-specific candle used only in Merlin's Crystal, with no use outside that quest, so quests only.",high
-39,Bronze arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from a bronze bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
-40,Iron arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from an iron bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
-41,Steel arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from a steel bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
-42,Mithril arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from a mithril bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
-43,Adamant arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from an adamant bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
-44,Rune arrowtips,"Fletching,Mining + Smithing,Range",Fletching,yes,"Smithed from a runite bar; its only further step is fletching onto arrows, so under the inputs-only rule it sits in Woodcutting + Firemaking / Fletching, not Mining + Smithing and not range.",high
-45,Opal bolt tips,"Fletching,Range",Fletching,yes,"Cut from an opal with a chisel as a Fletching material for bolts. Intermediate component, not usable ammunition, so not range.",high
-46,Pearl bolt tips,"Fletching,Range",Fletching,yes,"Cut from oyster pearls with a chisel as a Fletching material for bolts. Intermediate component, not usable ammunition, so not range.",high
-47,Barb bolttips,"Fletching,Range",Fletching,yes,"A Fletching material attached to bronze bolts to make barbed bolts. Intermediate component, not usable ammunition, so not range.",high
-48,Longbow (u),Fletching,Fletching,no,"An unstrung bow, a Fletching product not wieldable until strung. Woodcutting + Firemaking / Fletching only.",high
-50,Shortbow (u),Fletching,Fletching,no,"An unstrung bow, a Fletching product not wieldable until strung. Woodcutting + Firemaking / Fletching only.",high
-52,Arrow shaft,Fletching,Fletching,no,A basic Fletching material cut from logs. Woodcutting + Firemaking / Fletching only.,high
-53,Headless arrow,Fletching,Fletching,no,A Fletching intermediate made from shafts and feathers. Woodcutting + Firemaking / Fletching only.,high
-54,Oak shortbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
-56,Oak longbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
-58,Willow longbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
-60,Willow shortbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
-62,Maple longbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
-64,Maple shortbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
-66,Yew longbow (u),"Fletching,Range",Fletching,yes,"An unstrung bow, not wieldable until strung, so Woodcutting + Firemaking / Fletching only. Removed range.",high
+0,"Dwarf remains","Quests","Quests",no,"Pure quest item used only in Dwarf Cannon, with no skill or combat function, so Quests only.",high
+1,"Toolkit","Quests","Quests",no,"Quest item used only in Dwarf Cannon to repair the cannon during the quest. No ongoing use, so Quests only.",high
+2,"Steel cannonball","Mining + Smithing,Range,Slayer","Range,Slayer",yes,"Terminal ammo output fired from the dwarf multicannon. Under inputs-only it leaves Mining + Smithing and sits in Range and Slayer.",high
+3,"Nulodion's notes","Quests","Quests",no,"Quest item used only in Dwarf Cannon. Examine mentions cannon ammo construction but it is not a Construction item, so Quests only.",high
+4,"Ammo mould","Mining + Smithing,Quests","Mining + Smithing",yes,"A reusable Smithing tool used to cast cannonballs, an input to Mining + Smithing. Dropped Quests because it is a permanent skilling tool.",high
+5,"Instruction manual","Misc","Misc",no,"The dwarf multicannon reference book with no skill or combat function and not a deployable part, so Misc.",medium
+6,"Cannon base","Quests,Range,Slayer","Range,Slayer",yes,"Deployable dwarf multicannon part used in ranged combat and slayer, so Range and Slayer. Dropped Quests as it is a functional combat tool.",high
+8,"Cannon stand","Misc,Quests,Slayer","Range,Slayer",yes,"Deployable dwarf multicannon part, so Range and Slayer. Dropped Misc and Quests as noise.",high
+10,"Cannon barrels","Misc,Quests,Range,Slayer","Range,Slayer",yes,"Deployable dwarf multicannon part that fires the cannonballs, so Range and Slayer. Dropped Misc and Quests as noise.",high
+12,"Cannon furnace","Misc,Quests,Slayer","Range,Slayer",yes,"Final deployable dwarf multicannon part, so Range and Slayer. Dropped Misc and Quests as noise.",high
+14,"Railing","Quests","Quests",no,"Quest item used only in Dwarf Cannon to repair a fence. No ongoing use, so Quests only.",high
+15,"Holy table napkin","Quests","Quests",no,"Quest item used only in Holy Grail. No ongoing use, so Quests only.",high
+16,"Magic whistle","Quests","Quests",no,"Quest item used only in Holy Grail. No ongoing use, so Quests only.",high
+17,"Grail bell","Quests","Quests",no,"Quest item used only in Holy Grail. No ongoing use, so Quests only.",high
+18,"Magic gold feather","Quests","Quests",no,"Quest item used only in Holy Grail. No ongoing use, so Quests only.",high
+19,"Holy grail","Quests","Quests",no,"Quest item used in Holy Grail and King's Ransom. No skill or combat use, so Quests only.",high
+20,"White cog","Quests","Quests",no,"Quest item used only in Clock Tower. No ongoing use, so Quests only.",high
+21,"Black cog","Quests","Quests",no,"Quest item used only in Clock Tower. No ongoing use, so Quests only.",high
+22,"Blue cog","Quests","Quests",no,"Quest item used only in Clock Tower. No ongoing use, so Quests only.",high
+23,"Red cog","Quests","Quests",no,"Quest item used only in Clock Tower. No ongoing use, so Quests only.",high
+24,"Rat poison","Quests","Quests",no,"Quest item used in Clock Tower and Ratcatchers. No general skill use, so Quests only.",high
+25,"Red vine worm","Fishing,Quests","Quests",yes,"Quest-only bait for the giant carp in Fishing Contest, with no role in normal Fishing. Removed Fishing.",medium
+26,"Fishing trophy","Quests","Quests",no,"Quest reward from Fishing Contest with no ongoing use, so Quests only.",high
+27,"Fishing pass","Quests","Quests",no,"Quest item used only to enter the Fishing Contest. No ongoing use, so Quests only.",high
+28,"Insect repellent","Quests","Quests",no,"Consumable used in quest steps such as collecting beehive wax. No general skill use, so Quests.",medium
+30,"Bucket of wax","Quests","Quests",no,"Quest item used in Merlin's Crystal and Troll Romance. No ongoing use, so Quests only.",high
+34,"Lit candle","Misc","Misc",no,"Discontinued, unobtainable variant of the candle with no function, so Misc.",medium
+35,"Excalibur","Melee,Quests","Quests",yes,"A quest sword from Merlin's Crystal, a low-use curiosity rather than a real loadout weapon, so Quests per the audit ruling. Flagged to confirm versus blurite sword.",medium
+36,"Candle","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"A basic light source lit with a tinderbox, a Firemaking-domain utility item, so Woodcutting + Firemaking.",medium
+38,"Black candle","Quests","Quests",no,"Quest-specific candle used only in Merlin's Crystal, so Quests only.",high
+39,"Bronze arrowtips","Fletching,Mining + Smithing,Range","Fletching",yes,"Smithed from a bronze bar; its only further step is fletching onto arrows, so under inputs-only it sits in Fletching, not Mining + Smithing or Range.",high
+40,"Iron arrowtips","Fletching,Mining + Smithing,Range","Fletching",yes,"Smithed from an iron bar; its only further step is fletching onto arrows, so Fletching, not Mining + Smithing or Range.",high
+41,"Steel arrowtips","Fletching,Mining + Smithing,Range","Fletching",yes,"Smithed from a steel bar; its only further step is fletching onto arrows, so Fletching, not Mining + Smithing or Range.",high
+42,"Mithril arrowtips","Fletching,Mining + Smithing,Range","Fletching",yes,"Smithed from a mithril bar; its only further step is fletching onto arrows, so Fletching, not Mining + Smithing or Range.",high
+43,"Adamant arrowtips","Fletching,Mining + Smithing,Range","Fletching",yes,"Smithed from an adamant bar; its only further step is fletching onto arrows, so Fletching, not Mining + Smithing or Range.",high
+44,"Rune arrowtips","Fletching,Mining + Smithing,Range","Fletching",yes,"Smithed from a runite bar; its only further step is fletching onto arrows, so Fletching, not Mining + Smithing or Range.",high
+45,"Opal bolt tips","Fletching,Range","Fletching",yes,"A Fletching material made from a cut opal and attached to bolts. Consumed by Fletching, so Fletching only, not Range.",high
+46,"Pearl bolt tips","Fletching,Range","Fletching",yes,"A Fletching material made from oyster pearls and attached to bolts. Consumed by Fletching, so Fletching only, not Range.",high
+47,"Barb bolttips","Fletching,Range","Fletching",yes,"A Fletching material attached to bronze bolts to make barbed bolts. Consumed by Fletching, so Fletching only, not Range.",high
+48,"Longbow (u)","Fletching","Fletching",no,"An unstrung bow with a further fletching step (stringing), so it stays in Fletching.",high
+50,"Shortbow (u)","Fletching","Fletching",no,"An unstrung bow with a further fletching step (stringing), so it stays in Fletching.",high
+52,"Arrow shaft","Fletching","Fletching",no,"A basic Fletching material cut from logs and consumed by Fletching, so Fletching only.",high
+53,"Headless arrow","Fletching","Fletching",no,"A Fletching intermediate made from shafts and feathers, consumed by Fletching, so Fletching only.",high
+54,"Oak shortbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+56,"Oak longbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+58,"Willow longbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+60,"Willow shortbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+62,"Maple longbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+64,"Maple shortbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+66,"Yew longbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+68,"Yew shortbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+70,"Magic longbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+72,"Magic shortbow (u)","Fletching,Range","Fletching",yes,"An unstrung bow with a further fletching step, so Fletching only. Removed Range.",high
+74,"Khazard helmet","Quests","Quests",no,"Quest equipment from Fight Arena. Equippable with minor defence but an obscure quest piece, so Quests.",medium
+75,"Khazard armour","Quests","Quests",no,"Quest equipment from Fight Arena. Equippable but weaker than bronze and not used as real armour, so Quests.",medium
+76,"Khazard cell keys","Quests","Quests",no,"Quest key used only in Fight Arena, so Quests only.",high
+77,"Khali brew","Quests","Quests",no,"Quest consumable used only in Fight Arena, so Quests only.",high
+78,"Ice arrows","Quests,Range","Quests",yes,"A Temple of Ikov quest item. Technically equippable ammo but a quest curiosity, not standard ranged ammunition, so Quests. Removed Range.",medium
+83,"Lever","Quests","Quests",no,"Quest item used only in Temple of Ikov, so Quests only.",high
+84,"Staff of armadyl","Quests","Quests",no,"The quest version of the staff used in Temple of Ikov, not equippable, so Quests only.",high
+85,"Shiny key","Quests","Quests",no,"Quest shortcut key from Temple of Ikov, so Quests only.",high
+86,"Pendant of lucien","Quests","Quests",no,"Equippable quest access item with no combat stats, so Quests only.",high
+87,"Armadyl pendant","Quests","Quests",no,"Equippable quest access item with no combat stats, so Quests only.",high
+88,"Boots of lightness","Agility + Thieving","Agility + Thieving",no,"Permanent weight-reducing boots used to save run energy, a functional Agility item, so Agility + Thieving.",high
+90,"Child's blanket","Quests","Quests",no,"Quest item used only in Monk's Friend, so Quests only.",high
+91,"Guam potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate. Herblore keeps its outputs, so Herblore.",high
+93,"Marrentill potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+95,"Tarromin potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+97,"Harralander potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+99,"Ranarr potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+101,"Irit potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+103,"Avantoe potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+105,"Kwuarm potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+107,"Cadantine potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+109,"Dwarf weed potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+111,"Torstol potion (unf)","Herblore","Herblore",no,"An unfinished potion, a Herblore intermediate, so Herblore.",high
+113,"Strength potion(4)","Herblore,Melee","Herblore,Melee",no,"Boosts Strength for melee. Herblore keeps potions and it is used while melee training, so Herblore and Melee.",high
+115,"Strength potion(3)","Herblore,Melee","Herblore,Melee",no,"Boosts Strength for melee, so Herblore and Melee.",high
+117,"Strength potion(2)","Herblore,Melee","Herblore,Melee",no,"Boosts Strength for melee, so Herblore and Melee.",high
+119,"Strength potion(1)","Herblore,Melee","Herblore,Melee",no,"Boosts Strength for melee, so Herblore and Melee.",high
+121,"Attack potion(3)","Herblore,Melee","Herblore,Melee",no,"Boosts Attack for melee, so Herblore and Melee.",high
+123,"Attack potion(2)","Herblore,Melee","Herblore,Melee",no,"Boosts Attack for melee, so Herblore and Melee.",high
+125,"Attack potion(1)","Herblore,Melee","Herblore,Melee",no,"Boosts Attack for melee, so Herblore and Melee.",high
+127,"Restore potion(3)","Herblore","Herblore",no,"Restores reduced combat stats, a Herblore utility consumable, so Herblore only.",high
+129,"Restore potion(2)","Herblore","Herblore",no,"Restores reduced combat stats, a Herblore utility consumable, so Herblore only.",high
+131,"Restore potion(1)","Herblore,Melee","Herblore",yes,"Restores reduced combat stats, a Herblore utility consumable, so Herblore only. Removed Melee for consistency with the other doses.",high
+133,"Defence potion(3)","Herblore,Melee","Herblore,Melee",no,"Boosts Defence, used while melee training, so Herblore and Melee.",high
+135,"Defence potion(2)","Herblore,Melee","Herblore,Melee",no,"Boosts Defence, used while melee training, so Herblore and Melee.",high
+137,"Defence potion(1)","Herblore,Melee","Herblore,Melee",no,"Boosts Defence, used while melee training, so Herblore and Melee.",high
+139,"Prayer potion(3)","Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,"Restores Prayer points. Made in Herblore, a Prayer-restoring consumable, and a staple on slayer tasks.",high
+141,"Prayer potion(2)","Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,"Restores Prayer points, so Herblore, Prayer, and Slayer.",high
+143,"Prayer potion(1)","Herblore,Prayer,Slayer","Herblore,Prayer,Slayer",no,"Restores Prayer points, so Herblore, Prayer, and Slayer.",high
+145,"Super attack(3)","Herblore,Melee,Slayer","Herblore,Melee,Slayer",no,"Boosts Attack for melee and is a standard slayer-task consumable, so Herblore, Melee, and Slayer.",high
+147,"Super attack(2)","Herblore,Melee,Slayer","Herblore,Melee,Slayer",no,"Boosts Attack for melee and used on slayer tasks, so Herblore, Melee, and Slayer.",high
+149,"Super attack(1)","Herblore,Melee,Slayer","Herblore,Melee,Slayer",no,"Boosts Attack for melee and used on slayer tasks, so Herblore, Melee, and Slayer.",high
+151,"Fishing potion(3)","Fishing,Herblore","Fishing,Herblore",no,"A finished potion that boosts Fishing. Herblore keeps potions and it is used while fishing, so Herblore and Fishing.",high
+153,"Fishing potion(2)","Fishing,Herblore","Fishing,Herblore",no,"Boosts Fishing, so Herblore and Fishing.",high
+155,"Fishing potion(1)","Fishing,Herblore","Fishing,Herblore",no,"Boosts Fishing, so Herblore and Fishing.",high
+157,"Super strength(3)","Herblore,Melee,Slayer","Herblore,Melee,Slayer",no,"Boosts Strength for melee and is a standard slayer-task consumable.",high
+159,"Super strength(2)","Herblore,Melee,Slayer","Herblore,Melee,Slayer",no,"Boosts Strength for melee and used on slayer tasks.",high
+161,"Super strength(1)","Herblore,Melee,Slayer","Herblore,Melee,Slayer",no,"Boosts Strength for melee and used on slayer tasks.",high
+163,"Super defence(3)","Herblore,Melee,Slayer","Herblore,Melee,Slayer",no,"Boosts Defence, used while melee training and on slayer tasks.",high
+165,"Super defence(2)","Herblore,Melee,Slayer","Herblore,Melee,Slayer",no,"Boosts Defence, used while melee training and on slayer tasks.",high
+167,"Super defence(1)","Herblore,Melee,Slayer","Herblore,Melee,Slayer",no,"Boosts Defence, used while melee training and on slayer tasks.",high
+169,"Ranging potion(3)","Herblore,Range,Slayer","Herblore,Range,Slayer",no,"Boosts Ranged and is a standard slayer-task consumable, so Herblore, Range, and Slayer.",high
+171,"Ranging potion(2)","Herblore,Range,Slayer","Herblore,Range,Slayer",no,"Boosts Ranged and used on slayer tasks, so Herblore, Range, and Slayer.",high
+173,"Ranging potion(1)","Herblore,Range,Slayer","Herblore,Range,Slayer",no,"Boosts Ranged and used on slayer tasks, so Herblore, Range, and Slayer.",high
+175,"Antipoison(3)","Herblore","Herblore",no,"A poison-curing utility consumable made in Herblore, not a style loadout item, so Herblore only.",high
+177,"Antipoison(2)","Herblore","Herblore",no,"A poison-curing utility consumable, so Herblore only.",high
+179,"Antipoison(1)","Herblore","Herblore",no,"A poison-curing utility consumable, so Herblore only.",high
+181,"Superantipoison(3)","Herblore","Herblore",no,"A poison-curing utility consumable made in Herblore, so Herblore only.",high
+183,"Superantipoison(2)","Herblore","Herblore",no,"A poison-curing utility consumable, so Herblore only.",high
+185,"Superantipoison(1)","Herblore","Herblore",no,"A poison-curing utility consumable, so Herblore only.",high
+187,"Weapon poison","Herblore,Melee","Herblore,Melee",no,"A Herblore product applied to weapons for poison damage, used mainly on melee weapons, so Herblore and Melee.",medium
+189,"Zamorak brew(3)","Herblore,Melee","Herblore,Melee",no,"Boosts Attack and Strength at a cost, used in melee, so Herblore and Melee.",high
+191,"Zamorak brew(2)","Herblore,Melee","Herblore,Melee",no,"Boosts Attack and Strength, used in melee, so Herblore and Melee.",high
+193,"Zamorak brew(1)","Herblore,Melee","Herblore,Melee",no,"Boosts Attack and Strength, used in melee, so Herblore and Melee.",high
+195,"Potion","Misc","Misc",no,"A novelty free sample from the Apothecary with no real function, so Misc.",medium
+197,"Poison chalice","Misc","Misc",no,"A novelty drink with a random effect and no real function, so Misc.",medium
+199,"Grimy guam leaf","Farming,Herblore","Farming,Herblore",no,"A grimy herb, harvested from a Farming patch and cleaned in Herblore, so Farming and Herblore.",high
+201,"Grimy marrentill","Herblore","Farming,Herblore",yes,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore. Added Farming for consistency.",high
+203,"Grimy tarromin","Herblore","Farming,Herblore",yes,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore. Added Farming for consistency.",high
+205,"Grimy harralander","Herblore","Farming,Herblore",yes,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore. Added Farming for consistency.",high
+207,"Grimy ranarr weed","Farming,Herblore","Farming,Herblore",no,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore.",high
+209,"Grimy irit leaf","Herblore","Farming,Herblore",yes,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore. Added Farming for consistency.",high
+211,"Grimy avantoe","Herblore","Farming,Herblore",yes,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore. Added Farming for consistency.",high
+213,"Grimy kwuarm","Farming,Herblore","Farming,Herblore",no,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore.",high
+215,"Grimy cadantine","Farming,Herblore","Farming,Herblore",no,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore.",high
+217,"Grimy dwarf weed","Farming,Herblore","Farming,Herblore",no,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore.",high
+219,"Grimy torstol","Farming,Herblore","Farming,Herblore",no,"A grimy herb grown via Farming and cleaned in Herblore, so Farming and Herblore.",high
+221,"Eye of newt","Herblore","Herblore",no,"A Herblore secondary used to make attack potions, so Herblore.",high
+223,"Red spiders' eggs","Herblore","Herblore",no,"A Herblore secondary used to make restore and other potions, so Herblore.",high
+225,"Limpwurt root","Farming,Herblore","Farming,Herblore",no,"A Herblore secondary grown via Farming, so Farming and Herblore.",high
+227,"Vial of water","Herblore","Herblore",no,"The base liquid for making potions, a Herblore input, so Herblore.",high
+229,"Vial","Herblore","Herblore",no,"An empty vial filled with water to make potions, a Herblore input, so Herblore.",high
+231,"Snape grass","Farming,Herblore","Farming,Herblore",no,"A Herblore secondary grown via Farming, so Farming and Herblore.",high
+233,"Pestle and mortar","Herblore,Misc","Herblore",yes,"A tool that crushes Herblore ingredients, so Herblore. Dropped Misc since its home is the Herblore toolset.",high
+235,"Unicorn horn dust","Herblore","Herblore",no,"A Herblore secondary used in antipoisons, so Herblore.",high
+237,"Unicorn horn","Herblore","Herblore",no,"Ground into unicorn horn dust for Herblore, a Herblore input, so Herblore.",high
+239,"White berries","Farming,Herblore","Farming,Herblore",no,"A Herblore secondary grown via Farming, so Farming and Herblore.",high
+241,"Dragon scale dust","Herblore","Herblore",no,"A Herblore secondary made by grinding a blue dragon scale, so Herblore.",high
+243,"Blue dragon scale","Herblore","Herblore",no,"Ground into dragon scale dust for Herblore, a Herblore secondary, so Herblore.",high
+245,"Wine of zamorak","Herblore","Herblore",no,"A Herblore secondary used to make ranging potions, so Herblore.",high
+247,"Jangerberries","Farming,Herblore","Farming,Herblore",no,"A Herblore secondary grown via Farming, so Farming and Herblore.",high
+249,"Guam leaf","Farming,Herblore","Herblore",yes,"A clean herb, produced by cleaning rather than harvested, used to make potions, so Herblore only. Removed Farming.",high
+251,"Marrentill","Herblore,Prayer","Herblore,Prayer",no,"A clean herb used in Herblore potions and to light incense burners for Prayer experience, so Herblore and Prayer.",medium
+253,"Tarromin","Farming,Herblore","Herblore",yes,"A clean herb produced by cleaning rather than harvested, so Herblore only. Removed Farming.",high
+255,"Harralander","Farming,Herblore","Herblore",yes,"A clean herb produced by cleaning rather than harvested, so Herblore only. Removed Farming.",high
+257,"Ranarr weed","Farming,Herblore","Herblore",yes,"A clean herb produced by cleaning rather than harvested, so Herblore only. Removed Farming.",high
+259,"Irit leaf","Herblore","Herblore",no,"A clean herb used to make potions, so Herblore.",high
+261,"Avantoe","Farming,Herblore","Herblore",yes,"A clean herb produced by cleaning rather than harvested, so Herblore only. Removed Farming.",high
+263,"Kwuarm","Farming,Herblore","Herblore",yes,"A clean herb produced by cleaning rather than harvested, so Herblore only. Removed Farming.",high
+265,"Cadantine","Farming,Herblore","Herblore",yes,"A clean herb produced by cleaning rather than harvested, so Herblore only. Removed Farming.",high
+267,"Dwarf weed","Herblore","Herblore",no,"A clean herb used to make ranging potions, so Herblore.",high
+269,"Torstol","Farming,Herblore","Herblore",yes,"A clean herb produced by cleaning rather than harvested, so Herblore only. Removed Farming.",high
+271,"Pressure gauge","Quests","Quests",no,"Quest item used only in Ernest the Chicken, so Quests only.",high
+272,"Fish food","Misc","Misc",no,"A minor utility item used to feed pet fish and in a couple of quest steps, so Misc.",medium
+273,"Poison","Quests","Quests",no,"Quest item used in Ernest the Chicken and Hazeel Cult, so Quests.",high
+274,"Poisoned fish food","Quests","Quests",no,"Quest item used in Ernest the Chicken, so Quests.",high
+275,"Key","Misc,Quests","Quests",yes,"A quest key used only in Ernest the Chicken, so Quests. Removed Misc.",high
+276,"Rubber tube","Quests","Quests",no,"Quest item used only in Ernest the Chicken, so Quests only.",high
+277,"Oil can","Quests","Quests",no,"Quest item used only in Ernest the Chicken, so Quests only.",high
+278,"Cattleprod","Quests","Quests",no,"A Sheep Herder quest item. Equippable as a weak weapon but a quest curiosity, so Quests.",medium
+279,"Sheep feed","Quests","Quests",no,"Quest item used only in Sheep Herder, so Quests only.",high
+280,"Sheep bones (1)","Quests","Quests",no,"A Sheep Herder quest drop, not a buryable prayer bone, so Quests, not Prayer.",high
+281,"Sheep bones (2)","Quests","Quests",no,"A Sheep Herder quest drop, not a buryable prayer bone, so Quests, not Prayer.",high
+282,"Sheep bones (3)","Quests","Quests",no,"A Sheep Herder quest drop, not a buryable prayer bone, so Quests, not Prayer.",high
+283,"Sheep bones (4)","Quests","Quests",no,"A Sheep Herder quest drop, not a buryable prayer bone, so Quests, not Prayer.",high
+284,"Plague jacket","Quests","Quests",no,"Quest armour from Sheep Herder with no combat stats, so Quests only.",high
+285,"Plague trousers","Quests","Quests",no,"Quest armour from Sheep Herder with no combat stats, so Quests only.",high
+286,"Orange goblin mail","Quests","Quests",no,"A quest item that players cannot normally wear, so Quests only.",high
+287,"Blue goblin mail","Quests","Quests",no,"A quest item that players cannot normally wear, so Quests only.",high
+288,"Goblin mail","Quests","Quests",no,"Goblin armour used in Land of the Goblins, not normally wearable, so Quests.",high
+290,"Research package","Quests","Quests",no,"Quest item used only in Rune Mysteries, so Quests only.",high
+291,"Research notes","Quests","Quests",no,"Quest item used only in Rune Mysteries, so Quests only.",high
+292,"Book on baxtorian","Quests","Quests",no,"Quest reference book for the Waterfall Quest, so Quests only.",high
+293,"Key","Misc,Quests","Quests",yes,"A quest key used in the Waterfall and Roving Elves quests, so Quests. Removed Misc.",high
+294,"Glarial's pebble","Quests","Quests",no,"Quest item for the Waterfall Quest and Roving Elves, so Quests only.",high
+295,"Glarial's amulet","Quests","Quests",no,"Equippable quest access item with no combat stats, so Quests only.",high
+296,"Glarial's urn","Quests","Quests",no,"Quest item for the Waterfall Quest, so Quests only.",high
+298,"Key","Misc,Quests","Quests",yes,"A quest key from the Waterfall Dungeon, so Quests. Removed Misc.",high
+299,"Mithril seeds","Misc","Misc",no,"A novelty item that plants decorative flowers anywhere, not a real Farming seed, so Misc.",medium
+300,"Rat's tail","Quests","Quests",no,"Quest drop used only in Witch's Potion, so Quests only.",high
+301,"Lobster pot","Fishing","Fishing",no,"A Fishing tool used to catch lobsters, an input to Fishing, so Fishing.",high
+303,"Small fishing net","Fishing,Hunter","Fishing,Hunter",no,"Used to catch small fish in Fishing and as part of a Hunter net trap, so Fishing and Hunter.",high
+305,"Big fishing net","Fishing","Fishing",no,"A Fishing tool used at net fishing spots, an input to Fishing, so Fishing.",high
+307,"Fishing rod","Fishing","Fishing",no,"A Fishing tool, an input to Fishing, so Fishing.",high
+309,"Fly fishing rod","Fishing","Fishing",no,"A Fishing tool for fly fishing, so Fishing.",high
+311,"Harpoon","Fishing","Fishing",no,"A Fishing tool for harpoon fishing, so Fishing.",high
+313,"Fishing bait","Fishing","Fishing",no,"Bait used with a fishing rod, an input to Fishing, so Fishing.",high
+314,"Feather","Fishing,Fletching","Fishing,Fletching",no,"Used as fly-fishing bait and as a Fletching material for arrows, darts, and bolts, so Fishing and Fletching.",high
+317,"Raw shrimps","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking. Fishing is exempt and keeps its catches.",high
+321,"Raw anchovies","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+323,"Burnt fish","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+325,"Sardine","Melee","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+327,"Raw sardine","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+329,"Salmon","Melee","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+331,"Raw salmon","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+333,"Trout","Melee","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+335,"Raw trout","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+337,"Giant carp","Cooking,Fishing,Quests","Quests",yes,"A Fishing Contest quest item that is technically edible but not a normal food source, so Quests.",medium
+338,"Raw giant carp","Fishing,Quests","Quests",yes,"A quest item caught only during Fishing Contest, not part of normal Fishing, so Quests.",medium
+341,"Raw cod","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+343,"Burnt fish","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+345,"Raw herring","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+347,"Herring","Melee","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+349,"Raw pike","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+353,"Raw mackerel","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+355,"Mackerel","Melee","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+357,"Burnt fish","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+359,"Raw tuna","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+363,"Raw bass","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+367,"Burnt fish","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+369,"Burnt fish","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+371,"Raw swordfish","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+373,"Swordfish","Melee","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+375,"Burnt swordfish","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+377,"Raw lobster","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+379,"Lobster","Melee","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+381,"Burnt lobster","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+383,"Raw shark","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+385,"Shark","Melee,Slayer","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+387,"Burnt shark","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+389,"Raw manta ray","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+391,"Manta ray","Melee,Slayer","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+393,"Burnt manta ray","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+395,"Raw sea turtle","Cooking,Fishing","Cooking,Fishing",no,"Caught via Fishing and cooked in Cooking, so Fishing and Cooking.",high
+397,"Sea turtle","Melee,Slayer","Cooking,Mage,Melee,Range,Slayer",yes,"Cooked food eaten as healing in any combat style, so Cooking plus all four combat tabs.",high
+399,"Burnt sea turtle","Cooking","Cooking",no,"A burnt Cooking result with no combat use, so Cooking only.",high
+401,"Seaweed","Cooking,Crafting","Cooking,Crafting",no,"Cooked into soda ash in Cooking and used in glassmaking for Crafting, so Cooking and Crafting.",high
+403,"Edible seaweed","Cooking","Cooking,Crafting",yes,"Cooked into soda ash for glassmaking, so Cooking and Crafting. Heals a trivial 4 HP but not used as combat food.",medium
+405,"Casket","Fishing,Misc","Fishing,Misc",no,"A treasure container obtained largely from net fishing, so Fishing as a catch plus Misc as a loot container.",medium
+407,"Oyster","Fishing,Fletching","Fishing",yes,"Caught while fishing and opened for a pearl, so Fishing. The pearl, not the oyster, is the Fletching material, so removed Fletching.",medium
+409,"Empty oyster","Misc","Misc",no,"An opened oyster with no pearl and no use, so Misc.",high
+411,"Oyster pearl","Crafting,Fishing,Fletching","Fishing,Fletching",yes,"From oysters while fishing and chiselled into pearl bolt tips, so Fishing and Fletching. Not used in jewellery, so removed Crafting.",medium
+413,"Oyster pearls","Crafting,Fletching","Fletching",yes,"Chiselled into pearl bolt tips, a Fletching material, so Fletching. Not used in jewellery, so removed Crafting.",medium
+415,"Ethenea","Quests","Quests",no,"Quest item used only in Biohazard, so Quests.",high
+416,"Liquid honey","Quests","Quests",no,"Quest item used only in Biohazard, so Quests.",high
+417,"Sulphuric broline","Quests","Quests",no,"Quest item used only in Biohazard, so Quests.",high
+418,"Plague sample","Quests","Quests",no,"Quest item used only in Biohazard, so Quests.",high
+419,"Touch paper","Quests","Quests",no,"Quest item used only in Biohazard, so Quests.",high
+420,"Distillator","Quests","Quests",no,"Quest item used only in Biohazard, so Quests.",high
+421,"Lathas' amulet","Quests","Quests",no,"A discontinued quest item from the Elf quest series, so Quests.",high
+422,"Bird feed","Quests","Quests",no,"Quest item used only in Biohazard, so Quests.",high
+423,"Key","Misc,Quests","Quests",yes,"A quest key used only in Biohazard, so Quests. Removed Misc.",high
+424,"Pigeon cage","Quests","Quests",no,"Quest item used in Biohazard and One Small Favour, so Quests.",high
+426,"Priest gown","Prayer,Quests","Prayer",yes,"A cheap robe giving a small Prayer bonus, used as prayer gear. By function Prayer; dropped Quests despite Biohazard disguise use.",medium
+428,"Priest gown","Prayer,Quests","Prayer",yes,"A cheap robe giving a small Prayer bonus, used as prayer gear. By function Prayer; dropped Quests despite Biohazard disguise use.",medium
+430,"Medical gown","Quests","Quests",no,"A quest disguise robe with no combat or skill stats, so Quests.",high
+431,"Karamjan rum","Quests","Quests",no,"Primarily a Pirate's Treasure quest item, with only niche cleaning-cloth use, so Quests.",medium
+432,"Chest key","Misc,Quests","Quests",yes,"A quest key used only in Pirate's Treasure, so Quests. Removed Misc.",high
+433,"Pirate message","Quests","Quests",no,"Quest item used only in Pirate's Treasure, so Quests.",high
+434,"Clay","Construction,Crafting,Mining + Smithing","Construction,Crafting",yes,"Mined then used in Crafting pottery and as a Construction material, so Construction and Crafting. Not smelted, so not Mining + Smithing.",high
+436,"Copper ore","Mining + Smithing","Mining + Smithing",no,"Smelted in Smithing into bronze bars, an input to Mining + Smithing.",high
+438,"Tin ore","Mining + Smithing","Mining + Smithing",no,"Smelted in Smithing into bronze bars, so Mining + Smithing.",high
+440,"Iron ore","Mining + Smithing","Mining + Smithing",no,"Smelted in Smithing into iron and steel bars, so Mining + Smithing.",high
+442,"Silver ore","Crafting,Mining + Smithing","Mining + Smithing",yes,"Smelted into a silver bar, so Mining + Smithing. The bar, not the ore, is the Crafting input, so removed Crafting.",high
+444,"Gold ore","Mining + Smithing","Mining + Smithing",no,"Smelted in Smithing into a gold bar, so Mining + Smithing.",high
+446,"'perfect' gold ore","Mining + Smithing,Quests","Quests",yes,"A quest-specific ore mined and smelted only during Family Crest, so Quests.",medium
+447,"Mithril ore","Mining + Smithing","Mining + Smithing",no,"Smelted in Smithing into mithril bars, so Mining + Smithing.",high
+449,"Adamantite ore","Mining + Smithing","Mining + Smithing",no,"Smelted in Smithing into adamantite bars, so Mining + Smithing.",high
+451,"Runite ore","Mining + Smithing","Mining + Smithing",no,"Smelted in Smithing into runite bars, so Mining + Smithing.",high
+453,"Coal","Mining + Smithing","Mining + Smithing",no,"Used in Smithing to smelt most bars, so Mining + Smithing.",high
+455,"Barcrawl card","Misc","Misc",no,"A novelty card tracking a drinking miniquest, with no skill use, so Misc.",medium
+456,"Scorpion cage","Quests","Quests",no,"Quest item used only in Scorpion Catcher, so Quests.",high
+464,"Strange fruit","Melee,Misc","Misc",yes,"A novelty random-event fruit with no real combat use, so Misc. Removed Melee.",medium
+466,"Pickaxe handle","Misc","Misc",no,"A discontinued random-event item with no current use, so Misc.",medium
+468,"Broken pickaxe","Mining + Smithing","Mining + Smithing",no,"A broken, discontinued pickaxe, a Mining tool, so Mining + Smithing.",high
+470,"Broken pickaxe","Mining + Smithing","Mining + Smithing",no,"A broken, discontinued pickaxe, a Mining tool, so Mining + Smithing.",high
+472,"Broken pickaxe","Mining + Smithing","Mining + Smithing",no,"A broken, discontinued pickaxe, a Mining tool, so Mining + Smithing.",high
+474,"Broken pickaxe","Mining + Smithing","Mining + Smithing",no,"A broken, discontinued pickaxe, a Mining tool, so Mining + Smithing.",high
+476,"Broken pickaxe","Mining + Smithing","Mining + Smithing",no,"A broken, discontinued pickaxe, a Mining tool, so Mining + Smithing.",high
+478,"Broken pickaxe","Mining + Smithing","Mining + Smithing",no,"A broken, discontinued pickaxe, a Mining tool, so Mining + Smithing.",high
+480,"Bronze pick head","Mining + Smithing","Mining + Smithing",no,"A pickaxe head, part of a Mining tool, so Mining + Smithing.",high
+482,"Iron pick head","Mining + Smithing","Mining + Smithing",no,"A pickaxe head, part of a Mining tool, so Mining + Smithing.",high
+484,"Steel pick head","Mining + Smithing","Mining + Smithing",no,"A pickaxe head, part of a Mining tool, so Mining + Smithing.",high
+486,"Mithril pick head","Mining + Smithing","Mining + Smithing",no,"A pickaxe head, part of a Mining tool, so Mining + Smithing.",high
+488,"Adamant pick head","Mining + Smithing","Mining + Smithing",no,"A pickaxe head, part of a Mining tool, so Mining + Smithing.",high
+490,"Rune pick head","Mining + Smithing","Mining + Smithing",no,"A pickaxe head, part of a Mining tool, so Mining + Smithing.",high
+492,"Axe handle","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Part of a woodcutting axe, a Woodcutting tool component, so Woodcutting + Firemaking.",high
+494,"Broken axe","Misc,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"A broken woodcutting axe repairable at Bob's, a Woodcutting tool, so Woodcutting + Firemaking. Removed Misc.",high
+496,"Broken axe","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"A broken woodcutting axe, a Woodcutting tool, so Woodcutting + Firemaking.",high
+498,"Broken axe","Misc,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"A broken woodcutting axe repairable at Bob's, a Woodcutting tool, so Woodcutting + Firemaking. Removed Misc.",high
+500,"Broken axe","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"A broken woodcutting axe, a Woodcutting tool, so Woodcutting + Firemaking.",high
+502,"Broken axe","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"A broken woodcutting axe, a Woodcutting tool, so Woodcutting + Firemaking.",high
+504,"Broken axe","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"A broken woodcutting axe, a Woodcutting tool, so Woodcutting + Firemaking.",high
+506,"Broken axe","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"A broken woodcutting axe, a Woodcutting tool, so Woodcutting + Firemaking.",high
+508,"Bronze axe head","Misc","Woodcutting + Firemaking",yes,"Part of a woodcutting axe, a Woodcutting tool component, so Woodcutting + Firemaking. Moved from Misc for consistency.",high
+510,"Iron axe head","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Part of a woodcutting axe, a Woodcutting tool component, so Woodcutting + Firemaking.",high
+512,"Steel axe head","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Part of a woodcutting axe, a Woodcutting tool component, so Woodcutting + Firemaking.",high
+514,"Black axe head","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Part of a woodcutting axe, a Woodcutting tool component, so Woodcutting + Firemaking.",high
+516,"Mithril axe head","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Part of a woodcutting axe, a Woodcutting tool component, so Woodcutting + Firemaking.",high
+518,"Adamant axe head","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Part of a woodcutting axe, a Woodcutting tool component, so Woodcutting + Firemaking.",high
+520,"Rune axe head","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"Part of a woodcutting axe, a Woodcutting tool component, so Woodcutting + Firemaking.",high
+522,"Enchanted beef","Quests","Quests",no,"Quest item used only in Druidic Ritual, so Quests.",high
+523,"Enchanted rat","Quests","Quests",no,"Quest item used only in Druidic Ritual, so Quests.",high
+524,"Enchanted bear","Quests","Quests",no,"Quest item used only in Druidic Ritual, so Quests.",high
+525,"Enchanted chicken","Quests","Quests",no,"Quest item used only in Druidic Ritual, so Quests.",high
+526,"Bones","Prayer","Prayer",no,"Buried to train Prayer, a Prayer input, so Prayer.",high
+528,"Burnt bones","Prayer","Prayer",no,"Buried to train Prayer, a Prayer input, so Prayer.",high
+530,"Bat bones","Prayer","Prayer",no,"Buried to train Prayer, a Prayer input, so Prayer.",high
+532,"Big bones","Prayer","Prayer",no,"Buried to train Prayer, a Prayer input, so Prayer.",high
+534,"Babydragon bones","Prayer","Prayer",no,"Buried or offered to train Prayer, a Prayer input, so Prayer.",high
+536,"Dragon bones","Prayer","Prayer",no,"Buried or offered to train Prayer, a Prayer input, so Prayer.",high
+538,"Druid's robe","Prayer","Prayer",no,"A robe with a Prayer bonus, prayer equipment, so Prayer.",high
+540,"Druid's robe top","Prayer","Prayer",no,"A robe with a Prayer bonus, prayer equipment, so Prayer.",high
+542,"Monk's robe","Prayer","Prayer",no,"A robe with a Prayer bonus, prayer equipment, so Prayer.",high
+544,"Monk's robe top","Prayer","Prayer",no,"A robe with a Prayer bonus, prayer equipment, so Prayer.",high
+546,"Shade robe top","Prayer","Prayer",no,"A robe with a Prayer bonus, prayer equipment, so Prayer.",high
+548,"Shade robe","Prayer","Prayer",no,"A robe with a Prayer bonus, prayer equipment, so Prayer.",high
+550,"Newcomer map","Misc","Misc",no,"A general newcomer map with no skill use, so Misc.",high
+552,"Ghostspeak amulet","Quests","Quests",no,"A quest utility amulet that lets the wearer talk to ghosts, no combat or skill function, so Quests.",high
+553,"Ghost's skull","Quests","Quests",no,"Quest item used only in The Restless Ghost, so Quests.",high
+554,"Fire rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used to cast Magic spells, so Mage and Runecraft.",high
+555,"Water rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used to cast Magic spells, so Mage and Runecraft.",high
+556,"Air rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used to cast Magic spells, so Mage and Runecraft.",high
+557,"Earth rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used to cast Magic spells, so Mage and Runecraft.",high
+558,"Mind rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used to cast low-level Magic spells, so Mage and Runecraft.",high
+559,"Body rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used to cast curse and other Magic spells, so Mage and Runecraft.",high
+560,"Death rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used to cast Magic spells, so Mage and Runecraft.",high
+561,"Nature rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used for alchemy and other Magic spells, so Mage and Runecraft.",high
+562,"Chaos rune","Mage","Mage,Runecraft",yes,"Craftable at the Chaos altar and used for missile Magic spells, so Mage and Runecraft. Added Runecraft.",high
+563,"Law rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used for teleport Magic spells, so Mage and Runecraft.",high
+564,"Cosmic rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used for enchant Magic spells, so Mage and Runecraft.",high
+565,"Blood rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used for high-level Magic spells, so Mage and Runecraft.",high
+566,"Soul rune","Mage,Runecraft","Mage,Runecraft",no,"Crafted in Runecraft and used for high-level Magic spells, so Mage and Runecraft.",high
+567,"Unpowered orb","Crafting,Mage","Mage",yes,"A glassblown orb charged by Magic into elemental orbs, a Magic input. Glass outputs are not kept in Crafting, so Mage only.",medium
+569,"Fire orb","Crafting,Mage","Crafting",yes,"A charged orb attached to a battlestaff for Crafting experience, a Crafting input, so Crafting.",medium
+571,"Water orb","Crafting,Mage","Crafting",yes,"A charged orb used to make water battlestaves for Crafting, so Crafting.",medium
+573,"Air orb","Crafting,Mage","Crafting",yes,"A charged orb used to make air battlestaves for Crafting, so Crafting.",medium
+575,"Earth orb","Crafting,Mage","Crafting",yes,"A charged orb used to make earth battlestaves for Crafting, so Crafting.",medium
+577,"Blue wizard robe","Mage","Mage",no,"Low-level magic body armour with a Magic bonus, worn while casting, so Mage.",high
+579,"Blue wizard hat","Mage","Mage",no,"Low-level magic headgear with a Magic bonus, worn while casting, so Mage.",high
+581,"Black robe","Mage","Mage",no,"Low-level magic body armour with a Magic bonus, worn while casting, so Mage.",high
+583,"Bailing bucket","Fishing","Fishing",no,"Used to bail water in the Fishing Trawler minigame, a Fishing minigame tool, so Fishing.",high
+587,"Orb of protection","Quests","Quests",no,"Quest item recovered during Tree Gnome Village, so Quests.",high
+588,"Orbs of protection","Quests","Quests",no,"Quest item recovered during Tree Gnome Village, so Quests.",high
+589,"Gnome amulet","Quests","Quests",no,"A Tree Gnome Village reward amulet with minor defence stats, an obscure quest piece, so Quests.",medium
+590,"Tinderbox","Woodcutting + Firemaking","Woodcutting + Firemaking",no,"The basic Firemaking tool for lighting fires, so Woodcutting + Firemaking.",high
+592,"Ashes","Herblore,Woodcutting + Firemaking","Herblore",yes,"A firemaking byproduct used as a Herblore secondary. Under inputs-only it sits with Herblore, the consuming skill.",medium
+595,"Torch","Misc","Misc",no,"A discontinued, unobtainable lit torch with no use, so Misc.",medium
+596,"Unlit torch","Hunter,Woodcutting + Firemaking","Hunter,Woodcutting + Firemaking",no,"A firemaking-lit light source also used to smoke Hunter traps, so Woodcutting + Firemaking and Hunter.",high
+598,"Bronze fire arrow","Range","Quests",yes,"A quest fire arrow used to burn rope in Underground Pass, a quest curiosity not standard ammo, so Quests per the audit ruling on quest fire and ice arrows.",high
+600,"Astronomy book","Quests","Quests",no,"Quest book from the Observatory Quest, so Quests.",high
+601,"Goblin kitchen key","Misc,Quests","Quests",yes,"A quest key used only in the Observatory Quest, so Quests. Removed Misc.",high
+602,"Lens mould","Quests","Quests",no,"A quest-specific mould used only in the Observatory Quest, so Quests.",high
+603,"Observatory lens","Quests","Quests",no,"A quest item made and used only in the Observatory Quest, so Quests.",high
+604,"Bone shard","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+605,"Bone key","Misc,Quests","Quests",yes,"A quest key used only in Shilo Village, so Quests. Removed Misc.",high
+606,"Stone-plaque","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+607,"Tattered scroll","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+608,"Crumpled scroll","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+609,"Rashiliyia corpse","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+610,"Zadimus corpse","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+611,"Locating crystal","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+612,"Locating crystal","Quests","Quests",no,"Quest item variant from Shilo Village, so Quests.",high
+613,"Locating crystal","Quests","Quests",no,"Quest item variant from Shilo Village, so Quests.",high
+614,"Locating crystal","Quests","Quests",no,"Quest item variant from Shilo Village, so Quests.",high
+616,"Beads of the dead","Quests","Quests",no,"A Shilo Village quest necklace with trivial +1 stats, an obscure quest piece, so Quests.",high
+617,"Coins","Misc","Misc",no,"The quest-tomb coins variant that presents as currency, so Misc.",high
+618,"Bone beads","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+619,"Paramaya ticket","Misc","Misc",no,"A novelty inn ticket with no real function, so Misc.",medium
+620,"Paramaya ticket","Misc","Misc",no,"A discontinued novelty inn ticket with no function, so Misc.",medium
+621,"Ship ticket","Misc","Misc",no,"A one-use boat-ride ticket, a transport utility rather than a teleport, so Misc.",medium
+623,"Sword pommel","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+624,"Bervirius notes","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+625,"Wampum belt","Quests","Quests",no,"Quest item from Shilo Village, so Quests.",high
+626,"Pink boots","Cosmetics","Cosmetics",no,"Decorative Fine Fashions footwear with trivial stats, so Cosmetics.",high
+628,"Green boots","Cosmetics","Cosmetics",no,"Decorative Fine Fashions footwear with trivial stats, so Cosmetics.",high
+630,"Blue boots","Cosmetics","Cosmetics",no,"Decorative Fine Fashions footwear with trivial stats, so Cosmetics.",high
+632,"Cream boots","Cosmetics","Cosmetics",no,"Decorative Fine Fashions footwear with trivial stats, so Cosmetics.",high
+634,"Turquoise boots","Cosmetics","Cosmetics",no,"Decorative Fine Fashions footwear with trivial stats, so Cosmetics.",high
+636,"Pink robe top","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+638,"Green robe top","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+640,"Blue robe top","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+642,"Cream robe top","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+644,"Turquoise robe top","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+646,"Pink robe bottoms","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+648,"Green robe bottoms","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+650,"Blue robe bottoms","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+652,"Cream robe bottoms","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+654,"Turquoise robe bottoms","Cosmetics","Cosmetics",no,"Decorative Fine Fashions robe with trivial stats, so Cosmetics.",high
+656,"Pink hat","Cosmetics","Cosmetics",no,"A Fine Fashions hat with only a trivial magic bonus, sold as fashion, so Cosmetics.",medium
+658,"Green hat","Cosmetics","Cosmetics",no,"A Fine Fashions hat with only a trivial magic bonus, sold as fashion, so Cosmetics.",medium
+660,"Blue hat","Cosmetics","Cosmetics",no,"A Fine Fashions hat with only a trivial magic bonus, sold as fashion, so Cosmetics.",medium
+662,"Cream hat","Cosmetics","Cosmetics",no,"A Fine Fashions hat with only a trivial magic bonus, sold as fashion, so Cosmetics.",medium
+664,"Turquoise hat","Cosmetics","Cosmetics",no,"A Fine Fashions hat with only a trivial magic bonus, sold as fashion, so Cosmetics.",medium
+666,"Portrait","Quests","Quests",no,"Quest item used only in The Knight's Sword, so Quests.",high
+667,"Blurite sword","Melee,Quests","Quests",yes,"A quest weapon from The Knight's Sword and a low-use curiosity, so Quests per the audit ruling, not by-function Melee.",high
+668,"Blurite ore","Mining + Smithing,Quests","Mining + Smithing",yes,"An ore smelted in Smithing, with general use for blurite bolts beyond the quest, so Mining + Smithing. Dropped Quests.",medium
+669,"Specimen jar","Quests","Quests",no,"A Dig Site quest and digsite tool, so Quests.",high
+670,"Specimen brush","Quests","Quests",no,"A Dig Site quest and digsite tool, so Quests.",high
+671,"Animal skull","Quests","Quests",no,"Quest item used in The Dig Site, so Quests.",high
+672,"Special cup","Quests","Quests",no,"Quest item used in The Dig Site, so Quests.",high
+673,"Teddy","Quests","Quests",no,"Quest item used in The Dig Site, so Quests.",high
+674,"Cracked sample","Misc","Misc",no,"A useless digsite item with no function, so Misc.",high
+675,"Rock pick","Misc","Misc",no,"A digsite and museum tool that cannot be used as a mining pickaxe, so Misc.",medium
+676,"Trowel","Quests","Quests",no,"A Dig Site quest and digsite tool, so Quests.",high
+677,"Panning tray","Quests","Quests",no,"Quest item used in The Dig Site, so Quests.",high
+678,"Panning tray","Quests","Quests",no,"Quest item variant used in The Dig Site, so Quests.",high
+680,"Nuggets","Mining + Smithing","Mining + Smithing",no,"Gold nuggets panned at the Digsite and traded for gold ore, a mining-context material, so Mining + Smithing.",medium
+681,"Ancient talisman","Quests","Quests",no,"Quest item obtained and used in The Dig Site, so Quests.",high
+682,"Unstamped letter","Quests","Quests",no,"Quest item that starts The Dig Site, so Quests.",high
+683,"Sealed letter","Quests","Quests",no,"Quest item used in The Dig Site, so Quests.",high
+684,"Belt buckle","Misc","Misc",no,"A useless digsite find with no function, so Misc.",high
+685,"Old boot","Misc","Misc",no,"An untradeable, useless item, so Misc.",high
+686,"Rusty sword","Misc,Mining + Smithing","Mining + Smithing",yes,"A broken sword repaired via Smithing, a Smithing repair item, so Mining + Smithing. Removed Misc.",medium
+687,"Broken arrow","Range","Misc",yes,"A junk item that cannot be fired and has no use, so Misc. Removed Range.",medium
+688,"Buttons","Crafting,Quests","Quests",yes,"A quest material polished for Animal Magnetism. The polish is trivial quest prep, so Quests rather than Crafting.",medium
+689,"Broken staff","Crafting","Crafting",no,"Repaired into staves at a repair bench for Crafting experience, a Crafting repair item, so Crafting.",high
+690,"Broken glass","Quests","Quests",no,"A Dig Site quest item, so Quests.",high
+691,"Level 1 certificate","Quests","Quests",no,"A Dig Site quest certificate, so Quests.",high
+692,"Level 2 certificate","Quests","Quests",no,"A Dig Site quest certificate, so Quests.",high
+693,"Level 3 certificate","Quests","Quests",no,"A Dig Site quest certificate, so Quests.",high
+694,"Ceramic remains","Misc","Misc",no,"A useless digsite find with no function, so Misc.",high
+695,"Old tooth","Misc","Misc",no,"A useless digsite find with no function, so Misc.",high
+696,"Invitation letter","Quests","Quests",no,"A Dig Site quest item, so Quests.",high
+697,"Damaged armour","Mining + Smithing","Misc",yes,"A junk drop that cannot be usefully repaired, with no function, so Misc.",medium
+698,"Broken armour","Mining + Smithing","Mining + Smithing",no,"Repaired at an armour stand into platelegs for Smithing experience, a Smithing repair item, so Mining + Smithing.",high
+699,"Stone tablet","Quests","Quests",no,"A Dig Site quest item, so Quests.",high
+701,"Ammonium nitrate","Quests","Quests",no,"A Dig Site quest chemical, so Quests.",high
+703,"Nitroglycerin","Quests","Quests",no,"A Dig Site quest chemical, so Quests.",high
+704,"Ground charcoal","Quests","Quests",no,"A Dig Site quest material, so Quests.",high
+705,"Mixed chemicals","Herblore,Quests","Quests",yes,"A Dig Site quest intermediate giving trivial Herblore experience as a quest step, so Quests.",medium
+707,"Chemical compound","Quests","Quests",no,"A Dig Site quest explosive, so Quests.",high
+708,"Arcenia root","Quests","Quests",no,"A Dig Site quest material, so Quests.",high
+709,"Chest key","Quests","Quests",no,"A Dig Site quest key, so Quests.",high
+710,"Vase","Misc","Misc",no,"A useless digsite find with no function, so Misc.",high
+711,"Book on chemicals","Quests","Quests",no,"A Dig Site quest book, so Quests.",high
+712,"Cup of tea","Misc","Misc",no,"A discontinued display item with no function, so Misc.",medium
+713,"Clue scroll","Misc","Misc",no,"An unobtainable cache placeholder item despite its name, so Misc.",medium
+714,"Radimus notes","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+716,"Bullroarer","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+717,"Scrawled note","Quests","Quests",no,"A Legends' Quest note, so Quests.",high
+718,"A scribbled note","Quests","Quests",no,"A Legends' Quest note, so Quests.",high
+719,"Scrumpled note","Quests","Quests",no,"A Legends' Quest note, so Quests.",high
+720,"Sketch","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+721,"Gold bowl","Mining + Smithing,Quests","Quests",yes,"A gold bowl smithed only for Legends' Quest, no general use, so Quests. Dropped Mining + Smithing.",medium
+722,"Blessed gold bowl","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+723,"Golden bowl","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+727,"Hollow reed","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+728,"Hollow reed","Quests","Quests",no,"A discontinued Legends' Quest item variant, so Quests.",high
+729,"Shaman's tome","Quests","Quests",no,"A Legends' Quest book, so Quests.",high
+730,"Binding book","Quests","Quests",no,"A Legends' Quest book, so Quests.",high
+731,"Enchanted vial","Misc,Range","Quests",yes,"A Legends' Quest precursor that holds holy water but has no function itself, so Quests.",medium
+732,"Holy water","Quests,Range","Range",yes,"An equippable thrown demonbane ranged weapon. By function Range; dropped Quests per the quest-tool policy.",medium
+733,"Smashed glass","Misc","Misc",no,"A useless item with no function, so Misc.",high
+735,"Yommi tree seeds","Quests","Quests",no,"Quest-specific seeds for Legends' Quest, not a normal Farming seed, so Quests.",high
+737,"Snakeweed mixture","Herblore","Herblore",no,"A Herblore mixture made by adding snake weed to a vial of water, so Herblore.",medium
+738,"Ardrigal mixture","Herblore,Quests","Herblore",yes,"A Herblore mixture made by adding ardrigal to a vial of water, so Herblore. Dropped Quests.",medium
+739,"Bravery potion","Quests","Quests",no,"A Legends' Quest potion with no use outside the quest, so Quests.",high
+740,"Blue hat","Cosmetics,Quests","Quests",yes,"A Legends' Quest object found in the Viyeldi caves, not a wearable cosmetic, so Quests. Dropped Cosmetics.",medium
+741,"Chunk of crystal","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+742,"Hunk of crystal","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+743,"Lump of crystal","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+744,"Heart crystal","Quests","Quests",no,"A Legends' Quest item with no skill or combat use, so Quests.",high
+746,"Dark dagger","Quests","Quests",no,"An equippable Legends' Quest dagger that is a quest curiosity, so Quests.",high
+747,"Glowing dagger","Quests","Quests",no,"An equippable Legends' Quest dagger, a quest curiosity, so Quests.",high
+748,"Holy force","Quests","Quests",no,"A Legends' Quest spell item with no other use, so Quests.",high
+749,"Yommi totem","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+750,"Gilded totem","Quests","Quests",no,"A Legends' Quest item, so Quests.",high
+751,"Gnomeball","Misc","Misc",no,"A Gnome Ball minigame novelty with no skill use, so Misc.",medium
+753,"Cadava berries","Farming,Quests","Quests",yes,"Used only for the cadava potion in Romeo & Juliet, with no Farming patch, so Quests; dropped Farming.",medium
+755,"Message","Quests","Quests",no,"A Romeo & Juliet quest item, so Quests.",high
+756,"Cadava potion","Quests","Quests",no,"A Romeo & Juliet quest potion with no Herblore use, so Quests.",high
+757,"Book","Quests","Quests",no,"The Shield of Arrav quest book, so Quests.",high
+758,"Phoenix hq key","Quests","Quests",no,"A Shield of Arrav quest key, so Quests.",high
+759,"Weapon store key","Quests","Quests",no,"A Shield of Arrav quest key, so Quests.",high
+761,"Intel report","Quests","Quests",no,"A Shield of Arrav quest item, so Quests.",high
+763,"Broken shield","Quests","Quests",no,"Half of the Shield of Arrav, a quest item, so Quests.",high
+767,"Phoenix crossbow","Quests,Range","Range",yes,"A functional tradeable crossbow used for bronze bolts and grapple shortcuts, classified by function as Range; dropped Quests.",medium
+769,"Certificate","Quests","Quests",no,"A Shield of Arrav quest item, so Quests.",high
+771,"Dramen branch","Quests","Crafting",yes,"Crafted with a knife into a Dramen staff; under inputs-only it sits in the consuming skill, Crafting.",medium
+772,"Dramen staff","Misc,Quests,Slayer","Teleports",yes,"Its enduring use is fairy ring and Zanaris access, a teleport function, so Teleports.",medium
+773,"'perfect' ring","Crafting,Quests","Quests",yes,"A Family Crest quest ring with no use outside the quest, so Quests; dropped Crafting.",medium
+774,"'perfect' necklace","Crafting,Quests","Quests",yes,"A Family Crest quest necklace with no use outside the quest, so Quests; dropped Crafting.",medium
+775,"Cooking gauntlets","Cooking,Quests","Cooking",yes,"A Family Crest reward that reduces fish burning, a genuine Cooking use, so Cooking; dropped Quests.",high
+776,"Goldsmith gauntlets","Mining + Smithing,Quests","Mining + Smithing",yes,"A Family Crest reward that boosts gold-smelting XP, so Mining + Smithing; dropped Quests.",high
+777,"Chaos gauntlets","Mage,Quests","Mage",yes,"A Family Crest reward that boosts bolt-spell damage, so Mage; dropped Quests.",high
+778,"Steel gauntlets","Melee,Quests","Melee",yes,"The unenchanted Family Crest hand slot with melee defence bonuses, so Melee; dropped Quests.",medium
+780,"Crest part","Quests","Quests",no,"A Family Crest quest item, so Quests.",high
+782,"Family crest","Quests","Quests",no,"A Family Crest quest item, so Quests.",high
+783,"Bark sample","Quests","Quests",no,"A Grand Tree quest item, so Quests.",high
+784,"Translation book","Quests","Quests",no,"A Grand Tree quest item, so Quests.",high
+785,"Glough's journal","Quests","Quests",no,"A Grand Tree quest item, so Quests.",high
+786,"Hazelmere's scroll","Quests","Quests",no,"A Grand Tree quest item, so Quests.",high
+787,"Lumber order","Quests","Quests",no,"A Grand Tree quest item, so Quests.",high
+788,"Glough's key","Quests","Quests",no,"A Grand Tree quest item, so Quests.",high
+789,"Twigs","Quests","Quests",no,"A Grand Tree quest item, so Quests.",high
+793,"Daconia rock","Quests","Quests",no,"A Grand Tree quest item, so Quests.",high
+794,"Invasion plans","Quests","Quests",no,"A Grand Tree quest item, so Quests.",high
+795,"War ship","Cosmetics","Cosmetics",no,"An untradeable holiday novelty model, so Cosmetics.",low
+796,"Exploding vial","Misc","Misc",no,"A non-obtainable Watchtower animation item, so Misc.",medium
+797,"Herb bowl","Herblore","Herblore",no,"A non-obtainable Herblore animation item, so Herblore.",medium
+798,"Grinder","Herblore","Herblore",no,"A non-obtainable Herblore animation item, so Herblore.",medium
+799,"Template for cert","Misc","Misc",no,"A bank-note template placeholder with no skill use, so Misc.",medium
+800,"Bronze thrownaxe","Range","Range",no,"A thrown ranged weapon that cannot be smithed or fletched, so Range.",high
+801,"Iron thrownaxe","Range","Range",no,"A thrown ranged weapon, so Range.",high
+802,"Steel thrownaxe","Range","Range",no,"A thrown ranged weapon, so Range.",high
+803,"Mithril thrownaxe","Range","Range",no,"A thrown ranged weapon, so Range.",high
+804,"Adamant thrownaxe","Range","Range",no,"A thrown ranged weapon, so Range.",high
+805,"Rune thrownaxe","Range","Range",no,"A thrown ranged weapon, so Range.",high
+806,"Bronze dart","Range","Range",no,"A finished thrown ranged weapon, terminal fletched output, so Range.",high
+807,"Iron dart","Fletching,Range","Range",yes,"A finished thrown ranged weapon; terminal output sits in Range, not Fletching; dropped Fletching.",high
+808,"Steel dart","Fletching,Range","Range",yes,"A finished thrown ranged weapon, terminal output in Range; dropped Fletching.",high
+809,"Mithril dart","Fletching,Range","Range",yes,"A finished thrown ranged weapon, terminal fletched output, so Range; dropped Fletching.",high
+810,"Adamant dart","Fletching,Range","Range",yes,"A finished thrown ranged weapon, terminal fletched output, so Range; dropped Fletching.",high
+811,"Rune dart","Fletching,Range","Range",yes,"A finished thrown ranged weapon, terminal fletched output, so Range; dropped Fletching.",high
+818,"Poisoned dart(p)","Range","Misc",yes,"An unobtainable beta test dart with no stats or function, so Misc; dropped Range.",medium
+819,"Bronze dart tip","Fletching,Mining + Smithing","Fletching",yes,"A smithed dart tip whose only next step is fletching, so Fletching only; dropped Mining + Smithing per the arrowtip precedent.",high
+820,"Iron dart tip","Fletching,Mining + Smithing","Fletching",yes,"A smithed dart tip consumed by fletching, so Fletching only; dropped Mining + Smithing.",high
+821,"Steel dart tip","Fletching,Mining + Smithing","Fletching",yes,"A smithed dart tip consumed by fletching, so Fletching only; dropped Mining + Smithing.",high
+822,"Mithril dart tip","Fletching,Mining + Smithing,Range","Fletching",yes,"A smithed dart tip consumed by fletching, so Fletching only; dropped Mining + Smithing and Range.",high
+823,"Adamant dart tip","Fletching,Mining + Smithing","Fletching",yes,"A smithed dart tip consumed by fletching, so Fletching only; dropped Mining + Smithing.",high
+824,"Rune dart tip","Fletching,Mining + Smithing,Range","Fletching",yes,"A smithed dart tip consumed by fletching, so Fletching only; dropped Mining + Smithing and Range.",high
+825,"Bronze javelin","Fletching,Range","Range",yes,"Finished ballista javelin ammunition, a terminal ranged output, so Range; dropped Fletching.",high
+826,"Iron javelin","Fletching,Range","Range",yes,"Finished ballista javelin ammunition, a terminal ranged output, so Range; dropped Fletching.",high
+827,"Steel javelin","Fletching,Range","Range",yes,"Finished ballista javelin ammunition, a terminal ranged output, so Range; dropped Fletching.",high
+828,"Mithril javelin","Fletching,Range","Range",yes,"Finished ballista javelin ammunition, a terminal ranged output, so Range; dropped Fletching.",high
+829,"Adamant javelin","Fletching,Range","Range",yes,"Finished ballista javelin ammunition, a terminal ranged output, so Range; dropped Fletching.",high
+830,"Rune javelin","Fletching,Range","Range",yes,"Finished ballista javelin ammunition, a terminal ranged output, so Range; dropped Fletching.",high
+837,"Crossbow","Range","Range",no,"A finished crossbow wielded in ranged combat, so Range.",high
+839,"Longbow","Fletching,Range","Range",yes,"A finished strung bow, the usable ranged weapon, so Range; dropped Fletching.",high
+841,"Shortbow","Range","Range",no,"A finished shortbow wielded in ranged combat, so Range.",high
+843,"Oak shortbow","Fletching,Range","Range",yes,"A finished strung bow, so Range; dropped Fletching.",high
+845,"Oak longbow","Fletching,Range","Range",yes,"A finished strung bow, so Range; dropped Fletching.",high
+847,"Willow longbow","Fletching,Range","Range",yes,"A finished strung bow, so Range; dropped Fletching.",high
+849,"Willow shortbow","Range","Range",no,"A finished strung bow wielded in ranged combat, so Range.",high
+851,"Maple longbow","Fletching,Range","Range",yes,"A finished strung bow, so Range; dropped Fletching.",high
+853,"Maple shortbow","Fletching,Range","Range",yes,"A finished strung bow, so Range; dropped Fletching.",high
+855,"Yew longbow","Fletching,Range","Range",yes,"A finished strung bow, so Range; dropped Fletching.",high
+857,"Yew shortbow","Fletching,Range","Range",yes,"A finished strung bow, so Range; dropped Fletching.",high
+859,"Magic longbow","Fletching,Range","Range",yes,"A finished strung bow, so Range; dropped Fletching.",high
+861,"Magic shortbow","Fletching,Range","Range",yes,"A finished strung bow with a ranged special attack, so Range; dropped Fletching.",high
+863,"Iron knife","Range","Range",no,"A finished thrown ranged weapon, so Range.",high
+864,"Bronze knife","Range","Range",no,"A finished thrown ranged weapon, so Range.",high
+865,"Steel knife","Range","Range",no,"A finished thrown ranged weapon, so Range.",high
+866,"Mithril knife","Range","Range",no,"A finished thrown ranged weapon, so Range.",high
+867,"Adamant knife","Range","Range",no,"A finished thrown ranged weapon, so Range.",high
+868,"Rune knife","Range","Range",no,"A finished thrown ranged weapon, so Range.",high
+869,"Black knife","Range","Range",no,"A finished thrown ranged weapon, so Range.",high
+877,"Bronze bolts","Range","Range",no,"Finished crossbow bolts fired in ranged combat, so Range.",high
+879,"Opal bolts","Fletching,Range","Range",yes,"Finished gem-tipped bolts, terminal ranged ammo, so Range; dropped Fletching.",high
+880,"Pearl bolts","Fletching,Range","Range",yes,"Finished gem-tipped bolts, terminal ranged ammo, so Range; dropped Fletching.",high
+881,"Barbed bolts","Fletching,Range","Range",yes,"Finished barbed bolts, terminal ranged ammo, so Range; dropped Fletching.",high
+882,"Bronze arrow","Fletching,Range","Range",yes,"A finished arrow used in ranged combat, so Range; dropped Fletching.",high
+884,"Iron arrow","Fletching,Range","Range",yes,"A finished arrow used in ranged combat, so Range; dropped Fletching.",high
+886,"Steel arrow","Fletching,Range","Range",yes,"A finished arrow used in ranged combat, so Range; dropped Fletching.",high
+888,"Mithril arrow","Fletching,Range","Range",yes,"A finished arrow used in ranged combat, so Range; dropped Fletching.",high
+890,"Adamant arrow","Fletching,Range","Range",yes,"A finished arrow used in ranged combat, so Range; dropped Fletching.",high
+892,"Rune arrow","Fletching,Range","Range",yes,"A finished arrow used in ranged combat, so Range; dropped Fletching.",high
+943,"Worm","Misc","Misc",no,"An unobtainable dialogue-only item with no function, so Misc.",high
+945,"Throwing rope","Misc","Misc",no,"A non-obtainable Underground Pass animation item, so Misc.",high
+946,"Knife","Cooking,Fletching,Misc","Fletching,Cooking,Crafting",yes,"A multi-skill tool used by Fletching, Cooking, and Crafting, so those tabs; dropped Misc.",medium
+948,"Bear fur","Crafting","Crafting",no,"OSRS Wiki uses: crafted into wooden cats, quest fur heads, and bear hide armour, so Crafting.",high
+950,"Silk","Agility + Thieving,Crafting","Misc",yes,"A Thieving-stall trade good sold rather than consumed by a skill, with no crafting recipe, so Misc; dropped Agility + Thieving and Crafting.",low
+952,"Spade","Farming,Misc","Farming",yes,"A multi-use tool whose primary skill use is Farming, so Farming; dropped Misc.",medium
+954,"Rope","Misc","Misc",no,"A general utility item used mainly in quests with no single skill consumer, so Misc.",medium
+956,"Flyer","Misc","Misc",no,"A near-useless advertising item with no skill function, so Misc.",high
+958,"Grey wolf fur","Crafting","Crafting",no,"OSRS Wiki uses: crafted into wooden cats (15 Crafting xp) and quest fur heads, so Crafting.",high
+960,"Plank","Construction","Construction",no,"A Construction material consumed when building furniture, so Construction.",high
+962,"Christmas cracker","Cosmetics","Cosmetics",no,"A tradeable holiday novelty that yields partyhats, grouped with Cosmetics.",low
+964,"Skull","Construction","Construction",no,"A Construction material for skeleton furniture, so Construction.",high
+965,"Skull","Misc","Misc",no,"A discontinued unobtainable stackable version with no use, so Misc.",high
+966,"Tile","Misc","Misc",no,"A useless Wilderness spawn item, so Misc.",high
+968,"Rock","Crafting","Misc",yes,"A failed-limestone-brick byproduct with no further use, so Misc; dropped Crafting.",low
+970,"Papyrus","Construction,Misc,Quests","Construction",yes,"Consumed primarily as a Construction material, so Construction; dropped Misc and Quests.",medium
+972,"Papyrus","Misc","Misc",no,"An unobtainable beta version of papyrus with no use, so Misc.",high
+973,"Charcoal","Quests","Quests",no,"A quest-only writing tool with no skill recipe, so Quests.",medium
+975,"Machete","Fletching","Woodcutting + Firemaking",yes,"A Woodcutting tool for slashing jungle foliage; the Fletching tag is a stale wc_fletching artifact.",medium
+977,"Cooking pot","Cooking","Cooking",no,"A Cooking skill-guide item, so Cooking.",medium
+979,"Highwayman mask","Misc","Misc",no,"An unobtainable beta version with no use, so Misc.",high
+981,"Disk of returning","Misc","Teleports",yes,"A teleport device to and from Thordur's blackhole, so Teleports; dropped Misc.",medium
+983,"Brass key","Misc","Misc",no,"A door key with no skill use, so Misc.",high
+985,"Tooth half of key","Misc","Misc",no,"A loot key half with no skill use, so Misc.",high
+987,"Loop half of key","Misc","Misc",no,"A loot key half with no skill use, so Misc.",high
+989,"Crystal key","Misc","Misc",no,"A treasure-chest key with no skill use, so Misc.",high
+991,"Muddy key","Misc","Misc",no,"A treasure-chest key with no skill use, so Misc.",high
+993,"Sinister key","Herblore,Misc","Misc",yes,"A loot key whose only Herblore link is the chest reward, not the key itself, so Misc; dropped Herblore.",medium
+995,"Coins","Misc","Misc",no,"Currency with no skill use, so Misc.",high
+1005,"White apron","Cosmetics,Quests","Cosmetics",yes,"A no-stat fashion apron; incidental quest use is not a keepsake, so Cosmetics; dropped Quests.",medium
+1007,"Red cape","Cosmetics","Cosmetics",no,"A low-tier fashion cape, so Cosmetics.",high
+1009,"Brass necklace","Cosmetics","Cosmetics",no,"A near-worthless aesthetic neck item, so Cosmetics.",high
+1011,"Blue skirt","Cosmetics","Cosmetics",no,"A no-bonus fashion skirt, so Cosmetics.",high
+1013,"Pink skirt","Cosmetics,Quests","Cosmetics",yes,"A no-bonus fashion skirt; incidental quest-disguise use is not a keepsake, so Cosmetics; dropped Quests.",medium
+1015,"Black skirt","Cosmetics","Cosmetics",no,"A no-bonus fashion skirt, so Cosmetics.",high
+1017,"Wizard hat","Mage","Mage",no,"A magic hat with magic bonuses, so Mage.",high
+1019,"Black cape","Cosmetics","Cosmetics",no,"A low-tier fashion cape, so Cosmetics.",high
+1021,"Blue cape","Cosmetics","Cosmetics",no,"A low-tier fashion cape, so Cosmetics.",high
+1023,"Yellow cape","Cosmetics","Cosmetics",no,"A low-tier fashion cape, so Cosmetics.",high
+1025,"Right eye patch","Cosmetics","Cosmetics",no,"A no-stat pirate cosmetic head item, so Cosmetics.",high
+1027,"Green cape","Cosmetics","Cosmetics",no,"A low-tier fashion cape, so Cosmetics.",high
+1029,"Purple cape","Cosmetics","Cosmetics",no,"A low-tier fashion cape, so Cosmetics.",high
+1031,"Orange cape","Cosmetics","Cosmetics",no,"A low-tier fashion cape, so Cosmetics.",high
+1033,"Zamorak monk bottom","Mage,Prayer","Mage,Prayer",no,"Robe legs with magic and prayer bonuses, so Mage and Prayer.",high
+1035,"Zamorak monk top","Mage,Prayer","Mage,Prayer",no,"A robe top with magic and prayer bonuses, so Mage and Prayer.",high
+1037,"Bunny ears","Cosmetics","Cosmetics",no,"An untradeable cosmetic holiday head item, so Cosmetics.",high
+1038,"Red partyhat","Cosmetics","Cosmetics",no,"A cosmetic holiday hat, so Cosmetics.",high
+1040,"Yellow partyhat","Cosmetics","Cosmetics",no,"A cosmetic holiday hat, so Cosmetics.",high
+1042,"Blue partyhat","Cosmetics","Cosmetics",no,"A cosmetic holiday hat, so Cosmetics.",high
+1044,"Green partyhat","Cosmetics","Cosmetics",no,"A cosmetic holiday hat, so Cosmetics.",high
+1046,"Purple partyhat","Cosmetics","Cosmetics",no,"A cosmetic holiday hat, so Cosmetics.",high
+1048,"White partyhat","Cosmetics","Cosmetics",no,"A cosmetic holiday hat, so Cosmetics.",high
+1050,"Santa hat","Cosmetics","Cosmetics",no,"A cosmetic holiday hat, so Cosmetics.",high
+1052,"Cape of legends","Quests","Melee,Range,Mage",yes,"Per the cape rule, defensive capes show in all three combat styles; dropped Quests.",medium
+1053,"Green halloween mask","Cosmetics","Cosmetics",no,"A no-stat cosmetic holiday mask, so Cosmetics.",high
+1055,"Blue halloween mask","Cosmetics","Cosmetics",no,"A no-stat cosmetic holiday mask, so Cosmetics.",high
+1057,"Red halloween mask","Cosmetics","Cosmetics",no,"A no-stat cosmetic holiday mask, so Cosmetics.",high
+1059,"Leather gloves","Crafting,Melee","Melee",yes,"Finished leather gloves with melee defence and no further crafting step, so Melee; dropped Crafting.",medium
+1061,"Leather boots","Crafting,Range","Melee",yes,"Finished leather boots with only melee defence, so Melee; dropped Crafting and Range.",medium
+1063,"Leather vambraces","Crafting,Range","Crafting,Range",no,"Ranged hand armour retained in Crafting under the vambrace spike carve-out, plus Range.",medium
+1065,"Green d'hide vambraces","Crafting,Range","Crafting,Range",no,"Ranged hand armour retained in Crafting because spikes can be added, plus Range.",high
+1067,"Iron platelegs","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1069,"Steel platelegs","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1071,"Mithril platelegs","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1073,"Adamant platelegs","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1075,"Bronze platelegs","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1077,"Black platelegs","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1079,"Rune platelegs","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1081,"Iron plateskirt","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1083,"Steel plateskirt","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1085,"Mithril plateskirt","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1087,"Bronze plateskirt","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1089,"Black plateskirt","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1091,"Adamant plateskirt","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1093,"Rune plateskirt","Melee","Melee",no,"Melee leg armour used in the melee combat style, so Melee.",high
+1095,"Leather chaps","Crafting,Range","Crafting,Range",no,"Leather legwear with a further crafting step into studded chaps, so it stays in Crafting, plus Range.",high
+1097,"Studded chaps","Range","Range",no,"Finished ranged legwear, so Range.",high
+1099,"Green d'hide chaps","Crafting,Range","Range",yes,"Finished dragonhide legwear with no further crafting step, so Range; dropped Crafting.",medium
+1101,"Iron chainbody","Melee","Melee",no,"Melee body armour used in the melee combat style, so Melee.",high
+1103,"Bronze chainbody","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee armour leaves Mining + Smithing and sits in Melee.",high
+1105,"Steel chainbody","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee armour leaves Mining + Smithing and sits in Melee.",high
+1107,"Black chainbody","Melee","Melee",no,"Melee body armour used in the melee combat style, so Melee.",high
+1109,"Mithril chainbody","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee armour leaves Mining + Smithing and sits in Melee.",high
+1111,"Adamant chainbody","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee armour leaves Mining + Smithing and sits in Melee.",high
+1113,"Rune chainbody","Melee","Melee",no,"Melee body armour used in the melee combat style, so Melee.",high
+1115,"Iron platebody","Melee","Melee",no,"Melee body armour used in the melee combat style, so Melee.",high
+1117,"Bronze platebody","Melee","Melee",no,"Melee body armour used in the melee combat style, so Melee.",high
+1119,"Steel platebody","Melee","Melee",no,"Melee body armour used in the melee combat style, so Melee.",high
+1121,"Mithril platebody","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee armour leaves Mining + Smithing and sits in Melee.",high
+1123,"Adamant platebody","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee armour leaves Mining + Smithing and sits in Melee.",high
+1125,"Black platebody","Melee","Melee",no,"Melee body armour used in the melee combat style, so Melee.",high
+1127,"Rune platebody","Melee","Melee",no,"Melee body armour used in the melee combat style, so Melee.",high
+1129,"Leather body","Crafting,Range","Crafting,Range",no,"Leather torso with a further crafting step into studded body, so it stays in Crafting, plus Range.",high
+1131,"Hardleather body","Crafting,Range","Range",yes,"Finished ranged torso with no further crafting step, so Range; dropped Crafting.",medium
+1133,"Studded body","Range","Range",no,"Finished ranged torso, so Range.",high
+1135,"Green d'hide body","Crafting,Range","Range",yes,"Finished dragonhide torso with no further crafting step, so Range; dropped Crafting.",medium
+1137,"Iron med helm","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee helmet leaves Mining + Smithing and sits in Melee.",high
+1139,"Bronze med helm","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee helmet leaves Mining + Smithing and sits in Melee.",high
+1141,"Steel med helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1143,"Mithril med helm","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee helmet leaves Mining + Smithing and sits in Melee.",high
+1145,"Adamant med helm","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee helmet leaves Mining + Smithing and sits in Melee.",high
+1147,"Rune med helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1149,"Dragon med helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1151,"Black med helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1153,"Iron full helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1155,"Bronze full helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1157,"Steel full helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1159,"Mithril full helm","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee helmet leaves Mining + Smithing and sits in Melee.",high
+1161,"Adamant full helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1163,"Rune full helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1165,"Black full helm","Melee","Melee",no,"Melee helmet used in the melee combat style, so Melee.",high
+1167,"Leather cowl","Crafting,Range","Range",yes,"Finished ranged headgear with no further crafting step, so Range; dropped Crafting.",medium
+1169,"Coif","Crafting,Range","Range",yes,"Finished ranged headgear with no further crafting step, so Range; dropped Crafting.",medium
+1171,"Wooden shield","Melee","Melee",no,"A basic melee shield, so Melee.",high
+1173,"Bronze sq shield","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee shield leaves Mining + Smithing and sits in Melee.",high
+1175,"Iron sq shield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1177,"Steel sq shield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1179,"Black sq shield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1181,"Mithril sq shield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1183,"Adamant sq shield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1185,"Rune sq shield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1187,"Dragon sq shield","Melee,Quests","Melee",yes,"A strong tradeable melee shield with genuine combat use, so Melee; dropped Quests despite the Legends' Quest wield requirement.",medium
+1189,"Bronze kiteshield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1191,"Iron kiteshield","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee shield leaves Mining + Smithing and sits in Melee.",high
+1193,"Steel kiteshield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1195,"Black kiteshield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1197,"Mithril kiteshield","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee shield leaves Mining + Smithing and sits in Melee.",high
+1199,"Adamant kiteshield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1201,"Rune kiteshield","Melee","Melee",no,"A melee shield used in the melee combat style, so Melee.",high
+1203,"Iron dagger","Melee","Melee",no,"A melee weapon, so Melee.",high
+1205,"Bronze dagger","Melee","Melee",no,"A melee weapon, so Melee.",high
+1207,"Steel dagger","Melee","Melee",no,"A melee weapon, so Melee.",high
+1209,"Mithril dagger","Melee","Melee",no,"A melee weapon, so Melee.",high
+1211,"Adamant dagger","Melee","Melee",no,"A melee weapon, so Melee.",high
+1213,"Rune dagger","Melee","Melee",no,"A melee weapon, so Melee.",high
+1215,"Dragon dagger","Melee","Melee",no,"A melee weapon, so Melee.",high
+1217,"Black dagger","Melee","Melee",no,"A melee weapon, so Melee.",high
+1235,"Poisoned dagger(p)","Melee","Misc",yes,"An unobtainable beta test dagger that cannot be equipped, so Misc; dropped Melee.",medium
+1237,"Bronze spear","Melee","Melee,Farming",yes,"A melee spear that is also the input for building a scarecrow, so Melee and Farming.",medium
+1239,"Iron spear","Melee","Melee",no,"A melee weapon, so Melee.",high
+1241,"Steel spear","Melee","Melee",no,"A melee weapon, so Melee.",high
+1243,"Mithril spear","Melee","Melee",no,"A melee weapon, so Melee.",high
+1245,"Adamant spear","Melee","Melee",no,"A melee weapon, so Melee.",high
+1247,"Rune spear","Melee","Melee",no,"A melee weapon, so Melee.",high
+1249,"Dragon spear","Melee","Melee",no,"A melee weapon, so Melee.",high
+1265,"Bronze pickaxe","Mining + Smithing","Mining + Smithing",no,"A Mining tool used to mine rocks, so Mining + Smithing.",high
+1267,"Iron pickaxe","Melee,Mining + Smithing","Mining + Smithing",yes,"A Mining tool; primary use is mining, so Mining + Smithing; dropped Melee.",medium
+1269,"Steel pickaxe","Melee,Mining + Smithing","Mining + Smithing",yes,"A Mining tool; primary use is mining, so Mining + Smithing; dropped Melee.",medium
+1271,"Adamant pickaxe","Melee,Mining + Smithing","Mining + Smithing",yes,"A Mining tool; primary use is mining, so Mining + Smithing; dropped Melee.",medium
+1273,"Mithril pickaxe","Mining + Smithing","Mining + Smithing",no,"A Mining tool used to mine rocks, so Mining + Smithing.",high
+1275,"Rune pickaxe","Mining + Smithing","Mining + Smithing",no,"A Mining tool used to mine rocks, so Mining + Smithing.",high
+1277,"Bronze sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1279,"Iron sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1281,"Steel sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1283,"Black sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1285,"Mithril sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1287,"Adamant sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1289,"Rune sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1291,"Bronze longsword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1293,"Iron longsword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1295,"Steel longsword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1297,"Black longsword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1299,"Mithril longsword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1301,"Adamant longsword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1303,"Rune longsword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1305,"Dragon longsword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1307,"Bronze 2h sword","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee weapon leaves Mining + Smithing and sits in Melee.",high
+1309,"Iron 2h sword","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee weapon leaves Mining + Smithing and sits in Melee.",high
+1311,"Steel 2h sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1313,"Black 2h sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1315,"Mithril 2h sword","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee weapon leaves Mining + Smithing and sits in Melee.",high
+1317,"Adamant 2h sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1319,"Rune 2h sword","Melee","Melee",no,"A melee weapon, so Melee.",high
+1321,"Bronze scimitar","Melee","Melee",no,"A melee weapon, so Melee.",high
+1323,"Iron scimitar","Melee","Melee",no,"A melee weapon, so Melee.",high
+1325,"Steel scimitar","Melee","Melee",no,"A melee weapon, so Melee.",high
+1327,"Black scimitar","Melee","Melee",no,"A melee weapon, so Melee.",high
+1329,"Mithril scimitar","Melee","Melee",no,"A melee weapon, so Melee.",high
+1331,"Adamant scimitar","Melee","Melee",no,"A melee weapon, so Melee.",high
+1333,"Rune scimitar","Melee","Melee",no,"A melee weapon, so Melee.",high
+1335,"Iron warhammer","Melee","Melee",no,"A melee weapon, so Melee.",high
+1337,"Bronze warhammer","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee weapon leaves Mining + Smithing and sits in Melee.",high
+1339,"Steel warhammer","Melee","Melee",no,"A melee weapon, so Melee.",high
+1341,"Black warhammer","Melee","Melee",no,"A melee weapon, so Melee.",high
+1343,"Mithril warhammer","Melee","Melee",no,"A melee weapon, so Melee.",high
+1345,"Adamant warhammer","Melee","Melee",no,"A melee weapon, so Melee.",high
+1347,"Rune warhammer","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee weapon leaves Mining + Smithing and sits in Melee.",high
+1349,"Iron axe","Melee,Mining + Smithing,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"A Woodcutting hatchet, a skilling tool, so Woodcutting + Firemaking; dropped Melee and Mining + Smithing.",medium
+1351,"Bronze axe","Melee,Mining + Smithing,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"A Woodcutting hatchet, a skilling tool, so Woodcutting + Firemaking; dropped Melee and Mining + Smithing.",medium
+1353,"Steel axe","Melee,Mining + Smithing,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"A Woodcutting hatchet, a skilling tool, so Woodcutting + Firemaking; dropped Melee and Mining + Smithing.",medium
+1355,"Mithril axe","Melee,Mining + Smithing,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"A Woodcutting hatchet, a skilling tool, so Woodcutting + Firemaking; dropped Melee and Mining + Smithing.",medium
+1357,"Adamant axe","Melee,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"A Woodcutting hatchet, a skilling tool, so Woodcutting + Firemaking; dropped Melee.",medium
+1359,"Rune axe","Melee,Mining + Smithing,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"A Woodcutting hatchet, a skilling tool, so Woodcutting + Firemaking; dropped Melee and Mining + Smithing.",medium
+1361,"Black axe","Melee,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"A Woodcutting hatchet, a skilling tool, so Woodcutting + Firemaking; dropped Melee.",medium
+1363,"Iron battleaxe","Melee","Melee",no,"A melee weapon, so Melee.",high
+1365,"Steel battleaxe","Melee","Melee",no,"A melee weapon, so Melee.",high
+1367,"Black battleaxe","Melee","Melee",no,"A melee weapon, so Melee.",high
+1369,"Mithril battleaxe","Melee","Melee",no,"A melee weapon, so Melee.",high
+1371,"Adamant battleaxe","Melee","Melee",no,"A melee weapon, so Melee.",high
+1373,"Rune battleaxe","Melee","Melee",no,"A melee weapon, so Melee.",high
+1375,"Bronze battleaxe","Melee","Melee",no,"A melee weapon, so Melee.",high
+1377,"Dragon battleaxe","Melee","Melee",no,"A melee weapon, so Melee.",high
+1379,"Staff","Mage","Mage",no,"A basic magic weapon with autocast, so Mage.",high
+1381,"Staff of air","Mage","Mage",no,"An elemental magic staff, so Mage.",high
+1383,"Staff of water","Mage","Mage",no,"An elemental magic staff, so Mage.",high
+1385,"Staff of earth","Mage","Mage",no,"An elemental magic staff, so Mage.",high
+1387,"Staff of fire","Mage","Mage",no,"An elemental magic staff, so Mage.",high
+1389,"Magic staff","Mage","Mage",no,"A magic weapon with autocast, so Mage.",high
+1391,"Battlestaff","Crafting,Mage","Crafting,Mage",no,"A magic weapon that is also the input for crafting elemental battlestaves, so Crafting and Mage.",high
+1393,"Fire battlestaff","Mage","Mage",no,"A finished elemental magic staff, so Mage.",high
+1395,"Water battlestaff","Crafting,Mage","Mage",yes,"A finished elemental magic staff; the crafted output sits in Mage; dropped Crafting.",medium
+1397,"Air battlestaff","Crafting,Mage","Mage",yes,"A finished elemental magic staff; the crafted output sits in Mage; dropped Crafting.",medium
+1399,"Earth battlestaff","Crafting,Mage","Mage",yes,"A finished elemental magic staff; the crafted output sits in Mage; dropped Crafting.",medium
+1401,"Mystic fire staff","Mage","Mage",no,"An elemental magic staff, so Mage.",high
+1403,"Mystic water staff","Mage","Mage",no,"An elemental magic staff, so Mage.",high
+1405,"Mystic air staff","Mage","Mage",no,"An elemental magic staff, so Mage.",high
+1407,"Mystic earth staff","Mage","Mage",no,"An elemental magic staff, so Mage.",high
+1409,"Iban's staff","Mage,Quests","Mage",yes,"A usable quest-reward magic weapon that casts Iban Blast, genuine ongoing use, so Mage; dropped Quests.",medium
+1411,"Farmer's fork","Misc","Misc",no,"An unobtainable item with no wield option, so Misc.",high
+1413,"Halberd","Misc","Misc",no,"An unobtainable item with no wield option, so Misc.",high
+1415,"Warhammer","Misc","Misc",no,"An unobtainable item with no wield option, so Misc.",high
+1417,"Javelin","Misc","Misc",no,"An unobtainable item with no wield option, so Misc.",high
+1419,"Scythe","Cosmetics","Cosmetics",no,"An untradeable Halloween event item, primarily a holiday cosmetic, so Cosmetics.",medium
+1420,"Iron mace","Melee","Melee",no,"A melee weapon, so Melee.",high
+1422,"Bronze mace","Melee","Melee",no,"A melee weapon, so Melee.",high
+1424,"Steel mace","Melee","Melee",no,"A melee weapon, so Melee.",high
+1426,"Black mace","Melee,Prayer","Melee",yes,"A melee weapon; its minor prayer bonus does not make it Prayer gear, so Melee; dropped Prayer.",medium
+1428,"Mithril mace","Melee,Mining + Smithing","Melee",yes,"Finished smithed melee weapon leaves Mining + Smithing and sits in Melee.",high
+1430,"Adamant mace","Melee,Prayer","Melee",yes,"A melee weapon; minor prayer bonus is incidental, so Melee; dropped Prayer.",medium
+1432,"Rune mace","Melee,Prayer","Melee",yes,"A melee weapon; minor prayer bonus is incidental, so Melee; dropped Prayer.",medium
+1434,"Dragon mace","Melee","Melee",no,"A melee weapon, so Melee.",high
+1436,"Rune essence","Runecraft","Runecraft",no,"A raw Runecraft material crafted into runes, so Runecraft.",high
+1438,"Air talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1440,"Earth talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1442,"Fire talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1444,"Water talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1446,"Body talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1448,"Mind talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1450,"Blood talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1452,"Chaos talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1454,"Cosmic talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1456,"Death talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1458,"Law talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1460,"Soul talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1462,"Nature talisman","Runecraft","Runecraft",no,"A Runecraft talisman for altar access, so Runecraft.",high
+1464,"Archery ticket","Misc,Range","Misc",yes,"A Ranging Guild reward token exchanged for prizes, a currency rather than gear, so Misc; dropped Range.",medium
+1465,"Weapon poison","Misc","Misc",no,"An unobtainable cut item, so Misc.",high
+1466,"Sea slug","Quests","Quests",no,"A Sea Slug quest item, so Quests.",high
+1467,"Damp sticks","Quests","Quests",no,"A Sea Slug quest item, so Quests.",high
+1468,"Dry sticks","Quests,Woodcutting + Firemaking","Woodcutting + Firemaking",yes,"Kept after the quest and usable with Firemaking to light torches, so Woodcutting + Firemaking; dropped Quests.",medium
+1469,"Broken glass","Quests","Quests",no,"A Sea Slug quest item, so Quests.",high
+1470,"Red bead","Quests","Quests",no,"An Imp Catcher quest item, so Quests.",high
+1472,"Yellow bead","Quests","Quests",no,"An Imp Catcher quest item, so Quests.",high
+1474,"Black bead","Quests","Quests",no,"An Imp Catcher quest item, so Quests.",high
+1476,"White bead","Quests","Quests",no,"An Imp Catcher quest item, so Quests.",high
+1478,"Amulet of accuracy","Melee,Quests","Melee,Range,Mage",yes,"An amulet boosting all attack styles; non-style-specific combat jewellery spans the three combat tabs; dropped Quests as it is usable outside the quest.",medium
+1480,"Rock","Misc,Quests","Misc",yes,"A generic non-quest rock with no skill use, so Misc; dropped Quests.",medium
+1481,"Orb of light","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1482,"Orb of light","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1483,"Orb of light","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1485,"Oily cloth","Quests,Range","Quests",yes,"An Underground Pass quest item used only in the quest, so Quests; dropped Range.",medium
+1486,"Piece of railing","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1487,"Unicorn horn","Quests","Quests",no,"The withered quest version used only in Underground Pass, so Quests.",high
+1488,"Paladin's badge","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1489,"Paladin's badge","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1490,"Paladin's badge","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1491,"Witch's cat","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1492,"Doll of iban","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1493,"Old journal","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1494,"History of iban","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1495,"Klank's gauntlets","Quests","Quests",no,"Equippable quest gloves with steel-gauntlet stats but no real use outside the quest, a quest curiosity, so Quests.",medium
+1496,"Iban's dove","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1497,"Amulet of othanian","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1498,"Amulet of doomion","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1499,"Amulet of holthion","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1500,"Iban's shadow","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1501,"Dwarf brew","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1502,"Iban's ashes","Quests","Quests",no,"An Underground Pass quest item, so Quests.",high
+1503,"Warrant","Quests","Quests",no,"A Plague City quest item, so Quests.",high
+1504,"Hangover cure","Quests","Quests",no,"A Plague City quest item, so Quests.",high
+1505,"Ardougne teleport scroll","Misc,Quests","Teleports",yes,"A scroll read to teleport to Ardougne, usable after the quest, so Teleports; dropped Misc and Quests.",medium
+1506,"Gas mask","Quests","Quests",no,"A Plague City and Biohazard access item, so Quests.",high
+1507,"A small key","Misc,Quests","Quests",yes,"A key used only in the Plague City quest, so Quests; dropped Misc.",medium
+1508,"A scruffy note","Quests","Quests",no,"A Plague City quest item, so Quests.",high
+1509,"Book","Quests","Quests",no,"A Plague City quest item, so Quests.",high
+1510,"Picture","Quests","Quests",no,"A Plague City quest item, so Quests.",high
+1511,"Logs","Construction,Fletching,Woodcutting + Firemaking","Woodcutting + Firemaking,Fletching",yes,"Burned by Firemaking and fletched into bows, so Woodcutting + Firemaking and Fletching; dropped Construction.",medium
+1513,"Magic logs","Woodcutting + Firemaking","Woodcutting + Firemaking,Fletching",yes,"Burned by Firemaking and fletched into magic bows, so Woodcutting + Firemaking and Fletching.",medium
+1515,"Yew logs","Woodcutting + Firemaking","Woodcutting + Firemaking,Fletching",yes,"Burned by Firemaking and fletched into bows, so Woodcutting + Firemaking and Fletching.",medium
+1517,"Maple logs","Woodcutting + Firemaking","Woodcutting + Firemaking,Fletching",yes,"Burned by Firemaking and fletched into bows, so Woodcutting + Firemaking and Fletching.",medium
+1519,"Willow logs","Woodcutting + Firemaking","Woodcutting + Firemaking,Fletching",yes,"Burned by Firemaking and fletched into bows, so Woodcutting + Firemaking and Fletching.",medium
+1521,"Oak logs","Construction,Woodcutting + Firemaking","Woodcutting + Firemaking,Fletching",yes,"Burned by Firemaking and fletched into bows, so Woodcutting + Firemaking and Fletching; dropped Construction.",medium
+1523,"Lockpick","Agility + Thieving","Agility + Thieving",no,"A Thieving tool for picking locks, so Agility + Thieving.",high
+1525,"Grimy snake weed","Herblore,Quests","Herblore",yes,"A herb cleaned and used in Herblore (relicym's balm, Sanfew serum), not farmed, so Herblore; dropped Quests.",medium
+1526,"Snake weed","Herblore,Quests","Herblore",yes,"A herb used in Herblore (relicym's balm, Sanfew serum), so Herblore; dropped Quests.",medium
+1527,"Grimy ardrigal","Herblore,Quests","Quests",yes,"Wiki check: ardrigal's only potion is the Legends' bravery potion, no general Herblore use, so quest-only; Quests.",medium
+1528,"Ardrigal","Herblore,Quests","Quests",yes,"Wiki check: ardrigal's only potion is the Legends' bravery potion, no general use, so Quests.",medium
+1529,"Grimy sito foil","Herblore,Quests","Quests",yes,"Wiki check: sito foil is used only in Jungle Potion, so Quests.",medium
+1530,"Sito foil","Herblore,Quests","Quests",yes,"Wiki check: sito foil is used only in Jungle Potion, so Quests.",medium
+1531,"Grimy volencia moss","Herblore,Quests","Quests",yes,"Wiki check: volencia moss is used only in Jungle Potion and Fairytale I, so Quests.",medium
+1532,"Volencia moss","Herblore,Quests","Quests",yes,"Wiki check: volencia moss is used only in Jungle Potion and Fairytale I, so Quests.",medium
+1533,"Grimy rogue's purse","Herblore,Quests","Herblore",yes,"A herb cleaned and used in Herblore (relicym's balm), not farmed, so Herblore; dropped Quests.",medium
+1534,"Rogue's purse","Herblore,Quests","Herblore",yes,"A herb used in Herblore (relicym's balm), so Herblore; dropped Quests.",medium
+1535,"Map part","Quests","Quests",no,"A Dragon Slayer I map part used only in the quest, so Quests.",high
+1536,"Map part","Quests","Quests",no,"A Dragon Slayer I map part used only in the quest, so Quests.",high
+1537,"Map part","Quests","Quests",no,"A Dragon Slayer I map part used only in the quest, so Quests.",high
+1538,"Crandor map","Quests","Quests",no,"A Dragon Slayer I quest item, so Quests.",high
+1539,"Steel nails","Construction,Mining + Smithing","Construction",yes,"A smithed nail consumed as a Construction material, so Construction; dropped Mining + Smithing.",medium
+1540,"Anti-dragon shield","Melee,Quests","Melee,Range,Mage",yes,"A balanced dragonfire shield used across all combat styles, so Melee, Range, and Mage; dropped Quests as it is usable outside the quest.",medium
+1542,"Maze key","Quests","Quests",no,"A key used only in Dragon Slayer I, so Quests.",high
+1543,"Key","Misc,Quests","Quests",yes,"A Melzar's Maze key used only in Dragon Slayer I, so Quests; dropped Misc.",medium
+1544,"Key","Misc,Quests","Quests",yes,"A Melzar's Maze key used only in Dragon Slayer I, so Quests; dropped Misc.",medium
+1545,"Key","Misc,Quests","Quests",yes,"A Melzar's Maze key used only in Dragon Slayer I, so Quests; dropped Misc.",medium
+1546,"Key","Misc,Quests","Quests",yes,"A Melzar's Maze key used only in Dragon Slayer I, so Quests; dropped Misc.",medium
+1547,"Key","Misc,Quests","Quests",yes,"A Melzar's Maze key used only in Dragon Slayer I, so Quests; dropped Misc.",medium
+1548,"Key","Misc,Quests","Quests",yes,"A Melzar's Maze key used only in Dragon Slayer I, so Quests; dropped Misc.",medium
+1549,"Stake","Quests","Quests",no,"A Vampyre Slayer quest item, so Quests.",high
+1550,"Garlic","Herblore,Quests","Cooking,Herblore",yes,"Used in Cooking (spicy sauce) and Herblore (Guthix balance), so Cooking and Herblore; dropped Quests.",medium
+1552,"Seasoned sardine","Quests","Quests",no,"A Gertrude's Cat quest item used only in the quest, so Quests.",high
+1554,"Fluffs' kitten","Quests","Quests",no,"A Gertrude's Cat quest item used only in the quest, so Quests.",high
+1555,"Pet kitten","Cosmetics","Cosmetics",no,"A follower pet, so Cosmetics.",high
+1561,"Pet cat","Cosmetics","Cosmetics",no,"A follower pet, so Cosmetics.",high
+1567,"Pet cat","Cosmetics","Cosmetics",no,"A follower pet, so Cosmetics.",high
+1573,"Doogle leaves","Cooking,Quests","Cooking",yes,"A seasoning herb with post-quest Cooking use, so Cooking; dropped Quests.",medium
+1575,"Cat training medal","Cosmetics","Cosmetics",no,"A purely cosmetic neck medal with no effect, so Cosmetics.",high
+1577,"Pete's candlestick","Quests","Quests",no,"A Heroes' Quest item, so Quests.",high
+1579,"Thieves' armband","Quests","Quests",no,"A Heroes' Quest item, so Quests.",high
+1580,"Ice gloves","Mining + Smithing,Misc,Quests","Mining + Smithing",yes,"Heat-protection gloves used in skilling and combinable with smiths gloves, so Mining + Smithing; dropped Misc and Quests.",medium
+1581,"Blamish snail slime","Fishing,Quests","Herblore",yes,"A Herblore ingredient for making blamish oil, so Herblore; dropped Fishing and Quests.",medium
+1582,"Blamish oil","Herblore,Quests","Herblore",yes,"Made via Herblore to oil a fishing rod, so Herblore; dropped Quests.",medium
+1583,"Fire feather","Quests","Quests",no,"A Heroes' Quest item that cannot be re-obtained, so Quests.",high
+1584,"Id papers","Quests","Quests",no,"A Heroes' Quest item, so Quests.",high
+1585,"Oily fishing rod","Fishing,Quests","Fishing",yes,"A Fishing tool for catching lava and infernal eels, usable outside the quest, so Fishing; dropped Quests.",medium
+1586,"Miscellaneous key","Quests","Quests",no,"A Heroes' Quest item, so Quests.",high
+1588,"Grip's keyring","Quests","Quests",no,"A Heroes' Quest item, so Quests.",high
+1590,"Dusty key","Misc","Misc",no,"A reusable Taverley Dungeon access key with no skill use, so Misc.",high
+1591,"Jail key","Misc","Misc",no,"A Taverley Dungeon access key with no skill use, so Misc.",high
+1592,"Ring mould","Crafting","Crafting",no,"A Crafting tool for making rings, so Crafting.",high
+1594,"Unholy mould","Crafting","Crafting",no,"A Crafting tool for making unholy symbols, so Crafting.",high
+1595,"Amulet mould","Crafting","Crafting",no,"A Crafting tool for making amulets, so Crafting.",high
+1597,"Necklace mould","Crafting","Crafting",no,"A Crafting tool for making necklaces, so Crafting.",high
+1599,"Holy mould","Crafting","Crafting",no,"A Crafting tool for making holy symbols, so Crafting.",high
+1601,"Diamond","Crafting","Crafting,Fletching",yes,"A cut gem set into jewellery (Crafting) and chiselled into bolt tips (Fletching), so Crafting and Fletching.",medium
+1603,"Ruby","Crafting","Crafting,Fletching",yes,"A cut gem set into jewellery (Crafting) and chiselled into bolt tips (Fletching), so Crafting and Fletching.",medium
+1605,"Emerald","Crafting","Crafting,Fletching",yes,"A cut gem set into jewellery (Crafting) and chiselled into bolt tips (Fletching), so Crafting and Fletching.",medium
+1607,"Sapphire","Crafting","Crafting,Fletching",yes,"A cut gem set into jewellery (Crafting) and chiselled into bolt tips (Fletching), so Crafting and Fletching.",medium
+1609,"Opal","Crafting","Crafting,Fletching",yes,"A cut gem chiselled into bolt tips (Fletching) and usable in Crafting, so Crafting and Fletching.",medium
+1611,"Jade","Crafting","Crafting,Fletching",yes,"A cut gem chiselled into bolt tips (Fletching) and usable in Crafting, so Crafting and Fletching.",medium
+1613,"Red topaz","Crafting","Crafting,Fletching",yes,"A cut gem chiselled into bolt tips (Fletching) and usable in Crafting, so Crafting and Fletching.",medium
+1615,"Dragonstone","Crafting","Crafting,Fletching",yes,"A cut gem set into jewellery (Crafting) and chiselled into bolt tips (Fletching), so Crafting and Fletching.",medium
+1617,"Uncut diamond","Crafting","Crafting",no,"A gem cut with a chisel via Crafting, so Crafting.",high
+1619,"Uncut ruby","Crafting","Crafting",no,"A gem cut with a chisel via Crafting, so Crafting.",high
+1621,"Uncut emerald","Crafting","Crafting",no,"A gem cut with a chisel via Crafting, so Crafting.",high
+1623,"Uncut sapphire","Crafting","Crafting",no,"A gem cut with a chisel via Crafting, so Crafting.",high
+1625,"Uncut opal","Crafting","Crafting",no,"A gem cut with a chisel via Crafting, so Crafting.",high
+1627,"Uncut jade","Crafting","Crafting",no,"A gem cut with a chisel via Crafting, so Crafting.",high
+1629,"Uncut red topaz","Crafting,Mining + Smithing","Crafting",yes,"A gem cut with a chisel via Crafting, so Crafting; dropped Mining + Smithing.",medium
+1631,"Uncut dragonstone","Crafting","Crafting",no,"A gem cut with a chisel via Crafting, so Crafting.",high
+1633,"Crushed gem","Crafting","Misc",yes,"A failed-gem-cut byproduct with no further use, so Misc; dropped Crafting.",medium
+1635,"Gold ring","Crafting","Crafting",no,"Unenchanted jewellery, so Crafting.",high
+1637,"Sapphire ring","Crafting","Crafting",no,"Unenchanted jewellery, so Crafting.",high
+1639,"Emerald ring","Crafting","Crafting",no,"Unenchanted jewellery, so Crafting.",high
+1641,"Ruby ring","Crafting","Crafting",no,"Unenchanted jewellery, so Crafting.",high
+1643,"Diamond ring","Crafting","Crafting",no,"Unenchanted jewellery, so Crafting.",high
+1645,"Dragonstone ring","Crafting,Mage","Crafting",yes,"Unenchanted jewellery with no bonuses, so Crafting; dropped Mage.",medium
+1647,"Black ring","Misc","Misc",no,"A jewellery-interface placeholder, so Misc.",high
+1654,"Gold necklace","Cosmetics,Crafting","Crafting",yes,"Unenchanted jewellery, so Crafting; dropped Cosmetics.",medium
+1656,"Sapphire necklace","Crafting","Crafting",no,"Unenchanted jewellery, so Crafting.",high
+1658,"Emerald necklace","Crafting","Crafting",no,"Unenchanted jewellery, so Crafting.",high
+1660,"Ruby necklace","Crafting","Crafting",no,"Unenchanted jewellery, so Crafting.",high
+1662,"Diamond necklace","Crafting","Crafting",no,"Unenchanted jewellery, so Crafting.",high
+1664,"Dragon necklace","Crafting,Mage","Crafting",yes,"Unenchanted dragonstone necklace with no bonuses, so Crafting; dropped Mage.",medium
+1666,"Black necklace","Misc","Misc",no,"A jewellery-interface placeholder, so Misc.",high
+1673,"Gold amulet (u)","Crafting","Crafting",no,"An unstrung crafted amulet, strung via Crafting, so Crafting.",high
+1675,"Sapphire amulet (u)","Crafting","Crafting",no,"An unstrung crafted amulet, strung via Crafting, so Crafting.",high
+1677,"Emerald amulet (u)","Crafting","Crafting",no,"An unstrung crafted amulet, strung via Crafting, so Crafting.",high
+1679,"Ruby amulet (u)","Crafting","Crafting",no,"An unstrung crafted amulet, strung via Crafting, so Crafting.",high
+1681,"Diamond amulet (u)","Crafting","Crafting",no,"An unstrung crafted amulet, strung via Crafting, so Crafting.",high
+1683,"Dragonstone amulet (u)","Crafting","Crafting",no,"An unstrung crafted amulet, strung via Crafting, so Crafting.",high
+1685,"Black amulet","Misc","Misc",no,"A jewellery-interface placeholder (null-named in game), so Misc.",high
+1692,"Gold amulet","Crafting","Crafting",no,"Strung unenchanted jewellery, so Crafting.",high
+1694,"Sapphire amulet","Crafting","Crafting",no,"Strung unenchanted jewellery, so Crafting.",high
+1696,"Emerald amulet","Crafting","Crafting",no,"Strung unenchanted jewellery, so Crafting.",high
+1698,"Ruby amulet","Crafting","Crafting",no,"Strung unenchanted jewellery, so Crafting.",high
+1700,"Diamond amulet","Crafting","Crafting",no,"Strung unenchanted jewellery, so Crafting.",high
+1702,"Dragonstone amulet","Crafting","Crafting",no,"Strung unenchanted jewellery, so Crafting.",high
+1704,"Amulet of glory","Melee,Misc","Melee,Range,Mage",yes,"An enchanted all-styles combat amulet (uncharged), so the three combat tabs; dropped Misc.",medium
+1706,"Amulet of glory(1)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"An enchanted all-styles combat amulet with teleport charges, so the three combat tabs plus Teleports; dropped Misc and Slayer.",medium
+1708,"Amulet of glory(2)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"An enchanted all-styles combat amulet with teleport charges, so the three combat tabs plus Teleports; dropped Misc and Slayer.",medium
+1710,"Amulet of glory(3)","Melee,Misc,Slayer","Melee,Range,Mage,Teleports",yes,"An enchanted all-styles combat amulet with teleport charges, so the three combat tabs plus Teleports; dropped Misc and Slayer.",medium
+1712,"Amulet of glory(4)","Melee,Misc,Slayer,Teleports","Melee,Range,Mage,Teleports",yes,"An enchanted all-styles combat amulet with teleport charges, so the three combat tabs plus Teleports; dropped Misc and Slayer.",medium
+1714,"Unstrung symbol","Crafting,Prayer","Crafting",yes,"A crafted symbol awaiting stringing, so Crafting; dropped Prayer.",medium
+1716,"Unblessed symbol","Crafting,Prayer","Prayer",yes,"A strung symbol consumed by the Prayer blessing into a holy symbol, so Prayer; dropped Crafting.",medium
+1718,"Holy symbol","Prayer,Quests","Prayer",yes,"A blessed Saradomin symbol with a prayer bonus, so Prayer; dropped Quests.",medium
+1720,"Unstrung emblem","Crafting","Crafting",no,"A crafted emblem awaiting stringing, so Crafting.",high
+1722,"Unpowered symbol","Crafting,Prayer","Prayer",yes,"A strung symbol consumed by the Prayer blessing into an unholy symbol, so Prayer; dropped Crafting.",medium
+1724,"Unholy symbol","Crafting,Prayer","Prayer",yes,"A blessed Zamorak symbol with a prayer bonus, so Prayer; dropped Crafting.",medium
+1725,"Amulet of strength","Melee","Melee",no,"An enchanted ruby amulet giving melee strength, so Melee.",high
+1727,"Amulet of magic","Mage","Mage",no,"An enchanted sapphire amulet giving magic attack, so Mage.",high
+1729,"Amulet of defence","Melee","Melee,Range,Mage",yes,"An enchanted amulet giving all-styles defence; non-style-specific combat jewellery spans the three combat tabs.",medium
+1731,"Amulet of power","Melee","Melee,Range,Mage",yes,"An enchanted amulet giving balanced all-styles attack and defence; non-style-specific combat jewellery spans the three combat tabs.",medium
+1733,"Needle","Crafting","Crafting",no,"A Crafting tool for stitching leather armour, so Crafting.",high
+1734,"Thread","Crafting","Crafting",no,"A Crafting consumable used with a needle, so Crafting.",high
+1735,"Shears","Crafting","Crafting",no,"A tool for shearing wool, a Crafting material, so Crafting.",high
+1737,"Wool","Crafting","Crafting",no,"Spun into a ball of wool via Crafting, so Crafting.",high
+1739,"Cowhide","Crafting","Crafting",no,"Tanned into leather for Crafting armour, so Crafting.",high
+1741,"Leather","Crafting","Crafting",no,"Stitched into leather armour via Crafting, so Crafting.",high
+1743,"Hard leather","Crafting","Crafting",no,"A Crafting material for hardleather armour, so Crafting.",high
+1745,"Green dragon leather","Crafting,Range","Crafting",yes,"A Crafting material for green d'hide armour, so Crafting; dropped Range as the leather itself is a crafting input.",medium
+1747,"Black dragonhide","Crafting","Crafting",no,"A hide tanned and crafted into d'hide armour, so Crafting.",high
+1749,"Red dragonhide","Crafting","Crafting",no,"A hide tanned and crafted into d'hide armour, so Crafting.",high
+1751,"Blue dragonhide","Crafting","Crafting",no,"A hide tanned and crafted into d'hide armour, so Crafting.",high
+1753,"Green dragonhide","Crafting","Crafting",no,"A hide tanned and crafted into d'hide armour, so Crafting.",high
+1755,"Chisel","Crafting,Misc","Crafting,Fletching",yes,"A tool used in Crafting (cut gems, limestone) and Fletching (gem bolt tips), so Crafting and Fletching; dropped Misc.",medium
+1757,"Brown apron","Crafting","Crafting",no,"A Crafting Guild access apron, so Crafting.",high
+1759,"Ball of wool","Crafting","Crafting",no,"A Crafting consumable for stringing amulets, so Crafting.",high
+1761,"Soft clay","Construction,Crafting","Construction,Crafting",no,"Used in Crafting (pottery) and Construction, so Construction and Crafting.",medium
+1763,"Red dye","Crafting,Quests","Crafting",yes,"Used to dye capes via Crafting, usable outside quests, so Crafting; dropped Quests.",medium
+1765,"Yellow dye","Misc,Quests","Crafting",yes,"Used to dye capes via Crafting, so Crafting; dropped Misc and Quests.",medium
+1767,"Blue dye","Crafting","Crafting",no,"Used to dye capes via Crafting, so Crafting.",high
+1769,"Orange dye","Quests","Crafting",yes,"Used to dye capes via Crafting, usable outside Goblin Diplomacy, so Crafting; dropped Quests.",medium
+1771,"Green dye","Crafting","Crafting",no,"Used to dye capes via Crafting, so Crafting.",high
+1773,"Purple dye","Crafting","Crafting",no,"Used to dye capes via Crafting, so Crafting.",high
+1775,"Molten glass","Construction,Crafting","Construction,Crafting",no,"Used in Crafting (glassblowing) and Construction, so Construction and Crafting.",high
+1777,"Bow string","Crafting,Fletching","Fletching",yes,"A spun string consumed by Fletching to string bows, so Fletching; dropped Crafting as the terminal spun output.",medium
+1779,"Flax","Crafting,Fletching","Crafting",yes,"Spun into bow string via Crafting, so Crafting; dropped Fletching as flax itself is not fletched.",medium
+1781,"Soda ash","Crafting","Crafting",no,"Smelted into molten glass via Crafting, so Crafting.",high
+1783,"Bucket of sand","Construction,Crafting","Construction,Crafting",no,"A glass ingredient feeding Crafting and Construction, so Construction and Crafting.",medium
+1785,"Glassblowing pipe","Crafting","Crafting",no,"A Crafting tool for blowing molten glass, so Crafting.",high
+1787,"Unfired pot","Crafting","Crafting",no,"A Crafting pottery intermediate, fired into a pot, so Crafting.",high
+1789,"Unfired pie dish","Crafting","Crafting",no,"A Crafting pottery intermediate, fired into a pie dish, so Crafting.",high
+1791,"Unfired bowl","Crafting","Crafting",no,"A Crafting pottery intermediate, fired into a bowl, so Crafting.",high
+1793,"Woad leaf","Crafting,Farming","Crafting,Farming",no,"Harvested from a Farming patch (exempt) and used in Crafting to make blue dye, so Crafting and Farming.",high
+1794,"Bronze wire","Crafting,Mining + Smithing","Crafting",yes,"A smithed wire used as a Crafting material, so Crafting; dropped Mining + Smithing as the finished output.",medium
+1796,"Silver necklace","Quests","Quests",no,"A Murder Mystery fingerprint item used only in the quest, so Quests.",high
+1798,"Silver cup","Quests","Quests",no,"A Murder Mystery fingerprint item used only in the quest, so Quests.",high
+1800,"Silver bottle","Quests","Quests",no,"A Murder Mystery fingerprint item used only in the quest, so Quests.",high
+1802,"Silver book","Quests","Quests",no,"A Murder Mystery fingerprint item used only in the quest, so Quests.",high
+1804,"Silver needle","Quests","Quests",no,"A Murder Mystery fingerprint item used only in the quest, so Quests.",high
+1806,"Silver pot","Quests","Quests",no,"A Murder Mystery fingerprint item used only in the quest, so Quests.",high
+1808,"Criminal's thread","Quests","Quests",no,"A Murder Mystery and King's Ransom quest item, so Quests.",high
+1811,"Flypaper","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1812,"Pungent pot","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1813,"Criminal's dagger","Quests","Quests",no,"A Murder Mystery quest evidence item, so Quests.",high
+1815,"Killer's print","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1816,"Anna's print","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1817,"Bob's print","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1818,"Carol's print","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1819,"David's print","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1820,"Elizabeth's print","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1821,"Frank's print","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1822,"Unknown print","Quests","Quests",no,"A Murder Mystery quest item, so Quests.",high
+1823,"Waterskin(4)","Misc","Misc",no,"A desert heat-protection utility item with no skill use, so Misc.",high
+1825,"Waterskin(3)","Misc","Misc",no,"A desert heat-protection utility item with no skill use, so Misc.",high
+1827,"Waterskin(2)","Misc","Misc",no,"A desert heat-protection utility item with no skill use, so Misc.",high
+1829,"Waterskin(1)","Misc","Misc",no,"A desert heat-protection utility item with no skill use, so Misc.",high
+1833,"Desert shirt","Misc,Quests","Misc",yes,"Desert heat-delay clothing with no stats, a utility item, so Misc; dropped Quests.",medium
+1835,"Desert robe","Misc,Quests","Misc",yes,"Desert heat-delay clothing with no stats, a utility item, so Misc; dropped Quests.",medium
+1837,"Desert boots","Misc","Misc",no,"Desert heat-delay footwear with no stats, a utility item, so Misc.",high
+1839,"Metal key","Misc,Quests","Quests",yes,"A Tourist Trap quest key for the Desert Mining Camp, so Quests; dropped Misc.",medium
+1840,"Cell door key","Misc,Quests","Quests",yes,"A Tourist Trap quest key, so Quests; dropped Misc.",medium
+1841,"Barrel","Quests","Quests",no,"A Tourist Trap quest item, so Quests.",high
+1842,"Ana in a barrel","Quests","Quests",no,"A Tourist Trap quest item, so Quests.",high
+1843,"Wrought iron key","Misc,Quests","Quests",yes,"A Tourist Trap quest key, so Quests; dropped Misc.",medium
+1844,"Slave shirt","Quests","Quests",no,"A Tourist Trap quest disguise item, so Quests.",high
+1845,"Slave robe","Quests","Quests",no,"A Tourist Trap quest disguise item, so Quests.",high
+1846,"Slave boots","Quests","Quests",no,"A Tourist Trap quest disguise item, so Quests.",high
+1847,"Scrumpled paper","Cooking","Cooking",no,"An Ugthanki kebab recipe item, so Cooking.",medium
+1848,"Shantay disclaimer","Misc","Misc",no,"An unobtainable removed item, so Misc.",high
+1849,"Prototype dart","Quests","Quests",no,"A Tourist Trap quest item, so Quests.",high
+1850,"Technical plans","Quests","Quests",no,"A Tourist Trap quest item, so Quests.",high
+1851,"Tenti pineapple","Quests","Quests",no,"A Tourist Trap quest pineapple, so Quests.",medium
+1852,"Bedabin key","Misc,Quests","Quests",yes,"A Tourist Trap quest key, so Quests; dropped Misc.",medium
+1853,"Prototype dart tip","Quests","Quests",no,"A Tourist Trap quest item, so Quests.",high
+1854,"Shantay pass","Misc","Misc",no,"A desert gate access pass with no skill use, so Misc.",high
+1855,"Rock","Quests","Quests",no,"A Tourist Trap quest jail-mining rock, so Quests.",high
+1856,"Guide book","Quests","Quests",no,"A quest item, so Quests.",high
+1857,"Totem","Quests","Quests",no,"A Tribal Totem quest item, so Quests.",high
+1858,"Address label","Quests","Quests",no,"A Tribal Totem quest item, so Quests.",high
+1859,"Raw ugthanki meat","Cooking","Cooking",no,"A raw food cooked via Cooking, so Cooking.",high
+1861,"Ugthanki meat","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A cooked edible food, so Cooking plus all four combat tabs per the food rule.",medium
+1863,"Pitta dough","Cooking","Cooking",no,"A Cooking intermediate baked into pitta bread, so Cooking.",high
+1865,"Pitta bread","Cooking","Cooking",no,"A kebab-chain intermediate that needs more ingredients, so Cooking.",medium
+1867,"Burnt pitta bread","Cooking","Cooking",no,"Burnt, inedible food, so Cooking only.",high
+1869,"Chopped tomato","Cooking","Cooking",no,"A Cooking prep intermediate, so Cooking.",high
+1871,"Chopped onion","Cooking","Cooking",no,"A Cooking prep intermediate, so Cooking.",high
+1873,"Chopped ugthanki","Cooking","Cooking",no,"A kebab-chain intermediate, so Cooking.",high
+1875,"Onion & tomato","Cooking","Cooking",no,"A kebab-chain intermediate, so Cooking.",high
+1877,"Ugthanki & onion","Cooking","Cooking",no,"A kebab-chain intermediate, so Cooking.",high
+1879,"Ugthanki & tomato","Cooking","Cooking",no,"A kebab-chain intermediate, so Cooking.",high
+1881,"Kebab mix","Cooking","Cooking",no,"A kebab-chain intermediate, so Cooking.",high
+1883,"Ugthanki kebab","Cooking","Cooking",no,"The bad (near-failed) kebab variant that usually heals nothing, so Cooking only.",medium
+1885,"Ugthanki kebab","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A cooked edible food healing 19, so Cooking plus all four combat tabs.",medium
+1887,"Cake tin","Cooking","Cooking",no,"A Cooking tool for baking cakes, so Cooking.",high
+1889,"Uncooked cake","Cooking","Cooking",no,"A Cooking intermediate baked into a cake, so Cooking.",high
+1891,"Cake","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A cooked edible food, so Cooking plus all four combat tabs.",medium
+1897,"Chocolate cake","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A cooked edible food, so Cooking plus all four combat tabs.",medium
+1903,"Burnt cake","Cooking","Cooking",no,"Burnt, inedible food, so Cooking only.",high
+1905,"Asgarnian ale","Cooking","Cooking,Melee",yes,"A brewed ale that boosts Strength, so Cooking plus Melee.",medium
+1907,"Wizard's mind bomb","Mage","Cooking,Mage",yes,"A brewed ale that boosts Magic, so Cooking plus Mage.",medium
+1909,"Greenman's ale","Cooking,Herblore,Quests","Cooking,Herblore",yes,"A brewed ale that boosts Herblore, so Cooking plus Herblore; dropped Quests.",medium
+1911,"Dragon bitter","Cooking,Melee","Cooking,Melee",no,"A brewed ale that boosts Strength, so Cooking plus Melee.",medium
+1913,"Dwarven stout","Cooking,Mining + Smithing","Cooking,Mining + Smithing",no,"A brewed ale that boosts Mining and Smithing, so Cooking plus Mining + Smithing.",medium
+1915,"Grog","Melee","Melee",no,"An unbrewable drink that boosts Strength, so Melee.",medium
+1917,"Beer","Cooking","Cooking,Melee",yes,"An ale that boosts Strength, so Cooking plus Melee.",medium
+1919,"Beer glass","Crafting","Crafting",no,"A glassblown vessel, a Crafting product, so Crafting.",high
+1921,"Bowl of water","Cooking","Cooking",no,"A Cooking ingredient vessel, so Cooking.",high
+1923,"Bowl","Cooking,Crafting","Cooking,Crafting",no,"A Cooking vessel and a Crafting pottery product, so Cooking and Crafting.",medium
+1925,"Bucket","Cooking,Crafting,Farming,Misc","Cooking,Crafting,Farming",yes,"A multi-skill vessel used in Cooking, Crafting, and Farming, so those tabs; dropped Misc.",medium
+1927,"Bucket of milk","Cooking","Cooking",no,"A Cooking ingredient, so Cooking.",high
+1929,"Bucket of water","Cooking,Farming,Misc","Cooking,Farming",yes,"Used in Cooking and to water Farming patches, so Cooking and Farming; dropped Misc.",medium
+1931,"Pot","Cooking,Crafting","Cooking,Crafting",no,"A Cooking vessel and a Crafting pottery product, so Cooking and Crafting.",medium
+1933,"Pot of flour","Cooking","Cooking",no,"A Cooking ingredient, so Cooking.",high
+1935,"Jug","Cooking","Cooking",no,"A Cooking vessel for water and wine, so Cooking.",high
+1937,"Jug of water","Cooking","Cooking",no,"A Cooking ingredient, so Cooking.",high
+1939,"Swamp tar","Herblore,Hunter","Herblore,Hunter",no,"Used to make herb tars in Herblore for Hunter, so Herblore and Hunter.",medium
+1940,"Raw swamp paste","Cooking","Cooking",no,"Cooked into swamp paste via Cooking, so Cooking.",high
+1941,"Swamp paste","Cooking,Misc","Cooking",yes,"A cooked utility paste, a Cooking product, so Cooking; dropped Misc.",medium
+1942,"Potato","Cooking,Farming","Cooking,Farming",no,"Grown via Farming (exempt) and used in Cooking, so Cooking and Farming.",high
+1944,"Egg","Cooking","Cooking",no,"A Cooking ingredient, so Cooking.",high
+1946,"Flour","Cooking","Cooking",no,"A discontinued Cooking ingredient (flour heap), so Cooking.",high
+1947,"Grain","Cooking,Farming","Cooking,Farming",no,"Picked from wheat fields (Farming) and milled for Cooking, so Cooking and Farming.",high
+1949,"Chef's hat","Cooking,Cosmetics","Cooking",yes,"A Cooks' Guild access hat, so Cooking; dropped Cosmetics.",medium
+1951,"Redberries","Cooking,Crafting,Farming","Cooking,Crafting,Farming",no,"Harvested (Farming) and used in Cooking (pie) and Crafting (red dye), so all three.",high
+1953,"Pastry dough","Cooking","Cooking",no,"A Cooking intermediate for pie shells, so Cooking.",high
+1955,"Cooking apple","Cooking,Farming","Cooking,Farming",no,"Harvested (Farming) and used in Cooking (apple pie), so Cooking and Farming.",high
+1957,"Onion","Cooking,Farming","Cooking,Farming",no,"A farmed raw vegetable used in Cooking, so Cooking and Farming.",high
+1959,"Pumpkin","Cosmetics","Cosmetics",no,"A Halloween holiday rare, so Cosmetics.",high
+1961,"Easter egg","Cosmetics","Cosmetics",no,"An Easter holiday item, so Cosmetics.",high
+1963,"Banana","Cooking,Farming","Cooking,Farming",no,"A farmed raw fruit used in Cooking, so Cooking and Farming.",high
+1965,"Cabbage","Cooking,Farming","Cooking,Farming",no,"A farmed raw vegetable used in Cooking, so Cooking and Farming.",high
+1967,"Cabbage","Melee","Melee",no,"The Draynor cabbage grants a temporary Defence boost, so Melee.",medium
+1969,"Spinach roll","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A finished edible healing food, so Cooking plus all four combat tabs.",medium
+1971,"Kebab","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A finished edible healing food, so Cooking plus all four combat tabs.",medium
+1973,"Chocolate bar","Cooking,Herblore","Cooking",yes,"A Cooking ingredient ground into chocolate dust, so Cooking; dropped Herblore.",medium
+1975,"Chocolate dust","Cooking,Herblore","Cooking",yes,"A Cooking ingredient (chocolate cake, choc drinks), so Cooking; dropped Herblore.",medium
+1977,"Chocolatey milk","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A finished healing drink, so Cooking plus all four combat tabs.",medium
+1978,"Cup of tea","Melee,Quests","Melee",yes,"A drink that boosts Attack, so Melee; dropped Quests.",medium
+1980,"Empty cup","Cooking,Herblore","Cooking",yes,"A tea vessel, so Cooking; dropped Herblore.",medium
+1982,"Tomato","Cooking,Farming","Cooking,Farming",no,"A farmed raw vegetable used in Cooking, so Cooking and Farming.",high
+1984,"Rotten apple","Quests","Quests",no,"A Biohazard and Mourning's End quest item that cannot be eaten, so Quests.",high
+1985,"Cheese","Cooking","Cooking",no,"A Cooking ingredient for pizza and topped potatoes, so Cooking.",medium
+1987,"Grapes","Cooking,Farming","Cooking,Farming",no,"Farmed and used in Cooking to make wine, so Cooking and Farming.",high
+1989,"Half full wine jug","Cosmetics","Cosmetics",no,"A holiday-event drink reward, so Cosmetics.",medium
+1991,"Jug of bad wine","Cooking","Cooking",no,"A failed wine (like burnt food), so Cooking only.",high
+1992,"Jug of bad wine","Misc","Misc",no,"A discontinued, unobtainable stackable version, so Misc.",high
+1993,"Jug of wine","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A finished healing drink (heals 11), so Cooking plus all four combat tabs.",medium
+1995,"Unfermented wine","Cooking","Cooking",no,"A Cooking intermediate that ferments into wine, so Cooking.",high
+1996,"Unfermented wine","Cooking","Cooking",no,"A discontinued stackable version of unfermented wine, so Cooking.",medium
+1997,"Incomplete stew","Cooking","Cooking",no,"A Cooking intermediate, so Cooking.",high
+2001,"Uncooked stew","Cooking","Cooking",no,"A Cooking intermediate, so Cooking.",high
+2003,"Stew","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A finished edible healing food (heals 11), so Cooking plus all four combat tabs.",medium
+2005,"Burnt stew","Cooking","Cooking",no,"Burnt, inedible food, so Cooking only.",high
+2007,"Spice","Cooking","Cooking",no,"A Cooking ingredient for curries, so Cooking.",high
+2009,"Uncooked curry","Cooking","Cooking",no,"A Cooking intermediate, so Cooking.",high
+2011,"Curry","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A finished edible healing food (heals 19), so Cooking plus all four combat tabs.",medium
+2013,"Burnt curry","Cooking","Cooking",no,"Burnt, inedible food, so Cooking only.",high
+2015,"Vodka","Cooking","Cooking",no,"A gnome-cocktail spirit ingredient, so Cooking.",medium
+2017,"Whisky","Cooking,Melee","Cooking,Melee",no,"A brewed drink that boosts Strength and a gnome-cocktail ingredient, so Cooking plus Melee.",medium
+2019,"Gin","Cooking","Cooking,Melee",yes,"A spirit that boosts Strength and a cocktail ingredient, so Cooking plus Melee.",medium
+2021,"Brandy","Cooking,Melee","Cooking,Melee",no,"A spirit that boosts Strength and a cocktail ingredient, so Cooking plus Melee.",medium
+2023,"Cocktail guide","Cooking","Cooking",no,"A gnome-cocktail recipe book, so Cooking.",high
+2025,"Cocktail shaker","Cooking","Cooking",no,"A Cooking tool for mixing cocktails, so Cooking.",high
+2026,"Cocktail glass","Cooking","Cooking",no,"A cocktail vessel used in Cooking, so Cooking.",high
+2028,"Premade blurb' sp.","Cooking,Melee","Cooking,Melee",no,"A premade Strength-boost cocktail, so Cooking plus Melee.",medium
+2030,"Premade choc s'dy","Cooking","Cooking,Melee",yes,"A premade Strength-boost cocktail, so Cooking plus Melee.",medium
+2032,"Premade dr' dragon","Cooking,Melee","Cooking,Melee",no,"A premade Strength-boost cocktail, so Cooking plus Melee.",medium
+2034,"Premade fr' blast","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A premade pure-heal fruit drink, so Cooking plus all four combat tabs.",medium
+2036,"Premade p' punch","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A premade pure-heal fruit drink, so Cooking plus all four combat tabs.",medium
+2038,"Premade sgg","Melee","Cooking,Melee",yes,"A premade Strength-boost cocktail, so Cooking plus Melee.",medium
+2040,"Premade wiz blz'd","Cooking,Melee","Cooking,Melee",no,"A premade Strength-boost cocktail, so Cooking plus Melee.",medium
+2042,"Unfinished cocktail","Cooking","Cooking",no,"A gnome-cocktail intermediate, so Cooking.",high
+2048,"Pineapple punch","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A finished pure-heal fruit drink (heals 9), so Cooking plus all four combat tabs.",medium
+2050,"Unfinished cocktail","Cooking","Cooking",no,"A gnome-cocktail intermediate, so Cooking.",high
+2054,"Wizard blizzard","Cooking,Melee","Cooking,Melee",no,"A Strength-boost cocktail, so Cooking plus Melee.",medium
+2056,"Unfinished cocktail","Cooking","Cooking",no,"A gnome-cocktail intermediate, so Cooking.",high
+2064,"Blurberry special","Cooking,Melee","Cooking,Melee",no,"A Strength-boost cocktail, so Cooking plus Melee.",medium
+2066,"Unfinished cocktail","Cooking","Cooking",no,"A gnome-cocktail intermediate, so Cooking.",high
+2074,"Choc saturday","Cooking","Cooking,Melee",yes,"A Strength-boost cocktail, so Cooking plus Melee.",medium
+2076,"Unfinished cocktail","Cooking","Cooking",no,"A gnome-cocktail intermediate, so Cooking.",high
+2080,"Short green guy","Cooking,Melee","Cooking,Melee",no,"A Strength-boost cocktail, so Cooking plus Melee.",medium
+2082,"Unfinished cocktail","Cooking","Cooking",no,"A gnome-cocktail intermediate, so Cooking.",high
+2084,"Fruit blast","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A finished pure-heal fruit drink (heals 9), so Cooking plus all four combat tabs.",medium
+2086,"Unfinished cocktail","Cooking","Cooking",no,"A gnome-cocktail intermediate, so Cooking.",high
+2092,"Drunk dragon","Cooking,Melee","Cooking,Melee",no,"A Strength-boost cocktail, so Cooking plus Melee.",medium
+2094,"Odd cocktail","Cooking","Cooking",no,"An unobtainable failed cocktail, so Cooking.",medium
+2102,"Lemon","Cooking","Cooking",no,"A gnome-cooking fruit ingredient, so Cooking.",high
+2104,"Lemon chunks","Cooking","Cooking",no,"A cooking ingredient diced from a lemon, so Cooking.",high
+2106,"Lemon slices","Cooking","Cooking",no,"A cooking ingredient sliced from a lemon, so Cooking.",high
+2108,"Orange","Cooking,Farming","Cooking,Farming",no,"A farmed fruit used in gnome cooking, so Cooking and Farming.",high
+2110,"Orange chunks","Cooking","Cooking",no,"A cooking ingredient diced from an orange, so Cooking.",high
+2112,"Orange slices","Cooking","Cooking",no,"A cooking ingredient sliced from an orange, so Cooking.",high
+2114,"Pineapple","Cooking,Farming","Cooking,Farming",no,"A farmed fruit used in gnome cooking, so Cooking and Farming.",high
+2116,"Pineapple chunks","Cooking","Cooking",no,"A cooking ingredient diced from a pineapple, so Cooking.",high
+2118,"Pineapple ring","Cooking","Cooking",no,"A pizza topping ingredient, so Cooking.",high
+2120,"Lime","Cooking","Cooking",no,"A gnome-cooking fruit ingredient, so Cooking.",high
+2122,"Lime chunks","Cooking","Cooking",no,"A cooking ingredient diced from a lime, so Cooking.",high
+2124,"Lime slices","Cooking","Cooking",no,"A cooking ingredient sliced from a lime, so Cooking.",high
+2126,"Dwellberries","Cooking,Farming,Quests","Cooking,Farming",yes,"Farmed berries used in gnome cooking, so Cooking and Farming; dropped Quests.",medium
+2128,"Equa leaves","Cooking","Cooking",no,"A gnome-cooking ingredient, so Cooking.",high
+2130,"Pot of cream","Cooking","Cooking",no,"A Cooking ingredient churned from milk, so Cooking.",high
+2132,"Raw beef","Cooking","Cooking",no,"A raw food cooked via Cooking, so Cooking.",high
+2134,"Raw rat meat","Cooking","Cooking,Hunter",yes,"A raw food cooked via Cooking, also Hunter bait for sabre-toothed kebbits, so Cooking and Hunter.",medium
+2136,"Raw bear meat","Cooking","Cooking",no,"A raw food cooked via Cooking, so Cooking.",high
+2138,"Raw chicken","Cooking","Cooking",no,"A raw food cooked via Cooking, so Cooking.",high
+2140,"Cooked chicken","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A cooked edible food, so Cooking plus all four combat tabs.",medium
+2142,"Cooked meat","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A cooked edible food, so Cooking plus all four combat tabs.",medium
+2144,"Burnt chicken","Cooking","Cooking",no,"Burnt, inedible food, so Cooking only.",high
+2146,"Burnt meat","Cooking","Cooking",no,"Burnt, inedible food, so Cooking only.",high
+2148,"Raw lava eel","Fishing,Quests","Fishing,Cooking",yes,"A raw fish caught via Fishing (exempt) and cooked via Cooking, so Fishing and Cooking; dropped Quests.",medium
+2149,"Lava eel","Fishing,Quests","Cooking,Melee,Range,Mage,Slayer",yes,"A cooked edible fish, so Cooking plus all four combat tabs; dropped Quests.",medium
+2150,"Swamp toad","Cooking,Herblore","Cooking,Herblore",no,"Yields toad's legs used in Cooking and Herblore (agility potion), so Cooking and Herblore.",high
+2152,"Toad's legs","Cooking,Herblore","Cooking,Herblore",no,"Used in gnome Cooking and as an Agility-potion secondary in Herblore, so Cooking and Herblore.",high
+2154,"Equa toad's legs","Cooking","Cooking",no,"A gnome-cooking intermediate, so Cooking.",high
+2156,"Spicy toad's legs","Cooking","Cooking",no,"A gnome-cooking intermediate, so Cooking.",high
+2158,"Seasoned legs","Cooking","Cooking",no,"A gnome-cooking intermediate, so Cooking.",high
+2160,"Spicy worm","Cooking","Cooking",no,"A gnome-cooking intermediate, so Cooking.",high
+2162,"King worm","Cooking,Fishing","Cooking",yes,"A gnome-cooking ingredient, so Cooking; dropped Fishing as it is not a standard bait.",medium
+2164,"Batta tin","Cooking","Cooking",no,"A gnome-cooking baking tool, so Cooking.",high
+2165,"Crunchy tray","Cooking","Cooking",no,"A gnome-cooking baking tool, so Cooking.",high
+2166,"Gnomebowl mould","Cooking","Cooking",no,"A gnome-cooking baking tool, so Cooking.",high
+2167,"Gianne's cook book","Cooking","Cooking",no,"A gnome-cooking recipe book, so Cooking.",high
+2169,"Gnome spice","Cooking","Cooking",no,"A gnome-cooking ingredient, so Cooking.",high
+2171,"Gianne dough","Cooking","Cooking",no,"A gnome-cooking dough ingredient, so Cooking.",high
+2173,"Odd gnomebowl","Cooking","Cooking",no,"A gnome-cooking failure item, so Cooking.",high
+2175,"Burnt gnomebowl","Cooking","Cooking",no,"Burnt food, so Cooking only.",high
+2177,"Half baked bowl","Cooking","Cooking",no,"A gnomebowl-cooking intermediate, so Cooking.",high
+2178,"Raw gnomebowl","Cooking","Cooking",no,"A gnomebowl-cooking intermediate, so Cooking.",high
+2179,"Unfinished bowl","Cooking","Cooking",no,"A gnomebowl-cooking intermediate, so Cooking.",high
+2185,"Chocolate bomb","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A finished edible gnome food (heals 15), so Cooking plus all four combat tabs.",medium
+2187,"Tangled toad's legs","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A finished edible gnome food (heals 15), so Cooking plus all four combat tabs.",medium
+2189,"Unfinished bowl","Cooking","Cooking",no,"A gnomebowl-cooking intermediate, so Cooking.",high
+2191,"Worm hole","Cooking,Melee","Cooking,Melee,Range,Mage,Slayer",yes,"A finished edible gnome food (heals 12), so Cooking plus all four combat tabs.",medium
+2193,"Unfinished bowl","Cooking","Cooking",no,"A gnomebowl-cooking intermediate, so Cooking.",high
+2195,"Veg ball","Cooking","Cooking,Melee,Range,Mage,Slayer",yes,"A finished edible gnome food (heals 12), so Cooking plus all four combat tabs.",medium
+2197,"Odd crunchies","Cooking","Cooking",no,"A gnome-cooking failure item, so Cooking.",high
+2199,"Burnt crunchies","Cooking","Cooking",no,"Burnt food, so Cooking only.",high

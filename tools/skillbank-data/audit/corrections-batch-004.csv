@@ -1,0 +1,41 @@
+id,name,from_tabs,to_tabs,reason,source
+8417,"Bagged dead tree","Construction,Farming","Construction","Matt batch-4 audit: a bagged garden decoration is a Construction input; the Farming XP it gives on planting is a side effect, not a Farming input. New rule: XP given != skill input.",matt-audit-batch-004
+8419,"Bagged nice tree","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8421,"Bagged oak tree","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8423,"Bagged willow tree","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8425,"Bagged maple tree","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8427,"Bagged yew tree","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8429,"Bagged magic tree","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8431,"Bagged plant 1","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8433,"Bagged plant 2","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8435,"Bagged plant 3","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8437,"Thorny hedge","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8439,"Nice hedge","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8441,"Small box hedge","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8443,"Topiary hedge","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8445,"Fancy hedge","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8447,"Tall fancy hedge","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8449,"Tall box hedge","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8451,"Bagged flower","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8453,"Bagged daffodils","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8455,"Bagged bluebells","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8457,"Bagged sunflower","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8459,"Bagged marigolds","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+8461,"Bagged roses","Construction,Farming","Construction","Matt batch-4 audit: Construction input, not Farming input (XP given != input).",matt-audit-batch-004
+9026,"Ivory comb","Misc","Agility + Thieving","Matt batch-4 audit: unique Thieving outputs/currency (Pyramid Plunder artefacts, marks of grace, unique keys/valuables) DO go in Agility + Thieving. Only non-unique items that are another skill's input (gems, cakes) go elsewhere.",matt-audit-batch-004
+9028,"Golden scarab","Misc","Agility + Thieving","Matt batch-4 audit: unique Thieving output/currency -> Agility + Thieving.",matt-audit-batch-004
+9030,"Stone scarab","Misc","Agility + Thieving","Matt batch-4 audit: unique Thieving output/currency -> Agility + Thieving.",matt-audit-batch-004
+9032,"Pottery scarab","Misc","Agility + Thieving","Matt batch-4 audit: unique Thieving output/currency -> Agility + Thieving.",matt-audit-batch-004
+9034,"Golden statuette","Misc","Agility + Thieving","Matt batch-4 audit: unique Thieving output/currency -> Agility + Thieving.",matt-audit-batch-004
+9036,"Pottery statuette","Misc","Agility + Thieving","Matt batch-4 audit: unique Thieving output/currency -> Agility + Thieving.",matt-audit-batch-004
+9038,"Stone statuette","Misc","Agility + Thieving","Matt batch-4 audit: unique Thieving output/currency -> Agility + Thieving.",matt-audit-batch-004
+9040,"Gold seal","Misc","Agility + Thieving","Matt batch-4 audit: unique Thieving output/currency -> Agility + Thieving.",matt-audit-batch-004
+9042,"Stone seal","Misc","Agility + Thieving","Matt batch-4 audit: unique Thieving output/currency -> Agility + Thieving.",matt-audit-batch-004
+9436,"Sinew","Cooking,Crafting","Crafting","Matt batch-4 audit: remove Cooking; the cooked-from-meat link is a singular gut-feel exception. Spun into crossbow string -> Crafting only.",matt-audit-batch-004
+9469,"Grand seed pod","Farming,Teleports","Teleports","Matt batch-4 audit: teleport only; granting Farming XP on launch is not the same as being a Farming input/output.",matt-audit-batch-004
+9634,"Vyrewatch top","Cosmetics","Quests,Cosmetics","Matt batch-4 audit: a disguise outfit's only real use is the quest content, with cosmetic wear afterward -> Quests + Cosmetics.",matt-audit-batch-004
+9636,"Vyrewatch legs","Cosmetics","Quests,Cosmetics","Matt batch-4 audit: disguise outfit -> Quests + Cosmetics.",matt-audit-batch-004
+9638,"Vyrewatch shoes","Cosmetics","Quests,Cosmetics","Matt batch-4 audit: disguise outfit -> Quests + Cosmetics.",matt-audit-batch-004
+9640,"Citizen top","Cosmetics","Quests,Cosmetics","Matt batch-4 audit: disguise outfit, only real use in quests -> Quests + Cosmetics.",matt-audit-batch-004
+9642,"Citizen trousers","Cosmetics","Quests,Cosmetics","Matt batch-4 audit: disguise outfit, only real use in quests -> Quests + Cosmetics.",matt-audit-batch-004
+9644,"Citizen shoes","Cosmetics","Quests,Cosmetics","Matt batch-4 audit: disguise outfit, only real use in quests -> Quests + Cosmetics.",matt-audit-batch-004
