@@ -36,13 +36,34 @@ public final class ItemMeta
 	@com.google.gson.annotations.SerializedName("s")
 	public final Map<String, String> sections;
 
+	/** Brief #69: osrsbox equipment.requirements ({@code {"attack":70}} etc.).
+	 *  Used by the combat-tab zone partitioner to apply a 60+ level cutoff
+	 *  for Zone 1 (loadout) vs Zone 2 (chaff). Null when the item carries
+	 *  no requirement data (most non-equipment + many quest items). */
+	@com.google.gson.annotations.SerializedName("rq")
+	public final Map<String, Integer> requirements;
+
 	public ItemMeta(int tier, String weaponClass, String slot, String category,
-		Map<String, String> sections)
+		Map<String, String> sections, Map<String, Integer> requirements)
 	{
 		this.tier = tier;
 		this.weaponClass = weaponClass;
 		this.slot = slot;
 		this.category = category;
 		this.sections = sections;
+		this.requirements = requirements;
+	}
+
+	/** Look up a skill requirement (e.g. "attack", "defence", "ranged",
+	 *  "magic", "strength"). Returns 0 if the item has no requirements
+	 *  map or the requested skill is absent. */
+	public int requirement(String skill)
+	{
+		if (requirements == null || skill == null)
+		{
+			return 0;
+		}
+		Integer v = requirements.get(skill);
+		return v != null ? v : 0;
 	}
 }

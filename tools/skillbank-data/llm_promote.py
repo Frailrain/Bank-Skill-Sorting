@@ -477,6 +477,12 @@ def emit_item_metadata(
             entry["wc"] = weapon_class
         if slot:
             entry["sl"] = slot
+        # Brief #69: emit osrsbox equipment.requirements so the combat
+        # zone partitioner can apply a 60+ level cutoff.
+        reqs = eq.get("requirements")
+        if reqs and isinstance(reqs, dict):
+            entry["rq"] = {k: int(v) for k, v in reqs.items()
+                            if isinstance(v, (int, float))}
         meta[str(iid)] = entry
 
     output_json_path.parent.mkdir(parents=True, exist_ok=True)

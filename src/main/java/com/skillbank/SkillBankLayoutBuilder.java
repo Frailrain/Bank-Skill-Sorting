@@ -216,7 +216,16 @@ public class SkillBankLayoutBuilder
 			List<Integer> sec2 = new ArrayList<>();
 			if (twoZone)
 			{
-				partitionTopTiers(items, section, tagName, sec1, sec2);
+				// Brief #69: combat tabs use a 60+ requirement-level cutoff.
+				// Skilling tabs keep the original top-N tiers heuristic.
+				if (isCombatTab(tagName))
+				{
+					partitionByRequirement(items, section, tagName, sec1, sec2);
+				}
+				else
+				{
+					partitionTopTiers(items, section, tagName, sec1, sec2);
+				}
 			}
 			else
 			{
@@ -440,6 +449,77 @@ public class SkillBankLayoutBuilder
 			return 3;
 		}
 		return 2;
+	}
+
+	// ── Brief #69: combat-tab zone partition ────────────────────────────────
+
+	private static final int COMBAT_ZONE1_THRESHOLD = 60;
+	private static final int COMBAT_ZONE1_TIER_FALLBACK = 80;  // dragon
+
+	private static boolean isCombatTab(String tag)
+	{
+		return "melee".equals(tag) || "range".equals(tag) || "mage".equals(tag);
+	}
+
+	/**
+	 * Brief #69: combat-tab loadout/chaff split by skill-level requirement.
+	 * Weapons need 60+ in the tab's offensive skill (Attack / Ranged / Magic),
+	 * armour and shields need 60+ Defence. Capes, Neck, and Rings always
+	 * route to Zone 1 since their endgame items mostly carry no level
+	 * requirement and the sections are small enough that surfacing
+	 * everything beats trying to filter. Items missing requirement data
+	 * fall back to tier ≥ 80 (dragon-equivalent) as the Zone 1 gate.
+	 */
+	private void partitionByRequirement(
+		List<Integer> sectionItems, String section, String tagName,
+		List<Integer> zone1, List<Integer> zone2)
+	{
+		Map<Integer, ItemMeta> meta = SkillBankSortData.itemMeta();
+		// Capes / Neck / Rings — every item to Zone 1.
+		if ("Capes".equals(section) || "Neck".equals(section) || "Rings".equals(section))
+		{
+			zone1.addAll(sectionItems);
+			return;
+		}
+		String reqSkill = combatRequirementSkill(section, tagName);
+		for (Integer iid : sectionItems)
+		{
+			ItemMeta m = meta.get(iid);
+			if (m == null)
+			{
+				zone2.add(iid);
+				continue;
+			}
+			int req = m.requirement(reqSkill);
+			if (req >= COMBAT_ZONE1_THRESHOLD)
+			{
+				zone1.add(iid);
+			}
+			else if (req == 0 && m.tier >= COMBAT_ZONE1_TIER_FALLBACK)
+			{
+				zone1.add(iid);
+			}
+			else
+			{
+				zone2.add(iid);
+			}
+		}
+	}
+
+	/** Which skill the {@code 60+} threshold checks for this (section, tab) pair.
+	 *  Weapons + Ammunition gate on the tab's offensive skill (attack/ranged/
+	 *  magic); armour and shields gate on defence. */
+	private static String combatRequirementSkill(String section, String tagName)
+	{
+		if ("Weapons".equals(section) || "Ammunition".equals(section))
+		{
+			if ("range".equals(tagName)) return "ranged";
+			if ("mage".equals(tagName)) return "magic";
+			return "attack";
+		}
+		// Head, Body, Legs, Hands, Feet, Shields & defenders, Shields & off-hands,
+		// Off-hands & books & tomes — all gate on defence.
+		return "defence";
 	}
 
 	// ── Comparators ────────────────────────────────────────────────────────
