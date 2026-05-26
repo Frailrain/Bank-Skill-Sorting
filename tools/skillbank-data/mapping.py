@@ -1749,6 +1749,41 @@ _FLETCHING_FINISHED_JAVELINS = [
     "Adamant javelin", "Rune javelin", "Dragon javelin",
 ]
 
+# Brief #78: items the LLM tags into fletching for incidental material
+# relevance, but that don't belong in the fletching workflow tab. Each
+# item stays in its primary skill tab (gems in crafting, nails in
+# construction, wood shields in melee, raw hunter drops in hunter, etc.).
+# Re-applies the cleanup if the LLM ever re-classifies them into fletching.
+_FLETCHING_INCIDENTAL_EXCLUDES = [
+    # Construction
+    "Bronze nails", "Iron nails", "Steel nails", "Black nails",
+    "Mithril nails", "Adamantite nails", "Rune nails",
+    # Crafting tools + raw gems (the gem-TIPPED bolts stay in fletching)
+    "Chisel",
+    "Sapphire", "Emerald", "Ruby", "Diamond", "Dragonstone",
+    "Opal", "Jade", "Red topaz", "Onyx", "Amethyst",
+    # Forestry wood shields (live in melee — Fletching XP source but
+    # the finished product is a melee shield)
+    "Oak shield", "Willow shield", "Maple shield",
+    "Yew shield", "Magic shield", "Redwood shield",
+    # Hunter raw drops + spears (kebbit bolts are fletched, raws aren't)
+    "Hunter's spear", "Hunter spear tips",
+    "Kebbit spike", "Long kebbit spike",
+    "Sunlight antelope antler", "Moonlight antelope antler",
+    # Multi-skill boss drops (live primarily in crafting + smithing)
+    "Scurrius' spine", "Tormented synapse",
+    # Cooking items with fletching boost/drain — they're food
+    "Eclipse red", "Dragonfruit pie",
+    # Prayer / slayer drops (chiselling them is downstream)
+    "Wolf bones", "Tanzanite fang",
+    # Wintertodt materials (firemaking)
+    "Bruma root", "Bruma kindling",
+    # Farming material
+    "Celastrus bark",
+    # Deadman cosmetic
+    "Sigil of the fletcher",
+]
+
 FLETCHING = TabSpec(
     name="fletching", const_name="TAG_FLETCHING",
     sections=[
@@ -1764,6 +1799,7 @@ FLETCHING = TabSpec(
             force_include=_FLETCHING_STRUNG_BOWS + _FLETCHING_FINISHED_ARROWS
                           + _FLETCHING_FINISHED_BOLTS + _FLETCHING_FINISHED_DARTS
                           + _FLETCHING_FINISHED_JAVELINS,
+            force_exclude=_FLETCHING_INCIDENTAL_EXCLUDES,
         ),
         Section("Materials", _never),
         Section("Shortbows", _never),

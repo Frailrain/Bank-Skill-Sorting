@@ -192,36 +192,43 @@ public final class SkillBankSortData
 	static
 	{
 		Map<String, List<String>> m = new LinkedHashMap<>();
+		// Brief #78: Food section added after Rings + before Training & utility
+		// in each combat tab. ALWAYS_ZONE1 routes cooked food to the loadout zone.
 		m.put("melee", List.of(
 			"Weapons", "Shields & defenders", "Head", "Body", "Legs",
 			"Hands", "Feet", "Capes", "Neck", "Rings", "Ammunition",
+			"Food",
 			"Training & utility"
 		));
 		m.put("range", List.of(
 			"Weapons", "Ammunition", "Head", "Body", "Legs",
 			"Hands", "Feet", "Capes", "Shields & off-hands", "Neck",
-			"Rings", "Training & utility"
+			"Rings",
+			"Food",
+			"Training & utility"
 		));
 		// Brief #74: Runes back on top of the mage tab (reverts Brief #66's swap).
 		m.put("mage", List.of(
 			"Runes", "Weapons", "Off-hands, books & tomes", "Head", "Body",
 			"Legs", "Hands", "Feet", "Capes", "Neck", "Rings",
-			"Teleport tablets & spell utility", "Enchanting & skilling magic"
+			"Teleport tablets & spell utility",
+			"Food",
+			"Enchanting & skilling magic"
 		));
 		// Brief #66: simple-mode combat tab variants. The layout builder
 		// picks these keys when the per-tab simple-mode config flag is on.
 		m.put("melee_simple", List.of(
 			"Weapons", "Shields & defenders", "Armor", "Capes", "Neck",
-			"Rings", "Ammunition", "Training & utility"
+			"Rings", "Ammunition", "Food", "Training & utility"
 		));
 		m.put("range_simple", List.of(
 			"Weapons", "Ammunition", "Armor", "Capes",
-			"Shields & off-hands", "Neck", "Rings", "Training & utility"
+			"Shields & off-hands", "Neck", "Rings", "Food", "Training & utility"
 		));
 		m.put("mage_simple", List.of(
 			"Runes", "Weapons", "Off-hands, books & tomes", "Armor",
 			"Capes", "Neck", "Rings",
-			"Teleport tablets & spell utility", "Enchanting & skilling magic"
+			"Teleport tablets & spell utility", "Food", "Enchanting & skilling magic"
 		));
 		m.put("prayer", List.of(
 			// Brief #60: equipment leads the tab now.

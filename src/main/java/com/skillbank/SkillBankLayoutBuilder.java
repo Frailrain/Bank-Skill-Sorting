@@ -487,9 +487,11 @@ public class SkillBankLayoutBuilder
 
 	/** Sections in any combat tab that always route to Zone 1, regardless
 	 *  of requirement. Endgame items here mostly carry no level requirement
-	 *  and the sections are small enough to surface everything. */
+	 *  and the sections are small enough to surface everything. Brief #78
+	 *  added Food — cooked food never has equipment requirements so the
+	 *  level-based partitioner would dump it into Zone 2 by default. */
 	private static final Set<String> ALWAYS_ZONE1_SECTIONS = Set.of(
-		"Capes", "Neck", "Rings"
+		"Capes", "Neck", "Rings", "Food"
 	);
 
 	/** Force-Zone-1 for items with no requirement data but high tier. Catches

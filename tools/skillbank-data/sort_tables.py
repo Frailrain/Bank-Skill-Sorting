@@ -77,21 +77,28 @@ SET_FAMILY: dict[str, int] = {
 # ── Section structures per tab (display order matters) ──────────────────────
 
 TAB_SECTIONS: dict[str, list[str]] = {
+    # Brief #78: Food section added after Rings + before Training & utility
+    # in each combat tab. ALWAYS_ZONE1 routes cooked food to the loadout zone.
     "melee": [
         "Weapons", "Shields & defenders", "Head", "Body", "Legs",
         "Hands", "Feet", "Capes", "Neck", "Rings", "Ammunition",
+        "Food",
         "Training & utility",
     ],
     "range": [
         "Weapons", "Ammunition", "Head", "Body", "Legs",
         "Hands", "Feet", "Capes", "Shields & off-hands", "Neck",
-        "Rings", "Training & utility",
+        "Rings",
+        "Food",
+        "Training & utility",
     ],
     # Brief #74: Runes lead the mage tab (reverts Brief #66's Weapons-first swap).
     "mage": [
         "Runes", "Weapons", "Off-hands, books & tomes", "Head", "Body",
         "Legs", "Hands", "Feet", "Capes", "Neck", "Rings",
-        "Teleport tablets & spell utility", "Enchanting & skilling magic",
+        "Teleport tablets & spell utility",
+        "Food",
+        "Enchanting & skilling magic",
     ],
     "prayer": [
         # Brief #60: equipment first so the prayer tab leads with gear rather
@@ -233,16 +240,16 @@ TAB_SECTIONS: dict[str, list[str]] = {
     # block; within-section sort routes by slot rank then tier.
     "melee_simple": [
         "Weapons", "Shields & defenders", "Armor", "Capes", "Neck",
-        "Rings", "Ammunition", "Training & utility",
+        "Rings", "Ammunition", "Food", "Training & utility",
     ],
     "range_simple": [
         "Weapons", "Ammunition", "Armor", "Capes",
-        "Shields & off-hands", "Neck", "Rings", "Training & utility",
+        "Shields & off-hands", "Neck", "Rings", "Food", "Training & utility",
     ],
     "mage_simple": [
         "Weapons", "Runes", "Off-hands, books & tomes", "Armor",
         "Capes", "Neck", "Rings",
-        "Teleport tablets & spell utility", "Enchanting & skilling magic",
+        "Teleport tablets & spell utility", "Food", "Enchanting & skilling magic",
     ],
     # Brief #62: Teleports tab. Brief #66 added Teleport runes at the top
     # as the foundational requirement for any spellbook teleport.
@@ -778,6 +785,14 @@ def _section_combat(item: dict, tab: str) -> str:
     slot = _slot(item)
     name = _name(item)
     nlow = name.lower()
+
+    # Brief #78: cooked food cross-tagged into combat tabs lives in the
+    # Food section (always Zone 1 per ALWAYS_ZONE1_SECTIONS). Checked
+    # before slot dispatch so non-equipped food doesn't fall through to
+    # "Training & utility" / "Teleport tablets & spell utility".
+    if (_is(item, "cooked_fish") or _is(item, "cooked_meat")
+            or _is(item, "combo_food") or _is(item, "baked_goods")):
+        return "Food"
 
     # Mage-specific routing first.
     if tab == "mage":
