@@ -459,9 +459,9 @@ public final class SkillBankData
 
 	private static void addMelee(Map<String, List<Integer>> m)
 	{
-		// MELEE — 1692 items
+		// MELEE — 1693 items
 		//   Weapons (384), Shields & defenders (173), Head (248), Body (126), Legs
-		//   (141), Hands (47), Feet (49), Capes (12), Neck (40), Rings (25),
+		//   (141), Hands (47), Feet (49), Capes (13), Neck (40), Rings (25),
 		//   Ammunition (2), Training & utility (445)
 		m.put(TAG_MELEE, Arrays.asList(
 			// === Weapons ===
@@ -627,8 +627,8 @@ public final class SkillBankData
 			13239,
 
 			// === Capes ===
-			6570, 21295, 23622, 22114, 6568, 33063, 9747, 9753,
-			13329, 9768, 21285, 9750,
+			1052, 6570, 21295, 23622, 22114, 6568, 33063, 9747,
+			9753, 13329, 9768, 21285, 9750,
 
 			// === Neck ===
 			22111, 1478, 22557, 24780, 1729, 23309, 19707, 6585,
@@ -708,9 +708,9 @@ public final class SkillBankData
 
 	private static void addRange(Map<String, List<Integer>> m)
 	{
-		// RANGE — 862 items
+		// RANGE — 863 items
 		//   Weapons (103), Ammunition (148), Head (70), Body (70), Legs (73),
-		//   Hands (46), Feet (17), Capes (15), Shields & off-hands (29), Neck
+		//   Hands (46), Feet (17), Capes (16), Shields & off-hands (29), Neck
 		//   (29), Rings (9), Training & utility (253)
 		m.put(TAG_RANGE, Arrays.asList(
 			// === Weapons ===
@@ -797,8 +797,8 @@ public final class SkillBankData
 			13237,
 
 			// === Capes ===
-			10498, 28955, 28902, 28951, 28947, 27374, 27363, 29289,
-			6568, 11901, 10499, 22109, 13337, 21898, 9756,
+			10498, 28955, 1052, 28902, 28951, 28947, 27374, 27363,
+			29289, 6568, 11901, 10499, 22109, 13337, 21898, 9756,
 
 			// === Shields & off-hands ===
 			22284, 1540, 22002, 22003, 32879, 3844, 12610, 26492,
@@ -854,9 +854,9 @@ public final class SkillBankData
 
 	private static void addMage(Map<String, List<Integer>> m)
 	{
-		// MAGE — 872 items
+		// MAGE — 873 items
 		//   Runes (39), Weapons (148), Off-hands, books & tomes (54), Head (90),
-		//   Body (62), Legs (60), Hands (29), Feet (21), Capes (23), Neck (34),
+		//   Body (62), Legs (60), Hands (29), Feet (21), Capes (24), Neck (34),
 		//   Rings (15), Teleport tablets & spell utility (284), Enchanting &
 		//   skilling magic (13)
 		m.put(TAG_MAGE, Arrays.asList(
@@ -943,9 +943,9 @@ public final class SkillBankData
 			25410, 9100, 22951, 13235, 23644,
 
 			// === Capes ===
-			6111, 29615, 29617, 29613, 9074, 6568, 21793, 23603,
-			21791, 23607, 21795, 23605, 2413, 2412, 2414, 9101,
-			13335, 21784, 21776, 21780, 9762, 13331, 13333,
+			1052, 6111, 29615, 29617, 29613, 9074, 6568, 21793,
+			23603, 21791, 23607, 21795, 23605, 2413, 2412, 2414,
+			9101, 13335, 21784, 21776, 21780, 9762, 13331, 13333,
 
 			// === Neck ===
 			22111, 1478, 22557, 1729, 19707, 6585, 23640, 12436,

@@ -341,9 +341,6 @@ def _is_trim_gilded_melee_armour(it):
     )
     return any(k in n for k in melee_armor_keywords)
 
-# Cape of legends — quest cosmetic, not real combat gear.
-_QUEST_COSMETIC_CAPES = ["Cape of legends"]
-
 # Holiday rares + halloween mask variants.
 _HOLIDAY_RARES = [
     "Christmas cracker", "Highwayman mask", "Easter egg", "Bunny ears",
@@ -1152,8 +1149,7 @@ MELEE = TabSpec(
         })),
         Section("Shayzien supply armour", _name_starts("Shayzien supply ")),
         Section("Capes", _slot_pred("cape"),
-                force_include=["Attack hood", "Strength hood", "Defence hood", "Hitpoints hood"],
-                force_exclude=_QUEST_COSMETIC_CAPES),
+                force_include=["Attack hood", "Strength hood", "Defence hood", "Hitpoints hood"]),
         Section("Amulets", _slot_pred("neck"),
                 force_include=["Amulet of glory (t)", "Strength amulet (t)",
                                "Amulet of fury (or)", "Amulet of torture (or)",
@@ -1257,8 +1253,7 @@ RANGE = TabSpec(
                                "Armadyl d'hide shield", "Bandos d'hide shield"]),
         Section("Capes", _is_range_armour_slot("cape"),
                 force_include=["Ranging hood", "Hitpoints hood"],
-                force_exclude=_BASIC_COLOUR_CAPES + _QUEST_COSMETIC_CAPES + ["Lunar cape",
-                                                                              "Fish sack barrel"]),
+                force_exclude=_BASIC_COLOUR_CAPES + ["Lunar cape", "Fish sack barrel"]),
         # Team capes are caught by the section above via _is_range_armour_slot
         # because the cape has defence_ranged=2 like basic colour capes.
         # Mass-exclude via a pattern force_exclude below in classify-time.
@@ -1361,10 +1356,9 @@ MAGE = TabSpec(
         Section("Shields", _is_mage_armour_slot("shield")),
         Section("Capes", _is_mage_armour_slot("cape"),
                 force_include=["Lunar cape", "Magic hood", "Hitpoints hood"],
-                force_exclude=_QUEST_COSMETIC_CAPES
                 # Brief #50 fix: Ava's capes are range — defence_magic dominance
                 # is a side effect, not the design intent. Force_exclude from mage.
-                + ["Ava's attractor", "Ava's accumulator", "Ava's assembler",
+                force_exclude=["Ava's attractor", "Ava's accumulator", "Ava's assembler",
                    "Ava's assembler (or)", "Trailblazer assembler",
                    # Same issue for Diary capes that have defence_magic > defence_ranged.
                    "Ranging cape", "Ranging cape(t)", "Hunter cape", "Hunter cape(t)"]),
@@ -2862,7 +2856,6 @@ QUESTS = TabSpec(
             "Gnome amulet", "Beads of the dead",
             "Dark dagger", "Glowing dagger",
             "Shade robe", "Shade robe top",
-            "Cape of legends",
             "Carnillean armour",
             "Bearhead",
             "Mourner top", "Mourner trousers", "Mourner gloves",
