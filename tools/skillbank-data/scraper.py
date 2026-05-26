@@ -1456,7 +1456,27 @@ def main():
     p.add_argument("--llm-promote", action="store_true",
                    help="like --llm-render but also overwrites the live "
                         "src/main/java/com/skillbank/SkillBankData.java.")
+    p.add_argument("--wiki-fetch", action="store_true",
+                   help="Brief #70: scrape the OSRS Wiki Bucket API for "
+                        "every equipable item; write data/wiki-equipment-data.json. "
+                        "Replaces osrsbox as the equipment-data source.")
+    p.add_argument("--wiki-integrate", action="store_true",
+                   help="Brief #70: cross-reference data/wiki-equipment-data.json "
+                        "against item-meta.json; write out/wiki-crossref-report.md "
+                        "+ out/item-meta-updated.json. Manual review step — "
+                        "does NOT overwrite the live item-meta.json.")
     args = p.parse_args()
+
+    if args.wiki_fetch:
+        sys.path.insert(0, str(SCRIPT_DIR))
+        import wiki_scraper  # type: ignore
+        wiki_scraper.fetch()
+        return
+    if args.wiki_integrate:
+        sys.path.insert(0, str(SCRIPT_DIR))
+        import integrate_wiki_data  # type: ignore
+        integrate_wiki_data.integrate()
+        return
 
     _load_env()
 
