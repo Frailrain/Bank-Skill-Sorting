@@ -141,20 +141,44 @@ public final class SkillBankSortData
 		return r != null ? r : Integer.MAX_VALUE - 1;
 	}
 
-	/** Brief #66: slot ordering inside the simple-mode "Armor" section.
-	 *  Items group head → body → legs → hands → feet, then sort by tier. */
-	private static final Map<String, Integer> ARMOR_SLOT_RANK = Map.of(
-		"head", 0, "body", 1, "legs", 2, "hands", 3, "feet", 4
+	/** Brief #68: universal head-to-toe slot ordering for any section that
+	 *  contains wearable items. Used as the primary sort term across all
+	 *  outfit sections (Agility graceful, Hunter camos, Prospector, rogue
+	 *  set, prayer robes, etc.) so a player browsing the section always
+	 *  sees gear in head → body → legs → hands → feet → cape → neck → ring
+	 *  → weapon → shield → ammo order. Non-wearables (slot=null) bucket at
+	 *  the end of the section. */
+	private static final Map<String, Integer> SLOT_ORDER = Map.ofEntries(
+		Map.entry("head", 10),
+		Map.entry("body", 20),
+		Map.entry("legs", 30),
+		Map.entry("hands", 40),
+		Map.entry("feet", 50),
+		Map.entry("cape", 60),
+		Map.entry("neck", 70),
+		Map.entry("ring", 80),
+		Map.entry("weapon", 90),
+		Map.entry("2h", 90),
+		Map.entry("shield", 95),
+		Map.entry("ammo", 100)
 	);
 
-	public static int armorSlotRank(String slot)
+	public static int slotRank(String slot)
 	{
 		if (slot == null)
 		{
-			return 99;
+			return 999;
 		}
-		Integer r = ARMOR_SLOT_RANK.get(slot.toLowerCase());
-		return r != null ? r : 99;
+		Integer r = SLOT_ORDER.get(slot.toLowerCase());
+		return r != null ? r : 999;
+	}
+
+	/** Back-compat shim for the Brief #66 simple-mode Armor sort. The 5-slot
+	 *  rank map it used is a subset of {@link #SLOT_ORDER}, so the universal
+	 *  table works identically for that call site. */
+	public static int armorSlotRank(String slot)
+	{
+		return slotRank(slot);
 	}
 
 	/** Section names that collapse into "Armor" under simple-mode combat. */

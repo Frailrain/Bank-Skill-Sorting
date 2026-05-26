@@ -656,11 +656,25 @@ public class SkillBankLayoutBuilder
 		return nameOf(a).compareTo(nameOf(b));
 	}
 
+	/**
+	 * Brief #68: universal default sort. Wearables lead by slot rank
+	 * (head → body → legs → hands → feet → cape → neck → ring → weapon →
+	 * shield → ammo) so any outfit/equipment section across all tabs ends
+	 * up in head-to-toe order. Within the same slot, sort by tier
+	 * descending, then alphabetically. Non-wearables (slot=null) get
+	 * slot rank 999 and naturally sit after the wearables in the section.
+	 */
 	private int compareByTierDescThenName(int a, int b)
 	{
 		Map<Integer, ItemMeta> meta = SkillBankSortData.itemMeta();
 		ItemMeta ma = meta.get(a);
 		ItemMeta mb = meta.get(b);
+		int sa = ma != null ? SkillBankSortData.slotRank(ma.slot) : 999;
+		int sb = mb != null ? SkillBankSortData.slotRank(mb.slot) : 999;
+		if (sa != sb)
+		{
+			return Integer.compare(sa, sb);
+		}
 		int ta = ma != null ? ma.tier : 0;
 		int tb = mb != null ? mb.tier : 0;
 		if (ta != tb)

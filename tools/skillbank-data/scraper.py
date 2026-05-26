@@ -203,6 +203,12 @@ def merge_wiki_osrsbox(
             osb_eq = osb.get("equipment") or {}
             if osb_eq.get("requirements"):
                 equipment["requirements"] = osb_eq["requirements"]
+            # Brief #68: fall back to osrsbox for slot when wiki bonuses
+            # didn't carry an entry (graceful, prospector, many outfit
+            # pieces). Wiki bonuses is the canonical source for stat-bearing
+            # gear; outfits without combat stats often skip that bucket.
+            if not equipment.get("slot") and osb_eq.get("slot"):
+                equipment["slot"] = osb_eq["slot"]
             quest_item = osb.get("quest_item", False)
             noted = osb.get("noted", False)
             placeholder = osb.get("placeholder", False)
