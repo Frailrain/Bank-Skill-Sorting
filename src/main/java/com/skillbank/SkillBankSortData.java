@@ -96,10 +96,22 @@ public final class SkillBankSortData
 		"Mist", "Dust", "Mud", "Smoke", "Steam", "Lava"
 	);
 
-	/** Gem tier order. */
+	/** Brief #76: gem display order — primary gems first by tier ascending
+	 *  (uncut paired with cut per gem), then secondary gems same pattern.
+	 *  Used by SkillBankLayoutBuilder.compareGems to produce
+	 *    Uncut sapphire, Sapphire, Uncut emerald, Emerald, ..., Uncut zenyte,
+	 *    Zenyte, Uncut opal, Opal, Uncut jade, Jade, Uncut red topaz, Red topaz. */
 	public static final List<String> GEM_ORDER = List.of(
-		"Opal", "Jade", "Red topaz", "Sapphire", "Emerald",
-		"Ruby", "Diamond", "Dragonstone", "Onyx", "Zenyte"
+		"Uncut sapphire", "Sapphire",
+		"Uncut emerald",  "Emerald",
+		"Uncut ruby",     "Ruby",
+		"Uncut diamond",  "Diamond",
+		"Uncut dragonstone", "Dragonstone",
+		"Uncut onyx",     "Onyx",
+		"Uncut zenyte",   "Zenyte",
+		"Uncut opal",     "Opal",
+		"Uncut jade",     "Jade",
+		"Uncut red topaz", "Red topaz"
 	);
 
 	/** Weapon-class grouping within the Weapons section: stab → slash → crush → special. */
@@ -236,14 +248,15 @@ public final class SkillBankSortData
 			"Prayer-restoring consumables", "Holy symbols, books & blessings",
 			"Bone-processing utility"
 		));
-		// Brief #74: raw-before-cooked. All raw categories grouped together
-		// at the top; all cooked categories follow.
+		// Brief #76: raw paired with cooked, finished composites together,
+		// then tools + outfit, then the ingredient dump, then burnt.
 		m.put("cooking", List.of(
+			"Raw fish", "Cooked fish",
+			"Raw meat", "Cooked meat",
+			"Combo food", "Baked & cooked goods",
 			"Cooking tools & utensils",
-			"Raw fish", "Raw meat",
-			"Cooked fish", "Cooked meat",
-			"Fruits", "Vegetables", "Ingredients",
-			"Combo food", "Baked & cooked goods", "Burnt food"
+			"Ingredients",
+			"Burnt food"
 		));
 		// Brief #63: wc_fletching split into a combined Woodcutting + Firemaking
 		// tab and a standalone Fletching tab. Display names live in the
@@ -284,8 +297,9 @@ public final class SkillBankSortData
 		));
 		// Brief #64: standalone firemaking tab removed. Its content lives
 		// in "woodcutting_firemaking" (Woodcutting + Firemaking).
+		// Brief #76: moulds split out from tools; new top of tab.
 		m.put("crafting", List.of(
-			"Crafting tools & moulds", "Gems", "Hides & leather",
+			"Moulds", "Crafting tools", "Gems", "Hides & leather",
 			"Spinning materials", "Glassmaking", "Pottery & clay",
 			"Jewellery materials", "Crafted jewellery",
 			"Crafted armour & leather goods", "Crafting outfit & utility"
@@ -295,13 +309,11 @@ public final class SkillBankSortData
 			"Smithing tools", "Smithed weapons", "Smithed armour",
 			"Cannonballs & ammo outputs", "Giants' Foundry & minigame items"
 		));
-		// Brief #74: merged "Vials & herblore tools" into "Herbs & tools"
-		// so the 2-item tools row doesn't waste a row break.
+		// Brief #76: flat 5-section layout. Barbarian mixes + Divine variants
+		// roll into Finished potions; outfit + utility folds into Tools.
 		m.put("herblore", List.of(
-			"Herbs & tools", "Secondaries",
-			"Unfinished potions", "Finished potions", "Barbarian mixes",
-			"Divine, extended & upgraded variants",
-			"Herblore outfit & utility"
+			"Tools", "Herbs", "Secondaries",
+			"Unfinished potions", "Finished potions"
 		));
 		m.put("agility_thieving", List.of(
 			"Agility outfit & graceful", "Run-energy consumables",
@@ -326,10 +338,12 @@ public final class SkillBankSortData
 			"Core runes", "Combination runes", "Runecraft outfit",
 			"Guardians of the Rift items"
 		));
+		// Brief #76: Creature products split into furs / meats / tertiaries.
 		m.put("hunter", List.of(
 			"Hunter tools & traps", "Nets, jars & containers",
-			"Hunter outfit", "Creature products", "Chinchompas",
-			"Implings & impling jars", "Birdhouse items"
+			"Hunter outfit",
+			"Furs & hides", "Hunter meats", "Hunter tertiaries",
+			"Chinchompas", "Implings & impling jars", "Birdhouse items"
 		));
 		m.put("construction", List.of(
 			"Construction tools", "Planks", "Nails",

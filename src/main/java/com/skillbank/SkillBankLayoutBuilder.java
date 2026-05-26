@@ -814,20 +814,32 @@ public class SkillBankLayoutBuilder
 
 	private int compareGems(int a, int b)
 	{
-		return Integer.compare(gemRank(nameOf(a)), gemRank(nameOf(b)));
+		int ra = gemRank(nameOf(a));
+		int rb = gemRank(nameOf(b));
+		if (ra != rb) return Integer.compare(ra, rb);
+		return nameOf(a).compareToIgnoreCase(nameOf(b));
 	}
 
+	/** Brief #76: gem rank using GEM_ORDER. Matches longest keys first so
+	 *  "Uncut sapphire" wins over "Sapphire" in the same name. The lookup
+	 *  table is built once in the ctor (gemOrderIndex). */
 	private int gemRank(String name)
 	{
 		String n = name.toLowerCase(Locale.ROOT);
+		// Iterate gemOrderIndex entries in descending key length so the
+		// "uncut X" prefix matches before bare "X".
+		int best = Integer.MAX_VALUE;
+		int bestLen = -1;
 		for (Map.Entry<String, Integer> e : gemOrderIndex.entrySet())
 		{
-			if (n.contains(e.getKey()))
+			String k = e.getKey();
+			if (n.contains(k) && k.length() > bestLen)
 			{
-				return e.getValue();
+				best = e.getValue();
+				bestLen = k.length();
 			}
 		}
-		return Integer.MAX_VALUE;
+		return best;
 	}
 
 	private int compareWeapons(int a, int b)

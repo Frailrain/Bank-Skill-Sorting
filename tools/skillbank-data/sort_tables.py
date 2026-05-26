@@ -107,14 +107,16 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Prayer-restoring consumables", "Holy symbols, books & blessings",
         "Bone-processing utility",
     ],
-    # Brief #74: raw-before-cooked. All raw categories at the top, all
-    # cooked categories after. Ingredients / fruits / vegetables follow.
+    # Brief #76: raw paired with cooked, finished composites together,
+    # then tools + outfit, then the ingredient dump, then burnt. Fruits
+    # and vegetables fold into Ingredients (no longer separate sections).
     "cooking": [
+        "Raw fish", "Cooked fish",
+        "Raw meat", "Cooked meat",
+        "Combo food", "Baked & cooked goods",
         "Cooking tools & utensils",
-        "Raw fish", "Raw meat",
-        "Cooked fish", "Cooked meat",
-        "Fruits", "Vegetables", "Ingredients",
-        "Combo food", "Baked & cooked goods", "Burnt food",
+        "Ingredients",
+        "Burnt food",
     ],
     # Brief #63: wc_fletching split. Fletching is now its own tab; the
     # woodcutting bits live alongside firemaking content in a combined tab.
@@ -159,8 +161,9 @@ TAB_SECTIONS: dict[str, list[str]] = {
     # Brief #64: standalone firemaking tab removed. All firemaking content
     # lives in "woodcutting_firemaking" (Woodcutting + Firemaking) which
     # was created in Brief #63.
+    # Brief #76: moulds split out from tools; new top of tab.
     "crafting": [
-        "Crafting tools & moulds", "Gems", "Hides & leather",
+        "Moulds", "Crafting tools", "Gems", "Hides & leather",
         "Spinning materials", "Glassmaking", "Pottery & clay",
         "Jewellery materials", "Crafted jewellery",
         "Crafted armour & leather goods", "Crafting outfit & utility",
@@ -170,13 +173,11 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Smithing tools", "Smithed weapons", "Smithed armour",
         "Cannonballs & ammo outputs", "Giants' Foundry & minigame items",
     ],
-    # Brief #74: merged "Vials & herblore tools" into "Herbs & tools" so
-    # the 2-item tools row doesn't waste a row break.
+    # Brief #76: flat 5-section layout. Barbarian mixes + Divine variants
+    # roll into Finished potions; outfit + utility absorbed into Tools.
     "herblore": [
-        "Herbs & tools", "Secondaries",
-        "Unfinished potions", "Finished potions", "Barbarian mixes",
-        "Divine, extended & upgraded variants",
-        "Herblore outfit & utility",
+        "Tools", "Herbs", "Secondaries",
+        "Unfinished potions", "Finished potions",
     ],
     "agility_thieving": [
         "Agility outfit & graceful", "Run-energy consumables",
@@ -201,10 +202,12 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Core runes", "Combination runes", "Runecraft outfit",
         "Guardians of the Rift items",
     ],
+    # Brief #76: Creature products split into furs/meats/tertiaries.
     "hunter": [
         "Hunter tools & traps", "Nets, jars & containers",
-        "Hunter outfit", "Creature products", "Chinchompas",
-        "Implings & impling jars", "Birdhouse items",
+        "Hunter outfit",
+        "Furs & hides", "Hunter meats", "Hunter tertiaries",
+        "Chinchompas", "Implings & impling jars", "Birdhouse items",
     ],
     "construction": [
         "Construction tools", "Planks", "Nails",
@@ -939,12 +942,21 @@ def _section_cooking(item: dict) -> str:
     if nlow.startswith("burnt "):
         return "Burnt food"
 
-    # Cooking tools (small canonical set, distinctive tokens).
-    if any(k in nlow for k in ("knife", "rolling pin", "pestle and mortar",
+    # Cooking tools + chef's outfit. "Cooking cape" / "Cooking hood"
+    # belong here too — the outfit shouldn't scatter into ingredients.
+    if any(k in nlow for k in ("rolling pin", "pestle and mortar",
                                "mixing bowl", "skewer", "cooking gauntlets",
                                "cook's outfit", "cook's hat", "cook's apron",
+                               "cook's shirt", "cook's trousers", "cook's boots",
+                               "chef's hat", "chef hat",
+                               "cooking cape", "cooking hood",
                                "cooks' assistant")):
         return "Cooking tools & utensils"
+    # Knife is a cooking tool but only when its slot isn't weapon (the
+    # combat knife slots as weapon and lives in melee).
+    if "knife" in nlow and not nlow.startswith("dagger") and _slot(item) != "weapon":
+        if nlow == "knife" or " knife" in nlow:
+            return "Cooking tools & utensils"
 
     # Combo food before cooked_fish so Cooked karambwan lands here.
     if _is(item, "combo_food"):
@@ -963,11 +975,10 @@ def _section_cooking(item: dict) -> str:
     if _is(item, "raw_cookables"):
         return "Raw meat"
 
-    if _is(item, "fruits"):
-        return "Fruits"
-    if _is(item, "vegetables"):
-        return "Vegetables"
-    if _is(item, "ingredients"):
+    # Brief #76: Fruits + Vegetables fold into Ingredients (separate
+    # sections retired). The id-set hits still get routed here.
+    if (_is(item, "fruits") or _is(item, "vegetables")
+            or _is(item, "ingredients")):
         return "Ingredients"
 
     # Name-pattern fallbacks for items the canonical lists don't carry.
@@ -1145,10 +1156,14 @@ def _section_fishing(item: dict) -> str:
 def _section_crafting(item: dict) -> str:
     name = _name(item)
     nlow = name.lower()
-    if any(k in nlow for k in ("chisel", "needle", "shears")) and _slot(item) != "weapon":
-        return "Crafting tools & moulds"
-    if " mould" in nlow or nlow.endswith(" mould"):
-        return "Crafting tools & moulds"
+    # Brief #76: Moulds split out from Crafting tools.
+    if " mould" in nlow or nlow.endswith(" mould") or nlow.endswith(" moulds"):
+        return "Moulds"
+    if any(k in nlow for k in ("chisel", "needle", "shears", "glassblowing pipe",
+                               "spinning wheel", "lyre", "enchanted lyre",
+                               "bronze wire", "bucket of sand", "woad leaf")) \
+            and _slot(item) != "weapon":
+        return "Crafting tools"
     for gem in GEM_TIER:
         if gem in nlow:
             return "Gems"
@@ -1202,36 +1217,44 @@ def _section_mining_smithing(item: dict) -> str:
 
 
 def _section_herblore(item: dict) -> str:
+    """Brief #76: flat 5-section layout.
+
+      Tools         pestle + vials + herblore cape/hood/amulet
+      Herbs         grimy + clean herbs (HERB_ORDER sort in Java)
+      Secondaries   all secondary ingredients
+      Unfinished potions  (unf) doses
+      Finished potions    all doses (incl. barbarian mixes + divine ext.)
+    """
     name = _name(item)
     nlow = name.lower()
-    # Brief #74: vials + herblore tools merged into "Herbs & tools" so the
-    # 2-item tools row doesn't waste a row break.
+
+    # Tools — pestle, vials, outfit/utility, amulet of chemistry, etc.
     if any(k in nlow for k in ("vial", "pestle and mortar", "herblore cape",
-                               "herblore hood", "botanist")):
-        return "Herbs & tools"
-    # Brief #60: ID-set lookups for herbs (was the Brief #59 bug — clean
-    # herbs in OSRS have no "Clean " prefix; startswith("clean ") matched 0).
+                               "herblore hood", "botanist",
+                               "amulet of chemistry", "amulet of alchemy")):
+        return "Tools"
+
+    # Herbs — grimy + clean.
     if _is(item, "grimy_herbs") or _is(item, "clean_herbs"):
-        return "Herbs & tools"
-    # Name-pattern fallback for any "Grimy X" variant not in the canonical list.
+        return "Herbs"
     if nlow.startswith("grimy "):
-        return "Herbs & tools"
+        return "Herbs"
+
+    # Unfinished potions — "(unf)" suffix in any spacing.
     if "(unf)" in nlow or " unf " in nlow or nlow.endswith(" unf"):
         return "Unfinished potions"
-    # Dose suffix indicates a finished potion.
+
+    # Finished potions — any dose suffix (1)-(4) goes here, including
+    # the previously-separate barbarian mixes and divine/extended variants.
     if any(nlow.endswith(s) for s in ("(4)", "(3)", "(2)", "(1)")):
-        # Special families come first.
-        if "divine " in nlow or "extended " in nlow or "super antifire" in nlow:
-            return "Divine, extended & upgraded variants"
-        if "mix(" in nlow or "mix (" in nlow or "barbarian" in nlow:
-            return "Barbarian mixes"
         return "Finished potions"
+
     # Curated secondaries set.
     if _is(item, "herblore_secondaries"):
         return "Secondaries"
-    # Last-resort name-pattern fallback for the long tail of secondaries we
-    # haven't enumerated. Anything that lands here is just "Secondaries" by
-    # default since the LLM already routed it to the herblore tab.
+
+    # Default — anything the LLM routed here that doesn't match above is
+    # a secondary ingredient.
     return "Secondaries"
 
 
@@ -1341,7 +1364,26 @@ def _section_hunter(item: dict) -> str:
         return "Hunter outfit"
     if any(k in nlow for k in ("birdhouse", "bird nest", "raven egg")):
         return "Birdhouse items"
-    return "Creature products"
+
+    # Brief #76: split former "Creature products" into furs / meats /
+    # tertiaries so players can find fur runs / meat-only runs / tertiary
+    # drops without scrolling a 60-item bucket.
+
+    # Furs first — any item with "fur" in the name (kebbit furs, polar fur,
+    # pyre fox fur, etc.) plus the named hide variants.
+    if "fur" in nlow:
+        return "Furs & hides"
+    if any(k in nlow for k in ("antler", "hide ",)) and "outfit" not in nlow:
+        return "Furs & hides"
+
+    # Hunter meats — raw meat from hunter creatures.
+    if nlow.startswith("raw ") or "bird meat" in nlow or "beast meat" in nlow \
+            or "kebbit meat" in nlow:
+        return "Hunter meats"
+
+    # Everything else from hunter (tertiary drops): kebbit claws, kebbit
+    # teeth, kebbit teeth dust, long kebbit spike, stripy feather, etc.
+    return "Hunter tertiaries"
 
 
 def _section_construction(item: dict) -> str:

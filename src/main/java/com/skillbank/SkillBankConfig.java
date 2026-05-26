@@ -89,10 +89,10 @@ public interface SkillBankConfig extends Config
 	@ConfigItem(
 		keyName = "zoneTierCount",
 		name = "Loadout tier count",
-		description = "Brief #73: how many unique equipment tiers to show in the loadout zone "
+		description = "How many unique equipment tiers to show in the loadout zone "
 			+ "at the top of combat tabs. The plugin looks at every requirement level on items "
 			+ "you own per armour slot / weapon class, sorts descending, and takes the top N. "
-			+ "Higher = more items surfaced. Default 3.",
+			+ "Higher values show more items. Default 3.",
 		section = behaviorSection,
 		position = 5
 	)
