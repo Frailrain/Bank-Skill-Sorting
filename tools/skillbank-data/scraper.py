@@ -1465,6 +1465,14 @@ def main():
                         "against item-meta.json; write out/wiki-crossref-report.md "
                         "+ out/item-meta-updated.json. Manual review step — "
                         "does NOT overwrite the live item-meta.json.")
+    p.add_argument("--parse-requirements", action="store_true",
+                   help="Brief #71: parse skill-level requirements from "
+                        "wikitext for every equipable item in "
+                        "data/wiki-equipment-data.json. Writes "
+                        "data/wiki-requirements.json + "
+                        "out/requirements-failures.txt + "
+                        "out/requirements-crossref.md. Reuses the "
+                        "cache/wiki-pages/ cache from Brief #51.")
     args = p.parse_args()
 
     if args.wiki_fetch:
@@ -1476,6 +1484,11 @@ def main():
         sys.path.insert(0, str(SCRIPT_DIR))
         import integrate_wiki_data  # type: ignore
         integrate_wiki_data.integrate()
+        return
+    if args.parse_requirements:
+        sys.path.insert(0, str(SCRIPT_DIR))
+        import parse_requirements  # type: ignore
+        parse_requirements.run()
         return
 
     _load_env()
