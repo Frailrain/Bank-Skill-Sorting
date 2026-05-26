@@ -4,6 +4,7 @@ import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
+import net.runelite.client.config.Range;
 
 @ConfigGroup(SkillBankConfig.GROUP)
 public interface SkillBankConfig extends Config
@@ -82,6 +83,22 @@ public interface SkillBankConfig extends Config
 	default boolean resetAll()
 	{
 		return false;
+	}
+
+	@Range(min = 1, max = 6)
+	@ConfigItem(
+		keyName = "zoneTierCount",
+		name = "Loadout tier count",
+		description = "Brief #73: how many unique equipment tiers to show in the loadout zone "
+			+ "at the top of combat tabs. The plugin looks at every requirement level on items "
+			+ "you own per armour slot / weapon class, sorts descending, and takes the top N. "
+			+ "Higher = more items surfaced. Default 3.",
+		section = behaviorSection,
+		position = 5
+	)
+	default int zoneTierCount()
+	{
+		return 3;
 	}
 
 	@ConfigItem(

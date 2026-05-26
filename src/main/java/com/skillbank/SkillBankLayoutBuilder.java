@@ -451,10 +451,19 @@ public class SkillBankLayoutBuilder
 		return 2;
 	}
 
-	// ── Brief #69: combat-tab zone partition ────────────────────────────────
+	// ── Brief #73: top-N unique levels dynamic zone partition ──────────────
 
-	private static final int COMBAT_ZONE1_THRESHOLD = 60;
-	private static final int COMBAT_ZONE1_TIER_FALLBACK = 80;  // dragon
+	/** Sections in any combat tab that always route to Zone 1, regardless
+	 *  of requirement. Endgame items here mostly carry no level requirement
+	 *  and the sections are small enough to surface everything. */
+	private static final Set<String> ALWAYS_ZONE1_SECTIONS = Set.of(
+		"Capes", "Neck", "Rings"
+	);
+
+	/** Force-Zone-1 for items with no requirement data but high tier. Catches
+	 *  Fire cape / Barrows gloves / Void / Ava's family — quest- or
+	 *  activity-gated endgame items that have no level requirement. */
+	private static final int NO_REQ_TIER_FORCE_FLOOR = 80;
 
 	private static boolean isCombatTab(String tag)
 	{
@@ -462,26 +471,67 @@ public class SkillBankLayoutBuilder
 	}
 
 	/**
-	 * Brief #69: combat-tab loadout/chaff split by skill-level requirement.
-	 * Weapons need 60+ in the tab's offensive skill (Attack / Ranged / Magic),
-	 * armour and shields need 60+ Defence. Capes, Neck, and Rings always
-	 * route to Zone 1 since their endgame items mostly carry no level
-	 * requirement and the sections are small enough that surfacing
-	 * everything beats trying to filter. Items missing requirement data
-	 * fall back to tier ≥ 80 (dragon-equivalent) as the Zone 1 gate.
+	 * Brief #73: dynamic zone split that scales with player progression.
+	 * For each section (independently), collect the unique requirement
+	 * levels owned, sort descending, take the top N. Items at those levels
+	 * are Zone 1; everything else is Zone 2. N comes from
+	 * {@link SkillBankConfig#zoneTierCount()} (default 3, range 1..6).
+	 * <p>
+	 * Capes/Neck/Rings always Zone 1. Mage Runes section: no zoning (all
+	 * runes useful). Training & utility: always Zone 2. High-tier
+	 * (tier ≥ 80) items with no requirement always Zone 1 (fire cape, etc.).
 	 */
 	private void partitionByRequirement(
 		List<Integer> sectionItems, String section, String tagName,
 		List<Integer> zone1, List<Integer> zone2)
 	{
 		Map<Integer, ItemMeta> meta = SkillBankSortData.itemMeta();
-		// Capes / Neck / Rings — every item to Zone 1.
-		if ("Capes".equals(section) || "Neck".equals(section) || "Rings".equals(section))
+
+		// Capes / Neck / Rings → every item to Zone 1.
+		if (ALWAYS_ZONE1_SECTIONS.contains(section))
 		{
 			zone1.addAll(sectionItems);
 			return;
 		}
-		String reqSkill = combatRequirementSkill(section, tagName);
+		// Training & utility (or anything else with that name) → always chaff.
+		if (section != null
+			&& (section.contains("Training") || section.contains("utility")))
+		{
+			zone2.addAll(sectionItems);
+			return;
+		}
+		// Mage Runes section → no zoning (all runes are loadout-relevant).
+		if ("Runes".equals(section) && "mage".equals(tagName))
+		{
+			zone1.addAll(sectionItems);
+			return;
+		}
+
+		int n = Math.max(1, config.zoneTierCount());
+
+		// Collect unique requirement levels owned in this section, in descending
+		// order. TreeSet with reverse-comparator does both the dedup and sort.
+		java.util.TreeSet<Integer> uniqueLevels = new java.util.TreeSet<>(
+			java.util.Comparator.reverseOrder());
+		for (Integer iid : sectionItems)
+		{
+			ItemMeta m = meta.get(iid);
+			if (m == null)
+			{
+				continue;
+			}
+			uniqueLevels.add(effectiveReq(m, section, tagName));
+		}
+
+		// Top N unique levels — anything else lives in Zone 2.
+		Set<Integer> topLevels = new HashSet<>();
+		int taken = 0;
+		for (Integer lv : uniqueLevels)
+		{
+			if (taken++ >= n) break;
+			topLevels.add(lv);
+		}
+
 		for (Integer iid : sectionItems)
 		{
 			ItemMeta m = meta.get(iid);
@@ -490,12 +540,14 @@ public class SkillBankLayoutBuilder
 				zone2.add(iid);
 				continue;
 			}
-			int req = m.requirement(reqSkill);
-			if (req >= COMBAT_ZONE1_THRESHOLD)
+			int req = effectiveReq(m, section, tagName);
+			// High-tier quest-gated / activity-gated items always surface.
+			if (req == 0 && m.tier >= NO_REQ_TIER_FORCE_FLOOR)
 			{
 				zone1.add(iid);
+				continue;
 			}
-			else if (req == 0 && m.tier >= COMBAT_ZONE1_TIER_FALLBACK)
+			if (topLevels.contains(req))
 			{
 				zone1.add(iid);
 			}
@@ -506,9 +558,62 @@ public class SkillBankLayoutBuilder
 		}
 	}
 
-	/** Which skill the {@code 60+} threshold checks for this (section, tab) pair.
-	 *  Weapons + Ammunition gate on the tab's offensive skill (attack/ranged/
-	 *  magic); armour and shields gate on defence. */
+	/**
+	 * Brief #73: effective requirement level for the zone partition.
+	 *  - Melee Weapons: max(attack, strength) — covers warhammers (Strength-
+	 *    gated) and normal weapons (Attack-gated) on the same scale.
+	 *  - Range armour: max(defence, ranged) — mid-tier range gear gates on
+	 *    Ranged, high-tier on Defence + Ranged.
+	 *  - Mage armour: max(magic, defence) — mage robes gate on Magic, tankier
+	 *    mage armour adds Defence.
+	 *  - Weapons / Ammunition: the tab's offensive skill.
+	 *  - Other (head/body/legs/hands/feet/shield): defence.
+	 */
+	private int effectiveReq(ItemMeta m, String section, String tagName)
+	{
+		if ("Weapons".equals(section))
+		{
+			if ("melee".equals(tagName))
+			{
+				return Math.max(m.requirement("attack"), m.requirement("strength"));
+			}
+			if ("range".equals(tagName)) return m.requirement("ranged");
+			if ("mage".equals(tagName))  return m.requirement("magic");
+			return m.requirement("attack");
+		}
+		if ("Ammunition".equals(section))
+		{
+			return "range".equals(tagName) ? m.requirement("ranged")
+				: m.requirement("attack");
+		}
+		if (isArmourSection(section))
+		{
+			if ("range".equals(tagName))
+			{
+				return Math.max(m.requirement("defence"), m.requirement("ranged"));
+			}
+			if ("mage".equals(tagName))
+			{
+				return Math.max(m.requirement("magic"), m.requirement("defence"));
+			}
+		}
+		return m.requirement("defence");
+	}
+
+	private static boolean isArmourSection(String section)
+	{
+		return "Head".equals(section) || "Body".equals(section)
+			|| "Legs".equals(section) || "Hands".equals(section)
+			|| "Feet".equals(section)
+			|| "Shields & defenders".equals(section)
+			|| "Shields & off-hands".equals(section)
+			|| "Off-hands, books & tomes".equals(section);
+	}
+
+	/** Kept for the older Brief #69 callsites — returns the *primary* skill
+	 *  for a combat (section, tab) pair (does NOT take the dual-skill max).
+	 *  Currently unused at runtime; left in for trace-log inspection. */
+	@SuppressWarnings("unused")
 	private static String combatRequirementSkill(String section, String tagName)
 	{
 		if ("Weapons".equals(section) || "Ammunition".equals(section))
