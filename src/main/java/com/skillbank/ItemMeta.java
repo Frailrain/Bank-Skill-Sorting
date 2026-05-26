@@ -66,4 +66,19 @@ public final class ItemMeta
 		Integer v = requirements.get(skill);
 		return v != null ? v : 0;
 	}
+
+	/** Brief #72: bean-style alias for {@link #requirement(String)}.
+	 *  Empty map means "confirmed: no level required"; null map means
+	 *  "unknown — no data from either osrsbox or wiki". Both currently
+	 *  return 0 here, which is the right behaviour for the runtime
+	 *  zone partitioner (treats missing data as no-req). */
+	public int getRequirement(String skill)
+	{
+		return requirement(skill);
+	}
+
+	public Map<String, Integer> getRequirements()
+	{
+		return requirements;
+	}
 }

@@ -422,6 +422,85 @@ def _infer_category(item: dict, sample_tab: str) -> str:
     return "misc"
 
 
+def _load_wiki_requirements(wiki_path: Path) -> dict[int, dict]:
+    """Read data/wiki-requirements.json (Brief #71 output) into an
+    {item_id: record} dict. Returns empty dict if the file is missing
+    (the file is optional — emit_item_metadata falls back to osrsbox-only
+    behaviour in that case)."""
+    if not wiki_path.exists():
+        return {}
+    raw = json.loads(wiki_path.read_text())
+    out: dict[int, dict] = {}
+    for rec in raw:
+        iid = rec.get("item_id")
+        if iid is None:
+            continue
+        try:
+            out.setdefault(int(iid), rec)
+        except (TypeError, ValueError):
+            continue
+    return out
+
+
+def _merge_requirements(
+    osrsbox_reqs: dict | None,
+    wiki_rec: dict | None,
+) -> tuple[dict | None, str]:
+    """Brief #72 merge rule for combining osrsbox + wiki requirements.
+
+    Returns (merged_reqs, status) where status is one of:
+      wiki_high_used       — wiki HIGH confidence, applied (may override osrsbox)
+      wiki_high_agrees     — wiki HIGH, matches osrsbox exactly
+      wiki_high_overrides  — wiki HIGH, differs from osrsbox (wiki wins)
+      wiki_high_new        — wiki HIGH, osrsbox had nothing
+      no_req_confirmed     — wiki MEDIUM/HIGH-empty and osrsbox also empty → {}
+      osrsbox_kept         — wiki MEDIUM with osrsbox having data; keep osrsbox
+      osrsbox_only         — item not in wiki dataset, osrsbox has data
+      none                 — no requirements known from either source
+
+    merged_reqs is a dict or None. {} means confirmed no requirement.
+    """
+    osr = osrsbox_reqs if isinstance(osrsbox_reqs, dict) else None
+    osr_nonempty = bool(osr)
+
+    if wiki_rec is None:
+        # Item isn't in the wiki equipable dataset (non-equipable, or
+        # post-cutoff). Use osrsbox if present, otherwise nothing.
+        if osr_nonempty:
+            return ({k.lower(): int(v) for k, v in osr.items()
+                      if isinstance(v, (int, float))}, "osrsbox_only")
+        return (None, "none")
+
+    confidence = wiki_rec.get("confidence")
+    wreqs = wiki_rec.get("requirements")
+
+    if confidence == "high" and isinstance(wreqs, dict) and wreqs:
+        # Wiki has actual data — it wins.
+        merged = {k.lower(): int(v) for k, v in wreqs.items()
+                   if isinstance(v, (int, float))}
+        if not osr_nonempty:
+            return (merged, "wiki_high_new")
+        normalized_osr = {k.lower(): int(v) for k, v in osr.items()
+                           if isinstance(v, (int, float))}
+        if merged == normalized_osr:
+            return (merged, "wiki_high_agrees")
+        return (merged, "wiki_high_overrides")
+
+    # Wiki said HIGH-with-empty (explicit "no requirements") or MEDIUM.
+    if confidence == "high" and wreqs == {}:
+        # Explicit "no requirements" on the wiki — trust it even if osrsbox
+        # carried a trivial low-tier req like {ranged: 1}.
+        return ({}, "no_req_confirmed")
+
+    # confidence == "medium" — no req text found in the lead. Fall back to
+    # osrsbox if it has anything (likely trivial low-tier req); otherwise
+    # treat as confirmed no requirements.
+    if osr_nonempty:
+        return ({k.lower(): int(v) for k, v in osr.items()
+                  if isinstance(v, (int, float))}, "osrsbox_kept")
+    return ({}, "no_req_confirmed")
+
+
 def emit_item_metadata(
     by_tab: dict[str, dict[int, str]],
     items_by_id: dict[int, dict],
@@ -437,10 +516,18 @@ def emit_item_metadata(
         "wc": str|null weapon_class,
         "sl": str|null slot,
         "ct": str category,
-        "s": {tab_name: section_name, ...}
+        "s": {tab_name: section_name, ...},
+        "rq": {skill: level, ...}  # only when known; {} means confirmed no-req
       }
     """
     import sort_tables  # type: ignore
+    SCRIPT_DIR_LOCAL = Path(__file__).resolve().parent
+    wiki_by_id = _load_wiki_requirements(
+        SCRIPT_DIR_LOCAL / "data" / "wiki-requirements.json"
+    )
+
+    integration_stats: dict[str, int] = {}
+    wiki_overrides_sample: list[tuple[int, str, dict, dict]] = []
 
     # Reverse by_tab: id -> set of tab names the item lives in (post-bleed-filter).
     item_tabs: dict[int, set[str]] = {}
@@ -477,14 +564,93 @@ def emit_item_metadata(
             entry["wc"] = weapon_class
         if slot:
             entry["sl"] = slot
-        # Brief #69: emit osrsbox equipment.requirements so the combat
-        # zone partitioner can apply a 60+ level cutoff.
-        reqs = eq.get("requirements")
-        if reqs and isinstance(reqs, dict):
-            entry["rq"] = {k: int(v) for k, v in reqs.items()
-                            if isinstance(v, (int, float))}
+
+        # Brief #72: merge wiki + osrsbox requirements. The wiki record
+        # (Brief #71 output) is preferred when high-confidence; medium
+        # confidence falls back to osrsbox if available.
+        merged_reqs, status = _merge_requirements(
+            eq.get("requirements"), wiki_by_id.get(iid),
+        )
+        integration_stats[status] = integration_stats.get(status, 0) + 1
+        if merged_reqs is not None:
+            entry["rq"] = merged_reqs
+        if status == "wiki_high_overrides" and len(wiki_overrides_sample) < 30:
+            osr = eq.get("requirements") or {}
+            wiki_overrides_sample.append((iid, name, merged_reqs, dict(osr)))
+
         meta[str(iid)] = entry
 
     output_json_path.parent.mkdir(parents=True, exist_ok=True)
     output_json_path.write_text(json.dumps(meta, separators=(",", ":")))
+    _write_requirements_integration_doc(integration_stats, wiki_overrides_sample,
+                                         len(meta))
     return meta
+
+
+def _write_requirements_integration_doc(
+    stats: dict[str, int],
+    overrides: list[tuple[int, str, dict, dict]],
+    total_items: int,
+) -> None:
+    """Write docs/requirements-integration-summary.md per Brief #72 Step 4."""
+    docs_path = (Path(__file__).resolve().parent.parent.parent
+                 / "docs" / "requirements-integration-summary.md")
+    docs_path.parent.mkdir(parents=True, exist_ok=True)
+    s = stats
+    high_total = (s.get("wiki_high_used", 0) + s.get("wiki_high_agrees", 0)
+                  + s.get("wiki_high_overrides", 0) + s.get("wiki_high_new", 0))
+    lines: list[str] = [
+        "# Requirements integration summary",
+        "",
+        "Brief #72: merged wiki-parsed requirements (Brief #71) into "
+        "item-meta.json via llm_promote.emit_item_metadata.",
+        "",
+        f"- Items in item-meta.json: **{total_items:,}**",
+        f"- Wiki HIGH-confidence merges: **{high_total:,}**",
+        f"  - Wiki agrees with osrsbox exactly: "
+        f"**{s.get('wiki_high_agrees', 0):,}**",
+        f"  - Wiki overrides osrsbox (wiki wins, sample below): "
+        f"**{s.get('wiki_high_overrides', 0):,}**",
+        f"  - Wiki has data, osrsbox missing: "
+        f"**{s.get('wiki_high_new', 0):,}**",
+        f"- Confirmed no requirements ({{}} in rq): "
+        f"**{s.get('no_req_confirmed', 0):,}**",
+        f"- osrsbox-kept (wiki medium, osrsbox had low-tier data): "
+        f"**{s.get('osrsbox_kept', 0):,}**",
+        f"- osrsbox-only (item not in wiki equipable set): "
+        f"**{s.get('osrsbox_only', 0):,}**",
+        f"- No requirements data from any source: "
+        f"**{s.get('none', 0):,}**",
+        "",
+    ]
+    if overrides:
+        lines.append("## Wiki overrides osrsbox (sample of 30)")
+        lines.append("")
+        lines.append("| id | name | wiki (kept) | osrsbox (replaced) |")
+        lines.append("|---|---|---|---|")
+        for iid, name, w, o in overrides:
+            wj = ", ".join(f"{k}:{v}" for k, v in sorted(w.items())) or "∅"
+            oj = ", ".join(f"{k}:{v}" for k, v in sorted(o.items())) or "∅"
+            lines.append(f"| {iid} | {name} | {wj} | {oj} |")
+        lines.append("")
+    import sys as _sys
+    print(file=_sys.stderr)
+    print(f"=== Requirements Integration Summary ===", file=_sys.stderr)
+    print(f"Items in item-meta.json: {total_items:,}", file=_sys.stderr)
+    print(f"Wiki HIGH merges:        {high_total:,}", file=_sys.stderr)
+    print(f"  - wiki_high_agrees:    {s.get('wiki_high_agrees', 0):,}",
+          file=_sys.stderr)
+    print(f"  - wiki_high_overrides: {s.get('wiki_high_overrides', 0):,}",
+          file=_sys.stderr)
+    print(f"  - wiki_high_new:       {s.get('wiki_high_new', 0):,}",
+          file=_sys.stderr)
+    print(f"Confirmed no-req {{}}:    {s.get('no_req_confirmed', 0):,}",
+          file=_sys.stderr)
+    print(f"osrsbox_kept:            {s.get('osrsbox_kept', 0):,}",
+          file=_sys.stderr)
+    print(f"osrsbox_only:            {s.get('osrsbox_only', 0):,}",
+          file=_sys.stderr)
+    print(f"none:                    {s.get('none', 0):,}",
+          file=_sys.stderr)
+    docs_path.write_text("\n".join(lines))
+    print(f"Wrote {docs_path}", file=_sys.stderr)
