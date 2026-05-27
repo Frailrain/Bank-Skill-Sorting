@@ -101,6 +101,43 @@ public interface SkillBankConfig extends Config
 		return 3;
 	}
 
+	// First-run setup-check flags. Hidden from the user-visible settings
+	// panel; the plugin manages them automatically based on dependency
+	// state and the number of times the check has fired.
+
+	@ConfigItem(
+		keyName = "welcomeShown",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default boolean welcomeShown()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "setupCheckDismissed",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default boolean setupCheckDismissed()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		keyName = "setupCheckCount",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default int setupCheckCount()
+	{
+		return 0;
+	}
+
 	@ConfigItem(
 		keyName = "tabMelee",
 		name = "melee",

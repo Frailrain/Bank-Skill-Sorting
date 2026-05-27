@@ -32,6 +32,7 @@ import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.plugins.PluginManager;
 import net.runelite.client.plugins.banktags.BankTagsPlugin;
 import net.runelite.client.plugins.banktags.TagManager;
 import net.runelite.client.plugins.banktags.tabs.Layout;
@@ -86,9 +87,13 @@ public class SkillBankPlugin extends Plugin
 	@Inject
 	private SkillBankLayoutBuilder layoutBuilder;
 
+	@Inject
+	private PluginManager pluginManager;
+
 	private SkillBankPanel panel;
 	private NavigationButton navButton;
 	private boolean seedAttempted;
+	private boolean setupCheckRunThisSession;
 
 	@Provides
 	SkillBankConfig provideConfig(ConfigManager configManager)
@@ -100,6 +105,7 @@ public class SkillBankPlugin extends Plugin
 	protected void startUp() throws Exception
 	{
 		seedAttempted = false;
+		setupCheckRunThisSession = false;
 		panel = new SkillBankPanel(this);
 
 		BufferedImage icon;
@@ -226,6 +232,13 @@ public class SkillBankPlugin extends Plugin
 		{
 			panel.refresh();
 		}
+		// First-run welcome + dependency check fire once per session and
+		// persist their state via hidden config flags.
+		if (!setupCheckRunThisSession)
+		{
+			setupCheckRunThisSession = true;
+			clientThread.invokeLater(this::runFirstRunChecks);
+		}
 		if (seedAttempted || !config.seedOnStartup())
 		{
 			return;
@@ -240,6 +253,118 @@ public class SkillBankPlugin extends Plugin
 			}
 		});
 	}
+
+	/**
+	 * First-run welcome message + Bank Tag Layouts dependency check.
+	 * <p>
+	 * Welcome fires once (gated on {@code welcomeShown}). Dependency
+	 * check fires up to 3 times (gated on {@code setupCheckCount}); once
+	 * all dependencies are satisfied the {@code setupCheckDismissed}
+	 * flag latches true and we stop checking forever.
+	 */
+	private void runFirstRunChecks()
+	{
+		if (client.getLocalPlayer() == null)
+		{
+			return;
+		}
+
+		// Welcome message — first login after installation.
+		if (!config.welcomeShown())
+		{
+			postChatColored(
+				"Welcome! Your bank tabs are being organized. "
+				+ "Open your bank to see 22 skill-sorted tabs.");
+			configManager.setConfiguration(SkillBankConfig.GROUP, "welcomeShown", true);
+		}
+
+		// Dependency check — skip if already dismissed or attempted 3+ times.
+		if (config.setupCheckDismissed() || config.setupCheckCount() >= 3)
+		{
+			return;
+		}
+
+		boolean layoutsInstalled = isPluginRunning(BANK_TAG_LAYOUTS_PLUGIN_NAME);
+		boolean layoutsEnabledByDefault = readBoolConfig(
+			BANK_TAG_LAYOUTS_GROUP, BANK_TAG_LAYOUTS_DEFAULT_ON_KEY, false);
+
+		if (!layoutsInstalled)
+		{
+			postChatColored(
+				"For the best experience, install \"Bank Tag Layouts\" from "
+				+ "the Plugin Hub (click the plug icon at the top of the sidebar"
+				+ " &rarr; search \"Bank Tag Layouts\" &rarr; Install).");
+			incrementSetupCount();
+			return;
+		}
+
+		if (!layoutsEnabledByDefault)
+		{
+			postChatColored(
+				"For the best experience, open Bank Tag Layouts settings and "
+				+ "enable \"Enable layout by default.\"");
+			incrementSetupCount();
+			return;
+		}
+
+		// Everything in place — latch dismissed so we never check again.
+		configManager.setConfiguration(SkillBankConfig.GROUP, "setupCheckDismissed", true);
+	}
+
+	private void incrementSetupCount()
+	{
+		configManager.setConfiguration(
+			SkillBankConfig.GROUP, "setupCheckCount", config.setupCheckCount() + 1);
+	}
+
+	/** Plugin Hub plugin detection. Iterates every plugin registered with
+	 *  PluginManager and matches the @PluginDescriptor name. Returns true
+	 *  only when the plugin is also currently enabled (not just present). */
+	private boolean isPluginRunning(String pluginDescriptorName)
+	{
+		for (Plugin p : pluginManager.getPlugins())
+		{
+			PluginDescriptor d = p.getClass().getAnnotation(PluginDescriptor.class);
+			if (d != null && pluginDescriptorName.equals(d.name())
+				&& pluginManager.isPluginEnabled(p))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/** Read a boolean from another plugin's config group. Returns {@code fallback}
+	 *  when the setting has never been written (RuneLite returns null in that
+	 *  case — the other plugin's @ConfigItem default applies). */
+	private boolean readBoolConfig(String group, String key, boolean fallback)
+	{
+		String v = configManager.getConfiguration(group, key);
+		if (v == null)
+		{
+			return fallback;
+		}
+		return "true".equalsIgnoreCase(v);
+	}
+
+	private void postChatColored(String body)
+	{
+		// Color the [Skill Bank Tabs] prefix in RuneLite's chat-message
+		// green so the player can pick it out from the login noise.
+		String message = "<col=00b000>[Skill Bank Tabs]</col> " + body;
+		clientThread.invokeLater(() ->
+		{
+			if (client.getLocalPlayer() == null)
+			{
+				return;
+			}
+			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", message, null);
+		});
+	}
+
+	private static final String BANK_TAG_LAYOUTS_PLUGIN_NAME = "Bank Tag Layouts";
+	private static final String BANK_TAG_LAYOUTS_GROUP = "banktaglayouts";
+	private static final String BANK_TAG_LAYOUTS_DEFAULT_ON_KEY = "layoutEnabledByDefault";
 
 	/**
 	 * Schedule a seed pass on the client thread, then deliver the result to the
