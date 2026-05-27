@@ -1901,8 +1901,12 @@ CRAFTING = TabSpec(
             "Ring mould", "Amulet mould", "Necklace mould",
             "Unholy mould", "Tiara mould", "Bracelet mould",
             "Sickle mould",
-            "Bronze wire", "Bucket of sand", "Woad leaf",
-        })),
+        }),
+            # Brief #76: per the OSRS Wiki Crafting page, the knife is a
+            # fletching/cooking tool — not a crafting tool. Bronze wire is
+            # a Smithing product used in quests. Woad leaf is a Farming
+            # output. None of these belong in the crafting tab.
+            force_exclude=["Knife", "Bronze wire", "Woad leaf", "Woad leaves"]),
         Section("Thread & dyes", _name_in({
             "Thread", "Wool", "Ball of wool",
             "Red dye", "Yellow dye", "Blue dye", "Green dye",

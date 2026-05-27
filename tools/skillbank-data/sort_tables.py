@@ -1159,9 +1159,20 @@ def _section_crafting(item: dict) -> str:
     # Brief #76: Moulds split out from Crafting tools.
     if " mould" in nlow or nlow.endswith(" mould") or nlow.endswith(" moulds"):
         return "Moulds"
-    if any(k in nlow for k in ("chisel", "needle", "shears", "glassblowing pipe",
-                               "spinning wheel", "lyre", "enchanted lyre",
-                               "bronze wire", "bucket of sand", "woad leaf")) \
+    # Glassmaking inputs/outputs — checked before Crafting tools so Bucket
+    # of sand / Seaweed / Giant seaweed route to glassmaking instead of
+    # the tools dump. Bronze wire / Woad leaf / Knife no longer in this
+    # branch — they're force_excluded from the tab via mapping.py.
+    if any(k in nlow for k in (
+            "molten glass", "soda ash", "seaweed", "bucket of sand",
+            "beer glass", "lantern lens", "unpowered orb", "light orb")):
+        return "Glassmaking"
+    # Brief #76: Crafting tools per the OSRS Wiki — chisel, needle,
+    # glassblowing pipe, spinning wheel. Knife removed (it's fletching/
+    # cooking). Thread lives in Spinning materials.
+    if any(k in nlow for k in ("chisel", "needle", "shears",
+                               "glassblowing pipe", "spinning wheel",
+                               "lyre", "enchanted lyre")) \
             and _slot(item) != "weapon":
         return "Crafting tools"
     for gem in GEM_TIER:
@@ -1173,8 +1184,6 @@ def _section_crafting(item: dict) -> str:
         return "Hides & leather"
     if "wool" in nlow or "ball of wool" in nlow or "thread" in nlow:
         return "Spinning materials"
-    if "molten glass" in nlow or "soda ash" in nlow or "seaweed" in nlow:
-        return "Glassmaking"
     if "soft clay" in nlow or "pot lid" in nlow or "pottery" in nlow or "unfired" in nlow:
         return "Pottery & clay"
     if any(k in nlow for k in ("gold bar", "silver bar", "amulet of", "ring of",
