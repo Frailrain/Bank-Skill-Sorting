@@ -563,6 +563,17 @@ public class SkillBankPlugin extends Plugin
 	 * Watch for bank changes. When a Skill Bank tag tab is the active tab,
 	 * rebuild its layout against the current bank contents and tell Bank Tags
 	 * to redraw so newly-deposited items pop into their sorted position.
+	 * <p>
+	 * Brief #81: the rebuild + reload is deferred by one tick via
+	 * {@link ClientThread#invokeLater}. {@code ItemContainerChanged} has
+	 * multiple subscribers — bank-tags' own auto-tag handler is one of
+	 * them — and event-bus dispatch order isn't guaranteed. If our
+	 * subscriber runs first we save the layout and force a reload before
+	 * bank-tags has had a chance to add the new item to the active tag's
+	 * membership. When it auto-tags after our reload, the new item lands
+	 * at slot 0 (the first free position) because the layout we just
+	 * saved doesn't know about it yet. Deferring one tick lets every
+	 * same-tick subscriber complete before we read the bank + rebuild.
 	 */
 	@Subscribe
 	public void onItemContainerChanged(ItemContainerChanged event)
@@ -580,7 +591,31 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
-		buildAndSaveLayout(activeTag);
+		clientThread.invokeLater(() -> rebuildAndReloadActiveTab(activeTag));
+	}
+
+	/** Brief #81: shared one-tick-deferred rebuild + reload. Re-checks the
+	 *  active tag at run time because the player may have switched tabs
+	 *  during the delay. */
+	private void rebuildAndReloadActiveTab(String expectedTag)
+	{
+		if (!tabInterface.isTagTabActive())
+		{
+			return;
+		}
+		String currentTag = tabInterface.getActiveTag();
+		if (currentTag == null || !SkillBankData.tags().containsKey(currentTag))
+		{
+			return;
+		}
+		// If the player switched tabs between event fire and this tick,
+		// rebuild for whatever's actually visible now — not the snapshot
+		// we captured at event time.
+		ItemContainer bank = client.getItemContainer(InventoryID.BANK);
+		int itemCount = bank != null ? bank.size() : -1;
+		log.debug("[Skill Bank] Dynamic rebuild: tab={}, items={}, trigger=ItemContainerChanged",
+			currentTag, itemCount);
+		buildAndSaveLayout(currentTag);
 		tabInterface.reloadActiveTab();
 	}
 
