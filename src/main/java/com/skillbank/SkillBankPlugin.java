@@ -325,16 +325,18 @@ public class SkillBankPlugin extends Plugin
 			SkillBankConfig.GROUP, "setupCheckCount", config.setupCheckCount() + 1);
 	}
 
-	/** Dev-only: clear the first-run flags so the welcome message and
-	 *  dependency check fire again on next login. Used by the panel's
-	 *  Reset Setup Wizard button (only visible when running from source). */
+	/** Dev-only: clear the first-run flags AND immediately re-run the
+	 *  welcome + dependency checks so the messages appear in chat right
+	 *  away. Used by the panel's Reset Setup Wizard button (visible only
+	 *  when running from source). The previous version required the
+	 *  player to log out, which kills the dev client. */
 	void triggerResetSetupWizard()
 	{
 		configManager.setConfiguration(SkillBankConfig.GROUP, "welcomeShown", false);
 		configManager.setConfiguration(SkillBankConfig.GROUP, "setupCheckDismissed", false);
 		configManager.setConfiguration(SkillBankConfig.GROUP, "setupCheckCount", 0);
-		setupCheckRunThisSession = false;
-		postChatColored("Setup wizard reset. Log out and back in to see the messages.");
+		setupCheckRunThisSession = true;
+		clientThread.invokeLater(this::runFirstRunChecks);
 	}
 
 	/** Plugin Hub plugin detection. Iterates every plugin registered with
