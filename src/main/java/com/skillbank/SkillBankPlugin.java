@@ -675,28 +675,29 @@ public class SkillBankPlugin extends Plugin
 	@Subscribe
 	public void onItemContainerChanged(ItemContainerChanged event)
 	{
-		if (event.getContainerId() != InventoryID.BANK)
+		int containerId = event.getContainerId();
+		log.info("[SkillBank] onItemContainerChanged: containerId={} (BANK={})",
+			containerId, InventoryID.BANK);
+		if (containerId != InventoryID.BANK)
 		{
 			return;
 		}
-		// Brief #85: first bank-container change after seed-on-startup is
-		// our cue that the bank UI is now loaded — clear the flag whether
-		// or not a Skill Bank tab is active, since this fires only once.
 		needsInitialLayout = false;
-		if (!tabInterface.isTagTabActive())
-		{
-			return;
-		}
+		// Brief #85 (live diag): tabInterface.isTagTabActive() returns
+		// false when the player is clearly viewing a tag tab (verified in
+		// log — "tabActive=false activeTag=melee"). bank-slot-sync only
+		// checks getActiveTag() != null, so drop the redundant gate.
 		String activeTag = tabInterface.getActiveTag();
-		if (activeTag == null || !SkillBankData.tags().containsKey(activeTag))
+		boolean known = activeTag != null && SkillBankData.tags().containsKey(activeTag);
+		log.info("[SkillBank] BANK changed: activeTag={} isSkillBankTag={}",
+			activeTag, known);
+		if (!known)
 		{
+			log.info("[SkillBank]   gate-skip: activeTag null or not in SkillBankData.tags()");
 			return;
 		}
-		// Brief #81 (revised): bank-tags' own ItemContainerChanged handler
-		// can write its layout AFTER ours when we use clientThread.invokeLater,
-		// stomping the sort. Defer via GameTick (bank-slot-sync pattern) so a
-		// full tick boundary settles bank-tags' work before we rebuild.
 		pendingRebuildTag = activeTag;
+		log.info("[SkillBank]   queued pendingRebuildTag={}", activeTag);
 	}
 
 	@Subscribe
@@ -717,10 +718,9 @@ public class SkillBankPlugin extends Plugin
 	 *  the delay. */
 	private void rebuildAndReloadActiveTab(String expectedTag)
 	{
-		if (!tabInterface.isTagTabActive())
-		{
-			return;
-		}
+		// Brief #85 (live diag): drop isTagTabActive() check — it returns
+		// false even when a Skill Bank tag tab is actually active. Trust
+		// getActiveTag() + the SkillBankData membership check instead.
 		String currentTag = tabInterface.getActiveTag();
 		if (currentTag == null || !SkillBankData.tags().containsKey(currentTag))
 		{
@@ -743,8 +743,8 @@ public class SkillBankPlugin extends Plugin
 			log.error("[SkillBank] tabInterface is NULL — @PluginDependency likely missing");
 			return;
 		}
+		log.info("[SkillBank] FIRING reloadActiveTab for tag: {}", currentTag);
 		tabInterface.reloadActiveTab();
-		log.info("[SkillBank] reloadActiveTab() called for tag: {}", currentTag);
 	}
 
 	/**
