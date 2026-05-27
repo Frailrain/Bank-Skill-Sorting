@@ -38,11 +38,11 @@ import net.runelite.client.RuneLiteProperties;
 import net.runelite.client.plugins.banktags.BankTagsPlugin;
 import net.runelite.client.plugins.banktags.TagManager;
 import net.runelite.client.plugins.banktags.tabs.Layout;
-import net.runelite.client.plugins.banktags.tabs.LayoutManager;
 import net.runelite.client.plugins.banktags.tabs.TabInterface;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.util.ImageUtil;
+import net.runelite.client.util.Text;
 
 @Slf4j
 @PluginDescriptor(
@@ -54,6 +54,13 @@ import net.runelite.client.util.ImageUtil;
 public class SkillBankPlugin extends Plugin
 {
 	static final String BANKTAGS_GROUP = "banktags";
+	/** Brief #83: Bank Tag Layouts (plugin hub) shadow-config. When the
+	 *  plugin is installed AND "Enable layout by default" is on, it stores
+	 *  + reads layouts from this group, not from {@link #BANKTAGS_GROUP}.
+	 *  Our writes must target whichever group the tag's layout already
+	 *  lives in, otherwise the renderer ignores them. */
+	static final String BANK_TAG_LAYOUTS_GROUP = "banktaglayouts";
+	static final String LAYOUT_PREFIX = "layout_";
 	static final String ITEM_PREFIX = "item_";
 	static final String ICON_PREFIX = "icon_";
 	static final String TAG_TABS_KEY = "tagtabs";
@@ -79,9 +86,6 @@ public class SkillBankPlugin extends Plugin
 
 	@Inject
 	private TabInterface tabInterface;
-
-	@Inject
-	private LayoutManager layoutManager;
 
 	@Inject
 	private ItemManager itemManager;
@@ -411,7 +415,6 @@ public class SkillBankPlugin extends Plugin
 	}
 
 	private static final String BANK_TAG_LAYOUTS_PLUGIN_NAME = "Bank Tag Layouts";
-	private static final String BANK_TAG_LAYOUTS_GROUP = "banktaglayouts";
 	private static final String BANK_TAG_LAYOUTS_DEFAULT_ON_KEY = "layoutEnabledByDefault";
 
 	/**
@@ -548,7 +551,74 @@ public class SkillBankPlugin extends Plugin
 		}
 
 		Layout layout = layoutBuilder.buildLayout(tagName, ownedCanonical);
-		layoutManager.saveLayout(layout);
+		saveLayoutToConfig(tagName, layout);
+	}
+
+	/**
+	 * Brief #83: write our layout directly to whichever config group the tag
+	 * is currently using. {@link LayoutManager#saveLayout(Layout)} always
+	 * targets {@code banktags.layout_<tag>}, but Bank Tag Layouts (plugin
+	 * hub) shadows that with {@code banktaglayouts.layout_<tag>} when its
+	 * "Enable layout by default" setting is on (the configuration our setup
+	 * wizard enforces). We probe both groups and write to whichever already
+	 * owns the tag's layout; if neither does yet, default to banktaglayouts
+	 * so the very first write goes where Bank Tag Layouts will read it.
+	 *
+	 * Mirrors the approach used by the bank-slot-sync plugin.
+	 */
+	private void saveLayoutToConfig(String tagName, Layout layout)
+	{
+		String configKey = LAYOUT_PREFIX + Text.standardize(tagName);
+		String csv = serializeLayout(layout);
+
+		String externalLayout = configManager.getConfiguration(
+			BANK_TAG_LAYOUTS_GROUP, configKey);
+		String builtinLayout = configManager.getConfiguration(
+			BANKTAGS_GROUP, configKey);
+
+		// Pick the group that already owns the layout. Default to
+		// banktaglayouts on a clean install — that's where Bank Tag
+		// Layouts reads from when it's the active renderer.
+		String targetGroup;
+		if (externalLayout != null && !externalLayout.isEmpty())
+		{
+			targetGroup = BANK_TAG_LAYOUTS_GROUP;
+		}
+		else if (builtinLayout != null && !builtinLayout.isEmpty())
+		{
+			targetGroup = BANKTAGS_GROUP;
+		}
+		else
+		{
+			targetGroup = BANK_TAG_LAYOUTS_GROUP;
+		}
+
+		configManager.setConfiguration(targetGroup, configKey, csv);
+		log.debug("[Skill Bank] saveLayoutToConfig: tag={} group={} bytes={}",
+			tagName, targetGroup, csv.length());
+	}
+
+	/** Match {@link LayoutManager#saveLayout} serialization: CSV of int[]
+	 *  positions, -1 for empty slots. */
+	private static String serializeLayout(Layout layout)
+	{
+		int[] arr = layout.getLayout();
+		StringBuilder sb = new StringBuilder(arr.length * 5);
+		for (int i = 0; i < arr.length; i++)
+		{
+			if (i > 0) sb.append(',');
+			sb.append(arr[i]);
+		}
+		return sb.toString();
+	}
+
+	/** Remove the layout from both possible config groups so a reset
+	 *  doesn't leave an orphan shadow layout behind. */
+	private void removeLayoutFromConfig(String tagName)
+	{
+		String configKey = LAYOUT_PREFIX + Text.standardize(tagName);
+		configManager.unsetConfiguration(BANK_TAG_LAYOUTS_GROUP, configKey);
+		configManager.unsetConfiguration(BANKTAGS_GROUP, configKey);
 	}
 
 	/** Rebuild + save Layouts for every enabled Skill Bank tab. Client thread only. */
@@ -683,8 +753,10 @@ public class SkillBankPlugin extends Plugin
 				cleared++;
 			}
 			configManager.unsetConfiguration(BANKTAGS_GROUP, ICON_PREFIX + tagName);
-			// Brief #57: also wipe the saved Layout so a re-seed starts clean.
-			layoutManager.removeLayout(tagName);
+			// Brief #57 + #83: wipe saved layouts from BOTH config groups so
+			// a re-seed starts clean. The banktaglayouts group is the one
+			// Bank Tag Layouts reads from; banktags is the built-in fallback.
+			removeLayoutFromConfig(tagName);
 		}
 
 		Set<String> tabsCsv = readTagTabs();
