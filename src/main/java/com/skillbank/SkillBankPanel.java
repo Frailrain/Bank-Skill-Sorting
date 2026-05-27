@@ -23,6 +23,7 @@ class SkillBankPanel extends PluginPanel
 	private final JLabel statusLabel;
 	private final JPanel tagListPanel;
 	private final JCheckBox confirmResetBox;
+	private final JPanel content;
 
 	SkillBankPanel(SkillBankPlugin plugin)
 	{
@@ -33,7 +34,7 @@ class SkillBankPanel extends PluginPanel
 		setLayout(new BorderLayout());
 		setBackground(ColorScheme.DARK_GRAY_COLOR);
 
-		JPanel content = new JPanel();
+		content = new JPanel();
 		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 		content.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
@@ -112,6 +113,32 @@ class SkillBankPanel extends PluginPanel
 
 		renderEmptyTagList();
 		refresh();
+	}
+
+	/** Brief #78b: dev-only button that clears the first-run setup flags
+	 *  so the welcome + dependency check can be retested without
+	 *  hand-editing the settings.properties. Added to the panel only
+	 *  when the plugin detects a non-launcher (source) build. */
+	void addResetWizardButton()
+	{
+		SwingUtilities.invokeLater(() ->
+		{
+			content.add(createSpacer(12));
+			JLabel devLabel = new JLabel("Dev tools:");
+			devLabel.setForeground(Color.LIGHT_GRAY);
+			devLabel.setAlignmentX(LEFT_ALIGNMENT);
+			content.add(devLabel);
+
+			content.add(createSpacer(4));
+
+			JButton resetWizard = new JButton("Reset Setup Wizard");
+			resetWizard.setAlignmentX(LEFT_ALIGNMENT);
+			resetWizard.addActionListener(e -> plugin.triggerResetSetupWizard());
+			content.add(resetWizard);
+
+			content.revalidate();
+			content.repaint();
+		});
 	}
 
 	void setStatus(String text)

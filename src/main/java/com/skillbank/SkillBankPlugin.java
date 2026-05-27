@@ -33,6 +33,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.PluginManager;
+import net.runelite.client.RuneLiteProperties;
 import net.runelite.client.plugins.banktags.BankTagsPlugin;
 import net.runelite.client.plugins.banktags.TagManager;
 import net.runelite.client.plugins.banktags.tabs.Layout;
@@ -107,6 +108,13 @@ public class SkillBankPlugin extends Plugin
 		seedAttempted = false;
 		setupCheckRunThisSession = false;
 		panel = new SkillBankPanel(this);
+		// Dev-only Reset Setup Wizard button. RuneLiteProperties returns
+		// null for getLauncherVersion() when the client is launched from
+		// source (no production launcher); production users never see it.
+		if (RuneLiteProperties.getLauncherVersion() == null)
+		{
+			panel.addResetWizardButton();
+		}
 
 		BufferedImage icon;
 		try
@@ -315,6 +323,18 @@ public class SkillBankPlugin extends Plugin
 	{
 		configManager.setConfiguration(
 			SkillBankConfig.GROUP, "setupCheckCount", config.setupCheckCount() + 1);
+	}
+
+	/** Dev-only: clear the first-run flags so the welcome message and
+	 *  dependency check fire again on next login. Used by the panel's
+	 *  Reset Setup Wizard button (only visible when running from source). */
+	void triggerResetSetupWizard()
+	{
+		configManager.setConfiguration(SkillBankConfig.GROUP, "welcomeShown", false);
+		configManager.setConfiguration(SkillBankConfig.GROUP, "setupCheckDismissed", false);
+		configManager.setConfiguration(SkillBankConfig.GROUP, "setupCheckCount", 0);
+		setupCheckRunThisSession = false;
+		postChatColored("Setup wizard reset. Log out and back in to see the messages.");
 	}
 
 	/** Plugin Hub plugin detection. Iterates every plugin registered with
