@@ -675,29 +675,22 @@ public class SkillBankPlugin extends Plugin
 	@Subscribe
 	public void onItemContainerChanged(ItemContainerChanged event)
 	{
-		int containerId = event.getContainerId();
-		log.info("[SkillBank] onItemContainerChanged: containerId={} (BANK={})",
-			containerId, InventoryID.BANK);
-		if (containerId != InventoryID.BANK)
+		if (event.getContainerId() != InventoryID.BANK)
 		{
 			return;
 		}
 		needsInitialLayout = false;
-		// Brief #85 (live diag): tabInterface.isTagTabActive() returns
-		// false when the player is clearly viewing a tag tab (verified in
-		// log — "tabActive=false activeTag=melee"). bank-slot-sync only
-		// checks getActiveTag() != null, so drop the redundant gate.
+		// Brief #85: tabInterface.isTagTabActive() returns false even when
+		// a tag tab IS active — verified in live diag (commit f10b6e8d
+		// log: "tabActive=false activeTag=melee"). Gate on getActiveTag()
+		// + the SkillBankData membership check only, matching bank-slot-
+		// sync's working pattern.
 		String activeTag = tabInterface.getActiveTag();
-		boolean known = activeTag != null && SkillBankData.tags().containsKey(activeTag);
-		log.info("[SkillBank] BANK changed: activeTag={} isSkillBankTag={}",
-			activeTag, known);
-		if (!known)
+		if (activeTag == null || !SkillBankData.tags().containsKey(activeTag))
 		{
-			log.info("[SkillBank]   gate-skip: activeTag null or not in SkillBankData.tags()");
 			return;
 		}
 		pendingRebuildTag = activeTag;
-		log.info("[SkillBank]   queued pendingRebuildTag={}", activeTag);
 	}
 
 	@Subscribe
@@ -707,9 +700,7 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
-		String tag = pendingRebuildTag;
 		pendingRebuildTag = null;
-		log.info("[SkillBank] GameTick: pendingRelayout=true, pendingTag={}", tag);
 		rebuildAndReloadActiveTab(null);
 	}
 
@@ -729,21 +720,13 @@ public class SkillBankPlugin extends Plugin
 		// If the player switched tabs between event fire and this tick,
 		// rebuild for whatever's actually visible now — not the snapshot
 		// we captured at event time.
-		ItemContainer bank = client.getItemContainer(InventoryID.BANK);
-		int itemCount = bank != null ? bank.size() : -1;
-		log.info("[SkillBank] GameTick rebuild: tab={}, items={}", currentTag, itemCount);
+		log.debug("[SkillBank] Dynamic rebuild: tab={}, trigger=ItemContainerChanged", currentTag);
 		buildAndSaveLayout(currentTag);
-		// Brief #85 (revised): tabInterface.reloadActiveTab() is the
-		// canonical re-render path. It calls openBankTag → loadLayout
-		// (re-reads config) → bankSearch.reset → layoutBank (re-renders
-		// the grid). Calling bankSearch.layoutBank() alone would re-run
-		// the script against a stale in-memory activeLayout.
-		if (tabInterface == null)
-		{
-			log.error("[SkillBank] tabInterface is NULL — @PluginDependency likely missing");
-			return;
-		}
-		log.info("[SkillBank] FIRING reloadActiveTab for tag: {}", currentTag);
+		// Brief #85: tabInterface.reloadActiveTab() is the canonical
+		// re-render path — calls openBankTag → loadLayout (re-reads
+		// config) → bankSearch.reset → layoutBank (re-renders grid).
+		// bankSearch.layoutBank() alone would re-run the script against
+		// a stale in-memory activeLayout.
 		tabInterface.reloadActiveTab();
 	}
 
