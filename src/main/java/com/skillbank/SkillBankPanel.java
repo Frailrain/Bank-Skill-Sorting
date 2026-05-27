@@ -147,6 +147,15 @@ class SkillBankPanel extends PluginPanel
 			resetWizard.addActionListener(e -> plugin.triggerResetSetupWizard());
 			content.add(resetWizard);
 
+			content.add(createSpacer(4));
+
+			// Brief #84: read-only diagnostic — dumps every Skill Bank tab's
+			// banktags / banktaglayouts config values to log + file.
+			JButton dumpConfig = new JButton("Dump layout config");
+			dumpConfig.setAlignmentX(LEFT_ALIGNMENT);
+			dumpConfig.addActionListener(e -> plugin.triggerDumpLayoutConfig());
+			content.add(dumpConfig);
+
 			content.revalidate();
 			content.repaint();
 		});

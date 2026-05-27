@@ -11,6 +11,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.inject.Inject;
 import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
@@ -40,9 +46,11 @@ import net.runelite.client.plugins.banktags.TagManager;
 import net.runelite.client.plugins.banktags.tabs.Layout;
 import net.runelite.client.plugins.banktags.tabs.LayoutManager;
 import net.runelite.client.plugins.banktags.tabs.TabInterface;
+import net.runelite.client.RuneLite;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.util.ImageUtil;
+import net.runelite.client.util.Text;
 
 @Slf4j
 @PluginDescriptor(
@@ -363,6 +371,78 @@ public class SkillBankPlugin extends Plugin
 		configManager.setConfiguration(SkillBankConfig.GROUP, "setupCheckCount", 0);
 		setupCheckRunThisSession = true;
 		clientThread.invokeLater(this::runFirstRunChecks);
+	}
+
+	/** Brief #84: dev-only diagnostic. Dumps banktags / banktaglayouts
+	 *  config values for every Skill Bank tab plus the active-tab + plugin
+	 *  state, both to log.info AND to ~/.runelite/skillbank-config-dump.log.
+	 *  Read-only — no config writes, no layout changes. */
+	void triggerDumpLayoutConfig()
+	{
+		clientThread.invokeLater(this::doDumpLayoutConfig);
+	}
+
+	private void doDumpLayoutConfig()
+	{
+		List<String> lines = new ArrayList<>();
+		String header = "[Skill Bank Diag] dump @ "
+			+ DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(LocalDateTime.now());
+		lines.add(header);
+		log.info(header);
+
+		boolean bltInstalled = isPluginRunning(BANK_TAG_LAYOUTS_PLUGIN_NAME);
+		String bltDefaultOn = configManager.getConfiguration(
+			BANK_TAG_LAYOUTS_GROUP, BANK_TAG_LAYOUTS_DEFAULT_ON_KEY);
+		boolean tagTabActive = tabInterface.isTagTabActive();
+		String activeTag = tabInterface.getActiveTag();
+
+		addLine(lines, "[Skill Bank Diag] BankTagLayouts installed/running: " + bltInstalled);
+		addLine(lines, "[Skill Bank Diag] BankTagLayouts.layoutEnabledByDefault config raw: "
+			+ bltDefaultOn);
+		addLine(lines, "[Skill Bank Diag] tabInterface.isTagTabActive: " + tagTabActive);
+		addLine(lines, "[Skill Bank Diag] tabInterface.getActiveTag: " + activeTag);
+		addLine(lines, "");
+
+		for (String tagName : SkillBankData.tags().keySet())
+		{
+			String standardTag = Text.standardize(tagName);
+			String btKey = "layout_" + standardTag;
+			String bltVal = configManager.getConfiguration(BANK_TAG_LAYOUTS_GROUP, btKey);
+			String btVal = configManager.getConfiguration(BANKTAGS_GROUP, btKey);
+
+			addLine(lines, "[Skill Bank Diag] tab=" + tagName + " (standardized=" + standardTag + ")");
+			addLine(lines, "  banktags." + btKey + ": "
+				+ describe(btVal));
+			addLine(lines, "  banktaglayouts." + btKey + ": "
+				+ describe(bltVal));
+		}
+
+		// Write file copy.
+		Path out = RuneLite.RUNELITE_DIR.toPath().resolve("skillbank-config-dump.log");
+		try
+		{
+			Files.write(out, lines, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+			log.info("[Skill Bank Diag] wrote {} lines to {}", lines.size(), out);
+			postChat("Skill Bank diag dumped to " + out);
+		}
+		catch (IOException e)
+		{
+			log.error("[Skill Bank Diag] failed to write dump", e);
+		}
+	}
+
+	private static void addLine(List<String> lines, String line)
+	{
+		lines.add(line);
+		log.info(line);
+	}
+
+	private static String describe(String value)
+	{
+		if (value == null) return "null";
+		int len = value.length();
+		String preview = value.substring(0, Math.min(100, len));
+		return len + " chars, first 100: " + preview;
 	}
 
 	/** Plugin Hub plugin detection. Iterates every plugin registered with
