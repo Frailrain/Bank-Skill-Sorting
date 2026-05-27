@@ -41,7 +41,6 @@ import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.PluginManager;
 import net.runelite.client.RuneLiteProperties;
-import net.runelite.client.plugins.bank.BankSearch;
 import net.runelite.client.plugins.banktags.BankTagsPlugin;
 import net.runelite.client.plugins.banktags.TagManager;
 import net.runelite.client.plugins.banktags.tabs.Layout;
@@ -91,9 +90,6 @@ public class SkillBankPlugin extends Plugin
 
 	@Inject
 	private LayoutManager layoutManager;
-
-	@Inject
-	private BankSearch bankSearch;
 
 	@Inject
 	private ItemManager itemManager;
@@ -710,7 +706,9 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
+		String tag = pendingRebuildTag;
 		pendingRebuildTag = null;
+		log.info("[SkillBank] GameTick: pendingRelayout=true, pendingTag={}", tag);
 		rebuildAndReloadActiveTab(null);
 	}
 
@@ -733,26 +731,20 @@ public class SkillBankPlugin extends Plugin
 		// we captured at event time.
 		ItemContainer bank = client.getItemContainer(InventoryID.BANK);
 		int itemCount = bank != null ? bank.size() : -1;
-		log.debug("[Skill Bank] Dynamic rebuild: tab={}, items={}, trigger=ItemContainerChanged",
-			currentTag, itemCount);
+		log.info("[SkillBank] GameTick rebuild: tab={}, items={}", currentTag, itemCount);
 		buildAndSaveLayout(currentTag);
+		// Brief #85 (revised): tabInterface.reloadActiveTab() is the
+		// canonical re-render path. It calls openBankTag → loadLayout
+		// (re-reads config) → bankSearch.reset → layoutBank (re-renders
+		// the grid). Calling bankSearch.layoutBank() alone would re-run
+		// the script against a stale in-memory activeLayout.
+		if (tabInterface == null)
+		{
+			log.error("[SkillBank] tabInterface is NULL — @PluginDependency likely missing");
+			return;
+		}
 		tabInterface.reloadActiveTab();
-		// Brief #85: layoutManager.saveLayout writes the config but the
-		// bank widget doesn't re-read on its own. bankSearch.layoutBank()
-		// re-runs the InvTransmitListener script that paints the grid,
-		// which is the same path BTL uses when its own setting toggles.
-		forceRelayout();
-	}
-
-	/** Brief #85: tell the bank UI to re-read its layout config and
-	 *  redraw the item grid. Deferred one more tick so anything queued
-	 *  by the preceding {@link #buildAndSaveLayout} call (e.g. internal
-	 *  config-change side-effects) settles first. Safe to call when the
-	 *  bank isn't open — {@link BankSearch#layoutBank()} no-ops when
-	 *  the bank widget is null. */
-	private void forceRelayout()
-	{
-		clientThread.invokeLater(bankSearch::layoutBank);
+		log.info("[SkillBank] reloadActiveTab() called for tag: {}", currentTag);
 	}
 
 	/**
