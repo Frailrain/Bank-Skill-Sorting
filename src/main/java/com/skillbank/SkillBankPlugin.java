@@ -41,6 +41,7 @@ import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.PluginManager;
 import net.runelite.client.RuneLiteProperties;
+import net.runelite.client.plugins.bank.BankSearch;
 import net.runelite.client.plugins.banktags.BankTagsPlugin;
 import net.runelite.client.plugins.banktags.TagManager;
 import net.runelite.client.plugins.banktags.tabs.Layout;
@@ -92,6 +93,9 @@ public class SkillBankPlugin extends Plugin
 	private LayoutManager layoutManager;
 
 	@Inject
+	private BankSearch bankSearch;
+
+	@Inject
 	private ItemManager itemManager;
 
 	@Inject
@@ -108,6 +112,12 @@ public class SkillBankPlugin extends Plugin
 	 *  {@link #onItemContainerChanged}, consumed in {@link #onGameTick}.
 	 *  null when no rebuild is pending. */
 	private volatile String pendingRebuildTag;
+
+	/** Brief #85: set true after seed-on-startup finishes; consumed when
+	 *  the bank inventory container first changes (first bank open) so
+	 *  the initial Skill Bank layout renders without requiring a
+	 *  deposit/withdraw. */
+	private volatile boolean needsInitialLayout;
 
 	@Provides
 	SkillBankConfig provideConfig(ConfigManager configManager)
@@ -272,6 +282,12 @@ public class SkillBankPlugin extends Plugin
 			{
 				SwingUtilities.invokeLater(() -> panel.setStatus(result.summary()));
 			}
+			// Brief #85: prime the initial-layout flag once the seed
+			// completes. The bank UI isn't loaded yet at this point
+			// (login screen / game-world transition); the flag is
+			// consumed when the bank-inventory container first
+			// changes — i.e. the first bank open.
+			needsInitialLayout = true;
 		});
 	}
 
@@ -667,6 +683,10 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
+		// Brief #85: first bank-container change after seed-on-startup is
+		// our cue that the bank UI is now loaded — clear the flag whether
+		// or not a Skill Bank tab is active, since this fires only once.
+		needsInitialLayout = false;
 		if (!tabInterface.isTagTabActive())
 		{
 			return;
@@ -717,6 +737,22 @@ public class SkillBankPlugin extends Plugin
 			currentTag, itemCount);
 		buildAndSaveLayout(currentTag);
 		tabInterface.reloadActiveTab();
+		// Brief #85: layoutManager.saveLayout writes the config but the
+		// bank widget doesn't re-read on its own. bankSearch.layoutBank()
+		// re-runs the InvTransmitListener script that paints the grid,
+		// which is the same path BTL uses when its own setting toggles.
+		forceRelayout();
+	}
+
+	/** Brief #85: tell the bank UI to re-read its layout config and
+	 *  redraw the item grid. Deferred one more tick so anything queued
+	 *  by the preceding {@link #buildAndSaveLayout} call (e.g. internal
+	 *  config-change side-effects) settles first. Safe to call when the
+	 *  bank isn't open — {@link BankSearch#layoutBank()} no-ops when
+	 *  the bank widget is null. */
+	private void forceRelayout()
+	{
+		clientThread.invokeLater(bankSearch::layoutBank);
 	}
 
 	/**
