@@ -281,8 +281,8 @@ public class SkillBankPlugin extends Plugin
 		if (!config.welcomeShown())
 		{
 			postChatColored(
-				"Welcome! Your bank tabs are being organized. "
-				+ "Open your bank to see 22 skill-sorted tabs.");
+				"Your bank is being organized into 22 skill-sorted tabs. "
+				+ "Open your bank to see them.");
 			configManager.setConfiguration(SkillBankConfig.GROUP, "welcomeShown", true);
 		}
 
@@ -292,31 +292,52 @@ public class SkillBankPlugin extends Plugin
 			return;
 		}
 
-		boolean layoutsInstalled = isPluginRunning(BANK_TAG_LAYOUTS_PLUGIN_NAME);
-		boolean layoutsEnabledByDefault = readBoolConfig(
-			BANK_TAG_LAYOUTS_GROUP, BANK_TAG_LAYOUTS_DEFAULT_ON_KEY, false);
-
-		if (!layoutsInstalled)
+		SetupDependencyState state = getSetupDependencyState();
+		if (state == SetupDependencyState.NEEDS_INSTALL)
 		{
 			postChatColored(
-				"For the best experience, install \"Bank Tag Layouts\" from "
-				+ "the Plugin Hub (click the plug icon at the top of the sidebar"
-				+ " &rarr; search \"Bank Tag Layouts\" &rarr; Install).");
+				"This plugin requires \"Bank Tag Layouts\" to display correctly. "
+				+ "Install it from the Plugin Hub (plug icon &rarr; search "
+				+ "\"Bank Tag Layouts\" &rarr; Install).");
 			incrementSetupCount();
 			return;
 		}
 
-		if (!layoutsEnabledByDefault)
+		if (state == SetupDependencyState.NEEDS_CONFIG)
 		{
 			postChatColored(
-				"For the best experience, open Bank Tag Layouts settings and "
-				+ "enable \"Enable layout by default.\"");
+				"Bank Tag Layouts is installed but needs to be configured. "
+				+ "Open its settings and enable \"Enable layout by default\" &mdash; "
+				+ "without this, your tabs won't sort correctly.");
 			incrementSetupCount();
 			return;
 		}
 
 		// Everything in place — latch dismissed so we never check again.
 		configManager.setConfiguration(SkillBankConfig.GROUP, "setupCheckDismissed", true);
+	}
+
+	/** Tri-state used by both the chat check and the side-panel banner.
+	 *  Brief #80: the panel banner stays visible while a dependency is
+	 *  unmet, regardless of the chat-message dismissal counter. */
+	enum SetupDependencyState
+	{
+		OK,
+		NEEDS_INSTALL,
+		NEEDS_CONFIG,
+	}
+
+	SetupDependencyState getSetupDependencyState()
+	{
+		if (!isPluginRunning(BANK_TAG_LAYOUTS_PLUGIN_NAME))
+		{
+			return SetupDependencyState.NEEDS_INSTALL;
+		}
+		if (!readBoolConfig(BANK_TAG_LAYOUTS_GROUP, BANK_TAG_LAYOUTS_DEFAULT_ON_KEY, false))
+		{
+			return SetupDependencyState.NEEDS_CONFIG;
+		}
+		return SetupDependencyState.OK;
 	}
 
 	private void incrementSetupCount()

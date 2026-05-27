@@ -24,6 +24,7 @@ class SkillBankPanel extends PluginPanel
 	private final JPanel tagListPanel;
 	private final JCheckBox confirmResetBox;
 	private final JPanel content;
+	private final JLabel dependencyBanner;
 
 	SkillBankPanel(SkillBankPlugin plugin)
 	{
@@ -45,6 +46,16 @@ class SkillBankPanel extends PluginPanel
 		content.add(title);
 
 		content.add(createSpacer(8));
+
+		// Brief #80: dependency status banner. Lives at the top of the
+		// panel so the player sees the warning every time the panel is
+		// opened while Bank Tag Layouts is missing or unconfigured.
+		// Hidden when state == OK.
+		dependencyBanner = new JLabel();
+		dependencyBanner.setAlignmentX(LEFT_ALIGNMENT);
+		dependencyBanner.setForeground(new Color(255, 180, 90));
+		dependencyBanner.setVisible(false);
+		content.add(dependencyBanner);
 
 		JLabel help = new JLabel(
 			"<html>Seeds missing Bank Tags groups.<br>"
@@ -178,6 +189,52 @@ class SkillBankPanel extends PluginPanel
 	void refresh()
 	{
 		plugin.requestTagPresence(this::applyTagPresence);
+		updateDependencyBanner();
+	}
+
+	@Override
+	public void onActivate()
+	{
+		// Re-evaluate the dependency banner each time the player opens
+		// the side panel — covers the case where they fix Bank Tag
+		// Layouts settings mid-session and come back to verify.
+		updateDependencyBanner();
+	}
+
+	private void updateDependencyBanner()
+	{
+		SkillBankPlugin.SetupDependencyState state = plugin.getSetupDependencyState();
+		final String text;
+		switch (state)
+		{
+			case NEEDS_INSTALL:
+				text = "<html><b>⚠ Required:</b> Install \"Bank Tag Layouts\" "
+					+ "from the Plugin Hub. This plugin won't display "
+					+ "correctly without it.</html>";
+				break;
+			case NEEDS_CONFIG:
+				text = "<html><b>⚠ Required:</b> Open Bank Tag Layouts "
+					+ "settings and enable \"Enable layout by default.\""
+					+ "</html>";
+				break;
+			default:
+				text = null;
+				break;
+		}
+		SwingUtilities.invokeLater(() ->
+		{
+			if (text == null)
+			{
+				dependencyBanner.setVisible(false);
+			}
+			else
+			{
+				dependencyBanner.setText(text);
+				dependencyBanner.setVisible(true);
+			}
+			dependencyBanner.revalidate();
+			dependencyBanner.repaint();
+		});
 	}
 
 	private void applyTagPresence(Map<String, Boolean> presence)
