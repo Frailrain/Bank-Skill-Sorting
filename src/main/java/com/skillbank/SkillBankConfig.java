@@ -174,13 +174,12 @@ public interface SkillBankConfig extends Config
 		return true;
 	}
 
-	// Brief #74 fix #15: Teleports moved up to position 3 (after melee/range/mage).
 	@ConfigItem(
 		keyName = "tabPrayer",
 		name = "prayer",
 		description = "Seed the prayer tag (bones, ashes, prayer potions)",
 		section = tabsSection,
-		position = 4
+		position = 3
 	)
 	default boolean tabPrayer()
 	{
@@ -397,7 +396,7 @@ public interface SkillBankConfig extends Config
 		name = "teleports",
 		description = "Seed the teleports tag (teleport tablets, jewellery teleports, ectophial, royal seed pod, etc.)",
 		section = tabsSection,
-		position = 3
+		position = 4
 	)
 	default boolean tabTeleports()
 	{

@@ -30,11 +30,10 @@ from pathlib import Path
 # Tabs that should ALWAYS exist in the output even if the LLM gave them
 # zero items (keeps the SkillBankData.java structure stable across runs).
 ALL_TAB_NAMES = [
-    # Brief #81: teleports lifted to slot 4 (after the three combat tabs)
-    # so the in-game bank-tab row matches the side-panel @ConfigItem
-    # positions. tagtabs CSV order is determined by this list's order.
-    "melee", "range", "mage", "teleports",
-    "prayer", "cooking",
+    # Teleports sits between prayer and cooking in the bank-tab row.
+    # tagtabs CSV order is determined by this list's order.
+    "melee", "range", "mage",
+    "prayer", "teleports", "cooking",
     "woodcutting_firemaking", "fletching",
     "fishing", "crafting", "mining_smithing",
     "herblore", "agility_thieving",

@@ -147,11 +147,6 @@ public final class SkillBankData
 		//   (cross-tag) (23), Legacy (119)
 		addMage(m);
 
-		// Brief #81: Teleports promoted to slot 4 (after the three combat
-		// tabs) so the in-game bank-tab row order matches the side-panel
-		// settings positions.
-		addTeleports(m);
-
 		// ---------------------------------------------------------------------
 		// PRAYER — Prayer skill.
 		// Cross-tags: prayer potions/super restores (dup herblore). Mostly stays
@@ -167,6 +162,9 @@ public final class SkillBankData
 		//   Robes (monk/proselyte/initiate) (17), Bone secondaries (5), Quest-
 		//   related prayer items (7), Prayer accessories (5), Legacy (49)
 		addPrayer(m);
+
+		// Teleports sits between prayer and cooking in the bank-tab row.
+		addTeleports(m);
 
 		// ---------------------------------------------------------------------
 		// COOKING — Cooking skill.
