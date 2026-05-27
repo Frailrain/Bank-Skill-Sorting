@@ -407,25 +407,39 @@ public final class SkillBankSortData
 
 	private static volatile Map<Integer, ItemMeta> ITEM_META;
 
+	/** Initialise the static item-meta cache using the runtime's injected
+	 *  {@link Gson} instance. Idempotent — subsequent calls are no-ops.
+	 *  Plugin-hub static analysis forbids direct Gson construction; the
+	 *  injected instance is the only legal source. Called from
+	 *  {@link SkillBankLayoutBuilder}'s constructor so every later
+	 *  {@link #itemMeta()} caller sees a populated cache. */
+	public static void initItemMeta(Gson gson)
+	{
+		if (ITEM_META != null)
+		{
+			return;
+		}
+		synchronized (SkillBankSortData.class)
+		{
+			if (ITEM_META == null)
+			{
+				ITEM_META = loadItemMeta(gson);
+			}
+		}
+	}
+
 	public static Map<Integer, ItemMeta> itemMeta()
 	{
 		Map<Integer, ItemMeta> m = ITEM_META;
 		if (m == null)
 		{
-			synchronized (SkillBankSortData.class)
-			{
-				m = ITEM_META;
-				if (m == null)
-				{
-					m = loadItemMeta();
-					ITEM_META = m;
-				}
-			}
+			log.warn("itemMeta() called before initItemMeta(Gson); returning empty map");
+			return Collections.emptyMap();
 		}
 		return m;
 	}
 
-	private static Map<Integer, ItemMeta> loadItemMeta()
+	private static Map<Integer, ItemMeta> loadItemMeta(Gson gson)
 	{
 		long t0 = System.nanoTime();
 		try (InputStream in = SkillBankSortData.class.getResourceAsStream("/com/skillbank/item-meta.json"))
@@ -435,7 +449,6 @@ public final class SkillBankSortData
 				log.warn("item-meta.json not found on classpath — runtime layout will be empty");
 				return Collections.emptyMap();
 			}
-			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, ItemMeta>>() {}.getType();
 			Map<String, ItemMeta> raw = gson.fromJson(
 				new InputStreamReader(in, StandardCharsets.UTF_8),

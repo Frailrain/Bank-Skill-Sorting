@@ -58,10 +58,14 @@ public class SkillBankLayoutBuilder
 	private final Map<String, Integer> gemOrderIndex;
 
 	@Inject
-	SkillBankLayoutBuilder(ItemManager itemManager, SkillBankConfig config)
+	SkillBankLayoutBuilder(ItemManager itemManager, SkillBankConfig config,
+		com.google.gson.Gson gson)
 	{
 		this.itemManager = itemManager;
 		this.config = config;
+		// Initialise the static item-meta cache with the injected Gson
+		// (plugin-hub forbids direct Gson construction).
+		SkillBankSortData.initItemMeta(gson);
 		this.herbOrderIndex = lowercaseIndex(SkillBankSortData.HERB_ORDER);
 		this.potionOrderIndex = lowercaseIndex(SkillBankSortData.POTION_ORDER);
 		this.foodOrderIndex = lowercaseIndex(SkillBankSortData.FOOD_ORDER);
