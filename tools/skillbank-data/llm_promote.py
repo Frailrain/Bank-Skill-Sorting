@@ -566,13 +566,19 @@ def emit_item_metadata(
         if slot:
             entry["sl"] = slot
 
-        # Brief #75: emit set_name only for cosmetic items (the only tab
-        # that consumes it today) and only when the resolver returned
-        # something. Keeps the JSON footprint flat for the other 11k items.
+        # Brief #75: emit set_name for cosmetic items so the layout
+        # builder can row-break by set. Brief #76 (revised): also emit
+        # for crafting items in the Gems section so each gem family
+        # gets its own row (uncut → cut → ring → necklace → amulet
+        # → bracelet). The two domains never overlap on a single item.
         if "cosmetics" in tabs:
             sn = sort_tables._set_name(it)
             if sn:
                 entry["sn"] = sn
+        elif "crafting" in tabs:
+            gf = sort_tables._gem_family(it)
+            if gf:
+                entry["sn"] = gf
 
         # Brief #72: merge wiki + osrsbox requirements. The wiki record
         # (Brief #71 output) is preferred when high-confidence; medium

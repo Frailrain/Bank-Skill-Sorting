@@ -243,9 +243,12 @@ public class SkillBankLayoutBuilder
 		// row after zone 1 ends, giving an implicit zone separator.
 		int pos = 0;
 		boolean firstBlock = true;
-		// Brief #75: cosmetics tab adds a row break whenever the set_name
-		// changes within a section, so each set lives on its own row.
+		// Brief #75: cosmetics row-breaks by set_name. Brief #76 (revised):
+		// crafting Gems section also row-breaks by set_name to give each
+		// gem family its own row (Uncut → Cut → Ring → Necklace → Amulet
+		// → Bracelet). The same ItemMeta.setName field carries both.
 		boolean cosmeticsRowBreak = "cosmetics".equals(tagName);
+		boolean craftingGemsRowBreak = "crafting".equals(tagName);
 		// Zone 1 first, in section order.
 		for (SectionResult r : results)
 		{
@@ -256,9 +259,11 @@ public class SkillBankLayoutBuilder
 			}
 			if (trace != null) trace.section(r.section, 1, r.zone1.size(), r.sortMethod);
 			String lastSetName = null;
+			boolean rowBreakOnSet = cosmeticsRowBreak
+				|| (craftingGemsRowBreak && "Gems".equals(r.section));
 			for (Integer iid : r.zone1)
 			{
-				if (cosmeticsRowBreak)
+				if (rowBreakOnSet)
 				{
 					ItemMeta im = meta.get(iid);
 					String setName = im != null ? im.setName : null;
@@ -812,34 +817,74 @@ public class SkillBankLayoutBuilder
 		return Integer.MAX_VALUE;
 	}
 
-	private int compareGems(int a, int b)
+	// ── Brief #76 (revised): per-gem-family row layout for Gems section ──
+	//
+	// Each gem owns a row: Uncut X → X → X ring → X necklace → X amulet
+	// → X bracelet. Precious gems (gold-bar jewellery) come first by
+	// crafting level, then semi-precious. Family rank determines row
+	// order; sub-rank determines within-row order.
+
+	private static final Map<String, Integer> GEM_FAMILY_RANK = Map.ofEntries(
+		// Precious (gold-bar) gems, ascending crafting level.
+		Map.entry("Sapphire",     1),
+		Map.entry("Emerald",      2),
+		Map.entry("Ruby",         3),
+		Map.entry("Diamond",      4),
+		Map.entry("Dragonstone",  5),
+		Map.entry("Onyx",         6),
+		Map.entry("Zenyte",       7),
+		// Semi-precious (silver-bar) gems.
+		Map.entry("Opal",         8),
+		Map.entry("Jade",         9),
+		Map.entry("Red topaz",   10)
+	);
+
+	/** Returns family rank for a gem family name. Items without setName
+	 *  (or with an unknown family) sort to the end. */
+	private static int gemFamilyRank(String family)
 	{
-		int ra = gemRank(nameOf(a));
-		int rb = gemRank(nameOf(b));
-		if (ra != rb) return Integer.compare(ra, rb);
-		return nameOf(a).compareToIgnoreCase(nameOf(b));
+		if (family == null) return 99;
+		Integer r = GEM_FAMILY_RANK.get(family);
+		return r != null ? r : 50;
 	}
 
-	/** Brief #76: gem rank using GEM_ORDER. Matches longest keys first so
-	 *  "Uncut sapphire" wins over "Sapphire" in the same name. The lookup
-	 *  table is built once in the ctor (gemOrderIndex). */
-	private int gemRank(String name)
+	/** Within-family ordering: uncut → cut → ring → necklace → amulet →
+	 *  bracelet. Anything else (jewellery variants, charged orbs, etc.)
+	 *  sorts to the end of the row. */
+	private static int gemSubRank(String name)
 	{
 		String n = name.toLowerCase(Locale.ROOT);
-		// Iterate gemOrderIndex entries in descending key length so the
-		// "uncut X" prefix matches before bare "X".
-		int best = Integer.MAX_VALUE;
-		int bestLen = -1;
-		for (Map.Entry<String, Integer> e : gemOrderIndex.entrySet())
+		if (n.startsWith("uncut ")) return 0;
+		// Bare cut gem name: no slot keyword, no "uncut " prefix.
+		if (!n.contains(" ring") && !n.contains(" necklace")
+			&& !n.contains(" amulet") && !n.contains(" bracelet")
+			&& !n.contains("dragon necklace"))
 		{
-			String k = e.getKey();
-			if (n.contains(k) && k.length() > bestLen)
-			{
-				best = e.getValue();
-				bestLen = k.length();
-			}
+			return 1;
 		}
-		return best;
+		if (n.contains(" ring"))     return 2;
+		if (n.contains(" necklace") || n.contains("dragon necklace")) return 3;
+		if (n.contains(" amulet"))   return 4;
+		if (n.contains(" bracelet")) return 5;
+		return 9;
+	}
+
+	/** Brief #76 (revised): comparator for the crafting Gems section.
+	 *  Sort by gem family → within-family sub-rank → name. The layout
+	 *  builder then injects a row break between families. */
+	private int compareGems(int a, int b)
+	{
+		Map<Integer, ItemMeta> meta = SkillBankSortData.itemMeta();
+		ItemMeta ma = meta.get(a);
+		ItemMeta mb = meta.get(b);
+		int fa = gemFamilyRank(ma != null ? ma.setName : null);
+		int fb = gemFamilyRank(mb != null ? mb.setName : null);
+		if (fa != fb) return Integer.compare(fa, fb);
+
+		int sa = gemSubRank(nameOf(a));
+		int sb = gemSubRank(nameOf(b));
+		if (sa != sb) return Integer.compare(sa, sb);
+		return nameOf(a).compareToIgnoreCase(nameOf(b));
 	}
 
 	private int compareWeapons(int a, int b)

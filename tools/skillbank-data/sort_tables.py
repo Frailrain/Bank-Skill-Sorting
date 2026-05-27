@@ -1153,12 +1153,55 @@ def _section_fishing(item: dict) -> str:
 # _section_woodcutting_firemaking() in Brief #63.
 
 
+# Brief #76 (revised): per-gem-family row layout for the Gems section.
+# Each gem gets its own row: Uncut X → X → X ring → X necklace → X amulet
+# → X bracelet. Precious gems (gold-bar jewellery) sort before
+# semi-precious (silver-bar jewellery). Family rank also drives the
+# row order. Dragonstone necklace uses the canonical wiki name
+# "Dragon necklace"; topaz jewellery drops the "Red" prefix.
+_GEM_FAMILY_TOKENS = (
+    ("sapphire",     "Sapphire"),
+    ("emerald",      "Emerald"),
+    ("ruby",         "Ruby"),
+    ("diamond",      "Diamond"),
+    ("dragonstone",  "Dragonstone"),
+    ("dragon necklace", "Dragonstone"),
+    ("onyx",         "Onyx"),
+    ("zenyte",       "Zenyte"),
+    ("opal",         "Opal"),
+    ("jade",         "Jade"),
+    ("red topaz",    "Red topaz"),
+)
+
+
+def _gem_family(item: dict):
+    """Return the gem family name for an uncut gem, cut gem, or piece of
+    gem-set jewellery. Used by the crafting Gems section to cluster each
+    gem's full workflow on a single row. Returns None for non-gem items.
+    """
+    nlow = _name(item).lower()
+    # Topaz jewellery uses "Topaz" without "Red" but raw gem is "Red topaz".
+    # Match the jewellery form first so it doesn't fall into a generic case.
+    if any(k in nlow for k in (
+            "topaz ring", "topaz necklace", "topaz amulet", "topaz bracelet")):
+        return "Red topaz"
+    for tok, fam in _GEM_FAMILY_TOKENS:
+        if tok in nlow:
+            return fam
+    return None
+
+
 def _section_crafting(item: dict) -> str:
     name = _name(item)
     nlow = name.lower()
     # Brief #76: Moulds split out from Crafting tools.
     if " mould" in nlow or nlow.endswith(" mould") or nlow.endswith(" moulds"):
         return "Moulds"
+    # Brief #76 (revised): any gem or gem-set jewellery routes to Gems.
+    # The Java layout sorts by family + sub-rank to produce one row
+    # per gem (uncut → cut → ring → necklace → amulet → bracelet).
+    if _gem_family(item) is not None:
+        return "Gems"
     # Glassmaking inputs/outputs — checked before Crafting tools so Bucket
     # of sand / Seaweed / Giant seaweed route to glassmaking instead of
     # the tools dump. Bronze wire / Woad leaf / Knife no longer in this
@@ -1175,9 +1218,8 @@ def _section_crafting(item: dict) -> str:
                                "lyre", "enchanted lyre")) \
             and _slot(item) != "weapon":
         return "Crafting tools"
-    for gem in GEM_TIER:
-        if gem in nlow:
-            return "Gems"
+    # GEM_TIER fallthrough removed — _gem_family above already catches
+    # every gem and gem-set jewellery item earlier in the dispatch.
     if "dragonhide" in nlow and not any(k in nlow for k in (" body", " chaps", " vamb")):
         return "Hides & leather"
     if "leather" in nlow and _slot(item) == "":
