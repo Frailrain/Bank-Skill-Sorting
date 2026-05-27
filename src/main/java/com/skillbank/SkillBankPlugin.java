@@ -20,6 +20,7 @@ import net.runelite.api.GameState;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.gameval.InterfaceID;
@@ -95,6 +96,10 @@ public class SkillBankPlugin extends Plugin
 	private NavigationButton navButton;
 	private boolean seedAttempted;
 	private boolean setupCheckRunThisSession;
+	/** Brief #81: tag waiting for a deferred rebuild. Set in
+	 *  {@link #onItemContainerChanged}, consumed in {@link #onGameTick}.
+	 *  null when no rebuild is pending. */
+	private volatile String pendingRebuildTag;
 
 	@Provides
 	SkillBankConfig provideConfig(ConfigManager configManager)
@@ -591,12 +596,27 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
-		clientThread.invokeLater(() -> rebuildAndReloadActiveTab(activeTag));
+		// Brief #81 (revised): bank-tags' own ItemContainerChanged handler
+		// can write its layout AFTER ours when we use clientThread.invokeLater,
+		// stomping the sort. Defer via GameTick (bank-slot-sync pattern) so a
+		// full tick boundary settles bank-tags' work before we rebuild.
+		pendingRebuildTag = activeTag;
 	}
 
-	/** Brief #81: shared one-tick-deferred rebuild + reload. Re-checks the
-	 *  active tag at run time because the player may have switched tabs
-	 *  during the delay. */
+	@Subscribe
+	public void onGameTick(GameTick event)
+	{
+		if (pendingRebuildTag == null)
+		{
+			return;
+		}
+		pendingRebuildTag = null;
+		rebuildAndReloadActiveTab(null);
+	}
+
+	/** Brief #81: shared deferred rebuild + reload. Re-checks the active
+	 *  tag at run time because the player may have switched tabs during
+	 *  the delay. */
 	private void rebuildAndReloadActiveTab(String expectedTag)
 	{
 		if (!tabInterface.isTagTabActive())
