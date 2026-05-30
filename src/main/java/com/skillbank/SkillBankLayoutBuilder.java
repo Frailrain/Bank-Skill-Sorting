@@ -99,27 +99,11 @@ public class SkillBankLayoutBuilder
 
 	public Layout buildLayout(String tagName, Set<Integer> ownedCanonical)
 	{
-		return buildLayoutImpl(tagName, ownedCanonical, null);
-	}
-
-	/** Trace-producing variant. Same logic as {@link #buildLayout} but writes
-	 *  a per-section / per-item dump into {@link LayoutTrace}. Used by the
-	 *  side-panel "Dump layout trace" button (Brief #59). */
-	public LayoutTrace traceLayout(String tagName, Set<Integer> ownedCanonical)
-	{
-		LayoutTrace trace = new LayoutTrace(tagName);
-		buildLayoutImpl(tagName, ownedCanonical, trace);
-		return trace;
-	}
-
-	private Layout buildLayoutImpl(String tagName, Set<Integer> ownedCanonical, LayoutTrace trace)
-	{
 		Layout layout = new Layout(tagName);
 
 		List<Integer> tabItems = SkillBankData.itemsFor(tagName);
 		if (tabItems == null || tabItems.isEmpty())
 		{
-			if (trace != null) trace.note("no items declared for tag");
 			return layout;
 		}
 
@@ -149,11 +133,6 @@ public class SkillBankLayoutBuilder
 			ownedInTab.add(canonical);
 		}
 
-		if (trace != null)
-		{
-			trace.header(ownedInTab.size());
-		}
-
 		if (ownedInTab.isEmpty())
 		{
 			return layout;
@@ -163,7 +142,6 @@ public class SkillBankLayoutBuilder
 		// production since TAB_SECTIONS covers every tab in SkillBankData.tags().
 		if (sectionOrder == null)
 		{
-			if (trace != null) trace.note("unknown tag — falling back to alpha sort");
 			ownedInTab.sort(Comparator.comparing(this::nameOf));
 			int pos = 0;
 			for (Integer iid : ownedInTab)
@@ -205,8 +183,7 @@ public class SkillBankLayoutBuilder
 
 		boolean twoZone = SkillBankSortData.TWO_ZONE_TABS.contains(tagName);
 
-		// Per-section results so we can render the trace by zone after
-		// partitioning, while still emitting the layout in zone1 → zone2 order.
+		// Per-section results so the layout emits in zone1 → zone2 order.
 		List<SectionResult> results = new ArrayList<>();
 		for (String section : sectionOrder)
 		{
@@ -261,7 +238,6 @@ public class SkillBankLayoutBuilder
 			{
 				pos = ((pos / ITEMS_PER_ROW) + 1) * ITEMS_PER_ROW;
 			}
-			if (trace != null) trace.section(r.section, 1, r.zone1.size(), r.sortMethod);
 			String lastSetName = null;
 			boolean rowBreakOnSet = cosmeticsRowBreak
 				|| (craftingGemsRowBreak && "Gems".equals(r.section));
@@ -280,7 +256,6 @@ public class SkillBankLayoutBuilder
 					}
 					lastSetName = setName;
 				}
-				if (trace != null) trace.item(pos, iid, nameOf(iid), meta.get(iid), 1);
 				layout.setItemAtPos(iid, pos++);
 			}
 			firstBlock = false;
@@ -293,10 +268,8 @@ public class SkillBankLayoutBuilder
 			{
 				pos = ((pos / ITEMS_PER_ROW) + 1) * ITEMS_PER_ROW;
 			}
-			if (trace != null) trace.section(r.section, 2, r.zone2.size(), r.sortMethod);
 			for (Integer iid : r.zone2)
 			{
-				if (trace != null) trace.item(pos, iid, nameOf(iid), meta.get(iid), 2);
 				layout.setItemAtPos(iid, pos++);
 			}
 			firstBlock = false;

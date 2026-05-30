@@ -90,13 +90,6 @@ class SkillBankPanel extends PluginPanel
 		resetButton.addActionListener(e -> plugin.triggerReset());
 		content.add(resetButton);
 
-		content.add(createSpacer(6));
-
-		JButton traceButton = new JButton("Dump layout trace");
-		traceButton.setAlignmentX(LEFT_ALIGNMENT);
-		traceButton.addActionListener(e -> plugin.triggerLayoutTraceDump());
-		content.add(traceButton);
-
 		content.add(createSpacer(12));
 
 		statusLabel = new JLabel("Ready.");
@@ -146,15 +139,6 @@ class SkillBankPanel extends PluginPanel
 			resetWizard.setAlignmentX(LEFT_ALIGNMENT);
 			resetWizard.addActionListener(e -> plugin.triggerResetSetupWizard());
 			content.add(resetWizard);
-
-			content.add(createSpacer(4));
-
-			// Brief #84: read-only diagnostic — dumps every Skill Bank tab's
-			// banktags / banktaglayouts config values to log + file.
-			JButton dumpConfig = new JButton("Dump layout config");
-			dumpConfig.setAlignmentX(LEFT_ALIGNMENT);
-			dumpConfig.addActionListener(e -> plugin.triggerDumpLayoutConfig());
-			content.add(dumpConfig);
 
 			content.revalidate();
 			content.repaint();
