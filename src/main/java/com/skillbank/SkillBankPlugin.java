@@ -46,7 +46,7 @@ import net.runelite.client.util.ImageUtil;
 
 @Slf4j
 @PluginDescriptor(
-	name = "Skill Bank Tabs",
+	name = "Auto Bank Sorter",
 	description = "Seeds Bank Tags tag groups with predefined skill-based item lists",
 	tags = {"bank", "tags", "skilling", "organization"}
 )

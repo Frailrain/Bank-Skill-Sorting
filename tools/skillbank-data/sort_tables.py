@@ -85,10 +85,21 @@ TAB_SECTIONS: dict[str, list[str]] = {
         "Food",
         "Training & utility",
     ],
+    # Brief #87: range weapon section split into nine fixed launcher→ammo
+    # rows. Each section gets its own row break via the standard inter-
+    # section row alignment; the dynamic top-N two-zone partition is
+    # skipped for these sections (they're added to ALWAYS_ZONE1_SECTIONS
+    # on the Java side so everything surfaces).
     "range": [
-        "Weapons", "Ammunition", "Head", "Body", "Legs",
-        "Hands", "Feet", "Capes", "Shields & off-hands", "Neck",
-        "Rings",
+        "Bows", "Arrows",
+        "Crossbows", "Bolts",
+        "Ballistae & javelins",
+        "Blowpipe & darts",
+        "Knives",
+        "Morrigan's javelins",
+        "Other throwables",
+        "Head", "Body", "Legs", "Hands", "Feet",
+        "Capes", "Shields & off-hands", "Neck", "Rings",
         "Food",
         "Training & utility",
     ],
@@ -787,6 +798,87 @@ def _name_tier(name: str) -> int:
 # ── Section assignment per tab ──────────────────────────────────────────────
 
 
+def _section_range_weapon(item: dict):
+    """Brief #87: route a range-tab weapon-or-ammo item into one of the
+    nine fixed launcher→ammo rows. Returns None if the item isn't a
+    range weapon at all (caller falls through to slot dispatch for
+    armor / capes / etc.).
+
+    Detection order matters — Morrigan's javelins are checked before
+    the generic javelin gate (they need an isolated row), ballistae
+    before crossbows (different row), blowpipe before darts (it leads
+    the dart row).
+    """
+    nlow = _name(item).lower()
+    slot = _slot(item)
+    wc = (_weapon_type(item) or "").lower()
+
+    # Morrigan's javelins — both thrown weapon AND ballista ammo. Pin
+    # to their own row before either the javelin or thrown gates can
+    # claim them.
+    if "morrigan" in nlow and "javelin" in nlow:
+        return "Morrigan's javelins"
+
+    # Ammo-slot items: arrows, bolts, javelins. Check name family since
+    # they all share slot=ammo and wc=None.
+    if slot == "ammo":
+        if "javelin" in nlow:
+            return "Ballistae & javelins"
+        if "bolt" in nlow:
+            return "Bolts"
+        if "arrow" in nlow:
+            return "Arrows"
+        return None  # bolt rack / unfamiliar ammo — let slot dispatch decide
+
+    # Two-handed launchers (slot=2h) and one-handed launchers (slot=weapon).
+    if slot not in ("weapon", "2h"):
+        return None
+
+    # Ballistae are crossbow-class 2h but get their own row.
+    if "ballista" in nlow:
+        return "Ballistae & javelins"
+
+    if wc == "crossbow" or "crossbow" in nlow:
+        return "Crossbows"
+
+    if wc == "bow" or "shortbow" in nlow or "longbow" in nlow:
+        return "Bows"
+    # Special bows by name that may not carry wc=bow.
+    if any(k in nlow for k in (
+            "twisted bow", "dark bow", "comp bow", "composite bow",
+            "ogre bow", "crystal bow", "bow of faerdhinen",
+            "craw's bow", "webweaver", "corrupted bow", "3rd age bow",
+            "seercull", "eclipse atlatl")):
+        return "Bows"
+
+    # Blowpipe leads the dart row. Match all variants (toxic / blazing
+    # / camphor / ironwood / rosewood) by the "blowpipe" token.
+    if "blowpipe" in nlow:
+        return "Blowpipe & darts"
+    # Darts — wc='thrown' + name ending in dart / darts.
+    if wc == "thrown" and (nlow.endswith(" dart") or nlow.endswith(" darts")):
+        return "Blowpipe & darts"
+    # Knives — wc='thrown' + name token.
+    if wc == "thrown" and ("knife" in nlow or "knives" in nlow):
+        return "Knives"
+
+    # Other throwables: salamanders, chinchompas, obsidian rings,
+    # thrownaxes, atlatl darts, hunter's spear, etc.
+    if wc in ("salamander", "chinchompas", "blaster"):
+        return "Other throwables"
+    if any(k in nlow for k in (
+            "salamander", "chinchompa", "toktz-xil-ul", "thrownaxe",
+            "hunter's spear", "atlatl")):
+        return "Other throwables"
+
+    # Any remaining wc='thrown' that didn't match dart/knife above
+    # (e.g. thrownaxes, prototype darts) bins as throwables too.
+    if wc == "thrown":
+        return "Other throwables"
+
+    return None
+
+
 def _section_combat(item: dict, tab: str) -> str:
     """Slot-based section assignment shared across melee/range/mage."""
     slot = _slot(item)
@@ -825,13 +917,9 @@ def _section_combat(item: dict, tab: str) -> str:
 
     # Range-specific routing first.
     if tab == "range":
-        if slot == "ammo":
-            return "Ammunition"
-        # Thrown weapons (darts, knives, javelins). These ARE weapons not ammo
-        # in the slot system but mentally belong with ranged ammo.
-        wt = _weapon_type(item)
-        if wt in ("thrown", "throwing"):
-            return "Ammunition"
+        s = _section_range_weapon(item)
+        if s is not None:
+            return s
 
     # Slot-based dispatch.
     if slot in ("weapon", "2h"):

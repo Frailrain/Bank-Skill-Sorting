@@ -292,6 +292,14 @@ public class SkillBankLayoutBuilder
 	 *  trace can show which sort domain fired for each section. */
 	private String sortSection(List<Integer> items, String section, String tagName)
 	{
+		// Brief #87: range tab's nine weapon rows use a fixed launcher→ammo
+		// ordering. Section name carries the row identity; per-section
+		// sub-rank + tier ASC keep the within-row order predictable.
+		if ("range".equals(tagName) && RANGE_WEAPON_SECTIONS.contains(section))
+		{
+			items.sort((a, b) -> compareRangeWeapon(a, b, section));
+			return "RANGE_WEAPON_FIXED";
+		}
 		// Brief #75 (revised): fletching uses a per-section comparator with
 		// tier ASC + sub-rank groupings (shafts/tips/unstrung etc.).
 		if ("fletching".equals(tagName))
@@ -473,7 +481,13 @@ public class SkillBankLayoutBuilder
 	 *  added Food — cooked food never has equipment requirements so the
 	 *  level-based partitioner would dump it into Zone 2 by default. */
 	private static final Set<String> ALWAYS_ZONE1_SECTIONS = Set.of(
-		"Capes", "Neck", "Rings", "Food"
+		"Capes", "Neck", "Rings", "Food",
+		// Brief #87: range tab's nine fixed launcher→ammo rows skip the
+		// dynamic top-N partition. Self-organising row structure
+		// replaces it.
+		"Bows", "Arrows", "Crossbows", "Bolts",
+		"Ballistae & javelins", "Blowpipe & darts",
+		"Knives", "Morrigan's javelins", "Other throwables"
 	);
 
 	/** Force-Zone-1 for items with no requirement data but high tier. Catches
@@ -1223,5 +1237,95 @@ public class SkillBankLayoutBuilder
 			return Integer.compare(slA, slB);
 		}
 		return nameOf(a).compareToIgnoreCase(nameOf(b));
+	}
+
+	// ── Brief #87: range tab fixed launcher→ammo rows ────────────────────
+
+	private static final Set<String> RANGE_WEAPON_SECTIONS = Set.of(
+		"Bows", "Arrows", "Crossbows", "Bolts",
+		"Ballistae & javelins", "Blowpipe & darts",
+		"Knives", "Morrigan's javelins", "Other throwables"
+	);
+
+	/** Range-weapon tier resolver. Wood tiers for bow progression, metal
+	 *  tiers for crossbow / arrow / bolt / dart / javelin / knife
+	 *  progression, plus special endgame ranks (twisted, zaryte, etc.).
+	 *  Higher = stronger / later. Returns 0 for unknown so untagged items
+	 *  sort to the front of the row under the ASC ordering. */
+	private static int rangeTier(String name)
+	{
+		String n = name.toLowerCase(Locale.ROOT);
+		// Special-tier endgame ranged weapons & ammo.
+		if (n.contains("twisted bow"))           return 999;
+		if (n.contains("bow of faerdhinen"))     return 950;
+		if (n.contains("zaryte crossbow"))       return 900;
+		if (n.contains("webweaver"))             return 880;
+		if (n.contains("armadyl crossbow"))      return 850;
+		if (n.contains("dragon hunter crossbow")) return 840;
+		if (n.contains("blazing blowpipe"))      return 820;
+		if (n.contains("toxic blowpipe"))        return 800;
+		if (n.contains("crystal bow"))           return 780;
+		if (n.contains("3rd age bow"))           return 770;
+		if (n.contains("dark bow"))              return 750;
+		if (n.contains("magic shortbow"))        return 60;  // wood-tier magic
+		// Specialty / ballista — only used inside Ballistae row.
+		if (n.contains("heavy ballista"))        return 95;
+		if (n.contains("light ballista"))        return 90;
+		// Wood tiers (bows / strung shortbow + longbow / crystal).
+		if (n.contains("redwood"))               return 60;
+		if (n.contains("magic "))                return 50;
+		if (n.contains("yew "))                  return 40;
+		if (n.contains("maple "))                return 30;
+		if (n.contains("willow "))               return 20;
+		if (n.contains("oak "))                  return 10;
+		// Metal tiers (ammo + crossbows + darts + knives + javelins).
+		if (n.contains("dragon "))               return 80;
+		if (n.contains("amethyst"))              return 75;
+		if (n.contains("rune ") || n.contains("runite ")) return 70;
+		if (n.contains("adamant "))              return 60;
+		if (n.contains("mithril "))              return 50;
+		if (n.contains("broad"))                 return 45;
+		if (n.contains("steel "))                return 30;
+		if (n.contains("iron "))                 return 20;
+		if (n.contains("bronze "))               return 10;
+		if (n.contains("blurite"))               return 15;
+		if (n.contains("silver "))               return 25;
+		return 0;
+	}
+
+	/** Within-section sub-rank for the Ballistae & javelins row and the
+	 *  Blowpipe & darts row — launcher items lead the row, then ammo
+	 *  follows. Other range sections return 0 (sub-rank doesn't fire). */
+	private static int rangeSubRank(String name, String section)
+	{
+		String n = name.toLowerCase(Locale.ROOT);
+		switch (section)
+		{
+			case "Ballistae & javelins":
+				if (n.contains("light ballista")) return 0;
+				if (n.contains("heavy ballista")) return 1;
+				return 2;  // javelins
+			case "Blowpipe & darts":
+				if (n.contains("blowpipe")) return 0;
+				return 1;  // darts
+			default:
+				return 0;
+		}
+	}
+
+	/** Brief #87: comparator for the nine range-weapon sections. Sub-rank
+	 *  (launcher → ammo) primary in the Ballistae / Blowpipe rows; every
+	 *  section then uses {@link #rangeTier} ASC; name as tiebreaker. */
+	private int compareRangeWeapon(int a, int b, String section)
+	{
+		String na = nameOf(a);
+		String nb = nameOf(b);
+		int sra = rangeSubRank(na, section);
+		int srb = rangeSubRank(nb, section);
+		if (sra != srb) return Integer.compare(sra, srb);
+		int ta = rangeTier(na);
+		int tb = rangeTier(nb);
+		if (ta != tb) return Integer.compare(ta, tb);
+		return na.compareToIgnoreCase(nb);
 	}
 }

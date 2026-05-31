@@ -212,10 +212,19 @@ public final class SkillBankSortData
 			"Food",
 			"Training & utility"
 		));
+		// Brief #87: range weapon section split into nine fixed
+		// launcher→ammo rows. Each is added to ALWAYS_ZONE1_SECTIONS so
+		// the dynamic top-N partition doesn't fire on them.
 		m.put("range", List.of(
-			"Weapons", "Ammunition", "Head", "Body", "Legs",
-			"Hands", "Feet", "Capes", "Shields & off-hands", "Neck",
-			"Rings",
+			"Bows", "Arrows",
+			"Crossbows", "Bolts",
+			"Ballistae & javelins",
+			"Blowpipe & darts",
+			"Knives",
+			"Morrigan's javelins",
+			"Other throwables",
+			"Head", "Body", "Legs", "Hands", "Feet",
+			"Capes", "Shields & off-hands", "Neck", "Rings",
 			"Food",
 			"Training & utility"
 		));
