@@ -3038,7 +3038,50 @@ TELEPORTS = TabSpec(
         Section("Boss & PvM destinations", _never),
         Section("Minigame teleports", _never),
         Section("Wilderness teleports", _never),
-        Section("Quest-locked teleports", _never),
+        Section(
+            "Quest-locked teleports", _never,
+            # Achievement Diary rewards with a teleport function. The LLM
+            # tagged most of these into the relevant combat/skill tab
+            # (prayer bonus, mining bonus, slayer master, etc.) but missed
+            # their teleport role. Each entry below is wiki-verified per
+            # tier — only tiers that actually teleport are included
+            # (strict policy). Sources: OSRS Wiki per-tier pages,
+            # verified 2026-05-31.
+            #
+            # Ardougne cloak 1-4: all four tiers teleport to the Kandarin
+            #   (Ardougne) Monastery (unlimited).
+            # Explorer's ring 2-4: cabbage patch tele (tier 1 has none).
+            # Karamja gloves 3-4: Shilo gem mine (3+); + Duradel on 4.
+            # Wilderness sword 3-4: Fountain of Rune.
+            # Fremennik sea boots 1-4: Rellekka (all four tiers).
+            # Kandarin headgear 3-4: Sherlock.
+            # Desert amulet 2-4: Nardah; + Kalphite Cave on 4.
+            #   (tier 4 already correctly tagged into teleports — keep
+            #    here for documentation; force_include is idempotent.)
+            # Morytania legs 1-4: Ectofuntus slime pit (all four);
+            #   + Burgh de Rott on 3+.
+            # Western banner 3-4: Piscatoris Fishing Colony.
+            #   (tiers 1-2 have a Teleport menu option but it's locked
+            #    until tier 3 — excluded as non-functional.)
+            # Rada's blessing 1-4: Kourend Woodland (all four);
+            #   + Mount Karuulm on 3+.
+            force_include=[
+                "Ardougne cloak 1", "Ardougne cloak 2",
+                "Ardougne cloak 3", "Ardougne cloak 4",
+                "Explorer's ring 2", "Explorer's ring 3", "Explorer's ring 4",
+                "Karamja gloves 3", "Karamja gloves 4",
+                "Wilderness sword 3", "Wilderness sword 4",
+                "Fremennik sea boots 1", "Fremennik sea boots 2",
+                "Fremennik sea boots 3", "Fremennik sea boots 4",
+                "Kandarin headgear 3", "Kandarin headgear 4",
+                "Desert amulet 2", "Desert amulet 3", "Desert amulet 4",
+                "Morytania legs 1", "Morytania legs 2",
+                "Morytania legs 3", "Morytania legs 4",
+                "Western banner 3", "Western banner 4",
+                "Rada's blessing 1", "Rada's blessing 2",
+                "Rada's blessing 3", "Rada's blessing 4",
+            ],
+        ),
         Section(
             "Special & one-time",
             _never,
