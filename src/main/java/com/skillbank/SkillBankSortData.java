@@ -34,7 +34,14 @@ public final class SkillBankSortData
 	// ── Hand-authored display orders ───────────────────────────────────────
 
 	/** Standard herb tier order, lowest-level to highest. Within each name,
-	 *  Grimy sorts before Clean. */
+	 *  Grimy sorts before Clean.
+	 *  <p>
+	 *  Brief #88: intentionally low-tier-FIRST (i.e. weakest-left). Combat
+	 *  tabs across the plugin standardise on strongest-left, but herblore
+	 *  is a training row — players reach for guam / marrentill far more
+	 *  often than torstol while levelling, so the low end stays closest to
+	 *  the tab rail. The discrepancy with combat tabs is by design, not a
+	 *  missed flip. */
 	public static final List<String> HERB_ORDER = List.of(
 		"Guam", "Marrentill", "Tarromin", "Harralander", "Ranarr",
 		"Toadflax", "Irit", "Avantoe", "Kwuarm", "Snapdragon",
@@ -84,7 +91,14 @@ public final class SkillBankSortData
 		"Apple", "Orange"
 	);
 
-	/** Canonical rune order. */
+	/** Canonical rune-pouch order (Air → Mind → … → Astral → Wrath).
+	 *  <p>
+	 *  Brief #88: intentionally low-tier-FIRST. This matches the in-game
+	 *  rune pouch UI and the layout players already have memorised. Air
+	 *  / Mind / Water / Earth / Fire stay on the left because those are
+	 *  the runes runecrafting trainees handle by the thousand — the high-
+	 *  end Wrath / Soul / Blood are the rare ones. Combat-tab strongest-
+	 *  left convention does not apply here. */
 	public static final List<String> RUNE_ORDER = List.of(
 		"Air", "Mind", "Water", "Earth", "Fire", "Body",
 		"Cosmic", "Chaos", "Nature", "Law", "Death",
@@ -100,7 +114,12 @@ public final class SkillBankSortData
 	 *  (uncut paired with cut per gem), then secondary gems same pattern.
 	 *  Used by SkillBankLayoutBuilder.compareGems to produce
 	 *    Uncut sapphire, Sapphire, Uncut emerald, Emerald, ..., Uncut zenyte,
-	 *    Zenyte, Uncut opal, Opal, Uncut jade, Jade, Uncut red topaz, Red topaz. */
+	 *    Zenyte, Uncut opal, Opal, Uncut jade, Jade, Uncut red topaz, Red topaz.
+	 *  <p>
+	 *  Brief #88: intentionally low-tier-FIRST. Crafting is a training tab
+	 *  — players cut bulk sapphires / emeralds far more than they touch
+	 *  dragonstone / onyx / zenyte. Combat-tab strongest-left convention
+	 *  does not apply here; the gem rows stay sapphire-led on purpose. */
 	public static final List<String> GEM_ORDER = List.of(
 		"Uncut sapphire", "Sapphire",
 		"Uncut emerald",  "Emerald",

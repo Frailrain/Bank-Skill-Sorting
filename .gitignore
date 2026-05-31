@@ -11,3 +11,8 @@ nbproject/
 # Secrets — never commit
 .env
 tools/skillbank-data/.env
+# Regeneration output reports — produced by tools/skillbank-data/scraper.py
+# on every --llm-promote run. Not pipeline inputs; no runtime consumers.
+# Kept untracked so the working tree stays clean between regens.
+tools/skillbank-data/diff-current-vs-wiki.txt
+docs/requirements-integration-summary.md

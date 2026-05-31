@@ -1062,21 +1062,24 @@ public class SkillBankLayoutBuilder
 		}
 	}
 
-	/** Brief #75 (revised): fletching within-section comparator.
+	/** Brief #75 (revised) + Brief #88: fletching within-section comparator.
+	 *  Tier component is DESC throughout so rows render strongest-LEFT
+	 *  (closest to the tab rail). Sub-rank / process-flow ordering is
+	 *  ascending and unaffected — that's structural, not a tier ranking.
 	 *
-	 *  Bows: primary = wood tier ASC, secondary = sub-rank
+	 *  Bows: primary = wood tier DESC, secondary = sub-rank
 	 *    (shortbow-u → shortbow → longbow-u → longbow), tertiary = name.
-	 *  Crossbows: primary = tier ASC (specials at the end via tier sentinel),
+	 *  Crossbows: primary = tier DESC (specials at the left via tier sentinel),
 	 *    secondary = sub-rank (stock → unstrung xbow → finished), name.
 	 *  Arrows: primary = sub-rank (shaft → headless → finished), then within
-	 *    finished by tier ASC, name.
-	 *  Darts / Javelins: primary = tier ASC, secondary = sub-rank
+	 *    finished by tier DESC, name.
+	 *  Darts / Javelins: primary = tier DESC, secondary = sub-rank
 	 *    (tip → finished / head → finished), name.
 	 *  Bolts: primary = sub-rank (tip → unf → finished → gem-tipped),
-	 *    secondary = tier ASC within sub-rank, name.
+	 *    secondary = tier DESC within sub-rank, name.
 	 *  Feathers: primary = sub-rank (feathers → bowstring → magic string →
 	 *    crossbow string), name.
-	 *  Tools / Logs / Arrowheads / Misc: tier ASC, name.
+	 *  Tools / Logs / Arrowheads / Misc: sub-rank then tier DESC then name.
 	 */
 	private int compareFletching(int a, int b, String section)
 	{
@@ -1096,13 +1099,14 @@ public class SkillBankLayoutBuilder
 
 		if (tierFirst)
 		{
-			if (ta != tb) return Integer.compare(ta, tb);
+			// Brief #88: tier DESC → strongest-LEFT.
+			if (ta != tb) return Integer.compare(tb, ta);
 			if (sra != srb) return Integer.compare(sra, srb);
 			return na.compareToIgnoreCase(nb);
 		}
 
 		// Arrows + Bolts + Feathers: sub-rank-first (shaft/tip/feather before
-		// finished etc.), then tier ASC within sub-rank.
+		// finished etc.), then tier DESC within sub-rank.
 		boolean subRankFirst = "Arrows".equals(section)
 			|| "Bolts".equals(section)
 			|| "Feathers".equals(section);
@@ -1110,14 +1114,16 @@ public class SkillBankLayoutBuilder
 		if (subRankFirst)
 		{
 			if (sra != srb) return Integer.compare(sra, srb);
-			if (ta != tb) return Integer.compare(ta, tb);
+			// Brief #88: tier DESC within the sub-rank bucket.
+			if (ta != tb) return Integer.compare(tb, ta);
 			return na.compareToIgnoreCase(nb);
 		}
 
 		// Tools (3 items, fixed order via sub-rank), Logs / Arrowheads /
-		// Misc fletching: sub-rank then tier ASC then name.
+		// Misc fletching: sub-rank then tier DESC then name.
 		if (sra != srb) return Integer.compare(sra, srb);
-		if (ta != tb) return Integer.compare(ta, tb);
+		// Brief #88: tier DESC → strongest-LEFT.
+		if (ta != tb) return Integer.compare(tb, ta);
 		return na.compareToIgnoreCase(nb);
 	}
 
@@ -1313,9 +1319,14 @@ public class SkillBankLayoutBuilder
 		}
 	}
 
-	/** Brief #87: comparator for the nine range-weapon sections. Sub-rank
-	 *  (launcher → ammo) primary in the Ballistae / Blowpipe rows; every
-	 *  section then uses {@link #rangeTier} ASC; name as tiebreaker. */
+	/** Brief #87 + Brief #88: comparator for the nine range-weapon sections.
+	 *  Sub-rank (launcher → ammo) primary in the Ballistae / Blowpipe rows
+	 *  — that's a structural launcher-first convention, ASC. Tier component
+	 *  is DESC so the strongest item in each row renders LEFT, closest to
+	 *  the tab rail. Combat tabs across the plugin standardise on
+	 *  strongest-left; herblore / runecraft / crafting Gems intentionally
+	 *  go low-tier-first because those are training rows where the player
+	 *  reaches for the low-level item most often. */
 	private int compareRangeWeapon(int a, int b, String section)
 	{
 		String na = nameOf(a);
@@ -1325,7 +1336,8 @@ public class SkillBankLayoutBuilder
 		if (sra != srb) return Integer.compare(sra, srb);
 		int ta = rangeTier(na);
 		int tb = rangeTier(nb);
-		if (ta != tb) return Integer.compare(ta, tb);
+		// Brief #88: tier DESC → strongest-LEFT.
+		if (ta != tb) return Integer.compare(tb, ta);
 		return na.compareToIgnoreCase(nb);
 	}
 }
