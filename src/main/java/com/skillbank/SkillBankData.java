@@ -58,6 +58,31 @@ public final class SkillBankData
 	public static final String TAG_COSMETICS = "cosmetics";
 	public static final String TAG_TELEPORTS = "teleports";
 
+	/**
+	 * Brief #90: internal tag id -> tab display name. Bank Tags standardizes
+	 * every tab name to lower case on load ({@code TabManager.loadAllTabNames}
+	 * -> {@code Text.standardize}), so title case is not achievable — tab names
+	 * always render lower case. The only display win available is replacing the
+	 * underscore in compound ids with " + ". Simple ids display as-is, so only
+	 * the three compound tabs need an override.
+	 */
+	private static final Map<String, String> DISPLAY_NAMES;
+
+	static
+	{
+		Map<String, String> d = new LinkedHashMap<>();
+		d.put(TAG_WOODCUTTING_FIREMAKING, "woodcutting + firemaking");
+		d.put(TAG_MINING_SMITHING, "mining + smithing");
+		d.put(TAG_AGILITY_THIEVING, "agility + thieving");
+		DISPLAY_NAMES = java.util.Collections.unmodifiableMap(d);
+	}
+
+	/** Tab display name for an internal tag id; falls back to the id itself. */
+	public static String displayName(String internalTag)
+	{
+		return DISPLAY_NAMES.getOrDefault(internalTag, internalTag);
+	}
+
 	private static final Map<String, List<Integer>> TAGS;
 	private static final Map<String, Integer> TAG_ICONS;
 
@@ -1299,11 +1324,11 @@ public final class SkillBankData
 
 	private static void addWoodcuttingFiremaking(Map<String, List<Integer>> m)
 	{
-		// WOODCUTTING_FIREMAKING — 209 items
+		// WOODCUTTING_FIREMAKING — 219 items
 		//   Axes (54), Tinderboxes & firelighting tools (9), Forestry items (18),
 		//   Woodcutting outfit (6), Firemaking outfit (7), Logs (25), Pyre logs
 		//   (13), Shade items (5), Wintertodt & minigame items (5), Misc utility
-		//   (67)
+		//   (77)
 		m.put(TAG_WOODCUTTING_FIREMAKING, Arrays.asList(
 			// === Axes ===
 			508, 28196, 1351, 510, 28199, 1349, 512, 28202,
@@ -1354,7 +1379,11 @@ public final class SkillBankData
 			6313, 28655, 20693, 23838, 23878, 6319, 28154, 3436,
 			3434, 3432, 3430, 4700, 28628, 33062, 28529, 6448,
 			28192, 28674, 28149, 22593, 28630, 596, 25419, 22597,
-			20712, 7797, 7053
+			20712, 7797, 7053,
+			// Bird nests + Woodcutting Guild shrine bird's eggs (OSRS Wiki IDs).
+			// Cross-tagged: several also live in misc/herblore/farming/prayer.
+			// 22800 = Wyson's bird nest.
+			5070, 5071, 5072, 5074, 5075, 22798, 5076, 5077, 5078, 22800
 		));
 	}
 

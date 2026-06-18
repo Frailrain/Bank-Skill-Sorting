@@ -138,6 +138,81 @@ public interface SkillBankConfig extends Config
 		return 0;
 	}
 
+	// Brief #89: per-tab collision decisions, persisted so the plugin does
+	// not re-prompt every login. All three are comma-separated lists of
+	// standardized base tag names. Hidden — managed by the collision dialog
+	// and the seeding path, never edited directly by the user.
+
+	/** Base tag names the user chose to keep (Skip). Never seeded, updated,
+	 *  or refreshed by the plugin. */
+	@ConfigItem(
+		keyName = "skippedTabs",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default String skippedTabs()
+	{
+		return "";
+	}
+
+	/** Base tag names seeded alongside the user's tab under a "(Auto)"
+	 *  suffix. The user's same-named tab is left untouched; the plugin
+	 *  manages the suffixed variant. */
+	@ConfigItem(
+		keyName = "renamedTabs",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default String renamedTabs()
+	{
+		return "";
+	}
+
+	/** Base tag names the plugin owns and refreshes normally (seeded with no
+	 *  collision, or chosen Overwrite). Lets the plugin tell its own tabs
+	 *  apart from a user's hand-built same-named tab on later logins. */
+	@ConfigItem(
+		keyName = "managedTabs",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default String managedTabs()
+	{
+		return "";
+	}
+
+	/** Brief #90: latches true once this install has been placed on the new
+	 *  title-case naming scheme — via fresh-install seeding OR the one-time
+	 *  legacy rename migration. Gates both so neither runs twice. */
+	@ConfigItem(
+		keyName = "namingMigrated",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default boolean namingMigrated()
+	{
+		return false;
+	}
+
+	/** Brief #90: which naming this install's plugin tabs use. true = fresh
+	 *  install, tabs seeded with the "(Auto)" suffix ("Herblore (Auto)").
+	 *  false = legacy install migrated to bare title case ("Herblore"), which
+	 *  it already owned. Selects the primary seed/refresh name per tab. */
+	@ConfigItem(
+		keyName = "autoNaming",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default boolean autoNaming()
+	{
+		return false;
+	}
+
 	@ConfigItem(
 		keyName = "tabMelee",
 		name = "melee",

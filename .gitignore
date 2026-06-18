@@ -11,6 +11,9 @@ nbproject/
 # Secrets — never commit
 .env
 tools/skillbank-data/.env
+# Local dev client launcher containing live Jagex JX_ session tokens
+run-dev-client.ps1
+.jx-creds*
 # Regeneration output reports — produced by tools/skillbank-data/scraper.py
 # on every --llm-promote run. Not pipeline inputs; no runtime consumers.
 # Kept untracked so the working tree stays clean between regens.
