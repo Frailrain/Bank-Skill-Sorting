@@ -25,6 +25,7 @@ class SkillBankPanel extends PluginPanel
 	private final JCheckBox confirmResetBox;
 	private final JPanel content;
 	private final JLabel dependencyBanner;
+	private final JButton namingButton;
 
 	SkillBankPanel(SkillBankPlugin plugin)
 	{
@@ -39,7 +40,7 @@ class SkillBankPanel extends PluginPanel
 		content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
 		content.setBackground(ColorScheme.DARK_GRAY_COLOR);
 
-		JLabel title = new JLabel("Skill Bank Tabs");
+		JLabel title = new JLabel("Auto Bank Sorter");
 		title.setFont(title.getFont().deriveFont(Font.BOLD, 14f));
 		title.setForeground(Color.WHITE);
 		title.setAlignmentX(LEFT_ALIGNMENT);
@@ -71,6 +72,19 @@ class SkillBankPanel extends PluginPanel
 
 		content.add(createSpacer(10));
 
+		// Brief #91: one-time opt-in to the "(auto)" naming scheme. Visible
+		// only while on the legacy (bare title-case) scheme; hides for good
+		// once switched.
+		namingButton = new JButton("Update naming scheme");
+		namingButton.setToolTipText(
+			"Rename your tabs to the current \"(auto)\" scheme (one-time, no undo)");
+		namingButton.setAlignmentX(LEFT_ALIGNMENT);
+		namingButton.addActionListener(e -> plugin.triggerUpdateNamingScheme());
+		namingButton.setVisible(plugin.isLegacyNamingScheme());
+		content.add(namingButton);
+
+		content.add(createSpacer(6));
+
 		JButton seedButton = new JButton("Seed missing tags");
 		seedButton.setAlignmentX(LEFT_ALIGNMENT);
 		seedButton.addActionListener(e -> plugin.triggerReseed());
@@ -89,6 +103,18 @@ class SkillBankPanel extends PluginPanel
 		resetButton.setAlignmentX(LEFT_ALIGNMENT);
 		resetButton.addActionListener(e -> plugin.triggerReset());
 		content.add(resetButton);
+
+		content.add(createSpacer(6));
+
+		// Brief #89: forget Skip / Create-alongside choices so the plugin
+		// re-asks about those tabs on the next seed. Does not delete the
+		// plugin's own tabs.
+		JButton resetDecisionsButton = new JButton("Reset tab decisions");
+		resetDecisionsButton.setToolTipText(
+			"Re-ask about tabs you chose to skip or create alongside");
+		resetDecisionsButton.setAlignmentX(LEFT_ALIGNMENT);
+		resetDecisionsButton.addActionListener(e -> plugin.triggerResetDecisions());
+		content.add(resetDecisionsButton);
 
 		content.add(createSpacer(12));
 
@@ -165,7 +191,7 @@ class SkillBankPanel extends PluginPanel
 		tagListPanel.removeAll();
 		for (String tagName : plugin.knownTagNames())
 		{
-			JLabel row = new JLabel("\u00B7 " + tagName);
+			JLabel row = new JLabel("\u00B7 " + SkillBankData.displayName(tagName));
 			row.setForeground(Color.LIGHT_GRAY);
 			tagListPanel.add(row);
 		}
@@ -183,6 +209,13 @@ class SkillBankPanel extends PluginPanel
 	{
 		plugin.requestTagPresence(this::applyTagPresence);
 		updateDependencyBanner();
+		refreshNamingButton();
+	}
+
+	/** Brief #91: show "Update naming scheme" only while on the legacy scheme. */
+	void refreshNamingButton()
+	{
+		SwingUtilities.invokeLater(() -> namingButton.setVisible(plugin.isLegacyNamingScheme()));
 	}
 
 	@Override
@@ -237,7 +270,7 @@ class SkillBankPanel extends PluginPanel
 			tagListPanel.removeAll();
 			for (Map.Entry<String, Boolean> e : presence.entrySet())
 			{
-				JLabel row = new JLabel((e.getValue() ? "\u2713 " : "\u00B7 ") + e.getKey());
+				JLabel row = new JLabel((e.getValue() ? "\u2713 " : "\u00B7 ") + SkillBankData.displayName(e.getKey()));
 				row.setForeground(e.getValue() ? new Color(120, 200, 120) : Color.LIGHT_GRAY);
 				tagListPanel.add(row);
 			}

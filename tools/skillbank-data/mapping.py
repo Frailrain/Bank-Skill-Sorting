@@ -1720,7 +1720,16 @@ WOODCUTTING_FIREMAKING = TabSpec(
             "Forestry items", _never,
             force_exclude=["Animal skull"],
         ),
-        Section("Misc utility", _never),
+        Section(
+            "Misc utility", _never,
+            # Bird nests are a woodcutting byproduct; the bird's eggs are
+            # exchanged at the Woodcutting Guild shrine. In-game every nest
+            # variant shares the name "Bird nest" (seeds, ring, egg x3 colours,
+            # empty) and all three eggs share "Bird's egg", so two names cover
+            # them all. "Crushed nest" is intentionally NOT here — it stays in
+            # herblore. Cross-tag: any that also live in hunter etc. stay there.
+            force_include=["Bird nest", "Bird's egg"],
+        ),
     ],
 )
 

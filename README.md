@@ -1,65 +1,102 @@
-# Bank Skill Sorting
+# Auto Bank Sorter
 
-A RuneLite plugin that automatically seeds [Bank Tags](https://github.com/runelite/runelite/wiki/Bank-Tags) tag groups with skill-based item categories, so your bank is organised into one tidy tab per skill the moment you log in.
+A RuneLite plugin that organises your bank into 22 skill-based tabs and sorts the
+items inside them. It seeds [Bank Tags](https://github.com/runelite/runelite/wiki/Bank-Tags)
+tag groups from a bundled, wiki-sourced classification of every item, then builds
+a per-tab layout so each tab renders as a sorted grid the moment you open the bank.
 
-Items live in **every tab where you'd want them visible** — raw fish appear under both Fishing and Cooking, logs appear under both Woodcutting/Fletching and Firemaking, the rune pouch shows up under both Mage and Runecraft, and so on. The plugin never overwrites tags you've already created — it only fills in the ones that are missing.
+Items appear in every tab where you'd want them: raw fish under both `fishing` and
+`cooking`, the rune pouch under both `mage` and `runecraft`, hammers under
+`mining_smithing` and `construction`, and so on. Cross-tagging is intentional —
+Bank Tags treats each tag as an independent set.
 
-## Features
+## Dependencies
 
-- **20 skill-based tag groups** covering all 23 OSRS skills (the multi-skill tabs combine WC+Fletching, Mining+Smithing, and Agility+Thieving), plus a `misc` tab for teleports/keys/clues and a `quests` tab for quest, diary, and minigame rewards.
-- **Thoughtful categorisation** — raw inputs sit in the skill that produces them, processed outputs sit in the skill that consumes them.
-- **Multi-tagging** — cross-skill items (combat potions, slayer helms, hammers, planks, cannons, graceful, herb sack, etc.) are duplicated across every tab where they belong.
-- **Per-tab toggles** in the config panel to enable or disable individual tabs.
-- **Reseed missing tags** button — re-runs seeding for any tag that's currently empty without touching the rest.
-- **Reset all tags** button (gated behind a confirm checkbox) clears every tag this plugin manages, so you can start clean.
-- **Side panel** showing the current seeded state of every tag with green checkmarks.
-- **Non-destructive** — existing tag contents are never overwritten. If a tag already has any contents, it's left alone.
+Two plugins must be set up for tabs to render correctly:
 
-## Requirements
+- **Bank Tags** — built into RuneLite. Auto Bank Sorter writes to its configuration;
+  it's a hard dependency.
+- **Bank Tag Layouts** — install from the Plugin Hub and turn on **Enable layout by
+  default**. Without it, each tab is grouped by which real bank tab the items came
+  from and broken up by separator lines instead of rendering as one contiguous,
+  sorted grid. The plugin's setup wizard warns you in chat and in the side panel if
+  Bank Tag Layouts is missing or not configured.
 
-- The **Bank Tags** plugin must be installed and active. This plugin writes to Bank Tags' configuration; without it, the seeded data has nothing to render.
+## Install
 
-## Recommended companion plugin
+1. Install **Bank Tag Layouts** from the Plugin Hub and enable **Enable layout by
+   default** in its settings.
+2. Install **Auto Bank Sorter** from the Plugin Hub.
+3. Log in. Tabs seed automatically on startup (you can also trigger it from the side
+   panel). Open your bank to see them.
 
-For the best in-game experience, also install **Bank Tag Layouts** from the Plugin Hub and turn on its *Enable layout by default* setting. Without it, items in each skill tab are grouped by which real bank tab they came from, broken up by separator lines — items inside each group still render in the order this plugin emits them (primary items first, then cross-tagged items), but the separator lines fragment the view. With Bank Tag Layouts on, the whole tab renders as a single contiguous grid.
+## The 22 tabs
 
-## Usage
+`melee`, `range`, `mage`, `prayer`, `teleports`, `cooking`,
+`woodcutting + firemaking`, `fletching`, `fishing`, `crafting`,
+`mining + smithing`, `herblore`, `agility + thieving`, `slayer`, `farming`,
+`runecraft`, `hunter`, `construction`, `sailing`, `misc`, `quests`, `cosmetics`.
 
-1. Make sure the **Bank Tags** plugin is enabled in your RuneLite plugin list.
-2. Install **Bank Skill Sorting** from the Plugin Hub.
-3. Open the side panel and click **Seed missing tags** (or just log in — seeding on startup is on by default).
-4. Reopen your bank — the new skill tabs will be there.
+Bank Tags renders all tab names in lower case (it standardises them), so the three
+combined tabs show as `woodcutting + firemaking`, `mining + smithing`, and
+`agility + thieving`. Per-tab toggles in the config panel let you disable any tab
+you don't want seeded.
 
-To start fresh: tick **Confirm reset** in the config, then click **Reset all tags**. To rebuild a single missing tab, just delete it in Bank Tags and click **Seed missing tags** again.
+## How sorting works
 
-## Tabs
+- **Auto-classification.** Every item's tab(s) and within-tab section come from a
+  bundled dataset built from the OSRS Wiki — not osrsbox. The data lives in
+  [`SkillBankData.java`](src/main/java/com/skillbank/SkillBankData.java) and
+  `item-meta.json`, generated by the pipeline under `tools/skillbank-data/`.
+- **Two-zone combat sorting.** The `melee`, `range`, and `mage` tabs split into a
+  loadout zone (your best gear) and a chaff zone below it. A configurable **top-N
+  tier slider** controls how many equipment tiers show in the loadout zone — the
+  plugin reads the requirement levels on the gear you own per slot and keeps the
+  top N.
+- **Section row breaks.** Within a tab, items are grouped into labelled sections
+  that each start on a fresh row (Quest Helper style), so related items stay
+  visually together.
+- **Range launcher-then-ammo pairing.** The `range` tab orders each launcher
+  immediately before the ammo it fires: bows → arrows → crossbows → bolts →
+  ballistae → javelins → blowpipe → darts → knives → throwables.
+- **Hand-authored sort orders** for the sets where "correct" order is domain
+  knowledge, not a stat: herbs, potions, food, runes, gems, and metals.
+- **Tier direction is deliberate.** Combat gear sorts strongest-first (best gear on
+  the left). Training materials — herbs, runes, gems — sort lowest-first, matching
+  how you work up through them.
+- **Dynamic layout refresh.** Depositing or withdrawing re-sorts the active tab in
+  place, without closing the bank.
 
-| Tab | Contents |
-| --- | --- |
-| `melee` | Weapons, armour, combat potions, high-heal food, slayer helms, cannon parts |
-| `range` | Bows, crossbows, ammo, d'hide, blowpipes, ranging potions, cannon parts |
-| `mage` | Runes, staves, magic armour, rune pouch, teleport runes |
-| `prayer` | Bones, ashes, prayer potions, ensouled heads |
-| `cooking` | Cooked + raw food, ingredients, cook's outfit, gauntlets |
-| `wc_fletching` | Logs, axes, bow strings, unstrung bows, dart tips, forestry items |
-| `fishing` | Raw fish, rods, bait, angler outfit, fish barrel, Tempoross gear |
-| `firemaking` | Tinderbox, all logs, pyromancer outfit, firelighters, pyre logs |
-| `crafting` | Gems, moulds, leather, dragonhide, glass, jewellery bars |
-| `mining_smithing` | Ores, bars, pickaxes, prospector, foundry uniform, coal/gem bag |
-| `herblore` | Herbs, secondaries, every potion dose, vials, herb sack |
-| `agility_thieving` | Graceful (all recolours), marks, rogue set, blackjacks, ardougne cloak |
-| `slayer` | Task gear, slayer helms, enchanted gem, rings, blood essence |
-| `farming` | Seeds, tools, compost, farmer outfit, herb sack, stamina pots |
-| `runecraft` | Essence, talismans, tiaras, pouches, raiments of the eye |
-| `hunter` | Traps, impling jars, camo outfits, salamanders, quetzals |
-| `construction` | Planks, nails, saw, limestone, bars, mahogany homes packs |
-| `sailing` | Sailing fish, navigation tools, repair kits, sailing cape *(provisional — see notes)* |
-| `misc` | Teleport jewellery, tablets, clue scrolls, keys, storage bags, fairy ring tools |
-| `quests` | Quest rewards, diary gear, minigame gear, boss uniques and pets |
+## Collision handling and migration
 
-## Notes & Contributing
+- **New installs** seed each tab under an `(auto)` suffix — `herblore (auto)`,
+  `woodcutting + firemaking (auto)`, etc. — so a fresh seed never silently
+  overwrites a tab you built by hand. (Names render lower case because Bank Tags
+  standardises them.)
+- **Collision wizard.** If a seed name would collide with an existing tab, a dialog
+  lets you choose per tab: **Skip** (keep yours, the default), **Overwrite**
+  (replace with the auto-sorted version), or **Create alongside** (seed the
+  plugin's copy under the `(auto)` name so both coexist). Your choices are
+  remembered, so it won't re-ask.
+- **Legacy migration.** Installs from before this scheme silently migrate their
+  existing tabs on login: the three combined tabs are renamed from underscores to
+  the ` + ` form (e.g. `woodcutting_firemaking` → `woodcutting + firemaking`),
+  carrying their items and layout across. No wizard, no data loss.
 
-- **Item IDs are community maintained.** They come from `net.runelite.api.ItemID` and the OSRS Wiki. PRs to expand, correct, or re-bucket items are welcome — open an issue or send a patch against [`SkillBankData.java`](src/main/java/com/skillbank/SkillBankData.java).
-- **The Sailing tab is provisional.** Sailing was released on 2025-11-19 and many of its items don't have stable IDs in `ItemID` yet. The current bucket covers the cape, navigation tools (spyglass, crowbar, captain's log), repair kits, and the new fish — best-effort entries are flagged with `// verify ID` comments. Expect the Sailing tab to grow as the skill matures and IDs settle.
-- **Duplicating IDs across tabs is intentional**, not a bug. Bank Tags treats each tag as an independent set, so an item being tagged `melee` *and* `cooking` is exactly what we want.
-- If a tab has the wrong contents, the simplest fix is to edit the tag directly in Bank Tags — this plugin won't fight you.
+## Side panel
+
+The side panel shows every tab's current seeded state, a **Seed missing tags**
+button, a **Reset all skill tags** button (gated behind a confirm checkbox), and a
+**Reset tab decisions** button that re-asks about tabs you previously chose to skip
+or create alongside.
+
+## Notes
+
+- The classification data covers the full item universe, including **30 diary-reward
+  teleport items** across every tier in the `teleports` tab.
+- **The `sailing` tab is best-effort** while the skill's items settle.
+- **Cross-tagging is intentional** — an item being tagged `melee` and `cooking` is
+  exactly what we want. If a tab has contents you'd rather change, edit the tag
+  directly in Bank Tags; the plugin only re-applies its own managed tabs.
+- Item classifications are regenerated from the OSRS Wiki by the pipeline in
+  [`tools/skillbank-data/`](tools/skillbank-data/). Corrections are welcome.

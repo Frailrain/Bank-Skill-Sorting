@@ -1,6 +1,7 @@
 package com.skillbank;
 
 import com.google.inject.Provides;
+import java.awt.Window;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -43,12 +44,13 @@ import net.runelite.client.plugins.banktags.tabs.TabInterface;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.util.ImageUtil;
+import net.runelite.client.util.Text;
 
 @Slf4j
 @PluginDescriptor(
 	name = "Auto Bank Sorter",
-	description = "Seeds Bank Tags tag groups with predefined skill-based item lists",
-	tags = {"bank", "tags", "skilling", "organization"}
+	description = "Sorts your bank into 22 skill-based tabs using wiki-sourced item data, with two-zone combat layouts and dynamic re-sorting. Requires Bank Tag Layouts.",
+	tags = {"bank", "tags", "skilling", "organization", "sort", "layout"}
 )
 @PluginDependency(BankTagsPlugin.class)
 public class SkillBankPlugin extends Plugin
@@ -58,6 +60,17 @@ public class SkillBankPlugin extends Plugin
 	static final String ICON_PREFIX = "icon_";
 	static final String TAG_TABS_KEY = "tagtabs";
 	static final String LEGACY_TAGGED_ITEMS_PREFIX = "taggedItems_";
+
+	// Brief #89/#90: collision-decision + naming config keys (in SkillBankConfig.GROUP).
+	static final String SKIPPED_TABS_KEY = "skippedTabs";
+	static final String RENAMED_TABS_KEY = "renamedTabs";
+	static final String MANAGED_TABS_KEY = "managedTabs";
+	static final String NAMING_MIGRATED_KEY = "namingMigrated";
+	static final String AUTO_NAMING_KEY = "autoNaming";
+	/** Suffix on a fresh install's bank tab, e.g. "herblore (auto)" — keeps the
+	 *  default seed names collision-safe (Brief #89). Lower case because Bank
+	 *  Tags renders all tab names standardized regardless. */
+	static final String AUTO_DISPLAY_SUFFIX = " (auto)";
 
 	@Inject
 	private Client client;
@@ -138,7 +151,7 @@ public class SkillBankPlugin extends Plugin
 		}
 
 		navButton = NavigationButton.builder()
-			.tooltip("Skill Bank Tabs")
+			.tooltip("Auto Bank Sorter")
 			.icon(icon)
 			.priority(7)
 			.panel(panel)
@@ -198,7 +211,7 @@ public class SkillBankPlugin extends Plugin
 				{
 					if (!config.resetConfirm())
 					{
-						postChat("Skill Bank: enable 'Confirm reset' before resetting tags.");
+						postChat("Auto Bank Sorter: enable 'Confirm reset' before resetting tags.");
 						if (panel != null)
 						{
 							SwingUtilities.invokeLater(() -> panel.setStatus("Reset blocked: confirm first."));
@@ -215,7 +228,7 @@ public class SkillBankPlugin extends Plugin
 					{
 						resetAll(cleared ->
 						{
-							postChat("Skill Bank: removed " + cleared + " skill tag(s). Reseed via 'Reseed missing tags'.");
+							postChat("Auto Bank Sorter: removed" + cleared + " skill tag(s). Reseed via 'Reseed missing tags'.");
 							if (panel != null)
 							{
 								SwingUtilities.invokeLater(() -> panel.setStatus("Removed " + cleared + " skill tag(s)."));
@@ -263,6 +276,51 @@ public class SkillBankPlugin extends Plugin
 			return;
 		}
 		seedAttempted = true;
+		clientThread.invokeLater(this::runStartupSeed);
+	}
+
+	/**
+	 * Brief #90: route the once-per-session startup seed by install state.
+	 * <ul>
+	 *   <li><b>already on the new scheme</b> ({@code namingMigrated}) — normal
+	 *       seed/refresh via {@link #doSeedMissing};</li>
+	 *   <li><b>legacy install</b> (fingerprint tabs present) — one-time rename
+	 *       of the old lowercase tabs to title case, no wizard;</li>
+	 *   <li><b>new install</b> — seed with the "(Auto)" naming scheme; the
+	 *       Brief #89 wizard handles any (unlikely) collisions.</li>
+	 * </ul>
+	 * Runs on the client thread.
+	 */
+	private void runStartupSeed()
+	{
+		if (!config.namingMigrated() && isLegacyInstall())
+		{
+			int migrated = doNamingMigration();
+			configManager.setConfiguration(SkillBankConfig.GROUP, AUTO_NAMING_KEY, false);
+			configManager.setConfiguration(SkillBankConfig.GROUP, NAMING_MIGRATED_KEY, true);
+			needsInitialLayout = true;
+			String summary = "renamed " + migrated + " tab(s) to title case.";
+			if (config.announceInChat())
+			{
+				postChat("Auto Bank Sorter: " + summary);
+			}
+			if (panel != null)
+			{
+				SwingUtilities.invokeLater(() ->
+				{
+					panel.setStatus(summary);
+					panel.refresh();
+				});
+			}
+			return;
+		}
+
+		boolean newInstall = !config.namingMigrated();
+		if (newInstall)
+		{
+			// Fresh install: seed under the "(Auto)" suffix scheme.
+			configManager.setConfiguration(SkillBankConfig.GROUP, AUTO_NAMING_KEY, true);
+		}
 		seedMissing(result ->
 		{
 			announce(result);
@@ -277,6 +335,10 @@ public class SkillBankPlugin extends Plugin
 			// changes — i.e. the first bank open.
 			needsInitialLayout = true;
 		});
+		if (newInstall)
+		{
+			configManager.setConfiguration(SkillBankConfig.GROUP, NAMING_MIGRATED_KEY, true);
+		}
 	}
 
 	/**
@@ -409,9 +471,9 @@ public class SkillBankPlugin extends Plugin
 
 	private void postChatColored(String body)
 	{
-		// Color the [Skill Bank Tabs] prefix in RuneLite's chat-message
+		// Color the [Auto Bank Sorter] prefix in RuneLite's chat-message
 		// green so the player can pick it out from the login noise.
-		String message = "<col=00b000>[Skill Bank Tabs]</col> " + body;
+		String message = "<col=00b000>[Auto Bank Sorter]</col> " + body;
 		clientThread.invokeLater(() ->
 		{
 			if (client.getLocalPlayer() == null)
@@ -433,114 +495,234 @@ public class SkillBankPlugin extends Plugin
 	 */
 	void seedMissing(Consumer<SeedResult> callback)
 	{
-		clientThread.invokeLater(() -> callback.accept(doSeedMissing()));
+		clientThread.invokeLater(() ->
+		{
+			SeedResult result = doSeedMissing();
+			callback.accept(result);
+			// Brief #89: any first-time name collisions are surfaced in a
+			// modal chooser on the EDT. Non-colliding tabs are already seeded
+			// by doSeedMissing above, so the popup never blocks them.
+			if (!result.collisions.isEmpty())
+			{
+				SwingUtilities.invokeLater(() -> showCollisionDialog(result.collisions));
+			}
+		});
 	}
 
 	/**
-	 * Sync every enabled skill tab to match {@link SkillBankData} exactly:
-	 * remove any items currently tagged but no longer in the bucket, then add
-	 * any bucket items not yet tagged. Non-additive — {@code SkillBankData}
-	 * is the sole source of truth, so legacy items left over from earlier
-	 * heuristic builds are evicted. Disabled tabs are skipped entirely (the
-	 * user's tab toggle is respected; their content is not modified).
+	 * Seed/refresh every enabled skill tab, honouring the player's stored
+	 * collision decisions (Brief #89). Routing per base tag name:
+	 * <ul>
+	 *   <li><b>skipped</b> — left completely untouched (their tab, their data);</li>
+	 *   <li><b>renamed</b> — the plugin's content is (re)seeded under the
+	 *       "(Auto)" variant; the user's same-named tab is left alone;</li>
+	 *   <li><b>managed</b> — the plugin owns it: synced to {@link SkillBankData};</li>
+	 *   <li><b>unresolved</b> — if a tab/layout already exists under the name it
+	 *       is a collision (returned for the chooser, never overwritten here);
+	 *       on a genuine fresh install with nothing there, it is seeded and
+	 *       adopted as managed.</li>
+	 * </ul>
+	 * On the very first pass, an upgrade of an install that has seeded before
+	 * (welcome already shown) adopts its existing plugin tabs silently rather
+	 * than flagging all 22 as collisions.
 	 * <p>
-	 * Add/remove pairs are interleaved per-tab inside one client-thread
-	 * invocation, with {@link TabInterface#reloadActiveTab()} called once at
-	 * the end, so the bank UI does not redraw mid-sync.
+	 * Per-tab sync is non-additive — {@code SkillBankData} is the sole source
+	 * of truth. {@link TabInterface#reloadActiveTab()} is called once at the
+	 * end so the bank UI does not redraw mid-sync.
 	 */
 	private SeedResult doSeedMissing()
 	{
-		Map<String, List<Integer>> tags = SkillBankData.tags();
-		int itemsTagged = 0;
-		int itemsRemoved = 0;
-		int itemsAlready = 0;
-		List<String> tagsSeeded = new ArrayList<>();
+		Set<String> skipped = readDecisionSet(SKIPPED_TABS_KEY);
+		Set<String> renamed = readDecisionSet(RENAMED_TABS_KEY);
+		Set<String> managed = readDecisionSet(MANAGED_TABS_KEY);
+		Set<String> managedBefore = new LinkedHashSet<>(managed);
+
+		// Snapshot existing tabs before seeding so a tab we create this pass is
+		// never mistaken for a pre-existing user tab later in the same pass.
+		Set<String> existingTabs = readTagTabsStandardized();
+
+		SeedAccumulator acc = new SeedAccumulator(readTagTabsList());
+		List<String> tabsCsvBefore = new ArrayList<>(acc.tabsCsv);
+
 		List<String> tagsDisabled = new ArrayList<>();
+		List<String> collisions = new ArrayList<>();
 
-		Set<String> tabsCsv = readTagTabs();
-		Set<String> tabsCsvUpdated = new LinkedHashSet<>(tabsCsv);
-
-		for (Map.Entry<String, List<Integer>> entry : tags.entrySet())
+		for (String internal : SkillBankData.tags().keySet())
 		{
-			String tagName = entry.getKey();
-			if (!isTabEnabled(tagName))
+			if (!isTabEnabled(internal))
 			{
-				tagsDisabled.add(tagName);
+				tagsDisabled.add(internal);
 				continue;
 			}
-
-			Set<Integer> desired = new LinkedHashSet<>(entry.getValue());
-			Set<Integer> currentlyTagged = new HashSet<>(tagManager.getItemsForTag(tagName));
-			boolean anyChange = false;
-
-			for (Integer itemId : currentlyTagged)
+			if (skipped.contains(internal))
 			{
-				if (!desired.contains(itemId))
-				{
-					tagManager.removeTag(itemId, tagName);
-					itemsRemoved++;
-					anyChange = true;
-				}
+				continue;
 			}
-
-			for (Integer itemId : desired)
+			if (renamed.contains(internal))
 			{
-				if (currentlyTagged.contains(itemId))
-				{
-					itemsAlready++;
-					continue;
-				}
-				tagManager.addTag(itemId, tagName, false);
-				itemsTagged++;
-				anyChange = true;
+				seedTab(internal, autoOp(internal), autoDisplay(internal), acc);
+				continue;
 			}
-
-			if (anyChange)
+			if (managed.contains(internal))
 			{
-				tagsSeeded.add(tagName);
+				seedTab(internal, primaryOp(internal), primaryDisplay(internal), acc);
+				continue;
 			}
-
-			String iconKey = ICON_PREFIX + tagName;
-			if (configManager.getConfiguration(BANKTAGS_GROUP, iconKey) == null)
+			// Unresolved name: collision only if this install's primary tab
+			// name already exists (Brief #89). "(Auto)" names rarely collide.
+			if (hasExistingTab(primaryOp(internal), existingTabs))
 			{
-				int iconId = SkillBankData.iconFor(tagName);
-				if (iconId > 0)
-				{
-					configManager.setConfiguration(BANKTAGS_GROUP, iconKey, String.valueOf(iconId));
-				}
+				collisions.add(internal);
 			}
-
-			tabsCsvUpdated.add(tagName);
-
-			// Brief #57: persist a Layout per tab so bank items render in the
-			// sort order produced by sort_tables.py. No-ops if the bank isn't
-			// loaded (seed-on-startup before bank-open); the bank-open /
-			// bank-change / bank-close subscribers below will rebuild.
-			buildAndSaveLayout(tagName);
+			else
+			{
+				seedTab(internal, primaryOp(internal), primaryDisplay(internal), acc);
+				managed.add(internal);
+			}
 		}
 
-		if (!tabsCsvUpdated.equals(tabsCsv))
+		if (!managed.equals(managedBefore))
 		{
-			configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY, String.join(",", tabsCsvUpdated));
+			writeDecisionSet(MANAGED_TABS_KEY, managed);
+		}
+		if (!acc.tabsCsv.equals(tabsCsvBefore))
+		{
+			configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY, String.join(",", acc.tabsCsv));
 		}
 
 		tabInterface.reloadActiveTab();
 
-		return new SeedResult(itemsTagged, itemsRemoved, itemsAlready, tagsSeeded, tagsDisabled);
+		return new SeedResult(acc.itemsTagged, acc.itemsRemoved, acc.itemsAlready,
+			acc.tagsSeeded, tagsDisabled, collisions);
 	}
 
 	/**
-	 * Build and save a sorted {@link Layout} for {@code tagName}, containing
-	 * only the canonical item IDs the player currently has in their bank.
-	 * Sort is two-zone (loadout / chaff) for combat + skilling tabs, single-
-	 * zone for the rest — see {@link SkillBankLayoutBuilder}. No-op if the
-	 * bank isn't loaded yet or the tag is unknown. Must run on the client
-	 * thread.
+	 * Sync one tab's membership to {@link SkillBankData} and (re)build its
+	 * layout. Non-additive: items tagged but no longer in the bucket are
+	 * removed, bucket items not yet tagged are added.
+	 *
+	 * @param dataTag SkillBankData key supplying the item set + sort order
+	 * @param opTag   standardized tag name used for membership / icon / layout
+	 *                storage — equals {@code dataTag} for a normal tab, the
+	 *                "(auto)" key for an alongside tab
+	 * @param display tab name written to the bank-tags tab list (cased label)
 	 */
-	private void buildAndSaveLayout(String tagName)
+	private void seedTab(String dataTag, String opTag, String display, SeedAccumulator acc)
+	{
+		List<Integer> bucket = SkillBankData.tags().get(dataTag);
+		if (bucket == null)
+		{
+			return;
+		}
+		Set<Integer> desired = new LinkedHashSet<>(bucket);
+		Set<Integer> currentlyTagged = new HashSet<>(tagManager.getItemsForTag(opTag));
+		boolean anyChange = false;
+
+		for (Integer itemId : currentlyTagged)
+		{
+			if (!desired.contains(itemId))
+			{
+				tagManager.removeTag(itemId, opTag);
+				acc.itemsRemoved++;
+				anyChange = true;
+			}
+		}
+
+		for (Integer itemId : desired)
+		{
+			if (currentlyTagged.contains(itemId))
+			{
+				acc.itemsAlready++;
+				continue;
+			}
+			tagManager.addTag(itemId, opTag, false);
+			acc.itemsTagged++;
+			anyChange = true;
+		}
+
+		if (anyChange)
+		{
+			acc.tagsSeeded.add(display);
+		}
+
+		String iconKey = ICON_PREFIX + opTag;
+		if (configManager.getConfiguration(BANKTAGS_GROUP, iconKey) == null)
+		{
+			int iconId = SkillBankData.iconFor(dataTag);
+			if (iconId > 0)
+			{
+				configManager.setConfiguration(BANKTAGS_GROUP, iconKey, String.valueOf(iconId));
+			}
+		}
+
+		ensureTabInList(acc.tabsCsv, display);
+
+		// Brief #57: persist a Layout per tab so bank items render in the
+		// sort order produced by sort_tables.py. No-ops if the bank isn't
+		// loaded (seed-on-startup before bank-open); the bank subscribers
+		// rebuild on the next bank open / change / close.
+		buildAndSaveLayout(opTag);
+	}
+
+	/** Mutable per-pass seed counters + working copy of the tab-list (ordered). */
+	private static final class SeedAccumulator
+	{
+		int itemsTagged;
+		int itemsRemoved;
+		int itemsAlready;
+		final List<String> tagsSeeded = new ArrayList<>();
+		final List<String> tabsCsv;
+
+		SeedAccumulator(List<String> tabsCsv)
+		{
+			this.tabsCsv = tabsCsv;
+		}
+	}
+
+	/**
+	 * Ensure {@code display} is present in the ordered tab list exactly once,
+	 * matching case-insensitively on the standardized form. If an entry already
+	 * standardizes the same (e.g. a pre-existing "Melee" vs our "melee"), it is
+	 * normalized in place — preserving tab order and never duplicating.
+	 */
+	private static void ensureTabInList(List<String> tabsCsv, String display)
+	{
+		String op = Text.standardize(display);
+		for (int i = 0; i < tabsCsv.size(); i++)
+		{
+			if (Text.standardize(tabsCsv.get(i)).equals(op))
+			{
+				tabsCsv.set(i, display);
+				return;
+			}
+		}
+		tabsCsv.add(display);
+	}
+
+	/**
+	 * Build and save a sorted {@link Layout} for {@code opTag}, containing only
+	 * the canonical item IDs the player currently has in their bank. Sort is
+	 * two-zone (loadout / chaff) for combat + skilling tabs, single-zone for
+	 * the rest — see {@link SkillBankLayoutBuilder}. No-op if the bank isn't
+	 * loaded yet or the tag is unknown. Must run on the client thread.
+	 * <p>
+	 * Brief #90: {@code opTag} may be a title-case or "(auto)" tab name whose
+	 * standardized key differs from the internal {@link SkillBankData} id (e.g.
+	 * "woodcutting + firemaking" -> internal "woodcutting_firemaking"). The
+	 * layout content is built from the internal bucket, then re-tagged to
+	 * {@code opTag} before saving so the bank renders it under the right name.
+	 */
+	private void buildAndSaveLayout(String opTag)
 	{
 		ItemContainer bank = client.getItemContainer(InventoryID.BANK);
 		if (bank == null)
+		{
+			return;
+		}
+
+		String op = Text.standardize(opTag);
+		String dataTag = internalForOp(op);
+		if (dataTag == null)
 		{
 			return;
 		}
@@ -559,20 +741,41 @@ public class SkillBankPlugin extends Plugin
 			}
 		}
 
-		Layout layout = layoutBuilder.buildLayout(tagName, ownedCanonical);
+		Layout layout = layoutBuilder.buildLayout(dataTag, ownedCanonical);
+		if (!op.equals(dataTag))
+		{
+			// Display key differs from the internal id: keep the sorted
+			// positions, re-tag to the display key so saveLayout writes under
+			// the rendered tab's config.
+			layout = new Layout(op, layout.getLayout());
+		}
 		layoutManager.saveLayout(layout);
 	}
 
-	/** Rebuild + save Layouts for every enabled Skill Bank tab. Client thread only. */
+	/** Rebuild + save Layouts for every enabled Skill Bank tab the plugin
+	 *  manages. Client thread only. Brief #89: skipped tabs and unresolved
+	 *  collisions are left untouched; renamed tabs rebuild under their
+	 *  "(auto)" key. */
 	private void rebuildAllLayouts()
 	{
-		for (String tagName : SkillBankData.tags().keySet())
+		Set<String> skipped = readDecisionSet(SKIPPED_TABS_KEY);
+		Set<String> renamed = readDecisionSet(RENAMED_TABS_KEY);
+		Set<String> managed = readDecisionSet(MANAGED_TABS_KEY);
+		for (String internal : SkillBankData.tags().keySet())
 		{
-			if (!isTabEnabled(tagName))
+			if (!isTabEnabled(internal) || skipped.contains(internal))
 			{
 				continue;
 			}
-			buildAndSaveLayout(tagName);
+			if (renamed.contains(internal))
+			{
+				buildAndSaveLayout(autoOp(internal));
+			}
+			else if (managed.contains(internal))
+			{
+				buildAndSaveLayout(primaryOp(internal));
+			}
+			// else: unresolved collision pending the chooser — don't touch it.
 		}
 	}
 
@@ -606,7 +809,7 @@ public class SkillBankPlugin extends Plugin
 		// + the SkillBankData membership check only, matching bank-slot-
 		// sync's working pattern.
 		String activeTag = tabInterface.getActiveTag();
-		if (activeTag == null || !SkillBankData.tags().containsKey(activeTag))
+		if (activeTag == null || !isManagedActiveTag(activeTag))
 		{
 			return;
 		}
@@ -633,7 +836,7 @@ public class SkillBankPlugin extends Plugin
 		// false even when a Skill Bank tag tab is actually active. Trust
 		// getActiveTag() + the SkillBankData membership check instead.
 		String currentTag = tabInterface.getActiveTag();
-		if (currentTag == null || !SkillBankData.tags().containsKey(currentTag))
+		if (currentTag == null || !isManagedActiveTag(currentTag))
 		{
 			return;
 		}
@@ -685,24 +888,25 @@ public class SkillBankPlugin extends Plugin
 	private int doResetAll()
 	{
 		Set<String> skillTags = SkillBankData.tags().keySet();
+		// Standardized tab names removed below — used to filter the tab-list CSV.
+		Set<String> namesToDrop = new HashSet<>();
 		int cleared = 0;
-		for (String tagName : skillTags)
+		for (String internal : skillTags)
 		{
-			if (!tagManager.getItemsForTag(tagName).isEmpty())
+			// Brief #90: clear every naming form — legacy lowercase id, bare
+			// title case, and the "(auto)" variant.
+			for (String op : new String[]{internal, titleOp(internal), autoOp(internal)})
 			{
-				tagManager.removeTag(tagName);
-				cleared++;
+				cleared += clearOneTag(op);
+				namesToDrop.add(op);
 			}
-			configManager.unsetConfiguration(BANKTAGS_GROUP, ICON_PREFIX + tagName);
-			// Brief #57: also wipe the saved Layout so a re-seed starts clean.
-			layoutManager.removeLayout(tagName);
 		}
 
 		Set<String> tabsCsv = readTagTabs();
 		Set<String> tabsCsvKept = new LinkedHashSet<>();
 		for (String t : tabsCsv)
 		{
-			if (!skillTags.contains(t.toLowerCase()))
+			if (!namesToDrop.contains(Text.standardize(t)))
 			{
 				tabsCsvKept.add(t);
 			}
@@ -719,8 +923,28 @@ public class SkillBankPlugin extends Plugin
 			}
 		}
 
+		// Brief #89: wipe stored collision decisions so a later reseed
+		// re-detects from a clean slate.
+		clearStoredDecisions();
+
 		tabInterface.reloadActiveTab();
 
+		return cleared;
+	}
+
+	/** Remove a single tag's membership, icon and layout. Returns 1 if the tag
+	 *  had any tagged items (so the caller can count cleared tabs), else 0. */
+	private int clearOneTag(String opTag)
+	{
+		int cleared = 0;
+		if (!tagManager.getItemsForTag(opTag).isEmpty())
+		{
+			tagManager.removeTag(opTag);
+			cleared = 1;
+		}
+		configManager.unsetConfiguration(BANKTAGS_GROUP, ICON_PREFIX + opTag);
+		// Brief #57: also wipe the saved Layout so a re-seed starts clean.
+		layoutManager.removeLayout(opTag);
 		return cleared;
 	}
 
@@ -750,13 +974,19 @@ public class SkillBankPlugin extends Plugin
 		return SkillBankData.tags().keySet();
 	}
 
-	/** Describe current on-disk state for the panel. Must run on the client thread. */
+	/** Describe current on-disk state for the panel. Must run on the client thread.
+	 *  Brief #91: check presence under the tab's actual op key, not the internal
+	 *  id — after migration the compound tabs live under their " + " title key
+	 *  (e.g. "woodcutting + firemaking"), and a new install under the "(auto)"
+	 *  key, so checking the raw internal id falsely reports them empty. */
 	private Map<String, Boolean> currentTagPresence()
 	{
+		Set<String> renamed = readDecisionSet(RENAMED_TABS_KEY);
 		Map<String, Boolean> out = new LinkedHashMap<>();
-		for (String tagName : SkillBankData.tags().keySet())
+		for (String internal : SkillBankData.tags().keySet())
 		{
-			out.put(tagName, !tagManager.getItemsForTag(tagName).isEmpty());
+			String op = renamed.contains(internal) ? autoOp(internal) : primaryOp(internal);
+			out.put(internal, !tagManager.getItemsForTag(op).isEmpty());
 		}
 		return out;
 	}
@@ -829,6 +1059,446 @@ public class SkillBankPlugin extends Plugin
 		return out;
 	}
 
+	// ---- Brief #89: collision detection, naming and decision persistence ----
+
+	/** Existing tab names, standardized, for collision detection. */
+	private Set<String> readTagTabsStandardized()
+	{
+		Set<String> out = new LinkedHashSet<>();
+		for (String t : readTagTabs())
+		{
+			out.add(Text.standardize(t));
+		}
+		return out;
+	}
+
+	/** True if the player already has a tab, tagged items, or a saved layout
+	 *  under {@code base} — i.e. seeding it now would collide. */
+	private boolean hasExistingTab(String base, Set<String> existingStdTabs)
+	{
+		return existingStdTabs.contains(base)
+			|| !tagManager.getItemsForTag(base).isEmpty()
+			|| layoutManager.loadLayout(base) != null;
+	}
+
+	/** True if the standardized active tag is one of this plugin's managed
+	 *  tabs — its primary (title or auto) form, or an "(auto)" alongside tab. */
+	private boolean isManagedActiveTag(String activeTag)
+	{
+		String std = Text.standardize(activeTag);
+		String internal = internalForOp(std);
+		if (internal == null)
+		{
+			return false;
+		}
+		if (std.equals(autoOp(internal)) && readDecisionSet(RENAMED_TABS_KEY).contains(internal))
+		{
+			return true;
+		}
+		return readDecisionSet(MANAGED_TABS_KEY).contains(internal);
+	}
+
+	// ---- Brief #90: internal id <-> display / op-key naming ----
+
+	/** Reverse lookup of any standardized op key (bare title case, the
+	 *  "(auto)" form, or the legacy lowercase id) to the internal
+	 *  SkillBankData id. Built once from {@link SkillBankData#displayName}. */
+	private static final Map<String, String> OP_TO_INTERNAL;
+
+	static
+	{
+		Map<String, String> m = new LinkedHashMap<>();
+		for (String internal : SkillBankData.tags().keySet())
+		{
+			m.put(Text.standardize(SkillBankData.displayName(internal)), internal);
+			m.put(Text.standardize(SkillBankData.displayName(internal) + AUTO_DISPLAY_SUFFIX), internal);
+			m.put(internal, internal);
+		}
+		OP_TO_INTERNAL = java.util.Collections.unmodifiableMap(m);
+	}
+
+	/** Internal SkillBankData id for a standardized op key, or null. */
+	private static String internalForOp(String std)
+	{
+		return OP_TO_INTERNAL.get(std);
+	}
+
+	/** Bare title-case label, e.g. "woodcutting_firemaking" -> "Woodcutting + Firemaking". */
+	private static String titleDisplay(String internal)
+	{
+		return SkillBankData.displayName(internal);
+	}
+
+	/** Standardized key for the bare title-case tab. */
+	private static String titleOp(String internal)
+	{
+		return Text.standardize(titleDisplay(internal));
+	}
+
+	/** Cased "(Auto)" label, e.g. "Herblore (Auto)". */
+	private static String autoDisplay(String internal)
+	{
+		return titleDisplay(internal) + AUTO_DISPLAY_SUFFIX;
+	}
+
+	/** Standardized key for the "(auto)" tab. */
+	private static String autoOp(String internal)
+	{
+		return Text.standardize(autoDisplay(internal));
+	}
+
+	/** This install's default seed label for a tab (scheme-dependent). */
+	private String primaryDisplay(String internal)
+	{
+		return config.autoNaming() ? autoDisplay(internal) : titleDisplay(internal);
+	}
+
+	/** This install's default seed op key for a tab (scheme-dependent). */
+	private String primaryOp(String internal)
+	{
+		return config.autoNaming() ? autoOp(internal) : titleOp(internal);
+	}
+
+	// ---- Brief #90: legacy lowercase -> title-case migration ----
+
+	/** Fingerprint: all three underscore-named compound tabs present. Nobody
+	 *  creates all three by hand, so this is an existing Auto Bank Sorter
+	 *  install whose tabs predate the title-case naming. */
+	private boolean isLegacyInstall()
+	{
+		Set<String> existing = readTagTabsStandardized();
+		return hasExistingTab(SkillBankData.TAG_WOODCUTTING_FIREMAKING, existing)
+			&& hasExistingTab(SkillBankData.TAG_MINING_SMITHING, existing)
+			&& hasExistingTab(SkillBankData.TAG_AGILITY_THIEVING, existing);
+	}
+
+	/**
+	 * One-time rename of a legacy install's tabs from the old lowercase ids to
+	 * bare title case. Simple tabs (e.g. "melee" -> "Melee") keep the same
+	 * standardized key, so only the tab-list label changes. Compound tabs
+	 * ("woodcutting_firemaking" -> "Woodcutting + Firemaking") change key, so
+	 * their tag data, layout and icon are moved (write-new-before-delete-old).
+	 * All 22 are marked managed. Returns the number of tabs renamed.
+	 */
+	private int doNamingMigration()
+	{
+		Set<String> managed = readDecisionSet(MANAGED_TABS_KEY);
+		Set<String> existing = readTagTabsStandardized();
+		Map<String, String> tabtabsRenames = new LinkedHashMap<>();
+		int renamed = 0;
+
+		for (String internal : SkillBankData.tags().keySet())
+		{
+			// Mark managed even when disabled/absent, so a later enable seeds
+			// it under the new (title-case) scheme rather than re-colliding.
+			managed.add(internal);
+
+			String oldOp = internal;
+			if (!hasExistingTab(oldOp, existing))
+			{
+				continue;
+			}
+
+			String newDisplay = titleDisplay(internal);
+			String newOp = Text.standardize(newDisplay);
+
+			if (!newOp.equals(oldOp))
+			{
+				// Key changes (compound tabs). Guard: skip if a DIFFERENT tab
+				// already owns the title-case name (extreme edge case).
+				if (hasExistingTab(newOp, existing))
+				{
+					log.warn("Auto Bank Sorter: '{}' already exists; leaving '{}' unrenamed",
+						newDisplay, oldOp);
+					continue;
+				}
+				moveTagData(oldOp, newOp);
+			}
+			tabtabsRenames.put(oldOp, newDisplay);
+			renamed++;
+		}
+
+		applyTabtabsRenames(tabtabsRenames);
+		writeDecisionSet(MANAGED_TABS_KEY, managed);
+		tabInterface.reloadActiveTab();
+		log.info("Auto Bank Sorter: naming migration renamed {} tab(s)", renamed);
+		return renamed;
+	}
+
+	/** Move a tab's membership, layout and icon from {@code oldOp} to
+	 *  {@code newOp}. The new copy is written in full before the old is
+	 *  deleted, so a mid-failure leaves both (harmless) — never data loss. */
+	private void moveTagData(String oldOp, String newOp)
+	{
+		List<Integer> items = new ArrayList<>(tagManager.getItemsForTag(oldOp));
+		Layout oldLayout = layoutManager.loadLayout(oldOp);
+		String icon = configManager.getConfiguration(BANKTAGS_GROUP, ICON_PREFIX + oldOp);
+
+		// Write new first.
+		for (Integer id : items)
+		{
+			tagManager.addTag(id, newOp, false);
+		}
+		if (oldLayout != null)
+		{
+			layoutManager.saveLayout(new Layout(newOp, oldLayout.getLayout()));
+		}
+		if (icon != null)
+		{
+			configManager.setConfiguration(BANKTAGS_GROUP, ICON_PREFIX + newOp, icon);
+		}
+
+		// Then delete old.
+		for (Integer id : items)
+		{
+			tagManager.removeTag(id, oldOp);
+		}
+		layoutManager.removeLayout(oldOp);
+		configManager.unsetConfiguration(BANKTAGS_GROUP, ICON_PREFIX + oldOp);
+	}
+
+	/** Replace tab-list entries per {@code renames} (key = standardized old
+	 *  name, value = new display), preserving order and any non-plugin tabs
+	 *  such as a user's "clues" tab. */
+	private void applyTabtabsRenames(Map<String, String> renames)
+	{
+		List<String> current = readTagTabsList();
+		List<String> updated = new ArrayList<>(current.size());
+		for (String entry : current)
+		{
+			updated.add(renames.getOrDefault(Text.standardize(entry), entry));
+		}
+		if (!updated.equals(current))
+		{
+			configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY, String.join(",", updated));
+		}
+	}
+
+	/** Tab-list entries in order (ordered form of {@link #readTagTabs}). */
+	private List<String> readTagTabsList()
+	{
+		return new ArrayList<>(readTagTabs());
+	}
+
+	/**
+	 * Brief #91: rename every managed tab from its bare title-case key to the
+	 * "(auto)" variant (e.g. "herblore" -> "herblore (auto)",
+	 * "woodcutting + firemaking" -> "woodcutting + firemaking (auto)") via
+	 * {@link #moveTagData}, rewrite the tab list, and set the auto-naming flag
+	 * so future seeds use "(auto)" names. One-way. Client thread.
+	 */
+	private void doUpdateNamingScheme()
+	{
+		if (config.autoNaming())
+		{
+			return;
+		}
+		Set<String> managed = readDecisionSet(MANAGED_TABS_KEY);
+		Map<String, String> tabtabsRenames = new LinkedHashMap<>();
+		int renamed = 0;
+		for (String internal : SkillBankData.tags().keySet())
+		{
+			if (!managed.contains(internal))
+			{
+				continue;
+			}
+			String oldOp = titleOp(internal);
+			String newOp = autoOp(internal);
+			if (oldOp.equals(newOp))
+			{
+				continue;
+			}
+			moveTagData(oldOp, newOp);
+			tabtabsRenames.put(oldOp, autoDisplay(internal));
+			renamed++;
+		}
+		applyTabtabsRenames(tabtabsRenames);
+		configManager.setConfiguration(SkillBankConfig.GROUP, AUTO_NAMING_KEY, true);
+		tabInterface.reloadActiveTab();
+
+		String summary = "switched " + renamed + " tab(s) to \"(auto)\" naming.";
+		log.info("Auto Bank Sorter: {}", summary);
+		if (config.announceInChat())
+		{
+			postChat("Auto Bank Sorter: " + summary);
+		}
+		if (panel != null)
+		{
+			SwingUtilities.invokeLater(() ->
+			{
+				panel.setStatus(summary);
+				panel.refreshNamingButton();
+				panel.refresh();
+			});
+		}
+	}
+
+	private Set<String> readDecisionSet(String key)
+	{
+		String v = configManager.getConfiguration(SkillBankConfig.GROUP, key);
+		Set<String> out = new LinkedHashSet<>();
+		if (v == null || v.isEmpty())
+		{
+			return out;
+		}
+		for (String part : v.split(","))
+		{
+			String trimmed = Text.standardize(part);
+			if (!trimmed.isEmpty())
+			{
+				out.add(trimmed);
+			}
+		}
+		return out;
+	}
+
+	private void writeDecisionSet(String key, Set<String> values)
+	{
+		configManager.setConfiguration(SkillBankConfig.GROUP, key, String.join(",", values));
+	}
+
+	private void clearStoredDecisions()
+	{
+		configManager.unsetConfiguration(SkillBankConfig.GROUP, SKIPPED_TABS_KEY);
+		configManager.unsetConfiguration(SkillBankConfig.GROUP, RENAMED_TABS_KEY);
+		configManager.unsetConfiguration(SkillBankConfig.GROUP, MANAGED_TABS_KEY);
+	}
+
+	/**
+	 * Show the collision chooser (EDT). The dialog only collects decisions;
+	 * {@link #onCollisionDecisions} persists them and applies the seeding on
+	 * the client thread.
+	 */
+	private void showCollisionDialog(List<String> collisions)
+	{
+		Window owner = panel != null ? SwingUtilities.getWindowAncestor(panel) : null;
+		SkillBankCollisionDialog dialog = new SkillBankCollisionDialog(
+			owner, collisions, SkillBankData::displayName, this::onCollisionDecisions);
+		dialog.setVisible(true);
+	}
+
+	/** Persist the player's choices, then seed Overwrite/Alongside tabs. */
+	private void onCollisionDecisions(Map<String, SkillBankCollisionDialog.Decision> decisions)
+	{
+		Set<String> skipped = readDecisionSet(SKIPPED_TABS_KEY);
+		Set<String> renamed = readDecisionSet(RENAMED_TABS_KEY);
+		Set<String> managed = readDecisionSet(MANAGED_TABS_KEY);
+		for (Map.Entry<String, SkillBankCollisionDialog.Decision> e : decisions.entrySet())
+		{
+			switch (e.getValue())
+			{
+				case SKIP:
+					skipped.add(e.getKey());
+					break;
+				case OVERWRITE:
+					managed.add(e.getKey());
+					break;
+				case ALONGSIDE:
+					renamed.add(e.getKey());
+					break;
+				default:
+					break;
+			}
+		}
+		writeDecisionSet(SKIPPED_TABS_KEY, skipped);
+		writeDecisionSet(RENAMED_TABS_KEY, renamed);
+		writeDecisionSet(MANAGED_TABS_KEY, managed);
+
+		clientThread.invokeLater(() -> applyDecisionSeeds(decisions));
+	}
+
+	/** Client thread: seed the tabs the player chose to Overwrite / create
+	 *  Alongside. Skip choices touch nothing. */
+	private void applyDecisionSeeds(Map<String, SkillBankCollisionDialog.Decision> decisions)
+	{
+		SeedAccumulator acc = new SeedAccumulator(readTagTabsList());
+		List<String> before = new ArrayList<>(acc.tabsCsv);
+		for (Map.Entry<String, SkillBankCollisionDialog.Decision> e : decisions.entrySet())
+		{
+			String internal = e.getKey();
+			switch (e.getValue())
+			{
+				case OVERWRITE:
+					seedTab(internal, primaryOp(internal), primaryDisplay(internal), acc);
+					break;
+				case ALONGSIDE:
+					seedTab(internal, autoOp(internal), autoDisplay(internal), acc);
+					break;
+				default:
+					break;
+			}
+		}
+		if (!acc.tabsCsv.equals(before))
+		{
+			configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY, String.join(",", acc.tabsCsv));
+		}
+		tabInterface.reloadActiveTab();
+		if (config.announceInChat())
+		{
+			postChat("Auto Bank Sorter: applied your tab choices.");
+		}
+		if (panel != null)
+		{
+			SwingUtilities.invokeLater(() -> panel.refresh());
+		}
+	}
+
+	/**
+	 * Panel action: forget the player's Skip / Alongside choices so those tabs
+	 * are re-evaluated (and re-prompted) on the next seed. Plugin-owned
+	 * (managed) tabs are left in place so they don't all re-collide. Brief #89.
+	 */
+	void triggerResetDecisions()
+	{
+		configManager.unsetConfiguration(SkillBankConfig.GROUP, SKIPPED_TABS_KEY);
+		configManager.unsetConfiguration(SkillBankConfig.GROUP, RENAMED_TABS_KEY);
+		if (client.getGameState() == GameState.LOGGED_IN)
+		{
+			seedMissing(result ->
+			{
+				if (panel != null)
+				{
+					SwingUtilities.invokeLater(() -> panel.setStatus(result.summary()));
+				}
+			});
+		}
+		else if (panel != null)
+		{
+			SwingUtilities.invokeLater(
+				() -> panel.setStatus("Tab decisions cleared. Log in to re-check."));
+		}
+	}
+
+	/** Brief #91: true while this install is on the legacy bare title-case
+	 *  naming and can opt into the "(auto)" scheme. Drives the panel button. */
+	boolean isLegacyNamingScheme()
+	{
+		return config.namingMigrated() && !config.autoNaming();
+	}
+
+	/**
+	 * Brief #91: one-time opt-in upgrade. Renames every managed tab to its
+	 * "(auto)" variant and flips the install onto the auto naming scheme. No
+	 * confirmation, no reverse path. No-op if already on auto naming.
+	 */
+	void triggerUpdateNamingScheme()
+	{
+		if (config.autoNaming())
+		{
+			return;
+		}
+		if (client.getGameState() != GameState.LOGGED_IN)
+		{
+			if (panel != null)
+			{
+				SwingUtilities.invokeLater(
+					() -> panel.setStatus("Log in first to update the naming scheme."));
+			}
+			return;
+		}
+		clientThread.invokeLater(this::doUpdateNamingScheme);
+	}
+
 	/**
 	 * Earlier versions of this plugin wrote {@code banktags.taggedItems_<name>}
 	 * keys that Bank Tags never read. Sweep them out on startup so users moving
@@ -870,7 +1540,7 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
-		postChat("Skill Bank: " + result.summary() + " Reopen your bank if tabs aren't visible yet.");
+		postChat("Auto Bank Sorter: " + result.summary() + " Reopen your bank if tabs aren't visible yet.");
 	}
 
 	private void postChat(String message)
@@ -892,15 +1562,19 @@ public class SkillBankPlugin extends Plugin
 		final int itemsAlready;
 		final List<String> tagsSeeded;
 		final List<String> tagsDisabled;
+		/** Brief #89: base tag names that already existed and were left
+		 *  untouched, pending the player's choice in the collision chooser. */
+		final List<String> collisions;
 
 		SeedResult(int itemsTagged, int itemsRemoved, int itemsAlready,
-			List<String> tagsSeeded, List<String> tagsDisabled)
+			List<String> tagsSeeded, List<String> tagsDisabled, List<String> collisions)
 		{
 			this.itemsTagged = itemsTagged;
 			this.itemsRemoved = itemsRemoved;
 			this.itemsAlready = itemsAlready;
 			this.tagsSeeded = tagsSeeded;
 			this.tagsDisabled = tagsDisabled;
+			this.collisions = collisions;
 		}
 
 		String summary()
