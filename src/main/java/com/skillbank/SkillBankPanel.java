@@ -166,6 +166,15 @@ class SkillBankPanel extends PluginPanel
 			resetWizard.addActionListener(e -> plugin.triggerResetSetupWizard());
 			content.add(resetWizard);
 
+			content.add(createSpacer(4));
+
+			JButton testCollision = new JButton("Test collision dialog");
+			testCollision.setToolTipText(
+				"Force the collision chooser to appear for all tabs (dev test)");
+			testCollision.setAlignmentX(LEFT_ALIGNMENT);
+			testCollision.addActionListener(e -> plugin.triggerCollisionDialogTest());
+			content.add(testCollision);
+
 			content.revalidate();
 			content.repaint();
 		});
