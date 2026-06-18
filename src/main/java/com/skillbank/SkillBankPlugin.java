@@ -439,6 +439,17 @@ public class SkillBankPlugin extends Plugin
 		clientThread.invokeLater(this::runFirstRunChecks);
 	}
 
+	/** Dev-only (source build): force the collision chooser to appear for every
+	 *  plugin tab so its rendering and Skip / Overwrite / Create-alongside
+	 *  handling can be exercised without first creating real colliding tabs.
+	 *  Choices apply through the normal path; close the window to dismiss
+	 *  without changing anything. */
+	void triggerCollisionDialogTest()
+	{
+		List<String> all = new ArrayList<>(SkillBankData.tags().keySet());
+		SwingUtilities.invokeLater(() -> showCollisionDialog(all));
+	}
+
 	/** Plugin Hub plugin detection. Iterates every plugin registered with
 	 *  PluginManager and matches the @PluginDescriptor name. Returns true
 	 *  only when the plugin is also currently enabled (not just present). */

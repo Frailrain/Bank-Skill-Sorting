@@ -128,7 +128,6 @@ class SkillBankCollisionDialog extends JDialog
 		row.setBackground(ColorScheme.DARKER_GRAY_COLOR);
 		row.setBorder(BorderFactory.createEmptyBorder(6, 8, 6, 8));
 		row.setAlignmentX(Component.LEFT_ALIGNMENT);
-		row.setMaximumSize(new Dimension(Integer.MAX_VALUE, row.getPreferredSize().height));
 
 		JLabel name = new JLabel(display);
 		name.setFont(name.getFont().deriveFont(Font.BOLD));
@@ -155,6 +154,11 @@ class SkillBankCollisionDialog extends JDialog
 		choices.add(alongside);
 		row.add(choices, BorderLayout.CENTER);
 
+		// Cap the row's max height to its natural height AFTER content is added,
+		// so the vertical BoxLayout doesn't stretch rows — and, crucially, so
+		// the height reflects the label + radio buttons rather than an empty row
+		// (which would collapse every row to the border height).
+		row.setMaximumSize(new Dimension(Integer.MAX_VALUE, row.getPreferredSize().height));
 		return row;
 	}
 

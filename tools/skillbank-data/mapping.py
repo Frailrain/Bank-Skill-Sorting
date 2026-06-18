@@ -1011,13 +1011,26 @@ _SAILING_FORCE_IDS = {
 # ── Per-tab specs ──────────────────────────────────────────────────────────
 
 # === MELEE ===
-_BARROWS_MELEE_PIECES = {
+def _with_degraded(names):
+    """Barrows pieces degrade through separate ' 100'/' 75'/' 50'/' 25'/' 0'
+    item variants (distinct ids + names). A worn set therefore won't match the
+    undamaged name, so generate the degraded names too. Name-based — verify the
+    exact strings against the item dump on the next regen. (The live runtime
+    data already carries every variant via a direct add in SkillBankData.java /
+    item-meta.json; this keeps a future regen consistent.)"""
+    out = set(names)
+    for n in names:
+        out.update(n + suffix for suffix in (" 100", " 75", " 50", " 25", " 0"))
+    return out
+
+
+_BARROWS_MELEE_PIECES = _with_degraded({
     # Dharok's / Guthan's / Torag's / Verac's (melee Barrows)
     "Dharok's helm", "Dharok's platebody", "Dharok's platelegs", "Dharok's greataxe",
     "Guthan's helm", "Guthan's platebody", "Guthan's chainskirt", "Guthan's warspear",
     "Torag's helm", "Torag's platebody", "Torag's platelegs", "Torag's hammers",
     "Verac's helm", "Verac's brassard", "Verac's plateskirt", "Verac's flail",
-}
+})
 MELEE = TabSpec(
     name="melee", const_name="TAG_MELEE",
     sections=[
