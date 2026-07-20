@@ -123,7 +123,9 @@ def build_synthetic_tabs(
     # filter against unaudited raw LLM noise — applying it to audit output
     # silently drops legitimate decisions. Skip it when the upstream source
     # declares itself as the audit.
-    bleed_filter_enabled = llm_data.get("model") != "cowork-audit"
+    # Prefix match: gap-fill merges append provenance to the model field
+    # ("cowork-audit + claude-fable-5 gap-fill") and must keep the filter off.
+    bleed_filter_enabled = not (llm_data.get("model") or "").startswith("cowork-audit")
     if not bleed_filter_enabled:
         print(
             "  combat-bleed safety filter: DISABLED (source is cowork-audit)",

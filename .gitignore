@@ -16,3 +16,7 @@ tools/skillbank-data/.env
 # Kept untracked so the working tree stays clean between regens.
 tools/skillbank-data/diff-current-vs-wiki.txt
 docs/requirements-integration-summary.md
+.lwjgl-rl/
+tools/skillbank-data/.cache/
+tools/skillbank-data/out-fable-pilot/
+skillbank-icon-*.png

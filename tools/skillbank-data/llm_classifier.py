@@ -190,8 +190,15 @@ def _validate(parsed: dict, item_name: str) -> dict:
     return {"tabs": tabs, "rationale": rationale}
 
 
+def _is_adaptive_only(model: str) -> bool:
+    """Models where sampling params are removed from the API and thinking is
+    adaptive (Fable 5, Opus 4.7/4.8, Sonnet 5). Sending temperature to these
+    returns a 400."""
+    return any(t in model for t in ("fable", "opus-4-7", "opus-4-8", "sonnet-5"))
+
+
 def _api_call(model: str, system: str, user: str, api_key: str) -> dict:
-    body = json.dumps({
+    payload: dict = {
         "model": model,
         "max_tokens": MAX_TOKENS,
         "temperature": 0,
@@ -201,7 +208,13 @@ def _api_call(model: str, system: str, user: str, api_key: str) -> dict:
         "messages": [
             {"role": "user", "content": user},
         ],
-    }).encode("utf-8")
+    }
+    if _is_adaptive_only(model):
+        # No temperature (400 on these models), and thinking output counts
+        # against max_tokens — give it room so the JSON isn't truncated.
+        del payload["temperature"]
+        payload["max_tokens"] = 8000
+    body = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         API_URL,
         data=body,

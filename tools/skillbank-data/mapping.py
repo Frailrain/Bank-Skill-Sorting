@@ -1032,7 +1032,10 @@ MELEE = TabSpec(
                                "Saradomin godsword (or)", "Zamorak godsword (or)",
                                "Tzhaar-ket-om (t)",
                                # session 64 — ornament weapons
-                               "Abyssal whip (or)", "Abyssal tentacle (or)"],
+                               "Abyssal whip (or)", "Abyssal tentacle (or)",
+                               # Section audit: the plain Warhammer sat in
+                               # misc "General tools" — it's a melee weapon.
+                               "Warhammer"],
                 force_exclude=_QUEST_COSMETIC_MELEE),
         Section("Godsword construction", _name_in({
             "Godsword shards 1 & 2", "Godsword shards 1 & 3",
@@ -1119,7 +1122,9 @@ MELEE = TabSpec(
                 + ["Leather vambraces", "Klank's gauntlets", "Mime gloves", "Splitbark gauntlets", "Rogue gloves", "Mourner gloves",
                    "Spined gloves", "Skeletal gloves", "Snakeskin vambraces",
                    "Gilded d'hide vambraces",
-                   "Swampbark gauntlets", "Bloodbark gauntlets"]
+                   "Swampbark gauntlets", "Bloodbark gauntlets",
+                   # misc audit — ranged bracers, moved to the range tab.
+                   "Sunlit bracers"]
                 + [n for n in _CAMO_OUTFIT if "gloves" in n.lower()]),
         Section("Shields", _slot_pred("shield"),
                 force_include=["Granite shield", "Draconic visage"],
@@ -1168,6 +1173,42 @@ MELEE = TabSpec(
                 sort_key=_potion_sort_key),
         # Brief #50 fix: Combat food cross-tag removed from melee. Top food
         # now lives in cooking + slayer loadout cross-tag only.
+        # Tab audit: pub drinks / gnome cocktails / wines have no melee
+        # relevance (they live in cooking's Drinks & brews), god book
+        # pages are prayer items, and Bandit's brew is a thieving boost.
+        # force_exclude is flattened tab-wide, so these leave Melee only.
+        Section("Drinks & pages cleanup (tab audit)", _never, force_exclude=[
+            "Beer", "Beer tankard", "Keg of beer", "Grog", "Gin", "Whisky",
+            "Brandy", "Cup of tea", "Tea flask",
+            "Asgarnian ale", "Asgarnian ale(m)", "Asgarnian ale(m4)",
+            "Dragon bitter", "Dragon bitter(m)", "Dragon bitter(m4)",
+            "Blurberry special", "Choc saturday", "Drunk dragon",
+            "Short green guy", "Wizard blizzard",
+            "Premade blurb' sp.", "Premade choc s'dy", "Premade dr' dragon",
+            "Premade sgg", "Premade wiz blz'd",
+            "Blackbird red", "Chichilihui rosé", "Imperial rosé",
+            "Moon-lite", "Sun-shine", "Sunbeam ale", "Bandit's brew",
+            "Bandos page 1", "Bandos page 2", "Bandos page 3",
+            "Bandos page 4", "Book of war page set",
+        ]),
+        # Pass-3 misc/cosmetics audit: real melee-stat gear evicted from
+        # the misc and cosmetics tabs that had no other membership. Name-
+        # based include deliberately drags the Leagues-trophy duplicate
+        # ids of these items along with the canonical ones.
+        Section("Stray stat gear (pass-3 audit)", _never, force_include=[
+            "Dinh's blazing bulwark",
+            "Scythe", "Pirate's hook", "Zombie head",
+            "Obsidian cape (r)", "Cape of skulls",
+            "Wooden shield (g)",
+            "Ornate helm", "Ornate top", "Ornate legs",
+            "Rune scimitar", "Giant bronze dagger",
+            # Cosmetics-evicted variant ids of real melee gear — the
+            # name-based include keeps the trophy/ornament copies with
+            # their canonical siblings instead of leaving them tabless.
+            "Torva full helm", "Torva platebody", "Torva platelegs",
+            "Armadyl chestplate (or)", "Bandos chestplate (or)",
+            "Armadyl godsword", "Bandos godsword", "Scythe of vitur",
+        ]),
     ],
     variant_allowlist=[
         "Slayer helmet (i)", "Black mask (i)",
@@ -1240,7 +1281,10 @@ RANGE = TabSpec(
                 force_exclude=["Rogue boots"]),
         Section("Gloves", _is_range_armour_slot("hands"),
                 force_include=["Spined gloves", "Snakeskin vambraces",
-                               "3rd age vambraces", "Gilded d'hide vambraces"]
+                               "3rd age vambraces", "Gilded d'hide vambraces",
+                               # misc audit — ranged bracers (Hunter Guild)
+                               # were stranded in melee + misc only.
+                               "Sunlit bracers"]
                 + [n for n in _GOD_DHIDE_NAMES if "bracers" in n.lower()],
                 force_exclude=["Rogue gloves"]),
         Section("Shields", _is_range_armour_slot("shield"),
@@ -1271,6 +1315,38 @@ RANGE = TabSpec(
         })),
         # Brief #50 fix: Combat food cross-tag removed from range and mage. Top
         # food now lives in cooking + slayer loadout cross-tag only.
+        # Tab audit: raw fletching materials (tips / heads / shafts /
+        # unfinished ammo / bowstrings) belong in the Fletching tab, not
+        # Range; god book pages are prayer items; gnome cocktails are
+        # cooking. force_exclude is flattened tab-wide → leaves Range only.
+        Section("Fletching materials cleanup (tab audit)", _never, force_exclude=[
+            "Amethyst arrowtips", "Amethyst bolt tips", "Amethyst javelin heads",
+            "Dragon arrowtips", "Dirty arrowtips", "Dragon dart tip",
+            "Broad arrowheads", "Broad arrowhead pack",
+            "Unfinished broad bolts", "Unfinished broad bolt pack",
+            "Opal bolt tips", "Jade bolt tips", "Topaz bolt tips",
+            "Pearl bolt tips", "Sapphire bolt tips", "Emerald bolt tips",
+            "Ruby bolt tips", "Diamond bolt tips", "Dragonstone bolt tips",
+            "Onyx bolt tips",
+            "Bronze javelin heads", "Iron javelin heads", "Steel javelin heads",
+            "Mithril javelin heads", "Adamant javelin heads",
+            "Rune javelin heads", "Dragon javelin heads", "Javelin shaft",
+            "Atlatl dart shaft", "Atlatl dart tips", "Headless atlatl dart",
+            "Kebbit spike", "Long kebbit spike",
+            "Corrupted bowstring", "Crystalline bowstring",
+            "Sunfire splinters",
+            "Armadyl page 1", "Armadyl page 2", "Armadyl page 3",
+            "Armadyl page 4", "Book of law page set",
+        ]),
+        # Pass-3 misc/cosmetics audit: real ranged-stat gear evicted from
+        # the misc and cosmetics tabs that had no other membership (name-
+        # based include drags trophy-duplicate ids along too).
+        Section("Stray stat gear (pass-3 audit)", _never, force_include=[
+            "Venator bow", "Bow of faerdhinen (c)",
+            "Black d'hide chaps (beta)", "Black d'hide vambraces (beta)",
+            "Helm of raedwald", "Clue hunter garb", "Clue hunter trousers",
+            "Studded body", "Dragon knife",
+        ]),
     ],
 )
 
@@ -1416,6 +1492,12 @@ MAGE = TabSpec(
         })),
         # Brief #50 fix: Combat food cross-tag removed from range and mage. Top
         # food now lives in cooking + slayer loadout cross-tag only.
+        # Pass-3 misc/cosmetics audit: real mage-stat gear evicted from
+        # misc/cosmetics that had no other membership (name-based include
+        # drags trophy-duplicate ids along too).
+        Section("Stray stat gear (pass-3 audit)", _never, force_include=[
+            "Toxic staff (uncharged)", "Iban's staff",
+        ]),
     ],
     variant_allowlist=[
         "Imbued saradomin cape", "Imbued zamorak cape", "Imbued guthix cape",
@@ -1496,10 +1578,21 @@ PRAYER = TabSpec(
             "Holy wrench", "Bonecrusher", "Bonecrusher necklace",
             "Hand of glory", "Prayer cape", "Prayer cape(t)", "Prayer hood",
         })),
+        # Jarred moonlight moths restore 22% prayer on release — they're a
+        # prayer consumable, not just hunter produce.
+        Section("Moonlight moths", _name_starts("Moonlight moth"),
+                force_include=["Moonlight moth", "Moonlight moth mix (1)",
+                               "Moonlight moth mix (2)"]),
         Section("Pyre log oils",
                 _is_potion_family("olive oil", "sacred oil"),
                 sort_key=_potion_sort_key),
         Section("Proselyte", _name_starts("Proselyte ")),
+        # Tab audit: Marrentill is a herb — its prayer connection (incense
+        # burners) doesn't warrant a Prayer tab slot; it lives in Herblore
+        # and Farming.
+        Section("Herb cleanup (tab audit)", _never, force_exclude=[
+            "Marrentill",
+        ]),
     ],
 )
 
@@ -1653,7 +1746,13 @@ COOKING = TabSpec(
                 "Guppy", "Cavefish", "Tetra", "Catfish",
                 "Corrupted paddlefish", "Crystal paddlefish",
             }),
-        ), force_exclude=list(_COOKED_FISH_HEAL.keys())),
+        )),
+        # NOTE: this section used to carry
+        #   force_exclude=list(_COOKED_FISH_HEAL.keys())
+        # to keep standard cooked fish out of the minigame-fish section.
+        # llm_promote flattens force_excludes tab-wide (section structure is
+        # ignored), so that exclude was banishing Lobster/Swordfish/Shark
+        # etc. from the entire cooking tab. Removed (Brief #90).
         Section("Pies (extended)", _or(_name_ends(" pie"), _name_in({"Pie shell"}))),
         Section("Harvest produce (cross-tag with farming)", _or(
             _is_harvest_produce,
@@ -1721,6 +1820,14 @@ WOODCUTTING_FIREMAKING = TabSpec(
             force_exclude=["Animal skull"],
         ),
         Section("Misc utility", _never),
+        # Tab audit: Mount Karuulm salts, Blast Mine dynamite and Blast
+        # Furnace coke are mining materials; Chilhuac red is a wine
+        # (cooking). force_exclude is flattened tab-wide → leaves WC+FM only.
+        Section("Mining materials cleanup (tab audit)", _never, force_exclude=[
+            "Efh salt", "Te salt", "Urt salt",
+            "Dynamite(p)", "Spadeful of coke",
+            "Chilhuac red",
+        ]),
     ],
 )
 
@@ -1841,7 +1948,12 @@ FISHING = TabSpec(
             # session 62 — Echo + Infernal harpoon variants + Dragon harpoon (or)
             "Echo harpoon", "Infernal harpoon (uncharged)",
             "Dragon harpoon (or)",
-        })),
+        }), force_include=[
+            # Pass-3 cosmetics audit: Tempoross tool evicted from
+            # cosmetics; needs the explicit include for llm-path
+            # membership.
+            "Fine mesh net",
+        ]),
         Section("Aerial fishing catches + byproducts", _name_in({
             "Bluegill", "Common tench", "Mottled eel", "Greater siren",
             "Golden tench",
@@ -1883,6 +1995,11 @@ FISHING = TabSpec(
             "Big harpoonfish", "Stuffed big harpoonfish",
         })),
         Section("Cape & pet", _name_in({"Fishing cape", "Fishing cape(t)", "Fishing hood", "Heron"})),
+        # Tab audit: Barronite handle is Camdozaal smithing (imcando
+        # hammer component), not a fishing item.
+        Section("Smithing cleanup (tab audit)", _never, force_exclude=[
+            "Barronite handle",
+        ]),
     ],
 )
 
@@ -1993,6 +2110,19 @@ CRAFTING = TabSpec(
         Section("Spinning / weaving inputs", _name_in({
             "Spinning wheel", "Yarn",
         })),
+        # Tab audit: birdhouses are Hunter training items (already in the
+        # hunter tab's Birdhouse row); dark essence fragments are Arceuus
+        # runecrafting. force_exclude leaves Crafting only.
+        Section("Wrong-tab cleanup (tab audit)", _never, force_exclude=[
+            "Bird house", "Oak bird house", "Willow bird house",
+            "Teak bird house", "Maple bird house", "Mahogany bird house",
+            "Yew bird house", "Magic bird house", "Redwood bird house",
+            "Dark essence fragments",
+            # Tree-patch roots are farming/firemaking produce, not
+            # crafting materials.
+            "Oak roots", "Willow roots", "Maple roots", "Yew roots",
+            "Magic roots",
+        ]),
     ],
 )
 
@@ -2074,6 +2204,12 @@ MINING_SMITHING = TabSpec(
             _name_starts("Uncut "),
             _name_in({"Chisel", "Crystal chisel"}),
         )),
+        # Pass-3 cosmetics audit: Giants' Foundry reward helmet carries
+        # real defence so it can't stay in cosmetics; it's a smithing
+        # minigame reward.
+        Section("Stray stat gear (pass-3 audit)", _never, force_include=[
+            "Blacksmith's helm",
+        ]),
     ],
 )
 
@@ -2233,6 +2369,12 @@ AGILITY_THIEVING = TabSpec(
                 _is_potion_family("energy potion", "super energy", "stamina potion",
                                   "agility potion"),
                 sort_key=_potion_sort_key),
+        # Tab audit: termites are Varlamore hunter bait; clockwork toys
+        # have no agility/thieving function. force_exclude leaves this
+        # tab only.
+        Section("Wrong-tab cleanup (tab audit)", _never, force_exclude=[
+            "Termites", "Toy doll", "Toy mouse",
+        ]),
     ],
 )
 
@@ -2550,6 +2692,10 @@ RUNECRAFT = TabSpec(
         Section("Cape & pet", _name_in({
             "Runecraft cape", "Runecraft cape(t)", "Runecraft hood", "Rift guardian",
         })),
+        # Tab audit: Metztonalli white is a Varlamore wine (cooking).
+        Section("Wine cleanup (tab audit)", _never, force_exclude=[
+            "Metztonalli white",
+        ]),
     ],
 )
 
@@ -2622,6 +2768,15 @@ HUNTER = TabSpec(
             "Hunter cape", "Hunter cape(t)", "Hunter hood",
             "Baby chinchompa", "Beaver",  # beaver is wc but harmless if listed
         })),
+        # Tab audit: aerial-fishing catches and generic fishing kit are
+        # Fishing tab content (aerial fishing is driven from the fishing
+        # side); force_exclude leaves Hunter only.
+        Section("Fishing cleanup (tab audit)", _never, force_exclude=[
+            "Bluegill", "Common tench", "Greater siren", "Mottled eel",
+            "Small fishing net", "Bucket of sandworms",
+            # Blackbird red is a Varlamore wine (cooking).
+            "Blackbird red",
+        ]),
     ],
 )
 
@@ -2708,12 +2863,24 @@ CONSTRUCTION = TabSpec(
             "Construction cape", "Construction cape(t)", "Construction hood",
         })),
     ],
+    # Wiki-only items absent from the osrsbox cache — the llm_promote emitter
+    # skips ids it can't find there, so inject directly (Brief #92).
+    extra_items=[
+        (31205, "Grid master altar icon scroll", "Building materials"),
+    ],
 )
 
 # === MISC ===
 MISC = TabSpec(
     name="misc", const_name="TAG_MISC",
     sections=[
+        # Section audit: XP-reward lamps consolidated here from the quests
+        # tab (quests hard-excludes the same names via
+        # sort_tables.SECTION_AUDIT_TAB_EXCLUDE_NAMES) — they route to the
+        # "Lamps & XP rewards" row.
+        Section("XP lamps (section audit)", _never, force_include=[
+            "Antique lamp", "Lamp", "Magic lamp (strength)",
+        ]),
         Section("Teleport jewellery", _name_in({
             "Amulet of glory", "Amulet of glory(t)",
             "Amulet of glory(1)", "Amulet of glory(2)",
@@ -2842,6 +3009,121 @@ MISC = TabSpec(
             # session 60 — Hallowed Sepulchre currency
             "Hallowed mark",
         })),
+        # Misc audit: combat gear does not belong in the Misc tab. Every
+        # name below is stat-bearing equipment that already lives in its
+        # correct combat tab (melee / range / mage — plus prayer/cosmetics
+        # for the halos and ghostly set). force_exclude is name-based and
+        # flattened tab-wide, so this strips all variants from Misc only.
+        # Deliberately NOT excluded: Fire/Infernal capes + Lightbearer
+        # (kept as "Combat trophies" above), Karamja gloves + teleport
+        # jewellery (kept in "Jewellery teleports"), team/decorative
+        # banners, Desert clothing.
+        # Pass-3 audit: a data-driven stat filter now backs this list up —
+        # sort_tables.tab_exclude_ids("misc") hard-drops any id with a
+        # positive offensive/defensive bonus outside those exceptions.
+        # This name list additionally catches variant ids missing from the
+        # merged item dataset (e.g. "(beta)" treasure-trail lookalikes).
+        Section("Combat gear cleanup (misc audit)", _never, force_exclude=[
+            # Pass-3 strict audit: stat-carrying gear the user spotted
+            # in-game (variant ids whose base sprite looks identical) +
+            # the wiki-only Leagues trophy ids of real gear.
+            "Black d'hide chaps (beta)", "Black d'hide vambraces (beta)",
+            "Masori body (f)", "Masori chaps (f)",
+            "Crystal body", "Crystal legs", "Crystal helm",
+            "Osmumten's fang", "Elidinis' ward (f)", "Noxious halberd",
+            "Magus ring", "Ultor ring", "Purging staff",
+            "Dragonfire shield", "Twisted buckler",
+            "Torva platelegs", "Virtus robe top", "Virtus robe bottom",
+            "Burning claws", "Aranea boots", "Dragon crossbow",
+            "Venator bow", "Dinh's blazing bulwark",
+            # Pass-3: real-stat oddballs previously kept — Flippers is a
+            # slayer (mogre) drop and keeps its slayer membership; the
+            # sickle + seals move to quests (see QUESTS force_include).
+            "Flippers", "Silver sickle (b)",
+            "Void seal(1)", "Void seal(2)", "Void seal(3)", "Void seal(4)",
+            "Void seal(5)", "Void seal(6)", "Void seal(7)", "Void seal(8)",
+            # Barrows / GWD / raids gear (LMS-duplicate ids share names)
+            "Dharok's platebody", "Dharok's greataxe",
+            "Verac's flail", "Verac's brassard",
+            "Volatile nightmare staff", "Corrupted volatile nightmare staff",
+            "Ancestral hat", "Ancestral robe top", "Ancestral robe bottom",
+            "Inquisitor's great helm", "Inquisitor's hauberk",
+            "Inquisitor's plateskirt", "Inquisitor's mace",
+            "Ancient godsword", "Armadyl godsword", "Bandos godsword",
+            "Scythe of vitur", "Rune defender", "Zaryte crossbow",
+            "Bow of faerdhinen", "Bow of faerdhinen (c)",
+            "Light ballista", "Unholy book",
+            "Opal dragon bolts (e)", "Tome of fire",
+            "Corrupted voidwaker", "Corrupted dragon claws",
+            "Crystal dagger (perfected)", "Dragon knife",
+            # LMS-range slot gear
+            "Mystic robe top (dark)", "Mystic robe bottom (dark)",
+            "Mystic robe top (light)", "Mystic robe bottom (light)",
+            "Wizard boots", "Infinity boots", "Tormented bracelet",
+            "Necklace of anguish", "Amulet of torture",
+            "Elder chaos top", "Elder chaos robe", "Elder chaos hood",
+            "Berserker helm", "Fremennik kilt", "Spiked manacles",
+            "Rangers' tunic", "Guthix chaps", "Zamorak chaps",
+            "Saradomin chaps", "Guthix halo", "Zamorak halo",
+            "Saradomin halo", "Ghostly hood", "Ghostly robe",
+            "3rd age mage hat", "3rd age range top", "3rd age range legs",
+            "3rd age range coif",
+            "Mithril gloves (wrapped)", "Rune gloves (wrapped)",
+            "Barrows gloves (wrapped)",
+            # PvP Arena (Emir's Arena) reward gear
+            "Centurion cuirass",
+            "Wristbands of the arena", "Wristbands of the arena (i)",
+            "Saika's hood", "Saika's veil", "Saika's shroud",
+            "Koriff's headband", "Koriff's cowl", "Koriff's coif",
+            "Maoma's med helm", "Maoma's full helm", "Maoma's great helm",
+            "Calamity chest", "Superior calamity chest",
+            "Elite calamity chest", "Calamity breeches",
+            "Superior calamity breeches", "Elite calamity breeches",
+            # Bounty Hunter reward gear
+            "Vesta's chainbody (bh)", "Vesta's plateskirt (bh)",
+            "Vesta's spear (bh)", "Vesta's longsword (bh)",
+            "Statius's full helm (bh)", "Statius's platebody (bh)",
+            "Statius's platelegs (bh)", "Statius's warhammer (bh)",
+            "Morrigan's coif (bh)", "Morrigan's leather body (bh)",
+            "Morrigan's leather chaps (bh)", "Morrigan's throwing axe (bh)",
+            "Morrigan's javelin (bh)", "Zuriel's hood (bh)",
+            "Zuriel's robe top (bh)", "Zuriel's robe bottom (bh)",
+            "Zuriel's staff (bh)",
+            "Corrupted vesta's chainbody (bh)",
+            "Corrupted vesta's plateskirt (bh)",
+            "Corrupted statius's full helm (bh)",
+            "Corrupted statius's platebody (bh)",
+            "Corrupted statius's platelegs (bh)",
+            "Corrupted morrigan's coif (bh)",
+            "Corrupted morrigan's leather body (bh)",
+            "Corrupted morrigan's leather chaps (bh)",
+            "Corrupted zuriel's hood (bh)",
+            "Corrupted zuriel's robe top (bh)",
+            "Corrupted zuriel's robe bottom (bh)",
+            "Dark bow (bh)", "Barrelchest anchor (bh)", "Dragon mace (bh)",
+            "Dragon longsword (bh)", "Abyssal dagger (bh)",
+            # Perilous Moons armour + weapons (user-reported offenders)
+            "Eclipse moon helm", "Eclipse moon chestplate",
+            "Eclipse moon tassets", "Blue moon helm",
+            "Blue moon chestplate", "Blue moon tassets",
+            "Blood moon helm", "Blood moon chestplate",
+            "Blood moon tassets", "Blue moon spear", "Dual macuahuitl",
+            "Eclipse atlatl", "Atlatl dart",
+            # Varlamore II combat rewards
+            "Amulet of the monarchs", "Emperor ring",
+            "Thousand-dragon ward", "Sunlit bracers",
+            # Castle Wars decorative armour (stat-bearing; lives in melee)
+            "Decorative boots", "Decorative full helm",
+            # Weapon poison is a herblore/melee consumable, not misc.
+            "Weapon poison",
+        ]),
+        # Pass-3 cosmetics audit: event consumables evicted from the
+        # cosmetics tab (they're drinkable, not wearable) land in misc's
+        # Consumables & supplies row.
+        Section("Event consumables (cosmetics audit)", _never, force_include=[
+            "Voice potion", "Murky potion", "Spectral potion",
+            "Witch's brew", "Magical cleaning potion",
+        ]),
     ],
 )
 
@@ -2887,7 +3169,11 @@ QUESTS = TabSpec(
             "Dramen staff", "Lunar staff", "Ivandis flail", "Blisterwood flail",
             "Slayer's staff", "Silverlight", "Excalibur", "Enhanced excalibur",
             "Wolfbane", "Keris", "Keris partisan", "Ectophial",
-        })),
+        }), force_include=[
+            # Pass-3 misc audit: Mort Myre bloom sickle carries combat
+            # stats so it can't stay in misc; it's a quest-unlock tool.
+            "Silver sickle (b)",
+        ]),
         Section("Quest cosmetic gear", _name_in({
             "Khazard helmet", "Khazard armour",
             "Fishing trophy",
@@ -2905,7 +3191,14 @@ QUESTS = TabSpec(
         Section("Void Knight set", _or(
             _name_starts("Void "),
             _name_in({"Elite void top (or)", "Elite void robe (or)"}),
-        )),
+        ), force_include=[
+            # Pass-3 misc audit: Void seals carry defensive bonuses so
+            # they can't stay in misc — they join the Void Knight /
+            # Pest Control family here (llm-path membership needs the
+            # explicit force_include; classifier preds don't apply).
+            "Void seal(1)", "Void seal(2)", "Void seal(3)", "Void seal(4)",
+            "Void seal(5)", "Void seal(6)", "Void seal(7)", "Void seal(8)",
+        ]),
         Section("Fighter Torso et al.", _name_in({
             "Fighter torso", "Fighter hat", "Runner hat", "Healer hat",
             "Penance gloves", "Penance skirt", "Penance shield",
@@ -2918,6 +3211,20 @@ QUESTS = TabSpec(
             "Tzrek-jad", "Olmlet", "Skotos", "Vorki", "Lil' creator",
             "Bloodhound", "Smolcano", "Lil' zik", "Jal-nib-rek",
         })),
+        # Misc audit: Dragon med helm is a monster-drop melee helmet. The
+        # real item (id 1149) already lives in the melee tab; the quests
+        # copy is a My Arm's Big Adventure cutscene fake (id 6967).
+        # force_exclude strips both from Quests; melee keeps its own.
+        # NOTE: no force_include on MELEE — that would drag the cutscene
+        # fake id into the melee tab too (includes are name-based).
+        Section("Misplaced gear cleanup (audit)", _never, force_exclude=[
+            "Dragon med helm",
+        ]),
+        # Pass-3 cosmetics audit: quest consumables evicted from the
+        # cosmetics tab (drinkable dose items, not fashion).
+        Section("Quest consumables (cosmetics audit)", _never, force_include=[
+            "Vial of tears (1)", "Vial of tears (2)", "Vial of tears (3)",
+        ]),
         # NOTE: an "Other quest items" catch-all (quest_item=True) was tried and
         # matched ~1800 items, which is OSRS's entire quest catalogue. Far too
         # broad. Keep this tab to specific named items above; user adds more by
@@ -2974,6 +3281,19 @@ SAILING = TabSpec(
             "sailing cape" in (it.get("name") or "").lower()
             or "sailing hood" in (it.get("name") or "").lower()
         )),
+        # Brief #90: shipbuilding uses the construction kit — hammer, saw,
+        # every nail tier and every plank belong on the sailing tab too.
+        Section("Shipwright construction supplies", _name_in({
+            "Hammer", "Imcando hammer", "Saw", "Crystal saw", "Amy's saw",
+            "Bronze nails", "Iron nails", "Steel nails", "Black nails",
+            "Mithril nails", "Adamantite nails", "Rune nails",
+            "Plank", "Oak plank", "Teak plank", "Mahogany plank",
+        }), force_include=[
+            "Hammer", "Imcando hammer", "Saw", "Crystal saw", "Amy's saw",
+            "Bronze nails", "Iron nails", "Steel nails", "Black nails",
+            "Mithril nails", "Adamantite nails", "Rune nails",
+            "Plank", "Oak plank", "Teak plank", "Mahogany plank",
+        ]),
     ],
     # extra_items intentionally empty — wiki provides these IDs directly now.
 )
@@ -3010,6 +3330,35 @@ COSMETICS = TabSpec(
                 "Pink hat", "Green hat", "Blue hat", "Cream hat", "Turquoise hat",
             ],
         ),
+        # Pass-3 strict audit. Cosmetics = purely visual: no meaningful
+        # equipment stats, no consumable function. The bulk of the purge is
+        # data-driven (sort_tables.tab_exclude_ids("cosmetics") hard-drops
+        # every id with real positive bonuses — god vestments, blessed
+        # d'hide, rune god armour, trims, gilded, 3rd age, ornament (or)
+        # weapons, recoloured BiS gear...). This name list covers what the
+        # id filter can't see: consumables (no combat stats) and wiki-only
+        # variant ids missing an equipment record in the merged dataset.
+        Section("Stat & consumable cleanup (pass-3 audit)", _never, force_exclude=[
+            # Consumables — drinkable, not fashion. New homes: misc
+            # (event potions) / quests (Vial of tears).
+            "Voice potion", "Murky potion", "Spectral potion",
+            "Witch's brew", "Magical cleaning potion",
+            "Vial of tears (1)", "Vial of tears (2)", "Vial of tears (3)",
+            # Real gear whose Leagues-trophy ids lack equipment records.
+            "Bow of faerdhinen (c)", "Crystal body", "Crystal legs",
+            "Crystal helm", "Toxic staff (uncharged)",
+            "Uncharged toxic trident (e)", "Iban's staff",
+            # Real gear whose variant ids lack equipment records in the
+            # runtime-merged dataset (verified against canonical stats).
+            "Armadyl chestplate (or)", "Bandos chestplate (or)",
+            "Torva full helm", "Torva platebody", "Torva platelegs",
+            # Primarily skilling tools, not fashion — the pearl rods are
+            # functional Aerial-fishing-shop rods (kept in fishing); the
+            # mesh net is a Tempoross tool (force_included into fishing).
+            "Pearl fishing rod", "Pearl fly fishing rod",
+            "Pearl barbarian rod", "Oily pearl fishing rod",
+            "Fine mesh net",
+        ]),
     ],
 )
 
@@ -3025,18 +3374,23 @@ TELEPORTS = TabSpec(
             "Teleport runes", _never,
             # Brief #66: runes used in teleport spells. These keep their
             # Mage tab membership too — Teleports is additive.
+            # Section audit: Mind + Body runes removed — no teleport
+            # spell on any spellbook consumes them.
             force_include=[
                 "Law rune", "Air rune", "Water rune", "Earth rune",
-                "Fire rune", "Mind rune", "Body rune", "Soul rune",
+                "Fire rune", "Soul rune",
                 "Astral rune",
             ],
         ),
         Section("Mounted & charged jewellery", _never),
         Section("Spellbook tablets", _never),
+        # Tab audit: form-based rows (Teleport scrolls / Diary & reward
+        # teleports) replace the never-populated destination rows (City /
+        # Boss & PvM / Minigame). Section routing itself happens in
+        # sort_tables._section_teleports.
+        Section("Teleport scrolls", _never),
+        Section("Diary & reward teleports", _never),
         Section("Skill destinations", _never),
-        Section("City teleports", _never),
-        Section("Boss & PvM destinations", _never),
-        Section("Minigame teleports", _never),
         Section("Wilderness teleports", _never),
         Section(
             "Quest-locked teleports", _never,

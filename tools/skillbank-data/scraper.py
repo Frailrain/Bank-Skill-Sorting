@@ -1175,6 +1175,7 @@ def run_llm_classification(
     reclassify: bool = False,
     new_only: bool = False,
     use_cache: bool = True,
+    model: str | None = None,
 ) -> dict:
     """Run LLM classification for some/all items. Writes JSON + Markdown reports.
 
@@ -1232,7 +1233,7 @@ def run_llm_classification(
 
     print(
         f"Classifying {len(classifiable)} item(s) via LLM "
-        f"(model={llm_classifier.DEFAULT_MODEL}, cache={'off' if reclassify else 'on'})...",
+        f"(model={model or llm_classifier.DEFAULT_MODEL}, cache={'off' if reclassify else 'on'})...",
         file=sys.stderr,
     )
 
@@ -1263,6 +1264,7 @@ def run_llm_classification(
         try:
             result = llm_classifier.classify_item(
                 it, wt_trimmed, LLM_CACHE_DIR, api_key,
+                model=model or llm_classifier.DEFAULT_MODEL,
                 use_cache=use_cache and not reclassify,
                 refresh=reclassify,
             )
@@ -1298,7 +1300,7 @@ def run_llm_classification(
     out_dir.mkdir(parents=True, exist_ok=True)
     json_path = out_dir / "llm-classifications.json"
     json_path.write_text(json.dumps({
-        "model": llm_classifier.DEFAULT_MODEL,
+        "model": model or llm_classifier.DEFAULT_MODEL,
         "count": len(results),
         "cached": n_cached,
         "fresh": n_fresh,
@@ -1441,6 +1443,11 @@ def main():
                    help="run LLM-based classification (Anthropic API). Requires ANTHROPIC_API_KEY "
                         "in env or tools/skillbank-data/.env. Writes out/llm-classifications.json "
                         "and out/classification-diff.md. Does NOT promote without --promote.")
+    p.add_argument("--model", default=None,
+                   help="with --classify: override the LLM model (default: "
+                        "llm_classifier.DEFAULT_MODEL). The per-item response "
+                        "cache is keyed by model, so runs on different models "
+                        "never mix.")
     p.add_argument("--pilot", type=int, metavar="N",
                    help="with --classify: classify only N items (flagged items + random sample). "
                         "Recommended first run; use without --pilot only after reviewing pilot output.")
@@ -1473,6 +1480,13 @@ def main():
                         "out/requirements-failures.txt + "
                         "out/requirements-crossref.md. Reuses the "
                         "cache/wiki-pages/ cache from Brief #51.")
+    p.add_argument("--slayer-tasks", action="store_true",
+                   help="Brief #91: scrape wiki 'Slayer task/*' pages + LLM "
+                        "strategy extraction. Writes out/slayer-tasks.json + "
+                        "out/slayer-tasks-report.md.")
+    p.add_argument("--slayer-tasks-write", action="store_true",
+                   help="with --slayer-tasks: also write "
+                        "src/main/resources/com/skillbank/slayer-tasks.json.")
     args = p.parse_args()
 
     if args.wiki_fetch:
@@ -1489,6 +1503,12 @@ def main():
         sys.path.insert(0, str(SCRIPT_DIR))
         import parse_requirements  # type: ignore
         parse_requirements.run()
+        return
+    if args.slayer_tasks:
+        _load_env()
+        sys.path.insert(0, str(SCRIPT_DIR))
+        import slayer_tasks  # type: ignore
+        slayer_tasks.run(write_resource=args.slayer_tasks_write)
         return
 
     _load_env()
@@ -1638,6 +1658,7 @@ def main():
             reclassify=args.reclassify,
             new_only=args.new_only,
             use_cache=use_cache,
+            model=args.model,
         )
 
     if args.llm_render or args.llm_promote:
