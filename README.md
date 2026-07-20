@@ -1,65 +1,56 @@
-# Bank Skill Sorting
+# Skill Bank Tabs
 
-A RuneLite plugin that automatically seeds [Bank Tags](https://github.com/runelite/runelite/wiki/Bank-Tags) tag groups with skill-based item categories, so your bank is organised into one tidy tab per skill the moment you log in.
+A RuneLite plugin that automatically organises your bank into skill-based [Bank Tags](https://github.com/runelite/runelite/wiki/Bank-Tags) tabs — one tidy tab per skill from the moment you log in, with sectioned layouts, labelled dividers, and a slayer tab that rebuilds itself around your current task.
 
-Items live in **every tab where you'd want them visible** — raw fish appear under both Fishing and Cooking, logs appear under both Woodcutting/Fletching and Firemaking, the rune pouch shows up under both Mage and Runecraft, and so on. The plugin never overwrites tags you've already created — it only fills in the ones that are missing.
+Items live in **every tab where you'd want them visible** — raw fish appear under both Fishing and Cooking, logs under both Woodcutting + Firemaking and Fletching, the rune pouch under both Mage and Runecraft.
 
 ## Features
 
-- **20 skill-based tag groups** covering all 23 OSRS skills (the multi-skill tabs combine WC+Fletching, Mining+Smithing, and Agility+Thieving), plus a `misc` tab for teleports/keys/clues and a `quests` tab for quest, diary, and minigame rewards.
-- **Thoughtful categorisation** — raw inputs sit in the skill that produces them, processed outputs sit in the skill that consumes them.
-- **Multi-tagging** — cross-skill items (combat potions, slayer helms, hammers, planks, cannons, graceful, herb sack, etc.) are duplicated across every tab where they belong.
-- **Per-tab toggles** in the config panel to enable or disable individual tabs.
-- **Reseed missing tags** button — re-runs seeding for any tag that's currently empty without touching the rest.
-- **Reset all tags** button (gated behind a confirm checkbox) clears every tag this plugin manages, so you can start clean.
-- **Side panel** showing the current seeded state of every tag with green checkmarks.
-- **Non-destructive** — existing tag contents are never overwritten. If a tag already has any contents, it's left alone.
+- **22 skill-based tabs** covering all 23 OSRS skills (Woodcutting + Firemaking, Mining + Smithing, and Agility + Thieving share combined tabs), plus dedicated Teleports, Cosmetics, Misc, and Quests tabs.
+- **`(auto)` tag naming** — every tab this plugin manages is suffixed `(auto)` (e.g. `melee (auto)`, `woodcutting + firemaking (auto)`), so it can never collide with or overwrite a tag you created yourself.
+- **Sectioned layouts with labelled dividers** — each tab is organised into named sections (raw → cooked → burnt rows in Cooking, launcher → ammo rows in Ranged, seed types in Farming…) with a Quest Helper-style divider line and label above each section. Toggle the dividers off in settings for a compact layout.
+- **Dynamic slayer tab** — when you have a slayer task, the slayer tab rebuilds itself: required and protection items for the task, the OSRS wiki's recommended gear per combat style *filtered to what you actually own* (slot-by-slot, ranked), elemental-weakness tomes, potion chains knocked down to what's in your bank, top food, cannon supplies where your task location allows one, and slayer utility. Variant-aware — a Konar task at a specific location gets that location's requirements, not another variant's. Falls back to a static slayer tab with no task; toggleable in settings.
+- **Self-maintaining** — tabs reconcile on every login: items added in updates appear, items removed in updates disappear, layouts rebuild against your current bank. Note: the plugin owns the contents of its `(auto)` tags; manual edits to those tags are overwritten on the next seed. Your own tags are never touched.
+- **Per-tab toggles**, a **reseed** button, and a confirm-gated **reset** that removes everything the plugin created.
 
 ## Requirements
 
-- The **Bank Tags** plugin must be installed and active. This plugin writes to Bank Tags' configuration; without it, the seeded data has nothing to render.
-
-## Recommended companion plugin
-
-For the best in-game experience, also install **Bank Tag Layouts** from the Plugin Hub and turn on its *Enable layout by default* setting. Without it, items in each skill tab are grouped by which real bank tab they came from, broken up by separator lines — items inside each group still render in the order this plugin emits them (primary items first, then cross-tagged items), but the separator lines fragment the view. With Bank Tag Layouts on, the whole tab renders as a single contiguous grid.
+- The **Bank Tags** plugin (built into RuneLite) must be enabled. Bank Tag Layouts is **not** required — layouts use RuneLite's native bank tag layout support.
 
 ## Usage
 
-1. Make sure the **Bank Tags** plugin is enabled in your RuneLite plugin list.
-2. Install **Bank Skill Sorting** from the Plugin Hub.
-3. Open the side panel and click **Seed missing tags** (or just log in — seeding on startup is on by default).
-4. Reopen your bank — the new skill tabs will be there.
-
-To start fresh: tick **Confirm reset** in the config, then click **Reset all tags**. To rebuild a single missing tab, just delete it in Bank Tags and click **Seed missing tags** again.
+1. Enable **Bank Tags** in your RuneLite plugin list.
+2. Install **Skill Bank Tabs** from the Plugin Hub.
+3. Log in — tabs seed automatically (or use **Seed missing tags** in the side panel).
+4. Get a slayer task and open the slayer `(auto)` tab to see the dynamic loadout.
 
 ## Tabs
 
 | Tab | Contents |
 | --- | --- |
-| `melee` | Weapons, armour, combat potions, high-heal food, slayer helms, cannon parts |
-| `range` | Bows, crossbows, ammo, d'hide, blowpipes, ranging potions, cannon parts |
-| `mage` | Runes, staves, magic armour, rune pouch, teleport runes |
-| `prayer` | Bones, ashes, prayer potions, ensouled heads |
-| `cooking` | Cooked + raw food, ingredients, cook's outfit, gauntlets |
-| `wc_fletching` | Logs, axes, bow strings, unstrung bows, dart tips, forestry items |
-| `fishing` | Raw fish, rods, bait, angler outfit, fish barrel, Tempoross gear |
-| `firemaking` | Tinderbox, all logs, pyromancer outfit, firelighters, pyre logs |
-| `crafting` | Gems, moulds, leather, dragonhide, glass, jewellery bars |
-| `mining_smithing` | Ores, bars, pickaxes, prospector, foundry uniform, coal/gem bag |
-| `herblore` | Herbs, secondaries, every potion dose, vials, herb sack |
-| `agility_thieving` | Graceful (all recolours), marks, rogue set, blackjacks, ardougne cloak |
-| `slayer` | Task gear, slayer helms, enchanted gem, rings, blood essence |
-| `farming` | Seeds, tools, compost, farmer outfit, herb sack, stamina pots |
-| `runecraft` | Essence, talismans, tiaras, pouches, raiments of the eye |
-| `hunter` | Traps, impling jars, camo outfits, salamanders, quetzals |
-| `construction` | Planks, nails, saw, limestone, bars, mahogany homes packs |
-| `sailing` | Sailing fish, navigation tools, repair kits, sailing cape *(provisional — see notes)* |
-| `misc` | Teleport jewellery, tablets, clue scrolls, keys, storage bags, fairy ring tools |
-| `quests` | Quest rewards, diary gear, minigame gear, boss uniques and pets |
+| `melee` / `range` / `mage` | Gear by slot (strongest left), food, potions, then lower-tier gear |
+| `prayer` | Equipment, bones & ashes, ensouled heads, restores, bonemeal & offerings |
+| `cooking` | Raw → cooked → burnt rows per family, ingredients, combos, drinks & brews |
+| `woodcutting + firemaking` | Axes, light sources, forestry kit, logs, pyre logs, Wintertodt |
+| `fletching` | Materials-first: logs, feathers, arrows, bows, crossbows, bolts, darts |
+| `fishing` | Tools, bait, outfit, raw fish, trophies, Tempoross |
+| `crafting` | Moulds, tools, gems (family rows), hides, glass, battlestaves, jewellery |
+| `mining + smithing` | Pickaxes, ores, special ores & minerals, bars, smithed parts, Foundry |
+| `herblore` | Tools, herbs (level order), secondaries, unfinished & finished potions |
+| `agility + thieving` | Graceful, run energy, Sepulchre rewards, rogue kit, thieving loot |
+| `slayer` | Dynamic per-task loadout (see above); static task gear otherwise |
+| `farming` | Tools, compost, seeds by patch type, saplings, harvested produce |
+| `runecraft` | Essence, pouches, talismans, tiaras, runes, GotR |
+| `hunter` | Traps, baits, salamanders, butterflies, furs, meats, implings |
+| `construction` | Tools, planks, nails, materials, flatpacks, garden, mounted decor |
+| `sailing` | Navigation, construction kit rows, ship parts, salvage, sea fish, cargo |
+| `teleports` | Runes, jewellery, tablets, scrolls, diary rewards, wilderness |
+| `cosmetics` | Purely visual items, one row per outfit set |
+| `misc` | Currencies, keys, clue items, books, storage, lamps — the true junk drawer |
+| `quests` | Quest-locked items: keys, books & lore, supplies, artefacts, remains |
 
 ## Notes & Contributing
 
-- **Item IDs are community maintained.** They come from `net.runelite.api.ItemID` and the OSRS Wiki. PRs to expand, correct, or re-bucket items are welcome — open an issue or send a patch against [`SkillBankData.java`](src/main/java/com/skillbank/SkillBankData.java).
-- **The Sailing tab is provisional.** Sailing was released on 2025-11-19 and many of its items don't have stable IDs in `ItemID` yet. The current bucket covers the cape, navigation tools (spyglass, crowbar, captain's log), repair kits, and the new fish — best-effort entries are flagged with `// verify ID` comments. Expect the Sailing tab to grow as the skill matures and IDs settle.
-- **Duplicating IDs across tabs is intentional**, not a bug. Bank Tags treats each tag as an independent set, so an item being tagged `melee` *and* `cooking` is exactly what we want.
-- If a tab has the wrong contents, the simplest fix is to edit the tag directly in Bank Tags — this plugin won't fight you.
+- **Item data is generated** from the OSRS Wiki and osrsbox, then curated. If an item is in the wrong tab or section, open an issue with the item name and where it should live — most fixes are one-line overrides.
+- **Duplicating items across tabs is intentional.** Bank Tags treats each tag as an independent set; cross-tagging is the point.
+- The slayer task dataset is parsed from wiki task pages (recommended-equipment templates + variant/location requirements) and ships with the plugin — no network calls at runtime.
