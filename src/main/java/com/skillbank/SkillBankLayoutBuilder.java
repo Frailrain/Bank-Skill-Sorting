@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.game.ItemManager;
+import net.runelite.client.game.ItemVariationMapping;
 import net.runelite.client.plugins.banktags.tabs.Layout;
 
 /**
@@ -97,9 +98,60 @@ public class SkillBankLayoutBuilder
 		return m;
 	}
 
-	public Layout buildLayout(String tagName, Set<Integer> ownedCanonical)
+	/**
+	 * @param tagName     bare internal tab id ("melee") — drives section
+	 *                    structure, sorting, and per-tab special cases.
+	 * @param bankTagName the Bank Tags-facing name the Layout is saved under
+	 *                    ("melee (auto)").
+	 * @param ownedByBase base item id (via {@code ItemVariationMapping.map})
+	 *                    → every id the player actually banks in that
+	 *                    variation family. Lets degraded / ornamented
+	 *                    variants inherit the base item's position instead
+	 *                    of falling to Bank Tags' first-free-slot
+	 *                    auto-placement.
+	 */
+	/** bankTagName → (pos → short label) for the most recently built layout
+	 *  of each tab; the bank overlay draws these as section dividers. */
+	private final Map<String, Map<Integer, String>> headersByTag = new HashMap<>();
+
+	public Map<Integer, String> headersFor(String bankTagName)
 	{
-		Layout layout = new Layout(tagName);
+		Map<Integer, String> h = headersByTag.get(bankTagName);
+		return h != null ? h : Collections.emptyMap();
+	}
+
+	/** Short divider label: cut at " & " and parentheticals, cap ~22 chars
+	 *  on a word boundary ("Teleport tablets & spell utility" → "Teleport
+	 *  tablets"). */
+	private static String shortLabel(String section)
+	{
+		String s = section;
+		int amp = s.indexOf(" & ");
+		if (amp > 0)
+		{
+			s = s.substring(0, amp);
+		}
+		int paren = s.indexOf(" (");
+		if (paren > 0)
+		{
+			s = s.substring(0, paren);
+		}
+		if (s.length() > 22)
+		{
+			int cut = s.lastIndexOf(' ', 22);
+			if (cut > 0)
+			{
+				s = s.substring(0, cut);
+			}
+		}
+		return s;
+	}
+
+	public Layout buildLayout(String tagName, String bankTagName, Map<Integer, List<Integer>> ownedByBase)
+	{
+		Layout layout = new Layout(bankTagName);
+		Map<Integer, String> headers = new HashMap<>();
+		headersByTag.put(bankTagName, headers);
 
 		List<Integer> tabItems = SkillBankData.itemsFor(tagName);
 		if (tabItems == null || tabItems.isEmpty())
@@ -116,8 +168,16 @@ public class SkillBankLayoutBuilder
 		List<String> sectionOrder = SkillBankSortData.TAB_SECTIONS.get(sectionLookupKey);
 		Map<Integer, ItemMeta> meta = SkillBankSortData.itemMeta();
 
-		// Canonicalize tab ids once and filter to ownership.
+		// Canonicalize tab ids once and filter to ownership. Sorting and
+		// section lookups run on the canonical (bucket) id; `display` maps
+		// it to the variant id(s) the player actually owns so the emitted
+		// Layout references items really in the bank. Dedupe is per
+		// variation BASE: many bucket ids can share one base (every clue
+		// scroll step, every coin denomination) and owning one member of
+		// the family must place the family exactly once — not once per
+		// bucket variant.
 		List<Integer> ownedInTab = new ArrayList<>();
+		Map<Integer, List<Integer>> display = new HashMap<>();
 		Set<Integer> seen = new HashSet<>();
 		for (Integer iid : tabItems)
 		{
@@ -126,11 +186,46 @@ public class SkillBankLayoutBuilder
 				continue;
 			}
 			int canonical = itemManager.canonicalize(iid);
-			if (!ownedCanonical.contains(canonical) || !seen.add(canonical))
+			int base = ItemVariationMapping.map(canonical);
+			List<Integer> family = ownedByBase.get(base);
+			if (family == null || family.isEmpty())
+			{
+				continue;
+			}
+			List<Integer> ownedIds;
+			if (canonical == base)
+			{
+				// Bucket names the base item — any owned family member
+				// (degraded barrows, ornament kits) inherits its position.
+				ownedIds = family;
+			}
+			else if (family.contains(canonical))
+			{
+				// Bucket names a SPECIFIC variant (holiday "(cookout)"
+				// replicas, beta gear, clue steps): only that exact item
+				// counts. Family-expanding here would paint the player's
+				// REAL base item (their actual bread/bucket/armour) into
+				// this tab because the variants share a variation base.
+				ownedIds = Collections.singletonList(canonical);
+			}
+			else
+			{
+				continue;
+			}
+			List<Integer> fresh = new ArrayList<>();
+			for (int oid : ownedIds)
+			{
+				if (seen.add(oid))
+				{
+					fresh.add(oid);
+				}
+			}
+			if (fresh.isEmpty())
 			{
 				continue;
 			}
 			ownedInTab.add(canonical);
+			display.put(canonical, fresh);
 		}
 
 		if (ownedInTab.isEmpty())
@@ -146,7 +241,7 @@ public class SkillBankLayoutBuilder
 			int pos = 0;
 			for (Integer iid : ownedInTab)
 			{
-				layout.setItemAtPos(iid, pos++);
+				pos = placeOwned(layout, display, iid, pos);
 			}
 			return layout;
 		}
@@ -230,13 +325,22 @@ public class SkillBankLayoutBuilder
 		// → Bracelet). The same ItemMeta.setName field carries both.
 		boolean cosmeticsRowBreak = "cosmetics".equals(tagName);
 		boolean craftingGemsRowBreak = "crafting".equals(tagName);
-		// Zone 1 first, in section order.
+		// Zone 1 first, in section order. Every non-empty section block is
+		// preceded by a FULL BLANK ROW that the tab overlay fills with a
+		// divider line + short label (Quest Helper style, same treatment
+		// as the dynamic slayer tab).
+		boolean dividers = config.sectionDividers();
 		for (SectionResult r : results)
 		{
 			if (r.zone1.isEmpty()) continue;
-			if (!firstBlock && pos % ITEMS_PER_ROW != 0)
+			if (pos % ITEMS_PER_ROW != 0)
 			{
 				pos = ((pos / ITEMS_PER_ROW) + 1) * ITEMS_PER_ROW;
+			}
+			if (dividers)
+			{
+				pos += ITEMS_PER_ROW; // blank divider row
+				headers.put(pos, shortLabel(r.section));
 			}
 			String lastSetName = null;
 			boolean rowBreakOnSet = cosmeticsRowBreak
@@ -256,21 +360,32 @@ public class SkillBankLayoutBuilder
 					}
 					lastSetName = setName;
 				}
-				layout.setItemAtPos(iid, pos++);
+				pos = placeOwned(layout, display, iid, pos);
 			}
 			firstBlock = false;
 		}
-		// Zone 2 next.
+		// Zone 2 next — one "Lower tier" divider for the whole chaff zone,
+		// plain row breaks between its section blocks.
+		boolean zone2Started = false;
 		for (SectionResult r : results)
 		{
 			if (r.zone2.isEmpty()) continue;
-			if (!firstBlock && pos % ITEMS_PER_ROW != 0)
+			if (pos % ITEMS_PER_ROW != 0)
 			{
 				pos = ((pos / ITEMS_PER_ROW) + 1) * ITEMS_PER_ROW;
 			}
+			if (!zone2Started)
+			{
+				if (dividers)
+				{
+					pos += ITEMS_PER_ROW;
+					headers.put(pos, "Lower tier");
+				}
+				zone2Started = true;
+			}
 			for (Integer iid : r.zone2)
 			{
-				layout.setItemAtPos(iid, pos++);
+				pos = placeOwned(layout, display, iid, pos);
 			}
 			firstBlock = false;
 		}
@@ -331,6 +446,7 @@ public class SkillBankLayoutBuilder
 			|| "Barbarian mixes".equals(section)
 			|| "Divine, extended & upgraded variants".equals(section)
 			|| "Combat potions".equals(section)
+			|| "Potions".equals(section)
 			|| "Prayer & restores".equals(section)
 			|| "Prayer-restoring consumables".equals(section)
 			|| "Run-energy consumables".equals(section))
@@ -338,13 +454,20 @@ public class SkillBankLayoutBuilder
 			items.sort(this::comparePotions);
 			return "POTION_ORDER";
 		}
-		// Brief #66: cooking section names changed. "Cooked fish" / "Cooked
-		// meat" / "Combo food" / "Baked & cooked goods" should all use the
-		// FOOD_ORDER comparator so canonical heal order is preserved.
+		// Brief #90: the cooking tab's six family rows (fish / meat ×
+		// raw / cooked / burnt) sort by Cooking level, lowest first.
+		if ("cooking".equals(tagName)
+			&& ("Raw fish".equals(section) || "Cooked fish".equals(section)
+				|| "Burnt fish".equals(section) || "Raw meat".equals(section)
+				|| "Cooked meat".equals(section) || "Burnt meat".equals(section)))
+		{
+			items.sort(this::compareCookingLevel);
+			return "COOKING_LEVEL_ORDER";
+		}
+		// Brief #66: composite cooking sections keep the canonical heal
+		// order; combat-tab Food sections likewise.
 		if (("cooking".equals(tagName) &&
-				("Cooked fish".equals(section)
-					|| "Cooked meat".equals(section)
-					|| "Combo food".equals(section)
+				("Combo food".equals(section)
 					|| "Baked & cooked goods".equals(section)))
 			|| "Food".equals(section))
 		{
@@ -481,7 +604,10 @@ public class SkillBankLayoutBuilder
 	 *  added Food — cooked food never has equipment requirements so the
 	 *  level-based partitioner would dump it into Zone 2 by default. */
 	private static final Set<String> ALWAYS_ZONE1_SECTIONS = Set.of(
-		"Capes", "Neck", "Rings", "Food",
+		// Brief #90: Potions rows directly after Food — consumables carry
+		// no equipment requirement, so the level partitioner would
+		// otherwise dump them into Zone 2.
+		"Capes", "Neck", "Rings", "Food", "Potions",
 		// Brief #87: range tab's nine fixed launcher→ammo rows skip the
 		// dynamic top-N partition. Self-organising row structure
 		// replaces it.
@@ -739,6 +865,40 @@ public class SkillBankLayoutBuilder
 			}
 		}
 		return 0;
+	}
+
+	/** Brief #90: cooking-level comparator for the cooking tab's family
+	 *  rows. Longest COOKING_LEVEL_ORDER token contained in the name wins,
+	 *  so "cave eel" beats "eel" and "bird meat" beats "meat". Unmatched
+	 *  names sink to the end of the row, alphabetically. */
+	private int compareCookingLevel(int a, int b)
+	{
+		String na = nameOf(a).toLowerCase(Locale.ROOT);
+		String nb = nameOf(b).toLowerCase(Locale.ROOT);
+		int ia = cookingLevelRank(na);
+		int ib = cookingLevelRank(nb);
+		if (ia != ib)
+		{
+			return Integer.compare(ia, ib);
+		}
+		return na.compareTo(nb);
+	}
+
+	private static int cookingLevelRank(String nameLower)
+	{
+		int best = Integer.MAX_VALUE;
+		int bestLen = 0;
+		List<String> order = SkillBankSortData.COOKING_LEVEL_ORDER;
+		for (int i = 0; i < order.size(); i++)
+		{
+			String token = order.get(i);
+			if (token.length() > bestLen && nameLower.contains(token))
+			{
+				best = i;
+				bestLen = token.length();
+			}
+		}
+		return best;
 	}
 
 	private int compareFood(int a, int b)
@@ -1339,5 +1499,23 @@ public class SkillBankLayoutBuilder
 		// Brief #88: tier DESC → strongest-LEFT.
 		if (ta != tb) return Integer.compare(tb, ta);
 		return na.compareToIgnoreCase(nb);
+	}
+
+	/** Emit every owned variant in {@code iid}'s variation family at
+	 *  consecutive positions (base item first). Falls back to the canonical
+	 *  id itself if the display map has no entry. Returns the next free pos. */
+	private static int placeOwned(Layout layout, Map<Integer, List<Integer>> display, int iid, int pos)
+	{
+		List<Integer> reals = display.get(iid);
+		if (reals == null || reals.isEmpty())
+		{
+			layout.setItemAtPos(iid, pos++);
+			return pos;
+		}
+		for (int real : reals)
+		{
+			layout.setItemAtPos(real, pos++);
+		}
+		return pos;
 	}
 }

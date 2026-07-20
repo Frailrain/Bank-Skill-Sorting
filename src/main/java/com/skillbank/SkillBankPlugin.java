@@ -3,6 +3,7 @@ package com.skillbank;
 import com.google.inject.Provides;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -30,6 +31,7 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.game.ItemManager;
+import net.runelite.client.game.ItemVariationMapping;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -90,6 +92,15 @@ public class SkillBankPlugin extends Plugin
 	private SkillBankLayoutBuilder layoutBuilder;
 
 	@Inject
+	private SlayerLoadoutBuilder slayerLoadoutBuilder;
+
+	@Inject
+	private SlayerTabOverlay slayerTabOverlay;
+
+	@Inject
+	private net.runelite.client.ui.overlay.OverlayManager overlayManager;
+
+	@Inject
 	private PluginManager pluginManager;
 
 	private SkillBankPanel panel;
@@ -118,6 +129,7 @@ public class SkillBankPlugin extends Plugin
 	{
 		seedAttempted = false;
 		setupCheckRunThisSession = false;
+		overlayManager.add(slayerTabOverlay);
 		panel = new SkillBankPanel(this);
 		// Dev-only Reset Setup Wizard button. RuneLiteProperties returns
 		// null for getLauncherVersion() when the client is launched from
@@ -151,6 +163,7 @@ public class SkillBankPlugin extends Plugin
 	@Override
 	protected void shutDown() throws Exception
 	{
+		overlayManager.remove(slayerTabOverlay);
 		if (navButton != null)
 		{
 			clientToolbar.removeNavigation(navButton);
@@ -162,6 +175,18 @@ public class SkillBankPlugin extends Plugin
 	@Subscribe
 	public void onConfigChanged(ConfigChanged event)
 	{
+		// Brief #91: the core Slayer plugin writes the current task to its
+		// RSProfile config. On task change, re-reconcile + re-lay-out the
+		// slayer tab for the new assignment.
+		if ("slayer".equals(event.getGroup()) && "taskName".equals(event.getKey()))
+		{
+			if (config.dynamicSlayerTab())
+			{
+				refreshSlayerTab();
+			}
+			return;
+		}
+
 		if (!SkillBankConfig.GROUP.equals(event.getGroup()))
 		{
 			return;
@@ -169,6 +194,18 @@ public class SkillBankPlugin extends Plugin
 
 		switch (event.getKey())
 		{
+			case "sectionDividers":
+				// Rebuild layouts immediately so the toggle takes effect
+				// without waiting for the next bank event.
+				clientThread.invokeLater(() ->
+				{
+					if (client.getGameState() == GameState.LOGGED_IN)
+					{
+						rebuildAllLayouts();
+						tabInterface.reloadActiveTab();
+					}
+				});
+				break;
 			case "reseedMissing":
 				if (config.reseedMissing())
 				{
@@ -450,6 +487,7 @@ public class SkillBankPlugin extends Plugin
 	 */
 	private SeedResult doSeedMissing()
 	{
+		cleanupSnakeCaseComboTags();
 		Map<String, List<Integer>> tags = SkillBankData.tags();
 		int itemsTagged = 0;
 		int itemsRemoved = 0;
@@ -469,15 +507,25 @@ public class SkillBankPlugin extends Plugin
 				continue;
 			}
 
+			// All Bank Tags interaction uses the "(auto)"-suffixed name so we
+			// can never collide with a user-created tag of the same bare name.
+			String bankTag = SkillBankData.bankTagName(tagName);
 			Set<Integer> desired = new LinkedHashSet<>(entry.getValue());
-			Set<Integer> currentlyTagged = new HashSet<>(tagManager.getItemsForTag(tagName));
+			// Brief #91: the slayer tab additionally carries the current
+			// task's required / protection / recommended items so they're
+			// tagged the moment the player acquires them.
+			if (SkillBankData.TAG_SLAYER.equals(tagName) && config.dynamicSlayerTab())
+			{
+				desired.addAll(slayerLoadoutBuilder.taskMembership(currentSlayerTaskName()));
+			}
+			Set<Integer> currentlyTagged = new HashSet<>(tagManager.getItemsForTag(bankTag));
 			boolean anyChange = false;
 
 			for (Integer itemId : currentlyTagged)
 			{
 				if (!desired.contains(itemId))
 				{
-					tagManager.removeTag(itemId, tagName);
+					tagManager.removeTag(itemId, bankTag);
 					itemsRemoved++;
 					anyChange = true;
 				}
@@ -490,7 +538,7 @@ public class SkillBankPlugin extends Plugin
 					itemsAlready++;
 					continue;
 				}
-				tagManager.addTag(itemId, tagName, false);
+				tagManager.addTag(itemId, bankTag, false);
 				itemsTagged++;
 				anyChange = true;
 			}
@@ -500,8 +548,9 @@ public class SkillBankPlugin extends Plugin
 				tagsSeeded.add(tagName);
 			}
 
-			String iconKey = ICON_PREFIX + tagName;
-			if (configManager.getConfiguration(BANKTAGS_GROUP, iconKey) == null)
+			String iconKey = ICON_PREFIX + bankTag;
+			String existingIcon = configManager.getConfiguration(BANKTAGS_GROUP, iconKey);
+			if (existingIcon == null || SkillBankData.isLegacyIcon(tagName, existingIcon))
 			{
 				int iconId = SkillBankData.iconFor(tagName);
 				if (iconId > 0)
@@ -510,7 +559,7 @@ public class SkillBankPlugin extends Plugin
 				}
 			}
 
-			tabsCsvUpdated.add(tagName);
+			tabsCsvUpdated.add(bankTag);
 
 			// Brief #57: persist a Layout per tab so bank items render in the
 			// sort order produced by sort_tables.py. No-ops if the bank isn't
@@ -545,7 +594,12 @@ public class SkillBankPlugin extends Plugin
 			return;
 		}
 
-		Set<Integer> ownedCanonical = new HashSet<>();
+		// Map each owned item's variation BASE id → every id actually banked
+		// in that family, so degraded/ornamented variants (Dharok's platebody
+		// 100, (or) kits) inherit the base item's layout position instead of
+		// Bank Tags dumping them into the first free slot. The exact base
+		// item sorts first when both a base and variants are banked.
+		Map<Integer, List<Integer>> ownedByBase = new HashMap<>();
 		for (Item it : bank.getItems())
 		{
 			if (it == null)
@@ -553,14 +607,202 @@ public class SkillBankPlugin extends Plugin
 				continue;
 			}
 			int id = it.getId();
-			if (id > 0)
+			if (id <= 0)
 			{
-				ownedCanonical.add(itemManager.canonicalize(id));
+				continue;
+			}
+			int canonical = itemManager.canonicalize(id);
+			int base = ItemVariationMapping.map(canonical);
+			List<Integer> family = ownedByBase.computeIfAbsent(base, k -> new ArrayList<>());
+			if (family.contains(canonical))
+			{
+				continue;
+			}
+			if (canonical == base)
+			{
+				family.add(0, canonical);
+			}
+			else
+			{
+				family.add(canonical);
 			}
 		}
 
-		Layout layout = layoutBuilder.buildLayout(tagName, ownedCanonical);
+		// Brief #91: dynamic slayer layout — required/protection items, best
+		// owned gear for the task's style, potions, food, cannon, utility.
+		// Static slayer layout remains the fallback with no task / no data.
+		String bankTag = SkillBankData.bankTagName(tagName);
+		Layout layout = null;
+		if (SkillBankData.TAG_SLAYER.equals(tagName) && config.dynamicSlayerTab())
+		{
+			String task = currentSlayerTaskName();
+			if (slayerLoadoutBuilder.hasTaskData(task))
+			{
+				String taskLocation = configManager.getRSProfileConfiguration("slayer", "taskLocation");
+				Layout loadout = slayerLoadoutBuilder.buildLayout(bankTag, task, taskLocation, ownedByBase);
+				// Everything not in the loadout still gets a position (in
+				// static section order) so Bank Tags can't flood the
+				// loadout's row gaps with unpositioned items.
+				Layout full = layoutBuilder.buildLayout(tagName, bankTag, ownedByBase);
+				layout = slayerLoadoutBuilder.mergeWithChaff(loadout, full);
+			}
+			else
+			{
+				log.debug("[SkillBank] Slayer task '{}' not in task data; static slayer layout", task);
+			}
+		}
+		if (layout == null)
+		{
+			if (SkillBankData.TAG_SLAYER.equals(tagName))
+			{
+				// Static slayer path — drop stale dynamic-loadout headers so
+				// the overlay falls through to the section dividers.
+				slayerLoadoutBuilder.headers().clear();
+			}
+			layout = layoutBuilder.buildLayout(tagName, bankTag, ownedByBase);
+		}
+		// Blob guard: any owned item that carries our tag but didn't get a
+		// position (stale tags between seeds, task extras, user-added
+		// co-tags) is appended after the layout — otherwise Bank Tags
+		// auto-fills it into the row-padding gaps and destroys the rows.
+		appendUnpositionedTagged(layout, bankTag, ownedByBase);
 		layoutManager.saveLayout(layout);
+	}
+
+	/** Bank grid width, mirroring SkillBankLayoutBuilder. */
+	private static final int LAYOUT_ITEMS_PER_ROW = 8;
+
+	/** Append every owned, tagged-but-unpositioned item to the end of the
+	 *  layout (fresh row) so nothing free-floats into row gaps. Client
+	 *  thread only. */
+	private void appendUnpositionedTagged(Layout layout, String bankTag,
+		Map<Integer, List<Integer>> ownedByBase)
+	{
+		int[] arr = layout.getLayout();
+		Set<Integer> placed = new HashSet<>();
+		int maxPos = -1;
+		for (int i = 0; i < arr.length; i++)
+		{
+			if (arr[i] > -1)
+			{
+				placed.add(arr[i]);
+				maxPos = i;
+			}
+		}
+		int pos = maxPos < 0 ? 0 : (maxPos / LAYOUT_ITEMS_PER_ROW + 1) * LAYOUT_ITEMS_PER_ROW;
+		for (Integer tagged : tagManager.getItemsForTag(bankTag))
+		{
+			if (tagged == null)
+			{
+				continue;
+			}
+			int canonical = itemManager.canonicalize(tagged);
+			int base = ItemVariationMapping.map(canonical);
+			List<Integer> family = ownedByBase.get(base);
+			if (family == null)
+			{
+				continue;
+			}
+			if (canonical == base)
+			{
+				for (int owned : family)
+				{
+					if (placed.add(owned))
+					{
+						layout.setItemAtPos(owned, pos++);
+					}
+				}
+			}
+			else if (family.contains(canonical) && placed.add(canonical))
+			{
+				// Variant-specific tag (holiday replica, beta gear): only
+				// the exact variant counts — never the real base item.
+				layout.setItemAtPos(canonical, pos++);
+			}
+		}
+	}
+
+	/**
+	 * One-time healing: earlier dev builds emitted combination-tab bank tags
+	 * with the raw snake_case id ("woodcutting_firemaking (auto)") instead of
+	 * the "a + b (auto)" convention, duplicating those three tabs. Only our
+	 * buggy builds ever created names of that shape (the "(auto)" suffix +
+	 * underscore combination), so removing them wholesale is safe — it can't
+	 * touch a user-created tag. Client thread only.
+	 */
+	private void cleanupSnakeCaseComboTags()
+	{
+		Set<String> tabsCsv = readTagTabs();
+		Set<String> tabsCsvKept = new LinkedHashSet<>(tabsCsv);
+		boolean changed = false;
+		for (String tabId : SkillBankData.tags().keySet())
+		{
+			if (!tabId.contains("_"))
+			{
+				continue;
+			}
+			String legacy = tabId + SkillBankData.TAG_SUFFIX;
+			if (!tagManager.getItemsForTag(legacy).isEmpty())
+			{
+				tagManager.removeTag(legacy);
+				changed = true;
+			}
+			if (configManager.getConfiguration(BANKTAGS_GROUP, ICON_PREFIX + legacy) != null)
+			{
+				configManager.unsetConfiguration(BANKTAGS_GROUP, ICON_PREFIX + legacy);
+				changed = true;
+			}
+			layoutManager.removeLayout(legacy);
+			for (String t : tabsCsv)
+			{
+				if (t.equalsIgnoreCase(legacy))
+				{
+					tabsCsvKept.remove(t);
+					changed = true;
+				}
+			}
+		}
+		if (changed && !tabsCsvKept.equals(tabsCsv))
+		{
+			configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY,
+				String.join(",", tabsCsvKept));
+		}
+		if (changed)
+		{
+			log.info("[SkillBank] Removed legacy snake_case combination tabs");
+		}
+	}
+
+	/** The managed tab id the bank is currently showing, or null. Read
+	 *  through THIS plugin's TabInterface instance — the overlay's own
+	 *  injected copy observed stale/null state, so the overlay calls here.
+	 *  Also logs the instance hash while we chase that split. */
+	String activeManagedTabId()
+	{
+		return SkillBankData.tabIdForBankTag(tabInterface.getActiveTag());
+	}
+
+	/** The player's current slayer task name as recorded by the core Slayer
+	 *  plugin's RSProfile config, or null when none / not available. */
+	private String currentSlayerTaskName()
+	{
+		String task = configManager.getRSProfileConfiguration("slayer", "taskName");
+		return task == null || task.trim().isEmpty() ? null : task;
+	}
+
+	/** Brief #91: re-reconcile the slayer tag + rebuild its layout after a
+	 *  task change, then force a re-render if the tab is open. */
+	private void refreshSlayerTab()
+	{
+		clientThread.invokeLater(() ->
+		{
+			if (client.getGameState() != GameState.LOGGED_IN)
+			{
+				return;
+			}
+			doSeedMissing();
+			tabInterface.reloadActiveTab();
+		});
 	}
 
 	/** Rebuild + save Layouts for every enabled Skill Bank tab. Client thread only. */
@@ -605,12 +847,12 @@ public class SkillBankPlugin extends Plugin
 		// log: "tabActive=false activeTag=melee"). Gate on getActiveTag()
 		// + the SkillBankData membership check only, matching bank-slot-
 		// sync's working pattern.
-		String activeTag = tabInterface.getActiveTag();
-		if (activeTag == null || !SkillBankData.tags().containsKey(activeTag))
+		String activeTabId = SkillBankData.tabIdForBankTag(tabInterface.getActiveTag());
+		if (activeTabId == null)
 		{
 			return;
 		}
-		pendingRebuildTag = activeTag;
+		pendingRebuildTag = activeTabId;
 	}
 
 	@Subscribe
@@ -632,16 +874,16 @@ public class SkillBankPlugin extends Plugin
 		// Brief #85 (live diag): drop isTagTabActive() check — it returns
 		// false even when a Skill Bank tag tab is actually active. Trust
 		// getActiveTag() + the SkillBankData membership check instead.
-		String currentTag = tabInterface.getActiveTag();
-		if (currentTag == null || !SkillBankData.tags().containsKey(currentTag))
+		String currentTabId = SkillBankData.tabIdForBankTag(tabInterface.getActiveTag());
+		if (currentTabId == null)
 		{
 			return;
 		}
 		// If the player switched tabs between event fire and this tick,
 		// rebuild for whatever's actually visible now — not the snapshot
 		// we captured at event time.
-		log.debug("[SkillBank] Dynamic rebuild: tab={}, trigger=ItemContainerChanged", currentTag);
-		buildAndSaveLayout(currentTag);
+		log.debug("[SkillBank] Dynamic rebuild: tab={}, trigger=ItemContainerChanged", currentTabId);
+		buildAndSaveLayout(currentTabId);
 		// Brief #85: tabInterface.reloadActiveTab() is the canonical
 		// re-render path — calls openBankTag → loadLayout (re-reads
 		// config) → bankSearch.reset → layoutBank (re-renders grid).
@@ -686,23 +928,26 @@ public class SkillBankPlugin extends Plugin
 	{
 		Set<String> skillTags = SkillBankData.tags().keySet();
 		int cleared = 0;
+		Set<String> managedBankTags = new LinkedHashSet<>();
 		for (String tagName : skillTags)
 		{
-			if (!tagManager.getItemsForTag(tagName).isEmpty())
+			String bankTag = SkillBankData.bankTagName(tagName);
+			managedBankTags.add(bankTag.toLowerCase());
+			if (!tagManager.getItemsForTag(bankTag).isEmpty())
 			{
-				tagManager.removeTag(tagName);
+				tagManager.removeTag(bankTag);
 				cleared++;
 			}
-			configManager.unsetConfiguration(BANKTAGS_GROUP, ICON_PREFIX + tagName);
+			configManager.unsetConfiguration(BANKTAGS_GROUP, ICON_PREFIX + bankTag);
 			// Brief #57: also wipe the saved Layout so a re-seed starts clean.
-			layoutManager.removeLayout(tagName);
+			layoutManager.removeLayout(bankTag);
 		}
 
 		Set<String> tabsCsv = readTagTabs();
 		Set<String> tabsCsvKept = new LinkedHashSet<>();
 		for (String t : tabsCsv)
 		{
-			if (!skillTags.contains(t.toLowerCase()))
+			if (!managedBankTags.contains(t.toLowerCase()))
 			{
 				tabsCsvKept.add(t);
 			}
@@ -756,7 +1001,7 @@ public class SkillBankPlugin extends Plugin
 		Map<String, Boolean> out = new LinkedHashMap<>();
 		for (String tagName : SkillBankData.tags().keySet())
 		{
-			out.put(tagName, !tagManager.getItemsForTag(tagName).isEmpty());
+			out.put(tagName, !tagManager.getItemsForTag(SkillBankData.bankTagName(tagName)).isEmpty());
 		}
 		return out;
 	}

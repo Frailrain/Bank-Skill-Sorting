@@ -50,6 +50,33 @@ public interface SkillBankConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "sectionDividers",
+		name = "Section dividers",
+		description = "Add a labelled divider row above each section in every tab. "
+			+ "Turning this off restores the compact layout (sections separated by row breaks only).",
+		section = behaviorSection,
+		position = 3
+	)
+	default boolean sectionDividers()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+		keyName = "dynamicSlayerTab",
+		name = "Dynamic slayer tab",
+		description = "Rebuild the slayer tab for your current slayer task: required and protection items, "
+			+ "your strongest owned gear for the task's recommended style, potions, food, and cannon supplies. "
+			+ "Falls back to the static slayer tab when you have no task.",
+		section = behaviorSection,
+		position = 10
+	)
+	default boolean dynamicSlayerTab()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 		keyName = "reseedMissing",
 		name = "Reseed missing tags",
 		description = "Enable to re-run seeding for any skill tags that are currently missing. Auto-disables.",
