@@ -62,7 +62,11 @@ public final class SkillBankSortData
 		"Antifire potion", "Extended antifire",
 		"Super antifire potion", "Extended super antifire",
 		"Anti-venom+", "Anti-venom",
-		"Antidote++", "Antidote+", "Antipoison", "Superantipoison",
+		"Antidote++", "Antidote+",
+		// Weapon poisons — most specific first: potionFamilyRank matches by
+		// contains + lowest index, so "(++)" must precede "(+)" and plain.
+		"Weapon poison(++)", "Weapon poison(+)", "Weapon poison",
+		"Antipoison", "Superantipoison",
 		"Stamina potion", "Energy potion", "Super energy",
 		"Agility potion", "Fishing potion",
 		"Combat potion", "Attack potion", "Strength potion", "Defence potion",
@@ -89,6 +93,27 @@ public final class SkillBankSortData
 		// Misc
 		"Dragonfruit", "Papaya fruit", "Pineapple", "Banana",
 		"Apple", "Orange"
+	);
+
+	/** Brief #90: cooking-tab family rows sort by Cooking level, lowest
+	 *  first — the training-tab weakest-left convention (same reasoning as
+	 *  HERB_ORDER / GEM_ORDER). Entries are base-name tokens: the comparator
+	 *  takes the LONGEST list entry contained in the item name, so generic
+	 *  tokens ("eel", "fish", "meat") only catch items no compound token
+	 *  ("cave eel", "rainbow fish", "bird meat") already claimed. Fish
+	 *  first, then meats; one shared list is safe because a section only
+	 *  ever contains one family. */
+	public static final List<String> COOKING_LEVEL_ORDER = List.of(
+		// Fish by Cooking level: shrimps(1) … manta ray(91).
+		"shrimp", "karambwanji", "sardine", "anchovies", "herring",
+		"mackerel", "trout", "cod", "pike", "salmon", "slimy eel",
+		"tuna", "karambwan", "rainbow fish", "cave eel", "lobster",
+		"bass", "swordfish", "lava eel", "eel", "monkfish", "shark",
+		"sea turtle", "anglerfish", "dark crab", "manta ray", "fish",
+		// Meats by Cooking level: chicken/beef(1) … oomlie(50).
+		"chicken", "meat", "rabbit", "bat", "spider", "snail",
+		"bird meat", "crab meat", "kebbit", "fox meat", "antelope",
+		"large beast", "chompy", "jubbly", "oomlie"
 	);
 
 	/** Canonical rune-pouch order (Air → Mind → … → Astral → Wrath).
@@ -225,10 +250,13 @@ public final class SkillBankSortData
 		Map<String, List<String>> m = new LinkedHashMap<>();
 		// Brief #78: Food section added after Rings + before Training & utility
 		// in each combat tab. ALWAYS_ZONE1 routes cooked food to the loadout zone.
+		// Section audit: "Ammunition" renamed — its members are ammo-SLOT
+		// worn items (blessings, Ghommal's lucky penny), not ammunition.
 		m.put("melee", List.of(
 			"Weapons", "Shields & defenders", "Head", "Body", "Legs",
-			"Hands", "Feet", "Capes", "Neck", "Rings", "Ammunition",
+			"Hands", "Feet", "Capes", "Neck", "Rings", "Ammo slot",
 			"Food",
+			"Potions",
 			"Training & utility"
 		));
 		// Brief #87: range weapon section split into nine fixed
@@ -245,45 +273,59 @@ public final class SkillBankSortData
 			"Head", "Body", "Legs", "Hands", "Feet",
 			"Capes", "Shields & off-hands", "Neck", "Rings",
 			"Food",
+			"Potions",
 			"Training & utility"
 		));
 		// Brief #74: Runes back on top of the mage tab (reverts Brief #66's swap).
+		// Section audit: "Teleport tablets & spell utility" renamed — the
+		// tablets live in the teleports tab; rune packs / orbs / hearts
+		// and other cast supplies are what remain.
 		m.put("mage", List.of(
 			"Runes", "Weapons", "Off-hands, books & tomes", "Head", "Body",
 			"Legs", "Hands", "Feet", "Capes", "Neck", "Rings",
-			"Teleport tablets & spell utility",
+			"Spell utility & supplies",
 			"Food",
+			"Potions",
 			"Enchanting & skilling magic"
 		));
 		// Brief #66: simple-mode combat tab variants. The layout builder
 		// picks these keys when the per-tab simple-mode config flag is on.
 		m.put("melee_simple", List.of(
 			"Weapons", "Shields & defenders", "Armor", "Capes", "Neck",
-			"Rings", "Ammunition", "Food", "Training & utility"
+			"Rings", "Ammo slot", "Food", "Potions", "Training & utility"
 		));
 		m.put("range_simple", List.of(
 			"Weapons", "Ammunition", "Armor", "Capes",
-			"Shields & off-hands", "Neck", "Rings", "Food", "Training & utility"
+			"Shields & off-hands", "Neck", "Rings", "Food", "Potions",
+			"Training & utility"
 		));
 		m.put("mage_simple", List.of(
 			"Runes", "Weapons", "Off-hands, books & tomes", "Armor",
 			"Capes", "Neck", "Rings",
-			"Teleport tablets & spell utility", "Food", "Enchanting & skilling magic"
+			"Spell utility & supplies", "Food", "Potions",
+			"Enchanting & skilling magic"
 		));
 		m.put("prayer", List.of(
 			// Brief #60: equipment leads the tab now.
+			// Tab audit: bonemeal/offerings, fossils and pyre/shade rows
+			// split out of the old fallback. Keep in sync with the Python
+			// TAB_SECTIONS in tools/skillbank-data/sort_tables.py.
 			"Prayer equipment & robes", "Bones & ashes", "Ensouled heads",
+			"Bonemeal & offerings", "Fossils & enriched bones",
+			"Pyre logs & shade remains",
 			"Prayer-restoring consumables", "Holy symbols, books & blessings",
 			"Bone-processing utility"
 		));
-		// Brief #76: raw paired with cooked, finished composites together,
-		// then tools + outfit, then the ingredient dump, then burnt.
+		// Brief #90: level-ordered family rows — fish raw → cooked → burnt,
+		// meat raw → cooked → burnt, then ingredients, composites, tools,
+		// and leftover burnt composites at the end.
 		m.put("cooking", List.of(
-			"Raw fish", "Cooked fish",
-			"Raw meat", "Cooked meat",
-			"Combo food", "Baked & cooked goods",
-			"Cooking tools & utensils",
+			"Raw fish", "Cooked fish", "Burnt fish",
+			"Raw meat", "Cooked meat", "Burnt meat",
 			"Ingredients",
+			"Combo food", "Baked & cooked goods",
+			"Drinks & brews",
+			"Cooking tools & utensils",
 			"Burnt food"
 		));
 		// Brief #63: wc_fletching split into a combined Woodcutting + Firemaking
@@ -291,9 +333,11 @@ public final class SkillBankSortData
 		// Python TAB_DISPLAY_NAMES map; tag IDs stay snake_case so existing
 		// banktags config keys keep parsing.
 		// Brief #66: tools first, outfits second, materials after.
+		// Tab audit: machetes join axes; light sources get their own row.
 		m.put("woodcutting_firemaking", List.of(
-			"Axes",
+			"Axes & machetes",
 			"Tinderboxes & firelighting tools",
+			"Light sources & lamps",
 			"Forestry items",
 			"Woodcutting outfit",
 			"Firemaking outfit",
@@ -319,102 +363,180 @@ public final class SkillBankSortData
 			"Javelins",
 			"Misc fletching"
 		));
+		// Tab audit: trophy fish row added; Raw fish now catches all
+		// catchables (aerial / Camdozaal / CoX / Sailing).
 		m.put("fishing", List.of(
 			"Fishing tools", "Bait & consumables", "Fishing outfit",
-			"Raw fish", "Fishing minigame items"
+			"Raw fish", "Trophies & big catches", "Fishing minigame items"
 		));
 		// Brief #64: standalone firemaking tab removed. Its content lives
 		// in "woodcutting_firemaking" (Woodcutting + Firemaking).
 		// Brief #76: moulds split out from tools; new top of tab.
+		// Tab audit: Battlestaves & orbs + Monster parts & shells rows added.
 		m.put("crafting", List.of(
 			"Moulds", "Crafting tools", "Gems", "Hides & leather",
-			"Spinning materials", "Glassmaking", "Pottery & clay",
-			"Jewellery materials", "Crafted jewellery",
-			"Crafted armour & leather goods", "Crafting outfit & utility"
+			"Spinning materials", "Glassmaking", "Battlestaves & orbs",
+			"Pottery & clay", "Jewellery materials", "Crafted jewellery",
+			"Crafted armour & leather goods", "Monster parts & shells",
+			"Crafting outfit & utility"
 		));
+		// Tab audit: minigame minerals, Shayzien supply armour and smithed
+		// parts (limbs / unf bolts / keel parts / visages) rows added.
 		m.put("mining_smithing", List.of(
-			"Pickaxes", "Mining outfit & utility", "Ores", "Bars",
-			"Smithing tools", "Smithed weapons", "Smithed armour",
+			"Pickaxes", "Mining outfit & utility", "Ores",
+			"Special ores & minerals", "Bars",
+			"Smithing tools", "Smithing outfit & gloves",
+			"Shayzien supply armour", "Smithed parts & components",
 			"Cannonballs & ammo outputs", "Giants' Foundry & minigame items"
 		));
 		// Brief #76: flat 5-section layout. Barbarian mixes + Divine variants
 		// roll into Finished potions; outfit + utility folds into Tools.
+		// Tab audit: outfit/containers split out of Tools; Mastering
+		// Mixology closes the tab.
 		m.put("herblore", List.of(
-			"Tools", "Herbs", "Secondaries",
-			"Unfinished potions", "Finished potions"
+			"Tools", "Herblore outfit & utility", "Herbs", "Secondaries",
+			"Unfinished potions", "Finished potions",
+			"Mastering Mixology items"
 		));
+		// Section audit: marks row renamed — Hallowed Sepulchre reward gear
+		// dominates it.
 		m.put("agility_thieving", List.of(
 			"Agility outfit & graceful", "Run-energy consumables",
-			"Agility marks & tickets", "Thieving outfit & rogue set",
+			"Agility marks & rewards", "Thieving outfit & rogue set",
 			"Thieving tools", "Thieving loot & artefacts"
 		));
+		// Section audit: "Mandatory protection" renamed (task finishers +
+		// Shayzien anti-shaman armour join it); heads/trophies and boss
+		// drops promoted out of the Misc utility fallback.
 		m.put("slayer", List.of(
-			"Slayer assignment items", "Mandatory protection",
+			"Slayer assignment items", "Mandatory task items",
 			"Core slayer gear", "Cannon & burst supplies",
 			"Combat potions", "Prayer & restores", "Food",
-			"Teleports", "Loot management", "Misc utility"
+			"Teleports", "Loot management",
+			"Monster heads & trophies", "Boss drops & upgrade parts",
+			"Misc utility"
 		));
+		// Tab audit: Harvested produce row added before the fallback.
 		m.put("farming", List.of(
 			"Farming tools", "Compost & soil treatment",
 			"Allotment seeds", "Hops seeds", "Flower seeds",
 			"Herb seeds", "Bush seeds", "Tree seeds",
 			"Fruit tree seeds", "Special seeds", "Saplings",
+			"Harvested produce",
 			"Farmer outfit & contracts"
 		));
+		// Section audit: outfit row renamed — bloodbark/swampbark armour,
+		// runescrolls and binding jewellery outnumber the outfit pieces.
 		m.put("runecraft", List.of(
 			"Essence", "Pouches & storage", "Talismans", "Tiaras",
-			"Core runes", "Combination runes", "Runecraft outfit",
+			"Core runes", "Combination runes", "Runecraft gear & utility",
 			"Guardians of the Rift items"
 		));
 		// Brief #76: Creature products split into furs / meats / tertiaries.
+		// Tab audit: weapons/ammo, baits & potions, salamanders and
+		// butterflies/moths rows added.
 		m.put("hunter", List.of(
-			"Hunter tools & traps", "Nets, jars & containers",
-			"Hunter outfit",
+			"Hunter tools & traps", "Hunter weapons & ammo",
+			"Nets, jars & containers", "Hunter outfit",
+			"Baits & potions",
+			"Chinchompas", "Salamanders & lizards", "Butterflies & moths",
 			"Furs & hides", "Hunter meats", "Hunter tertiaries",
-			"Chinchompas", "Implings & impling jars", "Birdhouse items"
+			"Implings & impling jars", "Birdhouse items"
 		));
+		// Tab audit: flatpacks, garden plants and trophy decor rows added.
+		// Section audit: "Teleport-to-house items" deleted (empty — house
+		// tablets live in the teleports tab); contract row renamed.
 		m.put("construction", List.of(
 			"Construction tools", "Planks", "Nails",
-			"Building materials", "Teleport-to-house items",
-			"Mahogany Homes & contract items",
+			"Building materials",
+			"Flatpacks & furniture", "Garden & bagged plants",
+			"Mounted heads & decor",
+			"Blueprints & contracts",
 			"Construction outfit & rewards"
 		));
+		// Misc audit: new sections derived from the old Uncategorized clump
+		// (keys, Leagues sigils, XP lamps, fossils, books, minigame/PvM
+		// rewards, consumables). Must stay in sync with the Python
+		// TAB_SECTIONS in tools/skillbank-data/sort_tables.py.
 		m.put("misc", List.of(
 			"Currency & exchange tokens", "General teleports",
 			"Jewellery teleports", "Utility containers",
-			"Clue scroll items", "Minigame currencies & tickets",
+			"Clue scroll items", "Keys & access",
+			"Books & documents", "Lamps & XP rewards",
+			"Sigils & trinkets", "Fossils & museum",
+			// Section audit: renamed — the " & " display cut left only
+			// "Minigame" on the divider.
+			"Minigame rewards", "Consumables & supplies",
 			"General tools", "Uncategorized"
 		));
+		// Quests row redesign: equipment by slot, the rest by name family;
+		// unique quest junk holds the tab-closing fallback.
+		// Section audit: "Diary rewards" deleted (empty), "Boss pets &
+		// followers" deleted (lone Pet rock → Quest items); "Reward"
+		// prefixes dropped — disguises and wieldable props dominate.
 		m.put("quests", List.of(
-			"Quest items", "Quest reward equipment",
-			"Reclaimable quest utility"
+			"Achievement capes",
+			"Weapons & wieldables", "Armour & clothing",
+			"Keys & access items",
+			"Books & lore", "Quest consumables",
+			"Artefacts & relics", "Remains & trophies",
+			"Quest supplies & materials", "Quest items"
 		));
+		// Brief #90: construction kit rows (tools / nails / planks) sit
+		// between navigation gear and the ship parts they build.
+		// Tab audit: the 380-item fallback split into content-derived
+		// rows (cannon ammo, keys/schematics, deep-sea fish, monster
+		// parts, salvage, island resources, cocktails, pearls).
 		m.put("sailing", List.of(
-			"Sailing tools & navigation", "Ship components",
-			"Shipbuilding materials", "Cargo & contracts",
+			"Sailing tools & navigation",
+			"Construction tools",
+			"Nails",
+			"Planks",
+			"Shipbuilding materials",
+			"Ship components",
+			"Cannons & cannonballs",
+			"Keys, charts & schematics",
+			"Raw sailing fish",
+			// Section audit: renamed — burnt stages + stuffable trophy
+			// catches share the row.
+			"Cooked fish & trophies",
+			"Sea creature parts",
+			"Salvage",
+			"Island resources",
+			"Boat cocktails & brews",
+			"Pearls",
+			"Cargo & contracts",
 			"Sailing outfit & rewards"
 		));
 		// Brief #75: set-per-row redesign. Within each section, items
 		// sharing a set_name cluster on a single row, with row breaks
 		// between sets. See SkillBankLayoutBuilder cosmetics path.
+		// Tab audit: skill capes, Leagues/speedrun rewards, recoloured
+		// outfits and quest/regional costumes carved out of Miscellaneous.
 		m.put("cosmetics", List.of(
 			"Treasure trail sets",
 			"Minigame sets",
 			"Holiday items",
 			"Random event sets",
 			"Ornament kits",
+			"Skill capes & max capes",
+			"Leagues & speedrun rewards",
+			"Recoloured outfits",
+			"Quest & regional outfits",
 			"Miscellaneous cosmetics"
 		));
 		// Brief #62 / #66: Teleports tab. Brief #66 added "Teleport runes"
 		// at the top — runes used in spellbook teleports.
+		// Tab audit: rows grouped by teleport FORM (tablets / scrolls /
+		// diary rewards); the never-populated destination rows (City /
+		// Boss & PvM / Minigame) removed.
 		m.put("teleports", List.of(
 			"Teleport runes",
 			"Mounted & charged jewellery",
 			"Spellbook tablets",
+			"Teleport scrolls",
+			"Diary & reward teleports",
 			"Skill destinations",
-			"City teleports",
-			"Boss & PvM destinations",
-			"Minigame teleports",
 			"Wilderness teleports",
 			"Quest-locked teleports",
 			"Special & one-time"
