@@ -1,4 +1,4 @@
-# Skill Bank Tabs
+# Auto Bank Sorter
 
 A RuneLite plugin that automatically organises your bank into skill-based [Bank Tags](https://github.com/runelite/runelite/wiki/Bank-Tags) tabs — one tidy tab per skill from the moment you log in, with sectioned layouts, labelled dividers, and a slayer tab that rebuilds itself around your current task.
 
@@ -7,10 +7,11 @@ Items live in **every tab where you'd want them visible** — raw fish appear un
 ## Features
 
 - **22 skill-based tabs** covering all 23 OSRS skills (Woodcutting + Firemaking, Mining + Smithing, and Agility + Thieving share combined tabs), plus dedicated Teleports, Cosmetics, Misc, and Quests tabs.
-- **`(auto)` tag naming** — every tab this plugin manages is suffixed `(auto)` (e.g. `melee (auto)`, `woodcutting + firemaking (auto)`), so it can never collide with or overwrite a tag you created yourself.
+- **Collision-safe naming** — fresh installs seed every managed tab with an `(auto)` suffix (e.g. `melee (auto)`, `woodcutting + firemaking (auto)`), so the plugin can never collide with or overwrite a tag you created yourself. If a name does collide, a one-time chooser lets you Skip (keep your tab), Overwrite, or Create alongside — per tab, remembered forever. Older installs keep their existing bare tab names and can opt into `(auto)` naming with the side panel's **Update naming scheme** button.
 - **Sectioned layouts with labelled dividers** — each tab is organised into named sections (raw → cooked → burnt rows in Cooking, launcher → ammo rows in Ranged, seed types in Farming…) with a Quest Helper-style divider line and label above each section. Toggle the dividers off in settings for a compact layout.
 - **Dynamic slayer tab** — when you have a slayer task, the slayer tab rebuilds itself: required and protection items for the task, the OSRS wiki's recommended gear per combat style *filtered to what you actually own* (slot-by-slot, ranked), elemental-weakness tomes, potion chains knocked down to what's in your bank, top food, cannon supplies where your task location allows one, and slayer utility. Variant-aware — a Konar task at a specific location gets that location's requirements, not another variant's. Falls back to a static slayer tab with no task; toggleable in settings.
-- **Self-maintaining** — tabs reconcile on every login: items added in updates appear, items removed in updates disappear, layouts rebuild against your current bank. Note: the plugin owns the contents of its `(auto)` tags; manual edits to those tags are overwritten on the next seed. Your own tags are never touched.
+- **Variant-aware** — degraded Barrows pieces, charged jewellery, and other separate-ID item variants stay in their tabs and inherit the base item's layout position, so gear doesn't vanish from a tab the moment it takes damage.
+- **Self-maintaining** — tabs reconcile on every login: items added in updates appear, items removed in updates disappear, layouts rebuild against your current bank. Note: the plugin owns the contents of the tabs it manages; manual edits to those tabs are overwritten on the next seed. Your own tags are never touched.
 - **Per-tab toggles**, a **reseed** button, and a confirm-gated **reset** that removes everything the plugin created.
 
 ## Requirements
@@ -20,7 +21,7 @@ Items live in **every tab where you'd want them visible** — raw fish appear un
 ## Usage
 
 1. Enable **Bank Tags** in your RuneLite plugin list.
-2. Install **Skill Bank Tabs** from the Plugin Hub.
+2. Install **Auto Bank Sorter** from the Plugin Hub.
 3. Log in — tabs seed automatically (or use **Seed missing tags** in the side panel).
 4. Get a slayer task and open the slayer `(auto)` tab to see the dynamic loadout.
 

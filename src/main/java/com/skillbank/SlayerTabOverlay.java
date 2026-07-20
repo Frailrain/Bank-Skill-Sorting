@@ -70,7 +70,9 @@ public class SlayerTabOverlay extends Overlay
 			debugOnce("no-tab");
 			return null;
 		}
-		String activeTag = SkillBankData.bankTagName(tabId);
+		// The op key the layout (and its headers) were built under — bare or
+		// "(auto)" form, whichever this install manages for the tab.
+		String activeTag = plugin.activeManagedOpTag();
 		// Slayer prefers the dynamic loadout's headers when a task layout
 		// is live; every other tab (and static slayer) uses the section
 		// dividers from the generic layout builder.

@@ -68,26 +68,27 @@ public final class SkillBankData
 	 */
 	public static final String TAG_SUFFIX = " (auto)";
 
-	/** The Bank Tags-facing name for one of our managed tabs. Combination
-	 *  tabs use the established "a + b" convention: internal id
-	 *  "woodcutting_firemaking" → bank tag "woodcutting + firemaking (auto)"
-	 *  (same for mining_smithing and agility_thieving). */
-	public static String bankTagName(String tabId)
+	/**
+	 * Brief #90: internal tag id -> tab display name. Bank Tags standardizes
+	 * every tab name to lower case on load ({@code TabManager.loadAllTabNames}
+	 * -> {@code Text.standardize}), so title case is not achievable — tab names
+	 * always render lower case. The only display win available is replacing the
+	 * underscore in compound ids with " + " ("woodcutting_firemaking" ->
+	 * "woodcutting + firemaking"). Simple ids display as-is.
+	 */
+	public static String displayName(String internalTag)
 	{
-		return tabId.replace("_", " + ") + TAG_SUFFIX;
+		return internalTag.replace("_", " + ");
 	}
 
-	/** Reverse of {@link #bankTagName}: the bare tab id for a Bank Tags tag
-	 *  name we manage, or {@code null} if the tag isn't one of ours. */
-	public static String tabIdForBankTag(String bankTag)
+	/** The "(auto)"-scheme Bank Tags name for one of our managed tabs:
+	 *  {@link #displayName} plus {@link #TAG_SUFFIX}, e.g.
+	 *  "woodcutting + firemaking (auto)". Note a migrated legacy install may
+	 *  instead manage the bare {@code displayName} form — resolve active tags
+	 *  through the plugin's op-key lookup, not by assuming this suffix. */
+	public static String bankTagName(String tabId)
 	{
-		if (bankTag == null || !bankTag.endsWith(TAG_SUFFIX))
-		{
-			return null;
-		}
-		String id = bankTag.substring(0, bankTag.length() - TAG_SUFFIX.length())
-			.replace(" + ", "_");
-		return TAGS.containsKey(id) ? id : null;
+		return displayName(tabId) + TAG_SUFFIX;
 	}
 
 	private static final Map<String, List<Integer>> TAGS;
@@ -765,7 +766,28 @@ public final class SkillBankData
 			29673, 28323, 29583, 29585, 10016, 12823, 20382, 20385,
 			12984, 12986, 20376, 20379, 29424, 13066, 12879, 31145,
 			28287, 28285, 12875, 27684, 27687, 27681, 28301, 24859,
-			13044, 13046, 11816, 6722
+			13044, 13046, 11816, 6722,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			4880, 4881, 4882, 4883, 4884, 4886, 4887, 4888,
+			4889, 4890, 4892, 4893, 4894, 4895, 4896, 4898,
+			4899, 4900, 4901, 4902, 4904, 4905, 4906, 4907,
+			4908, 4910, 4911, 4912, 4913, 4914, 4916, 4917,
+			4918, 4919, 4920, 4922, 4923, 4924, 4925, 4926,
+			4952, 4953, 4954, 4955, 4956, 4958, 4959, 4960,
+			4961, 4962, 4964, 4965, 4966, 4967, 4968, 4970,
+			4971, 4972, 4973, 4974, 4976, 4977, 4978, 4979,
+			4980, 4982, 4983, 4984, 4985, 4986, 4988, 4989,
+			4990, 4991, 4992, 4994, 4995, 4996, 4997, 4998,
+			4225, 4226, 4227, 4228, 4229, 4230, 4231, 4232,
+			4233, 4234, 7640, 7645, 8901, 8903, 8913, 9748,
+			9751, 9754, 9769, 11760, 11761, 11762, 11763, 11764,
+			11765, 11766, 11767, 11768, 11769, 13092, 13093, 13094,
+			13095, 13096, 13097, 13098, 13099, 13100, 13101, 20655,
+			20657, 22545, 23989, 23993, 23997, 24125, 24127, 26376,
+			26378, 26380, 27902, 27906, 27910, 27925, 27928, 27931,
+			27934, 27937, 28327, 29043, 29045, 29047, 29067, 29070,
+			29073, 30305
 		));
 	}
 
@@ -934,7 +956,20 @@ public final class SkillBankData
 			19576, 31166, 30390, 30392, 26372, 26231, 11928, 11929,
 			11930, 13229, 24861, 12869, 19580, 13163, 29667, 29676,
 			26000, 26072, 31157, 2, 19574, 28289, 27614, 28283,
-			21907, 13161
+			21907, 13161,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			4928, 4929, 4930, 4931, 4932, 4934, 4935, 4936,
+			4937, 4938, 4940, 4941, 4942, 4943, 4944, 4946,
+			4947, 4948, 4949, 4950, 4214, 4215, 4216, 4217,
+			4218, 4219, 4220, 4221, 4222, 4223, 9757, 12924,
+			20655, 20657, 22550, 23973, 23977, 23981, 23985, 24123,
+			25862, 27699, 27703, 27707, 27711, 27715, 27719, 27723,
+			27727, 27731, 27735, 27739, 27743, 27747, 27751, 27755,
+			27759, 27763, 27767, 27771, 27775, 27779, 27914, 27918,
+			27940, 27943, 27946, 28327, 28687, 28949, 28953, 29031,
+			29033, 29035, 29049, 29052, 29055, 30373, 33025, 33029,
+			33033
 		));
 	}
 
@@ -1089,7 +1124,18 @@ public final class SkillBankData
 
 			// === Enchanting & skilling magic ===
 			6904, 6905, 6906, 8014, 8015, 30384, 8019, 8020,
-			8017, 8021, 8018, 8016, 21257
+			8017, 8021, 8018, 8016, 21257,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			4856, 4857, 4858, 4859, 4860, 4862, 4863, 4864,
+			4865, 4866, 4868, 4869, 4870, 4871, 4872, 4874,
+			4875, 4876, 4877, 4878, 1410, 6215, 6217, 6227,
+			6237, 6239, 6249, 6259, 6261, 6271, 9763, 11907,
+			20655, 20657, 20716, 22370, 25576, 27922, 27949, 27952,
+			27955, 28327, 29037, 29039, 29041, 29058, 29061, 29064,
+			30066, 30519, 30521, 30523, 30525, 30527, 30529, 30531,
+			30533, 30535, 30537, 30539, 30541, 30543, 30545, 30547,
+			30570, 30571, 30572, 30573, 30574
 		));
 	}
 
@@ -1188,7 +1234,12 @@ public final class SkillBankData
 
 			// === Bone-processing utility ===
 			25781, 13116, 29088, 33627, 28132, 28942, 29587, 33695,
-			21907
+			21907,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			4976, 4977, 4978, 4979, 4980, 4982, 4983, 4984,
+			4985, 4986, 4988, 4989, 4990, 4991, 4992, 4994,
+			4995, 4996, 4997, 4998, 9760
 		));
 	}
 
@@ -1253,7 +1304,12 @@ public final class SkillBankData
 			// === Special & one-time ===
 			19677, 21046, 30966, 20238, 981, 10972, 3690, 3691,
 			6125, 6126, 13079, 23458, 22517, 28333, 11060, 24709,
-			26577, 26549, 28332, 28331, 25837, 28330, 31443
+			26577, 26549, 28332, 28331, 25837, 28330, 31443,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			2560, 3861, 6099, 6127, 11105, 11193, 11870, 13222,
+			13392, 20787, 20788, 20789, 20790, 21132, 21149, 21169,
+			26818, 26950, 28327, 29892, 32398
 		));
 	}
 
@@ -1391,7 +1447,10 @@ public final class SkillBankData
 			// === Burnt food ===
 			2247, 2311, 1903, 2199, 2013, 7090, 2175, 7094,
 			7092, 2329, 1867, 2305, 6699, 31706, 2005, 5990,
-			33112
+			33112,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9802
 		));
 	}
 
@@ -1454,7 +1513,11 @@ public final class SkillBankData
 
 			// === Misc utility ===
 			23953, 5751, 5825, 5753, 5905, 13322, 5070, 1468,
-			7794, 28670, 20693, 23838, 23878, 6319, 33062, 7797
+			7794, 28670, 20693, 23838, 23878, 6319, 33062, 7797,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			5071, 5072, 5074, 5075, 22798, 5076, 5077, 5078,
+			22800, 9805, 9808, 23675, 28223
 		));
 	}
 
@@ -1521,7 +1584,10 @@ public final class SkillBankData
 
 			// === Misc fletching ===
 			31045, 33716, 1777, 31052, 31086, 33539, 9438, 31032,
-			31018, 31024, 31027, 411, 413, 31049, 31572, 31054
+			31018, 31024, 31027, 411, 413, 31049, 31572, 31054,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9784
 		));
 	}
 
@@ -1568,7 +1634,10 @@ public final class SkillBankData
 			// === Fishing minigame items ===
 			23953, 21865, 32380, 32366, 32368, 32371, 32377, 32383,
 			32374, 7779, 13320, 33621, 22820, 33062, 28502, 25578,
-			25569, 25588, 10978, 25567, 25602
+			25569, 25588, 10978, 25567, 25602,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9799, 23764
 		));
 	}
 
@@ -1651,7 +1720,10 @@ public final class SkillBankData
 			3211, 23836, 23876, 21690, 1769, 1931, 1773, 1763,
 			1951, 26036, 29295, 33681, 33693, 33683, 33689, 33685,
 			33677, 33691, 33687, 33679, 7771, 7767, 7759, 5933,
-			10891, 1765, 9780, 9782
+			10891, 1765, 9780, 9782,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9781
 		));
 	}
 
@@ -1723,7 +1795,10 @@ public final class SkillBankData
 
 			// === Giants' Foundry & minigame items ===
 			23953, 25635, 31245, 25543, 27021, 21539, 30808, 33657,
-			27010, 13321, 28505, 26024, 23760
+			27010, 13321, 28505, 26024, 23760,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9793, 9796, 23682, 25541, 25545
 		));
 	}
 
@@ -1833,7 +1908,10 @@ public final class SkillBankData
 			// === Mastering Mixology items ===
 			30007, 29982, 29988, 31084, 30014, 29993, 30015, 30016,
 			30017, 30009, 30011, 30013, 30019, 30020, 30032, 30005,
-			30012, 29974
+			30012, 29974,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9775, 29990
 		));
 	}
 
@@ -1885,7 +1963,10 @@ public final class SkillBankData
 			4024, 4025, 26948, 26945, 9032, 9036, 10993, 6970,
 			20663, 28771, 28493, 29658, 29661, 10975, 4179, 13436,
 			13437, 13435, 13438, 13434, 9030, 9042, 9038, 29332,
-			3325
+			3325,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9772, 9778, 24736, 26950
 		));
 	}
 
@@ -2005,7 +2086,12 @@ public final class SkillBankData
 			5761, 5921, 33651, 13196, 13200, 10587, 21123, 12692,
 			7068, 24466, 11887, 13273, 24258, 24259, 33247, 24266,
 			28310, 12771, 28301, 6735, 11879, 27655, 22396, 22394,
-			22388, 22392, 22390, 12934
+			22388, 22392, 22390, 12934,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			2560, 7422, 7427, 7431, 7640, 7645, 8901, 8903,
+			8913, 9787, 11105, 11870, 11907, 12924, 13392, 21149,
+			21169, 21816, 22545, 23977, 23981, 23989, 24125, 30305
 		));
 	}
 
@@ -2090,7 +2176,10 @@ public final class SkillBankData
 			5763, 7752, 5849, 5929, 31511, 13644, 13640, 13642,
 			13643, 13646, 7178, 9082, 5765, 7416, 7418, 4014,
 			4012, 12792, 12793, 13654, 31484, 31513, 22993, 33062,
-			26096, 9079, 20661, 31515, 9810, 9812
+			26096, 9079, 20661, 31515, 9810, 9812,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9811, 22997
 		));
 	}
 
@@ -2136,7 +2225,10 @@ public final class SkillBankData
 			// === Guardians of the Rift items ===
 			26809, 26807, 26822, 26813, 26792, 26901, 26811, 26914,
 			26876, 26880, 26881, 26878, 26820, 26908, 26912, 26884,
-			26886, 30887, 26941, 20665, 26885, 26910, 26882, 26883
+			26886, 30887, 26941, 20665, 26885, 26910, 26882, 26883,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9766, 26818
 		));
 	}
 
@@ -2209,7 +2301,10 @@ public final class SkillBankData
 
 			// === Birdhouse items ===
 			21512, 22201, 22195, 22192, 21515, 22204, 21521, 21518,
-			22198
+			22198,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9949, 31243
 		));
 	}
 
@@ -2277,7 +2372,10 @@ public final class SkillBankData
 			25316, 31205, 7691, 7688, 20613, 970, 7732, 7735,
 			7692, 7704, 7716, 7679, 7758, 7974, 28529, 964,
 			7738, 7702, 7700, 7771, 7763, 7767, 7759, 7676,
-			9789, 9791
+			9789, 9791,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9790
 		));
 	}
 
@@ -2545,7 +2643,12 @@ public final class SkillBankData
 			13530, 8861, 13273, 22191, 31054, 20895, 30401, 710,
 			33661, 33663, 22514, 2425, 30685, 27295, 23834, 23871,
 			2885, 30399, 13529, 24991, 943, 10515, 29969, 4039,
-			4042
+			4042,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			11982, 20787, 20788, 20789, 20790, 21816, 27902, 27906,
+			27910, 27914, 27918, 27922, 27925, 27928, 27931, 27934,
+			27937, 27940, 27943, 27946, 27949, 27952, 27955, 33104
 		));
 	}
 
@@ -2821,7 +2924,10 @@ public final class SkillBankData
 			29527, 29528, 29529, 9593, 30936, 7957, 1476, 4485,
 			6464, 6461, 26579, 2421, 1491, 6957, 10896, 10891,
 			3744, 6713, 1472, 9605, 9608, 9607, 6091, 9606,
-			8870, 8887
+			8870, 8887,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			13068, 33104
 		));
 	}
 
@@ -2945,7 +3051,10 @@ public final class SkillBankData
 			31764, 31805, 31300, 31403, 31298, 31401, 7535, 32307,
 			7534, 31599, 31596, 31593, 31590, 31757, 8788, 31288,
 			31292, 32399, 32085, 31283, 31252, 31738, 31736, 31742,
-			31740, 31748, 31750, 31754, 31752, 31254, 31398, 32433
+			31740, 31748, 31750, 31754, 31752, 31254, 31398, 32433,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			31290, 32398
 		));
 	}
 
@@ -3225,7 +3334,19 @@ public final class SkillBankData
 			6863, 5024, 5026, 5028, 22396, 22394, 22388, 22392,
 			22390, 30888, 2914, 1023, 12761, 9917, 2466, 2922,
 			2920, 21310, 2918, 2916, 7803, 23757, 23908, 26611,
-			24863
+			24863,
+			// Separate-ID variants (degradation / charges / trims) + bird
+			// nests, ported from the PR #2/#4 era data (pre-regen)
+			9748, 9751, 9754, 9757, 9760, 9763, 9766, 9769,
+			9772, 9775, 9778, 9781, 9784, 9787, 9790, 9793,
+			9796, 9799, 9802, 9805, 9808, 9811, 9949, 13068,
+			13222, 13317, 13318, 13319, 27699, 27703, 27707, 27711,
+			27715, 27719, 27723, 27727, 27731, 27735, 27739, 27743,
+			27747, 27751, 27755, 27759, 27763, 27767, 27771, 27775,
+			27779, 28687, 30519, 30521, 30523, 30525, 30527, 30529,
+			30531, 30533, 30535, 30537, 30539, 30541, 30543, 30545,
+			30547, 30570, 30571, 30572, 30573, 30574, 31290, 33025,
+			33029, 33033
 		));
 	}
 }
