@@ -123,6 +123,15 @@ public class SlayerLoadoutBuilder
 		"utility", "Utility"
 	);
 
+	/** First letter upper-cased for header display ("lava strykewyrms" ->
+	 *  "Lava strykewyrms"); task names in the data are otherwise cased. */
+	private static String capitalize(String s)
+	{
+		return s == null || s.isEmpty()
+			? s
+			: Character.toUpperCase(s.charAt(0)) + s.substring(1);
+	}
+
 	/** pos → header label for the most recently built slayer layout; the
 	 *  bank overlay reads this to draw section descriptions. */
 	private final Map<Integer, String> headerByPos = new HashMap<>();
@@ -512,6 +521,7 @@ public class SlayerLoadoutBuilder
 		//    the overlay draws in the empty row above it. ─────────────────
 		int pos = 0;
 		boolean dividers = config.sectionDividers();
+		boolean firstHeader = true;
 		for (Map.Entry<String, LinkedHashSet<Integer>> e : groups.entrySet())
 		{
 			LinkedHashSet<Integer> group = e.getValue();
@@ -531,7 +541,19 @@ public class SlayerLoadoutBuilder
 				{
 					label = "Best owned gear (" + e.getKey().substring(5) + ")";
 				}
-				headerByPos.put(pos, label != null ? label : e.getKey());
+				if (label == null)
+				{
+					label = e.getKey();
+				}
+				// The topmost divider names the actual assignment, so the tab
+				// reads "Lava strykewyrms — task & protection" at a glance.
+				if (firstHeader)
+				{
+					label = capitalize(task.name) + " — "
+						+ Character.toLowerCase(label.charAt(0)) + label.substring(1);
+					firstHeader = false;
+				}
+				headerByPos.put(pos, label);
 			}
 			for (int id : group)
 			{
