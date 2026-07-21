@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetInfo;
+import net.runelite.api.gameval.InterfaceID;
 import net.runelite.client.ui.FontManager;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
@@ -85,7 +85,7 @@ public class SlayerTabOverlay extends Overlay
 			debugOnce("empty-headers tab=" + tabId + " tag=" + activeTag);
 			return null;
 		}
-		Widget itemContainer = client.getWidget(WidgetInfo.BANK_ITEM_CONTAINER);
+		Widget itemContainer = client.getWidget(InterfaceID.Bankmain.ITEMS);
 		if (itemContainer == null || itemContainer.isHidden())
 		{
 			debugOnce("no-container tab=" + tabId);
