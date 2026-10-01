@@ -26,13 +26,10 @@ import net.runelite.api.ItemContainer;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ItemContainerChanged;
-import net.runelite.api.events.ScriptPostFired;
-import net.runelite.api.events.ScriptPreFired;
 import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.gameval.InventoryID;
-import net.runelite.api.ScriptID;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -162,14 +159,6 @@ public class SkillBankPlugin extends Plugin
 	 *  computed this session, which always rebuilds. */
 	private long lastBankFingerprint;
 
-	/** Diag for the bank-close stutter report: ms elapsed since a
-	 *  System.nanoTime() mark. Remove with the [timing] logs once the
-	 *  close-path numbers are captured. */
-	private static double msSince(long startNanos)
-	{
-		return (System.nanoTime() - startNanos) / 1_000_000.0;
-	}
-
 	@Provides
 	SkillBankConfig provideConfig(ConfigManager configManager)
 	{
@@ -230,24 +219,6 @@ public class SkillBankPlugin extends Plugin
 
 	@Subscribe
 	public void onConfigChanged(ConfigChanged event)
-	{
-		long t0 = System.nanoTime();
-		try
-		{
-			handleConfigChanged(event);
-		}
-		finally
-		{
-			double ms = msSince(t0);
-			if (ms >= 1.0)
-			{
-				log.debug("[SkillBank][timing] onConfigChanged {}.{} took {}ms",
-					event.getGroup(), event.getKey(), String.format("%.2f", ms));
-			}
-		}
-	}
-
-	private void handleConfigChanged(ConfigChanged event)
 	{
 		// Brief #91: the core Slayer plugin writes the current task to its
 		// RSProfile config. On task change, re-reconcile + re-lay-out the
@@ -1154,7 +1125,6 @@ public class SkillBankPlugin extends Plugin
 	 *  "(auto)" key. */
 	private void rebuildAllLayouts()
 	{
-		long t0 = System.nanoTime();
 		Set<String> skipped = readDecisionSet(SKIPPED_TABS_KEY);
 		Set<String> renamed = readDecisionSet(RENAMED_TABS_KEY);
 		Set<String> managed = readDecisionSet(MANAGED_TABS_KEY);
@@ -1175,7 +1145,6 @@ public class SkillBankPlugin extends Plugin
 			// else: unresolved collision pending the chooser — don't touch it.
 		}
 		dirtyTabs.clear();
-		log.debug("[SkillBank][timing] rebuildAllLayouts took {}ms", String.format("%.2f", msSince(t0)));
 	}
 
 	/**
@@ -1211,7 +1180,6 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
-		long t0 = System.nanoTime();
 		// Gate on actual content change: the BANK container event also fires
 		// on every bank open with unchanged contents, and a no-op rebuild +
 		// reload there queues a full BANKMAIN_BUILD pass (the open hitch).
@@ -1222,8 +1190,7 @@ public class SkillBankPlugin extends Plugin
 		long fingerprint = bankFingerprint(event.getItemContainer());
 		if (!forceInitial && fingerprint == lastBankFingerprint)
 		{
-			log.debug("[SkillBank][timing] onItemContainerChanged(BANK) contents unchanged — rebuild skipped ({}ms)",
-				String.format("%.2f", msSince(t0)));
+			log.debug("[SkillBank] Bank contents unchanged — rebuild skipped");
 			return;
 		}
 		lastBankFingerprint = fingerprint;
@@ -1241,8 +1208,6 @@ public class SkillBankPlugin extends Plugin
 			dirtyTabs.remove(Text.standardize(activeTag));
 			pendingRebuildTag = activeTag;
 		}
-		log.debug("[SkillBank][timing] onItemContainerChanged(BANK) took {}ms activeTag={} rebuildScheduled={} forcedInitial={}",
-			String.format("%.2f", msSince(t0)), activeTag, scheduled, forceInitial);
 	}
 
 	/** Order-sensitive hash of the bank container's item ids and
@@ -1266,24 +1231,6 @@ public class SkillBankPlugin extends Plugin
 
 	@Subscribe
 	public void onGameTick(GameTick event)
-	{
-		long t0 = System.nanoTime();
-		try
-		{
-			doGameTick();
-		}
-		finally
-		{
-			double ms = msSince(t0);
-			if (ms >= 1.0)
-			{
-				log.debug("[SkillBank][timing] onGameTick took {}ms (bankOpen={})",
-					String.format("%.2f", ms), bankInterfaceOpen);
-			}
-		}
-	}
-
-	private void doGameTick()
 	{
 		if (pendingRebuildTag != null)
 		{
@@ -1332,18 +1279,13 @@ public class SkillBankPlugin extends Plugin
 		dirtyTabs.remove(op);
 		lastActiveTag = op;
 		log.debug("[SkillBank] Dynamic rebuild: tab={}", currentTag);
-		long tBuild = System.nanoTime();
 		buildAndSaveLayout(currentTag);
-		double buildMs = msSince(tBuild);
 		// Brief #85: reloadActiveTab() is the canonical
 		// re-render path — calls openBankTag → loadLayout (re-reads
 		// config) → bankSearch.reset → layoutBank (re-renders grid).
 		// bankSearch.layoutBank() alone would re-run the script against
 		// a stale in-memory activeLayout.
-		long tReload = System.nanoTime();
 		reloadActiveTab();
-		log.debug("[SkillBank][timing] rebuildAndReloadActiveTab tab={} build={}ms reload={}ms",
-			currentTag, String.format("%.2f", buildMs), String.format("%.2f", msSince(tReload)));
 	}
 
 	@Subscribe
@@ -1353,7 +1295,6 @@ public class SkillBankPlugin extends Plugin
 		{
 			bankInterfaceOpen = true;
 			lastActiveTag = null;
-			log.debug("[SkillBank][timing] bank OPEN marker");
 		}
 	}
 
@@ -1363,32 +1304,6 @@ public class SkillBankPlugin extends Plugin
 	 * rebuilding all 22 layouts on close, eliminating client freezes and load-line
 	 * hitches.
 	 */
-	/** nanoTime mark set by {@link #onScriptPreFired} for the in-flight
-	 *  BANKMAIN_BUILD run; 0 when none. Diag only — the Java-side reload=
-	 *  number stops at the openBankTag call, but the actual grid rebuild
-	 *  is the queued BANKMAIN_BUILD pass, timed here. */
-	private long bankmainBuildStart;
-
-	@Subscribe
-	public void onScriptPreFired(ScriptPreFired event)
-	{
-		if (event.getScriptId() == ScriptID.BANKMAIN_BUILD)
-		{
-			bankmainBuildStart = System.nanoTime();
-		}
-	}
-
-	@Subscribe
-	public void onScriptPostFired(ScriptPostFired event)
-	{
-		if (event.getScriptId() == ScriptID.BANKMAIN_BUILD && bankmainBuildStart != 0)
-		{
-			log.debug("[SkillBank][timing] BANKMAIN_BUILD script pass took {}ms",
-				String.format("%.2f", msSince(bankmainBuildStart)));
-			bankmainBuildStart = 0;
-		}
-	}
-
 	@Subscribe
 	public void onWidgetClosed(WidgetClosed event)
 	{
@@ -1396,13 +1311,9 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
-		long t0 = System.nanoTime();
-		boolean hadPendingRebuild = pendingRebuildTag != null;
 		bankInterfaceOpen = false;
 		lastActiveTag = null;
 		pendingRebuildTag = null;
-		log.debug("[SkillBank][timing] bank CLOSE handler took {}ms (droppedPendingRebuild={})",
-			String.format("%.2f", msSince(t0)), hadPendingRebuild);
 	}
 
 	/**
