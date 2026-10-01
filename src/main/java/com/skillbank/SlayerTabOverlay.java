@@ -61,6 +61,23 @@ public class SlayerTabOverlay extends Overlay
 	@Override
 	public Dimension render(Graphics2D graphics)
 	{
+		long t0 = System.nanoTime();
+		try
+		{
+			return doRender(graphics);
+		}
+		finally
+		{
+			double ms = (System.nanoTime() - t0) / 1_000_000.0;
+			if (ms >= 1.0)
+			{
+				log.debug("[SkillBank][timing] overlay render took {}ms", String.format("%.2f", ms));
+			}
+		}
+	}
+
+	private Dimension doRender(Graphics2D graphics)
+	{
 		// Read the active tab THROUGH the plugin — the overlay's own
 		// injected TabInterface observed null while the plugin's instance
 		// tracked the live tab.

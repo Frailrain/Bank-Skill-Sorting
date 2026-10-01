@@ -151,6 +151,14 @@ public class SkillBankPlugin extends Plugin
 	 *  used to detect tab switches during banking. */
 	private String lastActiveTag;
 
+	/** Diag for the bank-close stutter report: ms elapsed since a
+	 *  System.nanoTime() mark. Remove with the [timing] logs once the
+	 *  close-path numbers are captured. */
+	private static double msSince(long startNanos)
+	{
+		return (System.nanoTime() - startNanos) / 1_000_000.0;
+	}
+
 	@Provides
 	SkillBankConfig provideConfig(ConfigManager configManager)
 	{
@@ -211,6 +219,24 @@ public class SkillBankPlugin extends Plugin
 
 	@Subscribe
 	public void onConfigChanged(ConfigChanged event)
+	{
+		long t0 = System.nanoTime();
+		try
+		{
+			handleConfigChanged(event);
+		}
+		finally
+		{
+			double ms = msSince(t0);
+			if (ms >= 1.0)
+			{
+				log.debug("[SkillBank][timing] onConfigChanged {}.{} took {}ms",
+					event.getGroup(), event.getKey(), String.format("%.2f", ms));
+			}
+		}
+	}
+
+	private void handleConfigChanged(ConfigChanged event)
 	{
 		// Brief #91: the core Slayer plugin writes the current task to its
 		// RSProfile config. On task change, re-reconcile + re-lay-out the
@@ -1117,6 +1143,7 @@ public class SkillBankPlugin extends Plugin
 	 *  "(auto)" key. */
 	private void rebuildAllLayouts()
 	{
+		long t0 = System.nanoTime();
 		Set<String> skipped = readDecisionSet(SKIPPED_TABS_KEY);
 		Set<String> renamed = readDecisionSet(RENAMED_TABS_KEY);
 		Set<String> managed = readDecisionSet(MANAGED_TABS_KEY);
@@ -1137,6 +1164,7 @@ public class SkillBankPlugin extends Plugin
 			// else: unresolved collision pending the chooser — don't touch it.
 		}
 		dirtyTabs.clear();
+		log.debug("[SkillBank][timing] rebuildAllLayouts took {}ms", String.format("%.2f", msSince(t0)));
 	}
 
 	/**
@@ -1173,6 +1201,7 @@ public class SkillBankPlugin extends Plugin
 			return;
 		}
 		needsInitialLayout = false;
+		long t0 = System.nanoTime();
 		markAllTabsDirty();
 
 		// Brief #85: tabInterface.isTagTabActive() returns false even when
@@ -1181,16 +1210,36 @@ public class SkillBankPlugin extends Plugin
 		// + the SkillBankData membership check only, matching bank-slot-
 		// sync's working pattern.
 		String activeTag = bankTagsService.getActiveTag();
-		if (activeTag == null || !isManagedActiveTag(activeTag))
+		boolean scheduled = activeTag != null && isManagedActiveTag(activeTag);
+		if (scheduled)
 		{
-			return;
+			dirtyTabs.remove(Text.standardize(activeTag));
+			pendingRebuildTag = activeTag;
 		}
-		dirtyTabs.remove(Text.standardize(activeTag));
-		pendingRebuildTag = activeTag;
+		log.debug("[SkillBank][timing] onItemContainerChanged(BANK) took {}ms activeTag={} rebuildScheduled={}",
+			String.format("%.2f", msSince(t0)), activeTag, scheduled);
 	}
 
 	@Subscribe
 	public void onGameTick(GameTick event)
+	{
+		long t0 = System.nanoTime();
+		try
+		{
+			doGameTick();
+		}
+		finally
+		{
+			double ms = msSince(t0);
+			if (ms >= 1.0)
+			{
+				log.debug("[SkillBank][timing] onGameTick took {}ms (bankOpen={})",
+					String.format("%.2f", ms), bankInterfaceOpen);
+			}
+		}
+	}
+
+	private void doGameTick()
 	{
 		if (pendingRebuildTag != null)
 		{
@@ -1239,13 +1288,18 @@ public class SkillBankPlugin extends Plugin
 		dirtyTabs.remove(op);
 		lastActiveTag = op;
 		log.debug("[SkillBank] Dynamic rebuild: tab={}", currentTag);
+		long tBuild = System.nanoTime();
 		buildAndSaveLayout(currentTag);
+		double buildMs = msSince(tBuild);
 		// Brief #85: reloadActiveTab() is the canonical
 		// re-render path — calls openBankTag → loadLayout (re-reads
 		// config) → bankSearch.reset → layoutBank (re-renders grid).
 		// bankSearch.layoutBank() alone would re-run the script against
 		// a stale in-memory activeLayout.
+		long tReload = System.nanoTime();
 		reloadActiveTab();
+		log.debug("[SkillBank][timing] rebuildAndReloadActiveTab tab={} build={}ms reload={}ms",
+			currentTag, String.format("%.2f", buildMs), String.format("%.2f", msSince(tReload)));
 	}
 
 	@Subscribe
@@ -1255,6 +1309,7 @@ public class SkillBankPlugin extends Plugin
 		{
 			bankInterfaceOpen = true;
 			lastActiveTag = null;
+			log.debug("[SkillBank][timing] bank OPEN marker");
 		}
 	}
 
@@ -1271,9 +1326,13 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
+		long t0 = System.nanoTime();
+		boolean hadPendingRebuild = pendingRebuildTag != null;
 		bankInterfaceOpen = false;
 		lastActiveTag = null;
 		pendingRebuildTag = null;
+		log.debug("[SkillBank][timing] bank CLOSE handler took {}ms (droppedPendingRebuild={})",
+			String.format("%.2f", msSince(t0)), hadPendingRebuild);
 	}
 
 	/**
