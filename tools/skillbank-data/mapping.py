@@ -1222,6 +1222,11 @@ MELEE = TabSpec(
             "Armadyl chestplate (or)", "Bandos chestplate (or)",
             "Armadyl godsword", "Bandos godsword", "Scythe of vitur",
         ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Hallowfell", "Vampyre snelm",
+        ]),
     ],
     variant_allowlist=[
         "Slayer helmet (i)", "Black mask (i)",
@@ -1359,6 +1364,11 @@ RANGE = TabSpec(
             "Black d'hide chaps (beta)", "Black d'hide vambraces (beta)",
             "Helm of raedwald", "Clue hunter garb", "Clue hunter trousers",
             "Studded body", "Dragon knife",
+        ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Necklace of Fangs",
         ]),
     ],
 )
@@ -1510,6 +1520,12 @@ MAGE = TabSpec(
         # drags trophy-duplicate ids along too).
         Section("Stray stat gear (pass-3 audit)", _never, force_include=[
             "Toxic staff (uncharged)", "Iban's staff",
+        ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Trinket of vengeance", "Amulet of air", "Amulet of water",
+            "Amulet of earth", "Amulet of fire", "Elemental amulet",
         ]),
     ],
     variant_allowlist=[
@@ -1850,6 +1866,11 @@ WOODCUTTING_FIREMAKING = TabSpec(
             "Dynamite(p)", "Spadeful of coke",
             "Chilhuac red",
         ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Letvek in a bucket",
+        ]),
     ],
 )
 
@@ -2022,6 +2043,11 @@ FISHING = TabSpec(
         Section("Smithing cleanup (tab audit)", _never, force_exclude=[
             "Barronite handle",
         ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Shark lure pack",
+        ]),
     ],
 )
 
@@ -2145,6 +2171,12 @@ CRAFTING = TabSpec(
             "Oak roots", "Willow roots", "Maple roots", "Yew roots",
             "Magic roots",
         ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Wyrmscraig goat fur", "Sunstone", "Sunstone core",
+            "Jeweller's chisel",
+        ]),
     ],
 )
 
@@ -2231,6 +2263,11 @@ MINING_SMITHING = TabSpec(
         # minigame reward.
         Section("Stray stat gear (pass-3 audit)", _never, force_include=[
             "Blacksmith's helm",
+        ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Sunstone",
         ]),
     ],
 )
@@ -2718,6 +2755,12 @@ RUNECRAFT = TabSpec(
         Section("Wine cleanup (tab audit)", _never, force_exclude=[
             "Metztonalli white",
         ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Air diamond", "Water sapphire", "Earth emerald",
+            "Fire ruby",
+        ]),
     ],
 )
 
@@ -2798,6 +2841,12 @@ HUNTER = TabSpec(
             "Small fishing net", "Bucket of sandworms",
             # Blackbird red is a Varlamore wine (cooking).
             "Blackbird red",
+        ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Wyrmscraig goat hoof", "Wyrmscraig goat fur", "Wooden spikes",
+            "Mr McGroot",
         ]),
     ],
 )
@@ -2884,6 +2933,12 @@ CONSTRUCTION = TabSpec(
         Section("Cape", _name_in({
             "Construction cape", "Construction cape(t)", "Construction hood",
         })),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Jar of Light", "Sawmill coupon (teak plank)", "Sawmill coupon (mahogany plank)",
+            "Sawmill coupon (camphor plank)", "Sawmill coupon (ironwood plank)",
+        ]),
     ],
     # Wiki-only items absent from the osrsbox cache — the llm_promote emitter
     # skips ids it can't find there, so inject directly (Brief #92).
@@ -3146,6 +3201,11 @@ MISC = TabSpec(
             "Voice potion", "Murky potion", "Spectral potion",
             "Witch's brew", "Magical cleaning potion",
         ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Trinket of vengeance", "Lanscape coins",
+        ]),
     ],
 )
 
@@ -3251,6 +3311,21 @@ QUESTS = TabSpec(
         # matched ~1800 items, which is OSRS's entire quest catalogue. Far too
         # broad. Keep this tab to specific named items above; user adds more by
         # extending the diary / unlock sections.
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Elf quest lamp", "Gnome quest lamp", "Mahjarrat 1 quest lamp",
+            "Fairy tale quest lamp", "Cocktail glass", "Vial",
+            "Healing potion", "Sunstone crystal", "Scrawled notebook",
+            "Scorched note", "Observations", "Warning note",
+            "Golem primer", "Final letter", "Ancient sunstone core",
+            "Dull sunstone core", "Staircase key", "Stray puppy",
+            "Stuffed dog", "Shell", "Weathered rosewood plank",
+            "Battered barrel", "Sea-soaked bowstring", "Instrument",
+            "Shell collection", "Shell A", "Shell A#",
+            "Shell C", "Shell D", "Shell E",
+            "Shell F", "Shell G",
+        ]),
     ],
 )
 
@@ -3316,6 +3391,15 @@ SAILING = TabSpec(
             "Mithril nails", "Adamantite nails", "Rune nails",
             "Plank", "Oak plank", "Teak plank", "Mahogany plank",
         ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Tiny port coin bag", "Small port coin bag", "Medium port coin bag",
+            "Large port coin bag", "Huge port coin bag", "Medium port reward bag (cairn isle)",
+            "Large port reward bag (cairn isle)", "Tiny port reward bag (aldarin)", "Small port reward bag (aldarin)",
+            "Medium port reward bag (aldarin)", "Large port reward bag (aldarin)", "Huge port reward bag (aldarin)",
+            "Huge port reward bag (brimhaven)", "Tiny port reward bag (ardougne)", "Small port reward bag (deepfin point)",
+        ]),
     ],
     # extra_items intentionally empty — wiki provides these IDs directly now.
 )
@@ -3380,6 +3464,23 @@ COSMETICS = TabSpec(
             "Pearl fishing rod", "Pearl fly fishing rod",
             "Pearl barbarian rod", "Oily pearl fishing rod",
             "Fine mesh net",
+        ]),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Demonic quill", "Noble robe top", "Wyrmscraig noble skirt",
+            "Wyrmscraig shoes", "Wyrmscraig boots", "Wyrmscraig villager robe top",
+            "Wyrmscraig villager robe bottom", "Wyrmscraig villager skirt", "Wyrmscraig villager work skirt",
+            "Mr McGroot", "Aggy", "Large hat",
+            "Big red button", "Labrador", "Chihuahua",
+            "Border collie", "Corgi", "Greyhound",
+            "Husky", "Pug", "Samoyed",
+            "Bernese mountain dog", "Shiba", "Spaniel",
+            "Yorkie", "Labrador puppy", "Husky puppy",
+            "Chihuahua puppy", "Border collie puppy", "Corgi puppy",
+            "Greyhound puppy", "Pug puppy", "Samoyed puppy",
+            "Bernese mountain dog puppy", "Shiba puppy", "Spaniel puppy",
+            "Yorkie puppy",
         ]),
     ],
 )
@@ -3472,6 +3573,11 @@ TELEPORTS = TabSpec(
                 "Skills necklace(5)",
             ],
         ),
+        # 2026 releases patched in surgically (post regen cutoff 2026-07-20);
+        # a future full regen + reclassify can fold these into real sections.
+        Section("2026 releases (surgical audit)", _never, force_include=[
+            "Ardeaglais teleport",
+        ]),
     ],
 )
 
