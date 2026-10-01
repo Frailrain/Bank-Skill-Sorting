@@ -209,10 +209,7 @@ class SkillBankPanel extends PluginPanel
 	@Override
 	public void onActivate()
 	{
-		// Re-evaluate the dependency banner each time the player opens
-		// the side panel — covers the case where they fix Bank Tag
-		// Layouts settings mid-session and come back to verify.
-		updateDependencyBanner();
+		refresh();
 	}
 
 	private void updateDependencyBanner()
