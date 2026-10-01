@@ -26,10 +26,13 @@ import net.runelite.api.ItemContainer;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ItemContainerChanged;
+import net.runelite.api.events.ScriptPostFired;
+import net.runelite.api.events.ScriptPreFired;
 import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.gameval.InventoryID;
+import net.runelite.api.ScriptID;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -150,6 +153,14 @@ public class SkillBankPlugin extends Plugin
 	/** Standardized op key of the managed tab that was most recently active,
 	 *  used to detect tab switches during banking. */
 	private String lastActiveTag;
+
+	/** Hash of the bank container contents (ids + quantities) the layouts
+	 *  were last built against. The BANK container event fires on every
+	 *  bank open even when nothing was deposited or withdrawn; rebuilding
+	 *  and reloading against identical contents is wasted work (and the
+	 *  open hitch), so the rebuild is gated on this changing. 0 = never
+	 *  computed this session, which always rebuilds. */
+	private long lastBankFingerprint;
 
 	/** Diag for the bank-close stutter report: ms elapsed since a
 	 *  System.nanoTime() mark. Remove with the [timing] logs once the
@@ -1200,8 +1211,22 @@ public class SkillBankPlugin extends Plugin
 		{
 			return;
 		}
-		needsInitialLayout = false;
 		long t0 = System.nanoTime();
+		// Gate on actual content change: the BANK container event also fires
+		// on every bank open with unchanged contents, and a no-op rebuild +
+		// reload there queues a full BANKMAIN_BUILD pass (the open hitch).
+		// The initial-layout flag (fresh seed / migration) forces through,
+		// since those rewrite layouts without the bank contents changing.
+		boolean forceInitial = needsInitialLayout;
+		needsInitialLayout = false;
+		long fingerprint = bankFingerprint(event.getItemContainer());
+		if (!forceInitial && fingerprint == lastBankFingerprint)
+		{
+			log.debug("[SkillBank][timing] onItemContainerChanged(BANK) contents unchanged — rebuild skipped ({}ms)",
+				String.format("%.2f", msSince(t0)));
+			return;
+		}
+		lastBankFingerprint = fingerprint;
 		markAllTabsDirty();
 
 		// Brief #85: tabInterface.isTagTabActive() returns false even when
@@ -1216,8 +1241,27 @@ public class SkillBankPlugin extends Plugin
 			dirtyTabs.remove(Text.standardize(activeTag));
 			pendingRebuildTag = activeTag;
 		}
-		log.debug("[SkillBank][timing] onItemContainerChanged(BANK) took {}ms activeTag={} rebuildScheduled={}",
-			String.format("%.2f", msSince(t0)), activeTag, scheduled);
+		log.debug("[SkillBank][timing] onItemContainerChanged(BANK) took {}ms activeTag={} rebuildScheduled={} forcedInitial={}",
+			String.format("%.2f", msSince(t0)), activeTag, scheduled, forceInitial);
+	}
+
+	/** Order-sensitive hash of the bank container's item ids and
+	 *  quantities. Slot moves count as changes (layout positions shift);
+	 *  collisions across distinct banks are astronomically unlikely and
+	 *  at worst skip one rebuild until the next real delta. */
+	private static long bankFingerprint(ItemContainer bank)
+	{
+		long h = 1125899906842597L;
+		if (bank == null)
+		{
+			return h;
+		}
+		for (Item item : bank.getItems())
+		{
+			h = 31 * h + item.getId();
+			h = 31 * h + item.getQuantity();
+		}
+		return h;
 	}
 
 	@Subscribe
@@ -1319,6 +1363,32 @@ public class SkillBankPlugin extends Plugin
 	 * rebuilding all 22 layouts on close, eliminating client freezes and load-line
 	 * hitches.
 	 */
+	/** nanoTime mark set by {@link #onScriptPreFired} for the in-flight
+	 *  BANKMAIN_BUILD run; 0 when none. Diag only — the Java-side reload=
+	 *  number stops at the openBankTag call, but the actual grid rebuild
+	 *  is the queued BANKMAIN_BUILD pass, timed here. */
+	private long bankmainBuildStart;
+
+	@Subscribe
+	public void onScriptPreFired(ScriptPreFired event)
+	{
+		if (event.getScriptId() == ScriptID.BANKMAIN_BUILD)
+		{
+			bankmainBuildStart = System.nanoTime();
+		}
+	}
+
+	@Subscribe
+	public void onScriptPostFired(ScriptPostFired event)
+	{
+		if (event.getScriptId() == ScriptID.BANKMAIN_BUILD && bankmainBuildStart != 0)
+		{
+			log.debug("[SkillBank][timing] BANKMAIN_BUILD script pass took {}ms",
+				String.format("%.2f", msSince(bankmainBuildStart)));
+			bankmainBuildStart = 0;
+		}
+	}
+
 	@Subscribe
 	public void onWidgetClosed(WidgetClosed event)
 	{
