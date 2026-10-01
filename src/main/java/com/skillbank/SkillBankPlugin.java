@@ -40,10 +40,10 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.PluginManager;
 import net.runelite.client.RuneLiteProperties;
 import net.runelite.client.plugins.banktags.BankTagsPlugin;
+import net.runelite.client.plugins.banktags.BankTagsService;
 import net.runelite.client.plugins.banktags.TagManager;
 import net.runelite.client.plugins.banktags.tabs.Layout;
 import net.runelite.client.plugins.banktags.tabs.LayoutManager;
-import net.runelite.client.plugins.banktags.tabs.TabInterface;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.ui.overlay.OverlayManager;
@@ -94,8 +94,11 @@ public class SkillBankPlugin extends Plugin
 	@Inject
 	private TagManager tagManager;
 
+	// Public Bank Tags API. RuneLite 1.13.0 only exposes BankTagsService,
+	// TagManager and LayoutManager to @PluginDependency plugins; injecting
+	// TabInterface fails with "No implementation for BankTagsConfig".
 	@Inject
-	private TabInterface tabInterface;
+	private BankTagsService bankTagsService;
 
 	@Inject
 	private LayoutManager layoutManager;
@@ -225,7 +228,7 @@ public class SkillBankPlugin extends Plugin
 					if (client.getGameState() == GameState.LOGGED_IN)
 					{
 						rebuildAllLayouts();
-						tabInterface.reloadActiveTab();
+						reloadActiveTab();
 					}
 				});
 				break;
@@ -594,7 +597,7 @@ public class SkillBankPlugin extends Plugin
 	 * than flagging all 22 as collisions.
 	 * <p>
 	 * Per-tab sync is non-additive — {@code SkillBankData} is the sole source
-	 * of truth. {@link TabInterface#reloadActiveTab()} is called once at the
+	 * of truth. {@link #reloadActiveTab()} is called once at the
 	 * end so the bank UI does not redraw mid-sync.
 	 */
 	private SeedResult doSeedMissing()
@@ -658,7 +661,7 @@ public class SkillBankPlugin extends Plugin
 			configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY, String.join(",", acc.tabsCsv));
 		}
 
-		tabInterface.reloadActiveTab();
+		reloadActiveTab();
 
 		return new SeedResult(acc.itemsTagged, acc.itemsRemoved, acc.itemsAlready,
 			acc.tagsSeeded, tagsDisabled, collisions);
@@ -985,13 +988,24 @@ public class SkillBankPlugin extends Plugin
 		}
 	}
 
+	/** Re-open the active bank tag so Bank Tags re-reads its layout from
+	 *  config and re-renders the grid. Same behaviour as core's
+	 *  TabInterface.reloadActiveTab(), via the public BankTagsService.
+	 *  Client thread only. */
+	private void reloadActiveTab()
+	{
+		String active = bankTagsService.getActiveTag();
+		if (active != null)
+		{
+			bankTagsService.openBankTag(active, BankTagsService.OPTION_ALLOW_MODIFICATIONS);
+		}
+	}
+
 	/** The internal id of the managed tab the bank is currently showing, or
-	 *  null. Read through THIS plugin's TabInterface instance — the overlay's
-	 *  own injected copy observed stale/null state, so the overlay calls
-	 *  here. */
+	 *  null. The overlay calls here rather than tracking the tab itself. */
 	String activeManagedTabId()
 	{
-		String active = tabInterface.getActiveTag();
+		String active = bankTagsService.getActiveTag();
 		if (active == null || !isManagedActiveTag(active))
 		{
 			return null;
@@ -1004,7 +1018,7 @@ public class SkillBankPlugin extends Plugin
 	 *  under (bare or "(auto)" form, whichever this install manages). */
 	String activeManagedOpTag()
 	{
-		String active = tabInterface.getActiveTag();
+		String active = bankTagsService.getActiveTag();
 		if (active == null || !isManagedActiveTag(active))
 		{
 			return null;
@@ -1031,7 +1045,7 @@ public class SkillBankPlugin extends Plugin
 				return;
 			}
 			doSeedMissing();
-			tabInterface.reloadActiveTab();
+			reloadActiveTab();
 		});
 	}
 
@@ -1091,7 +1105,7 @@ public class SkillBankPlugin extends Plugin
 		// log: "tabActive=false activeTag=melee"). Gate on getActiveTag()
 		// + the SkillBankData membership check only, matching bank-slot-
 		// sync's working pattern.
-		String activeTag = tabInterface.getActiveTag();
+		String activeTag = bankTagsService.getActiveTag();
 		if (activeTag == null || !isManagedActiveTag(activeTag))
 		{
 			return;
@@ -1118,7 +1132,7 @@ public class SkillBankPlugin extends Plugin
 		// Brief #85 (live diag): drop isTagTabActive() check — it returns
 		// false even when a Skill Bank tag tab is actually active. Trust
 		// getActiveTag() + the SkillBankData membership check instead.
-		String currentTag = tabInterface.getActiveTag();
+		String currentTag = bankTagsService.getActiveTag();
 		if (currentTag == null || !isManagedActiveTag(currentTag))
 		{
 			return;
@@ -1128,12 +1142,12 @@ public class SkillBankPlugin extends Plugin
 		// we captured at event time.
 		log.debug("[SkillBank] Dynamic rebuild: tab={}, trigger=ItemContainerChanged", currentTag);
 		buildAndSaveLayout(currentTag);
-		// Brief #85: tabInterface.reloadActiveTab() is the canonical
+		// Brief #85: reloadActiveTab() is the canonical
 		// re-render path — calls openBankTag → loadLayout (re-reads
 		// config) → bankSearch.reset → layoutBank (re-renders grid).
 		// bankSearch.layoutBank() alone would re-run the script against
 		// a stale in-memory activeLayout.
-		tabInterface.reloadActiveTab();
+		reloadActiveTab();
 	}
 
 	@Subscribe
@@ -1230,7 +1244,7 @@ public class SkillBankPlugin extends Plugin
 		// re-detects from a clean slate.
 		clearStoredDecisions();
 
-		tabInterface.reloadActiveTab();
+		reloadActiveTab();
 
 		return cleared;
 	}
@@ -1526,7 +1540,7 @@ public class SkillBankPlugin extends Plugin
 
 		applyTabtabsRenames(tabtabsRenames);
 		writeDecisionSet(MANAGED_TABS_KEY, managed);
-		tabInterface.reloadActiveTab();
+		reloadActiveTab();
 		log.info("Auto Bank Sorter: naming migration renamed {} tab(s)", renamed);
 		return renamed;
 	}
@@ -1620,7 +1634,7 @@ public class SkillBankPlugin extends Plugin
 		}
 		applyTabtabsRenames(tabtabsRenames);
 		configManager.setConfiguration(SkillBankConfig.GROUP, AUTO_NAMING_KEY, true);
-		tabInterface.reloadActiveTab();
+		reloadActiveTab();
 
 		String summary = "switched " + renamed + " tab(s) to \"(auto)\" naming.";
 		log.info("Auto Bank Sorter: {}", summary);
@@ -1737,7 +1751,7 @@ public class SkillBankPlugin extends Plugin
 		{
 			configManager.setConfiguration(BANKTAGS_GROUP, TAG_TABS_KEY, String.join(",", acc.tabsCsv));
 		}
-		tabInterface.reloadActiveTab();
+		reloadActiveTab();
 		if (config.announceInChat())
 		{
 			postChat("Auto Bank Sorter: applied your tab choices.");
