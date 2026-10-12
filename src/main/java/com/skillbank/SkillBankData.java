@@ -519,10 +519,10 @@ public final class SkillBankData
 
 	private static void addMelee(Map<String, List<Integer>> m)
 	{
-		// MELEE — 1688 items
-		//   Weapons (396), Shields & defenders (175), Head (253), Body (129), Legs
-		//   (142), Hands (47), Feet (49), Capes (15), Neck (45), Rings (25), Ammo
-		//   slot (2), Food (71), Potions (183), Training & utility (156)
+		// MELEE — 1719 items
+		//   Weapons (396), Shields & defenders (179), Head (264), Body (129), Legs
+		//   (142), Hands (48), Feet (51), Capes (16), Neck (45), Rings (27), Ammo
+		//   slot (12), Food (71), Potions (183), Training & utility (156)
 		m.put(TAG_MELEE, Arrays.asList(
 			// === Weapons ===
 			34027,
@@ -600,6 +600,8 @@ public final class SkillBankData
 			22254, 12468, 12478, 12488, 3488, 20152, 2675, 22263,
 			22257, 22266, 2667, 24266, 22260, 2659, 12829, 23599,
 			6524, 10352, 22322, 12831, 23642, 12817, 12821,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			26496, 26498, 26488, 27191,
 
 			// === Head ===
 			34063,
@@ -635,6 +637,9 @@ public final class SkillBankData
 			24370, 10350, 4716, 23639, 4724, 23638, 24419, 24271,
 			4745, 23637, 4753, 23636, 22326, 13199, 12931, 13197,
 			22625, 9749, 9755, 9770, 9752,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			12637, 27165, 12638, 27164, 12639, 27163, 24192, 24195,
+			24198, 24201, 24204,
 
 			// === Body ===
 			1103, 1117, 12205, 12215, 26158, 27048, 26172, 20794,
@@ -682,6 +687,8 @@ public final class SkillBankData
 			11118, 11974, 11972, 7537, 8929, 30380, 7453, 2997,
 			11133, 6151, 26467, 26723, 26727, 1059, 13357, 13362,
 			13367, 13372, 20041, 10553, 8842, 10083, 22981,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			19997,
 
 			// === Feet ===
 			4119, 4121, 4123, 4125, 6619, 4127, 4129, 4131,
@@ -691,10 +698,14 @@ public final class SkillBankData
 			13130, 13131, 13132, 6145, 23389, 27178, 1061, 13358,
 			13363, 13368, 13373, 20047, 12391, 10552, 11836, 21733,
 			13239,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			12598, 22954,
 
 			// === Capes ===
 			1052, 23351, 6570, 21295, 23622, 22114, 6568, 20050,
 			33063, 9747, 9753, 13329, 9768, 21285, 9750,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			25344,
 
 			// === Neck ===
 			// Amulet of glory: untrimmed 0/1/2/3/4/5/6 (1704, 1706, 1708, 1710,
@@ -715,9 +726,17 @@ public final class SkillBankData
 			21140, 30378, 25975, 27870, 2570, 2550, 28329, 12605,
 			12692, 12603, 12691, 28307, 33182, 6735, 11772, 19550,
 			19710,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			12601, 13202,
 
 			// === Ammo slot ===
 			30384, 27544,
+			// Issue #20: style-agnostic prayer gear — blessings, prayer armour,
+			// halos, spirit shields, Lightbearer etc. carry no style-specific
+			// offensive stats and are worn with every combat style, so each is
+			// listed in melee, range AND mage (plus prayer for set consistency).
+			22941, 22943, 22945, 22947, 20220, 20223, 20226, 20229,
+			20232, 20235,
 
 			// === Food ===
 			33118, 2297, 13441, 2323, 24592, 24595, 24589, 20862,
@@ -802,12 +821,12 @@ public final class SkillBankData
 
 	private static void addRange(Map<String, List<Integer>> m)
 	{
-		// RANGE — 859 items
+		// RANGE — 912 items
 		//   Bows (66), Arrows (43), Crossbows (26), Bolts (61), Ballistae &
 		//   javelins (15), Blowpipe & darts (16), Knives (10), Morrigan's javelins
-		//   (3), Other throwables (31), Head (71), Body (72), Legs (74), Hands
-		//   (47), Feet (17), Capes (16), Shields & off-hands (29), Neck (35),
-		//   Rings (9), Food (57), Potions (95), Training & utility (66)
+		//   (3), Other throwables (31), Head (86), Body (76), Legs (79), Hands
+		//   (48), Feet (19), Capes (17), Shields & off-hands (39), Neck (35),
+		//   Rings (13), Food (57), Potions (95), Training & utility (77)
 		m.put(TAG_RANGE, Arrays.asList(
 			// === Bows ===
 			12424, 28794, 25865, 25867, 25884, 25886, 25888, 25890,
@@ -875,6 +894,9 @@ public final class SkillBankData
 			21890, 24444, 1169, 13379, 6326, 2581, 6131, 11664,
 			3749, 10550, 23075, 10334, 12496, 12512, 11826, 12504,
 			10382, 4732, 10390, 10374, 22638, 9770, 9758,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			29560, 9672, 5574, 28933, 12637, 27165, 12638, 27164,
+			12639, 27163, 24192, 24195, 24198, 24201, 24204,
 
 			// === Body ===
 			2503, 20423, 12381, 12385, 27697, 27709, 27721, 27733,
@@ -886,6 +908,8 @@ public final class SkillBankData
 			1135, 7370, 7372, 12596, 6133, 13072, 8839, 2499,
 			7374, 7376, 2501, 12327, 12331, 10330, 12492, 11828,
 			12508, 12500, 10378, 4736, 23632, 10386, 10370, 22641,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			29562, 9674, 5575, 28936,
 
 			// === Legs ===
 			25493, 2497, 20424, 12383, 12387, 27701, 27713, 27725,
@@ -898,6 +922,8 @@ public final class SkillBankData
 			8840, 2493, 7382, 7384, 10555, 2495, 12329, 12333,
 			10332, 12494, 11830, 12510, 12502, 10380, 4738, 10388,
 			10372, 22644,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			29564, 9676, 9678, 5576, 28939,
 
 			// === Hands ===
 			7454, 7455, 7456, 25494, 7457, 2491, 10085, 7458,
@@ -906,21 +932,30 @@ public final class SkillBankData
 			30386, 26467, 26235, 1063, 10077, 13377, 6330, 23261,
 			1065, 10079, 19994, 8842, 2487, 10081, 2489, 10083,
 			10336, 12490, 12506, 12498, 10376, 10384, 10368,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			19997,
 
 			// === Feet ===
 			29806, 33202, 31092, 29286, 13378, 10958, 6328, 2577,
 			6143, 19921, 19930, 19924, 22951, 19927, 19933, 19936,
 			13237,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			12598, 22954,
 
 			// === Capes ===
 			10498, 28955, 1052, 28902, 28951, 28947, 27374, 27363,
 			29289, 6568, 11901, 10499, 22109, 13337, 21898, 9756,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			25344,
 
 			// === Shields & off-hands ===
 			22284, 1540, 22002, 22003, 32879, 3844, 12610, 26492,
 			3839, 3841, 3843, 12609, 3840, 33188, 3842, 22269,
 			22272, 22275, 22278, 11926, 12807, 22281, 23197, 23200,
 			23203, 23188, 23191, 23194, 21000,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			12829, 23599, 12831, 23642, 12821, 12817, 26496, 26498,
+			26488, 27191,
 
 			// === Neck ===
 			34401,
@@ -936,6 +971,8 @@ public final class SkillBankData
 			// === Rings ===
 			6733, 11771, 22975, 2570, 2550, 28329, 28310, 19550,
 			19710,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			12601, 13202, 25975, 27870,
 
 			// === Food ===
 			2297, 13441, 2323, 24592, 24595, 24589, 20862, 7054,
@@ -983,16 +1020,19 @@ public final class SkillBankData
 			27759, 27763, 27767, 27771, 27775, 27779, 27914, 27918,
 			27940, 27943, 27946, 28327, 28687, 28949, 28953, 29031,
 			29033, 29035, 29049, 29052, 29055, 30373, 33025, 33029,
-			33033
+			33033,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			22941, 22943, 22945, 22947, 20220, 20223, 20226, 20229,
+			20232, 20235, 30384
 		));
 	}
 
 	private static void addMage(Map<String, List<Integer>> m)
 	{
-		// MAGE — 880 items
-		//   Runes (39), Weapons (150), Off-hands, books & tomes (54), Head (90),
-		//   Body (62), Legs (60), Hands (29), Feet (21), Capes (24), Neck (39),
-		//   Rings (15), Spell utility & supplies (119), Food (57), Potions (108),
+		// MAGE — 932 items
+		//   Runes (39), Weapons (150), Off-hands, books & tomes (64), Head (105),
+		//   Body (66), Legs (65), Hands (30), Feet (23), Capes (25), Neck (39),
+		//   Rings (19), Spell utility & supplies (129), Food (57), Potions (108),
 		//   Enchanting & skilling magic (13)
 		m.put(TAG_MAGE, Arrays.asList(
 			// === Runes ===
@@ -1031,6 +1071,9 @@ public final class SkillBankData
 			6251, 6273, 6225, 6247, 6269, 6223, 6245, 6267,
 			6221, 6243, 6265, 6219, 6241, 6263, 20714, 6889,
 			23652, 11924, 12806, 21633, 21634, 12825,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			12829, 23599, 12831, 23642, 12821, 12817, 26496, 26498,
+			26488, 27191,
 
 			// === Head ===
 			12453, 12455, 19641, 11783, 11782, 11781, 11779, 11778,
@@ -1045,6 +1088,9 @@ public final class SkillBankData
 			11663, 3755, 10547, 12457, 6918, 12419, 25398, 25413,
 			23075, 10342, 9096, 4708, 24288, 21018, 24664, 22650,
 			9770, 9764,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			29560, 9672, 5574, 28933, 12637, 27165, 12638, 27164,
+			12639, 27163, 24192, 24195, 24198, 24201, 24204,
 
 			// === Body ===
 			581, 12449, 12451, 23890, 23889, 23891, 27193, 29013,
@@ -1055,6 +1101,8 @@ public final class SkillBankData
 			4101, 23050, 4111, 20131, 6139, 3387, 13072, 8839,
 			12458, 6916, 12420, 25389, 25404, 10338, 20576, 9097,
 			4712, 20598, 24291, 21021, 24666, 22653,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			29562, 9674, 5575, 28936,
 
 			// === Legs ===
 			12445, 12447, 23893, 23892, 23894, 27194, 29016, 29844,
@@ -1065,22 +1113,30 @@ public final class SkillBankData
 			4113, 20137, 6141, 3389, 13073, 8840, 12459, 6924,
 			12421, 25401, 25416, 10340, 20577, 9098, 4714, 20599,
 			24294, 21024, 24668, 22656,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			29564, 9676, 9678, 5576, 28939,
 
 			// === Hands ===
 			777, 11126, 11124, 11122, 11120, 11118, 11974, 11972,
 			31106, 6110, 9072, 26537, 11133, 6153, 27171, 26467,
 			20134, 4095, 4105, 23056, 4115, 3391, 8842, 6922,
 			25392, 25407, 9099, 19544, 23444,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			19997,
 
 			// === Feet ===
 			6106, 27170, 9073, 26539, 10839, 6147, 27162, 2579,
 			20140, 4097, 4107, 23059, 4117, 3393, 6920, 25395,
 			25410, 9100, 22951, 13235, 23644,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			12598, 22954,
 
 			// === Capes ===
 			1052, 6111, 29615, 29617, 29613, 9074, 6568, 21793,
 			23603, 21791, 23607, 21795, 23605, 2413, 2412, 2414,
 			9101, 13335, 21784, 21776, 21780, 9762, 13331, 13333,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			25344,
 
 			// === Neck ===
 			34407, 34413, 34419, 34425, 34428,
@@ -1097,6 +1153,8 @@ public final class SkillBankData
 			// === Rings ===
 			22975, 13126, 13127, 13128, 9104, 28313, 33180, 2570,
 			2550, 28329, 6731, 11770, 23624, 19550, 19710,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			12601, 13202, 25975, 27870,
 
 			// === Spell utility & supplies ===
 			33428, 33431,
@@ -1115,6 +1173,9 @@ public final class SkillBankData
 			26003, 31154, 27673, 28274, 25578, 30068, 2396, 31160,
 			12846, 8022, 27279, 28570, 28561, 21698, 21704, 21707,
 			21701, 567, 31148, 24514, 11716, 12730, 24860,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			22941, 22943, 22945, 22947, 20220, 20223, 20226, 20229,
+			20232, 20235,
 
 			// === Food ===
 			2297, 13441, 2323, 24592, 24595, 24589, 20862, 7054,
@@ -1161,11 +1222,11 @@ public final class SkillBankData
 
 	private static void addPrayer(Map<String, List<Integer>> m)
 	{
-		// PRAYER — 538 items
-		//   Prayer equipment & robes (176), Bones & ashes (67), Ensouled heads
+		// PRAYER — 542 items
+		//   Prayer equipment & robes (178), Bones & ashes (67), Ensouled heads
 		//   (23), Bonemeal & offerings (42), Fossils & enriched bones (31), Pyre
 		//   logs & shade remains (29), Prayer-restoring consumables (90), Holy
-		//   symbols, books & blessings (71), Bone-processing utility (9)
+		//   symbols, books & blessings (73), Bone-processing utility (9)
 		m.put(TAG_PRAYER, Arrays.asList(
 			// === Prayer equipment & robes ===
 			12437, 23345, 23339, 23336, 23342, 6585, 26229, 26227,
@@ -1190,6 +1251,8 @@ public final class SkillBankData
 			6611, 6631, 6605, 6613, 10368, 10372, 10450, 10374,
 			10444, 10370, 19936, 23194, 12638, 27164, 10456, 1033,
 			1035, 10468, 10460, 10474, 25440, 25438, 25436, 25434,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			29560, 29564,
 
 			// === Bones & ashes ===
 			25775, 31075, 30973, 534, 530, 3182, 532, 25422,
@@ -1251,6 +1314,8 @@ public final class SkillBankData
 			3828, 3829, 3830, 26099, 33060, 28520, 26129, 19634,
 			12823, 21047, 1716, 20223, 3842, 27191, 26498, 13151,
 			1724, 1722, 20232, 3831, 3832, 3833, 3834,
+			// Issue #20: style-agnostic prayer gear (see melee Ammo slot comment).
+			22941, 30384,
 
 			// === Bone-processing utility ===
 			25781, 13116, 29088, 33627, 28132, 28942, 29587, 33695,
