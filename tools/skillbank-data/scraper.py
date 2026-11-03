@@ -32,9 +32,11 @@ DIFF_REPORT_FILE = SCRIPT_DIR / "diff-current-vs-wiki.txt"
 def _load_env() -> None:
     """Load KEY=VALUE pairs from tools/skillbank-data/.env into os.environ.
 
-    Existing env vars take precedence. Silently does nothing if .env is missing
-    (the scraper has many modes that don't need it). Lines starting with # are
-    comments; blank lines ignored. Quoted values (single or double) are unquoted.
+    Existing non-empty env vars take precedence (an empty value counts as
+    unset, so a shell that exports ANTHROPIC_API_KEY="" still picks up the
+    .env). Silently does nothing if .env is missing (the scraper has many
+    modes that don't need it). Lines starting with # are comments; blank
+    lines ignored. Quoted values (single or double) are unquoted.
     """
     env_file = SCRIPT_DIR / ".env"
     if not env_file.exists():
@@ -48,7 +50,8 @@ def _load_env() -> None:
         v = v.strip()
         if len(v) >= 2 and v[0] == v[-1] and v[0] in ("'", '"'):
             v = v[1:-1]
-        os.environ.setdefault(k, v)
+        if not os.environ.get(k):
+            os.environ[k] = v
 
 OSRSBOX_URL = (
     "https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/"
@@ -1414,6 +1417,67 @@ def write_classification_diff(
     out_path.write_text("\n".join(lines))
 
 
+def load_merged_items(
+    use_cache: bool,
+    refresh: bool,
+    *,
+    refetch_osrsbox: bool = True,
+    write_discrepancies: bool = True,
+) -> tuple[dict[str, dict], dict[int, dict]]:
+    """Fetch the wiki item + bonus tables and the osrsbox dump, merge them and
+    return ``(items, items_by_id)`` — the same dict keyed by id-as-string and
+    by int id respectively.
+
+    Shared by main() and refresh_new_items.py so both see exactly the same
+    item set. ``use_cache`` / ``refresh`` are passed straight to the wiki
+    client (see wiki.bucket_query). The osrsbox dump is re-downloaded when
+    ``refetch_osrsbox`` is true; otherwise the cached copy is reused, and it
+    is still downloaded once when no cache exists. ``write_discrepancies``
+    controls the cache/discrepancies.json side-output used for manual review.
+    """
+    if str(SCRIPT_DIR) not in sys.path:
+        sys.path.insert(0, str(SCRIPT_DIR))
+    import wiki  # type: ignore
+
+    WIKI_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+    print(f"Fetching wiki canonical items (use_cache={use_cache}, refresh={refresh})...", file=sys.stderr)
+    wiki_items = wiki.fetch_canonical_items(
+        WIKI_CACHE_DIR, use_cache=use_cache, refresh=refresh,
+    )
+    print(f"Fetching wiki equipment bonuses...", file=sys.stderr)
+    wiki_bonuses = wiki.fetch_all_bonuses(
+        WIKI_CACHE_DIR, use_cache=use_cache, refresh=refresh,
+    )
+
+    print(f"Loading osrsbox dump (force_refetch={refetch_osrsbox})...", file=sys.stderr)
+    osrsbox = fetch_osrsbox(force=refetch_osrsbox)
+    print(f"  osrsbox: {len(osrsbox)} items", file=sys.stderr)
+
+    print("Merging wiki + osrsbox...", file=sys.stderr)
+    items, wiki_only, osrsbox_only, discrepancies = merge_wiki_osrsbox(
+        wiki_items, wiki_bonuses, osrsbox,
+    )
+    print(
+        f"  merged: {len(items)} canonical items "
+        f"(wiki_only={len(wiki_only)}, osrsbox_only={len(osrsbox_only)}, "
+        f"discrepancies={len(discrepancies)})",
+        file=sys.stderr,
+    )
+    if write_discrepancies:
+        (CACHE_DIR / "discrepancies.json").write_text(json.dumps({
+            "wiki_only_ids": wiki_only[:200],
+            "wiki_only_total": len(wiki_only),
+            "osrsbox_only_ids": osrsbox_only[:200],
+            "osrsbox_only_total": len(osrsbox_only),
+            "name_discrepancies": discrepancies[:200],
+            "discrepancies_total": len(discrepancies),
+        }, indent=2))
+
+    items_by_id: dict[int, dict] = {int(k): v for k, v in items.items()}
+    return items, items_by_id
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--no-fetch", action="store_true",
@@ -1552,42 +1616,11 @@ def main():
             print(f"No matching tabs: {args.tab}", file=sys.stderr)
             sys.exit(2)
 
-    use_cache = not args.no_cache
-    refresh = args.refresh_wiki
-
-    print(f"Fetching wiki canonical items (use_cache={use_cache}, refresh={refresh})...", file=sys.stderr)
-    wiki_items = wiki.fetch_canonical_items(
-        WIKI_CACHE_DIR, use_cache=use_cache, refresh=refresh,
+    items, items_by_id = load_merged_items(
+        use_cache=not args.no_cache,
+        refresh=args.refresh_wiki,
+        refetch_osrsbox=not args.no_fetch,
     )
-    print(f"Fetching wiki equipment bonuses...", file=sys.stderr)
-    wiki_bonuses = wiki.fetch_all_bonuses(
-        WIKI_CACHE_DIR, use_cache=use_cache, refresh=refresh,
-    )
-
-    print(f"Loading osrsbox dump (force_refetch={not args.no_fetch})...", file=sys.stderr)
-    osrsbox = fetch_osrsbox(force=not args.no_fetch)
-    print(f"  osrsbox: {len(osrsbox)} items", file=sys.stderr)
-
-    print("Merging wiki + osrsbox...", file=sys.stderr)
-    items, wiki_only, osrsbox_only, discrepancies = merge_wiki_osrsbox(
-        wiki_items, wiki_bonuses, osrsbox,
-    )
-    print(
-        f"  merged: {len(items)} canonical items "
-        f"(wiki_only={len(wiki_only)}, osrsbox_only={len(osrsbox_only)}, "
-        f"discrepancies={len(discrepancies)})",
-        file=sys.stderr,
-    )
-    (CACHE_DIR / "discrepancies.json").write_text(json.dumps({
-        "wiki_only_ids": wiki_only[:200],
-        "wiki_only_total": len(wiki_only),
-        "osrsbox_only_ids": osrsbox_only[:200],
-        "osrsbox_only_total": len(osrsbox_only),
-        "name_discrepancies": discrepancies[:200],
-        "discrepancies_total": len(discrepancies),
-    }, indent=2))
-
-    items_by_id: dict[int, dict] = {int(k): v for k, v in items.items()}
 
     print("Classifying...", file=sys.stderr)
     classified = classify(items, tabs)

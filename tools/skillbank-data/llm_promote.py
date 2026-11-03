@@ -66,6 +66,27 @@ def _collect_extra_items(tabs) -> list[tuple[int, str, str]]:
     return out
 
 
+DEFAULT_LEDGER_PATH = Path(__file__).resolve().parent / "data" / "auto-classified.json"
+
+
+def load_ledger(path: Path | None = None) -> list[dict]:
+    """Read the monthly-refresh ledger (data/auto-classified.json). Returns
+    [] when the file does not exist. Entries look like
+    {"id", "name", "release_date", "tabs", "rationale", "model", "run"}."""
+    path = path or DEFAULT_LEDGER_PATH
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text())
+    if not isinstance(data, list):
+        raise ValueError(f"{path}: expected a JSON list of ledger entries")
+    out: list[dict] = []
+    for entry in data:
+        if not isinstance(entry, dict) or "id" not in entry:
+            raise ValueError(f"{path}: malformed ledger entry {entry!r}")
+        out.append({**entry, "id": int(entry["id"])})
+    return out
+
+
 # Combat-bleed safety net (Brief #56 + #62): a single item must not appear in
 # more than one of melee/range/mage simultaneously. The flatten in Brief #62
 # already de-bled the cached data; this filter catches anything that slips
@@ -93,8 +114,15 @@ def build_synthetic_tabs(
     *,
     current_membership: dict[str, list[int]] | None = None,
     preserve_tabs: list[str] | None = None,
+    ledger_path: Path | None = None,
 ):
     """Return (synthetic_tabs, classified_dict, report_dict).
+
+    ``ledger_path`` points at the monthly-refresh ledger
+    (data/auto-classified.json, see refresh_new_items.py). Its entries are
+    applied as id-based force-includes so a full regen keeps the placements
+    that were reviewed in the monthly PRs. Defaults to the tracked ledger
+    next to this file; pass a missing path to disable.
 
     `synthetic_tabs` is a list[scraper.TabSpec], one per ALL_TAB_NAMES, each
     with a single 'LLM classified' section. The TabSpec is only used by
@@ -188,6 +216,27 @@ def build_synthetic_tabs(
         if tab_name in by_tab and iid not in by_tab[tab_name]:
             by_tab[tab_name][iid] = name
             extra_count[tab_name] += 1
+
+    # Monthly-refresh ledger (refresh_new_items.py): id-based force-includes.
+    # Entries with tabs == [] are deliberate "nowhere" decisions and add
+    # nothing; they only exist so the item is not re-proposed next month.
+    ledger_count: dict[str, int] = {t: 0 for t in ALL_TAB_NAMES}
+    for entry in load_ledger(ledger_path):
+        iid = entry["id"]
+        it = items_by_id.get(iid)
+        if it is not None and (it.get("noted") or it.get("placeholder") or it.get("duplicate")):
+            continue
+        name = (it or {}).get("name") or entry.get("name") or ""
+        for tab_name in entry.get("tabs") or []:
+            if tab_name in by_tab and iid not in by_tab[tab_name]:
+                by_tab[tab_name][iid] = name
+                ledger_count[tab_name] += 1
+    if any(ledger_count.values()):
+        print(
+            f"  ledger: added {sum(ledger_count.values())} placements from "
+            f"{(ledger_path or DEFAULT_LEDGER_PATH).name}",
+            file=__import__("sys").stderr,
+        )
 
     # Preserve membership for designated tabs (additive): every item currently
     # in tab X stays in tab X regardless of LLM. Built for the Brief #50 slayer
@@ -303,6 +352,7 @@ def build_synthetic_tabs(
                 "override_added": len(override_adds[tab_name]),
                 "override_dropped": len(override_drops[tab_name]),
                 "extra_items_added": extra_count[tab_name],
+                "ledger_added": ledger_count[tab_name],
                 "preserved": len(preserved[tab_name]),
             }
             for tab_name in ALL_TAB_NAMES
@@ -506,6 +556,75 @@ def _merge_requirements(
     return ({}, "no_req_confirmed")
 
 
+def build_meta_entry(
+    item: dict,
+    tabs,
+    wiki_reqs_by_id: dict[int, dict],
+) -> tuple[dict, str]:
+    """Build one item-meta.json entry for ``item`` placed in ``tabs``.
+
+    Returns ``(entry, requirements_status)`` where ``entry`` is the dict that
+    gets serialised under the item's id and ``requirements_status`` is the
+    _merge_requirements() status string (used by emit_item_metadata for the
+    integration summary; the monthly refresh ignores it).
+
+    Shared by the full regen (emit_item_metadata) and the monthly refresh
+    (refresh_new_items.py) so both produce byte-identical entries.
+    sort_tables.init_id_sets() must have been called before this.
+    """
+    import sort_tables  # type: ignore
+
+    tabs = set(tabs)
+    name = item.get("name") or ""
+    eq = item.get("equipment") or {}
+    wp = item.get("weapon") or {}
+
+    tier = _infer_item_tier(name)
+    slot = eq.get("slot") or None
+    weapon_class = wp.get("weapon_type") or None
+    # Deterministic category hint: pick the alphabetically first tab the
+    # item belongs to. Category is a coarse role bucket so the exact
+    # choice rarely matters — picking by sorted order keeps the artifact
+    # stable across runs.
+    sample_tab = sorted(tabs)[0] if tabs else "misc"
+    category = _infer_category(item, sample_tab)
+
+    sections: dict[str, str] = {}
+    for tab in sorted(tabs):
+        sections[tab] = sort_tables.assign_section(item, tab)
+
+    entry: dict = {"t": tier, "ct": category, "s": sections}
+    # Omit null weaponClass / slot from the JSON to keep file size down.
+    if weapon_class:
+        entry["wc"] = weapon_class
+    if slot:
+        entry["sl"] = slot
+
+    # Brief #75: emit set_name for cosmetic items so the layout
+    # builder can row-break by set. Brief #76 (revised): also emit
+    # for crafting items in the Gems section so each gem family
+    # gets its own row (uncut → cut → ring → necklace → amulet
+    # → bracelet). The two domains never overlap on a single item.
+    if "cosmetics" in tabs:
+        sn = sort_tables._set_name(item)
+        if sn:
+            entry["sn"] = sn
+    elif "crafting" in tabs:
+        gf = sort_tables._gem_family(item)
+        if gf:
+            entry["sn"] = gf
+
+    # Brief #72: merge wiki + osrsbox requirements. The wiki record
+    # (Brief #71 output) is preferred when high-confidence; medium
+    # confidence falls back to osrsbox if available.
+    merged_reqs, status = _merge_requirements(
+        eq.get("requirements"), wiki_reqs_by_id.get(item.get("id")),
+    )
+    if merged_reqs is not None:
+        entry["rq"] = merged_reqs
+    return entry, status
+
+
 def emit_item_metadata(
     by_tab: dict[str, dict[int, str]],
     items_by_id: dict[int, dict],
@@ -546,57 +665,13 @@ def emit_item_metadata(
         it = items_by_id.get(iid)
         if not it:
             continue
-        name = it.get("name") or ""
-        eq = it.get("equipment") or {}
-        wp = it.get("weapon") or {}
-
-        tier = _infer_item_tier(name)
-        slot = eq.get("slot") or None
-        weapon_class = wp.get("weapon_type") or None
-        # Deterministic category hint: pick the alphabetically first tab the
-        # item belongs to. Category is a coarse role bucket so the exact
-        # choice rarely matters — picking by sorted order keeps the artifact
-        # stable across runs.
-        sample_tab = sorted(tabs)[0] if tabs else "misc"
-        category = _infer_category(it, sample_tab)
-
-        sections: dict[str, str] = {}
-        for tab in sorted(tabs):
-            sections[tab] = sort_tables.assign_section(it, tab)
-
-        entry: dict = {"t": tier, "ct": category, "s": sections}
-        # Omit null weaponClass / slot from the JSON to keep file size down.
-        if weapon_class:
-            entry["wc"] = weapon_class
-        if slot:
-            entry["sl"] = slot
-
-        # Brief #75: emit set_name for cosmetic items so the layout
-        # builder can row-break by set. Brief #76 (revised): also emit
-        # for crafting items in the Gems section so each gem family
-        # gets its own row (uncut → cut → ring → necklace → amulet
-        # → bracelet). The two domains never overlap on a single item.
-        if "cosmetics" in tabs:
-            sn = sort_tables._set_name(it)
-            if sn:
-                entry["sn"] = sn
-        elif "crafting" in tabs:
-            gf = sort_tables._gem_family(it)
-            if gf:
-                entry["sn"] = gf
-
-        # Brief #72: merge wiki + osrsbox requirements. The wiki record
-        # (Brief #71 output) is preferred when high-confidence; medium
-        # confidence falls back to osrsbox if available.
-        merged_reqs, status = _merge_requirements(
-            eq.get("requirements"), wiki_by_id.get(iid),
-        )
+        entry, status = build_meta_entry(it, tabs, wiki_by_id)
         integration_stats[status] = integration_stats.get(status, 0) + 1
-        if merged_reqs is not None:
-            entry["rq"] = merged_reqs
         if status == "wiki_high_overrides" and len(wiki_overrides_sample) < 30:
-            osr = eq.get("requirements") or {}
-            wiki_overrides_sample.append((iid, name, merged_reqs, dict(osr)))
+            osr = (it.get("equipment") or {}).get("requirements") or {}
+            wiki_overrides_sample.append(
+                (iid, it.get("name") or "", entry.get("rq"), dict(osr)),
+            )
 
         meta[str(iid)] = entry
 

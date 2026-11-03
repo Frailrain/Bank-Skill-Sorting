@@ -17,6 +17,13 @@ Design notes:
   bare Python install.
 - API key read from os.environ['ANTHROPIC_API_KEY'] (loaded by env.py from
   tools/skillbank-data/.env which is gitignored).
+- A second transport, backend="claude-cli", sends the same prompt through
+  the Claude Code CLI (`claude -p --json-schema ...`) so the calls are
+  billed to the maintainer's Claude subscription instead of an API key.
+  Locally that is the `claude` login; in GitHub Actions it is the
+  CLAUDE_CODE_OAUTH_TOKEN secret minted with `claude setup-token`. The
+  monthly refresh (refresh_new_items.py) uses this backend by default;
+  `scraper.py --classify` keeps the API transport.
 - Per-item responses cached to cache/llm-classifications/<sha1>.json keyed
   by (model, item_id, name, examine, slot, wikitext_hash). Reruns are free
   unless the cache is purged or the input materially changes.
@@ -29,17 +36,62 @@ import hashlib
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 import time
 import urllib.error
 import urllib.request
 from pathlib import Path
+from typing import Callable
 
 API_URL = "https://api.anthropic.com/v1/messages"
 DEFAULT_MODEL = "claude-sonnet-4-6"
 ANTHROPIC_VERSION = "2023-06-01"
 MAX_TOKENS = 512
 TIMEOUT = 60
+
+BACKENDS = ("claude-cli", "api")
+
+# ── Claude Code CLI transport ──────────────────────────────────────────────
+# Override the binary with CLAUDE_CLI_BIN (e.g. an absolute path) if `claude`
+# is not on PATH.
+CLI_BIN = os.environ.get("CLAUDE_CLI_BIN") or "claude"
+CLI_TIMEOUT = 300          # seconds per item; the CLI retries transient API errors itself
+CLI_MAX_TURNS = 3          # structured output costs the CLI one internal tool turn
+CLI_RETRIES = 3
+RESPONSE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "tabs": {"type": "array", "items": {"type": "string"}},
+        "rationale": {"type": "string"},
+    },
+    "required": ["tabs", "rationale"],
+    "additionalProperties": False,
+}
+# Removed from the child environment, by exact name. The nested-session
+# markers make the CLI refuse to start from inside another Claude Code
+# session; ANTHROPIC_API_KEY / ANTHROPIC_AUTH_TOKEN would silently take
+# precedence over the subscription login and bill the API instead.
+# CLAUDE_CODE_OAUTH_TOKEN is deliberately kept: it is how the subscription is
+# reached in CI, which is why this is a name list and not a prefix match.
+CLI_STRIP_ENV = (
+    "ANTHROPIC_API_KEY",
+    "ANTHROPIC_AUTH_TOKEN",
+    "CLAUDECODE",
+    "CLAUDE_CODE_CHILD_SESSION",
+    "CLAUDE_CODE_SESSION_ID",
+    "CLAUDE_CODE_MESSAGING_SOCKET",
+    "CLAUDE_CODE_MESSAGING_TOKEN",
+    "CLAUDE_CODE_ENTRYPOINT",
+    "CLAUDE_CODE_SESSION_ATTENDED",
+)
+# Messages that are worth a retry: the subscription/API is momentarily busy.
+_CLI_TRANSIENT_RE = re.compile(r"overloaded|rate.?limit|529|503|timed? ?out|ECONNRESET|ETIMEDOUT", re.I)
+
+# (returncode, stdout, stderr) for a command fed `stdin_text` under `env`.
+CliRunner = Callable[[list[str], str, dict], tuple[int, str, str]]
 
 # Canonical tab names + descriptions (mirrors SkillBankConfig).
 TAB_DEFS: list[tuple[str, str]] = [
@@ -255,6 +307,122 @@ def _api_call(model: str, system: str, user: str, api_key: str) -> dict:
     raise RuntimeError(f"repeated API errors: {last_err}")
 
 
+def cli_env(base: dict | None = None) -> dict:
+    """Environment for the `claude` child process: the current environment
+    minus CLI_STRIP_ENV, with auto-updates and telemetry off."""
+    env = dict(os.environ if base is None else base)
+    for k in CLI_STRIP_ENV:
+        env.pop(k, None)
+    env.setdefault("DISABLE_AUTOUPDATER", "1")
+    env.setdefault("CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC", "1")
+    return env
+
+
+def cli_command(model: str, system: str) -> list[str]:
+    """One-shot, tool-less, non-persisted `claude -p` invocation that must
+    answer with RESPONSE_SCHEMA. The user message goes on stdin."""
+    return [
+        CLI_BIN, "-p",
+        "--output-format", "json",
+        "--model", model,
+        "--system-prompt", system,
+        "--json-schema", json.dumps(RESPONSE_SCHEMA),
+        "--tools", "",
+        "--strict-mcp-config",
+        "--no-session-persistence",
+        "--max-turns", str(CLI_MAX_TURNS),
+        "--disable-slash-commands",
+        "--permission-prompts", "none",
+    ]
+
+
+def cli_available() -> bool:
+    return shutil.which(CLI_BIN) is not None
+
+
+def _default_cli_runner(cmd: list[str], stdin_text: str, env: dict) -> tuple[int, str, str]:
+    """Run the CLI in an empty scratch directory so no CLAUDE.md, project
+    settings or MCP config from the repo leak into the prompt."""
+    with tempfile.TemporaryDirectory(prefix="skillbank-llm-") as cwd:
+        proc = subprocess.run(
+            cmd, input=stdin_text, capture_output=True, text=True,
+            cwd=cwd, env=env, timeout=CLI_TIMEOUT, check=False,
+        )
+    return proc.returncode, proc.stdout, proc.stderr
+
+
+def cli_auth_status(runner: CliRunner | None = None) -> dict | None:
+    """`claude auth status --json` as a dict, or None when it cannot be read.
+    With CLAUDE_CODE_OAUTH_TOKEN set this only confirms the token is present;
+    it is not validated until the first real call."""
+    runner = runner or _default_cli_runner
+    try:
+        _rc, out, _err = runner([CLI_BIN, "auth", "status", "--json"], "", cli_env())
+        status = json.loads(out)
+    except (OSError, ValueError, subprocess.SubprocessError):
+        return None
+    return status if isinstance(status, dict) else None
+
+
+def _cli_call(model: str, system: str, user: str, *, runner: CliRunner | None = None) -> dict:
+    """Run one classification through the CLI and return its result JSON
+    (`type: result`, with `structured_output`, `result`, `usage`,
+    `total_cost_usd`, `is_error`)."""
+    runner = runner or _default_cli_runner
+    cmd = cli_command(model, system)
+    env = cli_env()
+    backoff = 5
+    last_err: Exception | None = None
+    for attempt in range(CLI_RETRIES):
+        try:
+            rc, out, err = runner(cmd, user, env)
+        except FileNotFoundError as e:
+            raise RuntimeError(
+                f"claude CLI not found ({CLI_BIN!r}); install Claude Code or use backend='api'"
+            ) from e
+        except subprocess.TimeoutExpired as e:
+            last_err = RuntimeError(f"claude CLI timed out after {CLI_TIMEOUT}s")
+            print(f"  claude CLI timeout, retrying in {backoff}s (attempt {attempt+1}/{CLI_RETRIES})", file=sys.stderr)
+            time.sleep(backoff)
+            backoff *= 2
+            continue
+
+        resp: dict | None = None
+        if out.strip():
+            try:
+                loaded = json.loads(out)
+                if isinstance(loaded, dict):
+                    resp = loaded
+            except ValueError:
+                resp = None
+
+        if rc == 0 and resp is not None and not resp.get("is_error"):
+            return resp
+
+        if resp is not None:
+            detail = str(resp.get("result") or resp.get("error") or "")
+        else:
+            detail = (err or out or "").strip()
+        detail = detail[:500]
+        last_err = RuntimeError(f"claude CLI exited {rc}: {detail or '(no output)'}")
+        if _CLI_TRANSIENT_RE.search(detail):
+            print(f"  claude CLI transient error, retrying in {backoff}s (attempt {attempt+1}/{CLI_RETRIES}): {detail[:200]}", file=sys.stderr)
+            time.sleep(backoff)
+            backoff *= 2
+            continue
+        raise last_err
+    raise RuntimeError(f"repeated claude CLI errors: {last_err}")
+
+
+def _usage_dict(usage: dict) -> dict:
+    return {
+        "input_tokens": usage.get("input_tokens"),
+        "cache_creation_input_tokens": usage.get("cache_creation_input_tokens"),
+        "cache_read_input_tokens": usage.get("cache_read_input_tokens"),
+        "output_tokens": usage.get("output_tokens"),
+    }
+
+
 def classify_item(
     it: dict,
     wikitext: str | None,
@@ -264,8 +432,16 @@ def classify_item(
     model: str = DEFAULT_MODEL,
     use_cache: bool = True,
     refresh: bool = False,
+    backend: str = "api",
+    cli_runner: CliRunner | None = None,
 ) -> dict:
-    """Classify a single item. Returns dict with tabs/rationale/_cached."""
+    """Classify a single item. Returns dict with tabs/rationale/_cached.
+
+    backend="api" posts to the Messages API with `api_key`; backend="claude-cli"
+    runs the Claude Code CLI on the subscription login (api_key unused). Both
+    share the response cache: same model + prompt, same answer."""
+    if backend not in BACKENDS:
+        raise ValueError(f"unknown backend {backend!r}; expected one of {BACKENDS}")
     cache_dir.mkdir(parents=True, exist_ok=True)
     key = _key(model, it, wikitext or "")
     cache_file = cache_dir / f"{key}.json"
@@ -277,21 +453,25 @@ def classify_item(
 
     system = _build_system_prompt()
     user = _build_user_message(it, wikitext)
-    resp = _api_call(model, system, user, api_key)
+    item_name = it.get("name") or f"id={it.get('id')}"
 
-    content = resp.get("content") or []
-    text = "".join(b.get("text", "") for b in content if b.get("type") == "text")
-    parsed = _parse_response(text)
-    result = _validate(parsed, it.get("name") or f"id={it.get('id')}")
-
-    usage = resp.get("usage") or {}
-    result["_usage"] = {
-        "input_tokens": usage.get("input_tokens"),
-        "cache_creation_input_tokens": usage.get("cache_creation_input_tokens"),
-        "cache_read_input_tokens": usage.get("cache_read_input_tokens"),
-        "output_tokens": usage.get("output_tokens"),
-    }
+    if backend == "claude-cli":
+        resp = _cli_call(model, system, user, runner=cli_runner)
+        parsed = resp.get("structured_output")
+        if not isinstance(parsed, dict):
+            parsed = _parse_response(str(resp.get("result") or ""))
+        result = _validate(parsed, item_name)
+        result["_usage"] = _usage_dict(resp.get("usage") or {})
+        result["_cost_usd"] = resp.get("total_cost_usd")
+    else:
+        resp = _api_call(model, system, user, api_key)
+        content = resp.get("content") or []
+        text = "".join(b.get("text", "") for b in content if b.get("type") == "text")
+        parsed = _parse_response(text)
+        result = _validate(parsed, item_name)
+        result["_usage"] = _usage_dict(resp.get("usage") or {})
     result["_model"] = model
+    result["_backend"] = backend
 
     cache_file.write_text(json.dumps(result, indent=2))
     result["_cached"] = False

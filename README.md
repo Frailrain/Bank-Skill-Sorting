@@ -53,5 +53,6 @@ Items live in **every tab where you'd want them visible** — raw fish appear un
 ## Notes & Contributing
 
 - **Item data is generated** from the OSRS Wiki and osrsbox, then curated. If an item is in the wrong tab or section, open an issue with the item name and where it should live — most fixes are one-line overrides.
+- **Newly released items are picked up monthly** by a GitHub Action that classifies them and opens a pull request for review; see [tools/skillbank-data/README.md](tools/skillbank-data/README.md#monthly-refresh-of-new-items).
 - **Duplicating items across tabs is intentional.** Bank Tags treats each tag as an independent set; cross-tagging is the point.
 - The slayer task dataset is parsed from wiki task pages (recommended-equipment templates + variant/location requirements) and ships with the plugin — no network calls at runtime.
