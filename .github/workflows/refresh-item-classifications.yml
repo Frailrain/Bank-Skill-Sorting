@@ -1,0 +1,195 @@
+# Monthly refresh of OSRS item classifications.
+#
+# Finds items on the OSRS Wiki that the plugin does not classify yet, classifies
+# them with the LLM classifier (tools/skillbank-data/refresh_new_items.py),
+# patches the three data files, builds the plugin against the patched data and
+# opens (or updates) a pull request from the `item-refresh` branch. Nothing is
+# merged automatically: the PR body is the classification summary, and the
+# maintainer reviews and edits it before merging. Plugin-hub submission stays
+# a manual step after the merge.
+#
+# Billing: the classifier runs through the Claude Code CLI on the maintainer's
+# Claude subscription (Max plan), not an API key. No ANTHROPIC_API_KEY is used
+# or needed anywhere in this workflow.
+#
+# Repository settings this workflow needs:
+#   - Repository secret CLAUDE_CODE_OAUTH_TOKEN
+#     (Settings > Secrets and variables > Actions). Generate it on your own
+#     machine with `claude setup-token` (Claude Code CLI, signed in to the
+#     subscription): it is a one-year OAuth token tied to that subscription
+#     and can only make model requests. Re-run `claude setup-token` and update
+#     the secret when it expires. The run fails fast with a clear error when
+#     the secret is missing.
+#   - Settings > Actions > General > Workflow permissions:
+#     "Allow GitHub Actions to create and approve pull requests" must be ON,
+#     otherwise `gh pr create` is rejected with "GitHub Actions is not
+#     permitted to create or approve pull requests".
+#   - GitHub disables scheduled workflows after 60 days without repository
+#     activity. Re-enable it under Actions > "Refresh item classifications",
+#     or trigger it by hand with "Run workflow".
+#
+# Manual runs (workflow_dispatch) accept dry_run / limit / model inputs for
+# testing. A dry run classifies and prints the summary but writes nothing, so
+# no branch or PR is touched.
+
+name: Refresh item classifications
+
+on:
+  schedule:
+    - cron: "17 7 1 * *" # 07:17 UTC on the 1st of every month
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Classify and print the summary but write nothing (no branch, no PR)"
+        type: boolean
+        default: false
+      limit:
+        description: "Classify only the first N new items (empty = all)"
+        type: string
+        default: ""
+      model:
+        description: "Claude model override, e.g. claude-sonnet-4-6 or an alias like sonnet (empty = script default)"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-item-classifications
+  cancel-in-progress: false
+
+env:
+  BRANCH: item-refresh
+  DATA_FILES: >-
+    src/main/java/com/skillbank/SkillBankData.java
+    src/main/resources/com/skillbank/item-meta.json
+    tools/skillbank-data/data/auto-classified.json
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Run data-tool unit tests
+        run: python3 -m unittest discover -s tools/skillbank-data/tests
+
+      - name: Check CLAUDE_CODE_OAUTH_TOKEN secret
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            echo "::error::Repository secret CLAUDE_CODE_OAUTH_TOKEN is not set. Run 'claude setup-token' locally and add the token under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          echo "CLAUDE_CODE_OAUTH_TOKEN is present."
+
+      # Native installer (no Node.js needed). The script talks to the CLI with
+      # `claude -p --json-schema ...`; see llm_classifier.cli_command.
+      - name: Install Claude Code CLI
+        env:
+          DISABLE_AUTOUPDATER: "1"
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          "$HOME/.local/bin/claude" --version
+
+      - name: Check Claude Code CLI auth
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          DISABLE_AUTOUPDATER: "1"
+          CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: "1"
+        run: claude auth status --json
+
+      # Only the static osrsbox dump is cached. Wiki query results are never
+      # cached: the script runs with --no-cache so new items are always seen.
+      - name: Cache osrsbox item dump
+        uses: actions/cache@v6
+        with:
+          path: tools/skillbank-data/cache/items-complete.json
+          key: osrsbox-items-complete-v1
+
+      - name: Classify new items
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          DISABLE_AUTOUPDATER: "1"
+          CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: "1"
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_LIMIT: ${{ inputs.limit }}
+          INPUT_MODEL: ${{ inputs.model }}
+        run: |
+          args=(--backend claude-cli --no-cache --summary-file "$RUNNER_TEMP/summary.md")
+          if [ "$INPUT_DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ -n "$INPUT_LIMIT" ]; then args+=(--limit "$INPUT_LIMIT"); fi
+          if [ -n "$INPUT_MODEL" ]; then args+=(--model "$INPUT_MODEL"); fi
+          python3 tools/skillbank-data/refresh_new_items.py "${args[@]}"
+
+      - name: Detect changes
+        id: changes
+        run: |
+          # shellcheck disable=SC2086  # DATA_FILES is a space-separated list on purpose
+          if git diff --quiet -- $DATA_FILES; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No data changes; nothing to commit."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git --no-pager diff --stat -- $DATA_FILES
+          fi
+
+      - name: Set up Java
+        if: steps.changes.outputs.changed == 'true'
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      # A bad Java patch must never reach a PR.
+      - name: Build plugin with the patched data
+        if: steps.changes.outputs.changed == 'true'
+        run: ./gradlew build --no-daemon
+
+      - name: Commit and push branch
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          # shellcheck disable=SC2086
+          git add -- $DATA_FILES
+          git commit -m "Classify new OSRS items ($(date -u +%Y-%m-%d))"
+          git push --force origin "$BRANCH"
+
+      - name: Create or update pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE: ${{ github.event.repository.default_branch }}
+        run: |
+          if [ -z "$BASE" ]; then
+            BASE=$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)
+          fi
+          title="Classify new OSRS items ($(date -u +%Y-%m-%d))"
+          body="$RUNNER_TEMP/pr-body.md"
+          cp "$RUNNER_TEMP/summary.md" "$body"
+          {
+            echo
+            echo "---"
+            echo "Generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})."
+            echo "Review and edit the three data files on this branch before merging; plugin-hub submission stays manual."
+          } >> "$body"
+          existing=$(gh pr list --head "$BRANCH" --base "$BASE" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh pr edit "$existing" --title "$title" --body-file "$body"
+            echo "Updated PR #$existing"
+          else
+            gh pr create --head "$BRANCH" --base "$BASE" --title "$title" --body-file "$body"
+          fi
