@@ -90,8 +90,39 @@ CLI_STRIP_ENV = (
 # Messages that are worth a retry: the subscription/API is momentarily busy.
 _CLI_TRANSIENT_RE = re.compile(r"overloaded|rate.?limit|529|503|timed? ?out|ECONNRESET|ETIMEDOUT", re.I)
 
+# Messages that mean the login itself was rejected. A retry cannot help and
+# every later item would fail the same way, so these raise CliAuthError.
+_CLI_AUTH_RE = re.compile(
+    r"\b401\b|failed to authenticate|authentication_error"
+    r"|invalid (api key|bearer token|auth token|authorization header)"
+    r"|oauth (access )?token|not logged in|please run /login",
+    re.I,
+)
+
+# The variable that carries the subscription login in CI.
+OAUTH_TOKEN_ENV = "CLAUDE_CODE_OAUTH_TOKEN"
+# Credential families by prefix, most specific first. Only the first one
+# works in CLAUDE_CODE_OAUTH_TOKEN; it is what `claude setup-token` prints.
+_TOKEN_KINDS = (
+    ("sk-ant-oat", True, "a subscription OAuth token (the right kind)"),
+    ("sk-ant-api", False, "an Anthropic API key"),
+    ("sk-ant-ort", False, "an OAuth refresh token"),
+    ("sk-ant-", False, "some other Anthropic credential"),
+)
+_TOKEN_KIND_UNKNOWN = "something other than an Anthropic token (no sk-ant- prefix)"
+_TOKEN_MIN_PLAUSIBLE_LEN = 60
+
+# One tiny request used by cli_probe to prove the login works.
+PROBE_SYSTEM = 'Connectivity check. Answer with tabs = [] and rationale = "ok".'
+PROBE_USER = "ping"
+
 # (returncode, stdout, stderr) for a command fed `stdin_text` under `env`.
 CliRunner = Callable[[list[str], str, dict], tuple[int, str, str]]
+
+
+class CliAuthError(RuntimeError):
+    """The CLI started but its login was rejected: a bad, expired or revoked
+    CLAUDE_CODE_OAUTH_TOKEN, or no usable local login. Never retried."""
 
 # Canonical tab names + descriptions (mirrors SkillBankConfig).
 TAB_DEFS: list[tuple[str, str]] = [
@@ -364,10 +395,68 @@ def cli_auth_status(runner: CliRunner | None = None) -> dict | None:
     return status if isinstance(status, dict) else None
 
 
+def oauth_token_shape(token: str | None) -> dict:
+    """Describe a CLAUDE_CODE_OAUTH_TOKEN value without revealing any of it.
+
+    Returns {"set", "length", "kind", "right_kind", "problems"}; every string
+    is a fixed label, so the result is safe to print in a public CI log. The
+    problems are hints for a human (a mis-pasted secret is the usual cause of
+    a rejected login), not a verdict: only a real call proves a token."""
+    raw = token or ""
+    stripped = raw.strip()
+    core = stripped.strip("\"'`")
+    at = core.find("sk-ant-")
+    body = core[at:] if at >= 0 else core
+    kind, right_kind = _TOKEN_KIND_UNKNOWN, False
+    for prefix, ok, label in _TOKEN_KINDS:
+        if body.startswith(prefix):
+            kind, right_kind = label, ok
+            break
+
+    problems: list[str] = []
+    if raw != stripped:
+        problems.append("it has spaces or line breaks before or after the token")
+    if core != stripped:
+        problems.append("it is wrapped in quotes; store the bare token")
+    if at > 0:
+        problems.append(
+            "there is extra text before the token (for example `export NAME=`); "
+            "store the bare token"
+        )
+    if any(c.isspace() for c in body):
+        problems.append(
+            "it has a space or line break in the middle "
+            "(a token wrapped over two terminal lines was probably copied with the break)"
+        )
+    if raw and not right_kind:
+        problems.append(
+            f"it looks like {kind}, not the token `claude setup-token` prints "
+            "(that one starts with sk-ant-oat)"
+        )
+    if right_kind and re.search(r"[^A-Za-z0-9_\-]", "".join(body.split())):
+        problems.append("it contains characters that never appear in a token")
+    if right_kind and len(body) < _TOKEN_MIN_PLAUSIBLE_LEN:
+        problems.append("it is too short to be a whole token; part of it was lost when copying")
+    return {
+        "set": bool(raw), "length": len(raw), "kind": kind,
+        "right_kind": right_kind, "problems": problems,
+    }
+
+
+def cli_probe(model: str = DEFAULT_MODEL, *, runner: CliRunner | None = None) -> dict:
+    """One tiny real request through the exact transport classify_item uses.
+
+    `claude auth status` only reports that a login is configured; this is the
+    check that it is accepted. Raises CliAuthError when the login is rejected
+    and RuntimeError for any other failure; returns the CLI's result JSON."""
+    return _cli_call(model, PROBE_SYSTEM, PROBE_USER, runner=runner)
+
+
 def _cli_call(model: str, system: str, user: str, *, runner: CliRunner | None = None) -> dict:
     """Run one classification through the CLI and return its result JSON
     (`type: result`, with `structured_output`, `result`, `usage`,
-    `total_cost_usd`, `is_error`)."""
+    `total_cost_usd`, `is_error`). Raises CliAuthError, without retrying,
+    when the CLI reports that its login was rejected."""
     runner = runner or _default_cli_runner
     cmd = cli_command(model, system)
     env = cli_env()
@@ -404,6 +493,8 @@ def _cli_call(model: str, system: str, user: str, *, runner: CliRunner | None = 
         else:
             detail = (err or out or "").strip()
         detail = detail[:500]
+        if _CLI_AUTH_RE.search(detail):
+            raise CliAuthError(detail)
         last_err = RuntimeError(f"claude CLI exited {rc}: {detail or '(no output)'}")
         if _CLI_TRANSIENT_RE.search(detail):
             print(f"  claude CLI transient error, retrying in {backoff}s (attempt {attempt+1}/{CLI_RETRIES}): {detail[:200]}", file=sys.stderr)

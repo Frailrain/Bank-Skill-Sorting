@@ -62,6 +62,12 @@ META_FIXTURE = (
 )
 
 
+# Shaped like what `claude setup-token` prints (prefix + filler), not a real token.
+FAKE_TOKEN_BODY = "Ab3_-" * 19
+FAKE_TOKEN = "sk-ant-oat01-" + FAKE_TOKEN_BODY
+REJECTED = "Failed to authenticate. API Error: 401 OAuth access token is invalid."
+
+
 def item(iid: int, name: str, released: str = "1 October 2026", **extra) -> dict:
     d = {"id": iid, "name": name, "release_date": released}
     d.update(extra)
@@ -70,7 +76,8 @@ def item(iid: int, name: str, released: str = "1 October 2026", **extra) -> dict
 
 def make_args(**overrides) -> argparse.Namespace:
     base = dict(dry_run=False, limit=None, max_new=rni.DEFAULT_MAX_NEW, model=None,
-                summary_file=None, refresh_wiki=False, no_cache=False, backend="claude-cli")
+                summary_file=None, refresh_wiki=False, no_cache=False, backend="claude-cli",
+                check_auth=False)
     base.update(overrides)
     return argparse.Namespace(**base)
 
@@ -533,6 +540,108 @@ class RunTest(unittest.TestCase):
         self.assertIn("every item failed", err)
         self.assertEqual(self._snapshot(), before)
 
+    def test_rejected_login_stops_at_the_first_item(self):
+        items, _ = self._items_and_classifier()
+        calls = []
+
+        def classify(it, wikitext):
+            calls.append(it["id"])
+            raise llm_classifier.CliAuthError(REJECTED)
+        before = self._snapshot()
+        env = {"CLAUDE_CODE_OAUTH_TOKEN": FAKE_TOKEN, "GITHUB_ACTIONS": "true"}
+        with mock.patch.dict(os.environ, env):
+            code, out, err = self._run(items, classify=classify, summary_file=str(self.summary))
+        self.assertEqual(code, 2)
+        self.assertEqual(calls, [501])                      # one call, not one per item
+        self.assertIn("not attempting the remaining 3 item(s)", err)
+        self.assertIn(REJECTED, err)
+        self.assertIn("claude setup-token", err)
+        self.assertIn(f"{len(FAKE_TOKEN)} characters long", err)
+        self.assertIn("Its shape is right", err)
+        self.assertIn("::error title=Claude Code login was rejected::", out)
+        self.assertNotIn(FAKE_TOKEN_BODY[:10], out + err)   # the token is never echoed
+        self.assertEqual(self._snapshot(), before)
+        self.assertFalse(self.summary.exists())
+
+    def test_login_rejected_part_way_keeps_earlier_results(self):
+        items, ok = self._items_and_classifier()
+        calls = []
+
+        def classify(it, wikitext):
+            calls.append(it["id"])
+            if it["id"] == 500:                             # second item in release order
+                raise llm_classifier.CliAuthError(REJECTED)
+            return ok(it, wikitext)
+        code, out, err = self._run(items, classify=classify)
+        self.assertEqual(code, 0)
+        self.assertEqual(calls, [501, 500])
+        self.assertIn("rejected part-way", err)
+        self.assertEqual([e["id"] for e in json.loads(self.paths.ledger.read_text())], [501])
+        self.assertIn("Failed to classify (3)", out)
+
+    def _check_auth(self, probe, env=None, **args):
+        loader = mock.Mock(side_effect=AssertionError("--check-auth must not load items"))
+        before = self._snapshot()
+        out, err = io.StringIO(), io.StringIO()
+        with mock.patch.object(llm_classifier, "cli_probe", probe), \
+                mock.patch.dict(os.environ, {"GITHUB_ACTIONS": "", **(env or {})}), \
+                contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+            code = rni.run(make_args(check_auth=True, **args), paths=self.paths, load_items=loader)
+        loader.assert_not_called()
+        self.assertEqual(self._snapshot(), before)
+        return code, out.getvalue(), err.getvalue()
+
+    def test_check_auth_ok(self):
+        probe = mock.Mock(return_value={})
+        code, out, err = self._check_auth(probe, model="some-model")
+        self.assertEqual(code, 0)
+        probe.assert_called_once_with("some-model")
+        self.assertIn("authentication OK", err)
+        self.assertEqual(out, "")
+
+    def test_check_auth_rejected_token_explains_the_fix(self):
+        probe = mock.Mock(side_effect=llm_classifier.CliAuthError(REJECTED))
+        broken = FAKE_TOKEN[:50] + "\n" + FAKE_TOKEN[50:]    # copied across a wrapped line
+        code, out, err = self._check_auth(
+            probe, env={"CLAUDE_CODE_OAUTH_TOKEN": broken, "GITHUB_ACTIONS": "true"})
+        self.assertEqual(code, 2)
+        self.assertIn("in the middle", err)
+        self.assertIn("claude setup-token", err)
+        self.assertNotIn(FAKE_TOKEN_BODY[:10], out + err)
+        # One annotation line; its line breaks are %0A-encoded.
+        annotations = [ln for ln in out.splitlines() if ln.startswith("::error ")]
+        self.assertEqual(len(annotations), 1)
+        self.assertIn("%0A", annotations[0])
+        self.assertEqual(len(out.splitlines()), 1)
+
+    def test_check_auth_rejected_local_login(self):
+        probe = mock.Mock(side_effect=llm_classifier.CliAuthError("Not logged in"))
+        with mock.patch.dict(os.environ):
+            os.environ.pop("CLAUDE_CODE_OAUTH_TOKEN", None)
+            code, out, err = self._check_auth(probe)
+        self.assertEqual(code, 2)
+        self.assertIn("/login", err)
+        self.assertNotIn("repository secret", err)
+        self.assertEqual(out, "")                           # no annotation outside Actions
+
+    def test_check_auth_other_failure_is_not_blamed_on_the_token(self):
+        probe = mock.Mock(side_effect=RuntimeError("claude CLI exited 1: model not found"))
+        code, _, err = self._check_auth(probe)
+        self.assertEqual(code, 2)
+        self.assertIn("model not found", err)
+        self.assertIn("not a token problem", err)
+
+    def test_check_auth_static_problems_skip_the_probe(self):
+        probe = mock.Mock()
+        with mock.patch.object(llm_classifier, "cli_available", lambda: False):
+            code, _, err = self._check_auth(probe)
+        self.assertEqual(code, 2)
+        self.assertIn("not found on PATH", err)
+        code, _, err = self._check_auth(probe, backend="api")
+        self.assertEqual(code, 0)
+        self.assertIn("presence only", err)
+        probe.assert_not_called()
+
 
 class FakeCli:
     """Scripted stand-in for the `claude` process: a list of (rc, stdout,
@@ -672,6 +781,34 @@ class CliBackendTest(unittest.TestCase):
         self.assertIn("repeated", str(cm.exception))
         self.assertEqual(len(exhausted.calls), llm_classifier.CLI_RETRIES)
 
+    def test_rejected_login_raises_auth_error_without_retry(self):
+        fake = FakeCli((1, cli_result(is_error=True, result=REJECTED), ""), (0, cli_result(), ""))
+        with self.assertRaises(llm_classifier.CliAuthError) as cm:
+            self._classify(fake)
+        self.assertEqual(str(cm.exception), REJECTED)
+        self.assertEqual(len(fake.calls), 1)
+        # Wording the CLI really uses for other bad CLAUDE_CODE_OAUTH_TOKEN values.
+        for text in ("Failed to authenticate. API Error: 401 Invalid bearer token",
+                     "Not logged in · Please run /login",
+                     "Invalid auth token · Fix external auth token · Invalid Authorization "
+                     "header value from CLAUDE_CODE_OAUTH_TOKEN: it contains a line break",
+                     '{"type":"error","error":{"type":"authentication_error"}}'):
+            with self.assertRaises(llm_classifier.CliAuthError):
+                self._classify(FakeCli((1, "", text)))
+        # Anything else stays an ordinary, per-item failure.
+        with self.assertRaises(RuntimeError) as cm:
+            self._classify(FakeCli((1, "", "model not found")))
+        self.assertNotIsInstance(cm.exception, llm_classifier.CliAuthError)
+
+    def test_probe_goes_through_the_classify_transport(self):
+        ok = FakeCli((0, cli_result(), ""))
+        llm_classifier.cli_probe("test-model", runner=ok)
+        cmd, stdin_text, _env = ok.calls[0]
+        self.assertEqual(cmd, llm_classifier.cli_command("test-model", llm_classifier.PROBE_SYSTEM))
+        self.assertEqual(stdin_text, llm_classifier.PROBE_USER)
+        with self.assertRaises(llm_classifier.CliAuthError):
+            llm_classifier.cli_probe("test-model", runner=FakeCli((1, "", REJECTED)))
+
     def test_auth_status(self):
         ok = FakeCli((0, '{"loggedIn": true, "authMethod": "oauth_token"}', ""))
         self.assertEqual(llm_classifier.cli_auth_status(ok)["authMethod"], "oauth_token")
@@ -691,6 +828,49 @@ class CliBackendTest(unittest.TestCase):
         self.assertAlmostEqual(u.reported_cost_usd, 0.01)
         self.assertEqual((u.fresh, u.cached, u.input_tokens), (2, 1, 2))
         self.assertIsNone(rni.Usage().reported_cost_usd)
+
+
+class TokenShapeTest(unittest.TestCase):
+    """oauth_token_shape names mis-pastes and never echoes the value."""
+
+    def test_well_formed_token_has_no_problems(self):
+        shape = llm_classifier.oauth_token_shape(FAKE_TOKEN)
+        self.assertEqual(
+            (shape["set"], shape["length"], shape["right_kind"], shape["problems"]),
+            (True, len(FAKE_TOKEN), True, []),
+        )
+
+    def test_unset_token(self):
+        for value in (None, ""):
+            shape = llm_classifier.oauth_token_shape(value)
+            self.assertEqual((shape["set"], shape["length"], shape["problems"]), (False, 0, []))
+
+    def test_mis_pastes_are_named_without_echoing_the_value(self):
+        cases = [
+            (FAKE_TOKEN + "\n", ["before or after"]),
+            ("  " + FAKE_TOKEN, ["before or after"]),
+            (FAKE_TOKEN[:60] + "\n" + FAKE_TOKEN[60:], ["in the middle"]),
+            (FAKE_TOKEN[:60] + " " + FAKE_TOKEN[60:], ["in the middle"]),
+            (f'"{FAKE_TOKEN}"', ["quotes"]),
+            (f"export CLAUDE_CODE_OAUTH_TOKEN={FAKE_TOKEN}", ["extra text before"]),
+            ("sk-ant-api03-" + "Qz7" * 30, ["an Anthropic API key"]),
+            ("sk-ant-ort01-" + "Qz7" * 30, ["an OAuth refresh token"]),
+            ("sk-ant-sid01-" + "Qz7" * 30, ["some other Anthropic credential"]),
+            ("ghp_" + "Qz7" * 12, ["something other than an Anthropic token"]),
+            (FAKE_TOKEN[:40], ["too short"]),
+            (FAKE_TOKEN + "\u2026", ["never appear"]),
+        ]
+        for value, expected in cases:
+            with self.subTest(expected=expected):
+                shape = llm_classifier.oauth_token_shape(value)
+                text = " | ".join(shape["problems"])
+                self.assertEqual(len(shape["problems"]), len(expected), text)
+                for needle in expected:
+                    self.assertIn(needle, text)
+                self.assertEqual(shape["length"], len(value))
+                rendered = text + shape["kind"]
+                for secret in (FAKE_TOKEN_BODY[:8], "Qz7Qz7"):
+                    self.assertNotIn(secret, rendered)
 
 
 class LoadEnvTest(unittest.TestCase):

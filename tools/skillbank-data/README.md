@@ -170,8 +170,15 @@ Repository prerequisites for the Action:
   machine with `claude setup-token` while signed in to the subscription; it is
   a one-year token tied to that subscription and can only make model
   requests. The Action installs the Claude Code CLI on the runner and the CLI
-  reads this variable instead of a login. Renew the secret when it expires
-  (the run fails at the "Check Claude Code CLI auth" step).
+  reads this variable instead of a login. Paste the token as one line with
+  no spaces, quotes or line breaks. A mis-pasted, expired or revoked token
+  fails the run at the "Check Claude Code CLI auth" step, whose log says what
+  is wrong with the stored value (its length and kind, never its characters);
+  mint a new one and save the secret again. To test a login without
+  classifying anything, run
+  `python3 tools/skillbank-data/refresh_new_items.py --check-auth` (one small
+  request; with `CLAUDE_CODE_OAUTH_TOKEN` exported it tests that token,
+  otherwise the local `claude` login).
 - Settings > Actions > General > "Allow GitHub Actions to create and approve
   pull requests".
 - GitHub pauses scheduled workflows after 60 days without repository

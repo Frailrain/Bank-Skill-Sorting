@@ -35,6 +35,7 @@ Usage:
   python3 tools/skillbank-data/refresh_new_items.py --dry-run --refresh-wiki
   python3 tools/skillbank-data/refresh_new_items.py --limit 5
   python3 tools/skillbank-data/refresh_new_items.py --no-cache --summary-file out/summary.md
+  python3 tools/skillbank-data/refresh_new_items.py --check-auth
 
 Billing: by default (--backend claude-cli) each item is classified through
 the Claude Code CLI (`claude -p`), so the calls run on the maintainer's Claude
@@ -279,6 +280,90 @@ def check_backend(backend: str, api_key: str) -> str | None:
     return None
 
 
+def _gh_error(title: str, message: str) -> None:
+    """Surface `message` as an error annotation on the run page when running
+    inside GitHub Actions; a no-op anywhere else."""
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        return
+    esc = message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+    print(f"::error title={title}::{esc}", flush=True)
+
+
+def auth_failure_message(detail: str) -> str:
+    """What to do about a rejected Claude Code login. When the login came from
+    CLAUDE_CODE_OAUTH_TOKEN the message describes the stored value's shape
+    (length and kind, never its characters) so a mis-paste can be spotted."""
+    import llm_classifier  # type: ignore
+
+    lines = [f"Claude Code rejected the login: {detail}"]
+    shape = llm_classifier.oauth_token_shape(os.environ.get(llm_classifier.OAUTH_TOKEN_ENV))
+    if not shape["set"]:
+        lines.append(
+            "Fix: run `claude` and sign in to your subscription again (/login), or set "
+            "CLAUDE_CODE_OAUTH_TOKEN from `claude setup-token`; or pass --backend api."
+        )
+        return "\n".join(lines)
+    lines.append(
+        f"CLAUDE_CODE_OAUTH_TOKEN is set, {shape['length']} characters long, "
+        f"and looks like {shape['kind']}."
+    )
+    if shape["problems"]:
+        lines.append("What is wrong with the stored value:")
+        lines += [f"  - {p}" for p in shape["problems"]]
+    else:
+        lines.append(
+            "Its shape is right, so the value is a real-looking token that the server does "
+            "not accept: part of it was lost or changed when it was copied, or it has been "
+            "revoked or has expired."
+        )
+    lines.append(
+        "Fix: run `claude setup-token` on your own machine, copy the whole token as one "
+        "line with no spaces or line breaks, and save it again as the "
+        "CLAUDE_CODE_OAUTH_TOKEN repository secret (`gh secret set CLAUDE_CODE_OAUTH_TOKEN`, "
+        "or Settings > Secrets and variables > Actions)."
+    )
+    return "\n".join(lines)
+
+
+def check_auth(backend: str, api_key: str, model: str) -> int:
+    """--check-auth: prove the backend can authenticate, then exit. Touches no
+    data and fetches nothing from the wiki. For claude-cli this makes one tiny
+    real request, because `claude auth status` reports any configured token as
+    logged in without validating it. Returns the process exit code."""
+    import llm_classifier  # type: ignore
+
+    problem = check_backend(backend, api_key)
+    if problem:
+        _err(f"ERROR: {problem}")
+        _gh_error("Classifier backend is not usable", problem)
+        return 2
+    if backend == "api":
+        _err("ANTHROPIC_API_KEY is set (presence only; --check-auth does not call the API).")
+        return 0
+    source = (
+        "CLAUDE_CODE_OAUTH_TOKEN" if os.environ.get(llm_classifier.OAUTH_TOKEN_ENV)
+        else "the local `claude` login"
+    )
+    _err(f"Checking Claude Code CLI authentication with one small request "
+         f"(model={model}, login from {source})...")
+    try:
+        llm_classifier.cli_probe(model)
+    except llm_classifier.CliAuthError as e:
+        message = auth_failure_message(str(e))
+        _err(f"ERROR: {message}")
+        _gh_error("Claude Code login was rejected", message)
+        return 2
+    except Exception as e:  # noqa: BLE001 - report any probe failure, never a traceback
+        message = (f"Claude Code CLI test request failed: {e}\n"
+                   "The login was not rejected, so this is not a token problem; "
+                   "check the model name and the CLI output above.")
+        _err(f"ERROR: {message}")
+        _gh_error("Claude Code CLI test request failed", message)
+        return 2
+    _err("Claude Code CLI authentication OK.")
+    return 0
+
+
 def classify_items(
     items: list[dict],
     *,
@@ -294,7 +379,12 @@ def classify_items(
 ) -> tuple[list[Classified], list[dict], Usage]:
     """Classify every item; per-item failures are collected, not raised.
     Returns (classified, failures, usage). `failures` entries are
-    {id, name, release_date, error}."""
+    {id, name, release_date, error}.
+
+    A rejected login (llm_classifier.CliAuthError) ends the loop: that item
+    and every one after it are recorded as failures carrying `auth_error`
+    (the CLI's message) without further calls, since each would fail alike."""
+    import llm_classifier  # type: ignore
     import wiki_page  # type: ignore
 
     if fetch_wikitext is None:
@@ -321,6 +411,18 @@ def classify_items(
 
         try:
             result = classify(it, wt_trimmed)
+        except llm_classifier.CliAuthError as e:
+            _err(f"  [{i}/{total}] {name}: Claude Code login rejected: {e}")
+            if total > i:
+                _err(f"  not attempting the remaining {total - i} item(s)")
+            for rest in items[i - 1:]:
+                failures.append({
+                    "id": int(rest["id"]), "name": rest.get("name") or f"id={rest['id']}",
+                    "release_date": rest.get("release_date") or "",
+                    "error": f"Claude Code login rejected: {e}",
+                    "auth_error": str(e),
+                })
+            break
         except Exception as e:
             _err(f"  [{i}/{total}] {name}: classify failed: {e}")
             failures.append({
@@ -640,6 +742,11 @@ def build_parser() -> argparse.ArgumentParser:
                    help="claude-cli (default): run the prompt through the Claude Code CLI on "
                         "the Claude subscription (local `claude` login or CLAUDE_CODE_OAUTH_TOKEN); "
                         "api: post to the Messages API with ANTHROPIC_API_KEY")
+    p.add_argument("--check-auth", action="store_true",
+                   help="only verify that the backend can authenticate, then exit (0 = ok, "
+                        "2 = not usable). claude-cli: one small real request, which is the "
+                        "only way to validate CLAUDE_CODE_OAUTH_TOKEN; api: key presence only. "
+                        "Fetches nothing from the wiki and writes no data")
     p.add_argument("--summary-file", default=None, metavar="PATH",
                    help="also write the Markdown summary here (the Action uses it as PR body)")
     p.add_argument("--refresh-wiki", action="store_true",
@@ -686,6 +793,9 @@ def run(
     model = args.model or llm_classifier.DEFAULT_MODEL
     backend = args.backend
     use_cache = not args.no_cache
+
+    if args.check_auth:
+        return check_auth(backend, api_key, model)
 
     # 1. Merged wiki + osrsbox item set.
     try:
@@ -754,9 +864,18 @@ def run(
         forced_into=forced_into, forbidden_from=forbidden_from,
         fetch_wikitext=fetch_wikitext, classify=classify, backend=backend,
     )
+    auth_error = next((f["auth_error"] for f in failures if f.get("auth_error")), None)
+    if auth_error is not None and not classified:
+        message = auth_failure_message(auth_error)
+        _err(f"ERROR: {message}\nNothing written.")
+        _gh_error("Claude Code login was rejected", message)
+        return 2
     if not classified:
         _err(f"ERROR: every item failed to classify ({len(failures)} failure(s)); nothing written")
         return 1
+    if auth_error is not None:
+        _err(f"WARNING: the Claude Code login was rejected part-way through; "
+             f"{len(failures)} item(s) are listed as failed and will be retried next run.")
 
     # 4. Build the per-item outputs.
     sort_tables.init_id_sets(items_by_id, verbose=False)

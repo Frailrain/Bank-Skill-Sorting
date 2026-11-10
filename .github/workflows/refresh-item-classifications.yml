@@ -19,7 +19,8 @@
 #     subscription): it is a one-year OAuth token tied to that subscription
 #     and can only make model requests. Re-run `claude setup-token` and update
 #     the secret when it expires. The run fails fast with a clear error when
-#     the secret is missing.
+#     the secret is missing, and at the "Check Claude Code CLI auth" step when
+#     the stored token is rejected (mis-pasted, expired or revoked).
 #   - Settings > Actions > General > Workflow permissions:
 #     "Allow GitHub Actions to create and approve pull requests" must be ON,
 #     otherwise `gh pr create` is rejected with "GitHub Actions is not
@@ -103,12 +104,21 @@ jobs:
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           "$HOME/.local/bin/claude" --version
 
+      # One small real request. `claude auth status` cannot do this job: it
+      # reports any non-empty CLAUDE_CODE_OAUTH_TOKEN as logged in. A rejected
+      # token fails here in seconds, with a description of what is wrong with
+      # the stored value (length and kind only, never its characters), instead
+      # of once per item after the wiki fetch.
       - name: Check Claude Code CLI auth
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           DISABLE_AUTOUPDATER: "1"
           CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: "1"
-        run: claude auth status --json
+          INPUT_MODEL: ${{ inputs.model }}
+        run: |
+          args=(--check-auth --backend claude-cli)
+          if [ -n "$INPUT_MODEL" ]; then args+=(--model "$INPUT_MODEL"); fi
+          python3 tools/skillbank-data/refresh_new_items.py "${args[@]}"
 
       # Only the static osrsbox dump is cached. Wiki query results are never
       # cached: the script runs with --no-cache so new items are always seen.
