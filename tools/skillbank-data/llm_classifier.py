@@ -110,7 +110,10 @@ _TOKEN_KINDS = (
     ("sk-ant-", False, "some other Anthropic credential"),
 )
 _TOKEN_KIND_UNKNOWN = "something other than an Anthropic token (no sk-ant- prefix)"
-_TOKEN_MIN_PLAUSIBLE_LEN = 60
+# Length of a complete token. `claude setup-token` prints it wrapped over two
+# terminal lines, so storing only the first line (79 characters) is the
+# classic way to end up with a secret the server rejects.
+TOKEN_FULL_LEN = 108
 
 # One tiny request used by cli_probe to prove the login works.
 PROBE_SYSTEM = 'Connectivity check. Answer with tabs = [] and rationale = "ok".'
@@ -435,8 +438,11 @@ def oauth_token_shape(token: str | None) -> dict:
         )
     if right_kind and re.search(r"[^A-Za-z0-9_\-]", "".join(body.split())):
         problems.append("it contains characters that never appear in a token")
-    if right_kind and len(body) < _TOKEN_MIN_PLAUSIBLE_LEN:
-        problems.append("it is too short to be a whole token; part of it was lost when copying")
+    if right_kind and len("".join(body.split())) < TOKEN_FULL_LEN:
+        problems.append(
+            f"it is shorter than a complete token, which has {TOKEN_FULL_LEN} characters: "
+            "`claude setup-token` prints the token over two lines and only part of it was copied"
+        )
     return {
         "set": bool(raw), "length": len(raw), "kind": kind,
         "right_kind": right_kind, "problems": problems,

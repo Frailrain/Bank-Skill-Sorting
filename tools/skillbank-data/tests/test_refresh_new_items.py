@@ -557,7 +557,7 @@ class RunTest(unittest.TestCase):
         self.assertIn(REJECTED, err)
         self.assertIn("claude setup-token", err)
         self.assertIn(f"{len(FAKE_TOKEN)} characters long", err)
-        self.assertIn("Its shape is right", err)
+        self.assertIn("Its shape and length are right", err)
         self.assertIn("::error title=Claude Code login was rejected::", out)
         self.assertNotIn(FAKE_TOKEN_BODY[:10], out + err)   # the token is never echoed
         self.assertEqual(self._snapshot(), before)
@@ -857,7 +857,8 @@ class TokenShapeTest(unittest.TestCase):
             ("sk-ant-ort01-" + "Qz7" * 30, ["an OAuth refresh token"]),
             ("sk-ant-sid01-" + "Qz7" * 30, ["some other Anthropic credential"]),
             ("ghp_" + "Qz7" * 12, ["something other than an Anthropic token"]),
-            (FAKE_TOKEN[:40], ["too short"]),
+            (FAKE_TOKEN[:79], ["shorter than a complete token"]),   # first line only
+            (FAKE_TOKEN[:-1], ["shorter than a complete token"]),
             (FAKE_TOKEN + "\u2026", ["never appear"]),
         ]
         for value, expected in cases:

@@ -312,15 +312,14 @@ def auth_failure_message(detail: str) -> str:
         lines += [f"  - {p}" for p in shape["problems"]]
     else:
         lines.append(
-            "Its shape is right, so the value is a real-looking token that the server does "
-            "not accept: part of it was lost or changed when it was copied, or it has been "
-            "revoked or has expired."
+            "Its shape and length are right, so the server knows no such token: some "
+            "characters changed when it was copied, or it has been revoked or has expired."
         )
     lines.append(
-        "Fix: run `claude setup-token` on your own machine, copy the whole token as one "
-        "line with no spaces or line breaks, and save it again as the "
-        "CLAUDE_CODE_OAUTH_TOKEN repository secret (`gh secret set CLAUDE_CODE_OAUTH_TOKEN`, "
-        "or Settings > Secrets and variables > Actions)."
+        "Fix: run `claude setup-token` on your own machine. It prints the token over two "
+        f"lines; both belong to it. Save all {llm_classifier.TOKEN_FULL_LEN} characters as "
+        "one line, with nothing in between, as the CLAUDE_CODE_OAUTH_TOKEN repository secret. "
+        "tools/skillbank-data/README.md has a command that joins the lines for you."
     )
     return "\n".join(lines)
 

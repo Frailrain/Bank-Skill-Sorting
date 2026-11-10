@@ -17,7 +17,10 @@
 #     (Settings > Secrets and variables > Actions). Generate it on your own
 #     machine with `claude setup-token` (Claude Code CLI, signed in to the
 #     subscription): it is a one-year OAuth token tied to that subscription
-#     and can only make model requests. Re-run `claude setup-token` and update
+#     and can only make model requests. The command prints the token over
+#     two lines; the secret must hold both, joined, 108 characters in all
+#     (tools/skillbank-data/README.md has a command that does the joining).
+#     Re-run `claude setup-token` and update
 #     the secret when it expires. The run fails fast with a clear error when
 #     the secret is missing, and at the "Check Claude Code CLI auth" step when
 #     the stored token is rejected (mis-pasted, expired or revoked).

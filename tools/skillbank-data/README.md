@@ -170,11 +170,23 @@ Repository prerequisites for the Action:
   machine with `claude setup-token` while signed in to the subscription; it is
   a one-year token tied to that subscription and can only make model
   requests. The Action installs the Claude Code CLI on the runner and the CLI
-  reads this variable instead of a login. Paste the token as one line with
-  no spaces, quotes or line breaks. A mis-pasted, expired or revoked token
-  fails the run at the "Check Claude Code CLI auth" step, whose log says what
-  is wrong with the stored value (its length and kind, never its characters);
-  mint a new one and save the secret again. To test a login without
+  reads this variable instead of a login.
+
+  `claude setup-token` prints the token wrapped over two lines. Both lines
+  are the token: 108 characters starting with `sk-ant-oat01-`. Saving only
+  the first line (79 characters) gives `401 OAuth access token is invalid`
+  on every call. This command joins the lines and stores the result, so
+  nothing has to be edited by hand:
+
+  ```
+  tr -d '[:space:]' | gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo <owner>/<repo>
+  ```
+
+  Run it, paste both lines of the token, press Enter, then Ctrl+D.
+
+  A mis-pasted, expired or revoked token fails the run at the "Check Claude
+  Code CLI auth" step. Its log says what is wrong with the stored value (its
+  length and kind, never its characters). To test a login without
   classifying anything, run
   `python3 tools/skillbank-data/refresh_new_items.py --check-auth` (one small
   request; with `CLAUDE_CODE_OAUTH_TOKEN` exported it tests that token,
